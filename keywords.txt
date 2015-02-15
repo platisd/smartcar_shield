@@ -1,0 +1,4 @@
+Sonar	KEYWORD1
+attach	KEYWORD2
+getDistance	KEYWORD2
+getMedianDistance	KEYWORD2
