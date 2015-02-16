@@ -47,6 +47,13 @@ static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between pings in the 
 // Macro to convert from volts to centimeters.
 #define VoltsToCentimeters(volts) (65*pow(volts, -1.10))
 
+/* ---- ODOMETER ---- */
+void updateCounter();
+static const float PULSES_PER_CENTIMETER = 4; //Approximate odometer pulses per centimeter. Determined experimentally. Adapt accordingly.
+
+// Macro to convert from odometer pulses to centimeters.
+#define PulsesToCentimeters(pulses) (pulses/PULSES_PER_CENTIMETER)
+
 class Sonar {
 	public:
 		Sonar();
@@ -77,6 +84,17 @@ class Sharp_IR {
 	private:
 		int _IR_pin;
 
+};
+
+class Odometer {
+	public:
+		Odometer();
+		int attach(int odometerPin);
+		void begin();
+		unsigned int getDistance();
+		void detach();
+	private:
+		int _odometerInterruptPin;
 };
 
 
