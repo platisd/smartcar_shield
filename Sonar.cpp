@@ -1,6 +1,6 @@
 /*
 *	Sonar.cpp - Handles the ultra sound (HC-SR04 & SRF05) sensors of the Smartcar
-*	Version: 0.1
+*	Version: 0.2
 *	Author: Dimitris Platis
 *	Sonar class is essentially a stripped-down version of the NewPing library by Tim Eckel adjusted to Smartcar needs
 * 	Get original library at: http://code.google.com/p/arduino-new-ping/
@@ -40,7 +40,7 @@ unsigned int Sonar::getDistance() {
 }
 
 unsigned int Sonar::getMedianDistance() {
-	Sonar::getMedianDistance(DEFAULT_ITERATIONS);
+	Sonar::getMedianDistance(SONAR_DEFAULT_ITERATIONS);
 }
 
 unsigned int Sonar::getMedianDistance(int iterations) {
