@@ -12,7 +12,7 @@ Odometer::Odometer(){
 }
 
 int Odometer::attach(int odometerPin){
-	switch(odometerPin){ //converting digital pins to interrupts
+	switch(odometerPin){ //converting digital pins to interrupts for Arduino Mega
 		case 2:
 			_odometerInterruptPin = 0;
 			break;
