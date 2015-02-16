@@ -1,4 +1,6 @@
 Sonar	KEYWORD1
+Sharp_IR	KEYWORD1
+Odometer	KEYWORD1
 attach	KEYWORD2
 getDistance	KEYWORD2
 getMedianDistance	KEYWORD2
