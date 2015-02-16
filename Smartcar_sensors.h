@@ -1,7 +1,7 @@
 /*
 *	Smartcar_sensors.h - A simple library for controlling the smartcar
 *	sensors. 
-*	Version: 0.1
+*	Version: 0.2
 *	Author: Dimitris Platis
 *	Sonar class is essentially a stripped-down version of the NewPing library by Tim Eckel, adjusted to Smartcar needs
 * 	Get original library at: http://code.google.com/p/arduino-new-ping/
@@ -31,7 +31,7 @@ static const int NO_ECHO = 0;               // Value returned if there's no ping
 static const int MAX_SENSOR_DELAY = 18000;  // Maximum uS it takes for sensor to start the ping (SRF06 is the highest measured, just under 18ms).
 static const int ECHO_TIMER_FREQ = 24;      // Frequency to check for a ping echo (every 24uS is about 0.4cm accuracy).
 static const int PING_MEDIAN_DELAY = 29;    // Millisecond delay between pings in the getMedianDistance method.
-static const int DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
+static const int SONAR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
 
 
 // Macro to convert from microseconds to centimeters.
@@ -41,6 +41,8 @@ static const int DEFAULT_ITERATIONS = 5;    // The default value of iterations u
 static const float SHARP_SENSITIVITY = 0.0048828125;
 static const int MIN_IR_DISTANCE = 20; //Minimum reliable distance the sensor can measure. Derived from datasheet.
 static const int MAX_IR_DISTANCE = 80;//Maximum reliable distance the sensor can measure in real life conditions. Determined experimentally.
+static const int IR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
+static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between pings in the getMedianDistance method.
 
 // Macro to convert from volts to centimeters.
 #define VoltsToCentimeters(volts) (65*pow(volts, -1.10))
@@ -70,6 +72,8 @@ class Sharp_IR {
 		Sharp_IR();
 		void attach(int IR_pin);
 		unsigned int getDistance();
+		unsigned int getMedianDistance();
+		unsigned int getMedianDistance(int iterations);
 	private:
 		int _IR_pin;
 
