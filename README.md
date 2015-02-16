@@ -1,5 +1,5 @@
 # Smartcar Sensors
-A library that allows the developer to easily utilize various sensors such as the HC-SR04 (ultra sound), the Sharp GP2Y0A02 (infrared) and others. Written by Dimitris Platis and originally destined for the Smartcar platform of Team Pegasus.
+A library that allows the developer to easily utilize various sensors such as the HC-SR04 (ultra sound), the Sharp GP2Y0A02 (infrared) and others. Written by Dimitris Platis.
 
 ### What
 This library was initially designed for a specific hardware platform (an Arduino based remote controlled car), the "Smartcar" and is developed for educational purposes within the context of an experiment on API evaluation, by Dimitris Platis. It is supposed to serve as a supplement to the [Smartcar Core](https://github.com/platisd/smartcar_core/) library. However, this library is not dependent on the Smartcar platform or the Smartcar Core library, can be used stand alone and deployed in various settings. During the development of the API, the assumption that the API users are inexperienced and opportunistic was made.
