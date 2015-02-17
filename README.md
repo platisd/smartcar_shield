@@ -14,7 +14,7 @@ Students of the [DIT524] course, of University of Gothenburg will be tasked to d
 The students will provide constant feedback on the API, which will aid in the extraction of various findings and conclusions on the subject of API evaluation.
 
 ### Dependencies
-(None)
+- [Wire library](http://arduino.cc/en/reference/Wire)
 
 ### Documentation
 - [Wiki]
