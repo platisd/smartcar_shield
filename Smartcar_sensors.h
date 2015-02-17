@@ -52,7 +52,7 @@ static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between pings in the 
 /* ---- ODOMETER ---- */
 void updateCounter_sensors(); //ISR for the odometer
 #ifndef Smartcar_h
-static const float PULSES_PER_CENTIMETER = 4; //Approximate odometer pulses per centimeter. Determined experimentally. Adapt accordingly.
+	static const float PULSES_PER_CENTIMETER = 4; //Approximate odometer pulses per centimeter. Determined experimentally. Adapt accordingly.
 #endif
 
 // Macro to convert from odometer pulses to centimeters.
