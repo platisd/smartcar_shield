@@ -6,7 +6,7 @@
 */
 #include "Smartcar_sensors.h"
 
-volatile unsigned int _pulseCounter = 0;
+volatile unsigned int _pulseCounter_sensors = 0;
 
 Odometer::Odometer(){
 }
@@ -34,23 +34,23 @@ int Odometer::attach(int odometerPin){
 		default:
 			return 0; //signals invalid interrupt pin
 	}
-	attachInterrupt(_odometerInterruptPin, updateCounter, RISING);
+	attachInterrupt(_odometerInterruptPin, updateCounter_sensors, RISING);
 	return 1;
 }
 
 void Odometer::begin(){
-	_pulseCounter = 0; //initialize the counter
+	_pulseCounter_sensors = 0; //initialize the counter
 }
 
 unsigned int Odometer::getDistance(){
-	return PulsesToCentimeters(_pulseCounter);
+	return PulsesToCentimeters(_pulseCounter_sensors);
 }
 
 void Odometer::detach(){
-	_pulseCounter = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
+	_pulseCounter_sensors = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
 	detachInterrupt(_odometerInterruptPin);
 }
 
-void updateCounter(){
-	_pulseCounter++;
+void updateCounter_sensors(){
+	_pulseCounter_sensors++;
 }
