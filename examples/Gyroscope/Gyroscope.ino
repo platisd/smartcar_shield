@@ -1,5 +1,4 @@
 #include <Smartcar_sensors.h>
-#include <Smartcar.h>
 #include <Wire.h>
 
 Gyroscope gyro;
