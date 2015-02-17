@@ -1,7 +1,7 @@
 /*
 *	Smartcar_sensors.h - A simple library for controlling the smartcar
 *	sensors. 
-*	Version: 0.2
+*	Version: 0.3
 *	Author: Dimitris Platis
 *	Sonar class is essentially a stripped-down version of the NewPing library by Tim Eckel, adjusted to Smartcar needs
 * 	Get original library at: http://code.google.com/p/arduino-new-ping/
@@ -10,6 +10,8 @@
 
 #ifndef Smartcar_sensors_h
 #define Smartcar_sensors_h
+
+#include <Wire.h>
 
 /* ---- SONAR ---- */
 #if defined(ARDUINO) && ARDUINO >= 100
@@ -48,11 +50,29 @@ static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between pings in the 
 #define VoltsToCentimeters(volts) (65*pow(volts, -1.10))
 
 /* ---- ODOMETER ---- */
-void updateCounter();
+void updateCounter_sensors(); //ISR for the odometer
+#ifndef Smartcar_h
 static const float PULSES_PER_CENTIMETER = 4; //Approximate odometer pulses per centimeter. Determined experimentally. Adapt accordingly.
+#endif
 
 // Macro to convert from odometer pulses to centimeters.
 #define PulsesToCentimeters(pulses) (pulses/PULSES_PER_CENTIMETER)
+
+/* ---- GYROSCOPE (L3G4200D) ---- */
+static const int GYRO_SAMPLING_RATE_SENSORS = 50; //decrease only on different gyroscope than L3G4200D and only if you have optimized the gyroscope ISR
+#ifndef Smartcar_h
+	static const int GYRO_OFFSET = 20; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
+	static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
+	static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
+
+	static const int CTRL_REG1 = 0x20;
+	static const int CTRL_REG2 =  0x21;
+	static const int CTRL_REG3 = 0x22;
+	static const int CTRL_REG4 = 0x23;
+	static const int CTRL_REG5 = 0x24;
+
+	static const int L3G4200D_Address = 105; //gyroscope I2C address
+#endif
 
 class Sonar {
 	public:
@@ -86,6 +106,7 @@ class Sharp_IR {
 
 };
 
+
 class Odometer {
 	public:
 		Odometer();
@@ -97,5 +118,32 @@ class Odometer {
 		int _odometerInterruptPin;
 };
 
+class Gyroscope {
+	public:
+		Gyroscope();
+		void attach();
+		void begin();
+		void stop();
+		int getAngularDisplacement();
+	private:
+		void initMeasurement();
+		void initializeGyro();
+		int setupL3G4200D(int scale);
+		void writeRegister(int deviceAddress, byte address, byte val);
+		static void updateDisplacement(); // gyroscope ISR
+		static int getGyroValues();
+		static int readRegister(int deviceAddress, byte address);
+
+
+};
+
+class NewPing{
+	public:
+		static void timer_start(unsigned long frequency, void (*userFunc)(void));
+		static void timer_stop();
+	private:
+		static void timer_setup();
+		static void timer_start_cntdwn();
+};
 
 #endif
