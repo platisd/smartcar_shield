@@ -40,14 +40,17 @@ static const int SONAR_DEFAULT_ITERATIONS = 5;    // The default value of iterat
 #define MicrosecondsToCentimeters(echoTime) (max((echoTime + US_ROUNDTRIP_CM / 2) / US_ROUNDTRIP_CM, (echoTime ? 1 : 0)))
 
 /* ---- SHARP INFRARED SENSOR ---- */
-static const float SHARP_SENSITIVITY = 0.0048828125;
-static const int MIN_IR_DISTANCE = 20; //Minimum reliable distance the sensor can measure. Derived from datasheet.
-static const int MAX_IR_DISTANCE = 80;//Maximum reliable distance the sensor can measure in real life conditions. Determined experimentally.
+static const float SHARP_SENSITIVITY = 0.0048828125; //only use with GP2Y0A02
+static const int MIN_IR_DISTANCE = 20; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2Y0A02
+static const int MAX_IR_DISTANCE = 80;//Maximum reliable distance the sensor can measure in real life conditions. Determined experimentally. GP2Y0A02
+//static const int MIN_IR_DISTANCE = 5; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2D120
+//static const int MAX_IR_DISTANCE = 25;//Maximum reliable distance the sensor can measure in real life conditions.Determined experimentally. GP2D120
 static const int IR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
-static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between pings in the getMedianDistance method.
+static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between measurements in the getMedianDistance method.
 
 // Macro to convert from volts to centimeters.
-#define VoltsToCentimeters(volts) (65*pow(volts, -1.10))
+#define VoltsToCentimeters(volts) (65*pow(volts, -1.10)) //decomment for Sharp GP2Y0A02 as well as in Sharp_IR::getDistance()
+//#define VoltsToCentimeters(volts) ((2914 / (volts + 5)) - 1) //decomment for Sharp GP2D120 as well as in Sharp_IR::getDistance()
 
 /* ---- ODOMETER ---- */
 void updateCounter_sensors(); //ISR for the odometer
