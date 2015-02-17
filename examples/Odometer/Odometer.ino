@@ -1,4 +1,5 @@
 #include <Smartcar_sensors.h>
+#include <Wire.h>
 
 Odometer encoder;
 unsigned long startTime;

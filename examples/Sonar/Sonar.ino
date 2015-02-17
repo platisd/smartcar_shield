@@ -1,4 +1,5 @@
 #include <Smartcar_sensors.h>
+#include <Wire.h>
 
 Sonar front, back; //initialize two ultra sound sensors
 const int FRONT_TRIG_PIN = 38; //sensor's trig pin
