@@ -4,7 +4,7 @@
 *	Author: Dimitris Platis (based on the Smartcar project by Team Pegasus)
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
-#include "Smartcar_sensors.h"
+#include "AndroidCar.h"
 
 volatile unsigned int _pulseCounter_sensors = 0;
 
@@ -34,7 +34,7 @@ int Odometer::attach(int odometerPin){
 		default:
 			return 0; //signals invalid interrupt pin
 	}
-	attachInterrupt(_odometerInterruptPin, updateCounter_sensors, RISING);
+	attachInterrupt(_odometerInterruptPin, updateCounter, CHANGE);
 	return 1;
 }
 
@@ -51,6 +51,6 @@ void Odometer::detach(){
 	detachInterrupt(_odometerInterruptPin);
 }
 
-void updateCounter_sensors(){
+void updateCounter(){
 	_pulseCounter_sensors++;
 }

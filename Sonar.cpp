@@ -6,7 +6,7 @@
 * 	Get original library at: http://code.google.com/p/arduino-new-ping/
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
-#include "Smartcar_sensors.h"
+#include "AndroidCar.h"
 
 Sonar::Sonar() {
 }

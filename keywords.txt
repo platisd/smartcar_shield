@@ -2,6 +2,7 @@ Sonar	KEYWORD1
 Sharp_IR	KEYWORD1
 Odometer	KEYWORD1
 Gyroscope	KEYWORD1
+Car	KEYWORD1
 NewPing	KEYWORD1
 attach	KEYWORD2
 getDistance	KEYWORD2
@@ -9,3 +10,5 @@ getMedianDistance	KEYWORD2
 getAngularDisplacement	KEYWORD2
 timer_start	KEYWORD2
 timer_stop	KEYWORD2
+setSpeed	KEYWORD2
+setSteeringWheel	KEYWORD2

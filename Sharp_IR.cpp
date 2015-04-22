@@ -8,19 +8,19 @@
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-#include "Smartcar_sensors.h"
+#include "AndroidCar.h"
 
 Sharp_IR::Sharp_IR(){
 }
 
 void Sharp_IR::attach(int IR_pin){
+	pinMode(IR_pin, INPUT);
 	_IR_pin = IR_pin;
 }
 
 unsigned int Sharp_IR::getDistance(){
-	float volts = analogRead(_IR_pin) * SHARP_SENSITIVITY;
-	int distance = VoltsToCentimeters(volts); //for Sharp GP2Y0A02
-	//int distance = VoltsToCentimeters(volts); //decomment this line  and comment the two previous ones for GP2D120
+	int volts = analogRead(_IR_pin); //* SHARP_SENSITIVITY;
+	int distance = VoltsToCentimeters(volts); //decomment this line  and comment the two previous ones for GP2D120
 	if ((distance < MIN_IR_DISTANCE) || (distance > MAX_IR_DISTANCE)){
 		return 0;
 	}
