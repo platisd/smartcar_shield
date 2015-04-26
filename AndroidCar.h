@@ -52,16 +52,16 @@ static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between measurements 
 
 /* ---- ODOMETER ---- */
 void updateCounter(); //ISR for the odometer
-#ifndef Smartcar_h
-	static const float PULSES_PER_CENTIMETER = 4; //Approximate odometer pulses per centimeter. Determined experimentally. Adapt accordingly.
-#endif
+// Macro to convert from odometer pulses to centimeters. (ca. 48 pulses per meter, that's why we multiply by 2 to find value in cm)
+#define PulsesToCentimeters(pulses) (pulses << 1)
 
-// Macro to convert from odometer pulses to centimeters.
-#define PulsesToCentimeters(pulses) (pulses/PULSES_PER_CENTIMETER)
+/* --- CAR --- */
+static const short DEFAULT_SERVO_PIN = 8;
+static const short DEFAULT_ESC_PIN = 9;
 
 class Car {
 	public:
-		Car(unsigned short steeringWheelPin = 8, unsigned short escPin = 9);
+		Car(unsigned short steeringWheelPin = DEFAULT_SERVO_PIN, unsigned short escPin = DEFAULT_ESC_PIN);
 		void begin();
 		void setSpeed(int speed);
 		void setSteeringWheel(int degrees);
@@ -110,7 +110,7 @@ class Odometer {
 		Odometer();
 		int attach(int odometerPin);
 		void begin();
-		unsigned int getDistance();
+		unsigned long getDistance();
 		void detach();
 	private:
 		int _odometerInterruptPin;

@@ -42,7 +42,7 @@ void Odometer::begin(){
 	_pulseCounter_sensors = 0; //initialize the counter
 }
 
-unsigned int Odometer::getDistance(){
+unsigned long Odometer::getDistance(){
 	return PulsesToCentimeters(_pulseCounter_sensors);
 }
 
