@@ -21,6 +21,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <Servo.h>
+#include <Wire.h>
 
 static const int MAX_SENSOR_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
 static const int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
@@ -58,6 +59,20 @@ void updateCounter(); //ISR for the odometer
 /* --- CAR --- */
 static const short DEFAULT_SERVO_PIN = 8;
 static const short DEFAULT_ESC_PIN = 9;
+
+/* ---- GYROSCOPE (L3G4200D) ---- */
+	static const int DEFAULT_GYRO_SAMPLING = 25;
+	static const int GYRO_OFFSET = 20; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
+	static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
+	static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
+
+	static const int CTRL_REG1 = 0x20;
+	static const int CTRL_REG2 =  0x21;
+	static const int CTRL_REG3 = 0x22;
+	static const int CTRL_REG4 = 0x23;
+	static const int CTRL_REG5 = 0x24;
+
+	static const int L3G4200D_Address = 105; //gyroscope I2C address
 
 class Car {
 	public:
@@ -123,6 +138,26 @@ class NewPing{
 	private:
 		static void timer_setup();
 		static void timer_start_cntdwn();
+};
+
+class Gyroscope {
+	public:
+		Gyroscope();
+		void attach();
+		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING); //in milliseconds
+		void stop();
+		int getAngularDisplacement();
+		void update();
+	private:
+		void initMeasurement();
+		void initializeGyro();
+		int setupL3G4200D(int scale);
+		void writeRegister(int deviceAddress, byte address, byte val);
+		static int getGyroValues();
+		static int readRegister(int deviceAddress, byte address);
+		unsigned short _samplingRate;
+
+
 };
 
 #endif
