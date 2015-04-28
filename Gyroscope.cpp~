@@ -41,13 +41,14 @@ void Gyroscope::update(){
 	if (millis()- _prevSample > _samplingRate){
 		float gyroRate = 0;
 		int gyroValue = getGyroValues();
- 		if (abs(GYRO_OFFSET - gyroValue) > GYRO_THRESHOLD){
+		_angularDisplacement = gyroValue;
+/*		if (abs(GYRO_OFFSET - gyroValue) > GYRO_THRESHOLD){
 			gyroRate = (gyroValue - GYRO_OFFSET) * GYRO_SENSITIVITY;
 		}
 		unsigned long now = millis();
 		_angularDisplacement += gyroRate / (1000 / (now - _prevSample));
-		_prevSample = now; 
-	}
+		_prevSample = now;
+	} */
 }
 
 void Gyroscope::initializeGyro(){

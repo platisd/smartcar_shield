@@ -62,7 +62,7 @@ static const short DEFAULT_ESC_PIN = 9;
 
 /* ---- GYROSCOPE (L3G4200D) ---- */
 	static const int DEFAULT_GYRO_SAMPLING = 25;
-	static const int GYRO_OFFSET = 20; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
+	static const int GYRO_OFFSET = 57; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
 	static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
 	static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
 
