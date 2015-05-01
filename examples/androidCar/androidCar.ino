@@ -11,8 +11,12 @@ Sharp_IR sideFrontIR, sideRearIR, rearIR;
 Odometer encoder;
 Gyroscope gyro;
 
-const short comFrequency = 100;
+const unsigned short COM_FREQ = 100;
 unsigned long previousTransmission = 0;
+
+const unsigned short OVERRIDE_TIMEOUT = 5000;
+unsigned long overrideRelease = 0;
+boolean overrideTriggered = false;
 
 void setup() {
   car.begin();
@@ -28,17 +32,24 @@ void setup() {
   gyro.begin(); //start measuring
   Serial2.begin(9600);
   Serial2.setTimeout(200);
-  Serial.begin(9600);
 }
 
 void loop() {
+  handleOverride(); //look for an override signal and if it exists disable bluetooth input
   handleInput();
   gyro.update();
   transmitSensorData();
 }
 
+void handleOverride() {
+  if (int override = pulseIn(OVERRIDE_SIGNAL_PIN, HIGH, MAX_WAVELENGTH)) {
+    overrideRelease = millis() + OVERRIDE_TIMEOUT; //time to re-enable Serial communication
+    overrideTriggered = true;
+  }
+}
+
 void transmitSensorData() {
-  if (millis() - previousTransmission > comFrequency) {
+  if (millis() - previousTransmission > COM_FREQ) {
     String out;
     out = "US1-";
     out += frontSonar.getDistance();
@@ -66,22 +77,29 @@ void transmitSensorData() {
     Serial2.println(encodedNetstring(out));
     previousTransmission = millis();
   }
+
 }
 
 void handleInput() {
-  if (Serial2.available()) {
-    String input = decodedNetstring(Serial2.readStringUntil(','));
-    Serial.println(input);
-    if (input.startsWith("m")){
-      int throttle = input.substring(1).toInt();
-      car.setSpeed(throttle);
-    }else if (input.startsWith("t")){
-      int degrees = input.substring(1).toInt();
-      car.setSteeringWheel(degrees);
-    } else if (input.startsWith("h")){
-      gyro.begin();
-  }else{
-      Serial2.println(encodedNetstring("Bad input"));  
+  if (!overrideTriggered || (millis() > overrideRelease)) {
+    overrideTriggered = false;
+    if (Serial2.available()) {
+      String input = decodedNetstring(Serial2.readStringUntil(','));
+      Serial.println(input);
+      if (input.startsWith("m")) {
+        int throttle = input.substring(1).toInt();
+        car.setSpeed(throttle);
+      } else if (input.startsWith("t")) {
+        int degrees = input.substring(1).toInt();
+        car.setSteeringWheel(degrees);
+      } else if (input.startsWith("h")) {
+        gyro.begin();
+      } else {
+        Serial2.println(encodedNetstring("Bad input"));
+      }
     }
+  } else {
+    car.setSpeed(0); //immobilize the car
+    while (Serial2.read() != -1); //discard incoming data while on override
   }
 }

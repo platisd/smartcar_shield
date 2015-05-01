@@ -20,4 +20,8 @@
 
 #define ENCODER_DIG_PIN 2 //INT0
 
+#define OVERRIDE_SIGNAL_PIN 10
+
+#define MAX_WAVELENGTH 990
+
 #endif
