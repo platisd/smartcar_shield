@@ -18,6 +18,9 @@ const unsigned short OVERRIDE_TIMEOUT = 5000;
 unsigned long overrideRelease = 0;
 boolean overrideTriggered = false;
 
+unsigned long prevCheck = 0;
+const unsigned short LEDrefreshRate = 200;
+
 void setup() {
   car.begin();
   frontSonar.attach(FRONT_US_TRIG_PIN, FRONT_US_ECHO_PIN);
@@ -32,13 +35,34 @@ void setup() {
   gyro.begin(); //start measuring
   Serial2.begin(9600);
   Serial2.setTimeout(200);
+  Serial3.begin(9600);
 }
 
 void loop() {
   handleOverride(); //look for an override signal and if it exists disable bluetooth input
   handleInput();
+  updateLEDs();
   gyro.update();
   transmitSensorData();
+}
+
+void updateLEDs() {
+  if (millis() - prevCheck > LEDrefreshRate) {
+    if (overrideTriggered) { //if override is triggered
+      Serial3.print('m');
+    } else {  //if override is NOT triggered
+      if (!car.getSpeed()) { //if car is immobilized
+        Serial3.print('s');
+      } else if (car.getAngle() > 0 && car.getSpeed()) { //if car is running and turns right
+        Serial3.print('r');
+      } else if (car.getAngle() < 0 && car.getSpeed()) { //if car is running and turns left
+        Serial3.print('l');
+      } else if (car.getSpeed() && !car.getAngle()) { //if car is running and goes straight
+        Serial3.print('i');
+      }
+    }
+    prevCheck = millis();
+  }
 }
 
 void handleOverride() {
@@ -82,7 +106,7 @@ void transmitSensorData() {
 
 void handleInput() {
   if (!overrideTriggered || (millis() > overrideRelease)) {
-    overrideTriggered = false;
+    if (overrideTriggered) overrideTriggered = false;
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
       Serial.println(input);
