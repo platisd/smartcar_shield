@@ -30,9 +30,19 @@ void Car::setESCPin(int escPin){
 }
 
 void Car::setSpeed(int speed){
+	_speed = speed;
 	motor.write(constrain(IDLE_SPEED + speed, MAX_BACK_SPEED, MAX_FRONT_SPEED));
 }
 
 void Car::setSteeringWheel(int degrees){
+	_angle = degrees;
 	steeringWheel.write(constrain(STRAIGHT_WHEELS + degrees, MAX_LEFT_DEGREES, MAX_RIGHT_DEGREES));
+}
+
+int Car::getSpeed(){
+	return _speed;
+}
+
+int Car::getAngle(){
+	return _angle;
 }

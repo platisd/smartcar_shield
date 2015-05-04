@@ -80,11 +80,14 @@ class Car {
 		void begin();
 		void setSpeed(int speed);
 		void setSteeringWheel(int degrees);
+		int getSpeed();
+		int getAngle();
 	private:
 		void setSteeringWheelPin(int steeringWheelPin);
 		void setESCPin(int escPin);
 		unsigned short _steeringWheelPin, _escPin;
 		Servo motor, steeringWheel;
+		int _speed, _angle;
 };
 
 class Sonar {
