@@ -106,7 +106,12 @@ void transmitSensorData() {
 
 void handleInput() {
   if (!overrideTriggered || (millis() > overrideRelease)) {
-    if (overrideTriggered) overrideTriggered = false;
+    if (overrideTriggered){ //this state is only entered when the OVERRIDE_TIMEOUT is over
+      overrideTriggered = false;
+      //after going out of the override mode, set speed and steering to initial position
+      car.setSpeed(0);
+      car.setSteeringWheel(0);
+    }
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
       Serial.println(input);
@@ -122,8 +127,33 @@ void handleInput() {
         Serial2.println(encodedNetstring("Bad input"));
       }
     }
-  } else {
-    car.setSpeed(0); //immobilize the car
+  } else { //override mode
+    unsigned short servoFreq = pulseIn(OVERRIDE_SERVO_PIN, HIGH, MAX_STEERING_WAVELENGTH);
+    int throttleFreq = pulseIn(OVERRIDE_THROTTLE_PIN, HIGH, MAX_STEERING_WAVELENGTH);
+    //handle override servo
+    if (servoFreq) { //if you get 0, ignore it as it is between the pulses
+      if (abs(servoFreq - NEUTRAL_FREQUENCY) < OVERRIDE_FREQ_TOLERANCE) {
+        car.setSteeringWheel(0);
+      } else {
+        if (servoFreq > NEUTRAL_FREQUENCY) {
+          car.setSteeringWheel(OVERRIDE_STEER_RIGHT);
+        } else {
+          car.setSteeringWheel(OVERRIDE_STEER_LEFT);
+        }
+      }
+    }
+    //handle override throttle
+    if (throttleFreq) {
+      if (abs(throttleFreq - NEUTRAL_FREQUENCY) < OVERRIDE_FREQ_TOLERANCE) {
+        car.setSpeed(0);
+      } else {
+        if (throttleFreq > NEUTRAL_FREQUENCY) {
+          car.setSpeed(OVERRIDE_FORWARD_SPEED);
+        } else {
+          car.setSpeed(OVERRIDE_BACKWARD_SPEED);
+        }
+      }
+    }
     while (Serial2.read() != -1); //discard incoming data while on override
   }
 }
