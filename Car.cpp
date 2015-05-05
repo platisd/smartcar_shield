@@ -4,7 +4,7 @@
 #include "AndroidCar.h"
 const int IDLE_SPEED = 1500;
 const int MAX_FRONT_SPEED = 1700; //can go to 1800
-const int MAX_BACK_SPEED = 1300; //can go to 1200
+const int MAX_BACK_SPEED = 1200; //can go to 1200
 const int STRAIGHT_WHEELS = 90;
 const int MAX_RIGHT_DEGREES = 115;
 const int MAX_LEFT_DEGREES = 65;
