@@ -163,4 +163,20 @@ class Gyroscope {
 
 };
 
+class Razorboard{
+	public:
+		Razorboard();
+		void attach(HardwareSerial *razorSerial);
+		boolean available();
+		String readLine();
+		String readLastLine();
+		int getHeading();
+		int getLatestHeading();
+	private:
+		String readRawSerialLine();
+		int getRawHeading();
+		HardwareSerial * _serial;
+
+};
+
 #endif

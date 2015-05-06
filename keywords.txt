@@ -4,6 +4,7 @@ Odometer	KEYWORD1
 Gyroscope	KEYWORD1
 Car	KEYWORD1
 NewPing	KEYWORD1
+Razorboard	KEYWORD1
 attach	KEYWORD2
 getDistance	KEYWORD2
 getMedianDistance	KEYWORD2
@@ -14,3 +15,7 @@ setSpeed	KEYWORD2
 setSteeringWheel	KEYWORD2
 getSpeed	KEYWORD2
 getAngle	KEYWORD2
+readLine	KEYWORD2
+readLastLine	KEYWORD2
+getHeading	KEYWORD2
+getLatestHeading	KEYWORD2
