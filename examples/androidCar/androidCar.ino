@@ -21,6 +21,8 @@ boolean overrideTriggered = false;
 unsigned long prevCheck = 0;
 const unsigned short LEDrefreshRate = 200;
 
+Razorboard razor;
+
 void setup() {
   car.begin();
   frontSonar.attach(FRONT_US_TRIG_PIN, FRONT_US_ECHO_PIN);
@@ -33,9 +35,10 @@ void setup() {
   encoder.begin(); //start counting
   gyro.attach();
   gyro.begin(); //start measuring
+  razor.attach(&Serial3);
   Serial2.begin(9600);
   Serial2.setTimeout(200);
-  Serial3.begin(9600);
+ // Serial.begin(9600);
 }
 
 void loop() {
@@ -99,6 +102,9 @@ void transmitSensorData() {
     out = "HE-";
     out += abs(gyro.getAngularDisplacement());
     Serial2.println(encodedNetstring(out));
+    out = "RZR-";
+    out += razor.getLatestHeading();
+    Serial2.println(encodedNetstring(out));
     previousTransmission = millis();
   }
 
@@ -106,7 +112,7 @@ void transmitSensorData() {
 
 void handleInput() {
   if (!overrideTriggered || (millis() > overrideRelease)) {
-    if (overrideTriggered){ //this state is only entered when the OVERRIDE_TIMEOUT is over
+    if (overrideTriggered) { //this state is only entered when the OVERRIDE_TIMEOUT is over
       overrideTriggered = false;
       //after going out of the override mode, set speed and steering to initial position
       car.setSpeed(0);
@@ -114,7 +120,6 @@ void handleInput() {
     }
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
-      Serial.println(input);
       if (input.startsWith("m")) {
         int throttle = input.substring(1).toInt();
         car.setSpeed(throttle);
