@@ -1,3 +1,6 @@
+/* The running sketch on the Android Autonomous Vehicle by Team Pegasus
+*  Author: Dimitris Platis
+*/
 #include <AndroidCar.h>
 #include <Servo.h>
 #include <Netstrings.h>
@@ -77,7 +80,7 @@ void handleOverride() {
 }
 
 void transmitSensorData() {
-  if (bluetoothEnabled && (millis() - previousTransmission > COM_FREQ)) {
+  if (bluetoothConnected && (millis() - previousTransmission > COM_FREQ)) {
     String out;
     out = "US1-";
     out += frontSonar.getDistance();
