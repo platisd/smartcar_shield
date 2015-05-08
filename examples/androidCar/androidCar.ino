@@ -1,5 +1,10 @@
 /* The running arduino sketch on the Android Autonomous Vehicle by Team Pegasus
-* Description: The vehicle is based on an Arduino Mega, that is connected to various sensors (infrared, ultrasound, speed encoder, gyroscope and 9DOF IMU) and receives driving instructions from an Android phone, via Bluetooth, that is attached on the top of the vehicle. The vehicle can follow street lanes, park and overtake obstacles, using image processing on the Android phone.
+*
+* Description: The vehicle is based on an Arduino Mega, that is connected to various sensors
+* (infrared, ultrasound, speed encoder, gyroscope and 9DOF IMU) and receives driving instructions
+* from an Android phone, via Bluetooth, that is attached on the top of the vehicle. The vehicle
+* can follow street lanes, park and overtake obstacles, using image processing on the Android phone.
+*
 *  Author: Dimitris Platis
 */
 #include <AndroidCar.h>
