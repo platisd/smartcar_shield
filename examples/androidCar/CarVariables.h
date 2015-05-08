@@ -19,6 +19,7 @@
 #define REAR_IR_PIN A2
 
 #define ENCODER_DIG_PIN 2 //INT0
+#define BT_STATE_PIN 4
 
 #define OVERRIDE_SIGNAL_PIN 10
 #define MAX_WAVELENGTH 995
@@ -32,5 +33,12 @@
 #define OVERRIDE_STEER_LEFT -20
 #define OVERRIDE_FREQ_TOLERANCE 250
 
+/* macro definitions */
+//read fast from bluetooth state pin (connected to digital pin 4 of Mega or Uno)
+#if defined(__AVR_ATmega2560__)
+#define bluetoothEnabled (PING & B00100000) >> 5
+#elif defined(__AVR_ATmega328P__)
+#define bluetoothEnabled (PIND & B00010000) >> 4
+#endif
 
 #endif

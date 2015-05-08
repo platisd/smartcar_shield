@@ -4,7 +4,6 @@
 #include <Wire.h>
 #include "CarVariables.h"
 
-
 Car car(SERVO_PIN, ESC_PIN); //steering, esc
 Sonar frontSonar, frontRightSonar, rearSonar;
 Sharp_IR sideFrontIR, sideRearIR, rearIR;
@@ -14,7 +13,7 @@ Gyroscope gyro;
 const unsigned short COM_FREQ = 100;
 unsigned long previousTransmission = 0;
 
-const unsigned short OVERRIDE_TIMEOUT = 5000;
+const unsigned short OVERRIDE_TIMEOUT = 3000;
 unsigned long overrideRelease = 0;
 boolean overrideTriggered = false;
 
@@ -36,9 +35,9 @@ void setup() {
   gyro.attach();
   gyro.begin(); //start measuring
   razor.attach(&Serial3);
+  pinMode(BT_STATE_PIN, INPUT);
   Serial2.begin(9600);
   Serial2.setTimeout(200);
- // Serial.begin(9600);
 }
 
 void loop() {
@@ -56,12 +55,14 @@ void updateLEDs() {
     } else {  //if override is NOT triggered
       if (!car.getSpeed()) { //if car is immobilized
         Serial3.print('s');
-      } else if (car.getAngle() > 0 && car.getSpeed()) { //if car is running and turns right
-        Serial3.print('r');
-      } else if (car.getAngle() < 0 && car.getSpeed()) { //if car is running and turns left
-        Serial3.print('l');
-      } else if (car.getSpeed() && !car.getAngle()) { //if car is running and goes straight
-        Serial3.print('i');
+      } else { //if car is running
+        if (car.getAngle() > 0) { //if car turns right
+          Serial3.print('r');
+        } else if (car.getAngle() < 0) { //if car turns left
+          Serial3.print('l');
+        } else { //if car goes straight
+          Serial3.print('i');
+        }
       }
     }
     prevCheck = millis();
@@ -76,7 +77,7 @@ void handleOverride() {
 }
 
 void transmitSensorData() {
-  if (millis() - previousTransmission > COM_FREQ) {
+  if (bluetoothEnabled && (millis() - previousTransmission > COM_FREQ)) {
     String out;
     out = "US1-";
     out += frontSonar.getDistance();
