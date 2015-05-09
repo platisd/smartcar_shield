@@ -36,9 +36,9 @@
 /* macro definitions */
 //read fast from bluetooth state pin (connected to digital pin 4 of Mega or Uno)
 #if defined(__AVR_ATmega2560__)
-#define bluetoothConnected (PING & B00100000) >> 5
+#define bluetoothConnected (PING & B00100000)
 #elif defined(__AVR_ATmega328P__)
-#define bluetoothConnected (PIND & B00010000) >> 4
+#define bluetoothConnected (PIND & B00010000)
 #endif
 
 #endif
