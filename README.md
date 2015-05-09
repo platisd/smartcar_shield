@@ -1,26 +1,31 @@
-# Smartcar Sensors
-A library that allows the developer to easily utilize various sensors such as the HC-SR04 (ultra sound), the Sharp GP2Y0A02 (infrared), the L3G4200D gyroscope and an odometer (speed encoder). Written by Dimitris Platis.
+# AndroidCar
+A library, based on [Smartcar sensors], built to control an Autonomous Android Vehicle made by Team Pegasus. This library allows the developer to fetch data from the on-board sensors, transmit them via Bluetooth, while receiving driving commands to control an ESC and a servo motor.
 
 ### What
-This library was initially designed for a specific hardware platform (an Arduino based remote controlled car), the "Smartcar" and is developed for educational purposes within the context of an experiment on API evaluation, by Dimitris Platis. It is supposed to serve as a supplement to the [Smartcar Core](https://github.com/platisd/smartcar_core/) library. However, **this library is _not_ dependent on the Smartcar platform or the Smartcar Core library**, can be used stand alone and deployed in various settings. During the development of the API, the assumption that the API users are inexperienced and opportunistic was made.
-This is justified by the fact that the students who will use it, have not programmed in an Arduino or another embedded platform before, are not expert programmers and are using the Smartcar platform just because they have to pass their university course.
-Therefore, some library components might not be accessible to them. During the usage of the library, the validity of those choices will be verified and if the assumptions are deemed void, components that used to be private could be made public, in a transparent and non-disruptive manner.
+The library was designed to control an Autonomous Vehicle, that can follow lanes, park and overtake vehicles, as tasked by the DIT168 course. The vehicle is controlled wirelessly by an Android phone that is mounted on top of it and accomplishes its tasks, using image processing (OpenCV for Android) and utilizing data from sensors mounted on the car.
+Therefore, this library provides an easy to use and simple to understand interface, to control the vehicle's movement and read its sensors data. Despite being used as an in-house system and therefore the developers working on it were already familiriazed with the functions and the various components, the library was designed with the intention of being used by novice users.
+The library is dependant on certain hardware sensors and of course the Arduino platform, however, it can be very easily modified or enriched for different setups.
 
-### How
-Students of the [DIT524] course, of University of Gothenburg will be tasked to develop a system composed of at least an Android Application and an Arduino sketch controlling the car.
-- The Android application that shall remotely control the Smartcar, get from and send data to it and initiate automated tasks.
-- The Arduino sketch will utilize the Smartcar sensor library in order to easily control and read the sensors of the car. This will help the students to implement the various functionalities needed in order to satisfy their business cases.
-
-The students will provide constant feedback on the API, which will aid in the extraction of various findings and conclusions on the subject of API evaluation.
+### Components
+- Electronic Speed Controller (ESC)
+- Servo motor (Steering wheel)
+- Speed encoder
+- Ultrasonic sensors (HC-SR04, SRF05)
+- Infrared distance sensors (SHARP GP2D120)
+- Gyroscope (L3G4200D)
+- 9DOF IMU ([Razor IMU])
 
 ### Dependencies
-- [Wire library](http://arduino.cc/en/reference/Wire)
+- [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
+- [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
 
 ### Documentation
-- [Wiki]
+- Smartcar sensors library [Wiki]
 
+[Razor IMU]:https://www.sparkfun.com/products/10736
+[Smartcar sensors]:https://github.com/platisd/smartcar_sensors
 [Wiki]:https://github.com/platisd/smartcar_sensors/wiki
-[DIT524]:http://gul.gu.se/public/courseId/66245/coursePath/46825/ecp/lang-sv/publicPage.do
+[DIT168]:http://gul.gu.se/public/courseId/66254/coursePath/46831/ecp/lang-en/publicPage.do
 
 ### License
 GPLv3
