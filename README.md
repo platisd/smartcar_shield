@@ -4,7 +4,7 @@ A library, based on [Smartcar sensors], built to control an Autonomous Android V
 ### Description
 The library was designed to control an Autonomous Vehicle, that can follow lanes, park and overtake vehicles, as tasked by the [DIT168] course. The vehicle is controlled wirelessly by an Android phone that is mounted on top of it and accomplishes its tasks, using image processing (OpenCV for Android) and utilizing data from sensors mounted on the car.
 Therefore, this library provides an easy to use and simple to understand interface, to control the vehicle's movement and read its sensors data. Despite being used as an in-house system and therefore the developers working on it were already familiriazed with the functions and the various components, the library was designed with the intention of being used by novice users.
-The library is dependant on certain hardware sensors and of course the Arduino platform, however, it can be very easily modified or enriched for different setups. In [/examples/androicar] the arduino sketch running on the vehicle can be found.
+The library is dependant on certain hardware sensors and of course the Arduino platform, however, it can be very easily modified or enriched for different setups. In [/examples/androidCar] the arduino sketch running on the vehicle can be found.
 
 ### Components
 - Electronic Speed Controller (ESC)
@@ -22,7 +22,7 @@ The library is dependant on certain hardware sensors and of course the Arduino p
 ### Documentation
 - Smartcar sensors library [Wiki]
 
-[/examples/androidcar]:https://github.com/ylmzcaglar/AndroidCar/tree/master/examples/androidCar
+[/examples/androidCar]:https://github.com/ylmzcaglar/AndroidCar/tree/master/examples/androidCar
 [Razor IMU]:https://www.sparkfun.com/products/10736
 [Smartcar sensors]:https://github.com/platisd/smartcar_sensors
 [Wiki]:https://github.com/platisd/smartcar_sensors/wiki
