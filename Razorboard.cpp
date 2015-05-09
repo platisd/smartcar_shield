@@ -26,7 +26,6 @@ String Razorboard::readLine(){
 	}
 }
 
-
 /* read whatever is in the buffer untill you reach the last available line and return it */
 String Razorboard::readLastLine(){
 	if (available()){
@@ -37,7 +36,6 @@ String Razorboard::readLastLine(){
 	}else{
 		return "error";
 	}
-
 }
 
 int Razorboard::getHeading(){
@@ -46,7 +44,6 @@ int Razorboard::getHeading(){
 	}else {
 		return -1000;
 	}
-
 }
 
 int Razorboard::getLatestHeading(){
@@ -58,7 +55,6 @@ int Razorboard::getLatestHeading(){
 		return -1000;
 	}
 }
-
 
 String Razorboard::readRawSerialLine(){
 	return _serial->readStringUntil('\n');
