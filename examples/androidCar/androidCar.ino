@@ -144,7 +144,7 @@ void handleInput() {
     }
   } else { //override mode
     unsigned short servoFreq = pulseIn(OVERRIDE_SERVO_PIN, HIGH, MAX_STEERING_WAVELENGTH);
-    int throttleFreq = pulseIn(OVERRIDE_THROTTLE_PIN, HIGH, MAX_STEERING_WAVELENGTH);
+    unsigned short throttleFreq = pulseIn(OVERRIDE_THROTTLE_PIN, HIGH, MAX_STEERING_WAVELENGTH);
     //handle override servo
     if (servoFreq) { //if you get 0, ignore it as it is between the pulses
       if (abs(servoFreq - NEUTRAL_FREQUENCY) < OVERRIDE_FREQ_TOLERANCE) {
