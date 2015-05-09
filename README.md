@@ -1,5 +1,5 @@
 # AndroidCar
-A library, based on [Smartcar sensors], built to control an Autonomous Android Vehicle made by Team Pegasus. This library allows the developer to fetch data from the on-board sensors, transmit them via Bluetooth, while receiving driving commands to control an ESC and a servo motor.
+An Arduino library, based on [Smartcar sensors], built to control an Autonomous Android Vehicle made by Team Pegasus. This library allows the developer to fetch data from the on-board sensors, transmit them via Bluetooth, while receiving driving commands to control an ESC and a servo motor.
 
 ### Description
 The library was designed to control an Autonomous Vehicle, that can follow lanes, park and overtake vehicles, as tasked by the [DIT168] course. The vehicle is controlled wirelessly by an Android phone that is mounted on top of it and accomplishes its tasks, using image processing (OpenCV for Android) and utilizing data from sensors mounted on the car.
