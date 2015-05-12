@@ -5,9 +5,9 @@
 const int IDLE_SPEED = 1500;
 const int MAX_FRONT_SPEED = 1700; //can go to 1800
 const int MAX_BACK_SPEED = 1200; //can go to 1200
-const int STRAIGHT_WHEELS = 90;
-const int MAX_RIGHT_DEGREES = 115;
-const int MAX_LEFT_DEGREES = 65;
+const int STRAIGHT_WHEELS = 97;
+const int MAX_RIGHT_DEGREES = 122;
+const int MAX_LEFT_DEGREES = 72;
 
 Car::Car(unsigned short steeringWheelPin, unsigned short escPin){
 	setSteeringWheelPin(steeringWheelPin);
@@ -40,9 +40,9 @@ void Car::setSteeringWheel(int degrees){
 }
 
 int Car::getSpeed(){
-	return _speed;
+	return _speed - IDLE_SPEED;
 }
 
 int Car::getAngle(){
-	return _angle;
+	return _angle - STRAIGHT_WHEELS;
 }
