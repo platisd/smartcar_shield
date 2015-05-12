@@ -166,10 +166,8 @@ void handleInput() {
       } else {
         if (throttleFreq > NEUTRAL_FREQUENCY) {
           car.setSpeed(OVERRIDE_FORWARD_SPEED);
-
         } else {
           car.setSpeed(OVERRIDE_BACKWARD_SPEED);
-          int i = abs(throttleFreq - NEUTRAL_FREQUENCY);
         }
       }
     }
