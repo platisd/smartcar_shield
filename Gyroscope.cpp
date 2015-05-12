@@ -41,7 +41,8 @@ void Gyroscope::update(){
 	if (millis()- _prevSample > _samplingRate){
 		float gyroRate = 0;
 		int gyroValue = getGyroValues();
- 		if (abs(GYRO_OFFSET - gyroValue) > GYRO_THRESHOLD){
+		short drift = GYRO_OFFSET - gyroValue;
+ 		if (abs(drift) > GYRO_THRESHOLD){
 			gyroRate = (gyroValue - GYRO_OFFSET) * GYRO_SENSITIVITY;
 		}
 		unsigned long now = millis();
