@@ -147,7 +147,8 @@ void handleInput() {
     unsigned short throttleFreq = pulseIn(OVERRIDE_THROTTLE_PIN, HIGH, MAX_STEERING_WAVELENGTH);
     //handle override servo
     if (servoFreq) { //if you get 0, ignore it as it is between the pulses
-      if (abs(servoFreq - NEUTRAL_FREQUENCY) < OVERRIDE_FREQ_TOLERANCE) {
+      short diff = servoFreq - NEUTRAL_FREQUENCY;
+      if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) {
         car.setSteeringWheel(0);
       } else {
         if (servoFreq > NEUTRAL_FREQUENCY) {
@@ -159,13 +160,16 @@ void handleInput() {
     }
     //handle override throttle
     if (throttleFreq) {
-      if (abs(throttleFreq - NEUTRAL_FREQUENCY) < OVERRIDE_FREQ_TOLERANCE) {
+      short diff = throttleFreq - NEUTRAL_FREQUENCY;
+      if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) {
         car.setSpeed(0);
       } else {
         if (throttleFreq > NEUTRAL_FREQUENCY) {
           car.setSpeed(OVERRIDE_FORWARD_SPEED);
+
         } else {
           car.setSpeed(OVERRIDE_BACKWARD_SPEED);
+          int i = abs(throttleFreq - NEUTRAL_FREQUENCY);
         }
       }
     }
