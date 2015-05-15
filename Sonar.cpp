@@ -8,6 +8,7 @@
 */
 #include "AndroidCar.h"
 
+
 /* ------ SONAR ------ */
 static const int MAX_US_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
 static const int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
@@ -28,7 +29,7 @@ static const int SONAR_DEFAULT_ITERATIONS = 5;    // The default value of iterat
 Sonar::Sonar() {
 }
 
-void Sonar::attach(int triggerPin, int echoPin){
+void Sonar::attach(unsigned short triggerPin, unsigned short echoPin){
 	_triggerBit = digitalPinToBitMask(triggerPin); // Get the port register bitmask for the trigger pin.
 	_echoBit = digitalPinToBitMask(echoPin);       // Get the port register bitmask for the echo pin.
 

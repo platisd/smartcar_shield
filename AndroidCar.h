@@ -10,18 +10,16 @@
 
 #ifndef AndroidCar_h
 #define AndroidCar_h
-/* ---- SONAR ---- */
+#include <Servo.h>
+#include <Wire.h>
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include <Arduino.h>
 #else
 	#include <WProgram.h>
 	#include <pins_arduino.h>
 #endif
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <Servo.h>
-#include <Wire.h>
 
 class Car {
 	public:
@@ -32,8 +30,8 @@ class Car {
 		int getSpeed();
 		int getAngle();
 	private:
-		void setSteeringWheelPin(int steeringWheelPin);
-		void setESCPin(int escPin);
+		void setSteeringWheelPin(unsigned short steeringWheelPin);
+		void setESCPin(unsigned short escPin);
 		unsigned short _steeringWheelPin, _escPin;
 		Servo motor, steeringWheel;
 		int _speed, _angle;
@@ -43,7 +41,7 @@ class Car {
 class Sonar {
 	public:
 		Sonar();
-		void attach(int triggerPin, int echoPin);
+		void attach(unsigned short triggerPin, unsigned short echoPin);
 		unsigned int getDistance();
 		unsigned int getMedianDistance();
 		unsigned int getMedianDistance(short iterations);

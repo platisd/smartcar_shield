@@ -26,11 +26,11 @@ void Car::begin(){
 	setSteeringWheel(0);
 }
 
-void Car::setSteeringWheelPin(int steeringWheelPin){
+void Car::setSteeringWheelPin(unsigned short steeringWheelPin){
 	_steeringWheelPin = steeringWheelPin;
 }
 
-void Car::setESCPin(int escPin){
+void Car::setESCPin(unsigned short escPin){
 	_escPin = escPin;
 }
 
