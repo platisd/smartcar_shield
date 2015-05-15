@@ -22,7 +22,7 @@ Moreover, in [/LED_DRIVER] a sketch running on an ATtiny85 microcontroller can b
 - [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
 
 ### Documentation
-- Autonomous-Car Arduino Library wiki [Wiki](https://github.com/ylmzcaglar/AndroidCar/wiki)
+- Autonomous-Car Arduino Library [Wiki](https://github.com/ylmzcaglar/AndroidCar/wiki)
 
 [/examples/androidCar]:https://github.com/ylmzcaglar/AndroidCar/tree/master/examples/androidCar
 [/LED_DRIVER]:https://github.com/ylmzcaglar/AndroidCar/tree/master/LED_DRIVER
