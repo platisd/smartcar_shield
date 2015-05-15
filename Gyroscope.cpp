@@ -43,11 +43,6 @@ void Gyroscope::begin(unsigned short samplingRate){
 	_samplingRate = samplingRate;
 }
 
-void Gyroscope::stop(){
-	initMeasurement();
-	NewPing::timer_stop();
-}
-
 int Gyroscope::getAngularDisplacement(){
 	return _angularDisplacement;
 }

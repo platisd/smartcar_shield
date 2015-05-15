@@ -95,7 +95,6 @@ class Gyroscope {
 		Gyroscope();
 		void attach();
 		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING); //in milliseconds
-		void stop();
 		int getAngularDisplacement();
 		void update();
 	private:
