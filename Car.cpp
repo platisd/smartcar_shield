@@ -2,6 +2,11 @@
 *	Car.cpp
 */
 #include "AndroidCar.h"
+/* --- CAR --- */
+
+const unsigned short Car::DEFAULT_SERVO_PIN = 8;
+const unsigned short Car::DEFAULT_ESC_PIN = 9;
+
 const int IDLE_SPEED = 1500;
 const int MAX_FRONT_SPEED = 1700; //can go to 1800
 const int MAX_BACK_SPEED = 1200; //can go to 1200

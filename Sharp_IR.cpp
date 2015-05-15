@@ -10,10 +10,24 @@
 
 #include "AndroidCar.h"
 
+/* ---- SHARP INFRARED SENSOR ---- */
+static const float SHARP_SENSITIVITY = 0.0048828125; //only use with GP2Y0A02
+//static const int MIN_IR_DISTANCE = 20; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2Y0A02
+//static const int MAX_IR_DISTANCE = 80;//Maximum reliable distance the sensor can measure in real life conditions. Determined experimentally. GP2Y0A02
+static const int MIN_IR_DISTANCE = 4; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2D120
+static const int MAX_IR_DISTANCE = 25;//Maximum reliable distance the sensor can measure in real life conditions.Determined experimentally. GP2D120
+static const int IR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
+static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between measurements in the getMedianDistance method.
+
+// Macro to convert from volts to centimeters.
+//#define VoltsToCentimeters(volts) (65*pow(volts, -1.10)) //decomment for Sharp GP2Y0A02 as well as in Sharp_IR::getDistance()
+#define VoltsToCentimeters(volts) ((2914 / (volts + 5)) - 1) //decomment for Sharp GP2D120 as well as in Sharp_IR::getDistance()
+
+
 Sharp_IR::Sharp_IR(){
 }
 
-void Sharp_IR::attach(int IR_pin){
+void Sharp_IR::attach(unsigned short IR_pin){
 	pinMode(IR_pin, INPUT);
 	_IR_pin = IR_pin;
 }

@@ -8,6 +8,23 @@
 */
 #include "AndroidCar.h"
 
+/* ------ SONAR ------ */
+static const int MAX_US_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
+static const int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
+static const int DISABLE_ONE_PIN = true;   // Set to "true" to save up to 26 bytes of compiled code space if you're NOT using one pin sensor connections.
+
+// Probably shoudln't change these values unless you really know what you're doing.
+static const int NO_ECHO = 0;               // Value returned if there's no ping echo within the specified MAX_SENSOR_DISTANCE
+static const int MAX_SENSOR_DELAY = 18000;  // Maximum uS it takes for sensor to start the ping (SRF06 is the highest measured, just under 18ms).
+static const int ECHO_TIMER_FREQ = 24;      // Frequency to check for a ping echo (every 24uS is about 0.4cm accuracy).
+static const int PING_MEDIAN_DELAY = 29;    // Millisecond delay between pings in the getMedianDistance method.
+static const int SONAR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
+
+
+// Macro to convert from microseconds to centimeters.
+#define MicrosecondsToCentimeters(echoTime) (max((echoTime + US_ROUNDTRIP_CM / 2) / US_ROUNDTRIP_CM, (echoTime ? 1 : 0)))
+
+
 Sonar::Sonar() {
 }
 
@@ -43,7 +60,7 @@ unsigned int Sonar::getMedianDistance() {
 	Sonar::getMedianDistance(SONAR_DEFAULT_ITERATIONS);
 }
 
-unsigned int Sonar::getMedianDistance(int iterations) {
+unsigned int Sonar::getMedianDistance(short iterations) {
 	unsigned int uS[iterations], last;
 	uint8_t j, i = 0;
 	uS[0] = NO_ECHO;

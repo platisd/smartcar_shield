@@ -6,12 +6,17 @@
 */
 #include "AndroidCar.h"
 
-volatile unsigned int _pulseCounter_sensors = 0;
+/* ---- ODOMETER ---- */
+void updateCounter(); //ISR for the odometer
+// Macro to convert from odometer pulses to centimeters. (ca. 48 pulses per meter, that's why we multiply by 2 to find value in cm)
+#define PulsesToCentimeters(pulses) (pulses << 1)
+
+volatile unsigned long _pulseCounter = 0;
 
 Odometer::Odometer(){
 }
 
-int Odometer::attach(int odometerPin){
+int Odometer::attach(unsigned short odometerPin){
 	switch(odometerPin){ //converting digital pins to interrupts for Arduino Mega
 		case 2:
 			_odometerInterruptPin = 0;
@@ -39,18 +44,18 @@ int Odometer::attach(int odometerPin){
 }
 
 void Odometer::begin(){
-	_pulseCounter_sensors = 0; //initialize the counter
+	_pulseCounter = 0; //initialize the counter
 }
 
 unsigned long Odometer::getDistance(){
-	return PulsesToCentimeters(_pulseCounter_sensors);
+	return PulsesToCentimeters(_pulseCounter);
 }
 
 void Odometer::detach(){
-	_pulseCounter_sensors = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
+	_pulseCounter = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
 	detachInterrupt(_odometerInterruptPin);
 }
 
 void updateCounter(){
-	_pulseCounter_sensors++;
+	_pulseCounter++;
 }

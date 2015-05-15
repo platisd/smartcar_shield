@@ -7,6 +7,21 @@
 
 #include "AndroidCar.h"
 
+
+/* ---- GYROSCOPE (L3G4200D) ---- */
+	const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 25;
+	static const int GYRO_OFFSET = 57; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
+	static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
+	static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
+
+	static const int CTRL_REG1 = 0x20;
+	static const int CTRL_REG2 =  0x21;
+	static const int CTRL_REG3 = 0x22;
+	static const int CTRL_REG4 = 0x23;
+	static const int CTRL_REG5 = 0x24;
+
+	static const int L3G4200D_Address = 105; //gyroscope I2C address
+
 volatile int _angularDisplacement = 0;
 volatile unsigned long _prevSample = 0;
 
