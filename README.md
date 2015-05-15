@@ -22,13 +22,12 @@ Moreover, in [/LED_DRIVER] a sketch running on an ATtiny85 microcontroller can b
 - [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
 
 ### Documentation
-- Smartcar sensors library [Wiki]
+- Smartcar sensors library [Wiki](wiki)
 
 [/examples/androidCar]:https://github.com/ylmzcaglar/AndroidCar/tree/master/examples/androidCar
 [/LED_DRIVER]:https://github.com/ylmzcaglar/AndroidCar/tree/master/LED_DRIVER
 [Razor IMU]:https://www.sparkfun.com/products/10736
 [Smartcar sensors]:https://github.com/platisd/smartcar_sensors
-[Wiki]:https://github.com/platisd/smartcar_sensors/wiki
 [DIT168]:http://gul.gu.se/public/courseId/66254/coursePath/46831/ecp/lang-en/publicPage.do
 
 ### License
