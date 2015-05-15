@@ -10,8 +10,6 @@
 
 #ifndef AndroidCar_h
 #define AndroidCar_h
-#include <Servo.h>
-#include <Wire.h>
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include <Arduino.h>
 #else
@@ -20,6 +18,8 @@
 #endif
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <Servo.h>
+#include <Wire.h>
 
 class Car {
 	public:
