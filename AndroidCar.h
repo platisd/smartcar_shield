@@ -23,7 +23,7 @@
 #include <Servo.h>
 #include <Wire.h>
 
-static const int MAX_SENSOR_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
+static const int MAX_US_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
 static const int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
 static const int DISABLE_ONE_PIN = true;   // Set to "true" to save up to 26 bytes of compiled code space if you're NOT using one pin sensor connections.
 

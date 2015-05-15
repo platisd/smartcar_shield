@@ -20,7 +20,7 @@ void Sonar::attach(int triggerPin, int echoPin){
 
 	_triggerMode = (uint8_t *) portModeRegister(digitalPinToPort(triggerPin)); // Get the port mode register for the trigger pin.
 
-	_maxEchoTime = MAX_SENSOR_DISTANCE * US_ROUNDTRIP_CM + (US_ROUNDTRIP_CM / 2); // Calculate the maximum distance in uS.
+	_maxEchoTime = MAX_US_DISTANCE * US_ROUNDTRIP_CM + (US_ROUNDTRIP_CM / 2); // Calculate the maximum distance in uS.
 
 #if DISABLE_ONE_PIN == true
 	*_triggerMode |= _triggerBit; // Set trigger pin to output.
