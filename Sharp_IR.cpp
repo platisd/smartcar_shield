@@ -11,7 +11,7 @@
 #include "AndroidCar.h"
 
 /* ---- SHARP INFRARED SENSOR ---- */
-static const float SHARP_SENSITIVITY = 0.0048828125; //only use with GP2Y0A02
+//static const float SHARP_SENSITIVITY = 0.0048828125; //only use with GP2Y0A02
 //static const int MIN_IR_DISTANCE = 20; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2Y0A02
 //static const int MAX_IR_DISTANCE = 80;//Maximum reliable distance the sensor can measure in real life conditions. Determined experimentally. GP2Y0A02
 static const int MIN_IR_DISTANCE = 4; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2D120
