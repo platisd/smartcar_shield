@@ -1,4 +1,4 @@
-# Autonomous-Car Arduino Library wiki
+# Autonomous-Car Arduino Library
 An Arduino library, based on [Smartcar sensors], built to control an Autonomous Android Vehicle made by Team Pegasus. This library allows the developer to fetch data from the on-board sensors, transmit them via Bluetooth, while receiving driving commands to control an ESC and a servo motor.
 
 ### Description
