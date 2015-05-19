@@ -26,7 +26,7 @@ class Car {
 		Car(unsigned short steeringWheelPin = DEFAULT_SERVO_PIN, unsigned short escPin = DEFAULT_ESC_PIN);
 		void begin();
 		void setSpeed(int speed);
-		void setSteeringWheel(int degrees);
+		void setAngle(int degrees);
 		int getSpeed();
 		int getAngle();
 	private:
