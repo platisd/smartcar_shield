@@ -47,6 +47,7 @@ int Gyroscope::getAngularDisplacement(){
 	return _angularDisplacement;
 }
 
+/* based on http://www.pieter-jan.com/node/7 integration algorithm */
 void Gyroscope::update(){
 	if (millis()- _prevSample > _samplingRate){
 		float gyroRate = 0;
