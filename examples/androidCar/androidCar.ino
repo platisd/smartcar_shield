@@ -126,7 +126,7 @@ void handleInput() {
       overrideTriggered = false;
       //after going out of the override mode, set speed and steering to initial position
       car.setSpeed(0);
-      car.setSteeringWheel(0);
+      car.setAngle(0);
     }
     if (Serial2.available()) {
       String input = decodedNetstring(Serial2.readStringUntil(','));
@@ -135,7 +135,7 @@ void handleInput() {
         car.setSpeed(throttle);
       } else if (input.startsWith("t")) {
         int degrees = input.substring(1).toInt();
-        car.setSteeringWheel(degrees);
+        car.setAngle(degrees);
       } else if (input.startsWith("h")) {
         gyro.begin();
       } else {
@@ -149,12 +149,12 @@ void handleInput() {
     if (servoFreq) { //if you get 0, ignore it as it is between the pulses
       short diff = servoFreq - NEUTRAL_FREQUENCY;
       if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) {
-        car.setSteeringWheel(0);
+        car.setAngle(0);
       } else {
         if (servoFreq > NEUTRAL_FREQUENCY) {
-          car.setSteeringWheel(OVERRIDE_STEER_RIGHT);
+          car.setAngle(OVERRIDE_STEER_RIGHT);
         } else {
-          car.setSteeringWheel(OVERRIDE_STEER_LEFT);
+          car.setAngle(OVERRIDE_STEER_LEFT);
         }
       }
     }

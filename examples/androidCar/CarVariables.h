@@ -5,11 +5,11 @@
 #define SERVO_PIN 8
 #define ESC_PIN 9
 
-#define FRONT_US_TRIG_PIN 31
-#define FRONT_US_ECHO_PIN 33
+#define FRONT_US_TRIG_PIN 31 //orange
+#define FRONT_US_ECHO_PIN 33 //yellow
 
-#define FRONT_RIGHT_US_TRIG_PIN 29
-#define FRONT_RIGHT_US_ECHO_PIN 27
+#define FRONT_RIGHT_US_TRIG_PIN 29 //yellow
+#define FRONT_RIGHT_US_ECHO_PIN 27 //green
 
 #define REAR_US_TRIG_PIN 25
 #define REAR_US_ECHO_PIN 23
