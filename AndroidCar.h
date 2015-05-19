@@ -102,8 +102,8 @@ class Gyroscope {
 		void initializeGyro();
 		int setupL3G4200D(int scale);
 		void writeRegister(int deviceAddress, byte address, byte val);
-		static int getGyroValues();
-		static int readRegister(int deviceAddress, byte address);
+		int getGyroValues();
+		int readRegister(int deviceAddress, byte address);
 		unsigned short _samplingRate;
 		static const unsigned short DEFAULT_GYRO_SAMPLING;
 };
