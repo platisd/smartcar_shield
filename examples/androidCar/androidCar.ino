@@ -31,6 +31,8 @@ const unsigned short LEDrefreshRate = 200;
 
 Razorboard razor;
 
+const unsigned short GYRO_SAMPLING = 90; //to be optimized experimentally
+
 void setup() {
   car.begin();
   frontSonar.attach(FRONT_US_TRIG_PIN, FRONT_US_ECHO_PIN);
@@ -42,7 +44,7 @@ void setup() {
   encoder.attach(ENCODER_DIG_PIN);
   encoder.begin(); //start counting
   gyro.attach();
-  gyro.begin(); //start measuring
+  gyro.begin(GYRO_SAMPLING); //start measuring
   razor.attach(&Serial3);
   pinMode(BT_STATE_PIN, INPUT);
   Serial2.begin(9600);
@@ -51,10 +53,10 @@ void setup() {
 
 void loop() {
   handleOverride(); //look for an override signal and if it exists disable bluetooth input
-  handleInput();
-  updateLEDs();
-  gyro.update();
-  transmitSensorData();
+  handleInput(); //look for a serial input if override is not triggered and act accordingly
+  updateLEDs(); //update LEDs depending on the mode we are currently in
+  gyro.update(); //integrate gyroscope's readings
+  transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
 }
 
 void updateLEDs() {
@@ -137,7 +139,7 @@ void handleInput() {
         int degrees = input.substring(1).toInt();
         car.setAngle(degrees);
       } else if (input.startsWith("h")) {
-        gyro.begin();
+        gyro.begin(GYRO_SAMPLING);
       } else {
         Serial2.println(encodedNetstring("Bad input"));
       }
