@@ -43,8 +43,7 @@ class Sonar {
 		Sonar();
 		void attach(unsigned short triggerPin, unsigned short echoPin);
 		unsigned int getDistance();
-		unsigned int getMedianDistance();
-		unsigned int getMedianDistance(short iterations);
+		unsigned int getMedianDistance(short iterations = SONAR_DEFAULT_ITERATIONS);
 
 	private:
 		unsigned int ping();
@@ -56,6 +55,7 @@ class Sonar {
 		volatile uint8_t *_echoInput;
 		unsigned int _maxEchoTime;
 		unsigned long _max_time;
+		static const unsigned short SONAR_DEFAULT_ITERATIONS;
 };
 
 class Sharp_IR {
@@ -63,10 +63,10 @@ class Sharp_IR {
 		Sharp_IR();
 		void attach(unsigned short IR_pin);
 		unsigned int getDistance();
-		unsigned int getMedianDistance();
-		unsigned int getMedianDistance(int iterations);
+		unsigned int getMedianDistance(short iterations = IR_DEFAULT_ITERATIONS);
 	private:
 		unsigned short _IR_pin;
+		static const unsigned short IR_DEFAULT_ITERATIONS;
 };
 
 

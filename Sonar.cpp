@@ -19,7 +19,7 @@ static const int NO_ECHO = 0;               // Value returned if there's no ping
 static const int MAX_SENSOR_DELAY = 18000;  // Maximum uS it takes for sensor to start the ping (SRF06 is the highest measured, just under 18ms).
 static const int ECHO_TIMER_FREQ = 24;      // Frequency to check for a ping echo (every 24uS is about 0.4cm accuracy).
 static const int PING_MEDIAN_DELAY = 29;    // Millisecond delay between pings in the getMedianDistance method.
-static const int SONAR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
+const unsigned short Sonar::SONAR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
 
 
 // Macro to convert from microseconds to centimeters.
@@ -55,10 +55,6 @@ unsigned int Sonar::ping() {
 unsigned int Sonar::getDistance() {
 	unsigned int echoTime = Sonar::ping();          // Calls the ping method and returns with the ping echo distance in uS.
 	return MicrosecondsToCentimeters(echoTime); // Convert uS to centimeters.
-}
-
-unsigned int Sonar::getMedianDistance() {
-	Sonar::getMedianDistance(SONAR_DEFAULT_ITERATIONS);
 }
 
 unsigned int Sonar::getMedianDistance(short iterations) {

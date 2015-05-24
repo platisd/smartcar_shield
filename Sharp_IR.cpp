@@ -16,7 +16,7 @@
 //static const int MAX_IR_DISTANCE = 80;//Maximum reliable distance the sensor can measure in real life conditions. Determined experimentally. GP2Y0A02
 static const int MIN_IR_DISTANCE = 4; //Minimum reliable distance the sensor can measure. Derived from datasheet. For GP2D120
 static const int MAX_IR_DISTANCE = 25;//Maximum reliable distance the sensor can measure in real life conditions.Determined experimentally. GP2D120
-static const int IR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
+const unsigned short Sharp_IR::IR_DEFAULT_ITERATIONS = 5;    // The default value of iterations used in getMedianDistance() method.
 static const int IR_MEDIAN_DELAY = 15; //Millisecond delay between measurements in the getMedianDistance method.
 
 // Macro to convert from volts to centimeters.
@@ -41,11 +41,7 @@ unsigned int Sharp_IR::getDistance(){
 	return distance;
 }
 
-unsigned int Sharp_IR::getMedianDistance(){
-	Sharp_IR::getMedianDistance(IR_DEFAULT_ITERATIONS);
-}
-
-unsigned int Sharp_IR::getMedianDistance(int iterations){
+unsigned int Sharp_IR::getMedianDistance(short iterations){
 	unsigned int measurements[iterations], last;
 	uint8_t j, i = 0;
 	measurements[0] = 0; //initializing the array
