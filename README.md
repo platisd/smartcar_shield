@@ -8,6 +8,8 @@ The library is dependant on certain hardware sensors and of course the Arduino p
 
 Moreover, in [/LED_DRIVER] a sketch running on an ATtiny85 microcontroller can be found, which is tasked to control the various LED lights that are mounted on the vehicle, which are indicating the current operation mode of the car (turning, stopping, override, running) as per specifications of the DIT168 course.
 
+Finally the repository for the application that is running in Android and permits the accomplishment of the various tasks (lane following, parking) can be found [here](https://github.com/Petroula/Android-Car-duino).
+
 ### Components
 - Electronic Speed Controller (ESC)
 - Servo motor (Steering wheel)
@@ -24,8 +26,8 @@ Moreover, in [/LED_DRIVER] a sketch running on an ATtiny85 microcontroller can b
 ### Documentation
 - Autonomous-Car Arduino Library [Wiki](https://github.com/platisd/AndroidCar/wiki)
 
-[/examples/androidCar]:https://github.com/platisd/AndroidCar/tree/master/examples/androidCar
-[/LED_DRIVER]:https://github.com/platisd/AndroidCar/tree/master/LED_DRIVER
+[/examples/androidCar]:examples/androidCar
+[/LED_DRIVER]:LED_DRIVER
 [Razor IMU]:https://www.sparkfun.com/products/10736
 [Smartcar sensors]:https://github.com/platisd/smartcar_sensors
 [DIT168]:http://gul.gu.se/public/courseId/66254/coursePath/46831/ecp/lang-en/publicPage.do
