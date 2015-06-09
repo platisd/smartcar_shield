@@ -5,6 +5,7 @@ Gyroscope	KEYWORD1
 Car	KEYWORD1
 NewPing	KEYWORD1
 Razorboard	KEYWORD1
+MouseSensor	KEYWORD1
 attach	KEYWORD2
 getDistance	KEYWORD2
 getMedianDistance	KEYWORD2
@@ -19,3 +20,6 @@ readLine	KEYWORD2
 readLastLine	KEYWORD2
 getHeading	KEYWORD2
 getLatestHeading	KEYWORD2
+getX	KEYWORD2
+getY	KEYWORD2
+clear	KEYWORD2

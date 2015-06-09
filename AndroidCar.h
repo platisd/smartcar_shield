@@ -123,4 +123,19 @@ class Razorboard{
 		HardwareSerial * _serial;
 };
 
+class MouseSensor{
+	public:
+		MouseSensor();
+		void attach(HardwareSerial *mouseSerial);
+		boolean available();
+		String readLine();
+		String readLastLine();
+		int getX(String mouseInput);
+		int getY(String mouseInput);
+		void clear();
+	private:
+		String readRawSerialLine();
+		HardwareSerial * _serial;
+};
+
 #endif
