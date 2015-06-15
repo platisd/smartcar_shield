@@ -18,6 +18,7 @@ Sonar frontSonar, frontRightSonar, rearSonar;
 Sharp_IR sideFrontIR, sideRearIR, rearIR;
 Odometer encoder;
 Gyroscope gyro;
+Razorboard razor;
 
 const unsigned short COM_FREQ = 100;
 unsigned long previousTransmission = 0;
@@ -29,9 +30,11 @@ boolean overrideTriggered = false;
 unsigned long prevCheck = 0;
 const unsigned short LEDrefreshRate = 200;
 
-Razorboard razor;
-
 const unsigned short GYRO_SAMPLING = 90; //to be optimized experimentally
+
+const unsigned short LINE = WHITE; //define the color of the street lines
+unsigned long prevInfraTime = 0;
+const unsigned short IR_INTERVAL = 500;
 
 void setup() {
   car.begin();
@@ -47,6 +50,10 @@ void setup() {
   gyro.begin(GYRO_SAMPLING); //start measuring
   razor.attach(&Serial3);
   pinMode(BT_STATE_PIN, INPUT);
+  pinMode(LEFT_IR_ARRAY,INPUT);
+  pinMode(RIGHT_IR_ARRAY,INPUT);
+  setupChangeInterrupt(LEFT_IR_ARRAY);
+  setupChangeInterrupt(RIGHT_IR_ARRAY);
   Serial2.begin(9600);
   Serial2.setTimeout(200);
 }
@@ -174,5 +181,27 @@ void handleInput() {
       }
     }
     while (Serial2.read() != -1); //discard incoming data while on override
+  }
+}
+
+void setupChangeInterrupt(unsigned short pin) {
+  *digitalPinToPCMSK(pin) |= bit (digitalPinToPCMSKbit(pin));  // enable pin
+  PCIFR  |= bit (digitalPinToPCICRbit(pin)); // clear any outstanding interrupt
+  PCICR  |= bit (digitalPinToPCICRbit(pin)); // enable interrupt for the group
+}
+
+//the interrupt service routine for pins A8 until A15 on Arduino mega
+ISR (PCINT2_vect) {
+  //if either of the IR arrays have detected a line
+  unsigned short leftArray = digitalRead(LEFT_IR_ARRAY);
+  unsigned short rightArray = digitalRead(RIGHT_IR_ARRAY);
+  if ((leftArray == LINE) || (rightArray == LINE)){
+    unsigned long currentTime = millis();
+    //if we have NOT detected the line "lately"
+    if (currentTime - prevInfraTime > IR_INTERVAL){
+      if (leftArray == LINE) Serial2.println(encodedNetstring("lineL")); //send that we have detected the left line
+      if (rightArray == LINE) Serial2.println(encodedNetstring("lineR")); //send that we have detected the right line
+      prevInfraTime = currentTime; //save the time that we transmitted the line detection
+    }
   }
 }
