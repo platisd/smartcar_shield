@@ -32,5 +32,8 @@ Finally, the repository for the application that is running in Android and permi
 [Smartcar sensors]:https://github.com/platisd/smartcar_sensors
 [DIT168]:http://gul.gu.se/public/courseId/66254/coursePath/46831/ecp/lang-en/publicPage.do
 
+### Project overview
+[The world's first Android autonomous vehicle](https://platis.solutions/blog/2015/06/29/worlds-first-android-autonomous-vehicle/)
+
 ### License
 GPLv3
