@@ -138,4 +138,20 @@ class MouseSensor{
 		HardwareSerial * _serial;
 };
 
+class SRF08{
+	public:
+		SRF08();
+		void attach(const uint8_t address = DEFAULT_SRF08_ADDRESS);
+		void setGain(const uint8_t gainValue);
+		void setRange(const uint8_t rangeValue);
+		void setPingDelay(const uint8_t milliseconds = DEFAULT_PING_DELAY);
+		int getDistance();
+		void changeAddress(const uint8_t newAddress);
+	private:
+		int ping();
+		uint8_t _address, _delay;
+		static const uint8_t DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
+
+};
+
 #endif
