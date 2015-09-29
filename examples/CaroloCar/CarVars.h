@@ -1,49 +1,38 @@
-#ifndef CarVariables_h
-#define CarVariables_h
+#ifndef CarVars_h
+#define CarVars_h
 
-/* pin definitions */
 #define SERVO_PIN 8
 #define ESC_PIN 9
 
-#define FRONT_US_TRIG_PIN 31 //orange
-#define FRONT_US_ECHO_PIN 33 //yellow
+#define US_REAR_ADDRESS 0x73
+#define US_FRONT_ADDRESS 0x70
 
-#define FRONT_RIGHT_US_TRIG_PIN 29 //yellow
-#define FRONT_RIGHT_US_ECHO_PIN 27 //green
+#define US_GAIN 0x1F //maximum gain
+#define US_RANGE 0x07 //7 for 34 centimeters
 
-#define REAR_US_TRIG_PIN 25
-#define REAR_US_ECHO_PIN 23
+#define IR_REAR_LEFT_PIN A1
+#define IR_REAR_RIGHT_PIN A2
+#define IR_MIDDLE_REAR_PIN A0
+#define IR_MIDDLE_FRONT_PIN A3
 
-#define SIDE_FRONT_IR_PIN A0
-#define SIDE_REAR_IR_PIN A1
-#define REAR_IR_PIN A2
+#define ENCODER_LEFT_PIN 2
+#define ENCODER_RIGHT_PIN 3
 
-#define ENCODER_DIG_PIN 2 //INT0
-#define BT_STATE_PIN 4
+#define OVERRIDE_SIGNAL_PIN A9
+#define OVERRIDE_THROTTLE_PIN A8
+#define OVERRIDE_SERVO_PIN A10
 
-#define LEFT_IR_ARRAY A9
-#define RIGHT_IR_ARRAY A8
-#define WHITE 1
-#define BLACK 0
+#define OVERRIDE_SIGNAL_AVERAGE_FREQ 790
+#define OVERRIDE_SIGNAL_TOLERANCE 10
 
-#define OVERRIDE_SIGNAL_PIN 10
-#define MAX_WAVELENGTH 995
-#define MAX_STEERING_WAVELENGTH 2000
-#define OVERRIDE_THROTTLE_PIN 7
-#define OVERRIDE_SERVO_PIN 6
+#define THROTTLE_SIGNAL_IDLE_FREQ 1500
+#define THROTTLE_SIGNAL_TOLERANCE 100
+
 #define NEUTRAL_FREQUENCY 1500
 #define OVERRIDE_FORWARD_SPEED 60
 #define OVERRIDE_BACKWARD_SPEED -250
 #define OVERRIDE_STEER_RIGHT 20
 #define OVERRIDE_STEER_LEFT -20
-#define OVERRIDE_FREQ_TOLERANCE 250
-
-/* macro definitions */
-//read fast from bluetooth state pin (connected to digital pin 4 of Mega or Uno)
-#if defined(__AVR_ATmega2560__)
-#define bluetoothConnected (PING & B00100000)
-#elif defined(__AVR_ATmega328P__)
-#define bluetoothConnected (PIND & B00010000)
-#endif
+#define OVERRIDE_FREQ_TOLERANCE 200
 
 #endif
