@@ -18,7 +18,7 @@ Finally, the repository for the application that is running in the single board 
 - Infrared distance sensors (SHARP GP2D120)
 
 ### Dependencies
-- [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the gyroscope, via I2C
+- [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the SRF08 ultrasonic sensors, via I2C
 - [Servo library](http://www.arduino.cc/en/Reference/Servo) used for controlling the ESC and the steering wheel
 
 ### Documentation
