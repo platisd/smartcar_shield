@@ -13,6 +13,7 @@ getAngularDisplacement	KEYWORD2
 timer_start	KEYWORD2
 timer_stop	KEYWORD2
 setSpeed	KEYWORD2
+setAngle  KEYWORD2
 setSteeringWheel	KEYWORD2
 getSpeed	KEYWORD2
 getAngle	KEYWORD2
