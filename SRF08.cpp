@@ -1,4 +1,4 @@
-#include "AndroidCar.h"
+#include "CaroloCup.h"
 
 const uint8_t SRF08::DEFAULT_PING_DELAY = 70;
 const uint8_t SRF08::DEFAULT_SRF08_ADDRESS = 112;
@@ -9,7 +9,7 @@ static const uint8_t LAST_ADDRESS = 127;
 SRF08::SRF08(){}
 
 void SRF08::attach(const uint8_t address){
-	Wire.begin();
+	if (!TWCR) Wire.begin(); //if it hasn't been started (TWCR==0), start it
 	_address = address;
 	_delay = DEFAULT_PING_DELAY;
 }

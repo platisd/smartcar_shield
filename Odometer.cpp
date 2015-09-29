@@ -4,58 +4,55 @@
 *	Author: Dimitris Platis (based on the Smartcar project by Team Pegasus)
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
-#include "AndroidCar.h"
+#include "CaroloCup.h"
 
 /* ---- ODOMETER ---- */
-void updateCounter(); //ISR for the odometer
+void updateCounter1(); //ISR for the odometer
+void updateCounter2();
 // Macro to convert from odometer pulses to centimeters. (ca. 48 pulses per meter, that's why we multiply by 2 to find value in cm)
 #define PulsesToCentimeters(pulses) (pulses << 1)
 
-volatile unsigned long _pulseCounter = 0;
+volatile unsigned long _pulseCounter[2];
+static unsigned short odometers = 0;
 
 Odometer::Odometer(){
+_odometerID = odometers++;
 }
 
 int Odometer::attach(unsigned short odometerPin){
-	switch(odometerPin){ //converting digital pins to interrupts for Arduino Mega
-		case 2:
-			_odometerInterruptPin = 0;
-			break;
-		case 3:
-			_odometerInterruptPin = 1;
-			break;
-		case 21:
-			_odometerInterruptPin = 2;
-			break;
-		case 20:
-			_odometerInterruptPin = 3;
-			break;
-		case 19:
-			_odometerInterruptPin = 4;
-			break;
-		case 18:
-			_odometerInterruptPin = 5;
-			break;
-		default:
-			return 0; //signals invalid interrupt pin
+	_odometerInterruptPin = digitalPinToInterrupt(odometerPin);
+	if (_odometerInterruptPin != NOT_AN_INTERRUPT){
+		if (!_odometerID){
+			attachInterrupt(_odometerInterruptPin, updateCounter1, CHANGE);
+		}else if (_odometerID == 1){
+			attachInterrupt(_odometerInterruptPin, updateCounter2, CHANGE);
+		}else{
+			return -1; //too many encoders attached
+		}
+		return 1; //everything went as it should
 	}
-	attachInterrupt(_odometerInterruptPin, updateCounter, CHANGE);
-	return 1;
+	return 0; //invalid interrupt pin
 }
 
 void Odometer::begin(){
-	_pulseCounter = 0; //initialize the counter
+	_pulseCounter[_odometerID] = 0; //initialize the counter
 }
 
 unsigned long Odometer::getDistance(){
-	return PulsesToCentimeters(_pulseCounter);
+	noInterrupts();
+	unsigned long pulses = _pulseCounter[_odometerID];
+	interrupts();
+	return PulsesToCentimeters(pulses);
 }
 
 void Odometer::detach(){
-	_pulseCounter = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
+	_pulseCounter[_odometerID] = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
 	detachInterrupt(_odometerInterruptPin);
 }
 
-void updateCounter(){
-	_pulseCounter++;
+void updateCounter1(){
+	_pulseCounter[0]++;
+}
+void updateCounter2(){
+	_pulseCounter[1]++;
 }

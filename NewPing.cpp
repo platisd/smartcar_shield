@@ -4,7 +4,7 @@
 *	Author: Dimitris Platis (based on the work by Tim Eckel - teckel@leethost.com)
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
-#include "AndroidCar.h"
+#include "CaroloCup.h"
 
 // Variables used for timer functions
 void (*intFunc)();

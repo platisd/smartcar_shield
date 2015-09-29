@@ -8,7 +8,7 @@
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-#include "AndroidCar.h"
+#include "CaroloCup.h"
 
 /* ---- SHARP INFRARED SENSOR ---- */
 //static const float SHARP_SENSITIVITY = 0.0048828125; //only use with GP2Y0A02

@@ -3,7 +3,7 @@
 *	Author: Dimitris Platis (based on the Smartcar project by Team Pegasus)
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
-#include "AndroidCar.h"
+#include "CaroloCup.h"
 
 MouseSensor::MouseSensor(){
 }

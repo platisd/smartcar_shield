@@ -8,8 +8,8 @@
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-#ifndef AndroidCar_h
-#define AndroidCar_h
+#ifndef CaroloCup_h
+#define CaroloCup_h
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include <Arduino.h>
 #else
@@ -29,6 +29,7 @@ class Car {
 		void setAngle(int degrees);
 		int getSpeed();
 		int getAngle();
+		void stop();
 	private:
 		void setSteeringWheelPin(unsigned short steeringWheelPin);
 		void setESCPin(unsigned short escPin);
@@ -78,7 +79,7 @@ class Odometer {
 		unsigned long getDistance();
 		void detach();
 	private:
-		unsigned short _odometerInterruptPin;
+		unsigned short _odometerInterruptPin, _odometerID;
 };
 
 class NewPing{

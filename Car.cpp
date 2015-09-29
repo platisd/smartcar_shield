@@ -1,18 +1,18 @@
 /*
 *	Car.cpp
 */
-#include "AndroidCar.h"
+#include "CaroloCup.h"
 /* --- CAR --- */
 
 const unsigned short Car::DEFAULT_SERVO_PIN = 8;
 const unsigned short Car::DEFAULT_ESC_PIN = 9;
 
 const int IDLE_SPEED = 1500;
-const int MAX_FRONT_SPEED = 1590; //can go to 1800
+const int MAX_FRONT_SPEED = 1600; //can go to 1800
 const int MAX_BACK_SPEED = 1200; //can go to 1200
-const int STRAIGHT_WHEELS = 97;
-const int MAX_RIGHT_DEGREES = 122;
-const int MAX_LEFT_DEGREES = 72;
+const int STRAIGHT_WHEELS = 90;
+const int MAX_RIGHT_DEGREES = 120;
+const int MAX_LEFT_DEGREES = 60;
 
 Car::Car(unsigned short steeringWheelPin, unsigned short escPin){
 	setSteeringWheelPin(steeringWheelPin);
@@ -42,6 +42,18 @@ void Car::setSpeed(int speed){
 void Car::setAngle(int degrees){
 	_angle = constrain(STRAIGHT_WHEELS + degrees, MAX_LEFT_DEGREES, MAX_RIGHT_DEGREES);
 	steeringWheel.write(_angle);
+}
+
+void Car::stop(){
+	if (getSpeed()>0){
+		setSpeed(-100);
+		delay(35);
+		setSpeed(0);
+	}else if(getSpeed()<0){
+		setSpeed(100);
+		delay(35);
+		setSpeed(0);
+	}
 }
 
 int Car::getSpeed(){
