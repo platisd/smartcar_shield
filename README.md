@@ -8,7 +8,7 @@ The library is dependant on certain hardware sensors and of course the Arduino p
 
 Moreover, in [/LED_DRIVER] a sketch running on an ATtiny85 microcontroller can be found, which is tasked to control the various LED lights that are mounted on the vehicle, which are indicating the current operation mode of the car (turning, stopping, override, running) as per specifications of the DIT168 course.
 
-Finally, the repository for the application that is running in Android and permits the accomplishment of the various tasks (lane following, parking) can be found [here]().
+Finally, the repository for the application that is running in Android and permits the accomplishment of the various tasks (lane following, parking) can be found [here](https://github.com/platisd/CaroloCup2016/).
 
 ### Components
 - Electronic Speed Controller (ESC)
@@ -30,8 +30,8 @@ Finally, the repository for the application that is running in Android and permi
 [AndroidCar]:https://github.com/platisd/AndroidCar
 
 ### Project documentation
-[The world's first Android autonomous vehicle](https://platis.solutions/blog/2015/06/29/worlds-first-android-autonomous-vehicle/)
-[Carolo Cup 2016 - Team Pegasus Project]()
+- [The world's first Android autonomous vehicle](https://platis.solutions/blog/2015/06/29/worlds-first-android-autonomous-vehicle/)
+- [Carolo Cup 2016 - Team Pegasus Project](https://github.com/platisd/CaroloCup2016/)
 
 ### License
 GPLv3
