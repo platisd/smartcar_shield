@@ -56,7 +56,8 @@ void setup() {
   pinMode(OVERRIDE_THROTTLE_PIN, INPUT);
   pinMode(OVERRIDE_SERVO_PIN, INPUT);
   setupChangeInterrupt(OVERRIDE_SIGNAL_PIN);
-  //  setupChangeInterrupt(RIGHT_IR_ARRAY);
+  setupChangeInterrupt(OVERRIDE_THROTTLE_PIN);
+  setupChangeInterrupt(OVERRIDE_SERVO_PIN);
   Serial.begin(9600); //to HLB
   Serial3.begin(9600); //to LED driver
 }
