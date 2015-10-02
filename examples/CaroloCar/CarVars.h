@@ -9,6 +9,7 @@
 
 #define US_GAIN 0x1F //maximum gain
 #define US_RANGE 0x07 //7 for 34 centimeters
+#define US_DELAY 6 //this is connected to maximum gain, please refer to the datasheet
 
 #define IR_REAR_LEFT_PIN A1
 #define IR_REAR_RIGHT_PIN A2

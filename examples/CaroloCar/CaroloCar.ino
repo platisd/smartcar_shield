@@ -37,11 +37,11 @@ void setup() {
   frontSonar.attach(US_FRONT_ADDRESS);
   frontSonar.setGain(US_GAIN);
   frontSonar.setRange(US_RANGE);
-  frontSonar.setPingDelay(6);
+  frontSonar.setPingDelay(US_DELAY);
   rearSonar.attach(US_REAR_ADDRESS);
   rearSonar.setGain(US_GAIN);
   rearSonar.setRange(US_RANGE);
-  rearSonar.setPingDelay(6);
+  rearSonar.setPingDelay(US_DELAY);
   rearLeftIR.attach(IR_REAR_LEFT_PIN);
   rearRightIR.attach(IR_REAR_RIGHT_PIN);
   middleRearIR.attach(IR_MIDDLE_REAR_PIN);
