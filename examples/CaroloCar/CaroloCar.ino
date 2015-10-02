@@ -15,22 +15,20 @@ unsigned long previousTransmission = 0;
 unsigned long prevCheck = 0; //for the LEDs
 const unsigned short LEDrefreshRate = 200;
 
-volatile unsigned long overrideSignalStart = 0;
-volatile boolean overrideSignalPending = false;
-volatile int overrideSignalFreq = 0;
-
 const unsigned short OVERRIDE_TIMEOUT = 3000;
 unsigned long overrideRelease = 0; //variable to hold WHEN the override should be lifted
 volatile boolean overrideTriggered = false; //volatile since we are accessing it inside an ISR
 
 volatile unsigned long throttleSignalStart = 0;
 volatile boolean throttleSignalPending = false;
-volatile int throttleSignalFreq = 0;
+volatile unsigned int throttleSignalFreq = 0;
 
 volatile unsigned long steeringSignalStart = 0;
 volatile boolean steeringSignalPending = false;
-volatile int steeringSignalFreq = 0;
+volatile unsigned int steeringSignalFreq = 0;
 
+volatile byte qualityControl = 0; //if this byte is 11111111, that means the measurements we received were of good quality (controller is turned on)
+const unsigned short MINIMUM_FREQUENCY = 900; //frequencies below this will be disregarded
 unsigned int throttleFreq = 0;
 unsigned int servoFreq = 0;
 
@@ -52,10 +50,8 @@ void setup() {
   encoderLeft.begin();
   encoderRight.attach(ENCODER_RIGHT_PIN);
   encoderRight.begin();
-  pinMode(OVERRIDE_SIGNAL_PIN, INPUT);
   pinMode(OVERRIDE_THROTTLE_PIN, INPUT);
   pinMode(OVERRIDE_SERVO_PIN, INPUT);
-  setupChangeInterrupt(OVERRIDE_SIGNAL_PIN);
   setupChangeInterrupt(OVERRIDE_THROTTLE_PIN);
   setupChangeInterrupt(OVERRIDE_SERVO_PIN);
   Serial.begin(9600); //to HLB
@@ -71,21 +67,18 @@ void loop() {
 
 void handleOverride() {
   noInterrupts();
-  boolean _overrideSignalPending = overrideSignalPending;
+  boolean qualityCheck = (qualityControl == B11111111); //true if the last 8 measurements were valid
   interrupts();
-  if (_overrideSignalPending) {
+  if (qualityCheck) { //good quality, means that the RC controller is turned on, therefore we should go on override mode
+    overrideTriggered = true;
+    overrideRelease = millis() + OVERRIDE_TIMEOUT; //specify the moment in the future to re-enable Serial communication
+  } else { //this means that at least one of the last 8 measurements was not valid, therefore we consider the signal not to be of good quality (RC controller is turned off)
     noInterrupts();
-    short diff = overrideSignalFreq - OVERRIDE_SIGNAL_AVERAGE_FREQ;
-    interrupts();
-    if (abs(diff) < OVERRIDE_SIGNAL_TOLERANCE) { //there is a valid override signal
-      overrideRelease = millis() + OVERRIDE_TIMEOUT; //time to re-enable Serial communication
-      overrideTriggered = true;
-    }
-    noInterrupts();
-    overrideSignalPending = false; //indicate that loop() has processed the override signal
+    throttleSignalPending = false; //indicate that loop() has processed/disregarded the throttle signal
+    steeringSignalPending = false; //indicate that loop() has read/disregarded the servo signal
     interrupts();
   }
-  if (overrideTriggered) { //if override is triggered, then you can consider signals from the other channels
+  if (overrideTriggered) { //if override is triggered, then you can consider signals from the channels
     noInterrupts();
     boolean _throttleSignalPending = throttleSignalPending;
     interrupts();
@@ -101,7 +94,7 @@ void handleOverride() {
     if (_steeringSignalPending) { //if there is something to be processed
       noInterrupts();
       servoFreq = steeringSignalFreq; //save the steering's frequency
-      steeringSignalPending = false; //indicate that loop() has read the throttle signal
+      steeringSignalPending = false; //indicate that loop() has read the servo signal
       interrupts();
     }
   }
@@ -112,8 +105,7 @@ void handleInput() {
   if (!overrideTriggered || (millis() > overrideRelease)) {
     if (overrideTriggered) { //this state is only entered when the OVERRIDE_TIMEOUT is over
       overrideTriggered = false;
-      //after going out of the override mode, set speed and steering to initial position
-      car.setSpeed(0);
+      car.setSpeed(0); //after going out of the override mode, set speed and steering to initial position
       car.setAngle(0);
     }
     if (Serial.available()) {
@@ -214,36 +206,34 @@ void setupChangeInterrupt(unsigned short pin) { //a method to alternatively setu
 
 //the interrupt service routine for pins A8 until A15 on Arduino mega
 ISR (PCINT2_vect) {
-  unsigned short override = digitalRead(OVERRIDE_SIGNAL_PIN);
-  if (override) { //we are at the beginning of a control signal pulse
-    overrideSignalStart = micros();
-  } else { //we are at the end of the pulse
-    if (overrideSignalStart && !overrideSignalPending) { //if an override's signal start has been detected AND there is no override signal pending to be processed by loop()
-      overrideSignalFreq = micros() - overrideSignalStart; // the time of the falling edge MINUS the time of the rising edge, gives us the period of the signal
-      overrideSignalStart = 0;
-      overrideSignalPending = true; //there is an override signal to be processed pending by loop()
+  unsigned short throttle = digitalRead(OVERRIDE_THROTTLE_PIN);
+  unsigned short steering = digitalRead(OVERRIDE_SERVO_PIN);
+  if (throttle) { //we are at the beginning of a throttle pulse
+    if (!throttleSignalStart) { //it's the beginning of a pulse, if it is HIGH and we have not already started measuring (throttleSignalStart == 0)
+      throttleSignalStart = micros(); //log down the microseconds at the beginning of the pulse
+    }
+  } else { //we are at the end of the throttle pulse
+    if (throttleSignalStart && !throttleSignalPending) { //if the throttle signal has been started AND there is no throttle signal pending to be processed by loop()
+      throttleSignalFreq = micros() - throttleSignalStart; //calculate the throttle signal's period
+      throttleSignalStart = 0; //initialize the starting point of the measurement, so we do not go in here again, while the pulse is low
+      throttleSignalPending = true; //signal loop() that there is a signal to handle
+      qualityControl = qualityControl << 1;
+      if (throttleSignalFreq < MINIMUM_FREQUENCY) { //since we are using an analog RC receiver, there is a lot of noise, usually under the frequency of 900
+        qualityControl |= 0; //put a 0 bit in the end of qualityControl byte
+      } else { //this means that is a valid looking signal
+        qualityControl |= 1; //put a 1 bit in the end of qualityControl byte
+      } //we do not need to do this for both the channels we have
     }
   }
-  if (overrideTriggered) { //if there is an override control signal, then take into consideration the two other channels
-    unsigned short throttle = digitalRead(OVERRIDE_SIGNAL_PIN);
-    unsigned short steering = digitalRead(OVERRIDE_SERVO_PIN);
-    if (throttle) { //we are at the beginning of a throttle pulse
-      throttleSignalStart = micros();
-    } else { //we are at the end of the throttle pulse
-      if (throttleSignalStart && !throttleSignalPending) { //if the throttle signal has been started AND there is no throttle signal pending to be processed by loop()
-        throttleSignalFreq = micros() - throttleSignalStart; //calculate the throttle signal's period
-        throttleSignalStart = 0;
-        throttleSignalPending = true; //signal loop() that there is a signal to handle
-      }
+  if (steering) { //we could be at the beginning of a steering pulse
+    if (!steeringSignalStart) { //if we are already measuring something, that means this is NOT the beginning of a pulse
+      steeringSignalStart = micros(); //get the current time in microseconds, ONLY IF this is really the beginning of a pulse and we weren't already measuring
     }
-    if (steering) { //we are at the beginning of a steering pulse
-      steeringSignalStart = micros(); //get the current time in microseconds
-    } else { //we are at the end of a steering pulse
-      if (steeringSignalStart && !steeringSignalPending) { //if the steering signal for the servo has started aAND there is no servo signal pending to be processed by loop()
-        steeringSignalFreq = micros() - throttleSignalStart;
-        steeringSignalStart = 0;
-        steeringSignalPending = true; //signal loop() that there is a signal to handle
-      }
+  } else { //we are at the end of a steering pulse
+    if (steeringSignalStart && !steeringSignalPending) { //if the steering signal for the servo has started aAND there is no servo signal pending to be processed by loop()
+      steeringSignalFreq = micros() - steeringSignalStart;
+      steeringSignalStart = 0; //initialize the starting point of the measurement, so we do not go in here again, while the pulse is low
+      steeringSignalPending = true; //signal loop() that there is a signal to handle
     }
   }
 }
