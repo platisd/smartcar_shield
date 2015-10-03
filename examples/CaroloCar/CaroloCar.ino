@@ -57,7 +57,7 @@ void setup() {
 }
 
 void loop() {
-  handleOverride(); //look for an override signal and if it exists disable bluetooth input
+  handleOverride(); //look for an override signal and if it exists disable serial input from the HLB
   handleInput(); //look for a serial input if override is not triggered and act accordingly
   updateLEDs(); //update LEDs depending on the mode we are currently in
   transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
