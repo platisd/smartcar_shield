@@ -50,8 +50,6 @@ void setup() {
   encoderLeft.begin();
   encoderRight.attach(ENCODER_RIGHT_PIN);
   encoderRight.begin();
-  pinMode(OVERRIDE_THROTTLE_PIN, INPUT);
-  pinMode(OVERRIDE_SERVO_PIN, INPUT);
   setupChangeInterrupt(OVERRIDE_THROTTLE_PIN);
   setupChangeInterrupt(OVERRIDE_SERVO_PIN);
   Serial.begin(9600); //to HLB
@@ -198,7 +196,8 @@ void transmitSensorData() {
   }
 }
 
-void setupChangeInterrupt(unsigned short pin) { //a method to alternatively setup change interrupts on non external interrupt pins
+void setupChangeInterrupt(const unsigned short pin) { //a method to setup change interrupts on non external interrupt pins
+  pinMode(pin, INPUT); //set the pin as input
   *digitalPinToPCMSK(pin) |= bit (digitalPinToPCMSKbit(pin));  // enable pin
   PCIFR  |= bit (digitalPinToPCICRbit(pin)); // clear any outstanding interrupt
   PCICR  |= bit (digitalPinToPCICRbit(pin)); // enable interrupt for the group
