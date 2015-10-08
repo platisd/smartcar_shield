@@ -10,8 +10,8 @@ const unsigned short Car::DEFAULT_ESC_PIN = 9;
 const int IDLE_SPEED = 1500;
 const int MAX_FRONT_SPEED = 1600; //can go to 1800
 const int MAX_BACK_SPEED = 1200; //can go to 1200
-const int STRAIGHT_WHEELS = 90;
-const int MAX_RIGHT_DEGREES = 120;
+const int STRAIGHT_WHEELS = 45;
+const int MAX_RIGHT_DEGREES = 135;
 const int MAX_LEFT_DEGREES = 60;
 
 Car::Car(unsigned short steeringWheelPin, unsigned short escPin){
