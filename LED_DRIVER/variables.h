@@ -4,11 +4,12 @@
 enum State {
   RIGHT,
   STOP,
-  LEFT = 3,
-  RC = 4,
-  IDLE
+  MOVING_STRAIGHT,
+  LEFT,
+  RC
 };
 
 #define RX_PIN 2
+#define UNUSED_TX_PIN 3
 
 #endif
