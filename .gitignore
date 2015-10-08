@@ -1,0 +1,4 @@
+# Ignore gedit backup files #
+*.ino~
+*.cpp~
+*.h~
