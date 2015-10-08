@@ -53,7 +53,7 @@ void setup() {
   setupChangeInterrupt(OVERRIDE_THROTTLE_PIN);
   setupChangeInterrupt(OVERRIDE_SERVO_PIN);
   Serial.begin(9600); //to HLB
-  Serial3.begin(9600); //to LED driver
+  Serial3.begin(38400); //to LED driver
 }
 
 void loop() {
