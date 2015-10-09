@@ -18,7 +18,7 @@ unsigned long prevToggle = 0; //the moment the previous LED toggling occurred
 const unsigned short LED_INTERVAL = 1000; //how often we should toggle the LED state (simply: how often we should blink the lights)
 
 void setup() {
-  serialInput.begin(38400); //higher BAUD RATE seems to crash it
+  serialInput.begin(9600); //higher BAUD RATE seems to crash it
   pinMode(STOP, OUTPUT);
   pinMode(RIGHT, OUTPUT);
   pinMode(LEFT, OUTPUT);
