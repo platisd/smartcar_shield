@@ -7,3 +7,6 @@ The LED driver board, is based on an ATTiny85 microcontroller and is used in ord
 * 4 1.5KΩ resistors
 * 1 ATtiny85-20PU microcontroller
 * 1 socket 8 DIP (optional but strongly recommended)
+
+### Documentation
+[Simple LED driver board](https://platis.solutions/blog/2015/10/15/simple-led-driver-board/)
