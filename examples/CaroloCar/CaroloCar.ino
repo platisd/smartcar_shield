@@ -53,6 +53,7 @@ void setup() {
   setupChangeInterrupt(OVERRIDE_THROTTLE_PIN);
   setupChangeInterrupt(OVERRIDE_SERVO_PIN);
   Serial.begin(9600); //to HLB
+  Serial.setTimeout(200); //set a timeout so Serial.readStringUntil dies after the specified amount of time
   Serial3.begin(9600); //to LED driver
 }
 
@@ -140,7 +141,7 @@ void handleInput() {
       if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) { //if the signal we received is close to the idle frequency, then we assume it's neutral
         car.setSpeed(0);
       } else {
-        if (throttleFreq > NEUTRAL_FREQUENCY) { //turn right if the value is larger than the idle frequency
+        if (throttleFreq < NEUTRAL_FREQUENCY) { //turn right if the value is smaller (that's the way it is with this receiver) than the idle frequency
           car.setSpeed(OVERRIDE_FORWARD_SPEED);
         } else {
           car.setSpeed(OVERRIDE_BACKWARD_SPEED);
