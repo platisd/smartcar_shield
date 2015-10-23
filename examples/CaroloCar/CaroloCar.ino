@@ -27,7 +27,7 @@ volatile unsigned long steeringSignalStart = 0;
 volatile boolean steeringSignalPending = false;
 volatile unsigned int steeringSignalFreq = 0;
 
-volatile byte qualityControl = 0; //if this byte is 11111111, that means the measurements we received were of good quality (controller is turned on)
+volatile unsigned int qualityControl = 0; //if this byte is 1111111111111111, that means the measurements we received were of good quality (controller is turned on)
 const unsigned short MINIMUM_FREQUENCY = 900; //frequencies below this will be disregarded
 unsigned int throttleFreq = 0;
 unsigned int servoFreq = 0;
@@ -66,7 +66,7 @@ void loop() {
 
 void handleOverride() {
   noInterrupts();
-  boolean qualityCheck = (qualityControl == B11111111); //true if the last 8 measurements were valid
+  boolean qualityCheck = (qualityControl == 0xFFFF); //true if the last 16 measurements were valid
   interrupts();
   if (qualityCheck) { //good quality, means that the RC controller is turned on, therefore we should go on override mode
     overrideTriggered = true;
