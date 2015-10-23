@@ -9,8 +9,8 @@
 
 
 /* ---- GYROSCOPE (L3G4200D) ---- */
-	const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 25;
-	static const int GYRO_OFFSET = 57; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
+	const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 80;
+	static const int GYRO_OFFSET = 15; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
 	static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
 	static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
 
@@ -53,7 +53,7 @@ void Gyroscope::update(){
 		float gyroRate = 0;
 		int gyroValue = getGyroValues();
 		short drift = GYRO_OFFSET - gyroValue;
- 		if (abs(drift) > GYRO_THRESHOLD){
+ 		if (abs(drift) > GYRO_THRESHOLD){ //if there has been a big enough drift (trying to contemplate for the noise)
 			gyroRate = (gyroValue - GYRO_OFFSET) * GYRO_SENSITIVITY;
 		}
 		unsigned long now = millis();
