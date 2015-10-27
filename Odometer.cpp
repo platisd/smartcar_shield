@@ -9,8 +9,8 @@
 /* ---- ODOMETER ---- */
 void updateCounter1(); //ISR for the odometer
 void updateCounter2();
-// Macro to convert from odometer pulses to centimeters. (ca. 48 pulses per meter, that's why we multiply by 2 to find value in cm)
-#define PulsesToCentimeters(pulses) (pulses << 1)
+// Macro to convert from odometer pulses to centimeters. (ca. 40 pulses per meter, that's why we multiply by 2.5 to find value in cm)
+#define PulsesToCentimeters(pulses) ((pulses << 1)/5)
 
 volatile unsigned long _pulseCounter[2];
 static unsigned short odometers = 0;
