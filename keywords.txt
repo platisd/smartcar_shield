@@ -28,3 +28,5 @@ clear	KEYWORD2
 setGain	KEYWORD2
 setRange	KEYWORD2
 setPingDelay	KEYWORD2
+enableCruiseControl	KEYWORD2
+updateMotors	KEYWORD2
