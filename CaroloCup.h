@@ -21,22 +21,47 @@
 #include <Servo.h>
 #include <Wire.h>
 
+class Odometer {
+	public:
+		Odometer();
+		int attach(unsigned short odometerPin);
+		void begin();
+		unsigned long getDistance();
+		void detach();
+	private:
+		unsigned short _odometerInterruptPin, _odometerID;
+};
+
 class Car {
 	public:
 		Car(unsigned short steeringWheelPin = DEFAULT_SERVO_PIN, unsigned short escPin = DEFAULT_ESC_PIN);
 		void begin();
-		void setSpeed(int speed);
+		void setSpeed(float speed);
 		void setAngle(int degrees);
-		int getSpeed();
+		float getSpeed();
 		int getAngle();
 		void stop();
+		void enableCruiseControl(Odometer encoder, float Kp = DEFAULT_KP, float Ki = DEFAULT_KI, float Kd = DEFAULT_KD, unsigned short = DEFAULT_PID_LOOP_INTERVAL);
+		void updateMotors();
+		void disableCruiseControl();
 	private:
 		void setSteeringWheelPin(unsigned short steeringWheelPin);
 		void setESCPin(unsigned short escPin);
-		unsigned short _steeringWheelPin, _escPin;
+		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
+		void setRawSpeed(int controlledSpeed);
+		float getGroundSpeed();
+		unsigned short _steeringWheelPin, _escPin, _pidLoopInterval;
 		Servo motor, steeringWheel;
-		int _speed, _angle;
-		static const unsigned short DEFAULT_SERVO_PIN, DEFAULT_ESC_PIN;
+		int _angle;
+		float _speed;
+		static const unsigned short DEFAULT_SERVO_PIN, DEFAULT_ESC_PIN, DEFAULT_PID_LOOP_INTERVAL;
+		static const float DEFAULT_KP, DEFAULT_KI, DEFAULT_KD;
+		float _Kp, _Ki, _Kd;
+		Odometer _encoder;
+		boolean cruiseControl;
+		unsigned long _lastMotorUpdate, _previousDistance;
+		int _previousControlledSpeed;
+		int _previousError, _integratedError;
 };
 
 class Sonar {
@@ -68,18 +93,6 @@ class Sharp_IR {
 	private:
 		unsigned short _IR_pin;
 		static const unsigned short IR_DEFAULT_ITERATIONS;
-};
-
-
-class Odometer {
-	public:
-		Odometer();
-		int attach(unsigned short odometerPin);
-		void begin();
-		unsigned long getDistance();
-		void detach();
-	private:
-		unsigned short _odometerInterruptPin, _odometerID;
 };
 
 class NewPing{
