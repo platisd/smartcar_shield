@@ -4,10 +4,11 @@
 #include <Netstrings.h>
 #include "CarVars.h"
 
+Odometer encoderLeft, encoderRight;
+Gyroscope gyro;
 Car car(SERVO_PIN, ESC_PIN); //steering, esc
 SRF08 frontSonar, rearSonar;
 Sharp_IR rearLeftIR, rearRightIR, middleRearIR, middleFrontIR;
-Odometer encoderLeft, encoderRight;
 
 const unsigned short COM_FREQ = 60;
 unsigned long previousTransmission = 0;
@@ -27,7 +28,7 @@ volatile unsigned long steeringSignalStart = 0;
 volatile boolean steeringSignalPending = false;
 volatile unsigned int steeringSignalFreq = 0;
 
-volatile unsigned int qualityControl = 0; //if this byte is 1111111111111111, that means the measurements we received were of good quality (controller is turned on)
+volatile uint16_t qualityControl = 0; //if this byte is 1111111111111111, that means the measurements we received were of good quality (controller is turned on)
 const unsigned short MINIMUM_FREQUENCY = 900; //frequencies below this will be disregarded
 unsigned int throttleFreq = 0;
 unsigned int servoFreq = 0;
@@ -52,6 +53,11 @@ void setup() {
   encoderRight.begin();
   setupChangeInterrupt(OVERRIDE_THROTTLE_PIN);
   setupChangeInterrupt(OVERRIDE_SERVO_PIN);
+  gyro.attach();
+  gyro.begin(); //default 80ms
+  delay(1000);
+  car.enableCruiseControl(encoderLeft);
+  car.setSpeed(0);
   Serial.begin(9600); //to HLB
   Serial.setTimeout(200); //set a timeout so Serial.readStringUntil dies after the specified amount of time
   Serial3.begin(9600); //to LED driver
@@ -61,6 +67,8 @@ void loop() {
   handleOverride(); //look for an override signal and if it exists disable serial input from the HLB
   handleInput(); //look for a serial input if override is not triggered and act accordingly
   updateLEDs(); //update LEDs depending on the mode we are currently in
+  gyro.update(); //integrate gyroscope's readings
+  car.updateMotors();
   transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
 }
 
@@ -117,13 +125,15 @@ void handleInput() {
         car.setAngle(degrees);
       } else if (input.startsWith("b")) {
         car.stop();
+      }else if (input.startsWith("h")) {
+        gyro.begin();
       } else {
         Serial.println(encodedNetstring("Bad input"));
       }
     }
   } else { //we are in override mode now
     //handle override steering
-    if (servoFreq) { //if you get 0, ignore it as it is not a valid value
+    if (servoFreq && servoFreq < MAX_OVERRIDE_FREQ) { //if you get 0, ignore it as it is not a valid value
       short diff = servoFreq - NEUTRAL_FREQUENCY;
       if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) { //if the signal we received is close to the idle frequency, then we assume it's neutral
         car.setAngle(0);
@@ -136,7 +146,7 @@ void handleInput() {
       }
     }
     //handle override throttle
-    if (throttleFreq) {
+    if (throttleFreq && throttleFreq < MAX_OVERRIDE_FREQ) {
       short diff = throttleFreq - NEUTRAL_FREQUENCY;
       if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) { //if the signal we received is close to the idle frequency, then we assume it's neutral
         car.setSpeed(0);
@@ -192,6 +202,8 @@ void transmitSensorData() {
     out += encoderLeft.getDistance();
     out += ".EN2-";
     out += encoderRight.getDistance();
+    out += ".GYR-";
+    out += gyro.getAngularDisplacement();
     Serial.println(encodedNetstring(out));
     previousTransmission = millis();
   }
