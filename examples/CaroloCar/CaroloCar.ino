@@ -35,7 +35,7 @@ unsigned long previousTransmission = 0;
 unsigned long prevCheck = 0; //for the LEDs
 const unsigned short LEDrefreshRate = 200;
 
-const unsigned short OVERRIDE_TIMEOUT = 300;
+const unsigned short OVERRIDE_TIMEOUT = 500;
 unsigned long overrideRelease = 0; //variable to hold WHEN the override should be lifted
 volatile boolean overrideTriggered = false; //volatile since we are accessing it inside an ISR
 
@@ -73,7 +73,7 @@ void setup() {
   setupChangeInterrupt(OVERRIDE_SERVO_PIN);
   gyro.attach();
   gyro.begin(); //default 80ms
-  delay(1000);
+  delay(500); //wait a bit for the esc
   car.enableCruiseControl(encoderLeft);
   car.setSpeed(0);
   Serial.begin(115200); //to HLB
@@ -95,7 +95,7 @@ void handleOverride() {
   if (qualityCheck) { //good quality, means that the RC controller is turned on, therefore we should go on override mode
     overrideTriggered = true;
     overrideRelease = millis() + OVERRIDE_TIMEOUT; //specify the moment in the future to re-enable Serial communication
-  } else { //this means that at least one of the last 8 measurements was not valid, therefore we consider the signal not to be of good quality (RC controller is turned off)
+  } else { //this means that at least one of the last 16 measurements was not valid, therefore we consider the signal not to be of good quality (RC controller is turned off)
     throttleSignalPending = false; //indicate that loop() has processed/disregarded the throttle signal
     steeringSignalPending = false; //indicate that loop() has read/disregarded the servo signal
   }
