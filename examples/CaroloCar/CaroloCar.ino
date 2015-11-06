@@ -1,8 +1,27 @@
 #include <Wire.h>
 #include <Servo.h>
 #include <CaroloCup.h>
-#include <Netstrings.h>
 #include "CarVars.h"
+
+#define DEBUG //comment this line out for protobuffer output
+#if 1 //preprocessor bug workaround, do not remove if you want the #ifndef DEBUG to work
+__asm volatile ("nop");
+#endif
+#ifndef DEBUG //if we are not in debug, include the protobuffer libraries and declare variables
+#include <pb_encode.h>
+#include <pb_decode.h>
+#include <messageproto.pb.h>
+const unsigned short flagEND = 19;
+const unsigned short flagESC = 125;
+const unsigned short varXOR  = 32;
+const unsigned short BUFFER_SIZE = 32;
+uint8_t enc_buffer[32];
+uint8_t dec_buffer[32];
+size_t message_length;
+boolean status;
+#else //if we are in debug, we'll use the Netstrings library for encoding
+#include <Netstrings.h>
+#endif
 
 Odometer encoderLeft, encoderRight;
 Gyroscope gyro;
@@ -16,7 +35,7 @@ unsigned long previousTransmission = 0;
 unsigned long prevCheck = 0; //for the LEDs
 const unsigned short LEDrefreshRate = 200;
 
-const unsigned short OVERRIDE_TIMEOUT = 3000;
+const unsigned short OVERRIDE_TIMEOUT = 300;
 unsigned long overrideRelease = 0; //variable to hold WHEN the override should be lifted
 volatile boolean overrideTriggered = false; //volatile since we are accessing it inside an ISR
 
@@ -29,7 +48,6 @@ volatile boolean steeringSignalPending = false;
 volatile unsigned int steeringSignalFreq = 0;
 
 volatile uint16_t qualityControl = 0; //if this byte is 1111111111111111, that means the measurements we received were of good quality (controller is turned on)
-const unsigned short MINIMUM_FREQUENCY = 900; //frequencies below this will be disregarded
 unsigned int throttleFreq = 0;
 unsigned int servoFreq = 0;
 
@@ -58,7 +76,7 @@ void setup() {
   delay(1000);
   car.enableCruiseControl(encoderLeft);
   car.setSpeed(0);
-  Serial.begin(9600); //to HLB
+  Serial.begin(115200); //to HLB
   Serial.setTimeout(200); //set a timeout so Serial.readStringUntil dies after the specified amount of time
   Serial3.begin(9600); //to LED driver
 }
@@ -69,43 +87,30 @@ void loop() {
   updateLEDs(); //update LEDs depending on the mode we are currently in
   gyro.update(); //integrate gyroscope's readings
   car.updateMotors();
-  transmitSensorData(); //fetch and transmit the sensor data in the correct intervals if bluetooth is connected
+  transmitSensorData(); //fetch and transmit the sensor data in the correct intervals
 }
 
 void handleOverride() {
-  noInterrupts();
   boolean qualityCheck = (qualityControl == 0xFFFF); //true if the last 16 measurements were valid
-  interrupts();
   if (qualityCheck) { //good quality, means that the RC controller is turned on, therefore we should go on override mode
     overrideTriggered = true;
     overrideRelease = millis() + OVERRIDE_TIMEOUT; //specify the moment in the future to re-enable Serial communication
   } else { //this means that at least one of the last 8 measurements was not valid, therefore we consider the signal not to be of good quality (RC controller is turned off)
-    noInterrupts();
     throttleSignalPending = false; //indicate that loop() has processed/disregarded the throttle signal
     steeringSignalPending = false; //indicate that loop() has read/disregarded the servo signal
-    interrupts();
   }
   if (overrideTriggered) { //if override is triggered, then you can consider signals from the channels
-    noInterrupts();
     boolean _throttleSignalPending = throttleSignalPending;
-    interrupts();
     if (_throttleSignalPending) {
-      noInterrupts();
       throttleFreq = throttleSignalFreq; //save the throttle's frequency
       throttleSignalPending = false; //indicate that loop() has processed the throttle signal
-      interrupts();
     }
-    noInterrupts();
     boolean _steeringSignalPending = steeringSignalPending;
-    interrupts();
     if (_steeringSignalPending) { //if there is something to be processed
-      noInterrupts();
       servoFreq = steeringSignalFreq; //save the steering's frequency
       steeringSignalPending = false; //indicate that loop() has read the servo signal
-      interrupts();
     }
   }
-
 }
 
 void handleInput() {
@@ -116,6 +121,7 @@ void handleInput() {
       car.setAngle(0);
     }
     if (Serial.available()) {
+#ifdef DEBUG //if we are in debug mode, use plain text with netstrings
       String input = decodedNetstring(Serial.readStringUntil(','));
       if (input.startsWith("m")) {
         int throttle = input.substring(1).toInt();
@@ -125,15 +131,34 @@ void handleInput() {
         car.setAngle(degrees);
       } else if (input.startsWith("b")) {
         car.stop();
-      }else if (input.startsWith("h")) {
+      } else if (input.startsWith("h")) {
         gyro.begin();
       } else {
         Serial.println(encodedNetstring("Bad input"));
       }
+#else //use protobuffer
+      String input = Serial.readStringUntil(flagEND);
+      for (int i = 0, pos = 0; i < input.length(); i++, pos++) {
+        if (input[i] == flagESC) {
+          i++;
+          dec_buffer[pos] = (int)input[i] ^ varXOR;
+        } else {
+          dec_buffer[pos] = input[i];
+        }
+      }
+      boolean protoDec;
+      Control message;
+      pb_istream_t instream = pb_istream_from_buffer(dec_buffer, BUFFER_SIZE);
+      protoDec = pb_decode(&instream, Control_fields, &message);
+      if (protoDec) { //if it's a valid protopacket
+        car.setSpeed(message.acceleration);
+        car.setAngle(message.steering);
+      }
+#endif
     }
   } else { //we are in override mode now
     //handle override steering
-    if (servoFreq && servoFreq < MAX_OVERRIDE_FREQ) { //if you get 0, ignore it as it is not a valid value
+    if (servoFreq && (servoFreq < MAX_OVERRIDE_FREQ) && (servoFreq > MIN_OVERRIDE_FREQ)) { //if you get 0, ignore it as it is not a valid value
       short diff = servoFreq - NEUTRAL_FREQUENCY;
       if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) { //if the signal we received is close to the idle frequency, then we assume it's neutral
         car.setAngle(0);
@@ -146,7 +171,7 @@ void handleInput() {
       }
     }
     //handle override throttle
-    if (throttleFreq && throttleFreq < MAX_OVERRIDE_FREQ) {
+    if (throttleFreq && (throttleFreq < MAX_OVERRIDE_FREQ) && (throttleFreq > MIN_OVERRIDE_FREQ)) {
       short diff = throttleFreq - NEUTRAL_FREQUENCY;
       if (abs(diff) < OVERRIDE_FREQ_TOLERANCE) { //if the signal we received is close to the idle frequency, then we assume it's neutral
         car.setSpeed(0);
@@ -184,6 +209,7 @@ void updateLEDs() {
 }
 
 void transmitSensorData() {
+#ifdef DEBUG //if we are in debug mode, use plain text with netstrings
   if (millis() - previousTransmission > COM_FREQ) {
     String out;
     out = "US1-";
@@ -191,7 +217,7 @@ void transmitSensorData() {
     out += ".US2-";
     out += rearSonar.getDistance();
     out += ".IR1-";
-    out += rearLeftIR.getDistance(); //rearLeftIR, rearRightIR, middleRearIR, middleFrontIR;
+    out += rearLeftIR.getDistance();
     out += ".IR2-";
     out += rearRightIR.getDistance();
     out += ".IR3-";
@@ -205,6 +231,31 @@ void transmitSensorData() {
     out += ".GYR-";
     out += gyro.getAngularDisplacement();
     Serial.println(encodedNetstring(out));
+#else //use protobuffer
+  Sensors message;
+  message.usFront = frontSonar.getDistance();
+  message.usRear = rearSonar.getDistance();
+  message.irFrontRight = middleFrontIR.getDistance();
+  message.irRearRight = middleRearIR.getDistance();
+  message.irBackLeft = rearLeftIR.getDistance();
+  message.irBackRight = rearRightIR.getDistance();
+  message.wheelFrontLeft = encoderLeft.getDistance();
+  message.wheelRearRight = encoderRight.getDistance();
+  pb_ostream_t outstream = pb_ostream_from_buffer(enc_buffer, sizeof(enc_buffer));
+  status = pb_encode(&outstream, Sensors_fields, &message);
+  message_length = outstream.bytes_written;
+  if (status) { //if valid send the protobytes
+    for (int i = 0; i < message_length; i++) {
+      if (enc_buffer[i] == flagEND || enc_buffer[i] == flagESC) {
+        Serial.write(flagESC);
+        Serial.write(enc_buffer[i]^varXOR);
+      } else {
+        Serial.write(enc_buffer[i]);
+      }
+    }
+    Serial.write(flagEND);
+  }
+#endif
     previousTransmission = millis();
   }
 }
@@ -230,7 +281,7 @@ ISR (PCINT2_vect) {
       throttleSignalStart = 0; //initialize the starting point of the measurement, so we do not go in here again, while the pulse is low
       throttleSignalPending = true; //signal loop() that there is a signal to handle
       qualityControl = qualityControl << 1;
-      if (throttleSignalFreq < MINIMUM_FREQUENCY) { //since we are using an analog RC receiver, there is a lot of noise, usually under the frequency of 900
+      if (throttleSignalFreq < MIN_OVERRIDE_FREQ) { //since we are using an analog RC receiver, there is a lot of noise, usually under the frequency of 900
         qualityControl |= 0; //put a 0 bit in the end of qualityControl byte
       } else { //this means that is a valid looking signal
         qualityControl |= 1; //put a 1 bit in the end of qualityControl byte
