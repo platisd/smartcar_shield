@@ -9,7 +9,7 @@ This is the sketch that runs on Team Pegasus' autonomous vehicle, taking part in
 - Upload after making possible changes
 
 ## Netstrings VS Protobuff
-If you want to transmit the sensor data over plain text, encoded as Netstrings, leave #define DEBUG uncommented. Alternatively, if you want to use the faster and more lightweight protobuffer (make sure you install the appropriate library first, optimized for your setup), comment out #define DEBUG.
+If you want to transmit the sensor data over plain text, encoded as Netstrings, leave `#define DEBUG` uncommented. Alternatively, if you want to use the faster and more lightweight protobuffer (make sure you install the appropriate library first, optimized for your setup), comment out `#define DEBUG`.
 
 ## How to test components
 You can find Arduino sketches to test various car components, in the [Testing](https://github.com/platisd/CaroloCup2016/tree/master/examples/testing) folder.
