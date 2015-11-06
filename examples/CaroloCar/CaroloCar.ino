@@ -281,7 +281,7 @@ ISR (PCINT2_vect) {
       throttleSignalStart = 0; //initialize the starting point of the measurement, so we do not go in here again, while the pulse is low
       throttleSignalPending = true; //signal loop() that there is a signal to handle
       qualityControl = qualityControl << 1;
-      if (throttleSignalFreq < MIN_OVERRIDE_FREQ) { //since we are using an analog RC receiver, there is a lot of noise, usually under the frequency of 900
+      if ((throttleSignalFreq < MIN_OVERRIDE_FREQ)  || (throttleSignalFreq > MAX_OVERRIDE_FREQ)) { //since we are using an analog RC receiver, there is a lot of noise, usually under the frequency of 900 or over 2000
         qualityControl |= 0; //put a 0 bit in the end of qualityControl byte
       } else { //this means that is a valid looking signal
         qualityControl |= 1; //put a 1 bit in the end of qualityControl byte
