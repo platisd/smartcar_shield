@@ -59,13 +59,13 @@ void Car::updateMotors(){
 		float measuredSpeed = getGroundSpeed(); //speed in cm/milliseconds
 		measuredSpeed *= 10; //transform it into m/seconds, so we divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
 		if (_speed < 0) measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
-		Serial.print("Target: ");
-		Serial.print(_speed);
-		Serial.print("\t\tMeasured: ");
-		Serial.print(measuredSpeed);
+//		Serial.print("Target: ");
+//		Serial.print(_speed);
+//		Serial.print("\t\tMeasured: ");
+//		Serial.print(measuredSpeed);
 		int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, measuredSpeed);
-		Serial.print("\t\tOutput: ");
-		Serial.println(controlledSpeed);
+//		Serial.print("\t\tOutput: ");
+//		Serial.println(controlledSpeed);
 		setRawSpeed(controlledSpeed);
 		_previousControlledSpeed = controlledSpeed;
 		_lastMotorUpdate = millis();
@@ -78,8 +78,8 @@ int Car::motorPIDcontrol(const int previousSpeed, const float targetSpeed, const
 	_integratedError += error;
 	correction = (_Kp * error) + (_Ki * _integratedError) + (_Kd * (error - _previousError));                            
 	_previousError = error;
-	Serial.print("\t\tError: ");
-	Serial.print(error);
+//	Serial.print("\t\tError: ");
+//	Serial.print(error);
 	return constrain(previousSpeed + int(correction), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
 }
 
