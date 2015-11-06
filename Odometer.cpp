@@ -39,10 +39,7 @@ void Odometer::begin(){
 }
 
 unsigned long Odometer::getDistance(){
-	noInterrupts();
-	unsigned long pulses = _pulseCounter[_odometerID];
-	interrupts();
-	return PulsesToCentimeters(pulses);
+	return PulsesToCentimeters(_pulseCounter[_odometerID]);
 }
 
 void Odometer::detach(){
