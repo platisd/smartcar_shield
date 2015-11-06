@@ -209,8 +209,8 @@ void updateLEDs() {
 }
 
 void transmitSensorData() {
-#ifdef DEBUG //if we are in debug mode, use plain text with netstrings
   if (millis() - previousTransmission > COM_FREQ) {
+#ifdef DEBUG //if we are in debug mode, use plain text with netstrings
     String out;
     out = "US1-";
     out += frontSonar.getDistance();
@@ -232,29 +232,29 @@ void transmitSensorData() {
     out += gyro.getAngularDisplacement();
     Serial.println(encodedNetstring(out));
 #else //use protobuffer
-  Sensors message;
-  message.usFront = frontSonar.getDistance();
-  message.usRear = rearSonar.getDistance();
-  message.irFrontRight = middleFrontIR.getDistance();
-  message.irRearRight = middleRearIR.getDistance();
-  message.irBackLeft = rearLeftIR.getDistance();
-  message.irBackRight = rearRightIR.getDistance();
-  message.wheelFrontLeft = encoderLeft.getDistance();
-  message.wheelRearRight = encoderRight.getDistance();
-  pb_ostream_t outstream = pb_ostream_from_buffer(enc_buffer, sizeof(enc_buffer));
-  status = pb_encode(&outstream, Sensors_fields, &message);
-  message_length = outstream.bytes_written;
-  if (status) { //if valid send the protobytes
-    for (int i = 0; i < message_length; i++) {
-      if (enc_buffer[i] == flagEND || enc_buffer[i] == flagESC) {
-        Serial.write(flagESC);
-        Serial.write(enc_buffer[i]^varXOR);
-      } else {
-        Serial.write(enc_buffer[i]);
+    Sensors message;
+    message.usFront = frontSonar.getDistance();
+    message.usRear = rearSonar.getDistance();
+    message.irFrontRight = middleFrontIR.getDistance();
+    message.irRearRight = middleRearIR.getDistance();
+    message.irBackLeft = rearLeftIR.getDistance();
+    message.irBackRight = rearRightIR.getDistance();
+    message.wheelFrontLeft = encoderLeft.getDistance();
+    message.wheelRearRight = encoderRight.getDistance();
+    pb_ostream_t outstream = pb_ostream_from_buffer(enc_buffer, sizeof(enc_buffer));
+    status = pb_encode(&outstream, Sensors_fields, &message);
+    message_length = outstream.bytes_written;
+    if (status) { //if valid send the protobytes
+      for (int i = 0; i < message_length; i++) {
+        if (enc_buffer[i] == flagEND || enc_buffer[i] == flagESC) {
+          Serial.write(flagESC);
+          Serial.write(enc_buffer[i]^varXOR);
+        } else {
+          Serial.write(enc_buffer[i]);
+        }
       }
+      Serial.write(flagEND);
     }
-    Serial.write(flagEND);
-  }
 #endif
     previousTransmission = millis();
   }
