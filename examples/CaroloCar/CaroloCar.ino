@@ -151,7 +151,7 @@ void handleInput() {
       pb_istream_t instream = pb_istream_from_buffer(dec_buffer, BUFFER_SIZE);
       protoDec = pb_decode(&instream, Control_fields, &message);
       if (protoDec) { //if it's a valid protopacket
-        car.setSpeed(message.acceleration);
+        car.setSpeed(message.acceleration/10.0); //divide by 10 since HLB is sending over floats as integers
         car.setAngle(message.steering);
       }
 #endif
