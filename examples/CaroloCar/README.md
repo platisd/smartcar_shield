@@ -5,6 +5,7 @@ This is the sketch that runs on Team Pegasus' autonomous vehicle, taking part in
 - Install the [CaroloCup2016 library](https://github.com/platisd/CaroloCup2016)
 - Install the [Netstrings library](https://github.com/platisd/Netstrings)
 - Open this sketch in the Arduino IDE (you can also find it in the library's examples after you have installed it correctly)
+- Install the [Nano protobuff library](https://github.com/hspilkov/nanopb) compiled for this specific project
 - Upload after making possible changes
 
 ## How to test components
