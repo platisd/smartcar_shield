@@ -46,7 +46,7 @@ void Car::setESCPin(unsigned short escPin){
 
 void Car::setSpeed(float newSpeed){
 	if (cruiseControl){
-		if (_speed && (_speed != IDLE_RAW_SPEED) && (newSpeed * _speed) <= 0) stop(); //if the speeds are signed differently, stop the car and then set the new speed
+		if (_speed && (_speed != IDLE_RAW_SPEED) && (newSpeed * _speed) <= 0) stop(); //if the speeds are signed differently, stop the car and then set the new speed. Ignore this if the speed is already 0 and if speed is at the idle raw speed i.e. leftovers from non-cruise control mode (if IDLE_RAW_SPEED is not 0, it makes sense)
 		_speed = constrain(newSpeed, MAX_BACK_CRUISE_SPEED, MAX_FRONT_CRUISE_SPEED);
 	}else{
 		_speed = constrain(IDLE_RAW_SPEED + int(newSpeed), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
