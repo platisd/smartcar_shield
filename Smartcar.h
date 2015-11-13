@@ -1,15 +1,15 @@
 /*
-*	AndroidCar.h - A simple library for controlling the smartcar
+*	Smartcar.h - A simple library for controlling the smartcar
 *	sensors. 
-*	Version: 0.3
+*	Version: 1.0
 *	Author: Dimitris Platis
 *	Sonar class is essentially a stripped-down version of the NewPing library by Tim Eckel, adjusted to Smartcar needs
 * 	Get original library at: http://code.google.com/p/arduino-new-ping/
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-#ifndef CaroloCup_h
-#define CaroloCup_h
+#ifndef Smartcar_h
+#define Smartcar_h
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include <Arduino.h>
 #else
@@ -18,8 +18,25 @@
 #endif
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <Servo.h>
 #include <Wire.h>
+
+class Gyroscope {
+	public:
+		Gyroscope();
+		void attach();
+		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING); //in milliseconds
+		int getAngularDisplacement();
+		void update();
+	private:
+		void initMeasurement();
+		void initializeGyro();
+		int setupL3G4200D(int scale);
+		void writeRegister(int deviceAddress, byte address, byte val);
+		int getGyroValues();
+		int readRegister(int deviceAddress, byte address);
+		unsigned short _samplingRate;
+		static const unsigned short DEFAULT_GYRO_SAMPLING;
+};
 
 class Odometer {
 	public:
@@ -34,31 +51,41 @@ class Odometer {
 
 class Car {
 	public:
-		Car(unsigned short steeringWheelPin = DEFAULT_SERVO_PIN, unsigned short escPin = DEFAULT_ESC_PIN);
+		Car();
 		void begin();
+		void begin(Odometer encoder);
+		void begin(Gyroscope gyro);
+		void begin(Odometer encoder, Gyroscope gyro);
+		void begin(Odometer encoder1, Odometer encoder2);
+		void begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro);
 		void setSpeed(float speed);
 		void setAngle(int degrees);
 		float getSpeed();
 		int getAngle();
 		void stop();
-		void enableCruiseControl(Odometer encoder, float Kp = DEFAULT_KP, float Ki = DEFAULT_KI, float Kd = DEFAULT_KD, unsigned short = DEFAULT_PID_LOOP_INTERVAL);
-		void updateMotors();
+		void enableCruiseControl(float Kp = DEFAULT_KP, float Ki = DEFAULT_KI, float Kd = DEFAULT_KD, unsigned short = DEFAULT_PID_LOOP_INTERVAL);
 		void disableCruiseControl();
+		void updateMotors();
+		void go(int centimeters);
+		void rotate(int degrees);
+		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
 	private:
-		void setSteeringWheelPin(unsigned short steeringWheelPin);
-		void setESCPin(unsigned short escPin);
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
-		void setRawSpeed(int controlledSpeed);
+		void setMotors(int rawSpeed, int angle);
+		void setDirection(const unsigned short direction);
+		boolean cruiseControlEnabled();
 		float getGroundSpeed();
-		unsigned short _steeringWheelPin, _escPin, _pidLoopInterval;
-		Servo motor, steeringWheel;
+		unsigned long getEncoderDistance();
+		void initializeEncoders();
+		unsigned short _pidLoopInterval, _numOfEncoders;
 		int _angle;
 		float _speed;
-		static const unsigned short DEFAULT_SERVO_PIN, DEFAULT_ESC_PIN, DEFAULT_PID_LOOP_INTERVAL;
+		static const unsigned short DEFAULT_PID_LOOP_INTERVAL;
 		static const float DEFAULT_KP, DEFAULT_KI, DEFAULT_KD;
 		float _Kp, _Ki, _Kd;
-		Odometer _encoder;
-		boolean cruiseControl;
+		Odometer _encoders[2];
+		Gyroscope _gyro;
+		boolean _cruiseControl;
 		unsigned long _lastMotorUpdate, _previousDistance;
 		int _previousControlledSpeed;
 		int _previousError, _integratedError;
@@ -102,54 +129,6 @@ class NewPing{
 	private:
 		static void timer_setup();
 		static void timer_start_cntdwn();
-};
-
-class Gyroscope {
-	public:
-		Gyroscope();
-		void attach();
-		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING); //in milliseconds
-		int getAngularDisplacement();
-		void update();
-	private:
-		void initMeasurement();
-		void initializeGyro();
-		int setupL3G4200D(int scale);
-		void writeRegister(int deviceAddress, byte address, byte val);
-		int getGyroValues();
-		int readRegister(int deviceAddress, byte address);
-		unsigned short _samplingRate;
-		static const unsigned short DEFAULT_GYRO_SAMPLING;
-};
-
-class Razorboard{
-	public:
-		Razorboard();
-		void attach(HardwareSerial *razorSerial);
-		boolean available();
-		String readLine();
-		String readLastLine();
-		int getHeading();
-		int getLatestHeading();
-	private:
-		String readRawSerialLine();
-		int getRawHeading();
-		HardwareSerial * _serial;
-};
-
-class MouseSensor{
-	public:
-		MouseSensor();
-		void attach(HardwareSerial *mouseSerial);
-		boolean available();
-		String readLine();
-		String readLastLine();
-		int getX(String mouseInput);
-		int getY(String mouseInput);
-		void clear();
-	private:
-		String readRawSerialLine();
-		HardwareSerial * _serial;
 };
 
 class SRF08{

@@ -1,67 +1,105 @@
 /*
 *	Car.cpp
 */
-#include "CaroloCup.h"
+#include "Smartcar.h"
 /* --- CAR --- */
 
-const unsigned short Car::DEFAULT_SERVO_PIN = 8;
-const unsigned short Car::DEFAULT_ESC_PIN = 9;
-const unsigned short Car::DEFAULT_PID_LOOP_INTERVAL = 40;
+const unsigned short Car::DEFAULT_PID_LOOP_INTERVAL = 80;
 const float Car::DEFAULT_KP = 5.0;
 const float Car::DEFAULT_KI = 0.0;
 const float Car::DEFAULT_KD = 10.0;
 
-const int IDLE_RAW_SPEED = 1500;
-const int MAX_FRONT_RAW_SPEED = 1650; //can go to 1800
-const int MAX_BACK_RAW_SPEED = 1200; //can go to 1200
-const int IDLE_SPEED = 0; //the user-set frequency where the car is idle
-const int MAX_BACK_SPEED = MAX_BACK_RAW_SPEED - IDLE_RAW_SPEED; //the minimum user-set frequency we are allowed to go
-const int MAX_FRONT_SPEED = MAX_FRONT_RAW_SPEED - IDLE_RAW_SPEED; //the max user-set frequency we are allowed to go
-const float MAX_BACK_CRUISE_SPEED = -2;
-const float MAX_FRONT_CRUISE_SPEED = 2;
-const int STRAIGHT_WHEELS = 90;
-const int MAX_RIGHT_DEGREES = 120;
-const int MAX_LEFT_DEGREES = 60;
+const uint8_t MOTOR_LEFT1_PIN = 8;
+const uint8_t MOTOR_LEFT_EN_PIN = 9;
+const uint8_t MOTOR_LEFT2_PIN = 10;
+const uint8_t MOTOR_RIGHT_EN_PIN = 11;
+const uint8_t MOTOR_RIGHT1_PIN = 12;
+const uint8_t MOTOR_RIGHT2_PIN = 13;
 
-Car::Car(unsigned short steeringWheelPin, unsigned short escPin){
-	setSteeringWheelPin(steeringWheelPin);
-	setESCPin(escPin);
-	cruiseControl = false;
+const unsigned short BACKWARD = 0;
+const unsigned short FORWARD = 1;
+const unsigned short IDLE = 2;
+
+const int IDLE_RAW_SPEED = 0;
+const int MAX_FRONT_RAW_SPEED = 255;
+const int MAX_BACK_RAW_SPEED = -255;
+const float MAX_BACK_CRUISE_SPEED = -3.0;
+const float MAX_FRONT_CRUISE_SPEED = 3.0;
+const int STRAIGHT_WHEELS = 90;
+const int STRAIGHT_ANGLE = 0;
+const int MAX_RIGHT_DEGREES = 180;
+const int MAX_LEFT_DEGREES = 0;
+const float GO_CRUISE_SPEED = 1.3;
+const int GO_RAW_SPEED = 200;
+const int MAX_RIGHT_STEERING_ANGLE = MAX_RIGHT_DEGREES - STRAIGHT_WHEELS;
+const int MAX_LEFT_STEERING_ANGLE = MAX_LEFT_DEGREES - STRAIGHT_WHEELS;
+
+Car::Car(){
+	_cruiseControl = false;
+	_speed = IDLE_RAW_SPEED;
+	_angle = STRAIGHT_WHEELS;
+	_numOfEncoders = 0;
 }
 
 void Car::begin(){
-	motor.attach(_escPin);
-	steeringWheel.attach(_steeringWheelPin);
-	setSpeed(IDLE_SPEED);
-	setAngle(IDLE_SPEED);
+	for (uint8_t i = MOTOR_LEFT1_PIN; i <= MOTOR_RIGHT2_PIN; i++) {
+		pinMode(i, OUTPUT); //declare pins as outputs
+	}
+	setSpeed(IDLE_RAW_SPEED);
+	setAngle(STRAIGHT_ANGLE);
 }
 
-void Car::setSteeringWheelPin(unsigned short steeringWheelPin){
-	_steeringWheelPin = steeringWheelPin;
+void Car::begin(Odometer encoder){
+	_encoders[0] = encoder;
+	_numOfEncoders = 1;
+	begin();
 }
 
-void Car::setESCPin(unsigned short escPin){
-	_escPin = escPin;
+void Car::begin(Gyroscope gyro){
+	_gyro = gyro;
+	begin();
+}
+
+void Car::begin(Odometer encoder, Gyroscope gyro){
+	_encoders[0] = encoder;
+	_numOfEncoders = 1;
+	_gyro = gyro;
+	begin();
+}
+
+void Car::begin(Odometer encoder1, Odometer encoder2){
+	_encoders[0] = encoder1;
+	_encoders[1] = encoder2;
+	_numOfEncoders = 2;
+	begin();
+}
+
+void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
+	_encoders[0] = encoder1;
+	_encoders[1] = encoder2;
+	_numOfEncoders = 2;
+	_gyro = gyro;
+	begin();
 }
 
 void Car::setSpeed(float newSpeed){
-	if (cruiseControl){
+	if (cruiseControlEnabled()){
 		if (_speed && (_speed != IDLE_RAW_SPEED) && (newSpeed * _speed) <= 0) stop(); //if the speeds are signed differently, stop the car and then set the new speed. Ignore this if the speed is already 0 and if speed is at the idle raw speed i.e. leftovers from non-cruise control mode (if IDLE_RAW_SPEED is not 0, it makes sense)
 		_speed = constrain(newSpeed, MAX_BACK_CRUISE_SPEED, MAX_FRONT_CRUISE_SPEED);
 	}else{
-		_speed = constrain(IDLE_RAW_SPEED + int(newSpeed), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
-		setRawSpeed(_speed);
+		_speed = constrain(int(newSpeed), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
+		setMotors(_speed, getAngle());
 	}
 }
 
 void Car::updateMotors(){
-	if (cruiseControl && (millis() > _lastMotorUpdate + _pidLoopInterval)){
+	if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
 		if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
 			float measuredSpeed = getGroundSpeed(); //speed in cm/milliseconds
 			measuredSpeed *= 10; //transform it into m/seconds, divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
 			if (_speed < 0) measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
 			int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, measuredSpeed);
-			setRawSpeed(controlledSpeed);
+			setMotors(controlledSpeed, getAngle());
 			_previousControlledSpeed = controlledSpeed;
 		}
 		_lastMotorUpdate = millis();
@@ -74,62 +112,95 @@ int Car::motorPIDcontrol(const int previousSpeed, const float targetSpeed, const
 	_integratedError += error;
 	correction = (_Kp * error) + (_Ki * _integratedError) + (_Kd * (error - _previousError));                            
 	_previousError = error;
-//	Serial.print("\t\tError: ");
-//	Serial.print(error);
 	return constrain(previousSpeed + int(correction), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
 }
 
- float Car::getGroundSpeed(){
-	unsigned long currentDistance = _encoder.getDistance();
+float Car::getGroundSpeed(){
+	unsigned long currentDistance = getEncoderDistance();
 	unsigned long dX = currentDistance - _previousDistance;
 	_previousDistance = currentDistance;
 	unsigned long dT = millis() - _lastMotorUpdate;
 	float velocity = float(dX)/ float(dT);
-	return velocity;
+	return velocity;	
 }
 
-void Car::setRawSpeed(int rawSpeed){ //platform specific method
-	unsigned int speed = constrain(rawSpeed, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
-	motor.write(speed);
+void Car::setMotors(int rawSpeed, int angle){ //platform specific method
+	if (rawSpeed < 0){
+		setDirection(BACKWARD);	
+	}else if (rawSpeed > 0){
+		setDirection(FORWARD);
+	}else{
+		setDirection(IDLE);
+	}
+	rawSpeed = abs(rawSpeed);
+	float ratio = (STRAIGHT_WHEELS - abs(angle));
+	ratio /= STRAIGHT_WHEELS;
+	if (angle>0){ //going to the right
+		analogWrite(MOTOR_LEFT_EN_PIN, rawSpeed);
+		analogWrite(MOTOR_RIGHT_EN_PIN, int(rawSpeed * ratio));
+	}else{ //going to the left or straight
+		analogWrite(MOTOR_RIGHT_EN_PIN, rawSpeed);
+		analogWrite(MOTOR_LEFT_EN_PIN, int(rawSpeed * ratio));
+	}
+	
+	 
 }
 
-void Car::setAngle(int degrees){ //platform specific method
-	_angle = constrain(STRAIGHT_WHEELS + degrees, MAX_LEFT_DEGREES, MAX_RIGHT_DEGREES);
-	steeringWheel.write(_angle);
+void Car::setDirection(const unsigned short direction){ //platform specific method
+	if (direction == BACKWARD){
+		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
+		digitalWrite(MOTOR_RIGHT2_PIN, HIGH);
+		digitalWrite(MOTOR_LEFT1_PIN, LOW);
+		digitalWrite(MOTOR_LEFT2_PIN, HIGH);
+	}else if (direction == FORWARD){
+		digitalWrite(MOTOR_RIGHT1_PIN, HIGH);
+		digitalWrite(MOTOR_RIGHT2_PIN, LOW);
+		digitalWrite(MOTOR_LEFT1_PIN, HIGH);
+		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
+	}else{
+		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
+		digitalWrite(MOTOR_RIGHT2_PIN, LOW);
+		digitalWrite(MOTOR_LEFT1_PIN, LOW);
+		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
+	}
+}
+
+void Car::setAngle(int angle){ //platform specific method
+	_angle = constrain(STRAIGHT_WHEELS + angle, MAX_LEFT_DEGREES, MAX_RIGHT_DEGREES);
+	setMotors(getSpeed(), constrain(angle, MAX_LEFT_DEGREES - STRAIGHT_WHEELS, MAX_RIGHT_DEGREES - STRAIGHT_WHEELS)); //pass the human-readable value
 }
 
 void Car::stop(){ //platform specific method
-	if (getSpeed()>IDLE_SPEED){
-		setRawSpeed(-100);
-	}else if(getSpeed()<IDLE_SPEED){
-		setRawSpeed(100);
+	if (getSpeed()>0){
+		setMotors(-100, getAngle());
+	}else if(getSpeed()<0){
+		setMotors(100, getAngle());
 	}
-	delay(35);
-	if (cruiseControl){
-		setRawSpeed(IDLE_SPEED); //shut the engines down, we should be stopped by now
-		enableCruiseControl(_encoder); //re-initialize the cruise control, se we get rid of previous error and pid output
-		_speed = IDLE_SPEED;
+	delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
+	if (cruiseControlEnabled()){
+		setMotors(0,getAngle()); //shut the engines down, we should be stopped by now
+		enableCruiseControl(_Kp,_Ki,_Kd); //re-initialize the cruise control, se we get rid of previous error and pid output
+		_speed = 0.0;
 	}else{
-		setSpeed(IDLE_SPEED);
+		setSpeed(0); //no circular dependency between stop and setSpeed due to the cruiseControlEnabled switching between who uses what
 	}
 }
 
 float Car::getSpeed(){
-	if (cruiseControl) return _speed; //return speed in meters per second
-	return _speed - IDLE_RAW_SPEED; //return speed in microseconds
+	if (cruiseControlEnabled()) return getGroundSpeed(); //return speed in meters per second
+	return _speed; //return speed in PWM output
 }
 
 int Car::getAngle(){
-	return _angle - STRAIGHT_WHEELS;
+	return _angle - STRAIGHT_WHEELS; //return what the user supplied
 }
 
-void Car::enableCruiseControl(Odometer encoder, float Kp, float Ki, float Kd, unsigned short pidLoopInterval){
-	_encoder = encoder;
-	cruiseControl = true;
+void Car::enableCruiseControl(float Kp, float Ki, float Kd, unsigned short pidLoopInterval){
+	_cruiseControl = true;
 	_pidLoopInterval = pidLoopInterval;
 	_lastMotorUpdate = 0;
 	_previousControlledSpeed = IDLE_RAW_SPEED;
-	_previousDistance = _encoder.getDistance();
+	_previousDistance = getEncoderDistance();
 	_integratedError = 0;
 	_Kp = Kp;
 	_Ki = Ki;
@@ -137,6 +208,91 @@ void Car::enableCruiseControl(Odometer encoder, float Kp, float Ki, float Kd, un
 }
 
 void Car::disableCruiseControl(){
-	cruiseControl = false;
+	_cruiseControl = false;
 	_speed = _previousControlledSpeed; //update the speed with the PWM equivalent
+}
+
+boolean Car::cruiseControlEnabled(){
+	return _cruiseControl;
+}
+
+unsigned long Car::getEncoderDistance(){
+	unsigned long averageDistance = 0;
+	for (int i = 0; i < _numOfEncoders; i++){
+		averageDistance += _encoders[i].getDistance() / _numOfEncoders;
+	}
+	return averageDistance;
+}
+
+void Car::initializeEncoders(){
+	for (int i = 0; i < _numOfEncoders; i++){
+		_encoders[i].begin();
+	}
+}
+
+void Car::go(int centimeters){
+	unsigned long initialDistance = getEncoderDistance(); //save the current distance the car has covered
+	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
+	int initialAngle = getAngle(); //save the current angle (so we restore it later)
+	unsigned long targetDistance = initialDistance + abs(centimeters); //how much the car should move, always a positive number
+	if (initialDistance > targetDistance){ //this will occur only if the unsigned long variable overflows
+		initializeEncoders(); //reinitialize the encoders counter to 0
+		targetDistance = abs(centimeters); //now the new target is just the centimeters (since the encoder distance is 0)
+	}
+	setAngle(STRAIGHT_ANGLE); //set the angle straight
+	short direction = 1;
+	if (centimeters < 0) direction = -1; //if the user supplied a negative argument, means they want to move backwards
+	if (cruiseControlEnabled()){ //depending on whether the cruise control is enabled set the speed
+		setSpeed(direction * GO_CRUISE_SPEED);
+	}else{
+		setSpeed(direction * GO_RAW_SPEED);
+	}
+	while (getEncoderDistance() < targetDistance){ //while we haven't reached the target distance, keep moving
+		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
+	}
+	setSpeed(initialSpeed); //restore to the initial speed
+	setAngle(initialAngle); //restore to the inital angle	
+}
+void Car::rotate(int targetDegrees){
+	_gyro.begin(); //initialize the gyro
+	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
+	int initialAngle = getAngle(); //save the current angle (so we restore it later)
+	if (targetDegrees > 0){ //we should turn to the right (clockwise)
+		setAngle(MAX_RIGHT_STEERING_ANGLE); //turn right as steep as you can
+	}else{ //turn left (counterclockwise)
+		setAngle(MAX_LEFT_STEERING_ANGLE); //turn left as steep as you can
+	}
+	if (cruiseControlEnabled()){ //depending on whether the cruise control is enabled set the speed
+		setSpeed(GO_CRUISE_SPEED);
+	}else{
+		setSpeed(GO_RAW_SPEED);
+	}
+	while (abs(_gyro.getAngularDisplacement()) < abs(targetDegrees)){ //while the absolute displacement hasn't reached the (absolute) target, keep turning
+		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
+		_gyro.update(); //update to integrate the latest gyroscope readings
+	}
+	setSpeed(initialSpeed); //restore to the initial speed
+	setAngle(initialAngle); //restore to the inital angle
+}
+
+void Car::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //will set the speed manual to each motor, use with caution
+	if (cruiseControlEnabled()) return; //we don't want to be manually messing with the speed, during cruise control
+	leftMotorSpeed = constrain(leftMotorSpeed, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED); //constrain the speed within the allowed limits
+	rightMotorSpeed = constrain(rightMotorSpeed, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
+	if (leftMotorSpeed<0){ //set left direction backwards
+		digitalWrite(MOTOR_LEFT1_PIN, LOW);
+		digitalWrite(MOTOR_LEFT2_PIN, HIGH);
+	}else{ //front
+		digitalWrite(MOTOR_LEFT1_PIN, HIGH);
+		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
+	}
+		analogWrite(MOTOR_LEFT_EN_PIN, abs(leftMotorSpeed));//write left speed
+	if (rightMotorSpeed<0){ //set right direction  backwards
+		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
+		digitalWrite(MOTOR_RIGHT2_PIN, HIGH);
+	}else{ //front
+		digitalWrite(MOTOR_RIGHT1_PIN, HIGH);
+		digitalWrite(MOTOR_RIGHT2_PIN, LOW);		
+	}
+		analogWrite(MOTOR_RIGHT_EN_PIN, abs(rightMotorSpeed));//write right speed
 }

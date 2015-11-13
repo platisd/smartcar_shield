@@ -1,4 +1,4 @@
-#include "CaroloCup.h"
+#include "Smartcar.h"
 
 const uint8_t SRF08::DEFAULT_PING_DELAY = 70;
 const uint8_t SRF08::DEFAULT_SRF08_ADDRESS = 112;

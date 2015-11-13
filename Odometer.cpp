@@ -4,13 +4,13 @@
 *	Author: Dimitris Platis (based on the Smartcar project by Team Pegasus)
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
-#include "CaroloCup.h"
+#include "Smartcar.h"
 
 /* ---- ODOMETER ---- */
 void updateCounter1(); //ISR for the odometer
 void updateCounter2();
-// Macro to convert from odometer pulses to centimeters. (ca. 40 pulses per meter, that's why we multiply by 2.5 to find value in cm)
-#define PulsesToCentimeters(pulses) ((pulses << 1)/5)
+// Macro to convert from odometer pulses to centimeters. (ca. 330 pulses per meter, that's why we divide by 3.3 to find value in cm)
+#define PulsesToCentimeters(pulses) (pulses / 3.3)
 
 volatile unsigned long _pulseCounter[2];
 static unsigned short odometers = 0;
@@ -23,9 +23,9 @@ int Odometer::attach(unsigned short odometerPin){
 	_odometerInterruptPin = digitalPinToInterrupt(odometerPin);
 	if (_odometerInterruptPin != NOT_AN_INTERRUPT){
 		if (!_odometerID){
-			attachInterrupt(_odometerInterruptPin, updateCounter1, CHANGE);
+			attachInterrupt(_odometerInterruptPin, updateCounter1, RISING);
 		}else if (_odometerID == 1){
-			attachInterrupt(_odometerInterruptPin, updateCounter2, CHANGE);
+			attachInterrupt(_odometerInterruptPin, updateCounter2, RISING);
 		}else{
 			return -1; //too many encoders attached
 		}

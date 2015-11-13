@@ -5,12 +5,12 @@
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-#include "CaroloCup.h"
+#include "Smartcar.h"
 
 
 /* ---- GYROSCOPE (L3G4200D) ---- */
-const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 90;
-static const int GYRO_OFFSET = 15; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
+const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 100;
+static const int GYRO_OFFSET = 10; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
 static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
 static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
 static const int CTRL_REG1 = 0x20;
@@ -41,21 +41,21 @@ void Gyroscope::begin(unsigned short samplingRate){
 }
 
 int Gyroscope::getAngularDisplacement(){
-	return - _angularDisplacement;
+	return - _angularDisplacement; //we negate the value, in order to get negative values when turning counter clockwise (local convention)
 }
 
 /* based on http://www.pieter-jan.com/node/7 integration algorithm */
 void Gyroscope::update(){
 	if (millis()- _prevSample > _samplingRate){
 		float gyroRate = 0;
-		int gyroValue = getGyroValues();
+		int gyroValue = getGyroValues(); 
 		short drift = GYRO_OFFSET - gyroValue;
  		if (abs(drift) > GYRO_THRESHOLD){ //if there has been a big enough drift (trying to contemplate for the noise)
 			gyroRate = (gyroValue - GYRO_OFFSET) * GYRO_SENSITIVITY;
 		}
 		unsigned long now = millis();
 		_angularDisplacement += gyroRate / (1000 / (now - _prevSample));
-		_prevSample = now; 
+		_prevSample = now;
 	}
 }
 

@@ -30,3 +30,5 @@ setRange	KEYWORD2
 setPingDelay	KEYWORD2
 enableCruiseControl	KEYWORD2
 updateMotors	KEYWORD2
+go	KEYWORD2
+rotate	KEYWORD2
