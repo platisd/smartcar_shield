@@ -32,3 +32,4 @@ enableCruiseControl	KEYWORD2
 updateMotors	KEYWORD2
 go	KEYWORD2
 rotate	KEYWORD2
+calibrate	KEYWORD2
