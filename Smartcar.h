@@ -27,8 +27,8 @@ class Gyroscope {
 		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING); //in milliseconds
 		int getAngularDisplacement();
 		void update();
+		unsigned int calibrate(unsigned int measurements = 100);
 	private:
-		void initMeasurement();
 		void initializeGyro();
 		int setupL3G4200D(int scale);
 		void writeRegister(int deviceAddress, byte address, byte val);
@@ -36,6 +36,8 @@ class Gyroscope {
 		int readRegister(int deviceAddress, byte address);
 		unsigned short _samplingRate;
 		static const unsigned short DEFAULT_GYRO_SAMPLING;
+		int _angularDisplacement;
+		unsigned long _prevSample;
 };
 
 class Odometer {
@@ -51,7 +53,7 @@ class Odometer {
 
 class Car {
 	public:
-		Car();
+		Car(unsigned short setup = STANDARD);
 		void begin();
 		void begin(Odometer encoder);
 		void begin(Gyroscope gyro);
@@ -69,6 +71,7 @@ class Car {
 		void go(int centimeters);
 		void rotate(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
+		static const unsigned short STANDARD, INVERTED;
 	private:
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
 		void setMotors(int rawSpeed, int angle);
@@ -89,6 +92,8 @@ class Car {
 		unsigned long _lastMotorUpdate, _previousDistance;
 		int _previousControlledSpeed;
 		int _previousError, _integratedError;
+		uint8_t MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
+		uint8_t MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };
 
 class Sonar {
