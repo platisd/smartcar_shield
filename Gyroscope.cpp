@@ -10,17 +10,15 @@
 
 /* ---- GYROSCOPE (L3G4200D) ---- */
 const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 100;
-static const int GYRO_OFFSET = 10; //The value that is usually given by the gyroscope when not moving. Determined experimentally, adapt accordingly.
-static const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
-static const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
-static const int CTRL_REG1 = 0x20;
-static const int CTRL_REG2 =  0x21;
-static const int CTRL_REG3 = 0x22;
-static const int CTRL_REG4 = 0x23;
-static const int CTRL_REG5 = 0x24;
-static const int L3G4200D_Address = 105; //gyroscope I2C address
-volatile int _angularDisplacement = 0;
-volatile unsigned long _prevSample = 0;
+const int GYRO_OFFSET = 8; //value that's usually given by the gyroscope when not moving. Use calibrate method to get an approximation
+const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
+const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
+const int CTRL_REG1 = 0x20;
+const int CTRL_REG2 = 0x21;
+const int CTRL_REG3 = 0x22;
+const int CTRL_REG4 = 0x23;
+const int CTRL_REG5 = 0x24;
+const int L3G4200D_Address = 105; //gyroscope I2C address
 
 Gyroscope::Gyroscope(){
 }
@@ -29,13 +27,8 @@ void Gyroscope::attach(){
 	initializeGyro();
 }
 
-void Gyroscope::initMeasurement(){
-	_angularDisplacement = 0;
-	_prevSample = 0;
-}
-
 void Gyroscope::begin(unsigned short samplingRate){
-	initMeasurement();
+	_angularDisplacement = 0;
 	_prevSample = millis();
 	_samplingRate = samplingRate;
 }
@@ -121,4 +114,13 @@ int Gyroscope::readRegister(int deviceAddress, byte address){
 	v = Wire.read();
 
 	return v;
+}
+
+unsigned int Gyroscope::calibrate(unsigned int measurements){ //use this function in order to determine the offset and change GYRO_OFFSET accordingly
+	unsigned int sum = 0;
+	for (int i = 0; i < measurements; i++){	
+		sum += getGyroValues();
+		delay(50);
+	}
+	return sum/measurements; //return the average	
 }
