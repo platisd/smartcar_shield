@@ -2,7 +2,7 @@
 
 GP2Y0A02::GP2Y0A02(){
 	_minDistance = 25; //GP2Y0A02's minimum distance
-	_maxDistance = 80; //GP2Y0A02's maximum distance
+	_maxDistance = 120; //GP2Y0A02's maximum distance
 }
 
 unsigned int GP2Y0A02::voltsToCentimeters(unsigned int volts){

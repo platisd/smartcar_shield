@@ -55,7 +55,7 @@ class GP2D120 : public SHARP_IR { //Infrared sensor for distances between 4 and 
 		unsigned int voltsToCentimeters(unsigned int volts);
 };
 
-class GP2Y0A02 : public SHARP_IR { //Infrared sensor for distances between 25 and 80 cm
+class GP2Y0A02 : public SHARP_IR { //Infrared sensor for distances between 25 and 120 cm
 	public:
 		GP2Y0A02();
 	private:
