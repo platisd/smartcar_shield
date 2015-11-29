@@ -9,13 +9,13 @@
 /* ---- ODOMETER ---- */
 void updateCounter1(); //ISR for the odometer
 void updateCounter2();
-// Macro to convert from odometer pulses to centimeters. (ca. 330 pulses per meter, that's why we divide by 3.3 to find value in cm)
-#define PulsesToCentimeters(pulses) (pulses / 3.3)
 
 volatile unsigned long _pulseCounter[2];
 static unsigned short odometers = 0;
+const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 92;
 
-Odometer::Odometer(){
+Odometer::Odometer(unsigned int pulsesPerMeter){
+_pulsesPerMeter = pulsesPerMeter;
 _odometerID = odometers++;
 }
 
@@ -39,7 +39,15 @@ void Odometer::begin(){
 }
 
 unsigned long Odometer::getDistance(){
-	return PulsesToCentimeters(_pulseCounter[_odometerID]);
+	return pulsesToCentimeters(_pulseCounter[_odometerID]);
+}
+
+unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
+	return pulses/(_pulsesPerMeter/100.0);
+}
+
+unsigned long Odometer::getPulses(){ //gets pulses (without converting them to distance)
+	return _pulseCounter[_odometerID];
 }
 
 void Odometer::detach(){

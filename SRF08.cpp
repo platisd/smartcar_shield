@@ -6,7 +6,9 @@ const uint8_t SRF08::DEFAULT_SRF08_ADDRESS = 112;
 static const uint8_t FIRST_ADDRESS = 112; //please refer to: http://www.robot-electronics.co.uk/htm/srf08tech.html
 static const uint8_t LAST_ADDRESS = 127;
 
-SRF08::SRF08(){}
+SRF08::SRF08(){
+	_sensorMedianDelay = DEFAULT_PING_DELAY;
+}
 
 void SRF08::attach(const uint8_t address){
 	if (!TWCR) Wire.begin(); //if it hasn't been started (TWCR==0), start it
@@ -30,13 +32,14 @@ void SRF08::setRange(const uint8_t rangeValue){
 
 void SRF08::setPingDelay(const uint8_t milliseconds){
 	_delay = milliseconds;
+	_sensorMedianDelay = milliseconds; //also update the sensor's median delay
 }
 
-int SRF08::getDistance(){
+unsigned int SRF08::getDistance(){
 	return ping();
 }
 
-int SRF08::ping(){
+unsigned int SRF08::ping(){
 	Wire.beginTransmission(_address);
 	Wire.write(byte(0x00));
 	Wire.write(byte(0x51));

@@ -9,8 +9,8 @@
 
 
 /* ---- GYROSCOPE (L3G4200D) ---- */
-const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 100;
-const int GYRO_OFFSET = 8; //value that's usually given by the gyroscope when not moving. Use calibrate method to get an approximation
+const unsigned short Gyroscope::DEFAULT_GYRO_SAMPLING = 100; //how often (in ms) will the gyroscope be updated
+const int Gyroscope::DEFAULT_GYRO_OFFSET = 8; //value that's usually given by the gyroscope when not moving. Use calibrate method to get an approximation
 const float GYRO_SENSITIVITY = 0.07; //L3G4200D specific.
 const int GYRO_THRESHOLD = 12; //Tolerance threshold. Determined experimentally, adapt accordingly.
 const int CTRL_REG1 = 0x20;
@@ -20,7 +20,8 @@ const int CTRL_REG4 = 0x23;
 const int CTRL_REG5 = 0x24;
 const int L3G4200D_Address = 105; //gyroscope I2C address
 
-Gyroscope::Gyroscope(){
+Gyroscope::Gyroscope(int offset){
+	_gyroOffset = offset;
 }
 
 void Gyroscope::attach(){
@@ -42,9 +43,9 @@ void Gyroscope::update(){
 	if (millis()- _prevSample > _samplingRate){
 		float gyroRate = 0;
 		int gyroValue = getGyroValues(); 
-		short drift = GYRO_OFFSET - gyroValue;
+		short drift = _gyroOffset - gyroValue;
  		if (abs(drift) > GYRO_THRESHOLD){ //if there has been a big enough drift (trying to contemplate for the noise)
-			gyroRate = (gyroValue - GYRO_OFFSET) * GYRO_SENSITIVITY;
+			gyroRate = (gyroValue - _gyroOffset) * GYRO_SENSITIVITY;
 		}
 		unsigned long now = millis();
 		_angularDisplacement += gyroRate / (1000 / (now - _prevSample));

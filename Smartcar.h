@@ -3,8 +3,6 @@
 *	sensors. 
 *	Version: 1.0
 *	Author: Dimitris Platis
-*	Sonar class is essentially a stripped-down version of the NewPing library by Tim Eckel, adjusted to Smartcar needs
-* 	Get original library at: http://code.google.com/p/arduino-new-ping/
 * 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
@@ -20,11 +18,86 @@
 #include <avr/interrupt.h>
 #include <Wire.h>
 
+class DistanceSensor {
+	public:
+		DistanceSensor();
+		virtual ~DistanceSensor();
+		virtual unsigned int getDistance() = 0; //to be implemented by the child classes
+		unsigned int getMedianDistance(short iterations = DEFAULT_ITERATIONS);
+	private:
+		static const short DEFAULT_ITERATIONS;
+	protected:
+		unsigned short _sensorMedianDelay; //delay between measurements in the sensor's getMedianDistance
+};
+
+class InfraredSensor : public DistanceSensor {//placeholder for a possible future ultrasonic abstract class
+	public:
+		InfraredSensor();
+};
+
+class SHARP_IR : public InfraredSensor {
+	public:
+		SHARP_IR();
+		void attach(unsigned short pin);
+		unsigned int getDistance();
+	private:
+		virtual unsigned int voltsToCentimeters(unsigned int volts) = 0; //implemented by each child class (different sensor)
+		unsigned int readAnalogInput();
+		unsigned short _pin;
+	protected:
+		unsigned int _maxDistance, _minDistance;
+};
+
+class GP2D120 : public SHARP_IR { //Infrared sensor for distances between 4 and 25 cm (aka GP2Y0A41SK0F)
+	public:
+		GP2D120();
+	private:
+		unsigned int voltsToCentimeters(unsigned int volts);
+};
+
+class GP2Y0A02 : public SHARP_IR { //Infrared sensor for distances between 25 and 80 cm
+	public:
+		GP2Y0A02();
+	private:
+		unsigned int voltsToCentimeters(unsigned int volts);
+};
+
+class GP2Y0A21 : public SHARP_IR { //Infrared sensor for distances between 12 and 78 cm
+	public:
+		GP2Y0A21();
+	private:
+		unsigned int voltsToCentimeters(unsigned int volts);
+};
+
+class UltrasonicSensor : public DistanceSensor {//placeholder for a possible future ultrasonic abstract class
+	public:
+		UltrasonicSensor();
+};
+
+class SR04 : public UltrasonicSensor {
+	public:
+		SR04(unsigned int maxDistance = DEFAULT_MAX_US_DISTANCE);
+		void attach(unsigned short triggerPin, unsigned short echoPin);
+		unsigned int getDistance();
+	private:
+		unsigned int ping();
+		boolean ping_trigger();
+		uint8_t _triggerBit;
+		uint8_t _echoBit;
+		volatile uint8_t *_triggerOutput;
+		volatile uint8_t *_triggerMode;
+		volatile uint8_t *_echoInput;
+		unsigned int _maxEchoTime;
+		unsigned long _max_time;
+		unsigned int _maxDistance;
+		static const unsigned int DEFAULT_MAX_US_DISTANCE;
+};
+
 class Gyroscope {
 	public:
-		Gyroscope();
+		Gyroscope(int offset = DEFAULT_GYRO_OFFSET);
 		void attach();
-		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING); //in milliseconds
+		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING);
 		int getAngularDisplacement();
 		void update();
 		unsigned int calibrate(unsigned int measurements = 100);
@@ -36,18 +109,24 @@ class Gyroscope {
 		int readRegister(int deviceAddress, byte address);
 		unsigned short _samplingRate;
 		static const unsigned short DEFAULT_GYRO_SAMPLING;
+		static const int DEFAULT_GYRO_OFFSET;
 		int _angularDisplacement;
 		unsigned long _prevSample;
+		int _gyroOffset;
 };
 
 class Odometer {
 	public:
-		Odometer();
+		Odometer(unsigned int pulsesPerMeter = DEFAULT_PULSES_PER_METER);
 		int attach(unsigned short odometerPin);
 		void begin();
 		unsigned long getDistance();
 		void detach();
+		unsigned long getPulses();
 	private:
+		unsigned long pulsesToCentimeters(unsigned long pulses);
+		unsigned int _pulsesPerMeter;
+		static const unsigned int DEFAULT_PULSES_PER_METER;
 		unsigned short _odometerInterruptPin, _odometerID;
 };
 
@@ -96,37 +175,6 @@ class Car {
 		uint8_t MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };
 
-class Sonar {
-	public:
-		Sonar();
-		void attach(unsigned short triggerPin, unsigned short echoPin);
-		unsigned int getDistance();
-		unsigned int getMedianDistance(short iterations = SONAR_DEFAULT_ITERATIONS);
-
-	private:
-		unsigned int ping();
-		boolean ping_trigger();
-		uint8_t _triggerBit;
-		uint8_t _echoBit;
-		volatile uint8_t *_triggerOutput;
-		volatile uint8_t *_triggerMode;
-		volatile uint8_t *_echoInput;
-		unsigned int _maxEchoTime;
-		unsigned long _max_time;
-		static const unsigned short SONAR_DEFAULT_ITERATIONS;
-};
-
-class Sharp_IR {
-	public:
-		Sharp_IR();
-		void attach(unsigned short IR_pin);
-		unsigned int getDistance();
-		unsigned int getMedianDistance(short iterations = IR_DEFAULT_ITERATIONS);
-	private:
-		unsigned short _IR_pin;
-		static const unsigned short IR_DEFAULT_ITERATIONS;
-};
-
 class NewPing{
 	public:
 		static void timer_start(unsigned long frequency, void (*userFunc)(void));
@@ -136,20 +184,24 @@ class NewPing{
 		static void timer_start_cntdwn();
 };
 
-class SRF08{
+class SRF08 : public UltrasonicSensor{
 	public:
 		SRF08();
 		void attach(const uint8_t address = DEFAULT_SRF08_ADDRESS);
 		void setGain(const uint8_t gainValue);
 		void setRange(const uint8_t rangeValue);
 		void setPingDelay(const uint8_t milliseconds = DEFAULT_PING_DELAY);
-		int getDistance();
-		void changeAddress(const uint8_t newAddress);
+		unsigned int getDistance();
+		void changeAddress(uint8_t newAddress);
 	private:
-		int ping();
+		unsigned int ping();
 		uint8_t _address, _delay;
 		static const uint8_t DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
 
 };
+
+/* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
+typedef SR04 Sonar; //HC-SR04 was Sonar in AndroidCar, CaroloCup2016 and Smartcar sensor libraries
+typedef GP2D120 Sharp_IR; //GP2D120 was used as Sharp_IR in AndroidCar and CaroloCup2016. Change to GP2Y0A02 for compatibility with Smartcar Sensors
 
 #endif
