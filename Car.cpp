@@ -241,27 +241,29 @@ void Car::initializeEncoders(){
 }
 
 void Car::go(int centimeters){
-	unsigned long initialDistance = getEncoderDistance(); //save the current distance the car has covered
-	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
-	int initialAngle = getAngle(); //save the current angle (so we restore it later)
-	unsigned long targetDistance = initialDistance + abs(centimeters); //how much the car should move, always a positive number
-	if (initialDistance > targetDistance){ //this will occur only if the unsigned long variable overflows
-		initializeEncoders(); //reinitialize the encoders counter to 0
-		targetDistance = abs(centimeters); //now the new target is just the centimeters (since the encoder distance is 0)
-	}
-	setAngle(STRAIGHT_ANGLE); //set the angle straight
-	short direction = 1;
-	if (centimeters < 0) direction = -1; //if the user supplied a negative argument, means they want to move backwards
-	if (cruiseControlEnabled()){ //depending on whether the cruise control is enabled set the speed
-		setSpeed(direction * GO_CRUISE_SPEED);
-	}else{
-		setSpeed(direction * GO_RAW_SPEED);
-	}
-	while (getEncoderDistance() < targetDistance){ //while we haven't reached the target distance, keep moving
-		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
-	}
-	setSpeed(initialSpeed); //restore to the initial speed
-	setAngle(initialAngle); //restore to the inital angle	
+	if (_numOfEncoders){ //do this, only if encoders were attached
+		unsigned long initialDistance = getEncoderDistance(); //save the current distance the car has covered
+		float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
+		int initialAngle = getAngle(); //save the current angle (so we restore it later)
+		unsigned long targetDistance = initialDistance + abs(centimeters); //how much the car should move, always a positive number
+		if (initialDistance > targetDistance){ //this will occur only if the unsigned long variable overflows
+			initializeEncoders(); //reinitialize the encoders counter to 0
+			targetDistance = abs(centimeters); //now the new target is just the centimeters (since the encoder distance is 0)
+		}
+		setAngle(STRAIGHT_ANGLE); //set the angle straight
+		short direction = 1;
+		if (centimeters < 0) direction = -1; //if the user supplied a negative argument, means they want to move backwards
+		if (cruiseControlEnabled()){ //depending on whether the cruise control is enabled set the speed
+			setSpeed(direction * GO_CRUISE_SPEED);
+		}else{
+			setSpeed(direction * GO_RAW_SPEED);
+		}
+		while (getEncoderDistance() < targetDistance){ //while we haven't reached the target distance, keep moving
+			if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
+		}
+		setSpeed(initialSpeed); //restore to the initial speed
+		setAngle(initialAngle); //restore to the inital angle
+	}	
 }
 void Car::rotate(int targetDegrees){
 	_gyro.begin(); //initialize the gyro
