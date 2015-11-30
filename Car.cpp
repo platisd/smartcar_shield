@@ -194,6 +194,7 @@ int Car::getAngle(){
 }
 
 void Car::enableCruiseControl(float Kp, float Ki, float Kd, unsigned short pidLoopInterval){
+	if (!_numOfEncoders) return; //continue only if at least one encoder was attached
 	_cruiseControl = true;
 	_pidLoopInterval = pidLoopInterval;
 	_lastMotorUpdate = 0;
