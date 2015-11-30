@@ -144,7 +144,7 @@ class Car {
 		float getSpeed();
 		int getAngle();
 		void stop();
-		void enableCruiseControl(float Kp = DEFAULT_KP, float Ki = DEFAULT_KI, float Kd = DEFAULT_KD, unsigned short = DEFAULT_PID_LOOP_INTERVAL);
+		void enableCruiseControl(float Kp = DEFAULT_KP, float Ki = DEFAULT_KI, float Kd = DEFAULT_KD, unsigned short frequency = DEFAULT_PID_LOOP_INTERVAL);
 		void disableCruiseControl();
 		void updateMotors();
 		void go(int centimeters);
