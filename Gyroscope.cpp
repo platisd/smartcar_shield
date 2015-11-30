@@ -125,3 +125,7 @@ unsigned int Gyroscope::calibrate(unsigned int measurements){ //use this functio
 	}
 	return sum/measurements; //return the average	
 }
+
+boolean Gyroscope::isInstanciated(){
+	return _gyroOffset; //if 0, it will return false, otherwise true. 0 is an error value
+}

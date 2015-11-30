@@ -101,6 +101,7 @@ class Gyroscope {
 		int getAngularDisplacement();
 		void update();
 		unsigned int calibrate(unsigned int measurements = 100);
+		boolean isInstanciated();
 	private:
 		void initializeGyro();
 		int setupL3G4200D(int scale);
@@ -123,6 +124,7 @@ class Odometer {
 		unsigned long getDistance();
 		void detach();
 		unsigned long getPulses();
+		boolean isInstanciated();
 	private:
 		unsigned long pulsesToCentimeters(unsigned long pulses);
 		unsigned int _pulsesPerMeter;
@@ -133,12 +135,9 @@ class Odometer {
 class Car {
 	public:
 		Car(unsigned short setup = STANDARD);
-		void begin();
-		void begin(Odometer encoder);
 		void begin(Gyroscope gyro);
 		void begin(Odometer encoder, Gyroscope gyro);
-		void begin(Odometer encoder1, Odometer encoder2);
-		void begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro);
+		void begin(Odometer encoder1 = 0, Odometer encoder2 = 0, Gyroscope gyro = 0);
 		void setSpeed(float speed);
 		void setAngle(int degrees);
 		float getSpeed();
@@ -167,6 +166,7 @@ class Car {
 		float _Kp, _Ki, _Kd;
 		Odometer _encoders[2];
 		Gyroscope _gyro;
+		boolean _gyroAttached;
 		boolean _cruiseControl;
 		unsigned long _lastMotorUpdate, _previousDistance;
 		int _previousControlledSpeed;

@@ -34,6 +34,7 @@ Car::Car(const unsigned short setup){
 	_speed = IDLE_RAW_SPEED;
 	_angle = STRAIGHT_WHEELS;
 	_numOfEncoders = 0;
+	_gyroAttached = false;
 	if (setup == STANDARD){ //the default motor setup, where right is right
 		MOTOR_LEFT1_PIN = 8;
 		MOTOR_LEFT_EN_PIN = 9;
@@ -51,45 +52,32 @@ Car::Car(const unsigned short setup){
 	}
 }
 
-void Car::begin(){
+void Car::begin(Gyroscope gyro){
+	begin(0,0,gyro); //pass 0 as a value that indicates null
+}
+
+void Car::begin(Odometer encoder, Gyroscope gyro){
+	begin(encoder,0,gyro); //pass 0 as a value that indicates null
+}
+
+void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
+	if (encoder1.isInstanciated()){
+		_encoders[0] = encoder1;
+		_numOfEncoders++;
+	}
+	if (encoder2.isInstanciated()){
+		_encoders[1] = encoder2;
+		_numOfEncoders++;
+	}
+	if (gyro.isInstanciated()) {
+		_gyro = gyro;
+		_gyroAttached = true;
+	}
 	for (uint8_t i = MOTOR_LEFT1_PIN; i <= MOTOR_RIGHT2_PIN; i++) {
 		pinMode(i, OUTPUT); //declare pins as outputs
 	}
 	setSpeed(IDLE_RAW_SPEED);
 	setAngle(STRAIGHT_ANGLE);
-}
-
-void Car::begin(Odometer encoder){
-	_encoders[0] = encoder;
-	_numOfEncoders = 1;
-	begin();
-}
-
-void Car::begin(Gyroscope gyro){
-	_gyro = gyro;
-	begin();
-}
-
-void Car::begin(Odometer encoder, Gyroscope gyro){
-	_encoders[0] = encoder;
-	_numOfEncoders = 1;
-	_gyro = gyro;
-	begin();
-}
-
-void Car::begin(Odometer encoder1, Odometer encoder2){
-	_encoders[0] = encoder1;
-	_encoders[1] = encoder2;
-	_numOfEncoders = 2;
-	begin();
-}
-
-void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
-	_encoders[0] = encoder1;
-	_encoders[1] = encoder2;
-	_numOfEncoders = 2;
-	_gyro = gyro;
-	begin();
 }
 
 void Car::setSpeed(float newSpeed){
@@ -241,31 +229,31 @@ void Car::initializeEncoders(){
 }
 
 void Car::go(int centimeters){
-	if (_numOfEncoders){ //do this, only if encoders were attached
-		unsigned long initialDistance = getEncoderDistance(); //save the current distance the car has covered
-		float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
-		int initialAngle = getAngle(); //save the current angle (so we restore it later)
-		unsigned long targetDistance = initialDistance + abs(centimeters); //how much the car should move, always a positive number
-		if (initialDistance > targetDistance){ //this will occur only if the unsigned long variable overflows
-			initializeEncoders(); //reinitialize the encoders counter to 0
-			targetDistance = abs(centimeters); //now the new target is just the centimeters (since the encoder distance is 0)
-		}
-		setAngle(STRAIGHT_ANGLE); //set the angle straight
-		short direction = 1;
-		if (centimeters < 0) direction = -1; //if the user supplied a negative argument, means they want to move backwards
-		if (cruiseControlEnabled()){ //depending on whether the cruise control is enabled set the speed
-			setSpeed(direction * GO_CRUISE_SPEED);
-		}else{
-			setSpeed(direction * GO_RAW_SPEED);
-		}
-		while (getEncoderDistance() < targetDistance){ //while we haven't reached the target distance, keep moving
-			if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
-		}
-		setSpeed(initialSpeed); //restore to the initial speed
-		setAngle(initialAngle); //restore to the inital angle
-	}	
+	if (!_numOfEncoders) return; //continue only if at least one encoder was attached
+	unsigned long initialDistance = getEncoderDistance(); //save the current distance the car has covered
+	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
+	int initialAngle = getAngle(); //save the current angle (so we restore it later)
+	unsigned long targetDistance = initialDistance + abs(centimeters); //how much the car should move, always a positive number
+	if (initialDistance > targetDistance){ //this will occur only if the unsigned long variable overflows
+		initializeEncoders(); //reinitialize the encoders counter to 0
+		targetDistance = abs(centimeters); //now the new target is just the centimeters (since the encoder distance is 0)
+	}
+	setAngle(STRAIGHT_ANGLE); //set the angle straight
+	short direction = 1;
+	if (centimeters < 0) direction = -1; //if the user supplied a negative argument, means they want to move backwards
+	if (cruiseControlEnabled()){ //depending on whether the cruise control is enabled set the speed
+		setSpeed(direction * GO_CRUISE_SPEED);
+	}else{
+		setSpeed(direction * GO_RAW_SPEED);
+	}
+	while (getEncoderDistance() < targetDistance){ //while we haven't reached the target distance, keep moving
+		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
+	}
+	setSpeed(initialSpeed); //restore to the initial speed
+	setAngle(initialAngle); //restore to the inital angle	
 }
 void Car::rotate(int targetDegrees){
+	if (!_gyroAttached) return; //continue only if gyroscope is attached
 	_gyro.begin(); //initialize the gyro
 	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
 	int initialAngle = getAngle(); //save the current angle (so we restore it later)

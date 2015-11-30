@@ -15,8 +15,8 @@ static unsigned short odometers = 0;
 const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 92;
 
 Odometer::Odometer(unsigned int pulsesPerMeter){
-_pulsesPerMeter = pulsesPerMeter;
-_odometerID = odometers++;
+	_pulsesPerMeter = pulsesPerMeter;
+	_odometerID = odometers++;
 }
 
 int Odometer::attach(unsigned short odometerPin){
@@ -48,6 +48,10 @@ unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
 
 unsigned long Odometer::getPulses(){ //gets pulses (without converting them to distance)
 	return _pulseCounter[_odometerID];
+}
+
+boolean Odometer::isInstanciated(){
+	return _pulsesPerMeter; //if 0, it will return false, otherwise true. 0 is an error value
 }
 
 void Odometer::detach(){
