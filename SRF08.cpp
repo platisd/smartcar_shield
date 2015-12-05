@@ -19,7 +19,7 @@ void SRF08::attach(const uint8_t address){
 void SRF08::setGain(const uint8_t gainValue){
 	Wire.beginTransmission(_address); //start i2c transmission
 	Wire.write(0x01); //write to GAIN register (1)
-	Wire.write(gainValue); //write the value
+	Wire.write(constrain(gainValue,0,31)); //write the value
 	Wire.endTransmission(); //end transmission
 }
 
@@ -53,6 +53,20 @@ unsigned int SRF08::ping(){
 	byte high = Wire.read();
 	byte low = Wire.read();
 	return (high << 8) + low;
+}
+
+unsigned int SRF08::getLightReading(){
+	Wire.beginTransmission(_address);
+	Wire.write(byte(0x00));
+	Wire.write(byte(0x51));
+	Wire.endTransmission();
+	delay(_delay);
+	Wire.beginTransmission(_address);
+	Wire.write(byte(0x01));
+	Wire.endTransmission();
+	Wire.requestFrom(_address, uint8_t (1));
+	while (!Wire.available());
+	return Wire.read();
 }
 
 void SRF08::changeAddress(uint8_t newAddress){
