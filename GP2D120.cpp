@@ -1,7 +1,7 @@
 #include "Smartcar.h"
 
 GP2D120::GP2D120(){
-	_minDistance = 4; //GP2D120's minimum distance
+	_minDistance = 5; //GP2D120's minimum distance
 	_maxDistance = 25; //GP2D120's maximum distance
 }
 
