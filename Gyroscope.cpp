@@ -31,7 +31,7 @@ void Gyroscope::attach(){
 void Gyroscope::begin(unsigned short samplingPeriod){
 	_angularDisplacement = 0;
 	_prevSample = millis();
-	_samplingRate = samplingRate;
+	_samplingRate = samplingPeriod;
 }
 
 int Gyroscope::getAngularDisplacement(){
