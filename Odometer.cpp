@@ -46,17 +46,8 @@ unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
 	return pulses/(_pulsesPerMeter/100.0);
 }
 
-unsigned long Odometer::getPulses(){ //gets pulses (without converting them to distance)
-	return _pulseCounter[_odometerID];
-}
-
 boolean Odometer::isInstanciated(){
 	return _pulsesPerMeter; //if 0, it will return false, otherwise true. 0 is an error value
-}
-
-void Odometer::detach(){
-	_pulseCounter[_odometerID] = 0; //reinitialize the counter so if distance is calculated again, result will be 0 and not what was left from before
-	detachInterrupt(_odometerInterruptPin);
 }
 
 void updateCounter1(){
