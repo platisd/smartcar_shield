@@ -11,6 +11,7 @@ const float Car::DEFAULT_KP = 5.0;
 const float Car::DEFAULT_KI = 0.0;
 const float Car::DEFAULT_KD = 10.0;
 
+const unsigned short MAX_EFFORTS = 2; //amount of efforts to stop reversing the wheels, in case they have already stopped and spin in the opposite direction
 const unsigned short BACKWARD = 0;
 const unsigned short FORWARD = 1;
 const unsigned short IDLE = 2;
@@ -35,6 +36,7 @@ Car::Car(const unsigned short setup){
 	_angle = STRAIGHT_WHEELS;
 	_numOfEncoders = 0;
 	_gyroAttached = false;
+	_pidLoopInterval = DEFAULT_PID_LOOP_INTERVAL;
 	if (setup == STANDARD){ //the default motor setup, where right is right
 		MOTOR_LEFT1_PIN = 8;
 		MOTOR_LEFT_EN_PIN = 9;
@@ -93,10 +95,10 @@ void Car::setSpeed(float newSpeed){
 void Car::updateMotors(){
 	if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
 		if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
-			float measuredSpeed = getGroundSpeed(); //speed in cm/milliseconds
-			measuredSpeed *= 10; //transform it into m/seconds, divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
-			if (_speed < 0) measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
-			int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, measuredSpeed);
+			_measuredSpeed = getGroundSpeed(); //speed in cm/milliseconds
+			_measuredSpeed *= 10; //transform it into m/seconds, divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
+			if (_speed < 0) _measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
+			int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
 			setMotors(controlledSpeed, getAngle());
 			_previousControlledSpeed = controlledSpeed;
 		}
@@ -169,12 +171,27 @@ void Car::setAngle(int angle){ //platform specific method
 }
 
 void Car::stop(){ //platform specific method
-	if (getSpeed()>0){
-		setMotors(-100, getAngle());
-	}else if(getSpeed()<0){
-		setMotors(100, getAngle());
+	if (!_numOfEncoders || !cruiseControlEnabled()){ //if no encoders attached or not in cruise control mode
+		int currentSpeed = getSpeed();
+		if (currentSpeed>0){
+			setMotors(-currentSpeed, getAngle());
+		}else if(currentSpeed<0){
+			setMotors(currentSpeed, getAngle());
+		}
+		delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
+	}else{ //try to measure the ground speed and spin the wheels in the opposite direction, until it is 0
+		float initialSpeed = _measuredSpeed; //get the last measured speed by updateMotors()
+		if (initialSpeed){ //if the speed is not 0
+			int rawSpeed = _previousControlledSpeed; //the (signed) pwm we were writing to the motors, produced by the pid controller
+			float groundSpeed = 0;
+			unsigned short maxSteps = MAX_EFFORTS;
+			do{
+				setMotors(-rawSpeed, getAngle()); //apply the opposite speed to the motors
+				delay(_pidLoopInterval); //wait for as much as the usual pid loop interval is
+			}while(maxSteps-- && (getGroundSpeed() > 0.02)); //if ground speed is practically 0 or we are out of efforts, we should be stopped.
+		}
 	}
-	delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
+	//finally, after we have made "sure" that we are stopped, set the new speed to 0
 	if (cruiseControlEnabled()){
 		setMotors(0,getAngle()); //shut the engines down, we should be stopped by now
 		enableCruiseControl(_Kp,_Ki,_Kd); //re-initialize the cruise control, se we get rid of previous error and pid output
@@ -186,7 +203,7 @@ void Car::stop(){ //platform specific method
 
 float Car::getSpeed(){
 	if (cruiseControlEnabled()) return getGroundSpeed(); //return speed in meters per second
-	return _speed; //return speed in PWM output
+	return _speed; //return speed in signed PWM output
 }
 
 int Car::getAngle(){
@@ -207,8 +224,10 @@ void Car::enableCruiseControl(float Kp, float Ki, float Kd, unsigned short pidLo
 }
 
 void Car::disableCruiseControl(){
-	_cruiseControl = false;
-	_speed = _previousControlledSpeed; //update the speed with the PWM equivalent
+	if (cruiseControlEnabled()){
+		_cruiseControl = false;
+		_speed = _previousControlledSpeed; //update the speed with the PWM equivalent
+	}
 }
 
 boolean Car::cruiseControlEnabled(){

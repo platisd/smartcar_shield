@@ -18,7 +18,7 @@
 #include <avr/interrupt.h>
 #include <Wire.h>
 
-class DistanceSensor {
+class DistanceSensor{
 	public:
 		DistanceSensor();
 		virtual ~DistanceSensor();
@@ -48,7 +48,7 @@ class SHARP_IR : public InfraredSensor {
 		unsigned int _maxDistance, _minDistance;
 };
 
-class GP2D120 : public SHARP_IR { //Infrared sensor for distances between 4 and 25 cm (aka GP2Y0A41SK0F)
+class GP2D120 : public SHARP_IR { //Infrared sensor for distances between 5 and 25 cm (aka GP2Y0A41SK0F)
 	public:
 		GP2D120();
 	private:
@@ -97,7 +97,7 @@ class Gyroscope {
 	public:
 		Gyroscope(int offset = DEFAULT_GYRO_OFFSET);
 		void attach();
-		void begin(unsigned short samplingRate = DEFAULT_GYRO_SAMPLING);
+		void begin(unsigned short samplingPeriod = DEFAULT_GYRO_SAMPLING);
 		int getAngularDisplacement();
 		void update();
 		unsigned int calibrate(unsigned int measurements = 100);
@@ -116,20 +116,44 @@ class Gyroscope {
 		int _gyroOffset;
 };
 
-class Odometer {
+class Odometer{
 	public:
 		Odometer(unsigned int pulsesPerMeter = DEFAULT_PULSES_PER_METER);
 		int attach(unsigned short odometerPin);
 		void begin();
 		unsigned long getDistance();
-		void detach();
-		unsigned long getPulses();
 		boolean isInstanciated();
 	private:
 		unsigned long pulsesToCentimeters(unsigned long pulses);
 		unsigned int _pulsesPerMeter;
 		static const unsigned int DEFAULT_PULSES_PER_METER;
 		unsigned short _odometerInterruptPin, _odometerID;
+};
+
+class NewPing{
+	public:
+		static void timer_start(unsigned long frequency, void (*userFunc)(void));
+		static void timer_stop();
+	private:
+		static void timer_setup();
+		static void timer_start_cntdwn();
+};
+
+class SRF08 : public UltrasonicSensor{
+	public:
+		SRF08();
+		void attach(const uint8_t address = DEFAULT_SRF08_ADDRESS);
+		void setGain(const uint8_t gainValue);
+		void setRange(const uint8_t rangeValue);
+		void setPingDelay(const uint8_t milliseconds = DEFAULT_PING_DELAY);
+		unsigned int getDistance();
+		unsigned int getLightReading();
+		void changeAddress(uint8_t newAddress);
+	private:
+		unsigned int ping();
+		uint8_t _address, _delay;
+		static const uint8_t DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
+
 };
 
 class Car {
@@ -164,6 +188,7 @@ class Car {
 		static const unsigned short DEFAULT_PID_LOOP_INTERVAL;
 		static const float DEFAULT_KP, DEFAULT_KI, DEFAULT_KD;
 		float _Kp, _Ki, _Kd;
+		float _measuredSpeed;
 		Odometer _encoders[2];
 		Gyroscope _gyro;
 		boolean _gyroAttached;
@@ -173,31 +198,6 @@ class Car {
 		int _previousError, _integratedError;
 		uint8_t MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
 		uint8_t MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
-};
-
-class NewPing{
-	public:
-		static void timer_start(unsigned long frequency, void (*userFunc)(void));
-		static void timer_stop();
-	private:
-		static void timer_setup();
-		static void timer_start_cntdwn();
-};
-
-class SRF08 : public UltrasonicSensor{
-	public:
-		SRF08();
-		void attach(const uint8_t address = DEFAULT_SRF08_ADDRESS);
-		void setGain(const uint8_t gainValue);
-		void setRange(const uint8_t rangeValue);
-		void setPingDelay(const uint8_t milliseconds = DEFAULT_PING_DELAY);
-		unsigned int getDistance();
-		void changeAddress(uint8_t newAddress);
-	private:
-		unsigned int ping();
-		uint8_t _address, _delay;
-		static const uint8_t DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
-
 };
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
