@@ -28,7 +28,7 @@ void Gyroscope::attach(){
 	initializeGyro();
 }
 
-void Gyroscope::begin(unsigned short samplingRate){
+void Gyroscope::begin(unsigned short samplingPeriod){
 	_angularDisplacement = 0;
 	_prevSample = millis();
 	_samplingRate = samplingRate;
@@ -54,7 +54,7 @@ void Gyroscope::update(){
 }
 
 void Gyroscope::initializeGyro(){
-	Wire.begin();
+	if (!TWCR) Wire.begin(); //if it hasn't been started (TWCR==0), start it
 	setupL3G4200D(2000); // Configure L3G4200 at 2000 deg/sec. Other options: 250, 500 (NOT suggested, will have to redetermine offset) 
 }
 
@@ -118,6 +118,7 @@ int Gyroscope::readRegister(int deviceAddress, byte address){
 }
 
 unsigned int Gyroscope::calibrate(unsigned int measurements){ //use this function in order to determine the offset and change GYRO_OFFSET accordingly
+	if (!measurements) return -1; //if a 0 was an argument, return a very high value, to avoid a division with 0 and indicate error
 	unsigned int sum = 0;
 	for (int i = 0; i < measurements; i++){	
 		sum += getGyroValues();
