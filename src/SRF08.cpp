@@ -55,7 +55,7 @@ unsigned int SRF08::ping(){
 	return (high << 8) + low;
 }
 
-unsigned int SRF08::getLightReading(){
+unsigned short SRF08::getLightReading(){
 	Wire.beginTransmission(_address);
 	Wire.write(byte(0x00));
 	Wire.write(byte(0x51));
