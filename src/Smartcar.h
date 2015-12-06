@@ -147,7 +147,7 @@ class SRF08 : public UltrasonicSensor{
 		void setRange(unsigned short rangeValue);
 		void setPingDelay(unsigned short milliseconds = DEFAULT_PING_DELAY);
 		unsigned int getDistance();
-		unsigned int getLightReading();
+		unsigned short getLightReading();
 		void changeAddress(unsigned short newAddress);
 	private:
 		unsigned int ping();
@@ -159,7 +159,7 @@ class SRF08 : public UltrasonicSensor{
 
 class Car {
 	public:
-		Car(unsigned short setup = STANDARD);
+		Car(unsigned short shieldOrientation = STANDARD);
 		void begin(Gyroscope gyro);
 		void begin(Odometer encoder, Gyroscope gyro);
 		void begin(Odometer encoder1 = 0, Odometer encoder2 = 0, Gyroscope gyro = 0);
