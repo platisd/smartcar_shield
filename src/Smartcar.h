@@ -142,17 +142,18 @@ class NewPing{
 class SRF08 : public UltrasonicSensor{
 	public:
 		SRF08();
-		void attach(const uint8_t address = DEFAULT_SRF08_ADDRESS);
-		void setGain(const uint8_t gainValue);
-		void setRange(const uint8_t rangeValue);
-		void setPingDelay(const uint8_t milliseconds = DEFAULT_PING_DELAY);
+		void attach(unsigned short address = DEFAULT_SRF08_ADDRESS);
+		void setGain(unsigned short gainValue);
+		void setRange(unsigned short rangeValue);
+		void setPingDelay(unsigned short milliseconds = DEFAULT_PING_DELAY);
 		unsigned int getDistance();
 		unsigned int getLightReading();
-		void changeAddress(uint8_t newAddress);
+		void changeAddress(unsigned short newAddress);
 	private:
 		unsigned int ping();
-		uint8_t _address, _delay;
-		static const uint8_t DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
+		uint8_t _address;
+		unsigned short _delay;
+		static const unsigned short DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
 
 };
 
@@ -196,8 +197,8 @@ class Car {
 		unsigned long _lastMotorUpdate, _previousDistance;
 		int _previousControlledSpeed;
 		int _previousError, _integratedError;
-		uint8_t MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
-		uint8_t MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
+		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
+		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */

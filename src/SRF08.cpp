@@ -1,36 +1,36 @@
 #include "Smartcar.h"
 
-const uint8_t SRF08::DEFAULT_PING_DELAY = 70;
-const uint8_t SRF08::DEFAULT_SRF08_ADDRESS = 112;
+const unsigned short SRF08::DEFAULT_PING_DELAY = 70;
+const unsigned short SRF08::DEFAULT_SRF08_ADDRESS = 112;
 
-static const uint8_t FIRST_ADDRESS = 112; //please refer to: http://www.robot-electronics.co.uk/htm/srf08tech.html
-static const uint8_t LAST_ADDRESS = 127;
+static unsigned short FIRST_ADDRESS = 112; //please refer to: http://www.robot-electronics.co.uk/htm/srf08tech.html
+static unsigned short LAST_ADDRESS = 127;
 
 SRF08::SRF08(){
 	_sensorMedianDelay = DEFAULT_PING_DELAY;
 }
 
-void SRF08::attach(const uint8_t address){
+void SRF08::attach(unsigned short address){
 	if (!TWCR) Wire.begin(); //if it hasn't been started (TWCR==0), start it
-	_address = address;
+	_address = constrain(address, FIRST_ADDRESS, LAST_ADDRESS); //allow only valid values, between 112 and 127
 	_delay = DEFAULT_PING_DELAY;
 }
 
-void SRF08::setGain(const uint8_t gainValue){
+void SRF08::setGain(unsigned short gainValue){
 	Wire.beginTransmission(_address); //start i2c transmission
 	Wire.write(0x01); //write to GAIN register (1)
 	Wire.write(constrain(gainValue,0,31)); //write the value
 	Wire.endTransmission(); //end transmission
 }
 
-void SRF08::setRange(const uint8_t rangeValue){
+void SRF08::setRange(unsigned short rangeValue){
 	Wire.beginTransmission(_address); //start i2c transmission
 	Wire.write(0x02); //write to range register (1)
 	Wire.write(rangeValue); //write the value // Max_Range = (rangeValue * 3.4) + 3.4 in centimeters
 	Wire.endTransmission(); //end transmission
 }
 
-void SRF08::setPingDelay(const uint8_t milliseconds){
+void SRF08::setPingDelay(unsigned short milliseconds){
 	_delay = milliseconds;
 	_sensorMedianDelay = milliseconds; //also update the sensor's median delay
 }
@@ -69,7 +69,7 @@ unsigned int SRF08::getLightReading(){
 	return Wire.read();
 }
 
-void SRF08::changeAddress(uint8_t newAddress){
+void SRF08::changeAddress(unsigned short newAddress){
 	newAddress = constrain(newAddress, FIRST_ADDRESS, LAST_ADDRESS); //allow only valid values, between 112 and 127
 	Wire.beginTransmission(_address);
 	Wire.write(byte(0x00));
