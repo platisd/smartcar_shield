@@ -30,14 +30,14 @@ const int GO_RAW_SPEED = 200;
 const int MAX_RIGHT_STEERING_ANGLE = MAX_RIGHT_DEGREES - STRAIGHT_WHEELS;
 const int MAX_LEFT_STEERING_ANGLE = MAX_LEFT_DEGREES - STRAIGHT_WHEELS;
 
-Car::Car(const unsigned short setup){
+Car::Car(const unsigned short shieldOrientation){
 	_cruiseControl = false;
 	_speed = IDLE_RAW_SPEED;
 	_angle = STRAIGHT_WHEELS;
 	_numOfEncoders = 0;
 	_gyroAttached = false;
 	_pidLoopInterval = DEFAULT_PID_LOOP_INTERVAL;
-	if (setup == STANDARD){ //the default motor setup, where right is right
+	if (shieldOrientation == STANDARD){ //the default motor setup, where right is right
 		MOTOR_LEFT1_PIN = 8;
 		MOTOR_LEFT_EN_PIN = 9;
 		MOTOR_LEFT2_PIN = 10;
