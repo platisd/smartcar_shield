@@ -19,7 +19,7 @@ void setup() {
   encoderRight.begin();
   car.begin(encoderLeft, encoderRight); //initialize the car using the encoders
   car.enableCruiseControl(); //using default PID values
-  car.enableCruiseControl(12,5,17,30); //using custom values and control frequency
+ // car.enableCruiseControl(12,5,17,30); //using custom values and control frequency
 }
 
 void loop() {
