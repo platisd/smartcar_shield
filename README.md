@@ -7,7 +7,7 @@ Coming soon
 Coming soon
 
 ### Dependencies
-- [Wire library](http://arduino.cc/en/reference/Wire) used for getting data from the SRF08 ultrasonic sensors, via I2C
+- [Wire library](http://arduino.cc/en/reference/Wire) (included with the Arduino IDE)
 
 ### Documentation
 Coming soon
