@@ -202,8 +202,7 @@ void Car::stop(){ //platform specific method
 }
 
 float Car::getSpeed(){
-	if (cruiseControlEnabled()) return getGroundSpeed(); //return speed in meters per second
-	return _speed; //return speed in signed PWM output
+	return _speed; //return the speed that was supplied by the user
 }
 
 int Car::getAngle(){
