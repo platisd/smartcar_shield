@@ -122,6 +122,7 @@ class Odometer{
 		int attach(unsigned short odometerPin);
 		void begin();
 		unsigned long getDistance();
+		float getSpeed();
 		boolean isInstanciated();
 	private:
 		unsigned long pulsesToCentimeters(unsigned long pulses);
@@ -183,9 +184,10 @@ class Car {
 		float getGroundSpeed();
 		unsigned long getEncoderDistance();
 		void initializeEncoders();
+		float getEncoderSpeed();
 		unsigned short _pidLoopInterval, _numOfEncoders;
 		int _angle;
-		float _speed;
+		float _speed, _lastGroundSpeed;
 		static const unsigned short DEFAULT_PID_LOOP_INTERVAL;
 		static const float DEFAULT_KP, DEFAULT_KI, DEFAULT_KD;
 		float _Kp, _Ki, _Kd;
