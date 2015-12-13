@@ -95,12 +95,12 @@ void Car::setSpeed(float newSpeed){
 void Car::updateMotors(){
 	if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
 		if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
-			_measuredSpeed = getGroundSpeed(); //speed in cm/milliseconds
-			_measuredSpeed *= 10; //transform it into m/seconds, divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
+			_measuredSpeed = getEncoderSpeed(); //speed in m/s
 			if (_speed < 0) _measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
 			int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
 			setMotors(controlledSpeed, getAngle());
 			_previousControlledSpeed = controlledSpeed;
+			_lastGroundSpeed = getGroundSpeed();
 		}
 		_lastMotorUpdate = millis();
 	}
@@ -115,12 +115,12 @@ int Car::motorPIDcontrol(const int previousSpeed, const float targetSpeed, const
 	return constrain(previousSpeed + int(correction), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
 }
 
-float Car::getGroundSpeed(){
+float Car::getGroundSpeed(){ //the ground speed, as measured by the car. we use it to stop() the vehicle
 	unsigned long currentDistance = getEncoderDistance();
 	unsigned long dX = currentDistance - _previousDistance;
 	_previousDistance = currentDistance;
 	unsigned long dT = millis() - _lastMotorUpdate;
-	float velocity = float(dX)/ float(dT);
+	float velocity = (float(dX) * 10)/ dT; //output in m/seconds, divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
 	return velocity;	
 }
 
@@ -180,10 +180,8 @@ void Car::stop(){ //platform specific method
 		}
 		delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
 	}else{ //try to measure the ground speed and spin the wheels in the opposite direction, until it is 0
-		float initialSpeed = _measuredSpeed; //get the last measured speed by updateMotors()
-		if (initialSpeed){ //if the speed is not 0
+		if (_lastGroundSpeed){ //if the last measured speed by getGroundSpeed() is not 0
 			int rawSpeed = _previousControlledSpeed; //the (signed) pwm we were writing to the motors, produced by the pid controller
-			float groundSpeed = 0;
 			unsigned short maxSteps = MAX_EFFORTS;
 			do{
 				setMotors(-rawSpeed, getAngle()); //apply the opposite speed to the motors
@@ -233,7 +231,7 @@ boolean Car::cruiseControlEnabled(){
 	return _cruiseControl;
 }
 
-unsigned long Car::getEncoderDistance(){
+unsigned long Car::getEncoderDistance(){ //gets the average distance measured by the attached encoders
 	unsigned long averageDistance = 0;
 	for (int i = 0; i < _numOfEncoders; i++){
 		averageDistance += _encoders[i].getDistance() / _numOfEncoders;
@@ -241,7 +239,15 @@ unsigned long Car::getEncoderDistance(){
 	return averageDistance;
 }
 
-void Car::initializeEncoders(){
+float Car::getEncoderSpeed(){ //gets the average speed measured by the attached encoders
+	float averageSpeed = 0;
+	for (int i = 0; i< _numOfEncoders; i++){
+		averageSpeed += _encoders[i].getSpeed() / _numOfEncoders;
+	}
+	return averageSpeed;
+}
+
+void Car::initializeEncoders(){ //initializes the attached encoders
 	for (int i = 0; i < _numOfEncoders; i++){
 		_encoders[i].begin();
 	}
