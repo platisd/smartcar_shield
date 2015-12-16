@@ -11,7 +11,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print(encoder.getDistance()); //now we get a 1 to 1 mapping of pulses to cm
+  Serial.println(encoder.getDistance()); //now we get a 1 to 1 mapping of pulses to cm
   delay(100);
 }
 
