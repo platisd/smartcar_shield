@@ -167,7 +167,7 @@ void Car::setDirection(const unsigned short direction){ //platform specific meth
 
 void Car::setAngle(int angle){ //platform specific method
 	_angle = constrain(angle, MAX_LEFT_DEGREES - STRAIGHT_WHEELS, MAX_RIGHT_DEGREES - STRAIGHT_WHEELS); //constrain the value to the permitted valued the user is allowed to supply
-	setMotors(getSpeed(), getAngle()); //pass the human-readable value that was just supplied
+	if (!cruiseControlEnabled()) setMotors(getSpeed(), getAngle()); // if not in cruise control, apply the new angle directly
 }
 
 void Car::stop(){ //platform specific method
