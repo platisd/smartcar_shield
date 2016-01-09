@@ -9,6 +9,8 @@ The software, is the Smartcar shield Arduino library. It sports a high level API
 
 The library, currently supports steering of the vehicle by rotating the wheels on each side at a different speed, like a tank. In the future, the option to achieve this using a servo motor and the throttle to be controlled by an ESC (Electronic Speed Controller), will be added. This, will make the library independent from the shield.
 
+If the Smartcar shield library, is installed through the Library Manager of Arduino IDE, as recommended, the user will receive a notification in their IDE, when new versions are released, making updates particularly easy, without the need to use GitHub or git.
+
 ### Materials needed
  * Smartcar chassis (CAD files for miling machines or laser cutters, coming soon)
  * L293D H-bridge
