@@ -1,5 +1,14 @@
 # Smartcar shield
 
+## Contents
+* [Description](#description)
+* [Materials needed](#materials-needed)
+* [Compatible sensors](#compatible-sensors)
+* [How to get started](#how-to-get-started)
+* [Dependencies](#dependencies)
+* [Project documentation](#project-documentation)
+* [License](#license)
+
 ### Description
 This repository, includes everything necessary to set up a Smartcar platform. The Smartcar, is an vehicular educational platform, which enables the user to develop various robotic applications in an affordable, pedagogic and easy way. It is intended for persons with basic programming knowledge and little to no experience of electronics, mechanics or robotics. More experienced users, should also find this approach convenient, due to its open source nature, high level API and object oriented design.
 
