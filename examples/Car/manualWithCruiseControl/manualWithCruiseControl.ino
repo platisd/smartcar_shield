@@ -8,8 +8,8 @@ const float fSpeed = 0.5; //a ground speed (m/sec) for going forward
 const float bSpeed = -0.5; //a ground speed (m/sec)y for going backward
 const int lDegrees = -75; //degrees to turn left
 const int rDegrees = 75; //degrees to turn right
-const int encoderLeftPin = 2;
-const int encoderRightPin = 3;
+const int encoderLeftPin = 3;
+const int encoderRightPin = 2;
 
 void setup() {
   Serial3.begin(9600);
@@ -29,7 +29,8 @@ void loop() {
 
 void handleInput() { //handle serial input if there is any
   if (Serial3.available()) {
-    char input = Serial3.read(); //read one byte/character
+    char input;
+    while (Serial3.available()) input = Serial3.read(); //read everything that has been received so far and log down the last entry
     switch (input) {
       case 'l': //rotate counter-clockwise going forward
         car.setSpeed(fSpeed);
