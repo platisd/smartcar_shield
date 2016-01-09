@@ -278,7 +278,7 @@ void Car::go(int centimeters){
 	setAngle(initialAngle); //restore to the inital angle	
 }
 void Car::rotate(int targetDegrees){
-	if (!_gyroAttached) return; //continue only if gyroscope is attached
+	if (!_gyroAttached || !targetDegrees) return; //continue only if gyroscope is attached and the targetDegrees is not 0
 	_gyro.begin(); //initialize the gyro
 	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
 	int initialAngle = getAngle(); //save the current angle (so we restore it later)
