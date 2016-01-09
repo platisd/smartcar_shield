@@ -38,6 +38,7 @@ The library, currently supports steering of the vehicle by rotating the wheels o
 - [Wire library](http://arduino.cc/en/reference/Wire) (included with the Arduino IDE)
 
 ### Project documentation
+[The Smartcar platform][http://plat.is/smartcar]
 [Wiki](../../wiki)
 
 ### License
