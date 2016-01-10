@@ -1,10 +1,10 @@
 #include <Smartcar.h>
 #include <Wire.h>
 
-Car car(Car::INVERTED);
+Car car;
 
-const int fSpeed = 200; //a PWM frequency for going forward
-const int bSpeed = -200; //a PWM frequency for going backward
+const int fSpeed = 70; //70% of the full speed forward
+const int bSpeed = -70; //70% of the full speed backward
 const int lDegrees = -75; //degrees to turn left
 const int rDegrees = 75; //degrees to turn right
 

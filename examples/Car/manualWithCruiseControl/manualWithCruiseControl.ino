@@ -2,7 +2,7 @@
 #include <Wire.h>
 
 Odometer encoderLeft, encoderRight;
-Car car(Car::INVERTED);
+Car car;
 
 const float fSpeed = 0.5; //a ground speed (m/sec) for going forward
 const float bSpeed = -0.5; //a ground speed (m/sec)y for going backward

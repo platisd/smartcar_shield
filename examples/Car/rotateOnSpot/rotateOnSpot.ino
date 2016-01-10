@@ -2,8 +2,8 @@
 #include <Wire.h>
 
 Gyroscope gyro;
-Car car(Car::INVERTED);
-int motorSpeed = 200;
+Car car;
+int motorSpeed = 80; //80% of the max speed
 
 void setup() {
   gyro.attach();
