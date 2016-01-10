@@ -16,6 +16,8 @@ const unsigned short BACKWARD = 0;
 const unsigned short FORWARD = 1;
 const unsigned short IDLE = 2;
 
+const int FULL_FORWARD = 100; //percentage of the throttle that defines the full speed forward
+const int FULL_BACKWARD = -100; //percentage of the throttle that defines the full speed backward
 const int IDLE_RAW_SPEED = 0;
 const int MAX_FRONT_RAW_SPEED = 255;
 const int MAX_BACK_RAW_SPEED = -255;
@@ -87,7 +89,7 @@ void Car::setSpeed(float newSpeed){
 		if (_speed && (_speed != IDLE_RAW_SPEED) && (newSpeed * _speed) <= 0) stop(); //if the speeds are signed differently, stop the car and then set the new speed. Ignore this if the speed is already 0 and if speed is at the idle raw speed i.e. leftovers from non-cruise control mode (if IDLE_RAW_SPEED is not 0, it makes sense)
 		_speed = constrain(newSpeed, MAX_BACK_CRUISE_SPEED, MAX_FRONT_CRUISE_SPEED);
 	}else{
-		_speed = constrain(int(newSpeed), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
+		_speed = constrain(int(newSpeed), FULL_BACKWARD, FULL_FORWARD); //constrain the speed between the allowed values
 		setMotors(_speed, getAngle());
 	}
 }
@@ -112,7 +114,7 @@ int Car::motorPIDcontrol(const int previousSpeed, const float targetSpeed, const
 	_integratedError += error;
 	correction = (_Kp * error) + (_Ki * _integratedError) + (_Kd * (error - _previousError));                            
 	_previousError = error;
-	return constrain(previousSpeed + int(correction), MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
+	return constrain(previousSpeed + int(correction), FULL_BACKWARD, FULL_FORWARD);
 }
 
 float Car::getGroundSpeed(){ //the ground speed, as measured by the car. we use it to stop() the vehicle
@@ -125,7 +127,9 @@ float Car::getGroundSpeed(){ //the ground speed, as measured by the car. we use 
 }
 
 void Car::setMotors(int rawSpeed, int angle){ //platform specific method
-	if (rawSpeed < 0){
+	rawSpeed = constrain(rawSpeed, FULL_BACKWARD, FULL_FORWARD); //constrain the speed between the allowed range
+	rawSpeed = map(rawSpeed, FULL_BACKWARD, FULL_FORWARD, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);//map it to real speed
+	if (rawSpeed < 0){ //setting the direction, depending on the sign
 		setDirection(BACKWARD);	
 	}else if (rawSpeed > 0){
 		setDirection(FORWARD);
@@ -181,7 +185,7 @@ void Car::stop(){ //platform specific method
 		delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
 	}else{ //try to measure the ground speed and spin the wheels in the opposite direction, until it is 0
 		if (_lastGroundSpeed){ //if the last measured speed by getGroundSpeed() is not 0
-			int rawSpeed = _previousControlledSpeed; //the (signed) pwm we were writing to the motors, produced by the pid controller
+			int rawSpeed = _previousControlledSpeed; //the (signed) speed we were writing to the motors, produced by the pid controller
 			unsigned short maxSteps = MAX_EFFORTS;
 			do{
 				setMotors(-rawSpeed, getAngle()); //apply the opposite speed to the motors
@@ -223,7 +227,7 @@ void Car::enableCruiseControl(float Kp, float Ki, float Kd, unsigned short pidLo
 void Car::disableCruiseControl(){
 	if (cruiseControlEnabled()){
 		_cruiseControl = false;
-		_speed = _previousControlledSpeed; //update the speed with the PWM equivalent
+		_speed = _previousControlledSpeed; //update the speed in m/s with the raw (percentage) equivalent
 	}
 }
 
@@ -302,8 +306,10 @@ void Car::rotate(int targetDegrees){
 
 void Car::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //will set the speed manual to each motor, use with caution
 	if (cruiseControlEnabled()) return; //we don't want to be manually messing with the speed, during cruise control
-	leftMotorSpeed = constrain(leftMotorSpeed, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED); //constrain the speed within the allowed limits
-	rightMotorSpeed = constrain(rightMotorSpeed, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);
+	leftMotorSpeed = constrain(leftMotorSpeed, FULL_BACKWARD, FULL_FORWARD); //constrain the speed between the allowed range
+	rightMotorSpeed = constrain(rightMotorSpeed, FULL_BACKWARD, FULL_FORWARD);
+	leftMotorSpeed = map(leftMotorSpeed, FULL_BACKWARD, FULL_FORWARD, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED); //map speed percentage to actual
+	rightMotorSpeed = map(rightMotorSpeed, FULL_BACKWARD, FULL_FORWARD, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);//raw speed value
 	if (leftMotorSpeed<0){ //set left direction backwards
 		digitalWrite(MOTOR_LEFT1_PIN, LOW);
 		digitalWrite(MOTOR_LEFT2_PIN, HIGH);
