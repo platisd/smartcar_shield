@@ -17,6 +17,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <Wire.h>
+#include <Servo.h>
 
 class DistanceSensor{
 	public:
@@ -157,6 +158,46 @@ class SRF08 : public UltrasonicSensor{
 		static const unsigned short DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
 
 };
+
+class Motor {
+	public:
+		Motor();
+};
+
+class SteeringMotor : public Motor {
+	public:
+		SteeringMotor();
+		virtual ~SteeringMotor();
+		virtual void setAngle(int degrees); //to be overriden by the child classes
+};
+
+class ThrottleMotor : public Motor {
+	public:
+		ThrottleMotor();
+		virtual ~ThrottleMotor();
+		virtual void setSpeed(float speed); //to be overriden by the child classes
+};
+
+class ESCMotor : public ThrottleMotor, public Servo {
+	public:
+		ESCMotor();
+		void setSpeed(float speed);
+};
+
+class DCMotor : public ThrottleMotor {
+	public:
+		DCMotor();
+		void setSpeed(float speed);
+};
+
+class ServoMotor : public SteeringMotor, public Servo {
+	public:
+		ServoMotor();
+		void setAngle(int degrees);
+	private:
+		unsigned short _pin;
+};
+
 
 class Car {
 	public:
