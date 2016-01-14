@@ -5,8 +5,6 @@
 /* --- CAR --- */
 
 const unsigned short Car::DEFAULT_PID_LOOP_INTERVAL = 80;
-const unsigned short Car::STANDARD = 1;
-const unsigned short Car::INVERTED = 0; 
 const float Car::DEFAULT_KP = 5.0;
 const float Car::DEFAULT_KI = 0.0;
 const float Car::DEFAULT_KD = 10.0;
@@ -33,20 +31,35 @@ const int MAX_RIGHT_STEERING_ANGLE = MAX_RIGHT_DEGREES - STRAIGHT_WHEELS;
 const int MAX_LEFT_STEERING_ANGLE = MAX_LEFT_DEGREES - STRAIGHT_WHEELS;
 
 Car::Car(const unsigned short shieldOrientation){
+	DCMotor *dcMotor = useDC();
+	init(dcMotor, dcMotor, shieldOrientation);
+}
+
+Car::Car(SteeringMotor *steering, unsigned short shieldOrientation){
+	init(steering, useDC(), shieldOrientation);
+}
+
+Car::Car(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation){
+	init(steering, throttle, shieldOrientation);
+}
+
+void Car::init(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation){
 	_cruiseControl = false;
 	_speed = IDLE_RAW_SPEED;
 	_angle = STRAIGHT_WHEELS;
 	_numOfEncoders = 0;
 	_gyroAttached = false;
 	_pidLoopInterval = DEFAULT_PID_LOOP_INTERVAL;
-	if (shieldOrientation == STANDARD){ //the default motor setup, where right is right
+	_throttle = throttle;
+	_steering = steering;
+	if (shieldOrientation == STANDARD){ //the default shield setup, where right is right
 		MOTOR_LEFT1_PIN = 8;
 		MOTOR_LEFT_EN_PIN = 9;
 		MOTOR_LEFT2_PIN = 10;
 		MOTOR_RIGHT_EN_PIN = 11;
 		MOTOR_RIGHT1_PIN = 12;
 		MOTOR_RIGHT2_PIN = 13;
-	}else{ //the reversed motor setup, where right is left
+	}else{ //the reversed shield setup, where right is left
 		MOTOR_RIGHT1_PIN = 8;
 		MOTOR_RIGHT_EN_PIN = 9;
 		MOTOR_RIGHT2_PIN = 10;

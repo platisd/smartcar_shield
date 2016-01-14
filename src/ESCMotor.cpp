@@ -1,5 +1,7 @@
 #include "Smartcar.h"
 
-ESCMotor::ESCMotor() {}
+ESCMotor::ESCMotor(unsigned short pin) {}
 
-void ESCMotor::setSpeed(float speed){}
+void ESCMotor::setSpeed(float speed){
+
+}

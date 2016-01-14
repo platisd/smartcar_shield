@@ -19,6 +19,9 @@
 #include <Wire.h>
 #include <Servo.h>
 
+const unsigned short STANDARD = 1; //shield's orientation, used for DCMotor
+const unsigned short INVERTED = 0; //shield's orientation, used for DCMotor
+
 class DistanceSensor{
 	public:
 		DistanceSensor();
@@ -169,6 +172,8 @@ class SteeringMotor : public Motor {
 		SteeringMotor();
 		virtual ~SteeringMotor();
 		virtual void setAngle(int degrees); //to be overriden by the child classes
+	protected:
+		int _maxAngle, minAngle;
 };
 
 class ThrottleMotor : public Motor {
@@ -176,32 +181,36 @@ class ThrottleMotor : public Motor {
 		ThrottleMotor();
 		virtual ~ThrottleMotor();
 		virtual void setSpeed(float speed); //to be overriden by the child classes
+	protected:
+		int _maxInput, _minInput, _maxSpeed, _minSpeed;
 };
 
 class ESCMotor : public ThrottleMotor, public Servo {
 	public:
-		ESCMotor();
+		ESCMotor(unsigned short pin);
 		void setSpeed(float speed);
 };
 
-class DCMotor : public ThrottleMotor {
+class DCMotor : public ThrottleMotor, public SteeringMotor {
 	public:
 		DCMotor();
 		void setSpeed(float speed);
+		void setAngle(int degrees);
+	private:
+		float _speed;
 };
 
 class ServoMotor : public SteeringMotor, public Servo {
 	public:
-		ServoMotor();
+		ServoMotor(unsigned short pin);
 		void setAngle(int degrees);
-	private:
-		unsigned short _pin;
 };
-
 
 class Car {
 	public:
 		Car(unsigned short shieldOrientation = STANDARD);
+		Car(SteeringMotor *steering, unsigned short shieldOrientation = STANDARD);
+		Car(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation = STANDARD);
 		void begin(Gyroscope gyro);
 		void begin(Odometer encoder, Gyroscope gyro);
 		void begin(Odometer encoder1 = 0, Odometer encoder2 = 0, Gyroscope gyro = 0);
@@ -216,8 +225,8 @@ class Car {
 		void go(int centimeters);
 		void rotate(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
-		static const unsigned short STANDARD, INVERTED;
 	private:
+		void init(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation);
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
 		void setMotors(int rawSpeed, int angle);
 		void setDirection(const unsigned short direction);
@@ -226,6 +235,8 @@ class Car {
 		unsigned long getEncoderDistance();
 		void initializeEncoders();
 		float getEncoderSpeed();
+		ThrottleMotor *_throttle;
+		SteeringMotor *_steering;
 		unsigned short _pidLoopInterval, _numOfEncoders;
 		int _angle;
 		float _speed, _lastGroundSpeed;
@@ -243,6 +254,11 @@ class Car {
 		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
 		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };
+
+/* Helper classes for the user, in order to initialize the Car */
+ServoMotor* useServo(unsigned short servoPin);
+ESCMotor* useESC(unsigned short escPin);
+DCMotor* useDC();
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
 typedef SR04 Sonar; //HC-SR04 was Sonar in AndroidCar, CaroloCup2016 and Smartcar sensor libraries
