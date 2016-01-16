@@ -8,6 +8,6 @@ ESCMotor* useESC(unsigned short escPin){
 	return new ESCMotor(escPin);
 }
 
-DCMotor* useDC(){
-	return new DCMotor();
+DCMotors* useDC(unsigned short shieldOrientation){
+	return new DCMotors(shieldOrientation);
 }

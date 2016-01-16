@@ -14,36 +14,36 @@ const unsigned short BACKWARD = 0;
 const unsigned short FORWARD = 1;
 const unsigned short IDLE = 2;
 
-const int FULL_FORWARD = 100; //percentage of the throttle that defines the full speed forward
-const int FULL_BACKWARD = -100; //percentage of the throttle that defines the full speed backward
-const int IDLE_RAW_SPEED = 0;
-const int MAX_FRONT_RAW_SPEED = 255;
-const int MAX_BACK_RAW_SPEED = -255;
-const float MAX_BACK_CRUISE_SPEED = -3.0;
-const float MAX_FRONT_CRUISE_SPEED = 3.0;
-const int STRAIGHT_WHEELS = 90;
-const int STRAIGHT_ANGLE = 0;
-const int MAX_RIGHT_DEGREES = 180;
-const int MAX_LEFT_DEGREES = 0;
-const float GO_CRUISE_SPEED = 1.3;
-const int GO_RAW_SPEED = 200;
-const int MAX_RIGHT_STEERING_ANGLE = MAX_RIGHT_DEGREES - STRAIGHT_WHEELS;
-const int MAX_LEFT_STEERING_ANGLE = MAX_LEFT_DEGREES - STRAIGHT_WHEELS;
+const int FULL_FORWARD = 100;//ThrottleMotor //percentage of the throttle that defines the full speed forward
+const int FULL_BACKWARD = -100;//ThrottleMotor //percentage of the throttle that defines the full speed backward
+const int IDLE_RAW_SPEED = 0; //ThrottleMotor
+const int MAX_FRONT_RAW_SPEED = 255; //DCMotor, ESC
+const int MAX_BACK_RAW_SPEED = -255; //DCMotor, ESC
+const float MAX_BACK_CRUISE_SPEED = -3.0; //Car
+const float MAX_FRONT_CRUISE_SPEED = 3.0; //Car
+const int STRAIGHT_WHEELS = 90; //SteeringMotor
+const int STRAIGHT_ANGLE = 0; //SteeringMotor
+const int MAX_RIGHT_DEGREES = 180; //SteeringMotor
+const int MAX_LEFT_DEGREES = 0; //SteeringMotor
+const float GO_CRUISE_SPEED = 1.3; //Car
+const int GO_RAW_SPEED = 200; //Car
+const int MAX_RIGHT_STEERING_ANGLE = MAX_RIGHT_DEGREES - STRAIGHT_WHEELS; //SteeringMotor
+const int MAX_LEFT_STEERING_ANGLE = MAX_LEFT_DEGREES - STRAIGHT_WHEELS; //SteeringMotor
 
 Car::Car(const unsigned short shieldOrientation){
-	DCMotor *dcMotor = useDC();
-	init(dcMotor, dcMotor, shieldOrientation);
+	DCMotors *dcMotors = useDC(shieldOrientation);
+	init(dcMotors, dcMotors);
 }
 
 Car::Car(SteeringMotor *steering, unsigned short shieldOrientation){
-	init(steering, useDC(), shieldOrientation);
+	init(steering, useDC(shieldOrientation));
 }
 
-Car::Car(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation){
-	init(steering, throttle, shieldOrientation);
+Car::Car(SteeringMotor *steering, ThrottleMotor *throttle){
+	init(steering, throttle);
 }
 
-void Car::init(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation){
+void Car::init(SteeringMotor *steering, ThrottleMotor *throttle){
 	_cruiseControl = false;
 	_speed = IDLE_RAW_SPEED;
 	_angle = STRAIGHT_WHEELS;
@@ -52,21 +52,6 @@ void Car::init(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short 
 	_pidLoopInterval = DEFAULT_PID_LOOP_INTERVAL;
 	_throttle = throttle;
 	_steering = steering;
-	if (shieldOrientation == STANDARD){ //the default shield setup, where right is right
-		MOTOR_LEFT1_PIN = 8;
-		MOTOR_LEFT_EN_PIN = 9;
-		MOTOR_LEFT2_PIN = 10;
-		MOTOR_RIGHT_EN_PIN = 11;
-		MOTOR_RIGHT1_PIN = 12;
-		MOTOR_RIGHT2_PIN = 13;
-	}else{ //the reversed shield setup, where right is left
-		MOTOR_RIGHT1_PIN = 8;
-		MOTOR_RIGHT_EN_PIN = 9;
-		MOTOR_RIGHT2_PIN = 10;
-		MOTOR_LEFT_EN_PIN = 11;
-		MOTOR_LEFT1_PIN = 12;
-		MOTOR_LEFT2_PIN = 13;
-	}
 }
 
 void Car::begin(Gyroscope gyro){
@@ -78,6 +63,8 @@ void Car::begin(Odometer encoder, Gyroscope gyro){
 }
 
 void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
+	_steering->init();
+	_throttle->init();
 	if (encoder1.isInstanciated()){
 		_encoders[0] = encoder1;
 		_numOfEncoders++;
@@ -90,11 +77,8 @@ void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
 		_gyro = gyro;
 		_gyroAttached = true;
 	}
-	for (uint8_t i = MOTOR_LEFT1_PIN; i <= MOTOR_RIGHT2_PIN; i++) {
-		pinMode(i, OUTPUT); //declare pins as outputs
-	}
-	setSpeed(IDLE_RAW_SPEED);
-	setAngle(STRAIGHT_ANGLE);
+	_throttle->setSpeed(0);
+	_steering->setAngle(0);
 }
 
 void Car::setSpeed(float newSpeed){

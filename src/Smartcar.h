@@ -19,8 +19,8 @@
 #include <Wire.h>
 #include <Servo.h>
 
-const unsigned short STANDARD = 1; //shield's orientation, used for DCMotor
-const unsigned short INVERTED = 0; //shield's orientation, used for DCMotor
+const unsigned short STANDARD = 1; //shield's orientation, used for DCMotors
+const unsigned short INVERTED = 0; //shield's orientation, used for DCMotors
 
 class DistanceSensor{
 	public:
@@ -165,6 +165,8 @@ class SRF08 : public UltrasonicSensor{
 class Motor {
 	public:
 		Motor();
+		virtual ~Motor();
+		virtual void init();
 };
 
 class SteeringMotor : public Motor {
@@ -172,45 +174,75 @@ class SteeringMotor : public Motor {
 		SteeringMotor();
 		virtual ~SteeringMotor();
 		virtual void setAngle(int degrees); //to be overriden by the child classes
+		int getAngle();
+		int getMaxRightAngle();
+		int getMaxLeftAngle();
+	private:
+		virtual void setDegrees(); //to be overriden by the child classes
 	protected:
-		int _maxAngle, minAngle;
+		int filterAngle(int degrees);
+		void setAllowedAngles();
+		int _angle;
+		int STRAIGHT_RAW_DEGREES, MAX_RIGHT_RAW_DEGREES, MAX_LEFT_RAW_DEGREES; //the values (in degrees) that can get written to the steering motor, with 0 being the leftmost position, 180 the rightmost and 90 around the middle
+		int MAX_RIGHT_ANGLE, MAX_LEFT_ANGLE;
 };
 
 class ThrottleMotor : public Motor {
 	public:
 		ThrottleMotor();
 		virtual ~ThrottleMotor();
-		virtual void setSpeed(float speed); //to be overriden by the child classes
+		virtual void setSpeed(int speed); //to be overriden by the child classes
+		int getSpeed();
+	private:
+		virtual void setFreqsAndSpeeds(); //to be overriden by the child classes
 	protected:
-		int _maxInput, _minInput, _maxSpeed, _minSpeed;
+		int filterSpeed(int speed);
+		void setAllowedSpeedLimits();
+		int _speed;
+		unsigned short FULL_FORWARD, FULL_BACKWARD; //what percentage of the motor's power is allowed be used at most
+		int IDLE_RAW_SPEED, MAX_FRONT_RAW_SPEED, MAX_BACK_RAW_SPEED; //the raw value (in whatever metric, usually pwm signal) that the motors are idle, throttling full speed backwards and forward
+		int MAX_FRONT_ALLOWED_SPEED, MAX_BACK_ALLOWED_SPEED; //the raw allowed min and max values
+		
 };
 
 class ESCMotor : public ThrottleMotor, public Servo {
 	public:
 		ESCMotor(unsigned short pin);
-		void setSpeed(float speed);
+		void setSpeed(int speed);
+		void init();
+	private:
+		void setFreqsAndSpeeds();
+		unsigned short _pin; //the pin the ESC is attached to
 };
 
-class DCMotor : public ThrottleMotor, public SteeringMotor {
+class DCMotors : public ThrottleMotor, public SteeringMotor {
 	public:
-		DCMotor();
-		void setSpeed(float speed);
+		DCMotors(unsigned short shieldOrientation = STANDARD);
+		void setSpeed(int speed);
 		void setAngle(int degrees);
+		void init();
 	private:
-		float _speed;
+		void setDegrees();
+		void setFreqsAndSpeeds();
+		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
+		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };
 
 class ServoMotor : public SteeringMotor, public Servo {
 	public:
 		ServoMotor(unsigned short pin);
 		void setAngle(int degrees);
+		void init();
+	private:
+		void setDegrees();
+		unsigned short _pin; //the pin the Servo motor is attached to
 };
 
 class Car {
 	public:
 		Car(unsigned short shieldOrientation = STANDARD);
 		Car(SteeringMotor *steering, unsigned short shieldOrientation = STANDARD);
-		Car(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation = STANDARD);
+		Car(SteeringMotor *steering, ThrottleMotor *throttle);
 		void begin(Gyroscope gyro);
 		void begin(Odometer encoder, Gyroscope gyro);
 		void begin(Odometer encoder1 = 0, Odometer encoder2 = 0, Gyroscope gyro = 0);
@@ -226,7 +258,7 @@ class Car {
 		void rotate(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
 	private:
-		void init(SteeringMotor *steering, ThrottleMotor *throttle, unsigned short shieldOrientation);
+		void init(SteeringMotor *steering, ThrottleMotor *throttle);
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
 		void setMotors(int rawSpeed, int angle);
 		void setDirection(const unsigned short direction);
@@ -253,12 +285,13 @@ class Car {
 		int _previousError, _integratedError;
 		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
 		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
+		int MAX_ALLOWED_RIGHT_STEER, MAX_ALLOWED_LEFT_STEER; //how much we allow the car to steer, in degrees (negative to the left)
 };
 
 /* Helper classes for the user, in order to initialize the Car */
 ServoMotor* useServo(unsigned short servoPin);
 ESCMotor* useESC(unsigned short escPin);
-DCMotor* useDC();
+DCMotors* useDC(unsigned short shieldOrientation);
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
 typedef SR04 Sonar; //HC-SR04 was Sonar in AndroidCar, CaroloCup2016 and Smartcar sensor libraries

@@ -3,3 +3,7 @@
 #include "Smartcar.h"
 
 Motor::Motor(){}
+
+Motor::~Motor(){}
+
+void Motor::init(){}
