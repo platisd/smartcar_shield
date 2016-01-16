@@ -34,4 +34,4 @@ GP2Y0A21	KEYWORD1
 UltrasonicSensor	KEYWORD1
 SR04	KEYWORD1
 getLightReading	KEYWORD2
-setMotorSpeed KEYWORD2
+setMotorSpeed	KEYWORD2
