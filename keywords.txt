@@ -35,3 +35,6 @@ UltrasonicSensor	KEYWORD1
 SR04	KEYWORD1
 getLightReading	KEYWORD2
 setMotorSpeed	KEYWORD2
+useDC		KEYWORD2
+useServo	KEYWORD2
+useESC		KEYWORD2
