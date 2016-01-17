@@ -13,8 +13,8 @@ void SteeringMotor::setDegrees(){ //to be overriden by child classes
 //sets the various motor-specific, maximum and minimum values
 }
 
-int SteeringMotor::getAngle(){
-	return _angle; //returns the last valid angle written in the motor (signed)
+unsigned int SteeringMotor::getAngle(){
+	return _angle; //returns the last actual valid and angle written in the motor (unsigned)
 }
 
 //set the allowed degrees, using the straight wheels as an offset (in other words, the way the user will input it)
@@ -23,7 +23,7 @@ void SteeringMotor::setAllowedAngles(){
 	MAX_LEFT_ANGLE = MAX_LEFT_RAW_DEGREES - STRAIGHT_RAW_DEGREES;
 }
 
-int SteeringMotor::filterAngle(int degrees){
+unsigned int SteeringMotor::filterAngle(int degrees){
 //	constrain the given value within the allowed limits
 	degrees = constrain(degrees, MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE);
 //	calculate what the value written to the motor should be, by removing the straight degrees offset and return it

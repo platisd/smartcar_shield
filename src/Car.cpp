@@ -83,12 +83,18 @@ void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
 
 void Car::setSpeed(float newSpeed){
 	if (cruiseControlEnabled()){
-		if (_speed && (_speed != IDLE_RAW_SPEED) && (newSpeed * _speed) <= 0) stop(); //if the speeds are signed differently, stop the car and then set the new speed. Ignore this if the speed is already 0 and if speed is at the idle raw speed i.e. leftovers from non-cruise control mode (if IDLE_RAW_SPEED is not 0, it makes sense)
+//	if the speeds are signed differently, stop the car and then set the new speed. Ignore this if the speed is already 0
+		if (_speed && ((newSpeed * _speed) <= 0)) stop();
 		_speed = constrain(newSpeed, MAX_BACK_CRUISE_SPEED, MAX_FRONT_CRUISE_SPEED);
 	}else{
-		_speed = constrain(int(newSpeed), FULL_BACKWARD, FULL_FORWARD); //constrain the speed between the allowed values
-		setMotors(_speed, getAngle());
+		_speed = constrain(int(newSpeed), -100, 100); //constrain the speed between the allowed values
+		_throttle->setSpeed(_speed);
 	}
+}
+
+void Car::setAngle(int angle){
+	_angle = constrain(angle, _steering->getMaxLeftAngle(), _steering->getMaxRightAngle()); //constrain the value to the permitted valued the user is allowed to supply
+	_steering->setAngle(_angle); // apply the new angle
 }
 
 void Car::updateMotors(){
@@ -97,7 +103,8 @@ void Car::updateMotors(){
 			_measuredSpeed = getEncoderSpeed(); //speed in m/s
 			if (_speed < 0) _measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
 			int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
-			setMotors(controlledSpeed, getAngle());
+//			setMotors(controlledSpeed, getAngle());
+			_throttle->setSpeed(controlledSpeed);
 			_previousControlledSpeed = controlledSpeed;
 			_lastGroundSpeed = getGroundSpeed();
 		}
@@ -142,9 +149,7 @@ void Car::setMotors(int rawSpeed, int angle){ //platform specific method
 	}else{ //going to the left or straight
 		analogWrite(MOTOR_RIGHT_EN_PIN, rawSpeed);
 		analogWrite(MOTOR_LEFT_EN_PIN, int(rawSpeed * ratio));
-	}
-	
-	 
+	} 
 }
 
 void Car::setDirection(const unsigned short direction){ //platform specific method
@@ -164,11 +169,6 @@ void Car::setDirection(const unsigned short direction){ //platform specific meth
 		digitalWrite(MOTOR_LEFT1_PIN, LOW);
 		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
 	}
-}
-
-void Car::setAngle(int angle){ //platform specific method
-	_angle = constrain(angle, MAX_LEFT_DEGREES - STRAIGHT_WHEELS, MAX_RIGHT_DEGREES - STRAIGHT_WHEELS); //constrain the value to the permitted valued the user is allowed to supply
-	if (!cruiseControlEnabled()) setMotors(getSpeed(), getAngle()); // if not in cruise control, apply the new angle directly
 }
 
 void Car::stop(){ //platform specific method
@@ -303,24 +303,7 @@ void Car::rotate(int targetDegrees){
 
 void Car::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //will set the speed manual to each motor, use with caution
 	if (cruiseControlEnabled()) return; //we don't want to be manually messing with the speed, during cruise control
-	leftMotorSpeed = constrain(leftMotorSpeed, FULL_BACKWARD, FULL_FORWARD); //constrain the speed between the allowed range
-	rightMotorSpeed = constrain(rightMotorSpeed, FULL_BACKWARD, FULL_FORWARD);
-	leftMotorSpeed = map(leftMotorSpeed, FULL_BACKWARD, FULL_FORWARD, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED); //map speed percentage to actual
-	rightMotorSpeed = map(rightMotorSpeed, FULL_BACKWARD, FULL_FORWARD, MAX_BACK_RAW_SPEED, MAX_FRONT_RAW_SPEED);//raw speed value
-	if (leftMotorSpeed<0){ //set left direction backwards
-		digitalWrite(MOTOR_LEFT1_PIN, LOW);
-		digitalWrite(MOTOR_LEFT2_PIN, HIGH);
-	}else{ //front
-		digitalWrite(MOTOR_LEFT1_PIN, HIGH);
-		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
-	}
-		analogWrite(MOTOR_LEFT_EN_PIN, abs(leftMotorSpeed));//write left speed
-	if (rightMotorSpeed<0){ //set right direction  backwards
-		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
-		digitalWrite(MOTOR_RIGHT2_PIN, HIGH);
-	}else{ //front
-		digitalWrite(MOTOR_RIGHT1_PIN, HIGH);
-		digitalWrite(MOTOR_RIGHT2_PIN, LOW);		
-	}
-		analogWrite(MOTOR_RIGHT_EN_PIN, abs(rightMotorSpeed));//write right speed
+	leftMotorSpeed = constrain(leftMotorSpeed, -100, 100); //constrain the speed between the allowed range
+	rightMotorSpeed = constrain(rightMotorSpeed, -100, 100);
+	_throttle->setMotorSpeed(leftMotorSpeed, rightMotorSpeed);
 }

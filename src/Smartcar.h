@@ -174,15 +174,15 @@ class SteeringMotor : public Motor {
 		SteeringMotor();
 		virtual ~SteeringMotor();
 		virtual void setAngle(int degrees); //to be overriden by the child classes
-		int getAngle();
+		unsigned int getAngle();
 		int getMaxRightAngle();
 		int getMaxLeftAngle();
 	private:
 		virtual void setDegrees(); //to be overriden by the child classes
 	protected:
-		int filterAngle(int degrees);
+		unsigned int filterAngle(int degrees);
 		void setAllowedAngles();
-		int _angle;
+		unsigned int _angle;
 		int STRAIGHT_RAW_DEGREES, MAX_RIGHT_RAW_DEGREES, MAX_LEFT_RAW_DEGREES; //the values (in degrees) that can get written to the steering motor, with 0 being the leftmost position, 180 the rightmost and 90 around the middle
 		int MAX_RIGHT_ANGLE, MAX_LEFT_ANGLE;
 };
@@ -192,6 +192,7 @@ class ThrottleMotor : public Motor {
 		ThrottleMotor();
 		virtual ~ThrottleMotor();
 		virtual void setSpeed(int speed); //to be overriden by the child classes
+		virtual void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed); //to be overriden by the child classes
 		int getSpeed();
 	private:
 		virtual void setFreqsAndSpeeds(); //to be overriden by the child classes
@@ -220,10 +221,13 @@ class DCMotors : public ThrottleMotor, public SteeringMotor {
 		DCMotors(unsigned short shieldOrientation = STANDARD);
 		void setSpeed(int speed);
 		void setAngle(int degrees);
+		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
 		void init();
 	private:
 		void setDegrees();
 		void setFreqsAndSpeeds();
+		void setDirection(unsigned short direction);
+		void setMotors();
 		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
 		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };

@@ -14,13 +14,18 @@ void ThrottleMotor::setFreqsAndSpeeds(){ //to be overriden by child classes
 //sets the various motor-specific, maximum and minimum values
 }
 
+void ThrottleMotor::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //to be overriden by the child classes
+//sets manually the speed in the scale from -100 to 100 on each side of the car. Is only implemented/overriden by DCMotors
+}
 int ThrottleMotor::getSpeed(){
 	return _speed; //returns the speed written in the motor (could be signed)
 }
 
 void ThrottleMotor::setAllowedSpeedLimits(){
-	MAX_FRONT_ALLOWED_SPEED = MAX_FRONT_RAW_SPEED * (FULL_FORWARD / 100.0);
-	MAX_BACK_ALLOWED_SPEED = MAX_BACK_RAW_SPEED * (FULL_BACKWARD / 100.0);
+//	calculate the allowed speed as percentages of the difference between the max raw speeds and the idle speed
+	MAX_FRONT_ALLOWED_SPEED = IDLE_RAW_SPEED + ((MAX_FRONT_RAW_SPEED - IDLE_RAW_SPEED) * (FULL_FORWARD / 100.0));
+	MAX_BACK_ALLOWED_SPEED = IDLE_RAW_SPEED + ((MAX_BACK_RAW_SPEED - IDLE_RAW_SPEED) * (FULL_BACKWARD / 100.0));
+//	for example, if we want to use mostly 50% of backward speed (FULL_BACKWARD == 50), then we need the half of max in relation to idle raw speed
 }
 
 int ThrottleMotor::filterSpeed(int speed){
@@ -32,7 +37,7 @@ int ThrottleMotor::filterSpeed(int speed){
 	}else{
 		speed = map(speed, 0, 100, IDLE_RAW_SPEED, MAX_FRONT_ALLOWED_SPEED);
 	}
-	return speed;
+	return speed; //speed could be signed (in order to indicate direction to non-esc motors)
 }
 
 
