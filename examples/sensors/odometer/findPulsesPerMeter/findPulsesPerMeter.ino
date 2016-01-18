@@ -1,5 +1,6 @@
 #include <Wire.h>
 #include <Smartcar.h>
+#include <Servo.h>
 
 Odometer encoder(100); //let's say there are exactly 100 pulser per meter
 const int encoderPin = 2;

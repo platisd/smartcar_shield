@@ -1,5 +1,6 @@
 #include <Wire.h>
 #include <Smartcar.h>
+#include <Servo.h>
 
 SR04 front;
 const int TRIGGER_PIN = 6; //D6

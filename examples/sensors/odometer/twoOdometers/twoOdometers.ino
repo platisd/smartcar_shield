@@ -1,5 +1,6 @@
 #include <Wire.h>
 #include <Smartcar.h>
+#include <Servo.h>
 
 Odometer encoderLeft, encoderRight;
 const int encoderLeftPin = 2;

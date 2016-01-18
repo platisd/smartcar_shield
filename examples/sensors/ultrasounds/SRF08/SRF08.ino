@@ -1,5 +1,6 @@
 #include <Wire.h>
 #include <Smartcar.h>
+#include <Servo.h>
 
 const unsigned short GAIN = 0x1F; //maximum gain
 const unsigned short RANGE = 0x07; //7 for 34 centimeters

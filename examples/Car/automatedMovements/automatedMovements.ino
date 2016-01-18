@@ -1,5 +1,6 @@
 #include <Smartcar.h>
 #include <Wire.h>
+#include <Servo.h>
 
 Odometer encoderLeft, encoderRight;
 Gyroscope gyro;
