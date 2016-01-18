@@ -11,3 +11,8 @@ ESCMotor* useESC(unsigned short escPin){
 DCMotors* useDC(unsigned short shieldOrientation){
 	return new DCMotors(shieldOrientation);
 }
+
+boolean almostEqual(float i, float j){ //take the absolute difference of the two floats and if it is smaller than a small value they are almost equal
+	float diff = i-j;
+	return abs(diff) < 0.001; 
+}
