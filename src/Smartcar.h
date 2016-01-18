@@ -261,10 +261,10 @@ class Car {
 		void go(int centimeters);
 		void rotate(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
+		boolean cruiseControlEnabled();
 	private:
 		void init(SteeringMotor *steering, ThrottleMotor *throttle);
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
-		boolean cruiseControlEnabled();
 		float getGroundSpeed();
 		unsigned long getEncoderDistance();
 		void initializeEncoders();
