@@ -10,9 +10,9 @@
 void updateCounter1(); //ISR for the odometer
 void updateCounter2();
 
-volatile unsigned int _millimetersPerPulse[2] = {0};
-volatile float _measuredSpeed[2] = {0};
-volatile unsigned long _previousPulseTime[2] = {0};
+unsigned int _millimetersPerPulse[2] = {0};
+volatile unsigned long _previousPulse[2] = {0};
+volatile unsigned long _dt[2] = {0};
 volatile unsigned long _pulseCounter[2] = {0};
 static unsigned short odometers = 0;
 const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 92;
@@ -58,24 +58,28 @@ boolean Odometer::isInstanciated(){
 	return _pulsesPerMeter; //if 0, it will return false, otherwise true. 0 is an error value
 }
 
-float Odometer::getSpeed(){
-	return _measuredSpeed[_odometerID];
+float Odometer::getSpeed(){//when we need the speed, we just devide the milimeters per pulse of the specific sensor with the length between 2 pulses
+	if (_dt[_odometerID]){ //if _dt is not 0 (in the beginning it is)
+		return (float) _millimetersPerPulse[_odometerID] / _dt[_odometerID]; // essentially this is calculating the speed by doing: dx/dt
+	}else{ //if _dt is 0, then avoid dividing by it and return 0 as speed (it should happen only in the beginning)
+		return 0;
+	}
 }
 
-void updateOdometerSpeed(unsigned short odometerID){ //calculates the speed for the given odometer
-	unsigned long currentTime = millis();
-	unsigned long dt = currentTime - _previousPulseTime[odometerID]; //in milliseconds
-	if (dt){ //avoid division by 0 in case we had a very fast (less than 1 ms) pulse
-		_measuredSpeed[odometerID] = (float) _millimetersPerPulse[odometerID] / dt; //x & t are in milli scale, so the result can be in m/s
+void updateDt(unsigned short odometerID){
+	unsigned long currentPulse = millis();
+	unsigned long dt = currentPulse - _previousPulse[odometerID]; //calculate the difference in time between the two pulses
+	if (dt){ //update the duration between two pulses for odometer 0, if the dt is not too small (0) (in case the pulses arrived too fast)
+		_dt[odometerID] = dt; //update the _dt value
+		_previousPulse[odometerID] = currentPulse; //update when the last pulse arrive (if it didn't arrive too fast)
 	}
-	_previousPulseTime[odometerID] = currentTime;
 }
 
 void updateCounter1(){
-	updateOdometerSpeed(0);
-	_pulseCounter[0]++;
+	updateDt(0); //updates the respective index of _dt with the difference in time between the last two pulses
+	_pulseCounter[0]++; //updates the pulse counter of odometer 0
 }
 void updateCounter2(){
-	updateOdometerSpeed(1);
-	_pulseCounter[1]++;
+	updateDt(1); //updates the respective index of _dt with the difference in time between the last two pulses
+	_pulseCounter[1]++;//updates the pulse counter of odometer 1
 }
