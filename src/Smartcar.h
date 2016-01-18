@@ -264,8 +264,6 @@ class Car {
 	private:
 		void init(SteeringMotor *steering, ThrottleMotor *throttle);
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
-		void setMotors(int rawSpeed, int angle);
-		void setDirection(const unsigned short direction);
 		boolean cruiseControlEnabled();
 		float getGroundSpeed();
 		unsigned long getEncoderDistance();
@@ -287,15 +285,14 @@ class Car {
 		unsigned long _lastMotorUpdate, _previousDistance;
 		int _previousControlledSpeed;
 		int _previousError, _integratedError;
-		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
-		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 		int MAX_ALLOWED_RIGHT_STEER, MAX_ALLOWED_LEFT_STEER; //how much we allow the car to steer, in degrees (negative to the left)
 };
 
-/* Helper classes for the user, in order to initialize the Car */
-ServoMotor* useServo(unsigned short servoPin);
-ESCMotor* useESC(unsigned short escPin);
-DCMotors* useDC(unsigned short shieldOrientation);
+/* Helper classes */
+ServoMotor* useServo(unsigned short servoPin); //used in the Car constructor to indicate the use of a servo motor for steering
+ESCMotor* useESC(unsigned short escPin); //used in the Car constructor to indicate the use of an ESC for throttling
+DCMotors* useDC(unsigned short shieldOrientation); //used in the Car constructor to indicate the use of DC Motors (default setup)
+boolean almostEqual(float i, float j); //used to compare two floats
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
 typedef SR04 Sonar; //HC-SR04 was Sonar in AndroidCar, CaroloCup2016 and Smartcar sensor libraries

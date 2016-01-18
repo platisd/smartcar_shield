@@ -34,7 +34,7 @@ void DCMotors::setDegrees(){
 }
 
 void DCMotors::setFreqsAndSpeeds(){
-	FULL_FORWARD = 80;
+	FULL_FORWARD = 100;
         FULL_BACKWARD = 100;
 	IDLE_RAW_SPEED = 0;
 	MAX_FRONT_RAW_SPEED = 255;
