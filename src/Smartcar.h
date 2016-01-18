@@ -174,7 +174,6 @@ class SteeringMotor : public Motor {
 		SteeringMotor();
 		virtual ~SteeringMotor();
 		virtual void setAngle(int degrees); //to be overriden by the child classes
-		unsigned int getAngle();
 		int getMaxRightAngle();
 		int getMaxLeftAngle();
 	private:
@@ -193,7 +192,6 @@ class ThrottleMotor : public Motor {
 		virtual ~ThrottleMotor();
 		virtual void setSpeed(int speed); //to be overriden by the child classes
 		virtual void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed); //to be overriden by the child classes
-		int getSpeed();
 	private:
 		virtual void setFreqsAndSpeeds(); //to be overriden by the child classes
 	protected:

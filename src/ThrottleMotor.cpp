@@ -17,9 +17,6 @@ void ThrottleMotor::setFreqsAndSpeeds(){ //to be overriden by child classes
 void ThrottleMotor::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //to be overriden by the child classes
 //sets manually the speed in the scale from -100 to 100 on each side of the car. Is only implemented/overriden by DCMotors
 }
-int ThrottleMotor::getSpeed(){
-	return _speed; //returns the speed written in the motor (could be signed)
-}
 
 void ThrottleMotor::setAllowedSpeedLimits(){
 //	calculate the allowed speed as percentages of the difference between the max raw speeds and the idle speed
