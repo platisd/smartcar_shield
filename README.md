@@ -16,7 +16,7 @@ The platform, hardware wise is focused (but not explicitely dependent) around th
 
 The software, is the Smartcar shield Arduino library. It sports a high level API, meant to enable its users to perform tasks easily, with as few lines of code possible. It intends to hide implementation details or low level hardware operations, that might estrange the average user. The library, handles  the various components (i.e. the vehicle and the various sensors) as objects, therefore enabling trivial control over the car's functions. The various operations exposed by the API, are thoroughly explained in [wiki/API-documentation](../../wiki/API-documentation).
 
-The library, currently supports steering of the vehicle by rotating the wheels on each side at a different speed, like a tank. In the future, the option to achieve this using a servo motor and the throttle to be controlled by an ESC (Electronic Speed Controller), will be added. This, will make the library independent from the shield.
+The library is versatile and is relatively independent from the shield or specific hardware. Particularly, its most important feature is that it supports multiple ways of steering and throttling. Moreover, it is possible to steer the vehicle by rotating the wheels on each side at a different speed, like a tank, but also using a servo motor instead. Additionally, apart of the default DC motors that are connected to the Smartcar shield, you can also use an electronic speed controller (ESC) in order to drive the vehicle, using the very same library.
 
 If the Smartcar shield library, is installed through the Library Manager of Arduino IDE, as recommended, the user will receive a notification in their IDE, when new versions are released, making updates particularly easy, without the need to use GitHub or git.
 
@@ -47,6 +47,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
 
 ### Dependencies
 - [Wire library](http://arduino.cc/en/reference/Wire) (included with the Arduino IDE)
+- [Servo library](https://www.arduino.cc/en/reference/servo) (included with the Arduino IDE)
 
 ### Project documentation
 * [The Smartcar platform](http://plat.is/smartcar)
