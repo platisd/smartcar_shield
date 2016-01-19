@@ -8,7 +8,7 @@ All components that are needed for the board, are through-hole, for easy solderi
 ### Order a PCB
 If you do not want to bother with CAD softwareand just want to buy the PCBs for the shield, I have uploaded the necessary files in two popular services, [OSH-Park](https://oshpark.com/) (USA) and [Seeed Studio](http://www.seeedstudio.com/) (China), so they can be purchased with a few clicks. Usually, you will receive the boards from OSH-Park slightly faster than Seeed Studio, however it is more expensive if you want to order more than 3 boards.
 
-** Note: I am in no way affiliated with either of them, nor receive any profit from the boards you might order. **
+**Note: I am in no way affiliated with either of them, nor receive any profit from the boards you might order.**
 
 * [OSH-Park](https://oshpark.com/shared_projects/PneNeqwy) (rev. 1)
 * [Seeed Studio](http://www.seeedstudio.com/service/rQ94NKC8) (rev. 1)
