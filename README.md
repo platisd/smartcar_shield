@@ -3,7 +3,7 @@
 ## Contents
 * [Description](#description)
 * [Materials needed](#materials-needed)
-* [Compatible sensors](#compatible-sensors)
+* [Supported sensors](#supported-sensors)
 * [How to get started](#how-to-get-started)
 * [Dependencies](#dependencies)
 * [Project documentation](#project-documentation)
@@ -31,7 +31,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
  * DIP16 socket
  * 9V or 12V battery pack (do not use a single 9V battery)
 
-### Compatible sensors
+### Supported sensors
  * Distance sensors
     * Ultrasonic
       * HC-SR04
