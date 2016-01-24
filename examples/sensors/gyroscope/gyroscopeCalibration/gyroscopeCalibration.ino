@@ -10,7 +10,7 @@ void setup() {
   delay(1500);
   gyro.begin();
   Serial.println("Calibrating gyroscope, this might take some seconds");
-  unsigned int offset = gyro.calibrate();
+  int offset = gyro.calibrate();
   Serial.print("This gyro's offset value is: ");
   Serial.println(offset);
   Serial.print("Please initialize Gyroscope with the above value as: Gyroscope gyro(");
