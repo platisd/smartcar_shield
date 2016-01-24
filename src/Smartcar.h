@@ -104,7 +104,7 @@ class Gyroscope {
 		void begin(unsigned short samplingPeriod = DEFAULT_GYRO_SAMPLING);
 		int getAngularDisplacement();
 		void update();
-		unsigned int calibrate(unsigned int measurements = 100);
+		int calibrate(int measurements = 100);
 		boolean isInstanciated();
 	private:
 		void initializeGyro();

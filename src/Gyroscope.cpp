@@ -117,10 +117,10 @@ int Gyroscope::readRegister(int deviceAddress, byte address){
 	return v;
 }
 
-unsigned int Gyroscope::calibrate(unsigned int measurements){ //use this function in order to determine the offset and change GYRO_OFFSET accordingly
+int Gyroscope::calibrate(int measurements){ //use this function in order to determine the offset and change GYRO_OFFSET accordingly
 	if (!measurements) return -1; //if a 0 was an argument, return a very high value, to avoid a division with 0 and indicate error
-	unsigned int sum = 0;
-	for (int i = 0; i < measurements; i++){	
+	long sum = 0;
+	for (int i = 0; i < measurements; i++){
 		sum += getGyroValues();
 		delay(50);
 	}
