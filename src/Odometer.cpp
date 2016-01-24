@@ -15,7 +15,7 @@ volatile unsigned long _previousPulse[2] = {0};
 volatile unsigned long _dt[2] = {0};
 volatile unsigned long _pulseCounter[2] = {0};
 static unsigned short odometers = 0;
-const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 92;
+const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 300;
 
 Odometer::Odometer(unsigned int pulsesPerMeter){
 	if (pulsesPerMeter){ //if user supplied 0, then put the default value instead to avoid errors later
