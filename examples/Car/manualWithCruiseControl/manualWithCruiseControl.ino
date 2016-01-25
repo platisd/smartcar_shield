@@ -9,8 +9,8 @@ const float fSpeed = 0.5; //a ground speed (m/sec) for going forward
 const float bSpeed = -0.5; //a ground speed (m/sec)y for going backward
 const int lDegrees = -75; //degrees to turn left
 const int rDegrees = 75; //degrees to turn right
-const int encoderLeftPin = 3;
-const int encoderRightPin = 2;
+const int encoderLeftPin = 2;
+const int encoderRightPin = 3;
 
 void setup() {
   Serial3.begin(9600);
