@@ -135,15 +135,6 @@ class Odometer{
 		unsigned short _odometerInterruptPin, _odometerID;
 };
 
-class NewPing{
-	public:
-		static void timer_start(unsigned long frequency, void (*userFunc)(void));
-		static void timer_stop();
-	private:
-		static void timer_setup();
-		static void timer_start_cntdwn();
-};
-
 class SRF08 : public UltrasonicSensor{
 	public:
 		SRF08();
