@@ -115,7 +115,7 @@ class Gyroscope {
 		unsigned short _samplingRate;
 		static const unsigned short DEFAULT_GYRO_SAMPLING;
 		static const int DEFAULT_GYRO_OFFSET;
-		int _angularDisplacement;
+		float _angularDisplacement;
 		unsigned long _prevSample;
 		int _gyroOffset;
 };

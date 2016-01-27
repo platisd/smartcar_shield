@@ -35,7 +35,7 @@ void Gyroscope::begin(unsigned short samplingPeriod){
 }
 
 int Gyroscope::getAngularDisplacement(){
-	return - _angularDisplacement; //we negate the value, in order to get negative values when turning counter clockwise (local convention)
+	return -_angularDisplacement; //we negate the value, in order to get negative values when turning counter clockwise (local convention)
 }
 
 /* based on http://www.pieter-jan.com/node/7 integration algorithm */
@@ -122,7 +122,7 @@ int Gyroscope::calibrate(int measurements){ //use this function in order to dete
 	long sum = 0;
 	for (int i = 0; i < measurements; i++){
 		sum += getGyroValues();
-		delay(50);
+		delay(10);
 	}
 	return sum/measurements; //return the average	
 }
