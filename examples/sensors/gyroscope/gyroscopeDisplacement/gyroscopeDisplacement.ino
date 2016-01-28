@@ -1,6 +1,4 @@
-#include <Wire.h>
 #include <Smartcar.h>
-#include <Servo.h>
 
 Gyroscope gyro;
 

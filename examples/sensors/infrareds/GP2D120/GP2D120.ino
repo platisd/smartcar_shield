@@ -1,6 +1,4 @@
 #include <Smartcar.h>
-#include <Wire.h>
-#include <Servo.h>
 
 GP2D120 sideFrontIR; //measure distances between 5 and 25 centimeters
 const int SIDE_FRONT_PIN = A0; //you can use only analog enabled pins

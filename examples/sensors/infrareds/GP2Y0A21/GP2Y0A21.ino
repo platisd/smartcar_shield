@@ -1,6 +1,4 @@
 #include <Smartcar.h>
-#include <Wire.h>
-#include <Servo.h>
 
 GP2Y0A21 sideFrontIR; //measure distances between 12 and 78 centimeters
 const int SIDE_FRONT_PIN = A0;
