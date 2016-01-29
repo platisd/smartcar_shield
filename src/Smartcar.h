@@ -97,15 +97,23 @@ class SR04 : public UltrasonicSensor {
 		static const unsigned int DEFAULT_MAX_US_DISTANCE;
 };
 
-class Gyroscope {
+class HeadingSensor {
+	public:
+		HeadingSensor();
+		virtual ~HeadingSensor();
+		virtual void update();
+		int getAngularDisplacement();
+	protected:
+		float _angularDisplacement;
+};
+
+class Gyroscope : public HeadingSensor{
 	public:
 		Gyroscope(int offset = DEFAULT_GYRO_OFFSET);
 		void attach();
 		void begin(unsigned short samplingPeriod = DEFAULT_GYRO_SAMPLING);
-		int getAngularDisplacement();
 		void update();
 		int calibrate(int measurements = 100);
-		boolean isInstanciated();
 	private:
 		void initializeGyro();
 		int setupL3G4200D(int scale);
@@ -115,7 +123,6 @@ class Gyroscope {
 		unsigned short _samplingRate;
 		static const unsigned short DEFAULT_GYRO_SAMPLING;
 		static const int DEFAULT_GYRO_OFFSET;
-		float _angularDisplacement;
 		unsigned long _prevSample;
 		int _gyroOffset;
 };
@@ -127,7 +134,6 @@ class Odometer{
 		void begin();
 		unsigned long getDistance();
 		float getSpeed();
-		boolean isInstanciated();
 	private:
 		unsigned long pulsesToCentimeters(unsigned long pulses);
 		unsigned int _pulsesPerMeter;
@@ -236,9 +242,12 @@ class Car {
 		Car(unsigned short shieldOrientation = STANDARD);
 		Car(SteeringMotor *steering, unsigned short shieldOrientation = STANDARD);
 		Car(SteeringMotor *steering, ThrottleMotor *throttle);
-		void begin(Gyroscope gyro);
-		void begin(Odometer encoder, Gyroscope gyro);
-		void begin(Odometer encoder1 = 0, Odometer encoder2 = 0, Gyroscope gyro = 0);
+		void begin();
+		void begin(Odometer &encoder1);
+		void begin(HeadingSensor &heading);
+		void begin(Odometer &encoder, HeadingSensor &heading);
+		void begin(Odometer &encoder1, Odometer &encoder2);
+		void begin(Odometer &encoder1, Odometer &encoder2, HeadingSensor &heading);
 		void setSpeed(float speed);
 		void setAngle(int degrees);
 		float getSpeed();
@@ -252,6 +261,9 @@ class Car {
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
 		boolean cruiseControlEnabled();
 	private:
+		void setup();
+		void setupOdometer(Odometer &encoder);
+		void setupHeadingSensor(HeadingSensor &heading);
 		void init(SteeringMotor *steering, ThrottleMotor *throttle);
 		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
 		float getGroundSpeed();
@@ -267,9 +279,9 @@ class Car {
 		static const float DEFAULT_KP, DEFAULT_KI, DEFAULT_KD;
 		float _Kp, _Ki, _Kd;
 		float _measuredSpeed;
-		Odometer _encoders[2];
-		Gyroscope _gyro;
-		boolean _gyroAttached;
+		Odometer *_encoders[2];
+		HeadingSensor *_heading;
+		boolean _headingAttached;
 		boolean _cruiseControl;
 		unsigned long _lastMotorUpdate, _previousDistance;
 		int _previousControlledSpeed;
