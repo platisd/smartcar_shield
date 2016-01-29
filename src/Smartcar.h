@@ -243,7 +243,7 @@ class Car {
 		Car(SteeringMotor *steering, unsigned short shieldOrientation = STANDARD);
 		Car(SteeringMotor *steering, ThrottleMotor *throttle);
 		void begin();
-		void begin(Odometer &encoder1);
+		void begin(Odometer &encoder);
 		void begin(HeadingSensor &heading);
 		void begin(Odometer &encoder, HeadingSensor &heading);
 		void begin(Odometer &encoder1, Odometer &encoder2);
