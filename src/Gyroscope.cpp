@@ -29,13 +29,8 @@ void Gyroscope::attach(){
 }
 
 void Gyroscope::begin(unsigned short samplingPeriod){
-	_angularDisplacement = 0;
 	_prevSample = millis();
 	_samplingRate = samplingPeriod;
-}
-
-int Gyroscope::getAngularDisplacement(){
-	return -_angularDisplacement; //we negate the value, in order to get negative values when turning counter clockwise (local convention)
 }
 
 /* based on http://www.pieter-jan.com/node/7 integration algorithm */
@@ -45,10 +40,10 @@ void Gyroscope::update(){
 		int gyroValue = getGyroValues(); 
 		short drift = _gyroOffset - gyroValue;
  		if (abs(drift) > GYRO_THRESHOLD){ //if there has been a big enough drift (trying to contemplate for the noise)
-			gyroRate = (gyroValue - _gyroOffset) * GYRO_SENSITIVITY;
+			gyroRate = drift * GYRO_SENSITIVITY;
 		}
 		unsigned long now = millis();
-		_angularDisplacement += gyroRate / (1000 / (now - _prevSample));
+		_angularDisplacement += gyroRate / (1000.0 / (now - _prevSample));
 		_prevSample = now;
 	}
 }
@@ -125,8 +120,4 @@ int Gyroscope::calibrate(int measurements){ //use this function in order to dete
 		delay(10);
 	}
 	return sum/measurements; //return the average	
-}
-
-boolean Gyroscope::isInstanciated(){
-	return _gyroOffset; //if 0, it will return false, otherwise true. 0 is an error value
 }
