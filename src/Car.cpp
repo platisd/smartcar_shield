@@ -37,35 +37,58 @@ void Car::init(SteeringMotor *steering, ThrottleMotor *throttle){
 	_speed = 0;
 	_angle = 0;
 	_numOfEncoders = 0;
-	_gyroAttached = false;
+	_headingAttached = false;
 	_pidLoopInterval = DEFAULT_PID_LOOP_INTERVAL;
 	_throttle = throttle;
 	_steering = steering;
 }
 
-void Car::begin(Gyroscope gyro){
-	begin(0,0,gyro); //pass 0 as a value that indicates null
+void Car::begin(){
+	setup();
 }
 
-void Car::begin(Odometer encoder, Gyroscope gyro){
-	begin(encoder,0,gyro); //pass 0 as a value that indicates null
+void Car::begin(HeadingSensor &heading){
+	setupHeadingSensor(heading);
+	setup();
 }
 
-void Car::begin(Odometer encoder1, Odometer encoder2, Gyroscope gyro){
+void Car::begin(Odometer &encoder){
+	setupOdometer(encoder);
+	setup();
+}
+
+void Car::begin(Odometer &encoder, HeadingSensor &heading){
+	setupOdometer(encoder);
+	setupHeadingSensor(heading);
+	setup();
+}
+
+void Car::begin(Odometer &encoder1, Odometer &encoder2){
+	setupOdometer(encoder1);
+	setupOdometer(encoder2);
+	setup();
+}
+
+void Car::begin(Odometer &encoder1, Odometer &encoder2, HeadingSensor &heading){
+	setupOdometer(encoder1);
+	setupOdometer(encoder2);
+	setupHeadingSensor(heading);
+	setup();
+}
+
+void Car::setupOdometer(Odometer &encoder){
+	_encoders[_numOfEncoders] = &encoder;
+	_numOfEncoders++; //increase the number of encoders (or the index in the _encoders array)
+}
+
+void Car::setupHeadingSensor(HeadingSensor &heading){
+	_heading = &heading;
+	_headingAttached = true;
+}
+
+void Car::setup(){
 	_steering->init();
 	_throttle->init();
-	if (encoder1.isInstanciated()){
-		_encoders[0] = encoder1;
-		_numOfEncoders++;
-	}
-	if (encoder2.isInstanciated()){
-		_encoders[1] = encoder2;
-		_numOfEncoders++;
-	}
-	if (gyro.isInstanciated()) {
-		_gyro = gyro;
-		_gyroAttached = true;
-	}
 	_throttle->setSpeed(0);
 	_steering->setAngle(0);
 }
@@ -175,7 +198,7 @@ boolean Car::cruiseControlEnabled(){
 unsigned long Car::getEncoderDistance(){ //gets the average distance measured by the attached encoders
 	unsigned long averageDistance = 0;
 	for (int i = 0; i < _numOfEncoders; i++){
-		averageDistance += _encoders[i].getDistance() / _numOfEncoders;
+		averageDistance += _encoders[i]->getDistance() / _numOfEncoders;
 	}
 	return averageDistance;
 }
@@ -183,14 +206,14 @@ unsigned long Car::getEncoderDistance(){ //gets the average distance measured by
 float Car::getEncoderSpeed(){ //gets the average speed measured by the attached encoders
 	float averageSpeed = 0;
 	for (int i = 0; i< _numOfEncoders; i++){
-		averageSpeed += _encoders[i].getSpeed() / _numOfEncoders;
+		averageSpeed += _encoders[i]->getSpeed() / _numOfEncoders;
 	}
 	return averageSpeed;
 }
 
 void Car::initializeEncoders(){ //initializes the attached encoders
 	for (int i = 0; i < _numOfEncoders; i++){
-		_encoders[i].begin();
+		_encoders[i]->begin();
 	}
 }
 
@@ -219,8 +242,8 @@ void Car::go(int centimeters){
 	setAngle(initialAngle); //restore to the inital angle	
 }
 void Car::rotate(int targetDegrees){
-	if (!_gyroAttached || !targetDegrees) return; //continue only if gyroscope is attached and the targetDegrees is not 0
-	_gyro.begin(); //initialize the gyro
+	if (!_headingAttached || !targetDegrees) return; //continue only if heading sensor is attached and the targetDegrees is not 0
+	targetDegrees += _heading->getAngularDisplacement(); //adjust the target displacement, according to the currently measured displacement
 	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
 	int initialAngle = getAngle(); //save the current angle (so we restore it later)
 	if (targetDegrees > 0){ //we should turn to the right (clockwise)
@@ -233,9 +256,9 @@ void Car::rotate(int targetDegrees){
 	}else{
 		setSpeed(GO_RAW_SPEED);
 	}
-	while (abs(_gyro.getAngularDisplacement()) < abs(targetDegrees)){ //while the absolute displacement hasn't reached the (absolute) target, keep turning
+	while (abs(_heading->getAngularDisplacement()) < abs(targetDegrees)){ //while the absolute displacement hasn't reached the (absolute) target, keep turning
 		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
-		_gyro.update(); //update to integrate the latest gyroscope readings
+		_heading->update(); //update to integrate the latest heading sensor readings
 	}
 	setSpeed(initialSpeed); //restore to the initial speed
 	setAngle(initialAngle); //restore to the inital angle
