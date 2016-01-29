@@ -54,10 +54,6 @@ unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
 	return pulses/(_pulsesPerMeter/100.0);
 }
 
-boolean Odometer::isInstanciated(){
-	return _pulsesPerMeter; //if 0, it will return false, otherwise true. 0 is an error value
-}
-
 float Odometer::getSpeed(){//when we need the speed, we just devide the milimeters per pulse of the specific sensor with the length between 2 pulses
 	if (_dt[_odometerID]){ //if _dt is not 0 (in the beginning it is)
 		return (float) _millimetersPerPulse[_odometerID] / _dt[_odometerID]; // essentially this is calculating the speed by doing: dx/dt
