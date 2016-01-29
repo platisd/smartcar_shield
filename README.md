@@ -6,6 +6,7 @@
 * [Supported sensors](#supported-sensors)
 * [How to get started](#how-to-get-started)
 * [Dependencies](#dependencies)
+* [Extensions](#extensions)
 * [Project documentation](#project-documentation)
 * [License](#license)
 
@@ -48,6 +49,10 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
 ### Dependencies
 - [Wire library](http://arduino.cc/en/reference/Wire) (included with the Arduino IDE)
 - [Servo library](https://www.arduino.cc/en/reference/servo) (included with the Arduino IDE)
+
+### Extensions
+You can utilize the object oriented design of this library in order to easily extend it. Have a look at the [Library Architecture](/wiki/Library-architecture) and check out these already existing extensions:
+* [MPU6050](https://github.com/platisd/smartcar_MPU6050)
 
 ### Project documentation
 * [The Smartcar platform](http://plat.is/smartcar)
