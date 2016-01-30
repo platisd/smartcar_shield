@@ -51,7 +51,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
 - [Servo library](https://www.arduino.cc/en/reference/servo) (included with the Arduino IDE)
 
 ### Extensions
-You can utilize the object oriented design of this library in order to easily extend it. Have a look at the [Library Architecture](/wiki/Library-architecture) and check out these already existing extensions:
+You can utilize the object oriented design of this library in order to easily extend it. Have a look at the [Library Architecture](../../wiki/Library-architecture) and check out these already existing extensions:
 * [MPU6050](https://github.com/platisd/smartcar_MPU6050)
 
 ### Project documentation
