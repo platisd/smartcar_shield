@@ -7,11 +7,11 @@ ESCMotor::ESCMotor(unsigned short pin) {
 }
 
 void ESCMotor::setFreqsAndSpeeds(){
-	FULL_FORWARD = 50;
-        FULL_BACKWARD = 80;
+	FULL_FORWARD = 100;
+        FULL_BACKWARD = 100;
 	IDLE_RAW_SPEED = 1500;
-	MAX_FRONT_RAW_SPEED = 2000;
-	MAX_BACK_RAW_SPEED = 1000;
+	MAX_FRONT_RAW_SPEED = 1800;
+	MAX_BACK_RAW_SPEED = 1200;
 	_speed = IDLE_RAW_SPEED;
 }
 
