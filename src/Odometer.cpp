@@ -15,6 +15,7 @@ volatile unsigned long _dt[2] = {0};
 volatile unsigned long _pulseCounter[2] = {0};
 static unsigned short odometers = 0;
 const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 300;
+const unsigned long MINIMUM_PULSE_GAP = 700; //the minimum acceptable time between two pulses in microseconds. Less is invalid unstable signal
 
 Odometer::Odometer(unsigned int pulsesPerMeter){
 	if (pulsesPerMeter){ //if user supplied 0, then put the default value instead to avoid errors later
@@ -54,27 +55,27 @@ unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
 }
 
 float Odometer::getSpeed(){//when we need the speed, we just devide the milimeters per pulse of the specific sensor with the length between 2 pulses
-	if (_dt[_odometerID]){ //if _dt is not 0 (in the beginning it is)
-		return (float) _millimetersPerPulse / _dt[_odometerID]; // essentially this is calculating the speed by doing: dx/dt
+	unsigned long dt = _dt[_odometerID];
+	if (dt){ //if dt is not 0 (in the beginning it is)
+		return 1000.0 * _millimetersPerPulse / dt; // calculating the speed in meters/second
 	}else{ //if _dt is 0, then avoid dividing by it and return 0 as speed (it should happen only in the beginning)
 		return 0;
 	}
 }
 
-void updateDt(unsigned short odometerID){
-	unsigned long currentPulse = millis();
-	unsigned long dt = currentPulse - _previousPulse[odometerID]; //calculate the difference in time between the two pulses
-	if (dt){ //update the duration between two pulses for odometer 0, if the dt is not too small (0) (in case the pulses arrived too fast)
+void updateDtAndCounter(unsigned short odometerID){ //updates dt with the time difference between the last two pulses and increases the pulse counter
+	unsigned long currentPulse = micros();
+	unsigned long dt = currentPulse - _previousPulse[odometerID]; //calculate the difference in time between the two pulses in microseconds
+	if (dt > MINIMUM_PULSE_GAP){ //if the pulses have not arrived too fast, which is a sign of unstable signal (too much jitter) in microseconds
 		_dt[odometerID] = dt; //update the _dt value
-		_previousPulse[odometerID] = currentPulse; //update when the last pulse arrive (if it didn't arrive too fast)
+		_previousPulse[odometerID] = currentPulse; //update when the last pulse arrived (if it didn't arrive too fast)
+		_pulseCounter[odometerID]++; //updates the pulse counter of odometer 0
 	}
 }
 
 void updateCounter1(){
-	updateDt(0); //updates the respective index of _dt with the difference in time between the last two pulses
-	_pulseCounter[0]++; //updates the pulse counter of odometer 0
+	updateDtAndCounter(0);
 }
 void updateCounter2(){
-	updateDt(1); //updates the respective index of _dt with the difference in time between the last two pulses
-	_pulseCounter[1]++;//updates the pulse counter of odometer 1
+	updateDtAndCounter(1);
 }
