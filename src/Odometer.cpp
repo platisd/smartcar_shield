@@ -10,7 +10,6 @@
 void updateCounter1(); //ISR for the odometer
 void updateCounter2();
 
-unsigned int _millimetersPerPulse[2] = {0};
 volatile unsigned long _previousPulse[2] = {0};
 volatile unsigned long _dt[2] = {0};
 volatile unsigned long _pulseCounter[2] = {0};
@@ -24,7 +23,7 @@ Odometer::Odometer(unsigned int pulsesPerMeter){
 		_pulsesPerMeter = DEFAULT_PULSES_PER_METER;	
 	}
 	_odometerID = odometers++;
-	_millimetersPerPulse[_odometerID] = lroundf(1000.0 / _pulsesPerMeter); //round a float to the nearest long
+	_millimetersPerPulse = lroundf(1000.0 / _pulsesPerMeter); //round a float to the nearest long
 }
 
 int Odometer::attach(unsigned short odometerPin){
@@ -56,7 +55,7 @@ unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
 
 float Odometer::getSpeed(){//when we need the speed, we just devide the milimeters per pulse of the specific sensor with the length between 2 pulses
 	if (_dt[_odometerID]){ //if _dt is not 0 (in the beginning it is)
-		return (float) _millimetersPerPulse[_odometerID] / _dt[_odometerID]; // essentially this is calculating the speed by doing: dx/dt
+		return (float) _millimetersPerPulse / _dt[_odometerID]; // essentially this is calculating the speed by doing: dx/dt
 	}else{ //if _dt is 0, then avoid dividing by it and return 0 as speed (it should happen only in the beginning)
 		return 0;
 	}

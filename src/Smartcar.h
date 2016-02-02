@@ -139,6 +139,7 @@ class Odometer{
 		unsigned int _pulsesPerMeter;
 		static const unsigned int DEFAULT_PULSES_PER_METER;
 		unsigned short _odometerInterruptPin, _odometerID;
+		unsigned int _millimetersPerPulse;
 };
 
 class SRF08 : public UltrasonicSensor{
