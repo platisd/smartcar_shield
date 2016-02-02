@@ -143,7 +143,7 @@ float Car::getGroundSpeed(){ //the ground speed, as measured by the car. we use 
 
 void Car::stop(){
 	if (!_numOfEncoders || !cruiseControlEnabled()){ //if no encoders attached or not in cruise control mode
-		if (!almostEqual(_speed,0)){ //if speed is NOT equal to 0 then		
+		if (!almostEqual(_speed,0)){ //if the speed that we already have is NOT equal to 0 then		
 			_throttle->setSpeed(-_speed); //move towards opposite direction at _speed (_speed in non cruise control is between -100,100)
 			delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
 		}
