@@ -14,7 +14,7 @@ volatile unsigned long _previousPulse[2] = {0};
 volatile unsigned long _dt[2] = {0};
 volatile unsigned long _pulseCounter[2] = {0};
 static unsigned short odometers = 0;
-const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 300;
+const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 180;
 const unsigned long MINIMUM_PULSE_GAP = 700; //the minimum acceptable time between two pulses in microseconds. Less is invalid unstable signal
 
 Odometer::Odometer(unsigned int pulsesPerMeter){
