@@ -112,7 +112,7 @@ void Car::setAngle(int angle){
 void Car::updateMotors(boolean debug, Stream &stream){
 	if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
 		if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
-			_measuredSpeed = getEncoderSpeed(); //speed in m/s		
+			_measuredSpeed = getEncoderSpeed(); //speed in m/s
 			if (_speed < 0) _measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
 			float controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
 			_throttle->setSpeed(lroundf(controlledSpeed)); //pass the rounded output of the pid as an input to the motors
