@@ -109,27 +109,27 @@ void Car::setAngle(int angle){
 	_steering->setAngle(_angle); // apply the new angle
 }
 
-void Car::updateMotors(){
+void Car::updateMotors(boolean debug, Stream &stream){
 	if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
 		if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
-			_measuredSpeed = getEncoderSpeed(); //speed in m/s
+			_measuredSpeed = getEncoderSpeed(); //speed in m/s		
 			if (_speed < 0) _measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
-			int controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
-			_throttle->setSpeed(controlledSpeed);
-			_previousControlledSpeed = controlledSpeed;
-			_lastGroundSpeed = getGroundSpeed();
+			float controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
+			_throttle->setSpeed(lroundf(controlledSpeed)); //pass the rounded output of the pid as an input to the motors
+			_previousControlledSpeed = controlledSpeed; //save the unrounded float output of the pid
+			_lastGroundSpeed = getGroundSpeed(); //used in stop()
 		}
 		_lastMotorUpdate = millis();
 	}
 }
 
-int Car::motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed){
+float Car::motorPIDcontrol(const float previousSpeed, const float targetSpeed, const float actualSpeed){
 	float correction = 0;
 	float error = targetSpeed - actualSpeed;
 	_integratedError += error;
 	correction = (_Kp * error) + (_Ki * _integratedError) + (_Kd * (error - _previousError));                            
 	_previousError = error;
-	return constrain(previousSpeed + int(correction), -100, 100);
+	return constrain(previousSpeed + correction, -100, 100);
 }
 
 float Car::getGroundSpeed(){ //the ground speed, as measured by the car. we use it to stop() the vehicle

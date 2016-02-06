@@ -266,7 +266,7 @@ class Car {
 		void setupOdometer(Odometer &encoder);
 		void setupHeadingSensor(HeadingSensor &heading);
 		void init(SteeringMotor *steering, ThrottleMotor *throttle);
-		int motorPIDcontrol(const int previousSpeed, const float targetSpeed, const float actualSpeed);
+		float motorPIDcontrol(const float previousSpeed, const float targetSpeed, const float actualSpeed);
 		float getGroundSpeed();
 		unsigned long getEncoderDistance();
 		void initializeEncoders();
@@ -285,7 +285,7 @@ class Car {
 		boolean _headingAttached;
 		boolean _cruiseControl;
 		unsigned long _lastMotorUpdate, _previousDistance;
-		int _previousControlledSpeed;
+		float _previousControlledSpeed;
 		int _previousError, _integratedError;
 		int MAX_ALLOWED_RIGHT_STEER, MAX_ALLOWED_LEFT_STEER; //how much we allow the car to steer, in degrees (negative to the left)
 };
