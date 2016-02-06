@@ -243,7 +243,6 @@ void Car::go(int centimeters){
 }
 void Car::rotate(int targetDegrees){
 	if (!_headingAttached || !targetDegrees) return; //continue only if heading sensor is attached and the targetDegrees is not 0
-	targetDegrees += _heading->getAngularDisplacement(); //adjust the target displacement, according to the currently measured displacement
 	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
 	int initialAngle = getAngle(); //save the current angle (so we restore it later)
 	if (targetDegrees > 0){ //we should turn to the right (clockwise)
@@ -256,9 +255,12 @@ void Car::rotate(int targetDegrees){
 	}else{
 		setSpeed(GO_RAW_SPEED);
 	}
-	while (abs(_heading->getAngularDisplacement()) < abs(targetDegrees)){ //while the absolute displacement hasn't reached the (absolute) target, keep turning
+	int initialHeading = _heading->getAngularDisplacement(); //the initial heading we'll use as offset to calculate the absolute displacement
+	int degreesTurnedSoFar = 0; //this variable will hold the absolute displacement from the beginning of the rotation
+	while (abs(degreesTurnedSoFar) < abs(targetDegrees)){ //while the absolute displacement hasn't reached the (absolute) target, keep turning
 		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
 		_heading->update(); //update to integrate the latest heading sensor readings
+		degreesTurnedSoFar = initialHeading - _heading->getAngularDisplacement(); //degrees turned so far is initial heading minus current
 	}
 	setSpeed(initialSpeed); //restore to the initial speed
 	setAngle(initialAngle); //restore to the inital angle
