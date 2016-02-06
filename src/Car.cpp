@@ -109,7 +109,7 @@ void Car::setAngle(int angle){
 	_steering->setAngle(_angle); // apply the new angle
 }
 
-void Car::updateMotors(boolean debug, Stream &stream){
+void Car::updateMotors(){
 	if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
 		if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
 			_measuredSpeed = getEncoderSpeed(); //speed in m/s
