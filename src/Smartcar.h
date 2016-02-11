@@ -8,14 +8,7 @@
 
 #ifndef Smartcar_h
 #define Smartcar_h
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include <Arduino.h>
-#else
-	#include <WProgram.h>
-	#include <pins_arduino.h>
-#endif
-#include <avr/io.h>
-#include <avr/interrupt.h>
+#include <Arduino.h>
 #include <Wire.h>
 #include <Servo.h>
 
@@ -116,7 +109,7 @@ class Gyroscope : public HeadingSensor{
 		int calibrate(int measurements = 100);
 	private:
 		void initializeGyro();
-		int setupL3G4200D(int scale);
+		void setupL3G4200D(int scale);
 		void writeRegister(int deviceAddress, byte address, byte val);
 		int getGyroValues();
 		int readRegister(int deviceAddress, byte address);
