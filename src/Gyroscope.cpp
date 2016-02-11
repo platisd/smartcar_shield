@@ -49,7 +49,7 @@ void Gyroscope::update(){
 }
 
 void Gyroscope::initializeGyro(){
-	if (!TWCR) Wire.begin(); //if it hasn't been started (TWCR==0), start it
+	Wire.begin(); //initialize the i2c connection
 	setupL3G4200D(2000); // Configure L3G4200 at 2000 deg/sec. Other options: 250, 500 (NOT suggested, will have to redetermine offset) 
 }
 
@@ -60,7 +60,7 @@ int Gyroscope::getGyroValues(){
 	return ((zMSB << 8) | zLSB);
 }
 
-int Gyroscope::setupL3G4200D(int scale){
+void Gyroscope::setupL3G4200D(int scale){
 	//From  Jim Lindblom of Sparkfun's code
 
 	// Enable x, y, z and turn off power down:
