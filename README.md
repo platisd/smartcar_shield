@@ -44,7 +44,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
       * SHARP GP2Y0A21
 
 ### How to get started
- * Assembling the vehicle
+ * Assemble the vehicle
  * [Install the library](../../wiki/Start-up-guide#get-libraries)
 
 ### Dependencies
