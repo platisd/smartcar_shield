@@ -2,7 +2,7 @@
 
 ## Contents
 * [Description](#description)
-* [Materials needed](#materials-needed)
+* [Materials needed](#materials-needed-default-setup)
 * [Supported sensors](#supported-sensors)
 * [How to get started](#how-to-get-started)
 * [Dependencies](#dependencies)
