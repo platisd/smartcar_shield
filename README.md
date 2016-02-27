@@ -2,7 +2,7 @@
 
 ## Contents
 * [Description](#description)
-* [Materials needed](#materials-needed)
+* [Materials needed](#materials-needed-default-setup)
 * [Supported sensors](#supported-sensors)
 * [How to get started](#how-to-get-started)
 * [Dependencies](#dependencies)
@@ -21,8 +21,9 @@ The library is versatile and is relatively independent from the shield or specif
 
 If the Smartcar shield library, is installed through the Library Manager of Arduino IDE, as recommended, the user will receive a notification in their IDE, when new versions are released, making updates particularly easy, without the need to use GitHub or git.
 
-### Materials needed
- * Smartcar chassis (CAD files for miling machines or laser cutters, coming soon)
+### Materials needed (default setup)
+ * Smartcar chassis
+ * Smartcar shield PCB
  * L293D H-bridge
  * GY-50 gyroscope module
  * Two speed encoders ([[1]](http://www.aliexpress.com/item/5pcs-IR-Infrared-Slotted-Optical-Speed-Measuring-Sensor-Optocoupler-Module-For-Motor-Test-For-Arduino-PIC/32465670452.html) and [[2]](http://www.aliexpress.com/item/HC-020K-Double-Speed-Measuring-Sensor-Module-with-Photoelectric-Encoders-Kit-top/32453020060.html) will suit commercially available chassis. [[3]](http://www.aliexpress.com/item/Correlation-photoelectric-sensor-lot-Infrared-correlation-count-sensor-module/2038553959.html) require some slight modifications) 
@@ -43,7 +44,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
       * SHARP GP2Y0A21
 
 ### How to get started
- * Assembling the vehicle
+ * Assemble the vehicle
  * [Install the library](../../wiki/Start-up-guide#get-libraries)
 
 ### Dependencies
