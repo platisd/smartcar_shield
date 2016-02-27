@@ -173,7 +173,7 @@ class SteeringMotor : public Motor {
 		unsigned int filterAngle(int degrees);
 		void setAllowedAngles();
 		unsigned int _angle;
-		int STRAIGHT_RAW_DEGREES, MAX_RIGHT_RAW_DEGREES, MAX_LEFT_RAW_DEGREES; //the values (in degrees) that can get written to the steering motor, with 0 being the leftmost position, 180 the rightmost and 90 around the middle
+		unsigned int STRAIGHT_RAW_DEGREES, MAX_RIGHT_RAW_DEGREES, MAX_LEFT_RAW_DEGREES; //the values (in degrees) that can get written to the steering motor, with 0 being the leftmost position, 180 the rightmost and 90 around the middle
 		int MAX_RIGHT_ANGLE, MAX_LEFT_ANGLE;
 };
 

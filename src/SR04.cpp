@@ -9,12 +9,12 @@
 
 /* ------ SR04 ------ */
 const unsigned int SR04::DEFAULT_MAX_US_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
-const int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
+const unsigned int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
 const int DISABLE_ONE_PIN = true;   // Set to "true" to save up to 26 bytes of compiled code space if you're NOT using one pin sensor connections.
 
 // Probably shoudln't change these values unless you really know what you're doing.
 const int NO_ECHO = 0;               // Value returned if there's no ping echo within the specified MAX_SENSOR_DISTANCE
-const int MAX_SENSOR_DELAY = 18000;  // Maximum uS it takes for sensor to start the ping (SRF06 is the highest measured, just under 18ms).
+const unsigned int MAX_SENSOR_DELAY = 18000;  // Maximum uS it takes for sensor to start the ping (SRF06 is the highest measured, just under 18ms).
 
 SR04::SR04(unsigned int maxDistance) {
 	_maxDistance = maxDistance;
@@ -46,7 +46,7 @@ unsigned int SR04::ping() {
 
 unsigned int SR04::getDistance() {
 	unsigned int echoTime = ping();          // Calls the ping method and returns with the ping echo distance in uS.
-	return (max((echoTime + US_ROUNDTRIP_CM / 2) / US_ROUNDTRIP_CM, (echoTime ? 1 : 0))); // Convert uS to centimeters.
+	return (max((echoTime + US_ROUNDTRIP_CM / 2) / US_ROUNDTRIP_CM, (unsigned int) (echoTime ? 1 : 0))); // Convert uS to centimeters.
 }
 
 /* Standard ping method helper functions */

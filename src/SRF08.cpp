@@ -11,7 +11,7 @@ SRF08::SRF08(){
 }
 
 void SRF08::attach(unsigned short address){
-	if (!TWCR) Wire.begin(); //if it hasn't been started (TWCR==0), start it
+	Wire.begin();
 	_address = constrain(address, FIRST_ADDRESS, LAST_ADDRESS); //allow only valid values, between 112 and 127
 	_delay = DEFAULT_PING_DELAY;
 }
