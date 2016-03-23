@@ -25,7 +25,9 @@ unsigned int DistanceSensor::getMedianDistance(short iterations){ //adopted from
 			measurements[j] = last;              // Add last measurement to array in sorted position.
 			i++;                       // Move to next measurement.
 		}
-		if (i < iterations) delay(_sensorMedianDelay); // Millisecond delay between measurements.
+		if (i < iterations){
+			delay(_sensorMedianDelay); // Millisecond delay between measurements (needed for some sensors e.g. the SHARP IRs)
+		}
 	}
 	return (measurements[iterations >> 1]); // Return the measurement distance median.
 }

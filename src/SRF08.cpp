@@ -7,7 +7,7 @@ static unsigned short FIRST_ADDRESS = 112; //please refer to: http://www.robot-e
 static unsigned short LAST_ADDRESS = 127;
 
 SRF08::SRF08(){
-	_sensorMedianDelay = DEFAULT_PING_DELAY;
+	_sensorMedianDelay = 1; //the SRF08 can conduct a new measurement right away after finishing one, no point to wait more
 }
 
 void SRF08::attach(unsigned short address){
@@ -26,13 +26,12 @@ void SRF08::setGain(unsigned short gainValue){
 void SRF08::setRange(unsigned short rangeValue){
 	Wire.beginTransmission(_address); //start i2c transmission
 	Wire.write(0x02); //write to range register (1)
-	Wire.write(rangeValue); //write the value // Max_Range = (rangeValue * 3.4) + 3.4 in centimeters
+	Wire.write(rangeValue); //write the value -> Max_Range = (rangeValue * 3.4) + 3.4 in centimeters
 	Wire.endTransmission(); //end transmission
 }
 
 void SRF08::setPingDelay(unsigned short milliseconds){
 	_delay = milliseconds;
-	_sensorMedianDelay = milliseconds; //also update the sensor's median delay
 }
 
 unsigned int SRF08::getDistance(){

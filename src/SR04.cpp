@@ -10,7 +10,6 @@
 /* ------ SR04 ------ */
 const unsigned int SR04::DEFAULT_MAX_US_DISTANCE = 70; // Maximum usable sensor distance is around 70cm.
 const unsigned int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes sound to travel round-trip 1cm (2cm total), uses integer to save compiled code space.
-const int DISABLE_ONE_PIN = true;   // Set to "true" to save up to 26 bytes of compiled code space if you're NOT using one pin sensor connections.
 
 // Probably shoudln't change these values unless you really know what you're doing.
 const int NO_ECHO = 0;               // Value returned if there's no ping echo within the specified MAX_SENSOR_DISTANCE
@@ -31,10 +30,7 @@ void SR04::attach(unsigned short triggerPin, unsigned short echoPin){
 	_triggerMode = (uint8_t *) portModeRegister(digitalPinToPort(triggerPin)); // Get the port mode register for the trigger pin.
 
 	_maxEchoTime = _maxDistance * US_ROUNDTRIP_CM + (US_ROUNDTRIP_CM / 2); // Calculate the maximum distance in uS.
-
-#if DISABLE_ONE_PIN == true
 	*_triggerMode |= _triggerBit; // Set trigger pin to output.
-#endif
 }
 
 unsigned int SR04::ping() {
@@ -51,23 +47,15 @@ unsigned int SR04::getDistance() {
 
 /* Standard ping method helper functions */
 boolean SR04::ping_trigger() {
-#if DISABLE_ONE_PIN != true
-	*_triggerMode |= _triggerBit;    // Set trigger pin to output.
-#endif
 	*_triggerOutput &= ~_triggerBit; // Set the trigger pin low, should already be low, but this will make sure it is.
 	delayMicroseconds(4);            // Wait for pin to go low, testing shows it needs 4uS to work every time.
 	*_triggerOutput |= _triggerBit;  // Set trigger pin high, this tells the sensor to send out a ping.
 	delayMicroseconds(10);           // Wait long enough for the sensor to realize the trigger pin is high. Sensor specs say to wait 10uS.
 	*_triggerOutput &= ~_triggerBit; // Set trigger pin back to low.
-#if DISABLE_ONE_PIN != true
-	*_triggerMode &= ~_triggerBit;   // Set trigger pin to input (when using one Arduino pin this is technically setting the echo pin to input as both are tied to the same Arduino pin).
-#endif
-
 	_max_time =  micros() + MAX_SENSOR_DELAY;                  // Set a timeout for the ping to trigger.
 	while (*_echoInput & _echoBit && micros() <= _max_time) {} // Wait for echo pin to clear.
 	while (!(*_echoInput & _echoBit))                          // Wait for ping to start.
 		if (micros() > _max_time) return false;                // Something went wrong, abort.
-
 	_max_time = micros() + _maxEchoTime; // Ping started, set the timeout.
 	return true;                         // Ping started successfully.
 }
