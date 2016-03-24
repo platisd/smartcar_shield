@@ -3,7 +3,7 @@
 #include "Smartcar.h"
 
 SHARP_IR::SHARP_IR(){
-	_sensorMedianDelay = 15; //median delay for all the sharp infrared sensors
+	_sensorMedianDelay = 39; //median delay for all the sharp infrared sensors
 }
 
 void SHARP_IR::attach(unsigned short pin){
