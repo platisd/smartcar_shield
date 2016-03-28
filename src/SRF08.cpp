@@ -35,10 +35,6 @@ void SRF08::setPingDelay(unsigned short milliseconds){
 }
 
 unsigned int SRF08::getDistance(){
-	return ping();
-}
-
-unsigned int SRF08::ping(){
 	Wire.beginTransmission(_address);
 	Wire.write(byte(0x00));
 	Wire.write(byte(0x51));
