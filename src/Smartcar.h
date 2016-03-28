@@ -146,7 +146,6 @@ class SRF08 : public UltrasonicSensor{
 		unsigned short getLightReading();
 		void changeAddress(unsigned short newAddress);
 	private:
-		unsigned int ping();
 		uint8_t _address;
 		unsigned short _delay;
 		static const unsigned short DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
