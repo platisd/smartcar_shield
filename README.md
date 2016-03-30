@@ -23,7 +23,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
 
 ### Materials needed (default setup)
  * Smartcar chassis
- * Smartcar shield PCB
+ * [Smartcar shield PCB](extras/eagle/smartcar_shield)
  * L293D H-bridge
  * GY-50 gyroscope module
  * Two speed encoders ([[1]](http://www.aliexpress.com/item/5pcs-IR-Infrared-Slotted-Optical-Speed-Measuring-Sensor-Optocoupler-Module-For-Motor-Test-For-Arduino-PIC/32465670452.html) and [[2]](http://www.aliexpress.com/item/HC-020K-Double-Speed-Measuring-Sensor-Module-with-Photoelectric-Encoders-Kit-top/32453020060.html) will suit commercially available chassis. [[3]](http://www.aliexpress.com/item/Correlation-photoelectric-sensor-lot-Infrared-correlation-count-sensor-module/2038553959.html) require some slight modifications) 
