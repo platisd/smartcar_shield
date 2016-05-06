@@ -285,7 +285,7 @@ class Car {
 /* Helper classes */
 ServoMotor* useServo(unsigned short servoPin); //used in the Car constructor to indicate the use of a servo motor for steering
 ESCMotor* useESC(unsigned short escPin); //used in the Car constructor to indicate the use of an ESC for throttling
-ShieldMotors* useDC(unsigned short shieldOrientation); //used in the Car constructor to indicate the use of DC Motors (default setup)
+ShieldMotors* useDC(unsigned short shieldOrientation); //used in the Car constructor to indicate the use of the motors according to default setup
 boolean almostEqual(float i, float j); //used to compare two floats
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
