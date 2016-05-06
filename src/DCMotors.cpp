@@ -4,7 +4,7 @@ const unsigned short BACKWARD = 0;
 const unsigned short FORWARD = 1;
 const unsigned short IDLE = 2;
 
-DCMotors::DCMotors(unsigned short shieldOrientation) {
+ShieldMotors::ShieldMotors(unsigned short shieldOrientation) {
 	if (shieldOrientation == STANDARD){ //the default shield setup, where right is right
 		MOTOR_LEFT1_PIN = 8;
 		MOTOR_LEFT_EN_PIN = 9;
@@ -26,14 +26,14 @@ DCMotors::DCMotors(unsigned short shieldOrientation) {
 	setAllowedSpeedLimits();
 }
 
-void DCMotors::setDegrees(){
+void ShieldMotors::setDegrees(){
 	STRAIGHT_RAW_DEGREES = 90;
 	MAX_RIGHT_RAW_DEGREES = 180;
 	MAX_LEFT_RAW_DEGREES = 0;
 	_angle = STRAIGHT_RAW_DEGREES;
 }
 
-void DCMotors::setFreqsAndSpeeds(){
+void ShieldMotors::setFreqsAndSpeeds(){
 	FULL_FORWARD = 100;
         FULL_BACKWARD = 100;
 	IDLE_RAW_SPEED = 0;
@@ -42,23 +42,23 @@ void DCMotors::setFreqsAndSpeeds(){
 	_speed = IDLE_RAW_SPEED;
 }
 
-void DCMotors::init(){
+void ShieldMotors::init(){
 	for (uint8_t i = MOTOR_LEFT1_PIN; i <= MOTOR_RIGHT2_PIN; i++) {
 		pinMode(i, OUTPUT); //declare pins as outputs
 	}
 }
 
-void DCMotors::setSpeed(int speed){ //receives a speed in the scale of -100 to 100
+void ShieldMotors::setSpeed(int speed){ //receives a speed in the scale of -100 to 100
 	_speed = filterSpeed(speed); //_speed now holds a value between MAX_BACK_ALLOWED_SPEED and MAX_FRONT_ALLOWED_SPEED
 	setMotors(); //update the motors with the new speed
 }
 
-void DCMotors::setAngle(int degrees){// receives some degrees in the scale of MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE	
+void ShieldMotors::setAngle(int degrees){// receives some degrees in the scale of MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE	
 	_angle = filterAngle(degrees); //_angle now holds a value between MAX_LEFT_RAW_DEGREES and MAX_RIGHT_RAW_DEGREES
 	setMotors(); //update the motors with the new angle
 }
 
-void DCMotors::setMotors(){ //sets the speed to the two motors on each side of the car, that are connected to the smartcar shield
+void ShieldMotors::setMotors(){ //sets the speed to the two motors on each side of the car, that are connected to the smartcar shield
 //	set the direction of movement, calculate the ratio of difference between the two sides of the car and then set the speed
 //	setting the direction, depending on the sign of _speed
 	if (_speed < 0){
@@ -83,7 +83,7 @@ void DCMotors::setMotors(){ //sets the speed to the two motors on each side of t
 	} 
 }
 
-void DCMotors::setDirection(unsigned short direction){ //sets the direction for the L293D h-bridge found on the Smartcar shield
+void ShieldMotors::setDirection(unsigned short direction){ //sets the direction for the L293D h-bridge found on the Smartcar shield
 	if (direction == BACKWARD){
 		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
 		digitalWrite(MOTOR_RIGHT2_PIN, HIGH);
@@ -102,7 +102,7 @@ void DCMotors::setDirection(unsigned short direction){ //sets the direction for 
 	}
 }
 
-void DCMotors::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //sets manually the speed in the scale from -100 to 100 on each side
+void ShieldMotors::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //sets manually the speed in the scale from -100 to 100 on each side
 //	filter the speeds to hold a value between MAX_BACK_ALLOWED_SPEED and MAX_FRONT_ALLOWED_SPEED
 	leftMotorSpeed = filterSpeed(leftMotorSpeed);
 	rightMotorSpeed = filterSpeed(rightMotorSpeed);

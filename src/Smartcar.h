@@ -12,8 +12,8 @@
 #include <Wire.h>
 #include <Servo.h>
 
-const unsigned short STANDARD = 1; //shield's orientation, used for DCMotors
-const unsigned short INVERTED = 0; //shield's orientation, used for DCMotors
+const unsigned short STANDARD = 1; //shield's orientation, used for ShieldMotors
+const unsigned short INVERTED = 0; //shield's orientation, used for ShieldMotors
 
 class DistanceSensor{
 	public:
@@ -204,9 +204,9 @@ class ESCMotor : public ThrottleMotor, public Servo {
 		unsigned short _pin; //the pin the ESC is attached to
 };
 
-class DCMotors : public ThrottleMotor, public SteeringMotor {
+class ShieldMotors : public ThrottleMotor, public SteeringMotor {
 	public:
-		DCMotors(unsigned short shieldOrientation = STANDARD);
+		ShieldMotors(unsigned short shieldOrientation = STANDARD);
 		void setSpeed(int speed);
 		void setAngle(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
@@ -285,7 +285,7 @@ class Car {
 /* Helper classes */
 ServoMotor* useServo(unsigned short servoPin); //used in the Car constructor to indicate the use of a servo motor for steering
 ESCMotor* useESC(unsigned short escPin); //used in the Car constructor to indicate the use of an ESC for throttling
-DCMotors* useDC(unsigned short shieldOrientation); //used in the Car constructor to indicate the use of DC Motors (default setup)
+ShieldMotors* useDC(unsigned short shieldOrientation); //used in the Car constructor to indicate the use of DC Motors (default setup)
 boolean almostEqual(float i, float j); //used to compare two floats
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
