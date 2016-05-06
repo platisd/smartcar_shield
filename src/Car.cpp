@@ -20,8 +20,8 @@ const float GO_CRUISE_SPEED = 1.3; //how fast car should move in go(int centimet
 const int GO_RAW_SPEED = 70; //how fast car should move in go(int centimeters)  and rotate(int degrees) while NOT on cruise control
 
 Car::Car(const unsigned short shieldOrientation){
-	ShieldMotors *dcMotors = useDC(shieldOrientation);
-	init(dcMotors, dcMotors);
+	ShieldMotors *shieldMotors = useDC(shieldOrientation);
+	init(shieldMotors, shieldMotors);
 }
 
 Car::Car(SteeringMotor *steering, unsigned short shieldOrientation){
