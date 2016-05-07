@@ -74,7 +74,7 @@ void ShieldMotors::setMotors(){ //sets the speed to the two motors on each side 
 	int relativeAngle = STRAIGHT_RAW_DEGREES - _angle; //the angle (as perceived by the motors) offsetted by STRAIGHT_RAW_DEGREES
 	float ratio = (STRAIGHT_RAW_DEGREES - abs(relativeAngle)) / (float) STRAIGHT_RAW_DEGREES;
 //	set the appropriate speed on each side, depending on the ratio and the sign of the _angle (whether we go left or right)
-	if (_angle> STRAIGHT_RAW_DEGREES){ //turning to the right
+	if (_angle > STRAIGHT_RAW_DEGREES){ //turning to the right
 		analogWrite(MOTOR_LEFT_EN_PIN, rawSpeed); //write the (unsigned) _speed to the left side motors
 		analogWrite(MOTOR_RIGHT_EN_PIN, int(rawSpeed * ratio)); //write the decreased, according to ratio, speed to the right side motors
 	}else{ //turning to the left or going straight

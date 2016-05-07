@@ -7,7 +7,6 @@ static unsigned short FIRST_ADDRESS = 112; //please refer to: http://www.robot-e
 static unsigned short LAST_ADDRESS = 127;
 
 SRF08::SRF08(){
-	_sensorMedianDelay = 1; //the SRF08 can conduct a new measurement right away after finishing one, no point to wait more
 }
 
 void SRF08::attach(unsigned short address){

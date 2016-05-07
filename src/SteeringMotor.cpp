@@ -5,8 +5,8 @@ SteeringMotor::SteeringMotor() {}
 SteeringMotor::~SteeringMotor(){}
 
 void SteeringMotor::setAngle(int degrees){ //to be overriden by child classes
-// receives some degrees in the scale of MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE
-// updates _angle which now holds a value between MAX_LEFT_RAW_DEGREES and MAX_RIGHT_RAW_DEGREES
+// receives some degrees in the scale of MAX_LEFT_ANGLE, MAX_RIGHT_ANGLE (usually signed)
+// updates _angle which now holds a value between MAX_LEFT_RAW_DEGREES and MAX_RIGHT_RAW_DEGREES (unsigned)
 // sets the angle on each motor
 }
 void SteeringMotor::setDegrees(){ //to be overriden by child classes

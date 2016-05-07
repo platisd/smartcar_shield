@@ -1,5 +1,5 @@
 /* An abstract class to represent a distance sensor, that offers the ability to measure a distance and perform a series of measurements
- in order to get the median distance. */
+ in order to get the median distance. The median distance algorithm is heavily based on the one from the NewPing library. */
 
 #include "Smartcar.h"
 
