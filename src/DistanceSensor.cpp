@@ -27,7 +27,6 @@ unsigned int DistanceSensor::getMedianDistance(short iterations){ //adopted from
 			i++;                       // Move to next measurement.
 		}
 		if (i < iterations && (micros() - beginningOfMeasurement < _sensorMedianDelay * 1000)){
-			//Serial.println(_sensorMedianDelay - ((micros() - beginningOfMeasurement) / 1000));
 			delay(_sensorMedianDelay - ((micros() - beginningOfMeasurement) / 1000)); // wait until _sensorMedianDelay has passed
 		}
 	}
