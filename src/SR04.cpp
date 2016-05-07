@@ -13,9 +13,10 @@ const unsigned int US_ROUNDTRIP_CM = 57;      // Microseconds (uS) it takes soun
 
 // Probably shoudln't change these values unless you really know what you're doing.
 const int NO_ECHO = 0;               // Value returned if there's no ping echo within the specified MAX_SENSOR_DISTANCE
-const unsigned int MAX_SENSOR_DELAY = 18000;  // Maximum uS it takes for sensor to start the ping (SRF06 is the highest measured, just under 18ms).
+const unsigned int MAX_SENSOR_DELAY = 5800;  // Maximum uS it takes for sensor to start the ping.
 
 SR04::SR04(unsigned int maxDistance) {
+	_sensorMedianDelay = 8;
 	_maxDistance = maxDistance;
 }
 

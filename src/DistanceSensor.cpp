@@ -14,6 +14,7 @@ unsigned int DistanceSensor::getMedianDistance(short iterations){ //adopted from
 	uint8_t j, i = 0;
 	measurements[0] = 0; //initializing the array
 	while (i < iterations) {
+		unsigned long beginningOfMeasurement = micros();
 		last = getDistance();           //get measurements
 		if (!last) {   // measurement out of range.
 			iterations--;                // Skip, don't include as part of median.
@@ -25,9 +26,10 @@ unsigned int DistanceSensor::getMedianDistance(short iterations){ //adopted from
 			measurements[j] = last;              // Add last measurement to array in sorted position.
 			i++;                       // Move to next measurement.
 		}
-		if (i < iterations){
-			delay(_sensorMedianDelay); // Millisecond delay between measurements (needed for some sensors e.g. the SHARP IRs)
+		if (i < iterations && (micros() - beginningOfMeasurement < _sensorMedianDelay * 1000)){
+			//Serial.println(_sensorMedianDelay - ((micros() - beginningOfMeasurement) / 1000));
+			delay(_sensorMedianDelay - ((micros() - beginningOfMeasurement) / 1000)); // wait until _sensorMedianDelay has passed
 		}
 	}
-	return (measurements[iterations >> 1]); // Return the measurement distance median.
+	return (measurements[iterations >> 1]); // Return the measurement distance median (the element in the middle of the quicksorted array)
 }

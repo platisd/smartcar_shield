@@ -24,7 +24,7 @@ class DistanceSensor{
 	private:
 		static const short DEFAULT_ITERATIONS;
 	protected:
-		unsigned short _sensorMedianDelay; //delay between measurements in the sensor's getMedianDistance
+		unsigned int _sensorMedianDelay; //delay between measurements in the sensor's getMedianDistance in milliseconds
 };
 
 class InfraredSensor : public DistanceSensor {//placeholder for a possible future ultrasonic abstract class

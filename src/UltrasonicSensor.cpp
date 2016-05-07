@@ -3,5 +3,5 @@
 #include "Smartcar.h"
 
 UltrasonicSensor::UltrasonicSensor(){
-	_sensorMedianDelay = 0; //median delay for all the ultrasonic sensors (no need to wait between the measurements)
+	_sensorMedianDelay = 0; //the default median delay for the ultrasonic sensors will be redefined in child classes if necessary
 }
