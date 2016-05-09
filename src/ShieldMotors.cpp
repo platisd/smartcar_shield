@@ -1,24 +1,12 @@
 #include "Smartcar.h"
 
-const unsigned short BACKWARD = 0;
-const unsigned short FORWARD = 1;
-const unsigned short IDLE = 2;
-
 ShieldMotors::ShieldMotors(unsigned short shieldOrientation) {
 	if (shieldOrientation == STANDARD){ //the default shield setup, where right is right
-		MOTOR_LEFT1_PIN = 8;
-		MOTOR_LEFT_EN_PIN = 9;
-		MOTOR_LEFT2_PIN = 10;
-		MOTOR_RIGHT_EN_PIN = 11;
-		MOTOR_RIGHT1_PIN = 12;
-		MOTOR_RIGHT2_PIN = 13;
+		_leftMotor.attach(8,10,9); //forward pin, backward pin, enable
+		_rightMotor.attach(12,13,11);
 	}else{ //the reversed shield setup, where right is left
-		MOTOR_RIGHT1_PIN = 8;
-		MOTOR_RIGHT_EN_PIN = 9;
-		MOTOR_RIGHT2_PIN = 10;
-		MOTOR_LEFT_EN_PIN = 11;
-		MOTOR_LEFT1_PIN = 12;
-		MOTOR_LEFT2_PIN = 13;
+		_leftMotor.attach(12,13,11); //forward pin, backward pin, enable
+		_rightMotor.attach(8,10,9);
 	}
 	setDegrees();
 	setAllowedAngles();
@@ -40,12 +28,6 @@ void ShieldMotors::setFreqsAndSpeeds(){
 	MAX_FRONT_RAW_SPEED = 255;
 	MAX_BACK_RAW_SPEED = -255;
 	_speed = IDLE_RAW_SPEED;
-}
-
-void ShieldMotors::init(){
-	for (uint8_t i = MOTOR_LEFT1_PIN; i <= MOTOR_RIGHT2_PIN; i++) {
-		pinMode(i, OUTPUT); //declare pins as outputs
-	}
 }
 
 void ShieldMotors::setSpeed(int speed){ //receives a speed in the scale of -100 to 100
@@ -75,31 +57,17 @@ void ShieldMotors::setMotors(){ //sets the speed to the two motors on each side 
 	float ratio = (STRAIGHT_RAW_DEGREES - abs(relativeAngle)) / (float) STRAIGHT_RAW_DEGREES;
 //	set the appropriate speed on each side, depending on the ratio and the sign of the _angle (whether we go left or right)
 	if (_angle > STRAIGHT_RAW_DEGREES){ //turning to the right
-		analogWrite(MOTOR_LEFT_EN_PIN, rawSpeed); //write the (unsigned) _speed to the left side motors
-		analogWrite(MOTOR_RIGHT_EN_PIN, int(rawSpeed * ratio)); //write the decreased, according to ratio, speed to the right side motors
+		_leftMotor.setSpeed(rawSpeed); //write the (unsigned) _speed to the left side motors
+		_rightMotor.setSpeed(int(rawSpeed * ratio)); //write the decreased, according to ratio, speed to the right side motors
 	}else{ //turning to the left or going straight
-		analogWrite(MOTOR_RIGHT_EN_PIN, rawSpeed); //write the (unsigned) _speed to the right side motors
-		analogWrite(MOTOR_LEFT_EN_PIN, int(rawSpeed * ratio)); //write the decreased, according to ratio, speed to the left side motors
+		_leftMotor.setSpeed(int(rawSpeed * ratio)); //write the decreased, according to ratio, speed to the left side motors
+		_rightMotor.setSpeed(rawSpeed); //write the (unsigned) _speed to the right side motors
 	} 
 }
 
 void ShieldMotors::setDirection(unsigned short direction){ //sets the direction for the L293D h-bridge found on the Smartcar shield
-	if (direction == BACKWARD){
-		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
-		digitalWrite(MOTOR_RIGHT2_PIN, HIGH);
-		digitalWrite(MOTOR_LEFT1_PIN, LOW);
-		digitalWrite(MOTOR_LEFT2_PIN, HIGH);
-	}else if (direction == FORWARD){
-		digitalWrite(MOTOR_RIGHT1_PIN, HIGH);
-		digitalWrite(MOTOR_RIGHT2_PIN, LOW);
-		digitalWrite(MOTOR_LEFT1_PIN, HIGH);
-		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
-	}else{
-		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
-		digitalWrite(MOTOR_RIGHT2_PIN, LOW);
-		digitalWrite(MOTOR_LEFT1_PIN, LOW);
-		digitalWrite(MOTOR_LEFT2_PIN, LOW);
-	}
+	_leftMotor.setDirection(direction);
+	_rightMotor.setDirection(direction);
 }
 
 void ShieldMotors::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //sets manually the speed in the scale from -100 to 100 on each side
@@ -108,19 +76,15 @@ void ShieldMotors::setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed){ //set
 	rightMotorSpeed = filterSpeed(rightMotorSpeed);
 //	we don't update _speed and _angle in this case, since it might not make sense, if sides are spinning towards different direction
 	if (leftMotorSpeed<0){ //set left direction backwards
-		digitalWrite(MOTOR_LEFT1_PIN, LOW);
-		digitalWrite(MOTOR_LEFT2_PIN, HIGH);
+		_leftMotor.setDirection(BACKWARD);
 	}else{ //front
-		digitalWrite(MOTOR_LEFT1_PIN, HIGH);
-		digitalWrite(MOTOR_LEFT2_PIN, LOW);	
+		_leftMotor.setDirection(FORWARD);
 	}
-		analogWrite(MOTOR_LEFT_EN_PIN, abs(leftMotorSpeed));//write left speed
+	_leftMotor.setSpeed(abs(leftMotorSpeed)); //write speed (as a PWM value) to the left motor
 	if (rightMotorSpeed<0){ //set right direction backwards
-		digitalWrite(MOTOR_RIGHT1_PIN, LOW);
-		digitalWrite(MOTOR_RIGHT2_PIN, HIGH);
+		_rightMotor.setDirection(BACKWARD);
 	}else{ //front
-		digitalWrite(MOTOR_RIGHT1_PIN, HIGH);
-		digitalWrite(MOTOR_RIGHT2_PIN, LOW);		
+		_rightMotor.setDirection(FORWARD);		
 	}
-		analogWrite(MOTOR_RIGHT_EN_PIN, abs(rightMotorSpeed));//write right speed
+	_rightMotor.setSpeed(abs(rightMotorSpeed));
 }

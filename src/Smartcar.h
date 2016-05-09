@@ -14,6 +14,11 @@
 
 const unsigned short STANDARD = 1; //shield's orientation, used for ShieldMotors
 const unsigned short INVERTED = 0; //shield's orientation, used for ShieldMotors
+const unsigned short BACKWARD = 0; //the motor's direction of rotation
+const unsigned short FORWARD = 1;
+const unsigned short IDLE = 2;
+const unsigned short LEFT = 0;
+const unsigned short RIGHT = 1;
 
 class DistanceSensor{
 	public:
@@ -204,20 +209,41 @@ class ESCMotor : public ThrottleMotor, public Servo {
 		unsigned short _pin; //the pin the ESC is attached to
 };
 
+class BrushedDCMotor {
+	public:
+		BrushedDCMotor();
+		void attach(unsigned short forwardPin, unsigned short backwardPin, unsigned short enablePin);
+		void setDirection(unsigned short direction);
+		void setSpeed(unsigned short pwmSpeed);
+	private:
+		unsigned short _forwardPin, _backwardPin, _enablePin;
+};
+
+class DCSteerThrottle : public ThrottleMotor, public SteeringMotor {
+	public:
+		DCSteerThrottle();
+		void attach(unsigned short directionPinA, unsigned short directionPinB, unsigned short enablePin);
+		void setSpeed(int speed);
+		void setAngle(int degrees);
+	private:
+		BrushedDCMotor _motor;
+		void setDegrees();
+		void setFreqsAndSpeeds();
+
+};
+
 class ShieldMotors : public ThrottleMotor, public SteeringMotor {
 	public:
 		ShieldMotors(unsigned short shieldOrientation = STANDARD);
 		void setSpeed(int speed);
 		void setAngle(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
-		void init();
 	private:
+		BrushedDCMotor _leftMotor, _rightMotor;
 		void setDegrees();
 		void setFreqsAndSpeeds();
 		void setDirection(unsigned short direction);
 		void setMotors();
-		unsigned short MOTOR_LEFT1_PIN, MOTOR_LEFT_EN_PIN, MOTOR_LEFT2_PIN;
-		unsigned short MOTOR_RIGHT_EN_PIN, MOTOR_RIGHT1_PIN, MOTOR_RIGHT2_PIN;
 };
 
 class ServoMotor : public SteeringMotor, public Servo {
@@ -233,7 +259,6 @@ class ServoMotor : public SteeringMotor, public Servo {
 class Car {
 	public:
 		Car(unsigned short shieldOrientation = STANDARD);
-		Car(SteeringMotor *steering, unsigned short shieldOrientation = STANDARD);
 		Car(SteeringMotor *steering, ThrottleMotor *throttle);
 		void begin();
 		void begin(Odometer &encoder);
@@ -283,9 +308,11 @@ class Car {
 };
 
 /* Helper classes */
+DCSteerThrottle* useDCMotor(unsigned short shieldSide); //user-friendly attach of a brushed dc motor to one of the sides of the shield (LEFT/RIGHT)
+DCSteerThrottle* useDCMotor(unsigned short directionPinA, unsigned short directionPinB, unsigned short enablePin); //attach a brushed motor to the specified pins, that will be used either for steering and or throttling
 ServoMotor* useServo(unsigned short servoPin); //used in the Car constructor to indicate the use of a servo motor for steering
 ESCMotor* useESC(unsigned short escPin); //used in the Car constructor to indicate the use of an ESC for throttling
-ShieldMotors* useDC(unsigned short shieldOrientation); //used in the Car constructor to indicate the use of the motors according to default setup
+ShieldMotors* useShieldMotors(unsigned short shieldOrientation = STANDARD); //used in the Car constructor to indicate the use of the motors on the shield, according to default setup
 boolean almostEqual(float i, float j); //used to compare two floats
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */

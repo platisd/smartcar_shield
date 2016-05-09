@@ -13,7 +13,7 @@ void SteeringMotor::setDegrees(){ //to be overriden by child classes
 //sets the various motor-specific, maximum and minimum values
 }
 
-//set the allowed degrees, using the straight wheels as an offset (in other words, the way the user will input it)
+//set the allowed degrees (signed), using the straight wheels as an offset (in other words, the way the user will input it)
 void SteeringMotor::setAllowedAngles(){
 	MAX_RIGHT_ANGLE = MAX_RIGHT_RAW_DEGREES - STRAIGHT_RAW_DEGREES;
 	MAX_LEFT_ANGLE = MAX_LEFT_RAW_DEGREES - STRAIGHT_RAW_DEGREES;
