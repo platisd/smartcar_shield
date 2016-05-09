@@ -10,9 +10,6 @@ const float Car::DEFAULT_KI = 0.0;
 const float Car::DEFAULT_KD = 10.0;
 
 const unsigned short MAX_EFFORTS = 2; //amount of efforts to stop reversing the wheels, in case they have already stopped and spin in the opposite direction
-const unsigned short BACKWARD = 0;
-const unsigned short FORWARD = 1;
-const unsigned short IDLE = 2;
 
 const float MAX_BACK_CRUISE_SPEED = -3.0; //how fast the car can drive forward in cruise control mode (meters/sec)
 const float MAX_FRONT_CRUISE_SPEED = 3.0; //how fast the car can drive backward in cruise control mode (meters/sec)
@@ -20,12 +17,8 @@ const float GO_CRUISE_SPEED = 1.3; //how fast car should move in go(int centimet
 const int GO_RAW_SPEED = 70; //how fast car should move in go(int centimeters)  and rotate(int degrees) while NOT on cruise control
 
 Car::Car(const unsigned short shieldOrientation){
-	ShieldMotors *shieldMotors = useDC(shieldOrientation);
+	ShieldMotors *shieldMotors = useShieldMotors(shieldOrientation);
 	init(shieldMotors, shieldMotors);
-}
-
-Car::Car(SteeringMotor *steering, unsigned short shieldOrientation){
-	init(steering, useDC(shieldOrientation));
 }
 
 Car::Car(SteeringMotor *steering, ThrottleMotor *throttle){
