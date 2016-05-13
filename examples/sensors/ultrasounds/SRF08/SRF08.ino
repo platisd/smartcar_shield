@@ -6,9 +6,9 @@ SRF08 front;
 
 void setup() {
   front.attach(112);
-  front.setGain(10);
-  front.setRange(35);
-  front.setPingDelay(15);
+ // front.setGain(GAIN);
+ // front.setRange(RANGE);
+ // front.setPingDelay(8); //uncomment if u want to use custom measurement range
   Serial.begin(9600);
 }
 
