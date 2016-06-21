@@ -46,6 +46,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
 ### How to get started
  * Assemble the vehicle
  * [Install the library](../../wiki/Start-up-guide#get-libraries)
+ * [Connect the motors appropriately](examples/Car/shieldMotorsTest/shieldMotorsTest.ino) (if using the default setup)
 
 ### Dependencies
 - [Wire library](http://arduino.cc/en/reference/Wire) (included with the Arduino IDE)
