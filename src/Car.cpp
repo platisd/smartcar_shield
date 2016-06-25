@@ -235,6 +235,7 @@ void Car::go(int centimeters){
 	setAngle(initialAngle); //restore to the inital angle	
 }
 void Car::rotate(int targetDegrees){
+        targetDegrees %= 360; //put it on a (-360,360) scale
 	if (!_headingAttached || !targetDegrees) return; //continue only if heading sensor is attached and the targetDegrees is not 0
 	float initialSpeed = getSpeed(); //save the current speed (so we restore it later)
 	int initialAngle = getAngle(); //save the current angle (so we restore it later)
@@ -248,12 +249,21 @@ void Car::rotate(int targetDegrees){
 	}else{
 		setSpeed(GO_RAW_SPEED);
 	}
-	int initialHeading = _heading->getAngularDisplacement(); //the initial heading we'll use as offset to calculate the absolute displacement
+	unsigned int initialHeading = _heading->getAngularDisplacement(); //initial heading used as offset to calculate the absolute displacement
 	int degreesTurnedSoFar = 0; //this variable will hold the absolute displacement from the beginning of the rotation
-	while (abs(degreesTurnedSoFar) < abs(targetDegrees)){ //while the absolute displacement hasn't reached the (absolute) target, keep turning
-		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
+	while (abs(degreesTurnedSoFar) < abs(targetDegrees)){ //while absolute displacement hasn't reached the (absolute) target, keep turning
+		if (cruiseControlEnabled()) updateMotors(); //adjust the motor speed with the PID controller
 		_heading->update(); //update to integrate the latest heading sensor readings
-		degreesTurnedSoFar = initialHeading - _heading->getAngularDisplacement(); //degrees turned so far is initial heading minus current
+		int currentHeading = _heading->getAngularDisplacement(); //in the scale of 0 to 360
+		if (targetDegrees < 0 && currentHeading > initialHeading){ //if we are turning left and the current heading is larger than the
+		//initial one (e.g. started at 10 degrees and now we are at 350), we need to substract 360, so to eventually get a signed 
+		        currentHeading -= 360; //displacement from the initial heading (-20)
+		}else if (targetDegrees > 0 && currentHeading < initialHeading){ //if we are turning right and the heading is smaller than the
+		//initial one (e.g. started at 350 degrees and now we are at 20), so to get a signed displacement (+30)
+		        currentHeading += 360;
+		}
+		degreesTurnedSoFar = initialHeading - currentHeading; //degrees turned so far is initial heading minus current (initial heading
+		//is at least 0 and at most 360. To handle the "edge" cases we substracted or added 360 to currentHeading)
 	}
 	setSpeed(initialSpeed); //restore to the initial speed
 	setAngle(initialAngle); //restore to the inital angle

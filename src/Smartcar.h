@@ -100,7 +100,7 @@ class HeadingSensor {
 		HeadingSensor();
 		virtual ~HeadingSensor();
 		virtual void update();
-		int getAngularDisplacement();
+		unsigned int getAngularDisplacement();
 	protected:
 		float _angularDisplacement;
 };
