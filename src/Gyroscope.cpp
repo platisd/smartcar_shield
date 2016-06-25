@@ -113,7 +113,7 @@ int Gyroscope::readRegister(int deviceAddress, byte address){
 }
 
 int Gyroscope::calibrate(int measurements){ //use this function in order to determine the offset and change GYRO_OFFSET accordingly
-	if (!measurements) return -1; //if a 0 was an argument, return a very high value, to avoid a division with 0 and indicate error
+	if (!measurements) return -10000; //if a 0 was an argument, return a very high value, to avoid a division with 0 and indicate error
 	long sum = 0;
 	for (int i = 0; i < measurements; i++){
 		sum += getGyroValues();
