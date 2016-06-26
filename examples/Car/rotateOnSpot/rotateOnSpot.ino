@@ -8,9 +8,9 @@ void setup() {
   gyro.attach();
   car.begin(gyro);
   delay(1000);
-  rotateOnSpot(-450); //rotate clockwise 90 degrees on spot
+  rotateOnSpot(90); //rotate clockwise 90 degrees on spot
   delay(1000);
-  rotateOnSpot(90); //rotate counter clockwise 90 degrees on spot
+  rotateOnSpot(-90); //rotate counter clockwise 90 degrees on spot
 }
 
 void loop() {
