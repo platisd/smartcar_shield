@@ -25,6 +25,7 @@ Odometer::Odometer(unsigned int pulsesPerMeter){
 	}
 	_odometerID = odometers++;
 	_millimetersPerPulse = lroundf(1000.0 / _pulsesPerMeter); //round a float to the nearest long
+	_odometerInterruptPin = 0; //give it an initial (likely invalid) value
 }
 
 int Odometer::attach(unsigned short odometerPin){

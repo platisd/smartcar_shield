@@ -18,6 +18,8 @@ const unsigned int MAX_SENSOR_DELAY = 5800;  // Maximum uS it takes for sensor t
 SR04::SR04(unsigned int maxDistance) {
 	_sensorMedianDelay = 8;
 	_maxDistance = maxDistance;
+	_triggerBit = 0, _echoBit = 0, _triggerOutput = 0, _triggerMode = 0;
+	_echoInput = 0, _maxEchoTime = 0, _max_time = 0;
 }
 
 void SR04::attach(unsigned short triggerPin, unsigned short echoPin){

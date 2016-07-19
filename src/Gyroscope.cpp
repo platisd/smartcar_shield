@@ -22,6 +22,7 @@ const int L3G4200D_Address = 105; //gyroscope I2C address
 
 Gyroscope::Gyroscope(int offset){
 	_gyroOffset = offset;
+	_samplingRate = 0, _prevSample = 0;
 }
 
 void Gyroscope::attach(){

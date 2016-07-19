@@ -5,17 +5,19 @@
 
 const short DistanceSensor::DEFAULT_ITERATIONS = 5;
 
-DistanceSensor::DistanceSensor() {}
+DistanceSensor::DistanceSensor() {
+    _sensorMedianDelay = 0;
+}
 
 DistanceSensor::~DistanceSensor(){}
 
 unsigned int DistanceSensor::getMedianDistance(short iterations){ //adopted from NewPing library
-	unsigned int measurements[iterations], last;
+	unsigned int measurements[iterations];
 	uint8_t j, i = 0;
 	measurements[0] = 0; //initializing the array
 	while (i < iterations) {
 		unsigned long beginningOfMeasurement = micros();
-		last = getDistance();           //get measurements
+		unsigned int last = getDistance();           //get measurements
 		if (!last) {   // measurement out of range.
 			iterations--;                // Skip, don't include as part of median.
 		} else {                       // measurement in range, include as part of median.

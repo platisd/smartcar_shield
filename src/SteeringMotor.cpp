@@ -1,6 +1,9 @@
 #include "Smartcar.h"
 
-SteeringMotor::SteeringMotor() {}
+SteeringMotor::SteeringMotor() {
+    _angle = 0, STRAIGHT_RAW_DEGREES = 0, MAX_RIGHT_RAW_DEGREES = 0;
+    MAX_LEFT_RAW_DEGREES = 0, MAX_RIGHT_ANGLE = 0, MAX_LEFT_ANGLE = 0;
+}
 
 SteeringMotor::~SteeringMotor(){}
 

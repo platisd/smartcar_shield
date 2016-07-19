@@ -1,7 +1,7 @@
 #include "Smartcar.h"
 
 BrushedDCMotor::BrushedDCMotor(){ //represents programmatically the very simple, 2 wire, brushed dc motor
-
+    _forwardPin = 0, _backwardPin = 0, _enablePin = 0; //give some default values to the pins
 }
 
 void BrushedDCMotor::attach(unsigned short forwardPin, unsigned short backwardPin, unsigned short enablePin) {

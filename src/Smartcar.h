@@ -78,7 +78,7 @@ class UltrasonicSensor : public DistanceSensor {//placeholder for a possible fut
 
 class SR04 : public UltrasonicSensor {
 	public:
-		SR04(unsigned int maxDistance = DEFAULT_MAX_US_DISTANCE);
+		explicit SR04(unsigned int maxDistance = DEFAULT_MAX_US_DISTANCE);
 		void attach(unsigned short triggerPin, unsigned short echoPin);
 		unsigned int getDistance();
 	private:
@@ -107,7 +107,7 @@ class HeadingSensor {
 
 class Gyroscope : public HeadingSensor{
 	public:
-		Gyroscope(int offset = DEFAULT_GYRO_OFFSET);
+		explicit Gyroscope(int offset = DEFAULT_GYRO_OFFSET);
 		void attach();
 		void begin(unsigned short samplingPeriod = DEFAULT_GYRO_SAMPLING);
 		void update();
@@ -127,7 +127,7 @@ class Gyroscope : public HeadingSensor{
 
 class Odometer{
 	public:
-		Odometer(unsigned int pulsesPerMeter = DEFAULT_PULSES_PER_METER);
+		explicit Odometer(unsigned int pulsesPerMeter = DEFAULT_PULSES_PER_METER);
 		int attach(unsigned short odometerPin);
 		void begin();
 		unsigned long getDistance();
@@ -201,7 +201,7 @@ class ThrottleMotor : public Motor {
 
 class ESCMotor : public ThrottleMotor, public Servo {
 	public:
-		ESCMotor(unsigned short pin);
+		explicit ESCMotor(unsigned short pin);
 		void setSpeed(int speed);
 		void init();
 	private:
@@ -234,7 +234,7 @@ class DCSteerThrottle : public ThrottleMotor, public SteeringMotor {
 
 class ShieldMotors : public ThrottleMotor, public SteeringMotor {
 	public:
-		ShieldMotors(unsigned short shieldOrientation = STANDARD);
+		explicit ShieldMotors(unsigned short shieldOrientation = STANDARD);
 		void setSpeed(int speed);
 		void setAngle(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
@@ -258,7 +258,7 @@ class ServoMotor : public SteeringMotor, public Servo {
 
 class Car {
 	public:
-		Car(unsigned short shieldOrientation = STANDARD);
+		explicit Car(unsigned short shieldOrientation = STANDARD);
 		Car(SteeringMotor *steering, ThrottleMotor *throttle);
 		void begin();
 		void begin(Odometer &encoder);
@@ -304,7 +304,6 @@ class Car {
 		unsigned long _lastMotorUpdate, _previousDistance;
 		float _previousControlledSpeed;
 		int _previousError, _integratedError;
-		int MAX_ALLOWED_RIGHT_STEER, MAX_ALLOWED_LEFT_STEER; //how much we allow the car to steer, in degrees (negative to the left)
 };
 
 /* Helper classes */

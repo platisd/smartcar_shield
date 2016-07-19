@@ -4,6 +4,9 @@
 
 SHARP_IR::SHARP_IR(){
 	_sensorMedianDelay = 15; //median delay for all the sharp infrared sensors
+	_pin = 99; //give it an initial (likely invalid) value
+	_maxDistance = 0;
+	_minDistance = 0;
 }
 
 void SHARP_IR::attach(unsigned short pin){

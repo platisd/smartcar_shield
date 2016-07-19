@@ -34,6 +34,10 @@ void Car::init(SteeringMotor *steering, ThrottleMotor *throttle){
 	_pidLoopInterval = DEFAULT_PID_LOOP_INTERVAL;
 	_throttle = throttle;
 	_steering = steering;
+	_lastGroundSpeed = 0, _Kp = DEFAULT_KP, _Ki = DEFAULT_KI, _Kd = DEFAULT_KD;
+	_measuredSpeed = 0, _encoders[0] = NULL, _encoders[1] = NULL, _heading = NULL;
+	_lastMotorUpdate = 0, _previousDistance = 0, _previousControlledSpeed = 0;
+	_previousError = 0, _integratedError = 0;
 }
 
 void Car::begin(){

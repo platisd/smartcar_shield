@@ -1,6 +1,10 @@
 #include "Smartcar.h"
 
-ThrottleMotor::ThrottleMotor() {}
+ThrottleMotor::ThrottleMotor() {
+    _speed = 0, FULL_FORWARD = 0, FULL_BACKWARD = 0, IDLE_RAW_SPEED = 0;
+    MAX_FRONT_RAW_SPEED = 0, MAX_BACK_RAW_SPEED = 0, MAX_FRONT_ALLOWED_SPEED = 0;
+    MAX_BACK_ALLOWED_SPEED = 0;
+}
 
 ThrottleMotor::~ThrottleMotor(){}
 

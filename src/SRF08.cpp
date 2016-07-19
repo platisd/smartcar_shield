@@ -7,6 +7,7 @@ static unsigned short FIRST_ADDRESS = 112; //please refer to: http://www.robot-e
 static unsigned short LAST_ADDRESS = 127;
 
 SRF08::SRF08(){
+    _address = 0, _delay = 0; //some initial invalid values
 }
 
 void SRF08::attach(unsigned short address){
