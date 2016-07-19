@@ -3,3 +3,8 @@
 *.cpp~
 *.h~
 *.properties~
+*.sh~
+
+# Ignore static code analysis files and scripts
+staticAnalysis.sh
+static-analysis-report/
