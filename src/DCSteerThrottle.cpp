@@ -45,7 +45,7 @@ void DCSteerThrottle::setAngle(int degrees){// receives some degrees in the scal
 		_motor.setDirection(FORWARD);
 	}else if (degrees < 0){ //otherwise, they should spin "backward" towards the left
 		_motor.setDirection(BACKWARD);
-	}else{  //if the supplied degrees was 0 then the motor should not be turning
+	}else{  //if the supplied degrees was 0 then the motor should not be turning (therefore remaining straight)
 		_motor.setDirection(IDLE);
 	}
 	//if degrees is not 0, turn steering motor at full speed (at the previously specified direction) to put the wheels into a turning position
