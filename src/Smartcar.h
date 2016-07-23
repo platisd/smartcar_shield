@@ -249,7 +249,7 @@ class ShieldMotors : public ThrottleMotor, public SteeringMotor {
 
 class ServoMotor : public SteeringMotor, public Servo {
 	public:
-		ServoMotor(unsigned short pin);
+		explicit ServoMotor(unsigned short pin);
 		void setAngle(int degrees);
 		void init();
 	private:
