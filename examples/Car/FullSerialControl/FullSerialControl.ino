@@ -5,7 +5,7 @@ Car car;
 void setup() {
   Serial.begin(9600);
   Serial.setTimeout(200);
-  car.begin()
+  car.begin();
 }
 
 void loop() {
