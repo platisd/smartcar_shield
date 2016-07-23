@@ -17,8 +17,9 @@ const unsigned short INVERTED = 0; //shield's orientation, used for ShieldMotors
 const unsigned short BACKWARD = 0; //the motor's direction of rotation
 const unsigned short FORWARD = 1;
 const unsigned short IDLE = 2;
-const unsigned short LEFT = 0;
-const unsigned short RIGHT = 1;
+const short LEFT = -1;
+const short RIGHT = 1;
+const short STRAIGHT = 0; //refers to the wheel direction/orientation
 
 class DistanceSensor{
 	public:
@@ -307,7 +308,7 @@ class Car {
 };
 
 /* Helper classes */
-DCSteerThrottle* useDCMotor(unsigned short shieldSide); //user-friendly attach of a brushed dc motor to one of the sides of the shield (LEFT/RIGHT)
+DCSteerThrottle* useDCMotor(short shieldSide); //user-friendly attach of a brushed dc motor to one of the sides of the shield (LEFT/RIGHT)
 DCSteerThrottle* useDCMotor(unsigned short directionPinA, unsigned short directionPinB, unsigned short enablePin); //attach a brushed motor to the specified pins, that will be used either for steering and or throttling
 ServoMotor* useServo(unsigned short servoPin); //used in the Car constructor to indicate the use of a servo motor for steering
 ESCMotor* useESC(unsigned short escPin); //used in the Car constructor to indicate the use of an ESC for throttling

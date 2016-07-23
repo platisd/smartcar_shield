@@ -12,7 +12,7 @@ ShieldMotors* useShieldMotors(unsigned short shieldOrientation){
 	return new ShieldMotors(shieldOrientation);
 }
 
-DCSteerThrottle* useDCMotor(unsigned short shieldSide){
+DCSteerThrottle* useDCMotor(short shieldSide){
 	if (shieldSide == LEFT){
 		return useDCMotor(8,10,9);
 	}else{
