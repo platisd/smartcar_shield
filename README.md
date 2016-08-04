@@ -42,6 +42,10 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
       * SHARP GP2D120
       * SHARP GP2Y0A02
       * SHARP GP2Y0A21
+ * Gyroscopes
+   * GY-50 (L3G4200D)
+ * IMUs
+   * [MPU-6050](https://github.com/platisd/smartcar_MPU6050)
 
 ### How to get started
  * Assemble the vehicle
