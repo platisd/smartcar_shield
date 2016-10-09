@@ -8,6 +8,16 @@ ShieldMotors::ShieldMotors(unsigned short shieldOrientation) {
 		_leftMotor.attach(12,13,11); //forward pin, backward pin, enable
 		_rightMotor.attach(8,10,9);
 	}
+    init();
+}
+
+ShieldMotors::ShieldMotors(unsigned short leftMotor[], unsigned short rightMotor[]) {
+    _leftMotor.attach(leftMotor[0], leftMotor[1], leftMotor[2]); //forward pin, backward pin, enable
+    _rightMotor.attach(rightMotor[0], rightMotor[1], rightMotor[2]);
+    init();
+}
+
+void ShieldMotors::init() {
 	setDegrees();
 	setAllowedAngles();
 	setFreqsAndSpeeds();

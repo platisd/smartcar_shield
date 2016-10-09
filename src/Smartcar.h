@@ -129,15 +129,17 @@ class Gyroscope : public HeadingSensor{
 class Odometer{
 	public:
 		explicit Odometer(unsigned int pulsesPerMeter = DEFAULT_PULSES_PER_METER);
-		int attach(unsigned short odometerPin);
+		int attach(unsigned short odometerPin, unsigned short directionPin = DEFAULT_DIRECTION_PIN);
 		void begin();
 		unsigned long getDistance();
+		short getDirection();
 		float getSpeed();
 	private:
 		unsigned long pulsesToCentimeters(unsigned long pulses);
+		boolean directionPinAttached();
 		unsigned int _pulsesPerMeter;
-		static const unsigned int DEFAULT_PULSES_PER_METER;
-		unsigned short _odometerInterruptPin, _odometerID;
+		static const unsigned int DEFAULT_PULSES_PER_METER, DEFAULT_DIRECTION_PIN;
+		unsigned short _odometerInterruptPin, _directionPin, _odometerID;
 		unsigned int _millimetersPerPulse;
 };
 
@@ -236,6 +238,7 @@ class DCSteerThrottle : public ThrottleMotor, public SteeringMotor {
 class ShieldMotors : public ThrottleMotor, public SteeringMotor {
 	public:
 		explicit ShieldMotors(unsigned short shieldOrientation = STANDARD);
+		ShieldMotors(unsigned short leftMotor[], unsigned short rightMotor[]);
 		void setSpeed(int speed);
 		void setAngle(int degrees);
 		void setMotorSpeed(int leftMotorSpeed, int rightMotorSpeed);
@@ -245,6 +248,7 @@ class ShieldMotors : public ThrottleMotor, public SteeringMotor {
 		void setFreqsAndSpeeds();
 		void setDirection(unsigned short direction);
 		void setMotors();
+		void init();
 };
 
 class ServoMotor : public SteeringMotor, public Servo {
@@ -260,6 +264,7 @@ class ServoMotor : public SteeringMotor, public Servo {
 class Car {
 	public:
 		explicit Car(unsigned short shieldOrientation = STANDARD);
+		explicit Car(ShieldMotors *shieldMotors);
 		Car(SteeringMotor *steering, ThrottleMotor *throttle);
 		void begin();
 		void begin(Odometer &encoder);
@@ -313,6 +318,7 @@ DCSteerThrottle* useDCMotor(unsigned short directionPinA, unsigned short directi
 ServoMotor* useServo(unsigned short servoPin); //used in the Car constructor to indicate the use of a servo motor for steering
 ESCMotor* useESC(unsigned short escPin); //used in the Car constructor to indicate the use of an ESC for throttling
 ShieldMotors* useShieldMotors(unsigned short shieldOrientation = STANDARD); //used in the Car constructor to indicate the use of the motors on the shield, according to default setup
+ShieldMotors* useShieldMotors(unsigned short leftMotor[], unsigned short rightMotor[]);
 boolean almostEqual(float i, float j); //used to compare two floats
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */

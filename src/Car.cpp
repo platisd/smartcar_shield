@@ -21,6 +21,10 @@ Car::Car(const unsigned short shieldOrientation){
 	init(shieldMotors, shieldMotors);
 }
 
+Car::Car(ShieldMotors *shieldMotors){
+    init(shieldMotors, shieldMotors);
+}
+
 Car::Car(SteeringMotor *steering, ThrottleMotor *throttle){
 	init(steering, throttle);
 }

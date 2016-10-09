@@ -15,6 +15,7 @@ volatile unsigned long _dt[2] = {0};
 volatile unsigned long _pulseCounter[2] = {0};
 static unsigned short odometers = 0;
 const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 180;
+const unsigned int Odometer::DEFAULT_DIRECTION_PIN = 255;
 const unsigned long MINIMUM_PULSE_GAP = 700; //the minimum acceptable time between two pulses in microseconds. Less is invalid unstable signal
 
 Odometer::Odometer(unsigned int pulsesPerMeter){
@@ -26,11 +27,15 @@ Odometer::Odometer(unsigned int pulsesPerMeter){
 	_odometerID = odometers++;
 	_millimetersPerPulse = lroundf(1000.0 / _pulsesPerMeter); //round a float to the nearest long
 	_odometerInterruptPin = 0; //give it an initial (likely invalid) value
+	_directionPin = 255; //give it an initial (likely invalid) value
 }
 
-int Odometer::attach(unsigned short odometerPin){
+int Odometer::attach(unsigned short odometerPin, unsigned short directionPin){
 	_odometerInterruptPin = digitalPinToInterrupt(odometerPin);
 	if (_odometerInterruptPin != NOT_AN_INTERRUPT){
+        if (directionPinAttached()){
+            _directionPin = directionPin;
+        }
 		if (!_odometerID){
 			attachInterrupt(_odometerInterruptPin, updateCounter1, RISING);
 		}else if (_odometerID == 1){
@@ -62,6 +67,15 @@ float Odometer::getSpeed(){//when we need the speed, we just devide the milimete
 	}else{ //if _dt is 0, then avoid dividing by it and return 0 as speed (it should happen only in the beginning)
 		return 0;
 	}
+}
+
+short Odometer::getDirection(){
+    if (!directionPinAttached()) return 0; //return 0 if used when no direction pin attached to indicate an error
+    return digitalRead(_directionPin) ? 1 : -1; //return a positive number if it is going "forward" (clockwise) or negative if "backward"
+}
+
+boolean Odometer::directionPinAttached(){
+    return _directionPin != DEFAULT_DIRECTION_PIN;
 }
 
 void updateDtAndCounter(unsigned short odometerID){ //updates dt with the time difference between the last two pulses and increases the pulse counter
