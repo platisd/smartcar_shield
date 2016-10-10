@@ -129,7 +129,8 @@ class Gyroscope : public HeadingSensor{
 class Odometer{
 	public:
 		explicit Odometer(unsigned long pulsesPerMeter = DEFAULT_PULSES_PER_METER);
-		int attach(unsigned short odometerPin, unsigned short directionPin = DEFAULT_DIRECTION_PIN);
+		int attach(unsigned short odometerPin);
+		int attach(unsigned short odometerPin, unsigned short directionPin, boolean forwardDirState);
 		void begin();
 		unsigned long getDistance();
 		long getRelativeDistance();
@@ -137,6 +138,7 @@ class Odometer{
 		float getSpeed();
 	private:
 		unsigned long pulsesToCentimeters(unsigned long pulses);
+		int init(unsigned short odometerPin);
 		unsigned long _pulsesPerMeter;
 		static const unsigned int DEFAULT_PULSES_PER_METER;
 		static const unsigned short DEFAULT_DIRECTION_PIN;

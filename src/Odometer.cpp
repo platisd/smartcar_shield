@@ -17,6 +17,7 @@ volatile unsigned long _pulseCounter[2] = {0};
 volatile unsigned long _negativePulseCounter[2] = {0}; // a special counter for measuring how much we have moved "backward"
 static unsigned short _directionPin[2] = {0};
 static unsigned short odometers = 0;
+static boolean forwardDirState[2] = {0};
 const unsigned int Odometer::DEFAULT_PULSES_PER_METER = 180;
 const unsigned short Odometer::DEFAULT_DIRECTION_PIN = 255;
 const unsigned short DEFAULT_DIRECTION_PIN = 255; //FIX-ME: Find a more elegant way to have both a static and a member variable
@@ -34,13 +35,24 @@ Odometer::Odometer(unsigned long pulsesPerMeter){
 	_directionPin[_odometerID] = DEFAULT_DIRECTION_PIN; //give it an initial (likely invalid) value
 }
 
-int Odometer::attach(unsigned short odometerPin, unsigned short directionPin){
-	_odometerInterruptPin = digitalPinToInterrupt(odometerPin);
-	if (_odometerInterruptPin != NOT_AN_INTERRUPT){
+int Odometer::attach(unsigned short odometerPin){
+    return init(odometerPin); 
+}
+
+int Odometer::attach(unsigned short odometerPin, unsigned short directionPin, boolean forwardPinState){
+    int result = init(odometerPin);
+    if (result == 1){ //therefore no problem was encountered during the initialization
+        _directionPin[_odometerID] = directionPin;
+        forwardDirState[_odometerID] = forwardPinState;
+    }
+    return result;
+}
+int Odometer::init(unsigned short odometerPin){
+    _odometerInterruptPin = digitalPinToInterrupt(odometerPin);
+    if (_odometerInterruptPin != NOT_AN_INTERRUPT){
         if (_odometerID > 1){
             return -1; //too many encoders attached
         }else{ // there is an acceptable number of odometers
-            _directionPin[_odometerID] = directionPin;
             if (_odometerID == 0){
                 attachInterrupt(_odometerInterruptPin, updateCounter1, RISING);
             }else if (_odometerID == 1){
@@ -86,7 +98,7 @@ boolean directionPinAttached(unsigned short odometerID){ //check if the directio
 
 short Odometer::getDirection(){
     if (!directionPinAttached(_odometerID)) return 0; //return 0 if used when no direction pin attached to indicate an error
-    return digitalRead(_directionPin[_odometerID]) ? 1 : -1; //return a positive number if it is going "forward" (clockwise) or negative if "backward"
+    return digitalRead(_directionPin[_odometerID] == forwardDirState[_odometerID]) ? 1 : -1; //return a positive number if it is going "forward" or negative if "backward"
 }
 
 void updateDtAndCounter(unsigned short odometerID){ //updates dt with the time difference between the last two pulses and increases the pulse counter
@@ -97,7 +109,7 @@ void updateDtAndCounter(unsigned short odometerID){ //updates dt with the time d
         _previousPulse[odometerID] = currentPulse; //update when the last pulse arrived (if it didn't arrive too fast)
         _pulseCounter[odometerID]++; //updates the pulse counter of odometer 0
         if (directionPinAttached(odometerID)){ //if the direction pin is attached
-            if (!digitalRead(_directionPin[odometerID])){ //and the direction pin detects low, we are going counterclockwise
+            if (digitalRead(_directionPin[odometerID]) != forwardDirState[odometerID]){ //if we are going back
                _negativePulseCounter[odometerID]++; //update the pulse counter that measures how much backwards we are going
             }
         }
