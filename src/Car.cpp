@@ -13,7 +13,7 @@ const unsigned short MAX_EFFORTS = 2; //amount of efforts to stop reversing the 
 
 const float MAX_BACK_CRUISE_SPEED = -3.0; //how fast the car can drive forward in cruise control mode (meters/sec)
 const float MAX_FRONT_CRUISE_SPEED = 3.0; //how fast the car can drive backward in cruise control mode (meters/sec)
-const float GO_CRUISE_SPEED = 0.4; //how fast car should move in go(int centimeters) and rotate(int degrees) while on cruise control
+const float GO_CRUISE_SPEED = 1.3; //how fast car should move in go(int centimeters) and rotate(int degrees) while on cruise control
 const int GO_RAW_SPEED = 70; //how fast car should move in go(int centimeters)  and rotate(int degrees) while NOT on cruise control
 
 Car::Car(const unsigned short shieldOrientation){
@@ -128,7 +128,7 @@ float Car::motorPIDcontrol(const float previousSpeed, const float targetSpeed, c
 	float correction = 0;
 	float error = targetSpeed - actualSpeed;
 	_integratedError += error;
-	correction = (_Kp * error) + (_Ki * _integratedError) + (_Kd * (error - _previousError));                            
+	correction = (_Kp * error) + (_Ki * _integratedError) + (_Kd * (error - _previousError));
 	_previousError = error;
 	return constrain(previousSpeed + correction, -100, 100);
 }
@@ -139,12 +139,12 @@ float Car::getGroundSpeed(){ //the ground speed, as measured by the car. we use 
 	_previousDistance = currentDistance;
 	unsigned long dT = millis() - _lastMotorUpdate;
 	float velocity = (float(dX) * 10)/ dT; //output in m/seconds, divide by 100 to turn cm into m and multiply by 1000, to turn ms to sec
-	return velocity;	
+	return velocity;
 }
 
 void Car::stop(){
 	if (!_numOfEncoders || !cruiseControlEnabled()){ //if no encoders attached or not in cruise control mode
-		if (!almostEqual(_speed,0)){ //if the speed that we already have is NOT equal to 0 then		
+		if (!almostEqual(_speed,0)){ //if the speed that we already have is NOT equal to 0 then
 			_throttle->setSpeed(-_speed); //move towards opposite direction at _speed (_speed in non cruise control is between -100,100)
 			delay(80); //go the opposite direction for a few milliseconds, to make sure we are stopped
 		}
@@ -240,7 +240,7 @@ void Car::go(int centimeters){
 		if (cruiseControlEnabled()) updateMotors(); //otherwise the pid for the motors won't work
 	}
 	setSpeed(initialSpeed); //restore to the initial speed
-	setAngle(initialAngle); //restore to the inital angle	
+	setAngle(initialAngle); //restore to the inital angle
 }
 void Car::rotate(int targetDegrees){
         targetDegrees %= 360; //put it on a (-360,360) scale
@@ -264,7 +264,7 @@ void Car::rotate(int targetDegrees){
 		_heading->update(); //update to integrate the latest heading sensor readings
 		int currentHeading = _heading->getAngularDisplacement(); //in the scale of 0 to 360
 		if (targetDegrees < 0 && currentHeading > initialHeading){ //if we are turning left and the current heading is larger than the
-		//initial one (e.g. started at 10 degrees and now we are at 350), we need to substract 360, so to eventually get a signed 
+		//initial one (e.g. started at 10 degrees and now we are at 350), we need to substract 360, so to eventually get a signed
 		        currentHeading -= 360; //displacement from the initial heading (-20)
 		}else if (targetDegrees > 0 && currentHeading < initialHeading){ //if we are turning right and the heading is smaller than the
 		//initial one (e.g. started at 350 degrees and now we are at 20), so to get a signed displacement (+30)
