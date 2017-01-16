@@ -1,8 +1,8 @@
 /*
-*	Odometer.cpp - Handles the odometer (speed encoder) sensor of the Smartcar.
-*	Version: 0.2
-*	Author: Dimitris Platis (based on the Smartcar project by Team Pegasus)
-* 	License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
+*    Odometer.cpp - Handles the odometer (speed encoder) sensor of the Smartcar.
+*    Version: 0.2
+*    Author: Dimitris Platis (based on the Smartcar project by Team Pegasus)
+*     License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 #include "Smartcar.h"
 
@@ -24,15 +24,15 @@ const unsigned short DEFAULT_DIRECTION_PIN = 255; //FIX-ME: Find a more elegant 
 const unsigned long MINIMUM_PULSE_GAP = 700; //the minimum acceptable time between two pulses in microseconds. Less is invalid unstable signal
 
 Odometer::Odometer(unsigned long pulsesPerMeter){
-	if (pulsesPerMeter){ //if user supplied 0, then put the default value instead to avoid errors later
-		_pulsesPerMeter = pulsesPerMeter;
-	}else{
-		_pulsesPerMeter = DEFAULT_PULSES_PER_METER;	
-	}
-	_odometerID = odometers++;
-	_millimetersPerPulse = lroundf(1000.0 / _pulsesPerMeter); //round a float to the nearest long
-	_odometerInterruptPin = 0; //give it an initial (likely invalid) value
-	_directionPin[_odometerID] = DEFAULT_DIRECTION_PIN; //give it an initial (likely invalid) value
+    if (pulsesPerMeter){ //if user supplied 0, then put the default value instead to avoid errors later
+        _pulsesPerMeter = pulsesPerMeter;
+    }else{
+        _pulsesPerMeter = DEFAULT_PULSES_PER_METER;    
+    }
+    _odometerID = odometers++;
+    _millimetersPerPulse = lroundf(1000.0 / _pulsesPerMeter); //round a float to the nearest long
+    _odometerInterruptPin = 0; //give it an initial (likely invalid) value
+    _directionPin[_odometerID] = DEFAULT_DIRECTION_PIN; //give it an initial (likely invalid) value
 }
 
 int Odometer::attach(unsigned short odometerPin){
@@ -59,9 +59,9 @@ int Odometer::init(unsigned short odometerPin){
                 attachInterrupt(_odometerInterruptPin, updateCounter2, RISING);
             }
         }
-		return 1; //everything went as it should
-	}
-	return 0; //invalid interrupt pin
+        return 1; //everything went as it should
+    }
+    return 0; //invalid interrupt pin
 }
 
 void Odometer::begin(){
@@ -72,7 +72,7 @@ void Odometer::begin(){
 }
 
 unsigned long Odometer::getDistance(){
-	return pulsesToCentimeters(_pulseCounter[_odometerID]);
+    return pulsesToCentimeters(_pulseCounter[_odometerID]);
 }
 
 long Odometer::getRelativeDistance(){
@@ -80,16 +80,16 @@ long Odometer::getRelativeDistance(){
 }
 
 unsigned long Odometer::pulsesToCentimeters(unsigned long pulses){
-	return pulses/(_pulsesPerMeter/100.0);
+    return pulses/(_pulsesPerMeter/100.0);
 }
 
 float Odometer::getSpeed(){//when we need the speed, we just devide the milimeters per pulse of the specific sensor with the length between 2 pulses
-	unsigned long dt = _dt[_odometerID];
-	if (dt){ //if dt is not 0 (in the beginning it is)
-		return 1000.0 * _millimetersPerPulse / dt; // calculating the speed in meters/second
-	}else{ //if _dt is 0, then avoid dividing by it and return 0 as speed (it might happen only in the beginning)
-		return 0;
-	}
+    unsigned long dt = _dt[_odometerID];
+    if (dt){ //if dt is not 0 (in the beginning it is)
+        return 1000.0 * _millimetersPerPulse / dt; // calculating the speed in meters/second
+    }else{ //if _dt is 0, then avoid dividing by it and return 0 as speed (it might happen only in the beginning)
+        return 0;
+    }
 }
 
 boolean directionPinAttached(unsigned short odometerID){ //check if the direction pin is attached for the specific 
@@ -117,8 +117,8 @@ void updateDtAndCounter(unsigned short odometerID){ //updates dt with the time d
 }
 
 void updateCounter1(){
-	updateDtAndCounter(0);
+    updateDtAndCounter(0);
 }
 void updateCounter2(){
-	updateDtAndCounter(1);
+    updateDtAndCounter(1);
 }
