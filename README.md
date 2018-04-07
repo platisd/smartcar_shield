@@ -68,4 +68,4 @@ You can utilize the object oriented design of this library in order to easily ex
 ### License
 GPLv3
 
-The license is used due to using parts of the NewPing library, back when it was released under GPL. Newer versions of the NewPing library are unfortunately not open source anymore. Any pull requests that will enable us to get rid of NewPing code and thus enable to change the version to something more permissive are more than welcome.
+The license is adopted due to using parts of the NewPing library, back when it was released under GPL. Newer versions of the NewPing library are unfortunately not open source anymore. Any pull requests that will enable us to get rid of NewPing code, thus enable to change the license to something more permissive, are more than welcome.
