@@ -26,7 +26,7 @@ If the Smartcar shield library, is installed through the Library Manager of Ardu
  * [Smartcar shield PCB](extras/eagle/smartcar_shield)
  * L293D H-bridge
  * GY-50 gyroscope module
- * Two speed encoders ([[1]](http://www.aliexpress.com/item/5pcs-IR-Infrared-Slotted-Optical-Speed-Measuring-Sensor-Optocoupler-Module-For-Motor-Test-For-Arduino-PIC/32465670452.html) and [[2]](http://www.aliexpress.com/item/HC-020K-Double-Speed-Measuring-Sensor-Module-with-Photoelectric-Encoders-Kit-top/32453020060.html) will suit commercially available chassis. [[3]](http://www.aliexpress.com/item/Correlation-photoelectric-sensor-lot-Infrared-correlation-count-sensor-module/2038553959.html) require some slight modifications) 
+ * Two speed encoders ([[1]](http://www.aliexpress.com/item/5pcs-IR-Infrared-Slotted-Optical-Speed-Measuring-Sensor-Optocoupler-Module-For-Motor-Test-For-Arduino-PIC/32465670452.html) and [[2]](http://www.aliexpress.com/item/HC-020K-Double-Speed-Measuring-Sensor-Module-with-Photoelectric-Encoders-Kit-top/32453020060.html) will suit commercially available chassis. [[3]](http://www.aliexpress.com/item/Correlation-photoelectric-sensor-lot-Infrared-correlation-count-sensor-module/2038553959.html) require some slight modifications)
  * Male & female pin headers (optionally get stackable arduino headers too)
  * Five 2-pin screw terminals
  * Pin jumper
@@ -67,3 +67,5 @@ You can utilize the object oriented design of this library in order to easily ex
 
 ### License
 GPLv3
+
+The license is used due to using parts of the NewPing library, back when it was released under GPL. Newer versions of the NewPing library are unfortunately not open source anymore. Any pull requests that will enable us to get rid of NewPing code and thus enable to change the version to something more permissive are more than welcome.
