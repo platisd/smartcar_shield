@@ -38,7 +38,7 @@ void Gyroscope::begin(unsigned short samplingPeriod){
 void Gyroscope::update(){
     if (millis()- _prevSample > _samplingRate){
         float gyroRate = 0;
-        int gyroValue = getGyroValues(); 
+        int gyroValue = getGyroValues();
         short drift = _gyroOffset - gyroValue;
          if (abs(drift) > GYRO_THRESHOLD){ //if there has been a big enough drift (trying to contemplate for the noise)
             gyroRate = drift * GYRO_SENSITIVITY;
@@ -51,7 +51,7 @@ void Gyroscope::update(){
 
 void Gyroscope::initializeGyro(){
     Wire.begin(); //initialize the i2c connection
-    setupL3G4200D(2000); // Configure L3G4200 at 2000 deg/sec. Other options: 250, 500 (NOT suggested, will have to redetermine offset) 
+    setupL3G4200D(2000); // Configure L3G4200 at 2000 deg/sec. Other options: 250, 500 (NOT suggested, will have to redetermine offset)
 }
 
 /* based on the bildr.org example: http://bildr.org/2011/06/l3g4200d-arduino/ */
@@ -91,7 +91,7 @@ void Gyroscope::setupL3G4200D(int scale){
 }
 
 void Gyroscope::writeRegister(int deviceAddress, byte address, byte val) {
-    Wire.beginTransmission(deviceAddress); // start transmission to device 
+    Wire.beginTransmission(deviceAddress); // start transmission to device
     Wire.write(address);       // send register address
     Wire.write(val);         // send value to write
     Wire.endTransmission();     // end transmission
@@ -104,9 +104,7 @@ int Gyroscope::readRegister(int deviceAddress, byte address){
     Wire.endTransmission();
     Wire.requestFrom(deviceAddress, 1); // read a byte
 
-    while(!Wire.available()) {
-        //waiting
-     }
+    if(!Wire.available()) return -1;
 
     v = Wire.read();
 
@@ -120,5 +118,5 @@ int Gyroscope::calibrate(int measurements){ //use this function in order to dete
         sum += getGyroValues();
         delay(10);
     }
-    return sum/measurements; //return the average    
+    return sum/measurements; //return the average
 }
