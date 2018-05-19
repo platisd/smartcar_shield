@@ -1,6 +1,6 @@
 /*
 *    Smartcar.h - A simple library for controlling the smartcar
-*    sensors. 
+*    sensors.
 *    Version: 1.0
 *    Author: Dimitris Platis
 *     License: GNU GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -202,7 +202,7 @@ class ThrottleMotor : public Motor {
         unsigned short FULL_FORWARD, FULL_BACKWARD; //what percentage of the motor's power is allowed be used at most
         int IDLE_RAW_SPEED, MAX_FRONT_RAW_SPEED, MAX_BACK_RAW_SPEED; //the raw value (in whatever metric, usually pwm signal) that the motors are idle, throttling full speed backwards and forward
         int MAX_FRONT_ALLOWED_SPEED, MAX_BACK_ALLOWED_SPEED; //the raw allowed min and max values
-        
+
 };
 
 class ESCMotor : public ThrottleMotor, public Servo {
@@ -295,6 +295,7 @@ class Car {
         float motorPIDcontrol(const float previousSpeed, const float targetSpeed, const float actualSpeed);
         float getGroundSpeed();
         unsigned long getEncoderDistance();
+        short getEncoderDirection();
         void initializeEncoders();
         float getEncoderSpeed();
         ThrottleMotor *_throttle;
