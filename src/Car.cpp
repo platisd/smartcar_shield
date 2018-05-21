@@ -114,8 +114,29 @@ void Car::updateMotors(){
     if (cruiseControlEnabled() && (millis() > _lastMotorUpdate + _pidLoopInterval)){
         if (_speed){ //if _speed is 0, we have already made sure the car is stopped. don't try to adjust if car is just drifting
             _measuredSpeed = getEncoderSpeed(); //speed in m/s
-            if (_speed < 0) _measuredSpeed *= -1; //if we are going reverse, illustrate that in the value of measuredSpeed
+            short direction = getEncoderDirection(); // Positive indicates forward, negative backward, 0 not supported by hardware
+            // Decide the sign of the measured speed
+            if ((direction == 0 && _speed < 0) || (direction < 0)) {
+                // If direction readings are not supported by the odometers `(direction == 0)` AND
+                // the set speed is negative, we ASSUME (!) that the car is also moving towards
+                // the same direction.
+                // Alternatively, if direction is supported and is negative, we assign the negative
+                // sign to the measured speed value.
+                _measuredSpeed *= -1;
+            }
             float controlledSpeed = motorPIDcontrol(_previousControlledSpeed, _speed, _measuredSpeed);
+            // In case direction readings are not supported by the odometers, we need to
+            // ensure that runaway will not occur (see #5) due to our assumption that we
+            // are moving at the same direction as our set speed.
+            if ((direction == 0) && (controlledSpeed * _measuredSpeed < 0)) {
+                // If we are unable to determine the direction of movement AND the PID controller output
+                // hints us to move towards the opposite direction, i.e. due to moving faster than we should
+                // or the odometers providing faulty readings, then don't try to spin the motors towards
+                // the opposite direction and just halt the motoros. This is because we do not have a
+                // reliable way to determine whether we are merely slowing down or accelerating towards
+                // the wrong (opposite) direction.
+                controlledSpeed = 0;
+            }
             _throttle->setSpeed(lroundf(controlledSpeed)); //pass the rounded output of the pid as an input to the motors
             _previousControlledSpeed = controlledSpeed; //save the unrounded float output of the pid
             _lastGroundSpeed = getGroundSpeed(); //used in stop()
@@ -210,6 +231,20 @@ float Car::getEncoderSpeed(){ //gets the average speed measured by the attached 
         averageSpeed += _encoders[i]->getSpeed() / _numOfEncoders;
     }
     return averageSpeed;
+}
+
+short Car::getEncoderDirection() {
+    short direction = 0; // Direction 0 indicates a not supported error
+    for (int i = 0; i < _numOfEncoders; i++) {
+        short encoderDirection = _encoders[i]->getDirection();
+        // Ignore the reading if direction is not supported by the odometer i.e. it's `0`
+        if (encoderDirection) {
+            // Add up the directions of movement. Overall, if the sum is a positive
+            // we can say that we are moving forward and if it is negative backward.
+            direction += encoderDirection;
+        }
+    }
+    return direction;
 }
 
 void Car::initializeEncoders(){ //initializes the attached encoders
