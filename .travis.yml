@@ -12,6 +12,13 @@ addons:
 notifications:
     email: false
 
+cache:
+    directories:
+        # Cache gtest sources
+        - test/build/googletest-build
+        - test/build/googletest-src
+        - test/build/googletest-download
+
 # Build the project
 script:
     - bash test/build_and_run_ut.sh
