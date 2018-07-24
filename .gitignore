@@ -5,6 +5,9 @@
 *.properties~
 *.sh~
 
+# Ignore build folders
+build
+
 # Ignore static code analysis files and scripts
 staticAnalysis.sh
 static-analysis-report/
