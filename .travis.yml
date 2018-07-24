@@ -1,0 +1,22 @@
+language:
+    - cpp
+
+compiler:
+    - g++
+
+addons:
+  apt:
+    packages:
+      - lcov
+
+notifications:
+    email: false
+
+# Build the project
+script:
+    - bash test/build_and_run_ut.sh
+
+after_success:
+    - bash run_coverage.sh
+    # Upload report to codecov
+    #- bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
