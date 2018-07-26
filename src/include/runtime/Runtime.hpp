@@ -7,11 +7,15 @@
  * environments.
  */
 #pragma once
-#include <inttypes.h>
+#include <stdint.h>
+#include <stddef.h>
 
 class Runtime
 {
 public:
+
+    virtual ~Runtime(){}
+
     /**
      * Set pin direction, equivalent of `pinMode` in Arduino
      * @param pin       The pin to set direction
@@ -109,13 +113,13 @@ public:
      * `Wire.available`O in Arduino
      * @return The number of bytes available for reading
      */
-    virtual int available() = 0;
+    virtual int i2cAvailable() = 0;
 
     /**
-     * Reads a byte from I2C bus
+     * Reads a byte from I2C bus, equivalent of `Wire.read` in Arduino
      * @return Byte read from I2C
      */
-    virtual int read() = 0;
+    virtual int i2cRead() = 0;
 
     /**
      * Registers a callback to be executed upon reception of an I2C
@@ -176,14 +180,14 @@ public:
      * running, equivalent of `millis` in Arduino
      * @return Milliseconds since beginning of operation
      */
-    virtual unsigned long millis() = 0;
+    virtual unsigned long currentTimeMillis() = 0;
 
     /**
      * Gets the amount of microseconds since the microcontroller started
      * running, equivalent of `micros` in Arduino
      * @return Microseconds since beginning of operation
      */
-    virtual unsigned long micros() = 0;
+    virtual unsigned long currentTimeMicros() = 0;
 
     /**
      * Block the execution for the specified number of milliseconds, equivalent
