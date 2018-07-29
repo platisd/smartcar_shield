@@ -21,18 +21,6 @@ const short LEFT = -1;
 const short RIGHT = 1;
 const short STRAIGHT = 0; //refers to the wheel direction/orientation
 
-class DistanceSensor{
-    public:
-        DistanceSensor();
-        virtual ~DistanceSensor();
-        virtual unsigned int getDistance() = 0; //to be implemented by the child classes
-        unsigned int getMedianDistance(short iterations = DEFAULT_ITERATIONS);
-    private:
-        static const short DEFAULT_ITERATIONS;
-    protected:
-        unsigned int _sensorMedianDelay; //delay between measurements in the sensor's getMedianDistance in milliseconds
-};
-
 class InfraredSensor : public DistanceSensor {//placeholder for a possible future ultrasonic abstract class
     public:
         InfraredSensor();
@@ -144,23 +132,6 @@ class Odometer{
         static const unsigned short DEFAULT_DIRECTION_PIN;
         unsigned short _odometerInterruptPin, _odometerID;
         unsigned int _millimetersPerPulse;
-};
-
-class SRF08 : public UltrasonicSensor{
-    public:
-        SRF08();
-        void attach(unsigned short address = DEFAULT_SRF08_ADDRESS);
-        void setGain(unsigned short gainValue);
-        void setRange(unsigned short rangeValue);
-        void setPingDelay(unsigned short milliseconds = DEFAULT_PING_DELAY);
-        unsigned int getDistance();
-        unsigned short getLightReading();
-        void changeAddress(unsigned short newAddress);
-    private:
-        uint8_t _address;
-        unsigned short _delay;
-        static const unsigned short DEFAULT_PING_DELAY, DEFAULT_SRF08_ADDRESS;
-
 };
 
 class Motor {
