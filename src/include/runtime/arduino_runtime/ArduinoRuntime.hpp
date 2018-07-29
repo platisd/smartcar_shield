@@ -7,7 +7,8 @@
 
 #include "../Runtime.hpp"
 
-class ArduinoRuntime : public Runtime {
+class ArduinoRuntime : public Runtime
+{
 public:
     void setPinDirection(uint8_t pin, uint8_t direction) override;
     void setPinState(uint8_t pin, uint8_t state) override;
@@ -35,4 +36,6 @@ public:
     unsigned long currentTimeMicros() override;
     void delayMillis(unsigned long milliseconds) override;
     void delayMicros(unsigned int microseconds) override;
+    long mapValue(long value, long fromLow, long fromHigh, long toLow, long toHigh) override;
+    long constrainValue(long value, long min, long max) override;
 };

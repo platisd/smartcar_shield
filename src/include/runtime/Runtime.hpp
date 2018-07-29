@@ -7,14 +7,13 @@
  * environments.
  */
 #pragma once
-#include <stdint.h>
 #include <stddef.h>
+#include <stdint.h>
 
 class Runtime
 {
 public:
-
-    virtual ~Runtime(){}
+    virtual ~Runtime() {}
 
     /**
      * Set pin direction, equivalent of `pinMode` in Arduino
@@ -202,4 +201,24 @@ public:
      * @param microseconds How much time to block execution in microseconds
      */
     virtual void delayMicros(unsigned int microseconds) = 0;
+
+    /**
+     * Maps a number from one range to another, equivalent of `map` in Arduino
+     * @param  value    Value to be mapped
+     * @param  fromLow  Initial lowest limit of the range
+     * @param  fromHigh Initial highest limit of the range
+     * @param  toLow    Lowest limit of the output range
+     * @param  toHigh   Highest limit of the output range
+     * @return          Value in the new range
+     */
+    virtual long mapValue(long value, long fromLow, long fromHigh, long toLow, long toHigh) = 0;
+
+    /**
+     * Constrain a value within a range, equivalent of `constrain` in Arduino
+     * @param  value Value to be constrained
+     * @param  min   Minimum range limit
+     * @param  max   Maximum range limit
+     * @return       Value within the limit
+     */
+    virtual long constrainValue(long value, long min, long max) = 0;
 };

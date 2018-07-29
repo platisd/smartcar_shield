@@ -131,3 +131,13 @@ void ArduinoRuntime::delayMicros(unsigned int microseconds)
 {
     return delayMicroseconds(microseconds);
 }
+
+long ArduinoRuntime::mapValue(long value, long fromLow, long fromHigh, long toLow, long toHigh)
+{
+    return map(value, fromLow, fromHigh, toLow, toHigh);
+}
+
+long ArduinoRuntime::constrainValue(long value, long min, long max)
+{
+    return constrain(value, min, max);
+}
