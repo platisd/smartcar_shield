@@ -1,90 +1,147 @@
-#include "Smartcar.h"
+#include "SRF08.hpp"
 
-const unsigned short SRF08::DEFAULT_PING_DELAY = 70;
-const unsigned short SRF08::DEFAULT_SRF08_ADDRESS = 112;
+namespace
+{
+// For documentation on addressing, please refer to:
+// http://www.robot-electronics.co.uk/htm/srf08tech.html
+const uint8_t kFirstAddress           = 112;
+const uint8_t kLastAddress            = 127;
+const uint8_t kRangingCommandRegister = 0x00;
+const uint8_t kRangingInCm            = 0x51;
+} // namespace
 
-static unsigned short FIRST_ADDRESS = 112; //please refer to: http://www.robot-electronics.co.uk/htm/srf08tech.html
-static unsigned short LAST_ADDRESS = 127;
-
-SRF08::SRF08(){
-    _address = 0, _delay = 0; //some initial invalid values
+SRF08::SRF08(Runtime& runtime)
+    : mRuntime{ runtime }
+    , mAddress{ kDefaultAddress }
+    , mPingDelay{ kDefaultPingDelay }
+{
 }
 
-void SRF08::attach(unsigned short address){
-    Wire.begin();
-    _address = constrain(address, FIRST_ADDRESS, LAST_ADDRESS); //allow only valid values, between 112 and 127
-    _delay = DEFAULT_PING_DELAY;
-}
+unsigned int SRF08::getDistance()
+{
+    static const uint8_t kFirstEchoHighByte      = 0x02;
+    static const uint8_t kNumberOfBytesToRequest = 2;
 
-void SRF08::setGain(unsigned short gainValue){
-    Wire.beginTransmission(_address); //start i2c transmission
-    Wire.write(0x01); //write to GAIN register (1)
-    Wire.write(constrain(gainValue,0,31)); //write the value
-    Wire.endTransmission(); //end transmission
-}
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(kRangingInCm);
+    mRuntime.i2cEndTransmission();
+    mRuntime.delayMillis(mPingDelay);
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kFirstEchoHighByte);
+    mRuntime.i2cEndTransmission();
 
-void SRF08::setRange(unsigned short rangeValue){
-    Wire.beginTransmission(_address); //start i2c transmission
-    Wire.write(0x02); //write to range register (1)
-    Wire.write(rangeValue); //write the value -> Max_Range = (rangeValue * 3.4) + 3.4 in centimeters
-    Wire.endTransmission(); //end transmission
-}
+    mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
+    if (!mRuntime.i2cAvailable())
+    {
+        return -1; // Return a large error-like value
+    }
+    auto high = mRuntime.i2cRead();
+    auto low  = mRuntime.i2cRead();
 
-void SRF08::setPingDelay(unsigned short milliseconds){
-    _delay = milliseconds;
-}
-
-unsigned int SRF08::getDistance(){
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x00));
-    Wire.write(byte(0x51));
-    Wire.endTransmission();
-    delay(_delay);
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x02));
-    Wire.endTransmission();
-    Wire.requestFrom(_address, uint8_t (2));
-    if (!Wire.available()) return -1; // Return a large error-like value
-    byte high = Wire.read();
-    byte low = Wire.read();
     return (high << 8) + low;
 }
 
-unsigned short SRF08::getLightReading(){
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x00));
-    Wire.write(byte(0x51));
-    Wire.endTransmission();
-    delay(_delay);
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x01));
-    Wire.endTransmission();
-    Wire.requestFrom(_address, uint8_t (1));
-    if (!Wire.available()) return -1; // Return a large error-like value
-    return Wire.read();
+unsigned int SRF08::getMedianDistance(const uint8_t iterations)
+{
+    unsigned int measurements[iterations] = { 0 };
+
+    for (auto i = 0; i < iterations; i++)
+    {
+        measurements[i] = getDistance();
+        mRuntime.delayMillis(mPingDelay);
+    }
+
+    return getMedian(measurements, iterations);
 }
 
-void SRF08::changeAddress(unsigned short newAddress){
-    newAddress = constrain(newAddress, FIRST_ADDRESS, LAST_ADDRESS); //allow only valid values, between 112 and 127
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x00));
-    Wire.write(byte(0xA0));
-    Wire.endTransmission();
+uint8_t SRF08::attach(uint8_t address)
+{
+    mRuntime.i2cInit();
+    mAddress = mRuntime.constrainValue(address, kFirstAddress, kLastAddress);
 
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x00));
-    Wire.write(byte(0xAA));
-    Wire.endTransmission();
+    return mAddress;
+}
 
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x00));
-    Wire.write(byte(0xA5));
-    Wire.endTransmission();
+void SRF08::setGain(uint8_t gainValue)
+{
+    static const uint8_t kGainRegister = 0x01;
+    static const uint8_t kMinGain      = 0;
+    static const uint8_t kMaxGain      = 31;
 
-    Wire.beginTransmission(_address);
-    Wire.write(byte(0x00));
-    Wire.write(newAddress << 1);
-    Wire.endTransmission();
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kGainRegister);
+    mRuntime.i2cWrite(mRuntime.constrainValue(gainValue, kMinGain, kMaxGain));
+    mRuntime.i2cEndTransmission();
+}
 
-    _address = newAddress;
+void SRF08::setRange(uint8_t range)
+{
+    static const uint8_t kRangeRegister = 0x02;
+
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangeRegister);
+    // Max_Range = (range * 3.4) + 3.4 in centimeters
+    mRuntime.i2cWrite(range);
+    mRuntime.i2cEndTransmission();
+}
+
+unsigned long SRF08::setPingDelay(unsigned long milliseconds)
+{
+    mPingDelay = milliseconds;
+    return mPingDelay;
+}
+
+uint8_t SRF08::getLightReading()
+{
+    static const uint8_t kLightSensorByte        = 0x01;
+    static const uint8_t kNumberOfBytesToRequest = 1;
+
+    // Start a ranging
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(kRangingInCm);
+    mRuntime.i2cEndTransmission();
+    mRuntime.delayMillis(mPingDelay);
+
+    // Get only the light reading byte
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kLightSensorByte);
+    mRuntime.i2cEndTransmission();
+    mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
+
+    return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : -1;
+}
+
+uint8_t SRF08::changeAddress(uint8_t newAddress)
+{
+    static const uint8_t kFirstInChangeAddressSequence  = 0xA0;
+    static const uint8_t kSecondInChangeAddressSequence = 0xAA;
+    static const uint8_t kThirdInChangeAddressSequence  = 0xA5;
+
+    newAddress = mRuntime.constrainValue(newAddress, kFirstAddress, kLastAddress);
+
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(kFirstInChangeAddressSequence);
+    mRuntime.i2cEndTransmission();
+
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(kSecondInChangeAddressSequence);
+    mRuntime.i2cEndTransmission();
+
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(kThirdInChangeAddressSequence);
+    mRuntime.i2cEndTransmission();
+
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(newAddress << 1);
+    mRuntime.i2cEndTransmission();
+
+    mAddress = newAddress;
+
+    return mAddress;
 }

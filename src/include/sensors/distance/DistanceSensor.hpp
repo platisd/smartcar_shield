@@ -1,13 +1,13 @@
 /**
  * A parent class for all sensors that conduct distance measurements.
  */
-
 #pragma once
+
+#include <stdint.h>
 
 class DistanceSensor
 {
 public:
-
     virtual ~DistanceSensor() {}
 
     /**
@@ -22,5 +22,5 @@ public:
      * @param  iterations Number of measurements to conduct
      * @return            The median of the conducted measurements
      */
-    virtual unsigned int getMedianDistance(unsigned short iterations) = 0;
+    virtual unsigned int getMedianDistance(const uint8_t iterations) = 0;
 };

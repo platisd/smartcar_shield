@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+ArduinoRuntime arduinoRuntime;
+
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
 {
     return pinMode(pin, direction);
