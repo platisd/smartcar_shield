@@ -5,22 +5,23 @@
  */
 #pragma once
 
+#include <stdint.h>
+
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"
 #include "../../Median.hpp"
-#include <stdint.h>
 
 #ifndef PLATFORM_AGNOSTIC_BUILD
 #include "../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
-namespace
+namespace srf08
 {
 const uint8_t kDefaultIterations = 5;
 const uint8_t kDefaultPingDelay  = 70;
 const uint8_t kDefaultAddress    = 112;
-} // namespace
+} // namespace srf08
 
 class SRF08 : public DistanceSensor, public Median
 {
@@ -31,7 +32,7 @@ public:
     SRF08(Runtime& runtime);
 #endif
     unsigned int getDistance() override;
-    unsigned int getMedianDistance(const uint8_t iterations = kDefaultIterations) override;
+    unsigned int getMedianDistance(const uint8_t iterations = srf08::kDefaultIterations) override;
 
     /**
      * Initializes the I2C connection to the specific address. If the specified
@@ -40,7 +41,7 @@ public:
      * @param  address I2C address [112, 127]
      * @return         The I2C address the connection was initiated with
      */
-    uint8_t attach(uint8_t address = kDefaultAddress);
+    uint8_t attach(uint8_t address = srf08::kDefaultAddress);
 
     /**
      * Combined with the range setting affects how much time each measurement will last
@@ -63,7 +64,7 @@ public:
      * @param  milliseconds Delay between ranging measurements
      * @return              The set delay
      */
-    unsigned long setPingDelay(unsigned long milliseconds = kDefaultPingDelay);
+    unsigned long setPingDelay(unsigned long milliseconds = srf08::kDefaultPingDelay);
 
     /**
      * Conducts a measurement from the on-board light sensor

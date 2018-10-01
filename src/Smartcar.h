@@ -65,25 +65,6 @@ class UltrasonicSensor : public DistanceSensor {//placeholder for a possible fut
         UltrasonicSensor();
 };
 
-class SR04 : public UltrasonicSensor {
-    public:
-        explicit SR04(unsigned int maxDistance = DEFAULT_MAX_US_DISTANCE);
-        void attach(unsigned short triggerPin, unsigned short echoPin);
-        unsigned int getDistance();
-    private:
-        unsigned int ping();
-        boolean ping_trigger();
-        uint8_t _triggerBit;
-        uint8_t _echoBit;
-        volatile uint8_t *_triggerOutput;
-        volatile uint8_t *_triggerMode;
-        volatile uint8_t *_echoInput;
-        unsigned int _maxEchoTime;
-        unsigned long _max_time;
-        unsigned int _maxDistance;
-        static const unsigned int DEFAULT_MAX_US_DISTANCE;
-};
-
 class HeadingSensor {
     public:
         HeadingSensor();
@@ -297,7 +278,6 @@ ShieldMotors* useShieldMotors(unsigned short leftMotor[], unsigned short rightMo
 boolean almostEqual(float i, float j); //used to compare two floats
 
 /* Class aliases, for back compatibility with AndroidCar, CaroloCup2016 and Smartcar sensors libraries */
-typedef SR04 Sonar; //HC-SR04 was Sonar in AndroidCar, CaroloCup2016 and Smartcar sensor libraries
 typedef GP2D120 Sharp_IR; //GP2D120 was used as Sharp_IR in AndroidCar and CaroloCup2016. Change to GP2Y0A02 for compatibility with Smartcar Sensors
 
 #endif

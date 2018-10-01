@@ -12,8 +12,8 @@ const uint8_t kRangingInCm            = 0x51;
 
 SRF08::SRF08(Runtime& runtime)
     : mRuntime{ runtime }
-    , mAddress{ kDefaultAddress }
-    , mPingDelay{ kDefaultPingDelay }
+    , mAddress{ srf08::kDefaultAddress }
+    , mPingDelay{ srf08::kDefaultPingDelay }
 {
 }
 
