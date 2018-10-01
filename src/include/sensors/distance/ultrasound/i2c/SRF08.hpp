@@ -32,11 +32,50 @@ public:
 #endif
     unsigned int getDistance() override;
     unsigned int getMedianDistance(const uint8_t iterations = kDefaultIterations) override;
+
+    /**
+     * Initializes the I2C connection to the specific address. If the specified
+     * address is out of bounds then the higher of the lower limit will be chosen
+     * instead.
+     * @param  address I2C address [112, 127]
+     * @return         The I2C address the connection was initiated with
+     */
     uint8_t attach(uint8_t address = kDefaultAddress);
+
+    /**
+     * Combined with the range setting affects how much time each measurement will last
+     * as well as the maximum detectable distance.
+     * @param gain Gain Value [0, 31]
+     */
     void setGain(uint8_t gain);
+
+    /**
+     * Combined with the gain setting affects how much time each measurement will last
+     * as well as the maximum detectable distance.
+     * The maximum range can be calculated as `Max_Range = (range * 3.4) + 3.4 in cm`
+     * @param range Range Value
+     */
     void setRange(uint8_t range);
+
+    /**
+     * Delay between ranging measurements. If set too low without gain and range
+     * being properly configured will cause errors during measurements.
+     * @param  milliseconds Delay between ranging measurements
+     * @return              The set delay
+     */
     unsigned long setPingDelay(unsigned long milliseconds = kDefaultPingDelay);
+
+    /**
+     * Conducts a measurement from the on-board light sensor
+     * @return The light measurement [0, 255]
+     */
     uint8_t getLightReading();
+
+    /**
+     * Changes the address of the specific SRF08 sensor
+     * @param  newAddress New address to use [112, 127]
+     * @return            The in-bounds address set for the sensor
+     */
     uint8_t changeAddress(uint8_t newAddress);
 
 private:
