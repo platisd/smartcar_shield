@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 3.0.2)
 project(Smartcar_Tests)
 
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
+set(UNIT_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/ut)
+set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src/include)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(SMARTCAR_SOURCE ${REPOSITORY_ROOT}/src)
-set(SMARTCAR_HEADERS ${REPOSITORY_ROOT}/src/include)
-add_compile_definitions(PLATFORM_AGNOSTIC_BUILD)
 
 # Coverage
 list(APPEND CMAKE_MODULE_PATH ${REPOSITORY_ROOT}/CmakeModules)
@@ -33,24 +32,27 @@ ${CMAKE_BINARY_DIR}/googletest-build)
 include_directories("${gtest_SOURCE_DIR}/include"
     "${gmock_SOURCE_DIR}/include")
 
-add_definitions(-DENABLE_TESTS)
+add_definitions(-DENABLE_TESTS -DPLATFORM_AGNOSTIC_BUILD)
 enable_testing()
 
+# Common headers
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/test_libs/gmock-gtest
     ${CMAKE_CURRENT_SOURCE_DIR}/mocks/
+    ${SMARTCAR_LIB}/runtime
 )
 
+add_executable(srf08_test
+    ${SMARTCAR_LIB}/sensors/distance/ultrasound/i2c/SRF08.cpp
+    ${UNIT_TESTS}/SRF08_test.cpp
+)
+target_include_directories(srf08_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/distance/ultrasound/i2c
+)
 
-# # test DataStore class
-# add_executable(test_data_store
-#     ${REPOSITORY_ROOT}/include/data_store.hpp
-#     ${REPOSITORY_ROOT}/src/data_store.cpp
-#     suite_data_store.cpp
-# )
-# target_link_libraries(test_data_store gtest gmock_main)
-#
-# add_test(DATA_STORE_TEST test_data_store ${GTEST_RUN_FLAGS})
-#
-# # Add coverage reports
-# setup_target_for_coverage(NAME DATA_STORE_TEST_coverage EXECUTABLE test_data_store DEPENDENCIES test_data_store)
+target_link_libraries(srf08_test gtest gmock_main)
+
+add_test(SRF08_TEST srf08_test ${GTEST_RUN_FLAGS})
+
+# Add coverage reports
+setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)

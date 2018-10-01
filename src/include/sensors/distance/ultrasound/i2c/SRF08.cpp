@@ -44,6 +44,11 @@ unsigned int SRF08::getDistance()
 
 unsigned int SRF08::getMedianDistance(const uint8_t iterations)
 {
+    if (iterations == 0)
+    {
+        return -1; // Return a large number to indicate error
+    }
+
     unsigned int measurements[iterations] = { 0 };
 
     for (auto i = 0; i < iterations; i++)
@@ -109,6 +114,7 @@ uint8_t SRF08::getLightReading()
     mRuntime.i2cWrite(kLightSensorByte);
     mRuntime.i2cEndTransmission();
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
+    mRuntime.delayMillis(mPingDelay);
 
     return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : -1;
 }

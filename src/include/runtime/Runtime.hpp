@@ -13,7 +13,7 @@
 class Runtime
 {
 public:
-    virtual ~Runtime() {}
+    virtual ~Runtime() = default;
 
     /**
      * Set pin direction, equivalent of `pinMode` in Arduino
