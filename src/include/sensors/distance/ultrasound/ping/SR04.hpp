@@ -2,12 +2,8 @@
  * The SR04 (or SRF05) is an inexpensive ultrasonic sensor controllable over two
  * digital pins.
  *
- * This class is essentially a stripped-down version of the NewPing library (v.1.5)
- * by [Tim Eckel](http://code.google.com/p/arduino-new-ping/). By the time of the
- * adoption, the NewPing library was published under the GPL 3.0 library while
- * now it was moved to a prioprietary one. This class is the reason the Smartcar
- * library is not published under a more permissive license and all pull requests
- * to remove this GPL'd code that is no longer supported are more than welcome.
+ * For a more advanced solution (faster readings, not using `pulseIn`, non-blocking measurements)
+ * please use the [NewPing library](https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home).
  */
 #pragma once
 
@@ -22,22 +18,31 @@
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
+namespace smartcarlib
+{
+namespace constants
+{
 namespace sr04
 {
-const uint8_t kDefaultIterations = 5;
-const auto kMaxDistance          = 70;
+const uint8_t kDefaultIterations       = 5;
+const unsigned int kDefaultMaxDistance = 70;
 } // namespace sr04
+} // namespace constants
+} // namespace smartcarlib
 
 class SR04 : public DistanceSensor, public Median
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
-    SR04(Runtime& runtime = arduinoRuntime, unsigned int maxDistance = sr04::kMaxDistance);
+    SR04(Runtime& runtime         = arduinoRuntime,
+         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance);
 #else
-    SR04(Runtime& runtime, unsigned int maxDistance = kMaxDistance);
+    SR04(Runtime& runtime,
+         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance);
 #endif
     unsigned int getDistance() override;
-    unsigned int getMedianDistance(const uint8_t iterations = sr04::kDefaultIterations) override;
+    unsigned int getMedianDistance(const uint8_t iterations
+                                   = smartcarlib::constants::sr04::kDefaultIterations) override;
 
     /**
      * Initializes the SR04 sensor to the specified pins
@@ -47,15 +52,9 @@ public:
     void attach(uint8_t triggerPin, uint8_t echoPin);
 
 private:
-    unsigned int ping();
-    bool ping_trigger();
     Runtime& mRuntime;
-    uint8_t mTriggerBit;
-    uint8_t mEchoBit;
-    volatile uint8_t* mTriggerOutput;
-    volatile uint8_t* mTriggerMode;
-    volatile uint8_t* mEchoInput;
-    unsigned int mMaxEchoTime;
-    unsigned long mMaxTime;
-    unsigned int mMaxDistance;
+    uint8_t mTriggerPin;
+    uint8_t mEchoPin;
+    bool mSensorAttached;
+    const unsigned long kTimeout;
 };

@@ -35,4 +35,6 @@ public:
     MOCK_METHOD1(delayMicros, void(unsigned int microseconds));
     MOCK_METHOD5(mapValue, long(long value, long fromLow, long fromHigh, long toLow, long toHigh));
     MOCK_METHOD3(constrainValue, long(long value, long min, long max));
+    MOCK_METHOD3(getPulseDuration,
+                 unsigned long(uint8_t pin, uint8_t state, unsigned long timeout));
 };

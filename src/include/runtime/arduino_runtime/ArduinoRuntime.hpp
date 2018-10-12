@@ -38,4 +38,5 @@ public:
     void delayMicros(unsigned int microseconds) override;
     long mapValue(long value, long fromLow, long fromHigh, long toLow, long toHigh) override;
     long constrainValue(long value, long min, long max) override;
+    unsigned long getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout) override;
 };

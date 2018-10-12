@@ -42,6 +42,7 @@ include_directories(
     ${SMARTCAR_LIB}/runtime
 )
 
+# SRF08 sensor test
 add_executable(srf08_test
     ${SMARTCAR_LIB}/sensors/distance/ultrasound/i2c/SRF08.cpp
     ${UNIT_TESTS}/SRF08_test.cpp
@@ -49,10 +50,19 @@ add_executable(srf08_test
 target_include_directories(srf08_test PUBLIC
     ${SMARTCAR_LIB}/sensors/distance/ultrasound/i2c
 )
-
 target_link_libraries(srf08_test gtest gmock_main)
-
 add_test(SRF08_TEST srf08_test ${GTEST_RUN_FLAGS})
+
+# SR04 sensor test
+add_executable(sr04_test
+    ${SMARTCAR_LIB}/sensors/distance/ultrasound/ping/SR04.cpp
+    ${UNIT_TESTS}/SR04_test.cpp
+)
+target_include_directories(sr04_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/distance/ultrasound/ping
+)
+target_link_libraries(sr04_test gtest gmock_main)
+add_test(SR04_TEST sr04_test ${GTEST_RUN_FLAGS})
 
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)

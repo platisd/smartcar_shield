@@ -221,4 +221,15 @@ public:
      * @return       Value within the limit
      */
     virtual long constrainValue(long value, long min, long max) = 0;
+
+    /**
+     * Gets the incomming pulse length in microseconds starting from the nearest
+     * `state`, equivalent to `pulseIn` in Arduino
+     * @param  pin     The pin to expect the pulse
+     * @param  state   The state (`HIGH` or `LOW`) of the incoming pulse
+     * @param  timeout How long to wait for a complete pulse in microseconds
+     * @return         `0` if no pulse arrived otherwise the pulse length in
+     *                     in microseconds
+     */
+    virtual unsigned long getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout) = 0;
 };

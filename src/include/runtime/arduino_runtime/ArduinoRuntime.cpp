@@ -143,3 +143,8 @@ long ArduinoRuntime::constrainValue(long value, long min, long max)
 {
     return constrain(value, min, max);
 }
+
+unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout)
+{
+    return pulseIn(pin, state, timeout);
+}
