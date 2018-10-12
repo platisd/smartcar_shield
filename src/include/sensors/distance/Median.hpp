@@ -1,5 +1,5 @@
 /**
- * Class to return the median value of an array with numbers
+ * Class to calculate the median value of an array with numbers
  */
 #pragma once
 
@@ -13,7 +13,7 @@ public:
      * @return                   Median number of the supplied array
      */
     template <typename AnyNumber>
-    AnyNumber getMedian(AnyNumber unsortedNumbers[], unsigned int arraySize) const
+    static AnyNumber getMedian(AnyNumber unsortedNumbers[], unsigned int arraySize)
     {
         // Sort the array using bubble sort
         for (auto i = 0; i < arraySize - 1; i++)

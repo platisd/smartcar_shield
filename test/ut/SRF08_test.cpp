@@ -26,28 +26,14 @@ public:
     {
     }
 
+    /**
+     * Breaks down a distance reading into a pair of bytes
+     * @param reading The distance to break down
+     * @return        Pair of bytes making up the distance
+     */
     std::pair<uint8_t, uint8_t> readingToBytes(unsigned int reading)
     {
         return std::make_pair(reading >> 8, reading & 0xFF);
-    }
-
-    /**
-     * Helper function to set expectations for the `getMedianDistance` test cases
-     * @param readings The expected readings
-     */
-    void setGetMedianDistanceExpectations(const std::vector<unsigned int>& readings)
-    {
-        EXPECT_CALL(mRuntime, i2cAvailable()).WillRepeatedly(Return(1));
-
-        {
-            InSequence seq;
-            for (auto reading : readings)
-            {
-                auto measurementBytes = readingToBytes(reading);
-                EXPECT_CALL(mRuntime, i2cRead()).WillOnce(Return(measurementBytes.first));
-                EXPECT_CALL(mRuntime, i2cRead()).WillOnce(Return(measurementBytes.second));
-            }
-        }
     }
 
     NiceMock<MockRuntime> mRuntime;
@@ -73,36 +59,31 @@ TEST_F(SRF08Test, getDistance_WhenBusAvailable_WillReturnCorrectDistance)
     EXPECT_CALL(mRuntime, i2cWrite(kRangingInCm)).InSequence(rangingSequence);
     EXPECT_CALL(mRuntime, i2cWrite(kFirstEchoHighByte)).InSequence(rangingSequence);
 
-    EXPECT_CALL(mRuntime, i2cRead()).InSequence(readingSequence).WillOnce(Return(expectedBytes.first));
-    EXPECT_CALL(mRuntime, i2cRead()).InSequence(readingSequence).WillOnce(Return(expectedBytes.second));
+    EXPECT_CALL(mRuntime, i2cRead())
+        .InSequence(readingSequence)
+        .WillOnce(Return(expectedBytes.first));
+    EXPECT_CALL(mRuntime, i2cRead())
+        .InSequence(readingSequence)
+        .WillOnce(Return(expectedBytes.second));
 
     EXPECT_EQ(mSRF08.getDistance(), expectedReading);
 }
 
 TEST_F(SRF08Test, getMedianDistance_WhenNoIterations_WillReturnError)
 {
+    EXPECT_CALL(mRuntime, i2cRead()).Times(0);
     EXPECT_EQ(mSRF08.getMedianDistance(0), kErrorReading);
 }
 
-TEST_F(SRF08Test, getMedianDistance_WhenCalled_WillReturnCorrectDistance)
+TEST_F(SRF08Test, getMedianDistance_WhenCalled_WillMakeCorrectNumberOfMeasurements)
 {
-    auto iterations             = 5;
-    unsigned int expectedMedian = 25;
+    using namespace smartcarlib::constants::srf08;
+    uint8_t expectedMeasurements = 10;
+    EXPECT_CALL(mRuntime, i2cAvailable()).WillRepeatedly(Return(1));
+    EXPECT_CALL(mRuntime, i2cRead())
+        .Times(expectedMeasurements * 2); // Two bytes for each measurement
 
-    // Expect the same median regardless of the order of readings
-    std::vector<unsigned int> readings{ 12, expectedMedian, 0, 55, 300 };
-    setGetMedianDistanceExpectations(readings);
-    EXPECT_EQ(mSRF08.getMedianDistance(iterations), expectedMedian);
-
-    // Sort ascending
-    std::sort(readings.begin(), readings.end());
-    setGetMedianDistanceExpectations(readings);
-    EXPECT_EQ(mSRF08.getMedianDistance(iterations), expectedMedian);
-
-    // Sort descending
-    std::reverse(readings.begin(), readings.end());
-    setGetMedianDistanceExpectations(readings);
-    EXPECT_EQ(mSRF08.getMedianDistance(iterations), expectedMedian);
+    mSRF08.getMedianDistance(expectedMeasurements);
 }
 
 TEST_F(SRF08Test, attach_WhenCalled_WillInitializeBus)

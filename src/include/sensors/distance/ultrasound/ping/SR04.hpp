@@ -11,7 +11,6 @@
 
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"
-#include "../../Median.hpp"
 
 #ifndef PLATFORM_AGNOSTIC_BUILD
 #include "../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
@@ -30,7 +29,7 @@ const unsigned int kDefaultMaxDistance = 70;
 } // namespace constants
 } // namespace smartcarlib
 
-class SR04 : public DistanceSensor, public Median
+class SR04 : public DistanceSensor
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD

@@ -1,4 +1,5 @@
 #include "SR04.hpp"
+#include "../../Median.hpp"
 
 namespace
 {
@@ -59,12 +60,11 @@ unsigned int SR04::getMedianDistance(const uint8_t iterations)
     }
 
     unsigned int measurements[iterations] = { 0 };
-
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();
         mRuntime.delayMillis(kMedianMeasurementDelay);
     }
 
-    return getMedian(measurements, iterations);
+    return Median::getMedian(measurements, iterations);
 }

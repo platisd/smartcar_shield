@@ -64,5 +64,15 @@ target_include_directories(sr04_test PUBLIC
 target_link_libraries(sr04_test gtest gmock_main)
 add_test(SR04_TEST sr04_test ${GTEST_RUN_FLAGS})
 
+# Median calculator test
+add_executable(median_test
+    ${UNIT_TESTS}/Median_test.cpp
+)
+target_include_directories(median_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/distance
+)
+target_link_libraries(median_test gtest gmock_main)
+add_test(MEDIAN_TEST median_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)
