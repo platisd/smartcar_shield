@@ -37,7 +37,7 @@ public:
     SRF08(Runtime& runtime);
 #endif
     unsigned int getDistance() override;
-    unsigned int getMedianDistance(const uint8_t iterations
+    unsigned int getMedianDistance(uint8_t iterations
                                    = smartcarlib::constants::srf08::kDefaultIterations) override;
 
     /**

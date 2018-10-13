@@ -71,8 +71,10 @@ TEST_F(SRF08Test, getDistance_WhenBusAvailable_WillReturnCorrectDistance)
 
 TEST_F(SRF08Test, getMedianDistance_WhenNoIterations_WillReturnError)
 {
-    EXPECT_CALL(mRuntime, i2cRead()).Times(0);
-    EXPECT_EQ(mSRF08.getMedianDistance(0), kErrorReading);
+    uint8_t expectedMeasurements = 0;
+    EXPECT_CALL(mRuntime, i2cRead()).Times(expectedMeasurements);
+
+    EXPECT_EQ(mSRF08.getMedianDistance(expectedMeasurements), kErrorReading);
 }
 
 TEST_F(SRF08Test, getMedianDistance_WhenCalled_WillMakeCorrectNumberOfMeasurements)

@@ -99,10 +99,11 @@ TEST_F(SR04Test, getMedianDistance_WhenNoIterations_WillReturnError)
 {
     uint8_t triggerPin = 5;
     uint8_t echoPin    = 6;
+    uint8_t expectedMeasurements = 0;
     mSR04.attach(triggerPin, echoPin);
+    EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(expectedMeasurements);
 
-    EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(0);
-    EXPECT_EQ(mSR04.getMedianDistance(0), kErrorReading);
+    EXPECT_EQ(mSR04.getMedianDistance(expectedMeasurements), kErrorReading);
 }
 
 TEST_F(SR04Test, getMedianDistance_WhenCalled_WillMakeCorrectNumberOfMeasurements)

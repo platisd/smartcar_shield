@@ -8,7 +8,7 @@
 class DistanceSensor
 {
 public:
-    virtual ~DistanceSensor() {}
+    virtual ~DistanceSensor() = default;
 
     /**
      * Gets the distance measured by the sensor. Calling this might trigger
@@ -22,5 +22,5 @@ public:
      * @param  iterations Number of measurements to conduct
      * @return            The median of the conducted measurements
      */
-    virtual unsigned int getMedianDistance(const uint8_t iterations) = 0;
+    virtual unsigned int getMedianDistance(uint8_t iterations) = 0;
 };

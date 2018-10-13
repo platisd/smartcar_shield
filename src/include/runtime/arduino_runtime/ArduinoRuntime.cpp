@@ -1,6 +1,7 @@
 #include "ArduinoRuntime.hpp"
 #include <Arduino.h>
 #include <Wire.h>
+#include <math.h>
 
 ArduinoRuntime arduinoRuntime;
 

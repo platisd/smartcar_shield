@@ -45,7 +45,7 @@ unsigned int SRF08::getDistance()
     return (high << 8) + low;
 }
 
-unsigned int SRF08::getMedianDistance(const uint8_t iterations)
+unsigned int SRF08::getMedianDistance(uint8_t iterations)
 {
     if (iterations == 0)
     {

@@ -40,7 +40,7 @@ public:
          unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance);
 #endif
     unsigned int getDistance() override;
-    unsigned int getMedianDistance(const uint8_t iterations
+    unsigned int getMedianDistance(uint8_t iterations
                                    = smartcarlib::constants::sr04::kDefaultIterations) override;
 
     /**

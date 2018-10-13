@@ -74,5 +74,30 @@ target_include_directories(median_test PUBLIC
 target_link_libraries(median_test gtest gmock_main)
 add_test(MEDIAN_TEST median_test ${GTEST_RUN_FLAGS})
 
+# InfraredAnalogSensor test
+add_executable(infraredanalogsensor_test
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog/InfraredAnalogSensor.cpp
+    ${UNIT_TESTS}/InfraredAnalogSensor_test.cpp
+)
+target_include_directories(infraredanalogsensor_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog
+)
+target_link_libraries(infraredanalogsensor_test gtest gmock_main)
+add_test(INFRARED_ANALOG_SENSOR_TEST infraredanalogsensor_test ${GTEST_RUN_FLAGS})
+
+# SHARP Infrared sensors test
+add_executable(sharpsensors_test
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog/sharp/GP2D120.cpp
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog/sharp/GP2Y0A02.cpp
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog/sharp/GP2Y0A21.cpp
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog/InfraredAnalogSensor.cpp
+    ${UNIT_TESTS}/SharpSensors_test.cpp
+)
+target_include_directories(sharpsensors_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/distance/infrared/analog/sharp
+)
+target_link_libraries(sharpsensors_test gtest gmock_main)
+add_test(SHARP_IR_SENSORS_TEST sharpsensors_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)

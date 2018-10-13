@@ -52,7 +52,7 @@ unsigned int SR04::getDistance()
     return duration / kTimeToTravelOneCmAndBack;
 }
 
-unsigned int SR04::getMedianDistance(const uint8_t iterations)
+unsigned int SR04::getMedianDistance(uint8_t iterations)
 {
     if (iterations == 0)
     {
