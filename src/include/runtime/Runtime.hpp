@@ -140,7 +140,7 @@ public:
      * @param  pin Pin to get interrupt number
      * @return     Interrupt number
      */
-    virtual uint8_t pinToInterrupt(uint8_t pin) = 0;
+    virtual int8_t pinToInterrupt(uint8_t pin) = 0;
 
     /**
      * Gets the port of the specified pin, equivalent of `digitalPinToPort` in
@@ -232,4 +232,13 @@ public:
      *                     in microseconds
      */
     virtual unsigned long getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout) = 0;
+
+    /**
+     * Enables an external hardware interrupt and provides a callback, equivalent to
+     * `attachInterrupt` in Arduino
+     * @param pin       The interrupt pin to attach the interrupt
+     * @param callback  The callback to be executed
+     * @param mode      The state of the pin to run the callback
+     */
+    virtual void setInterrupt(uint8_t pin, void (*callback)(void), int mode) = 0;
 };

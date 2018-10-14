@@ -90,7 +90,7 @@ void ArduinoRuntime::i2cOnRequest(void (*requestHandler)(void))
     return Wire.onRequest(requestHandler);
 }
 
-uint8_t ArduinoRuntime::pinToInterrupt(uint8_t pin)
+int8_t ArduinoRuntime::pinToInterrupt(uint8_t pin)
 {
     return digitalPinToInterrupt(pin);
 }
@@ -148,4 +148,9 @@ long ArduinoRuntime::constrainValue(long value, long min, long max)
 unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout)
 {
     return pulseIn(pin, state, timeout);
+}
+
+void ArduinoRuntime::setInterrupt(uint8_t pin, void (*callback)(void), int mode)
+{
+    return attachInterrupt(pin, callback, mode);
 }

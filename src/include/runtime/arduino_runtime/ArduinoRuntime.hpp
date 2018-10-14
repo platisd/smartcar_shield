@@ -27,7 +27,7 @@ public:
     int i2cRead() override;
     void i2cOnReceive(void (*receptionHandler)(int numberOfBytes)) override;
     void i2cOnRequest(void (*requestHandler)(void)) override;
-    uint8_t pinToInterrupt(uint8_t pin) override;
+    int8_t pinToInterrupt(uint8_t pin) override;
     uint8_t pinToPort(uint8_t pin) override;
     uint8_t pinToBitMask(uint8_t pin) override;
     uint8_t portToOutputRegister(uint8_t port) override;
@@ -39,4 +39,5 @@ public:
     long mapValue(long value, long fromLow, long fromHigh, long toLow, long toHigh) override;
     long constrainValue(long value, long min, long max) override;
     unsigned long getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout) override;
+    void setInterrupt(uint8_t pin, void (*callback)(void), int mode) override;
 };
