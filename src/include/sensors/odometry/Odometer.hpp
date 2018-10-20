@@ -30,13 +30,13 @@ class Odometer
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
-    Odometer(unsigned long pulsesPerMeter
-             = smartcarlib::constants::odometry::kDefaultPulsesPerMeter,
-             Runtime& runtime = arduinoRuntime);
+    Odometer(Runtime& runtime = arduinoRuntime,
+             unsigned long pulsesPerMeter
+             = smartcarlib::constants::odometry::kDefaultPulsesPerMeter);
 #else
-    Odometer(unsigned long pulsesPerMeter
-             = smartcarlib::constants::odometry::kDefaultPulsesPerMeter,
-             Runtime& runtime);
+    Odometer(Runtime& runtime,
+             unsigned long pulsesPerMeter
+             = smartcarlib::constants::odometry::kDefaultPulsesPerMeter);
 #endif
 
     ~Odometer() = default;

@@ -99,5 +99,16 @@ target_include_directories(sharpsensors_test PUBLIC
 target_link_libraries(sharpsensors_test gtest gmock_main)
 add_test(SHARP_IR_SENSORS_TEST sharpsensors_test ${GTEST_RUN_FLAGS})
 
+# Odometer (directionless) test
+add_executable(odometer_test
+    ${SMARTCAR_LIB}/sensors/odometry/Odometer.cpp
+    ${UNIT_TESTS}/Odometer_test.cpp
+)
+target_include_directories(odometer_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/odometry
+)
+target_link_libraries(odometer_test gtest gmock_main)
+add_test(ODOMETER_TEST odometer_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)
