@@ -89,7 +89,6 @@ void Odometer::update()
     {
         return;
     }
-    mPulsesCounter++;
     // Unless this is the first time we are called then calculate the dT since
     // on the first time we cannot determine the speed yet
     if (mPreviousPulse != 0)
@@ -97,4 +96,5 @@ void Odometer::update()
         mDt = dt;
     }
     mPreviousPulse = currentPulse;
+    mPulsesCounter++;
 }

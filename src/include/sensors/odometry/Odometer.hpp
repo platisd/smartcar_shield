@@ -2,7 +2,6 @@
  * A class to represent the common - directionless - Odometers (speed encoders)
  * that can be used to primarily measure the travelled distance of the car
  * as well as its speed.
- * Currently up to two Odometers are supported.
  */
 #pragma once
 
@@ -49,7 +48,7 @@ public:
      *                  an argument: `[](){yourOdometerInstance.update();}`
      * @return          `false` if an error occurred, i.e. invalid pin
      */
-    bool attach(uint8_t pin, void (*callback)());
+    virtual bool attach(uint8_t pin, void (*callback)());
 
     /**
      * Returns the total travelled distance in centimeters
@@ -64,9 +63,9 @@ public:
     float getSpeed();
 
     /**
-     * Resets the total travelled distance to `0`
+     * Resets the total travelled distance and speed to `0`
      */
-    void reset();
+    virtual void reset();
 
     /**
      * Conducts the distance and speed measurements.
@@ -82,8 +81,10 @@ public:
      */
     virtual void update();
 
-private:
+protected:
     const float mPulsesPerMeterRatio;
+
+private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
     uint8_t mPin;
