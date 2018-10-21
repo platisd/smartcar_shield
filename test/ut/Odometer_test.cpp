@@ -47,17 +47,24 @@ public:
 class OdometerAttachedTest : public OdometerBasicTest
 {
 public:
-    OdometerAttachedTest()
-        : OdometerBasicTest(kDefaultPulsesPerMeter)
-    {
-    }
-
     virtual void SetUp()
     {
         ON_CALL(mRuntime, pinToInterrupt(_)).WillByDefault(Return(kAnInterrupt));
         mOdometer.attach(1, []() {});
     }
 };
+
+class OdometerBadPulsesPerMeter : public OdometerBasicTest
+{
+public:
+    OdometerBadPulsesPerMeter() : OdometerBasicTest(0) {}
+};
+
+TEST_F(OdometerBadPulsesPerMeter, constructor_WhenCalledWithZeroPulsesPerMeter_WillNotDivideByZero)
+{
+    // Providing `0` as the argument to pulses per meter should not cause the constructor
+    // to crash due to a division by zero
+}
 
 TEST_F(OdometerBasicTest, attach_WhenInvalidPin_WillReturnFalse)
 {
