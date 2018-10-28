@@ -36,7 +36,11 @@ public:
 #else
     SRF08(Runtime& runtime);
 #endif
+
+    /* Check `DistanceSensor` interface for documentation */
     unsigned int getDistance() override;
+
+    /* Check `DistanceSensor` interface for documentation */
     unsigned int getMedianDistance(uint8_t iterations
                                    = smartcarlib::constants::srf08::kDefaultIterations) override;
 
