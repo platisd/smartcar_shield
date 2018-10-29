@@ -122,5 +122,16 @@ target_include_directories(directionalodometer_test PUBLIC
 target_link_libraries(directionalodometer_test gtest gmock_main)
 add_test(DIRECTIONAL_ODOMETER_TEST directionalodometer_test ${GTEST_RUN_FLAGS})
 
+# GY50 (Gyroscope) test
+add_executable(gy50_test
+    ${SMARTCAR_LIB}/sensors/heading/gyroscope/GY50.cpp
+    ${UNIT_TESTS}/GY50_test.cpp
+)
+target_include_directories(gy50_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/heading/gyroscope
+)
+target_link_libraries(gy50_test gtest gmock_main)
+add_test(GY50_TEST gy50_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)

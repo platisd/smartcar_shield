@@ -4,13 +4,12 @@
     * http://www.pieter-jan.com/node/7
     * https://github.com/sparkfun/Tri-Axis_Gyro_Breakout-L3G4200D
 */
-
 #include "GY50.hpp"
 
 namespace
 {
 const uint8_t kGyroAddress = 105;
-const int kError           = -10000;
+const int kError           = -32768;
 
 template <typename AnyNumber>
 constexpr AnyNumber getAbsolute(const AnyNumber& number)
@@ -49,23 +48,22 @@ void GY50::update()
         return;
     }
 
-    auto currentTime = mRuntime.currentTimeMillis();
-    auto interval    = currentTime - mPreviousSample;
-    if (interval < kSamplingInterval)
+    unsigned long currentTime = mRuntime.currentTimeMillis();
+    unsigned long interval    = currentTime - mPreviousSample;
+    if (interval <= kSamplingInterval)
     {
         return; // Not the time to read yet
     }
 
-    static const float gyroSensitivity = 0.07;
+    static const float gyroSensitivity = 0.07f;
     static const int gyroThreshold     = 12; // Smaller changes are to be ignored
-    float gyroRate                     = 0.0f;
     int drift                          = kOffset - getAngularVelocity();
 
     if (getAbsolute(drift) > gyroThreshold)
     {
-        gyroRate = drift * gyroSensitivity;
+        float gyroRate = drift * gyroSensitivity;
+        mAngularDisplacement += gyroRate / (1000.0 / interval);
     }
-    mAngularDisplacement += gyroRate / (1000.0 / interval);
     mPreviousSample = currentTime;
 }
 
@@ -130,7 +128,7 @@ int GY50::readL3G4200DRegister(uint8_t registerAddress)
     mRuntime.i2cEndTransmission();
     mRuntime.i2cRequestFrom(kGyroAddress, 1);
 
-    return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : kError;
+    return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : 0;
 }
 
 void GY50::writeL3G4200DRegister(uint8_t registerAddress, uint8_t value)
