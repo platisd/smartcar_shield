@@ -5,18 +5,15 @@
     * https://github.com/sparkfun/Tri-Axis_Gyro_Breakout-L3G4200D
 */
 #include "GY50.hpp"
+#include "../../../utilities/Utilities.hpp"
 
 namespace
 {
 const uint8_t kGyroAddress = 105;
 const int kError           = -32768;
-
-template <typename AnyNumber>
-constexpr AnyNumber getAbsolute(const AnyNumber& number)
-{
-    return number < 0 ? -number : number;
-}
 } // namespace
+
+using namespace smartcarlib::utils;
 
 GY50::GY50(int offset, unsigned long samplingInterval, Runtime& runtime)
     : kOffset{ offset }

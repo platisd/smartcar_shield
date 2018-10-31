@@ -1,15 +1,17 @@
 #include "InfraredAnalogSensor.hpp"
-#include "../../Median.hpp"
+#include "../../../../utilities/Utilities.hpp"
 
 namespace
 {
 const unsigned long kMedianMeasurementDelay = 15;
 }
 
+using namespace smartcarlib::utils;
+
 InfraredAnalogSensor::InfraredAnalogSensor(Runtime& runtime)
     : mPin{ 0 }
     , mSensorAttached{ false }
-    , mRuntime {runtime}
+    , mRuntime{ runtime }
 {
 }
 
@@ -33,5 +35,5 @@ unsigned int InfraredAnalogSensor::getMedianDistance(uint8_t iterations)
         mRuntime.delayMillis(kMedianMeasurementDelay);
     }
 
-    return Median::getMedian(measurements, iterations);
+    return getMedian(measurements, iterations);
 }

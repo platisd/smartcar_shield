@@ -1,5 +1,5 @@
 #include "SR04.hpp"
-#include "../../Median.hpp"
+#include "../../../../utilities/Utilities.hpp"
 
 namespace
 {
@@ -14,6 +14,7 @@ const unsigned long kMedianMeasurementDelay = 15; // In milliseconds
 } // namespace
 
 using namespace smartcarlib::constants::sr04;
+using namespace smartcarlib::utils;
 
 SR04::SR04(Runtime& runtime, unsigned int maxDistance)
     : mRuntime{ runtime }
@@ -66,5 +67,5 @@ unsigned int SR04::getMedianDistance(uint8_t iterations)
         mRuntime.delayMillis(kMedianMeasurementDelay);
     }
 
-    return Median::getMedian(measurements, iterations);
+    return getMedian(measurements, iterations);
 }

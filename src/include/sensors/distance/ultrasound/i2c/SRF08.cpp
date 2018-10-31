@@ -1,5 +1,5 @@
 #include "SRF08.hpp"
-#include "../../Median.hpp"
+#include "../../../../utilities/Utilities.hpp"
 
 namespace
 {
@@ -12,6 +12,7 @@ const uint8_t kRangingInCm            = 0x51;
 } // namespace
 
 using namespace smartcarlib::constants::srf08;
+using namespace smartcarlib::utils;
 
 SRF08::SRF08(Runtime& runtime)
     : mRuntime{ runtime }
@@ -59,7 +60,7 @@ unsigned int SRF08::getMedianDistance(uint8_t iterations)
         mRuntime.delayMillis(mPingDelay);
     }
 
-    return Median::getMedian(measurements, iterations);
+    return getMedian(measurements, iterations);
 }
 
 uint8_t SRF08::attach(uint8_t address)

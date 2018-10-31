@@ -65,14 +65,14 @@ target_link_libraries(sr04_test gtest gmock_main)
 add_test(SR04_TEST sr04_test ${GTEST_RUN_FLAGS})
 
 # Median calculator test
-add_executable(median_test
-    ${UNIT_TESTS}/Median_test.cpp
+add_executable(utilities_test
+    ${UNIT_TESTS}/Utilities_test.cpp
 )
-target_include_directories(median_test PUBLIC
-    ${SMARTCAR_LIB}/sensors/distance
+target_include_directories(utilities_test PUBLIC
+    ${SMARTCAR_LIB}/utilities
 )
-target_link_libraries(median_test gtest gmock_main)
-add_test(MEDIAN_TEST median_test ${GTEST_RUN_FLAGS})
+target_link_libraries(utilities_test gtest gmock_main)
+add_test(UTILITIES_TEST utilities_test ${GTEST_RUN_FLAGS})
 
 # InfraredAnalogSensor test
 add_executable(infraredanalogsensor_test
