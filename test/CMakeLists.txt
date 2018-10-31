@@ -133,5 +133,16 @@ target_include_directories(gy50_test PUBLIC
 target_link_libraries(gy50_test gtest gmock_main)
 add_test(GY50_TEST gy50_test ${GTEST_RUN_FLAGS})
 
+# BrushlessMotor test
+add_executable(brushedmotor_test
+    ${SMARTCAR_LIB}/motors/analog/pwm/BrushedMotor.cpp
+    ${UNIT_TESTS}/BrushedMotor_test.cpp
+)
+target_include_directories(brushedmotor_test PUBLIC
+    ${SMARTCAR_LIB}/motors/analog/pwm/
+)
+target_link_libraries(brushedmotor_test gtest gmock_main)
+add_test(BRUSHED_MOTOR_TEST brushedmotor_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)
