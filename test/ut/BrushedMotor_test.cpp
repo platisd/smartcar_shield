@@ -5,6 +5,7 @@
 #include "MockRuntime.hpp"
 
 using namespace ::testing;
+using namespace smartcarlib::constants::motor;
 
 namespace
 {
@@ -13,9 +14,6 @@ const uint8_t kBackwardPin  = 4;
 const uint8_t kEnablePin    = 5;
 const uint8_t kLow          = 0;
 const uint8_t kHigh         = 1;
-const int kMinSpeed         = -100;
-const int kMaxSpeed         = 100;
-const int kMinAbsoluteSpeed = 0;
 const uint8_t kMaxPwm       = 255;
 } // namespace
 
@@ -64,7 +62,7 @@ TEST_F(BrushedMotorTest, setSpeed_WhenSpeedOverBounds_WillSetMaxSpeedForward)
     EXPECT_CALL(mRuntime, setPinState(kBackwardPin, kLow));
     EXPECT_CALL(mRuntime, setPWM(kEnablePin, kMaxPwm));
 
-    mBrushedMotor.setSpeed(kMaxSpeed + 1);
+    mBrushedMotor.setSpeed(kMaxMotorSpeed + 1);
 }
 
 TEST_F(BrushedMotorTest, setSpeed_WhenSpeedUnderBounds_WillSetMaxSpeedBackward)
@@ -73,19 +71,19 @@ TEST_F(BrushedMotorTest, setSpeed_WhenSpeedUnderBounds_WillSetMaxSpeedBackward)
     EXPECT_CALL(mRuntime, setPinState(kBackwardPin, kHigh));
     EXPECT_CALL(mRuntime, setPWM(kEnablePin, kMaxPwm));
 
-    mBrushedMotor.setSpeed(kMinSpeed - 1);
+    mBrushedMotor.setSpeed(kMinMotorSpeed - 1);
 }
 
-TEST_F(BrushedMotorTest, setSpeed_WhenSpeedZero_WillSetZeroSpeed)
+TEST_F(BrushedMotorTest, setSpeed_WhenSpeedIdle_WillSetZeroSpeed)
 {
     EXPECT_CALL(mRuntime, setPWM(kEnablePin, 0));
 
-    mBrushedMotor.setSpeed(0);
+    mBrushedMotor.setSpeed(kIdleMotorSpeed);
 }
 
 TEST_F(BrushedMotorTest, setSpeed_WhenSpeedWithinRange_WillSetSuppliedSpeed)
 {
     EXPECT_CALL(mRuntime, setPWM(kEnablePin, kMaxPwm / 2));
 
-    mBrushedMotor.setSpeed(kMaxSpeed / 2);
+    mBrushedMotor.setSpeed(kMaxMotorSpeed / 2);
 }

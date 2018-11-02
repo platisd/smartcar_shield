@@ -5,6 +5,19 @@
  */
 #pragma once
 
+namespace smartcarlib
+{
+namespace constants
+{
+namespace motor
+{
+const int kMinMotorSpeed = -100;
+const int kIdleMotorSpeed = 0;
+const int kMaxMotorSpeed = 100;
+} // namespace motor
+} // namespace constants
+} // namespace smartcarlib
+
 class Motor
 {
 public:

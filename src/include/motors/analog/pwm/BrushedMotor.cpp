@@ -3,17 +3,15 @@
 
 namespace
 {
-const uint8_t kOutput       = 1;
-const uint8_t kLow          = 0;
-const uint8_t kHigh         = 1;
-const int kMinSpeed         = -100;
-const int kMaxSpeed         = 100;
-const int kMinAbsoluteSpeed = 0;
-const int kMinPwm       = 0;
-const int kMaxPwm       = 255;
+const uint8_t kOutput = 1;
+const uint8_t kLow    = 0;
+const uint8_t kHigh   = 1;
+const int kMinPwm     = 0;
+const int kMaxPwm     = 255;
 } // namespace
 
 using namespace smartcarlib::utils;
+using namespace smartcarlib::constants::motor;
 
 BrushedMotor::BrushedMotor(uint8_t forwardPin,
                            uint8_t backwardPin,
@@ -48,10 +46,10 @@ void BrushedMotor::setSpeed(int speed)
     }
 
     // Get the absolute speed within the [0, 100] range
-    auto absoluteSpeed = getAbsolute(getConstrain(speed, kMinSpeed, kMaxSpeed));
+    auto absoluteSpeed = getAbsolute(getConstrain(speed, kMinMotorSpeed, kMaxMotorSpeed));
     // Set the PWM within the [0,255] range
     mRuntime.setPWM(kEnablePin,
-                    getMap(absoluteSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
+                    getMap(absoluteSpeed, kIdleMotorSpeed, kMaxMotorSpeed, kMinPwm, kMaxPwm));
 }
 
 void BrushedMotor::attach()
