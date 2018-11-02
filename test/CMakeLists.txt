@@ -144,5 +144,16 @@ target_include_directories(brushedmotor_test PUBLIC
 target_link_libraries(brushedmotor_test gtest gmock_main)
 add_test(BRUSHED_MOTOR_TEST brushedmotor_test ${GTEST_RUN_FLAGS})
 
+# ServoMotor test
+add_executable(servomotor_test
+    ${SMARTCAR_LIB}/motors/digital/servo/ServoMotor.cpp
+    ${UNIT_TESTS}/ServoMotor_test.cpp
+)
+target_include_directories(servomotor_test PUBLIC
+    ${SMARTCAR_LIB}/motors/digital/servo
+)
+target_link_libraries(servomotor_test gtest gmock_main)
+add_test(SERVO_MOTOR_TEST servomotor_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)
