@@ -16,7 +16,6 @@ const uint8_t kHigh         = 1;
 const int kMinSpeed         = -100;
 const int kMaxSpeed         = 100;
 const int kMinAbsoluteSpeed = 0;
-const uint8_t kMinPwm       = 0;
 const uint8_t kMaxPwm       = 255;
 } // namespace
 
@@ -59,47 +58,34 @@ TEST_F(BrushedMotorTest, setSpeed_WhenPositiveSpeed_WillSetDirectionForward)
     mBrushedMotor.setSpeed(50);
 }
 
-TEST_F(BrushedMotorTest, setSpeed_WhenCalled_WillSetMappedValueAsPwm)
+TEST_F(BrushedMotorTest, setSpeed_WhenSpeedOverBounds_WillSetMaxSpeedForward)
 {
-    long expectedPwm = 200;
-    EXPECT_CALL(mRuntime, mapValue(_, _, _, _, _)).WillOnce(Return(expectedPwm));
-    EXPECT_CALL(mRuntime, setPWM(kEnablePin, expectedPwm));
-
-    mBrushedMotor.setSpeed(12);
-}
-
-TEST_F(BrushedMotorTest, setSpeed_WhenSpeedOverBounds_WillSeMaxSpeedForward)
-{
-    auto expectedSpeed = kMaxSpeed;
     EXPECT_CALL(mRuntime, setPinState(kForwardPin, kHigh));
     EXPECT_CALL(mRuntime, setPinState(kBackwardPin, kLow));
-    EXPECT_CALL(mRuntime, mapValue(expectedSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
+    EXPECT_CALL(mRuntime, setPWM(kEnablePin, kMaxPwm));
 
     mBrushedMotor.setSpeed(kMaxSpeed + 1);
 }
 
-TEST_F(BrushedMotorTest, setSpeed_WhenSpeedUnderBounds_WillSeMaxSpeedBackward)
+TEST_F(BrushedMotorTest, setSpeed_WhenSpeedUnderBounds_WillSetMaxSpeedBackward)
 {
-    auto expectedSpeed = kMaxSpeed;
     EXPECT_CALL(mRuntime, setPinState(kForwardPin, kLow));
     EXPECT_CALL(mRuntime, setPinState(kBackwardPin, kHigh));
-    EXPECT_CALL(mRuntime, mapValue(expectedSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
+    EXPECT_CALL(mRuntime, setPWM(kEnablePin, kMaxPwm));
 
     mBrushedMotor.setSpeed(kMinSpeed - 1);
 }
 
 TEST_F(BrushedMotorTest, setSpeed_WhenSpeedZero_WillSetZeroSpeed)
 {
-    auto expectedSpeed = 0;
-    EXPECT_CALL(mRuntime, mapValue(expectedSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
+    EXPECT_CALL(mRuntime, setPWM(kEnablePin, 0));
 
     mBrushedMotor.setSpeed(0);
 }
 
 TEST_F(BrushedMotorTest, setSpeed_WhenSpeedWithinRange_WillSetSuppliedSpeed)
 {
-    auto expectedSpeed = 55;
-    EXPECT_CALL(mRuntime, mapValue(expectedSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
+    EXPECT_CALL(mRuntime, setPWM(kEnablePin, kMaxPwm / 2));
 
-    mBrushedMotor.setSpeed(expectedSpeed);
+    mBrushedMotor.setSpeed(kMaxSpeed / 2);
 }

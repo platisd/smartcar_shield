@@ -67,3 +67,39 @@ TEST(AbsoluteTest, getAbsolute_WhenNonNegativeNumber_WillReturnNumber)
     auto numberToAbsolute = 23;
     EXPECT_EQ(getAbsolute(numberToAbsolute), numberToAbsolute);
 }
+
+TEST(MapTest, getMap_WhenInvalidRange_WillReturnLowerTargetRangeLimit)
+{
+    int valueToMap = 5;
+    int fromLow = 100;
+    int fromHigh = 100;
+    int toLow = 0;
+    int toHigh = 1000;
+    int expectedValue = toLow;
+
+    EXPECT_EQ(getMap(valueToMap, fromLow, fromHigh, toLow, toHigh), expectedValue);
+}
+
+TEST(MapTest, getMap_WhenValidArguments_WillReturnValidMappedValue)
+{
+    int fromLow = 0;
+    int fromHigh = 100;
+    int valueToMap = fromHigh / 4;
+    int toLow = 0;
+    int toHigh = 1000;
+    int expectedValue = toHigh / 4;
+
+    EXPECT_EQ(getMap(valueToMap, fromLow, fromHigh, toLow, toHigh), expectedValue);
+}
+
+TEST(MapTest, getMap_WhenFloatArguments_WillReturnValidFloatValue)
+{
+    float fromLow = 0;
+    float fromHigh = 100;
+    float valueToMap = fromHigh / 3.5;
+    float toLow = 0;
+    float toHigh = 1000;
+    float expectedValue = toHigh / 3.5;
+
+    EXPECT_FLOAT_EQ(getMap(valueToMap, fromLow, fromHigh, toLow, toHigh), expectedValue);
+}

@@ -9,8 +9,8 @@ const uint8_t kHigh         = 1;
 const int kMinSpeed         = -100;
 const int kMaxSpeed         = 100;
 const int kMinAbsoluteSpeed = 0;
-const uint8_t kMinPwm       = 0;
-const uint8_t kMaxPwm       = 255;
+const int kMinPwm       = 0;
+const int kMaxPwm       = 255;
 } // namespace
 
 using namespace smartcarlib::utils;
@@ -51,7 +51,7 @@ void BrushedMotor::setSpeed(int speed)
     auto absoluteSpeed = getAbsolute(getConstrain(speed, kMinSpeed, kMaxSpeed));
     // Set the PWM within the [0,255] range
     mRuntime.setPWM(kEnablePin,
-                    mRuntime.mapValue(absoluteSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
+                    getMap(absoluteSpeed, kMinAbsoluteSpeed, kMaxSpeed, kMinPwm, kMaxPwm));
 }
 
 void BrushedMotor::attach()
