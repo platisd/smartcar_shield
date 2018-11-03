@@ -1,13 +1,14 @@
-language:
-    - cpp
-
-compiler:
-    - g++
+env:
+    global:
+        - CXX=g++-5
 
 addons:
-  apt:
-    packages:
-      - lcov
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-5
+            - lcov
 
 notifications:
     email: false

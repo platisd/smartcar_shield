@@ -1,7 +1,5 @@
 #!/bin/bash
 caller_dir=$PWD
-# Move to the current script directory
-cd "${0%/*}"
 
 smartcar_test_dir="${TRAVIS_BUILD_DIR}/test"
 coverage_report_dir="${TRAVIS_BUILD_DIR}/coverage-reports"
