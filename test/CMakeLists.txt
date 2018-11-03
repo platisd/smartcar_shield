@@ -155,5 +155,29 @@ target_include_directories(servomotor_test PUBLIC
 target_link_libraries(servomotor_test gtest gmock_main)
 add_test(SERVO_MOTOR_TEST servomotor_test ${GTEST_RUN_FLAGS})
 
+# AckermanControl test
+add_executable(ackermancontrol_test
+    ${SMARTCAR_LIB}/control/ackerman/AckermanControl.cpp
+    ${UNIT_TESTS}/AckermanControl_test.cpp
+)
+target_include_directories(ackermancontrol_test PUBLIC
+    ${SMARTCAR_LIB}/control/ackerman
+    ${SMARTCAR_LIB}/motors
+)
+target_link_libraries(ackermancontrol_test gtest gmock_main)
+add_test(ACKERMAN_CONTROL_TEST ackermancontrol_test ${GTEST_RUN_FLAGS})
+
+# DifferentialControl test
+add_executable(differentialcontrol_test
+    ${SMARTCAR_LIB}/control/differential/DifferentialControl.cpp
+    ${UNIT_TESTS}/DifferentialControl_test.cpp
+)
+target_include_directories(differentialcontrol_test PUBLIC
+    ${SMARTCAR_LIB}/control/differential
+    ${SMARTCAR_LIB}/motors
+)
+target_link_libraries(differentialcontrol_test gtest gmock_main)
+add_test(DIFFERENTIAL_CONTROL_TEST differentialcontrol_test ${GTEST_RUN_FLAGS})
+
 # Add coverage reports
 setup_target_for_coverage(NAME SRF08_TEST_coverage EXECUTABLE srf08_test DEPENDENCIES srf08_test)
