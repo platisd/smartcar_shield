@@ -1,6 +1,6 @@
 #include <math.h>
 
-#include "Odometer.hpp"
+#include "DirectionlessOdometer.hpp"
 
 namespace
 {
@@ -14,7 +14,7 @@ const float kMillimetersInMeter      = 1000.0;
 
 using namespace smartcarlib::constants::odometer;
 
-Odometer::Odometer(Runtime& runtime, unsigned long pulsesPerMeter)
+DirectionlessOdometer::DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime)
     : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? pulsesPerMeter / 100.0f
                                                : kDefaultPulsesPerMeter / 100.0f }
     , mMillimetersPerPulse{ pulsesPerMeter > 0
@@ -31,7 +31,7 @@ Odometer::Odometer(Runtime& runtime, unsigned long pulsesPerMeter)
 {
 }
 
-bool Odometer::attach(uint8_t pin, void (*callback)(void))
+bool DirectionlessOdometer::attach(uint8_t pin, void (*callback)(void))
 {
     auto interruptPin = mRuntime.pinToInterrupt(pin);
     if (interruptPin == kNotAnInterrupt)
@@ -47,7 +47,7 @@ bool Odometer::attach(uint8_t pin, void (*callback)(void))
     return true;
 }
 
-unsigned long Odometer::getDistance()
+unsigned long DirectionlessOdometer::getDistance()
 {
     if (!mSensorAttached)
     {
@@ -56,7 +56,7 @@ unsigned long Odometer::getDistance()
     return mPulsesCounter / mPulsesPerMeterRatio;
 }
 
-float Odometer::getSpeed()
+float DirectionlessOdometer::getSpeed()
 {
     if (!mSensorAttached)
     {
@@ -67,14 +67,14 @@ float Odometer::getSpeed()
     return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / mDt : 0;
 }
 
-void Odometer::reset()
+void DirectionlessOdometer::reset()
 {
     mPulsesCounter = 0;
     mPreviousPulse = 0;
     mDt            = 0;
 }
 
-void Odometer::update()
+void DirectionlessOdometer::update()
 {
     if (!mSensorAttached)
     {

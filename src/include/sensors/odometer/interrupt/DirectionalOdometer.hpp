@@ -5,10 +5,7 @@
  */
 #pragma once
 
-#include <stdint.h>
-
-#include "../../runtime/Runtime.hpp"
-#include "Odometer.hpp"
+#include "DirectionlessOdometer.hpp"
 
 namespace smartcarlib
 {
@@ -22,21 +19,20 @@ const int8_t kBackward = -1;
 } // namespace constants
 } // namespace smartcarlib
 
-class DirectionalOdometer : public Odometer
+class DirectionalOdometer : public DirectionlessOdometer
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
     DirectionalOdometer(uint8_t directionPin,
                         uint8_t pinStateWhenForward,
-                        Runtime& runtime = arduinoRuntime,
                         unsigned long pulsesPerMeter
-                        = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
+                        = smartcarlib::constants::odometer::kDefaultPulsesPerMeter,
+                        Runtime& runtime = arduinoRuntime);
 #else
     DirectionalOdometer(uint8_t directionPin,
                         uint8_t pinStateWhenForward,
-                        Runtime& runtime,
-                        unsigned long pulsesPerMeter
-                        = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
+                        unsigned long pulsesPerMeter,
+                        Runtime& runtime);
 #endif
 
     /* Refer to parent class for documentation */

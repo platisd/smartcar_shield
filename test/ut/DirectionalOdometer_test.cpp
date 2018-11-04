@@ -19,7 +19,7 @@ class DirectionalOdometerBasicTest : public Test
 public:
     DirectionalOdometerBasicTest()
         : mDirectionalOdometer(
-              kDirectionPin, kPinStateWhenForward, mRuntime, kDefaultPulsesPerMeter)
+              kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, mRuntime)
     {
     }
 

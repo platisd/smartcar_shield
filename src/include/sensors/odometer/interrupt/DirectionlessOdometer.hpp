@@ -7,10 +7,10 @@
 
 #include <stdint.h>
 
-#include "../../runtime/Runtime.hpp"
+#include "../../../runtime/Runtime.hpp"
 
 #ifndef PLATFORM_AGNOSTIC_BUILD
-#include "../../runtime/arduino_runtime/ArduinoRuntime.hpp"
+#include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
@@ -25,20 +25,19 @@ const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
 } // namespace constants
 } // namespace smartcarlib
 
-class Odometer
+class DirectionlessOdometer
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
-    Odometer(Runtime& runtime = arduinoRuntime,
-             unsigned long pulsesPerMeter
-             = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
+    DirectionlessOdometer(unsigned long pulsesPerMeter
+                          = smartcarlib::constants::odometer::kDefaultPulsesPerMeter,
+                          Runtime& runtime = arduinoRuntime);
 #else
-    Odometer(Runtime& runtime,
-             unsigned long pulsesPerMeter
-             = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
+    DirectionlessOdometer(unsigned long pulsesPerMeter,
+                          Runtime& runtime);
 #endif
 
-    ~Odometer() = default;
+    ~DirectionlessOdometer() = default;
 
     /**
      * Initializes the Odometer to receive pulses from the specified pin

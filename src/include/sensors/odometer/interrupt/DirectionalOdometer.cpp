@@ -7,9 +7,9 @@ const uint8_t kInput = 0;
 
 DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
                                          uint8_t pinStateWhenForward,
-                                         Runtime& runtime,
-                                         unsigned long pulsesPerMeter)
-    : Odometer(runtime, pulsesPerMeter)
+                                         unsigned long pulsesPerMeter,
+                                         Runtime& runtime)
+    : DirectionlessOdometer(pulsesPerMeter, runtime)
     , mDirectionPin{ directionPin }
     , mPinStateWhenForward{ pinStateWhenForward }
     , mRuntime{ runtime }
@@ -19,19 +19,19 @@ DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
 
 bool DirectionalOdometer::attach(uint8_t pin, void (*callback)(void))
 {
-    Odometer::attach(pin, callback);
+    DirectionlessOdometer::attach(pin, callback);
     mRuntime.setPinDirection(mDirectionPin, kInput);
 }
 
 void DirectionalOdometer::reset()
 {
-    Odometer::reset();
+    DirectionlessOdometer::reset();
     mNegativePulsesCounter = 0;
 }
 
 void DirectionalOdometer::update()
 {
-    Odometer::update();
+    DirectionlessOdometer::update();
     if (mRuntime.getPinState(mDirectionPin) != mPinStateWhenForward)
     {
         mNegativePulsesCounter++;

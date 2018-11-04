@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 
 #include "MockRuntime.hpp"
-#include "Odometer.hpp"
+#include "DirectionlessOdometer.hpp"
 
 using namespace ::testing;
 
@@ -21,12 +21,12 @@ class OdometerBasicTest : public Test
 {
 public:
     OdometerBasicTest(unsigned long pulsesPerMeter = kDefaultPulsesPerMeter)
-        : mOdometer(mRuntime, pulsesPerMeter)
+        : mOdometer(pulsesPerMeter, mRuntime)
     {
     }
 
     NiceMock<MockRuntime> mRuntime;
-    Odometer mOdometer;
+    DirectionlessOdometer mOdometer;
 };
 
 class OdometerNotAttachedTest : public OdometerBasicTest

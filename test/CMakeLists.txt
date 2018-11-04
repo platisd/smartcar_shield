@@ -106,25 +106,25 @@ target_include_directories(sharpsensors_test PUBLIC
 target_link_libraries(sharpsensors_test gtest gmock_main)
 add_test_and_coverage(SHARP_IR_SENSORS_TEST sharpsensors_test)
 
-# Odometer (directionless) test
-add_executable(odometer_test
-    ${SMARTCAR_LIB}/sensors/odometer/Odometer.cpp
+# DirectionlessOdometer test
+add_executable(directionlessodometer_test
+    ${SMARTCAR_LIB}/sensors/odometer/interrupt/DirectionlessOdometer.cpp
     ${UNIT_TESTS}/Odometer_test.cpp
 )
-target_include_directories(odometer_test PUBLIC
-    ${SMARTCAR_LIB}/sensors/odometer
+target_include_directories(directionlessodometer_test PUBLIC
+    ${SMARTCAR_LIB}/sensors/odometer/interrupt
 )
-target_link_libraries(odometer_test gtest gmock_main)
-add_test_and_coverage(ODOMETER_TEST odometer_test)
+target_link_libraries(directionlessodometer_test gtest gmock_main)
+add_test_and_coverage(DIRECTIONLESS_ODOMETER_TEST directionlessodometer_test)
 
 # DirectionalOdometer test
 add_executable(directionalodometer_test
-    ${SMARTCAR_LIB}/sensors/odometer/Odometer.cpp
-    ${SMARTCAR_LIB}/sensors/odometer/DirectionalOdometer.cpp
+    ${SMARTCAR_LIB}/sensors/odometer/interrupt/DirectionlessOdometer.cpp
+    ${SMARTCAR_LIB}/sensors/odometer/interrupt/DirectionalOdometer.cpp
     ${UNIT_TESTS}/DirectionalOdometer_test.cpp
 )
 target_include_directories(directionalodometer_test PUBLIC
-    ${SMARTCAR_LIB}/sensors/odometer
+    ${SMARTCAR_LIB}/sensors/odometer/interrupt
 )
 target_link_libraries(directionalodometer_test gtest gmock_main)
 add_test_and_coverage(DIRECTIONAL_ODOMETER_TEST directionalodometer_test)
