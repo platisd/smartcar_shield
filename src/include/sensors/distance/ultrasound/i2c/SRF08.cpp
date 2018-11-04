@@ -66,7 +66,7 @@ unsigned int SRF08::getMedianDistance(uint8_t iterations)
 uint8_t SRF08::attach(uint8_t address)
 {
     mRuntime.i2cInit();
-    mAddress = mRuntime.constrainValue(address, kFirstAddress, kLastAddress);
+    mAddress = getConstrain(address, kFirstAddress, kLastAddress);
 
     return mAddress;
 }
@@ -79,7 +79,7 @@ void SRF08::setGain(uint8_t gainValue)
 
     mRuntime.i2cBeginTransmission(mAddress);
     mRuntime.i2cWrite(kGainRegister);
-    mRuntime.i2cWrite(mRuntime.constrainValue(gainValue, kMinGain, kMaxGain));
+    mRuntime.i2cWrite(getConstrain(gainValue, kMinGain, kMaxGain));
     mRuntime.i2cEndTransmission();
 }
 
@@ -128,7 +128,7 @@ uint8_t SRF08::changeAddress(uint8_t newAddress)
     static const uint8_t kSecondInChangeAddressSequence = 0xAA;
     static const uint8_t kThirdInChangeAddressSequence  = 0xA5;
 
-    newAddress = mRuntime.constrainValue(newAddress, kFirstAddress, kLastAddress);
+    newAddress = getConstrain(newAddress, kFirstAddress, kLastAddress);
 
     mRuntime.i2cBeginTransmission(mAddress);
     mRuntime.i2cWrite(kRangingCommandRegister);

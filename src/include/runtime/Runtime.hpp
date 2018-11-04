@@ -56,12 +56,6 @@ public:
     virtual void i2cInit() = 0;
 
     /**
-     * Initialize I2C bus as slave, equivalent of `Wire.begin` in Arduino
-     * @param slaveAddress Address to assume as an I2C slave
-     */
-    virtual void i2cInit(uint8_t slaveAddress) = 0;
-
-    /**
      * Initiate a transmission to the specified I2C slave device, equivalent
      * of `Wire.beginTransmission` in Arduino
      * @param address I2C address to begin a transmission to
@@ -76,27 +70,11 @@ public:
     virtual size_t i2cWrite(uint8_t value) = 0;
 
     /**
-     * Send the specified bytes via i2c, equivalent of `Wire.write` in Arduino
-     * @param  bytes       Bytes to send
-     * @param  bytesLength Number of bytes to send
-     * @return             Number of bytes sent
-     */
-    virtual size_t i2cWrite(const uint8_t* bytes, size_t bytesLength) = 0;
-
-    /**
      * Ends a transmission to an I2C device equivalent of
      * `Wire.endTransmission` in Arduino
      * @return Transmission status
      */
     virtual uint8_t i2cEndTransmission() = 0;
-
-    /**
-     * Ends a transmission to an I2C device equivalent of
-     * `Wire.endTransmission` in Arduino
-     * @param  stopMessage Stop message to release the I2C bus
-     * @return             Transmission status
-     */
-    virtual uint8_t i2cEndTransmission(uint8_t stopMessage) = 0;
 
     /**
      * Request a number of bytes from the specified I2C slave, equivalent of
@@ -121,58 +99,12 @@ public:
     virtual int i2cRead() = 0;
 
     /**
-     * Registers a callback to be executed upon reception of an I2C
-     * transmission from a master, equivalent of `Wire.onReceive` in Arduino
-     * @param receptionHandler Function to be called
-     */
-    virtual void i2cOnReceive(void (*receptionHandler)(int numberOfBytes)) = 0;
-
-    /**
-     * Registers a callback to be executed upon request for an I2C
-     * transmission from a master, equivalent of `Wire.onRequest` in Arduino
-     * @param requestHandler Function to be called
-     */
-    virtual void i2cOnRequest(void (*requestHandler)(void)) = 0;
-
-    /**
      * Gets the interrupt number of the specified pin, equivalent of
      * `digitalPinToInterrupt` in Arduino
      * @param  pin Pin to get interrupt number
      * @return     Interrupt number
      */
     virtual int8_t pinToInterrupt(uint8_t pin) = 0;
-
-    /**
-     * Gets the port of the specified pin, equivalent of `digitalPinToPort` in
-     * Arduino
-     * @param  pin Pin to get the port
-     * @return     Port of the pin
-     */
-    virtual uint8_t pinToPort(uint8_t pin) = 0;
-
-    /**
-     * Gets the bitmask of the specified pin, equivalent of
-     * `digitalPinToBitMask` in Arduino
-     * @param  pin Pin to get the bitmask
-     * @return     Bitmask of the pin
-     */
-    virtual uint8_t pinToBitMask(uint8_t pin) = 0;
-
-    /**
-     * Gets an output port register of the specified port, equivalent of
-     * `portOutputRegister` in Arduino
-     * @param  port Port to get the output port register
-     * @return      Output port register of the port
-     */
-    virtual uint8_t portToOutputRegister(uint8_t port) = 0;
-
-    /**
-     * Gets an input port register of the specified port, equivalent of
-     * `portInputRegister` in Arduino
-     * @param  port Port to get the input port register
-     * @return      Input port register of the port
-     */
-    virtual uint8_t portToInputRegister(uint8_t port) = 0;
 
     /**
      * Gets the amount of milliseconds since the microcontroller started
@@ -201,26 +133,6 @@ public:
      * @param microseconds How much time to block execution in microseconds
      */
     virtual void delayMicros(unsigned int microseconds) = 0;
-
-    /**
-     * Maps a number from one range to another, equivalent of `map` in Arduino
-     * @param  value    Value to be mapped
-     * @param  fromLow  Initial lowest limit of the range
-     * @param  fromHigh Initial highest limit of the range
-     * @param  toLow    Lowest limit of the output range
-     * @param  toHigh   Highest limit of the output range
-     * @return          Value in the new range
-     */
-    virtual long mapValue(long value, long fromLow, long fromHigh, long toLow, long toHigh) = 0;
-
-    /**
-     * Constrain a value within a range, equivalent of `constrain` in Arduino
-     * @param  value Value to be constrained
-     * @param  min   Minimum range limit
-     * @param  max   Maximum range limit
-     * @return       Value within the limit
-     */
-    virtual long constrainValue(long value, long min, long max) = 0;
 
     /**
      * Gets the incomming pulse length in microseconds starting from the nearest

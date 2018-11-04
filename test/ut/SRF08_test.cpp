@@ -92,7 +92,6 @@ TEST_F(SRF08Test, attach_WhenCalled_WillInitializeBus)
 {
     uint8_t address = 115;
     EXPECT_CALL(mRuntime, i2cInit());
-    EXPECT_CALL(mRuntime, constrainValue(address, _, _)).WillOnce(Return(address));
 
     EXPECT_EQ(mSRF08.attach(address), address);
 }
@@ -105,7 +104,6 @@ TEST_F(SRF08Test, setGain_WhenCalled_WillSetGainRegister)
     {
         InSequence seq;
         EXPECT_CALL(mRuntime, i2cWrite(gainRegister));
-        EXPECT_CALL(mRuntime, constrainValue(gainValue, _, _)).WillOnce(Return(gainValue));
         EXPECT_CALL(mRuntime, i2cWrite(gainValue));
     }
 
@@ -172,8 +170,6 @@ TEST_F(SRF08Test, changeAddress_WhenCalled_WillChangeAddress)
 
     {
         InSequence seq;
-        EXPECT_CALL(mRuntime, constrainValue(newAddress, _, _)).WillOnce(Return(newAddress));
-
         EXPECT_CALL(mRuntime, i2cWrite(kRangingCommandRegister));
         EXPECT_CALL(mRuntime, i2cWrite(firstInChangeAddressSequence));
 
