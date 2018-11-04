@@ -16,39 +16,38 @@ const unsigned long kMedianMeasurementDelay = 15; // In milliseconds
 using namespace smartcarlib::constants::sr04;
 using namespace smartcarlib::utils;
 
-SR04::SR04(Runtime& runtime, unsigned int maxDistance)
-    : mRuntime{ runtime }
-    , mTriggerPin{ 0 }
-    , mEchoPin{ 0 }
-    , mSensorAttached{ false }
+SR04::SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtime& runtime)
+    : kTriggerPin{ triggerPin }
+    , kEchoPin{ echoPin }
     , kTimeout{ static_cast<unsigned long>((maxDistance > 0 ? maxDistance : kDefaultMaxDistance)
                                            * kTimeToTravelOneCmAndBack) }
+    , mRuntime{ runtime }
+    , mAttached{ false }
 {
 }
 
-void SR04::attach(uint8_t triggerPin, uint8_t echoPin)
+void SR04::attach()
 {
-    mSensorAttached = true;
-    mTriggerPin     = triggerPin;
-    mEchoPin        = echoPin;
-    mRuntime.setPinDirection(mTriggerPin, kOutput);
-    mRuntime.setPinDirection(mEchoPin, kInput);
+    if (!mAttached)
+    {
+        mRuntime.setPinDirection(kTriggerPin, kOutput);
+        mRuntime.setPinDirection(kEchoPin, kInput);
+        mAttached = true;
+    }
 }
 
 unsigned int SR04::getDistance()
 {
-    if (!mSensorAttached)
-    {
-        return -1; // Return a large value
-    }
+    attach();
+
     // Generate the pulse
-    mRuntime.setPinState(mTriggerPin, kLow);
+    mRuntime.setPinState(kTriggerPin, kLow);
     mRuntime.delayMicros(5); // Set pin to known state
-    mRuntime.setPinState(mTriggerPin, kHigh);
+    mRuntime.setPinState(kTriggerPin, kHigh);
     mRuntime.delayMicros(10); // 10us pulse
-    mRuntime.setPinState(mTriggerPin, kLow);
+    mRuntime.setPinState(kTriggerPin, kLow);
     // Wait for the pulse to arrive and measure its duration
-    auto duration = mRuntime.getPulseDuration(mEchoPin, kHigh, kTimeout);
+    auto duration = mRuntime.getPulseDuration(kEchoPin, kHigh, kTimeout);
     // Calculate how much far out the object is
     return duration / kTimeToTravelOneCmAndBack;
 }

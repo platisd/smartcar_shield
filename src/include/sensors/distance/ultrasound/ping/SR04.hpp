@@ -33,27 +33,33 @@ class SR04 : public DistanceSensor
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
-    SR04(Runtime& runtime         = arduinoRuntime,
-         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance);
+    /**
+     * Constructs an SR04 ultrasonic sensor
+     * @param triggerPin  The pin to produce the trigger signal
+     * @param echoPin     The pin to receive the echo signal
+     * @param maxDistance The maximum measurement distance in centimeters
+     */
+    SR04(uint8_t triggerPin,
+         uint8_t echoPin,
+         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance,
+         Runtime& runtime         = arduinoRuntime);
 #else
-    SR04(Runtime& runtime,
-         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance);
+    SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtime& runtime);
 #endif
+
+    /* Check `DistanceSensor` interface for documentation */
     unsigned int getDistance() override;
+
+    /* Check `DistanceSensor` interface for documentation */
     unsigned int getMedianDistance(uint8_t iterations
                                    = smartcarlib::constants::sr04::kDefaultIterations) override;
 
-    /**
-     * Initializes the SR04 sensor to the specified pins
-     * @param triggerPin The pin to send the ultrasound pulse
-     * @param echoPin    The pin to receive the ultrasound pulse deflection
-     */
-    void attach(uint8_t triggerPin, uint8_t echoPin);
-
 private:
-    Runtime& mRuntime;
-    uint8_t mTriggerPin;
-    uint8_t mEchoPin;
-    bool mSensorAttached;
+    const uint8_t kTriggerPin;
+    const uint8_t kEchoPin;
     const unsigned long kTimeout;
+    Runtime& mRuntime;
+    bool mAttached;
+
+    void attach();
 };
