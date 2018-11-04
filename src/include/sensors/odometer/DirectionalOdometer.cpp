@@ -49,6 +49,6 @@ long DirectionalOdometer::getRelativeDistance()
 int8_t DirectionalOdometer::getDirection()
 {
     return mRuntime.getPinState(mDirectionPin) == mPinStateWhenForward
-               ? smartcarlib::constants::odometry::kForward
-               : smartcarlib::constants::odometry::kBackward;
+               ? smartcarlib::constants::odometer::kForward
+               : smartcarlib::constants::odometer::kBackward;
 }

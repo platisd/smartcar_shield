@@ -18,10 +18,10 @@ namespace smartcarlib
 {
 namespace constants
 {
-namespace odometry
+namespace odometer
 {
 const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
-} // namespace odometry
+} // namespace odometer
 } // namespace constants
 } // namespace smartcarlib
 
@@ -31,11 +31,11 @@ public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
     Odometer(Runtime& runtime = arduinoRuntime,
              unsigned long pulsesPerMeter
-             = smartcarlib::constants::odometry::kDefaultPulsesPerMeter);
+             = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
 #else
     Odometer(Runtime& runtime,
              unsigned long pulsesPerMeter
-             = smartcarlib::constants::odometry::kDefaultPulsesPerMeter);
+             = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
 #endif
 
     ~Odometer() = default;

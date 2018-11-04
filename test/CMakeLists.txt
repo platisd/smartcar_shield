@@ -108,23 +108,23 @@ add_test_and_coverage(SHARP_IR_SENSORS_TEST sharpsensors_test)
 
 # Odometer (directionless) test
 add_executable(odometer_test
-    ${SMARTCAR_LIB}/sensors/odometry/Odometer.cpp
+    ${SMARTCAR_LIB}/sensors/odometer/Odometer.cpp
     ${UNIT_TESTS}/Odometer_test.cpp
 )
 target_include_directories(odometer_test PUBLIC
-    ${SMARTCAR_LIB}/sensors/odometry
+    ${SMARTCAR_LIB}/sensors/odometer
 )
 target_link_libraries(odometer_test gtest gmock_main)
 add_test_and_coverage(ODOMETER_TEST odometer_test)
 
 # DirectionalOdometer test
 add_executable(directionalodometer_test
-    ${SMARTCAR_LIB}/sensors/odometry/Odometer.cpp
-    ${SMARTCAR_LIB}/sensors/odometry/DirectionalOdometer.cpp
+    ${SMARTCAR_LIB}/sensors/odometer/Odometer.cpp
+    ${SMARTCAR_LIB}/sensors/odometer/DirectionalOdometer.cpp
     ${UNIT_TESTS}/DirectionalOdometer_test.cpp
 )
 target_include_directories(directionalodometer_test PUBLIC
-    ${SMARTCAR_LIB}/sensors/odometry
+    ${SMARTCAR_LIB}/sensors/odometer
 )
 target_link_libraries(directionalodometer_test gtest gmock_main)
 add_test_and_coverage(DIRECTIONAL_ODOMETER_TEST directionalodometer_test)
@@ -142,22 +142,22 @@ add_test_and_coverage(GY50_TEST gy50_test)
 
 # BrushlessMotor test
 add_executable(brushedmotor_test
-    ${SMARTCAR_LIB}/motors/analog/pwm/BrushedMotor.cpp
+    ${SMARTCAR_LIB}/motor/analog/pwm/BrushedMotor.cpp
     ${UNIT_TESTS}/BrushedMotor_test.cpp
 )
 target_include_directories(brushedmotor_test PUBLIC
-    ${SMARTCAR_LIB}/motors/analog/pwm/
+    ${SMARTCAR_LIB}/motor/analog/pwm/
 )
 target_link_libraries(brushedmotor_test gtest gmock_main)
 add_test_and_coverage(BRUSHED_MOTOR_TEST brushedmotor_test)
 
 # ServoMotor test
 add_executable(servomotor_test
-    ${SMARTCAR_LIB}/motors/digital/servo/ServoMotor.cpp
+    ${SMARTCAR_LIB}/motor/digital/servo/ServoMotor.cpp
     ${UNIT_TESTS}/ServoMotor_test.cpp
 )
 target_include_directories(servomotor_test PUBLIC
-    ${SMARTCAR_LIB}/motors/digital/servo
+    ${SMARTCAR_LIB}/motor/digital/servo
 )
 target_link_libraries(servomotor_test gtest gmock_main)
 add_test_and_coverage(SERVO_MOTOR_TEST servomotor_test)
@@ -169,7 +169,7 @@ add_executable(ackermancontrol_test
 )
 target_include_directories(ackermancontrol_test PUBLIC
     ${SMARTCAR_LIB}/control/ackerman
-    ${SMARTCAR_LIB}/motors
+    ${SMARTCAR_LIB}/motor
 )
 target_link_libraries(ackermancontrol_test gtest gmock_main)
 add_test_and_coverage(ACKERMAN_CONTROL_TEST ackermancontrol_test)
@@ -181,7 +181,7 @@ add_executable(differentialcontrol_test
 )
 target_include_directories(differentialcontrol_test PUBLIC
     ${SMARTCAR_LIB}/control/differential
-    ${SMARTCAR_LIB}/motors
+    ${SMARTCAR_LIB}/motor
 )
 target_link_libraries(differentialcontrol_test gtest gmock_main)
 add_test_and_coverage(DIFFERENTIAL_CONTROL_TEST differentialcontrol_test)

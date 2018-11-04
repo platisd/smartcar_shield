@@ -5,7 +5,7 @@
 #pragma once
 
 #include "../Control.hpp"
-#include "../../motors/Motor.hpp"
+#include "../../motor/Motor.hpp"
 
 class AckermanControl : public Control
 {

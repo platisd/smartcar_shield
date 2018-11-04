@@ -12,7 +12,7 @@ const float kMillisecondsInSecond    = 1000.0;
 const float kMillimetersInMeter      = 1000.0;
 } // namespace
 
-using namespace smartcarlib::constants::odometry;
+using namespace smartcarlib::constants::odometer;
 
 Odometer::Odometer(Runtime& runtime, unsigned long pulsesPerMeter)
     : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? pulsesPerMeter / 100.0f

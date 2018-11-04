@@ -14,11 +14,11 @@ namespace smartcarlib
 {
 namespace constants
 {
-namespace odometry
+namespace odometer
 {
 const int8_t kForward  = 1;
 const int8_t kBackward = -1;
-} // namespace odometry
+} // namespace odometer
 } // namespace constants
 } // namespace smartcarlib
 
@@ -30,13 +30,13 @@ public:
                         uint8_t pinStateWhenForward,
                         Runtime& runtime = arduinoRuntime,
                         unsigned long pulsesPerMeter
-                        = smartcarlib::constants::odometry::kDefaultPulsesPerMeter);
+                        = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
 #else
     DirectionalOdometer(uint8_t directionPin,
                         uint8_t pinStateWhenForward,
                         Runtime& runtime,
                         unsigned long pulsesPerMeter
-                        = smartcarlib::constants::odometry::kDefaultPulsesPerMeter);
+                        = smartcarlib::constants::odometer::kDefaultPulsesPerMeter);
 #endif
 
     /* Refer to parent class for documentation */

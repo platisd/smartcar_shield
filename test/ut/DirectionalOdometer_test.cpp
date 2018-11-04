@@ -119,14 +119,14 @@ TEST_F(DirectionalOdometerBasicTest, getDirection_WhenPinStateForward_WillReturn
 {
     EXPECT_CALL(mRuntime, getPinState(kDirectionPin)).WillOnce(Return(kPinStateWhenForward));
 
-    EXPECT_EQ(mDirectionalOdometer.getDirection(), smartcarlib::constants::odometry::kForward);
+    EXPECT_EQ(mDirectionalOdometer.getDirection(), smartcarlib::constants::odometer::kForward);
 }
 
 TEST_F(DirectionalOdometerBasicTest, getDirection_WhenPinStateBackward_WillReturnBackward)
 {
     EXPECT_CALL(mRuntime, getPinState(kDirectionPin)).WillOnce(Return(!kPinStateWhenForward));
 
-    EXPECT_EQ(mDirectionalOdometer.getDirection(), smartcarlib::constants::odometry::kBackward);
+    EXPECT_EQ(mDirectionalOdometer.getDirection(), smartcarlib::constants::odometer::kBackward);
 }
 
 TEST_F(DirectionalOdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistanceToZero)

@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include "../../motors/Motor.hpp"
+#include "../../motor/Motor.hpp"
 #include "../Control.hpp"
 
 class DifferentialControl : public Control
