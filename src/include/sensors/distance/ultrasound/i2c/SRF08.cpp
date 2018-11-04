@@ -18,22 +18,22 @@ SRF08::SRF08(uint8_t address, Runtime& runtime)
     : mAddress { address}
     , mRuntime{ runtime }
     , mPingDelay{ kDefaultPingDelay }
-    , mInitializedI2C { false }
+    , mAttached { false }
 {
 }
 
-void SRF08::initializeI2C()
+void SRF08::attach()
 {
-    if (!mInitializedI2C)
+    if (!mAttached)
     {
         mRuntime.i2cInit();
-        mInitializedI2C = true;
+        mAttached = true;
     }
 }
 
 unsigned int SRF08::getDistance()
 {
-    initializeI2C();
+    attach();
 
     static const uint8_t kFirstEchoHighByte      = 0x02;
     static const uint8_t kNumberOfBytesToRequest = 2;
@@ -77,7 +77,7 @@ unsigned int SRF08::getMedianDistance(uint8_t iterations)
 
 void SRF08::setGain(uint8_t gainValue)
 {
-    initializeI2C();
+    attach();
 
     static const uint8_t kGainRegister = 0x01;
     static const uint8_t kMinGain      = 0;
@@ -91,7 +91,7 @@ void SRF08::setGain(uint8_t gainValue)
 
 void SRF08::setRange(uint8_t range)
 {
-    initializeI2C();
+    attach();
 
     static const uint8_t kRangeRegister = 0x02;
 
@@ -110,7 +110,7 @@ unsigned long SRF08::setPingDelay(unsigned long milliseconds)
 
 uint8_t SRF08::getLightReading()
 {
-    initializeI2C();
+    attach();
 
     static const uint8_t kLightSensorByte        = 0x01;
     static const uint8_t kNumberOfBytesToRequest = 1;
@@ -134,7 +134,7 @@ uint8_t SRF08::getLightReading()
 
 uint8_t SRF08::changeAddress(uint8_t newAddress)
 {
-    initializeI2C();
+    attach();
 
     static const uint8_t kFirstInChangeAddressSequence  = 0xA0;
     static const uint8_t kSecondInChangeAddressSequence = 0xAA;

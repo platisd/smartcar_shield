@@ -88,7 +88,7 @@ private:
     uint8_t mAddress;
     Runtime& mRuntime;
     unsigned long mPingDelay;
-    bool mInitializedI2C;
+    bool mAttached;
 
-    void initializeI2C();
+    void attach();
 };
