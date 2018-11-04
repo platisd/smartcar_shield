@@ -23,7 +23,6 @@ namespace srf08
 {
 const uint8_t kDefaultIterations = 5;
 const uint8_t kDefaultPingDelay  = 70;
-const uint8_t kDefaultAddress    = 112;
 } // namespace srf08
 } // namespace constants
 } // namespace smartcarlib
@@ -32,9 +31,13 @@ class SRF08 : public DistanceSensor
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
-    SRF08(Runtime& runtime = arduinoRuntime);
+    /**
+     * Constructs an SRF08 sensor that communicates over I2C
+     * @param address I2C address which should be within the range of [112, 127]
+     */
+    SRF08(uint8_t address, Runtime& runtime = arduinoRuntime);
 #else
-    SRF08(Runtime& runtime);
+    SRF08(uint8_t address, Runtime& runtime);
 #endif
 
     /* Check `DistanceSensor` interface for documentation */
@@ -43,15 +46,6 @@ public:
     /* Check `DistanceSensor` interface for documentation */
     unsigned int getMedianDistance(uint8_t iterations
                                    = smartcarlib::constants::srf08::kDefaultIterations) override;
-
-    /**
-     * Initializes the I2C connection to the specific address. If the specified
-     * address is out of bounds then the higher of the lower limit will be chosen
-     * instead.
-     * @param  address I2C address [112, 127]
-     * @return         The I2C address the connection was initiated with
-     */
-    uint8_t attach(uint8_t address = smartcarlib::constants::srf08::kDefaultAddress);
 
     /**
      * Combined with the range setting affects how much time each measurement will last
@@ -84,14 +78,17 @@ public:
     uint8_t getLightReading();
 
     /**
-     * Changes the address of the specific SRF08 sensor
+     * Changes the address of the specific SRF08 sensor.
      * @param  newAddress New address to use [112, 127]
      * @return            The in-bounds address set for the sensor
      */
     uint8_t changeAddress(uint8_t newAddress);
 
 private:
-    Runtime& mRuntime;
     uint8_t mAddress;
+    Runtime& mRuntime;
     unsigned long mPingDelay;
+    bool mInitializedI2C;
+
+    void initializeI2C();
 };

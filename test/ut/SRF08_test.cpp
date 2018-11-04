@@ -16,13 +16,14 @@ const auto kErrorReading              = static_cast<unsigned int>(-1);
 const uint8_t kRangingCommandRegister = 0x00;
 const uint8_t kRangingInCm            = 0x51;
 const uint8_t kFirstEchoHighByte      = 0x02;
+const uint8_t kAddress                = 112;
 } // namespace
 
 class SRF08Test : public Test
 {
 public:
     SRF08Test()
-        : mSRF08{ mRuntime }
+        : mSRF08{ kAddress, mRuntime }
     {
     }
 
@@ -45,6 +46,14 @@ TEST_F(SRF08Test, getDistance_WhenBusNotAvailable_WillReturnError)
     EXPECT_CALL(mRuntime, i2cAvailable()).WillOnce(Return(0));
 
     EXPECT_EQ(mSRF08.getDistance(), kErrorReading);
+}
+
+TEST_F(SRF08Test, getDistance_WhenI2cNotInitialized_WillInitializeBusOnce)
+{
+    EXPECT_CALL(mRuntime, i2cInit());
+
+    mSRF08.getDistance();
+    mSRF08.getDistance();
 }
 
 TEST_F(SRF08Test, getDistance_WhenBusAvailable_WillReturnCorrectDistance)
@@ -88,14 +97,6 @@ TEST_F(SRF08Test, getMedianDistance_WhenCalled_WillMakeCorrectNumberOfMeasuremen
     mSRF08.getMedianDistance(expectedMeasurements);
 }
 
-TEST_F(SRF08Test, attach_WhenCalled_WillInitializeBus)
-{
-    uint8_t address = 115;
-    EXPECT_CALL(mRuntime, i2cInit());
-
-    EXPECT_EQ(mSRF08.attach(address), address);
-}
-
 TEST_F(SRF08Test, setGain_WhenCalled_WillSetGainRegister)
 {
     uint8_t gainValue    = 10;
@@ -108,6 +109,14 @@ TEST_F(SRF08Test, setGain_WhenCalled_WillSetGainRegister)
     }
 
     mSRF08.setGain(gainValue);
+}
+
+TEST_F(SRF08Test, setGain_WhenI2cNotInitialized_WillInitializeBusOnce)
+{
+    EXPECT_CALL(mRuntime, i2cInit());
+
+    mSRF08.setGain(0);
+    mSRF08.setGain(0);
 }
 
 TEST_F(SRF08Test, setRange_WhenCalled_WillSetRange)
@@ -124,11 +133,27 @@ TEST_F(SRF08Test, setRange_WhenCalled_WillSetRange)
     mSRF08.setRange(rangeValue);
 }
 
+TEST_F(SRF08Test, setRange_WhenI2cNotInitialized_WillInitializeBusOnce)
+{
+    EXPECT_CALL(mRuntime, i2cInit());
+
+    mSRF08.setRange(0);
+    mSRF08.setRange(0);
+}
+
 TEST_F(SRF08Test, setPingDelay_WhenCalled_WillReturnPingDelay)
 {
     unsigned long milliseconds = 100;
 
     EXPECT_EQ(mSRF08.setPingDelay(milliseconds), milliseconds);
+}
+
+TEST_F(SRF08Test, getLightReading_WhenI2cNotInitialized_WillInitializeBusOnce)
+{
+    EXPECT_CALL(mRuntime, i2cInit());
+
+    mSRF08.getLightReading();
+    mSRF08.getLightReading();
 }
 
 TEST_F(SRF08Test, getLightReading_WhenBusNotAvailable_WillReturnError)
@@ -159,6 +184,14 @@ TEST_F(SRF08Test, getLightReading_WhenBusAvailable_WillReturnLightReading)
     }
 
     EXPECT_EQ(mSRF08.getLightReading(), expectedLightReading);
+}
+
+TEST_F(SRF08Test, changeAddress_WhenI2cNotInitialized_WillInitializeBusOnce)
+{
+    EXPECT_CALL(mRuntime, i2cInit());
+
+    mSRF08.changeAddress(113);
+    mSRF08.changeAddress(114);
 }
 
 TEST_F(SRF08Test, changeAddress_WhenCalled_WillChangeAddress)

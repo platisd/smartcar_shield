@@ -14,15 +14,27 @@ const uint8_t kRangingInCm            = 0x51;
 using namespace smartcarlib::constants::srf08;
 using namespace smartcarlib::utils;
 
-SRF08::SRF08(Runtime& runtime)
-    : mRuntime{ runtime }
-    , mAddress{ kDefaultAddress }
+SRF08::SRF08(uint8_t address, Runtime& runtime)
+    : mAddress { address}
+    , mRuntime{ runtime }
     , mPingDelay{ kDefaultPingDelay }
+    , mInitializedI2C { false }
 {
+}
+
+void SRF08::initializeI2C()
+{
+    if (!mInitializedI2C)
+    {
+        mRuntime.i2cInit();
+        mInitializedI2C = true;
+    }
 }
 
 unsigned int SRF08::getDistance()
 {
+    initializeI2C();
+
     static const uint8_t kFirstEchoHighByte      = 0x02;
     static const uint8_t kNumberOfBytesToRequest = 2;
 
@@ -63,16 +75,10 @@ unsigned int SRF08::getMedianDistance(uint8_t iterations)
     return getMedian(measurements, iterations);
 }
 
-uint8_t SRF08::attach(uint8_t address)
-{
-    mRuntime.i2cInit();
-    mAddress = getConstrain(address, kFirstAddress, kLastAddress);
-
-    return mAddress;
-}
-
 void SRF08::setGain(uint8_t gainValue)
 {
+    initializeI2C();
+
     static const uint8_t kGainRegister = 0x01;
     static const uint8_t kMinGain      = 0;
     static const uint8_t kMaxGain      = 31;
@@ -85,6 +91,8 @@ void SRF08::setGain(uint8_t gainValue)
 
 void SRF08::setRange(uint8_t range)
 {
+    initializeI2C();
+
     static const uint8_t kRangeRegister = 0x02;
 
     mRuntime.i2cBeginTransmission(mAddress);
@@ -102,6 +110,8 @@ unsigned long SRF08::setPingDelay(unsigned long milliseconds)
 
 uint8_t SRF08::getLightReading()
 {
+    initializeI2C();
+
     static const uint8_t kLightSensorByte        = 0x01;
     static const uint8_t kNumberOfBytesToRequest = 1;
 
@@ -124,6 +134,8 @@ uint8_t SRF08::getLightReading()
 
 uint8_t SRF08::changeAddress(uint8_t newAddress)
 {
+    initializeI2C();
+
     static const uint8_t kFirstInChangeAddressSequence  = 0xA0;
     static const uint8_t kSecondInChangeAddressSequence = 0xAA;
     static const uint8_t kThirdInChangeAddressSequence  = 0xA5;
