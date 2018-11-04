@@ -109,7 +109,7 @@ add_test_and_coverage(SHARP_IR_SENSORS_TEST sharpsensors_test)
 # DirectionlessOdometer test
 add_executable(directionlessodometer_test
     ${SMARTCAR_LIB}/sensors/odometer/interrupt/DirectionlessOdometer.cpp
-    ${UNIT_TESTS}/Odometer_test.cpp
+    ${UNIT_TESTS}/DirectionlessOdometer_test.cpp
 )
 target_include_directories(directionlessodometer_test PUBLIC
     ${SMARTCAR_LIB}/sensors/odometer/interrupt
