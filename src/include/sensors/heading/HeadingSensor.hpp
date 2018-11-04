@@ -16,7 +16,8 @@ public:
     virtual unsigned int getHeading() = 0;
 
     /**
-     * Updates the sensor's readings (if necessary)
+     * Updates the sensor's readings. If this is necessary this must be be able
+     * to be executed as often as possible.
      */
     virtual void update() = 0;
 };

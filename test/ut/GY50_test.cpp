@@ -9,23 +9,21 @@ using namespace ::testing;
 namespace
 {
 const uint8_t kGyroAddress = 105;
-const int kError           = -32768;
+const int kOffset          = 8;
 } // namespace
 
 class GY50BasicTest : public Test
 {
 public:
-    GY50BasicTest(int offset             = smartcarlib::constants::gy50::kDefaultOffset,
+    GY50BasicTest(int offset             = kOffset,
                   unsigned long interval = smartcarlib::constants::gy50::kDefaultSamplingInterval)
         : mGyro{ offset, interval, mRuntime }
-        , kOffset{ offset }
         , kInterval{ interval }
     {
     }
 
     NiceMock<MockRuntime> mRuntime;
     GY50 mGyro;
-    const int kOffset;
     const unsigned long kInterval;
 };
 
@@ -34,7 +32,9 @@ class GY50AttachedTest : public GY50BasicTest
 public:
     virtual void SetUp()
     {
-        mGyro.attach();
+        // Make sure the sensor is attached so it does not interfer with the
+        // rest of our test logic
+        mGyro.getOffset(1);
     }
 };
 
@@ -42,17 +42,12 @@ class GY50ZeroIntervalTest : public GY50BasicTest
 {
 public:
     GY50ZeroIntervalTest()
-        : GY50BasicTest{ smartcarlib::constants::gy50::kDefaultOffset, 0 }
+        : GY50BasicTest{ kOffset, 0 }
     {
-    }
-
-    virtual void SetUp()
-    {
-        mGyro.attach();
     }
 };
 
-TEST_F(GY50BasicTest, attach_WhenCalled_WillSetupSensorViaI2C)
+TEST_F(GY50BasicTest, update_WhenCalled_WillSetupSensorViaI2COnce)
 {
     uint8_t controlRegister1 = 0x20;
     uint8_t controlRegister2 = 0x21;
@@ -60,30 +55,24 @@ TEST_F(GY50BasicTest, attach_WhenCalled_WillSetupSensorViaI2C)
     uint8_t controlRegister4 = 0x23;
     uint8_t controlRegister5 = 0x24;
 
+    EXPECT_CALL(mRuntime, currentTimeMillis()).Times(2).WillRepeatedly(Return(kInterval + 1));
     EXPECT_CALL(mRuntime, i2cInit());
+    // More i2c calls due to `update()`
     EXPECT_CALL(mRuntime, i2cBeginTransmission(kGyroAddress)).Times(AtLeast(1));
     EXPECT_CALL(mRuntime, i2cEndTransmission()).Times(AtLeast(1));
-    EXPECT_CALL(mRuntime, i2cWrite(_)).Times(5); // Writing a value for each register
+    EXPECT_CALL(mRuntime, i2cWrite(_)).Times(AtLeast(1));
     EXPECT_CALL(mRuntime, i2cWrite(controlRegister1));
     EXPECT_CALL(mRuntime, i2cWrite(controlRegister2));
     EXPECT_CALL(mRuntime, i2cWrite(controlRegister3));
     EXPECT_CALL(mRuntime, i2cWrite(controlRegister4));
     EXPECT_CALL(mRuntime, i2cWrite(controlRegister5));
 
-    mGyro.attach();
-}
-
-TEST_F(GY50BasicTest, update_WhenNotAttached_WillDoNothing)
-{
-    EXPECT_CALL(mRuntime, i2cWrite(_)).Times(0);
-
+    mGyro.update();
     mGyro.update();
 }
 
 TEST_F(GY50BasicTest, update_WhenNotTimeToRun_WillDoNothing)
 {
-    mGyro.attach();
-
     EXPECT_CALL(mRuntime, i2cWrite(_)).Times(0);
     EXPECT_CALL(mRuntime, currentTimeMillis()).WillOnce(Return(kInterval));
 
@@ -123,13 +112,6 @@ TEST_F(GY50AttachedTest, update_WhenTimeToRun_WillGetAngularVelocityViaI2C)
     EXPECT_CALL(mRuntime, i2cRead()).Times(2);
 
     mGyro.update();
-}
-
-TEST_F(GY50BasicTest, getHeading_WhenNotAttached_WillReturnError)
-{
-    EXPECT_CALL(mRuntime, i2cWrite(_)).Times(0);
-
-    EXPECT_EQ(mGyro.getHeading(), kError);
 }
 
 TEST_F(GY50AttachedTest, getHeading_WhenI2CNotAvailable_WillReturnZeroDegrees)
@@ -208,21 +190,28 @@ TEST_F(GY50AttachedTest, getHeading_WhenNegativeAngularVelocity_WillReturnCompli
     EXPECT_EQ(359, mGyro.getHeading()); // -1 + 360
 }
 
-TEST_F(GY50BasicTest, getOffset_WhenNotAttached_WillReturnError)
-{
-    EXPECT_CALL(mRuntime, i2cWrite(_)).Times(0);
-
-    EXPECT_EQ(mGyro.getOffset(), kError);
-}
-
 TEST_F(GY50AttachedTest, getOffset_WhenInvalidArgument_WillReturnError)
 {
     EXPECT_CALL(mRuntime, i2cWrite(_)).Times(0);
 
-    EXPECT_EQ(mGyro.getOffset(0), kError);
+    EXPECT_EQ(mGyro.getOffset(0), smartcarlib::constants::gy50::kError);
 }
 
-TEST_F(GY50AttachedTest, getOffset_WhenAttached_WillReturnCorrectAverageOfMeasurements)
+TEST_F(GY50BasicTest, getOffset_WhenCalled_WillSetupSensorViaI2COnce)
+{
+    uint8_t controlRegister1 = 0x20;
+    uint8_t controlRegister2 = 0x21;
+    uint8_t controlRegister3 = 0x22;
+    uint8_t controlRegister4 = 0x23;
+    uint8_t controlRegister5 = 0x24;
+
+    EXPECT_CALL(mRuntime, i2cInit()).Times(1);
+
+    mGyro.getOffset(1);
+    mGyro.getOffset(1);
+}
+
+TEST_F(GY50BasicTest, getOffset_WhenCalled_WillReturnCorrectAverageOfMeasurements)
 {
     unsigned int measurements = 100;
     int msb                   = 0;

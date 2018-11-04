@@ -10,16 +10,15 @@
 namespace
 {
 const uint8_t kGyroAddress = 105;
-const int kError           = -32768;
 } // namespace
 
 using namespace smartcarlib::utils;
+using namespace smartcarlib::constants::gy50;
 
 GY50::GY50(int offset, unsigned long samplingInterval, Runtime& runtime)
     : kOffset{ offset }
     , kSamplingInterval{ samplingInterval }
     , mRuntime{ runtime }
-    , mInterval{ smartcarlib::constants::gy50::kDefaultSamplingInterval }
     , mPreviousSample{ 0 }
     , mAttached{ false }
     , mAngularDisplacement{ 0 }
@@ -28,11 +27,6 @@ GY50::GY50(int offset, unsigned long samplingInterval, Runtime& runtime)
 
 unsigned int GY50::getHeading()
 {
-    if (!mAttached)
-    {
-        return kError;
-    }
-
     // Get the reading from (-180,180) to [0, 360) scale
     auto normalizedReading = static_cast<int>(mAngularDisplacement) % 360;
     return normalizedReading < 0 ? normalizedReading + 360 : normalizedReading;
@@ -40,11 +34,6 @@ unsigned int GY50::getHeading()
 
 void GY50::update()
 {
-    if (!mAttached)
-    {
-        return;
-    }
-
     unsigned long currentTime = mRuntime.currentTimeMillis();
     unsigned long interval    = currentTime - mPreviousSample;
     if (interval <= kSamplingInterval)
@@ -66,6 +55,11 @@ void GY50::update()
 
 void GY50::attach()
 {
+    if (mAttached)
+    {
+        return;
+    }
+
     static const uint8_t controlRegister1 = 0x20;
     static const uint8_t controlRegister2 = 0x21;
     static const uint8_t controlRegister3 = 0x22;
@@ -91,7 +85,7 @@ void GY50::attach()
 
 int GY50::getOffset(unsigned int measurements)
 {
-    if (measurements == 0 || !mAttached)
+    if (measurements == 0)
     {
         return kError;
     }
@@ -109,6 +103,8 @@ int GY50::getOffset(unsigned int measurements)
 
 int GY50::getAngularVelocity()
 {
+    attach();
+
     static const uint8_t zAxisFirstByteRegister  = 0x2D;
     static const uint8_t zAxisSecondByteRegister = 0x2C;
 

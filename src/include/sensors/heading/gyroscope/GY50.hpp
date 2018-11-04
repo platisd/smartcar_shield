@@ -16,8 +16,8 @@ namespace constants
 {
 namespace gy50
 {
-const int kDefaultOffset                           = 8;   // Sensor measurement when standing still
-const uint8_t kDefaultSamplingInterval             = 100; // In milliseconds
+const uint8_t kDefaultSamplingInterval             = 100;
+const int kError                                   = -32767;
 const unsigned int kDefaultCalibrationMeasurements = 100;
 } // namespace gy50
 } // namespace constants
@@ -27,7 +27,13 @@ class GY50 : public HeadingSensor
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
-    GY50(int offset                     = smartcarlib::constants::gy50::kDefaultOffset,
+    /**
+     * Constructs a GY50 gyroscope
+     * @param offset           The sensor-specific measurement value when idle.
+     *                         Find the value for your sensing with `getOffset`.
+     * @param samplingInterval How often to upate the heading
+     */
+    GY50(int offset,
          unsigned long samplingInterval = smartcarlib::constants::gy50::kDefaultSamplingInterval,
          Runtime& runtime               = arduinoRuntime);
 #else
@@ -41,11 +47,6 @@ public:
     void update() override;
 
     /**
-     * Initializes the connection to the sensor
-     */
-    void attach();
-
-    /**
      * Get the sensor's offset which is the value the sensor returns when still
      * @param  measurements The amount of measurements to conduct to determine the offset
      * @return              The sensor's offset
@@ -57,11 +58,11 @@ private:
     const int kOffset;
     const unsigned long kSamplingInterval;
     Runtime& mRuntime;
-    uint8_t mInterval;
     unsigned long mPreviousSample;
     bool mAttached;
     float mAngularDisplacement;
 
+    void attach();
     int getAngularVelocity();
     int readL3G4200DRegister(uint8_t registerAddress);
     void writeL3G4200DRegister(uint8_t registerAddress, uint8_t value);
