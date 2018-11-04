@@ -8,6 +8,7 @@
 #include <stdint.h>
 
 #include "../../../runtime/Runtime.hpp"
+#include "../Odometer.hpp"
 
 #ifndef PLATFORM_AGNOSTIC_BUILD
 #include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
@@ -25,7 +26,7 @@ const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
 } // namespace constants
 } // namespace smartcarlib
 
-class DirectionlessOdometer
+class DirectionlessOdometer : public Odometer
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
@@ -33,11 +34,10 @@ public:
                           = smartcarlib::constants::odometer::kDefaultPulsesPerMeter,
                           Runtime& runtime = arduinoRuntime);
 #else
-    DirectionlessOdometer(unsigned long pulsesPerMeter,
-                          Runtime& runtime);
+    DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime);
 #endif
 
-    ~DirectionlessOdometer() = default;
+    virtual ~DirectionlessOdometer() = default;
 
     /**
      * Initializes the Odometer to receive pulses from the specified pin
@@ -49,17 +49,11 @@ public:
      */
     virtual bool attach(uint8_t pin, void (*callback)());
 
-    /**
-     * Returns the total travelled distance in centimeters
-     * @return The total travelled distance in centimeters
-     */
-    unsigned long getDistance();
+    /* Check `Odometer` interface for documentation */
+    unsigned long getDistance() override;
 
-    /**
-     * Returns the current absolute speed in meters/sec
-     * @return The absolute speed in meters/sec
-     */
-    float getSpeed();
+    /* Check `Odometer` interface for documentation */
+    float getSpeed() override;
 
     /**
      * Resets the total travelled distance and speed to `0`

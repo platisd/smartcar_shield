@@ -35,13 +35,13 @@ public:
                         Runtime& runtime);
 #endif
 
-    /* Refer to parent class for documentation */
+    /* Check `DirectionlessOdometer` for documentation */
     bool attach(uint8_t pin, void (*callback)()) override;
 
-    /* Refer to parent class for documentation */
+    /* Check `DirectionlessOdometer` for documentation */
     void reset() override;
 
-    /* Refer to parent class for documentation */
+    /* Check `DirectionlessOdometer` for documentation */
     void update() override;
 
     /**
