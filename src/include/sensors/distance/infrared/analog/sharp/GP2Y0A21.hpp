@@ -14,13 +14,20 @@ extern ArduinoRuntime arduinoRuntime;
 class GP2Y0A21 : public InfraredAnalogSensor
 {
 public:
-    #ifndef PLATFORM_AGNOSTIC_BUILD
-        GP2Y0A21(Runtime& runtime = arduinoRuntime);
-    #else
-        GP2Y0A21(Runtime& runtime);
-    #endif
+#ifndef PLATFORM_AGNOSTIC_BUILD
+    /**
+     * Constructs a GP2Y0A21 sensor
+     * @param pin   The analog pin receiving sensor signals
+     */
+    GP2Y0A21(uint8_t pin, Runtime& runtime = arduinoRuntime);
+#else
+    GP2Y0A21(uint8_t pin, Runtime& runtime);
+#endif
+
+    /* Check `DistanceSensor` interface for documentation */
     unsigned int getDistance() override;
 
 private:
+    const uint8_t kPin;
     Runtime& mRuntime;
 };

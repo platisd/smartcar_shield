@@ -24,13 +24,6 @@ public:
     NiceMock<MockInfraredAnalogSensor> mInfraredAnalogSensor;
 };
 
-TEST_F(InfraredAnalogSensorTest, attach_WhenCalled_WillNotCrash)
-{
-    // Nothing to test here in this context, doing this for the coverage
-    uint8_t pin = 12;
-    mInfraredAnalogSensor.attach(12);
-}
-
 TEST_F(InfraredAnalogSensorTest, getMedianDistance_WhenNoIterations_WillReturnError)
 {
     uint8_t expectedMeasurements = 0;
