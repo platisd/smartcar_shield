@@ -17,64 +17,64 @@ const uint8_t kInput                       = 0;
 const unsigned long kMinimumPulseGap       = 700;
 } // namespace
 
-class OdometerBasicTest : public Test
+class DirectionlessOdometerBasicTest : public Test
 {
 public:
-    OdometerBasicTest(unsigned long pulsesPerMeter = kDefaultPulsesPerMeter)
-        : mOdometer(pulsesPerMeter, mRuntime)
+    DirectionlessOdometerBasicTest(unsigned long pulsesPerMeter = kDefaultPulsesPerMeter)
+        : mDirectionlessOdometer(pulsesPerMeter, mRuntime)
     {
     }
 
     NiceMock<MockRuntime> mRuntime;
-    DirectionlessOdometer mOdometer;
+    DirectionlessOdometer mDirectionlessOdometer;
 };
 
-class OdometerNotAttachedTest : public OdometerBasicTest
+class DirectionlessOdometerNotAttachedTest : public DirectionlessOdometerBasicTest
 {
 public:
-    OdometerNotAttachedTest()
-        : OdometerBasicTest(kDefaultPulsesPerMeter)
+    DirectionlessOdometerNotAttachedTest()
+        : DirectionlessOdometerBasicTest(kDefaultPulsesPerMeter)
     {
     }
 
     virtual void SetUp()
     {
         ON_CALL(mRuntime, pinToInterrupt(_)).WillByDefault(Return(kNotAnInterrupt));
-        mOdometer.attach(1, []() {});
+        mDirectionlessOdometer.attach(1, []() {});
     }
 };
 
-class OdometerAttachedTest : public OdometerBasicTest
+class DirectionlessOdometerAttachedTest : public DirectionlessOdometerBasicTest
 {
 public:
     virtual void SetUp()
     {
         ON_CALL(mRuntime, pinToInterrupt(_)).WillByDefault(Return(kAnInterrupt));
-        mOdometer.attach(1, []() {});
+        mDirectionlessOdometer.attach(1, []() {});
     }
 };
 
-class OdometerBadPulsesPerMeter : public OdometerBasicTest
+class DirectionlessOdometerBadPulsesPerMeter : public DirectionlessOdometerBasicTest
 {
 public:
-    OdometerBadPulsesPerMeter() : OdometerBasicTest(0) {}
+    DirectionlessOdometerBadPulsesPerMeter() : DirectionlessOdometerBasicTest(0) {}
 };
 
-TEST_F(OdometerBadPulsesPerMeter, constructor_WhenCalledWithZeroPulsesPerMeter_WillNotDivideByZero)
+TEST_F(DirectionlessOdometerBadPulsesPerMeter, constructor_WhenCalledWithZeroPulsesPerMeter_WillNotDivideByZero)
 {
     // Providing `0` as the argument to pulses per meter should not cause the constructor
     // to crash due to a division by zero
 }
 
-TEST_F(OdometerBasicTest, attach_WhenInvalidPin_WillReturnFalse)
+TEST_F(DirectionlessOdometerBasicTest, attach_WhenInvalidPin_WillReturnFalse)
 {
     EXPECT_CALL(mRuntime, pinToInterrupt(_)).WillOnce(Return(kNotAnInterrupt));
     EXPECT_CALL(mRuntime, setInterrupt(_, _, _)).Times(0);
 
-    EXPECT_FALSE(mOdometer.attach(0, []() {}));
+    EXPECT_FALSE(mDirectionlessOdometer.attach(0, []() {}));
 }
 
-TEST_F(OdometerBasicTest, attach_WhenValidInterruptPin_WillSetUpPinAndInterrupt)
+TEST_F(DirectionlessOdometerBasicTest, attach_WhenValidInterruptPin_WillSetUpPinAndInterrupt)
 {
     static auto counter          = 0; // Declared as `static` for captureless lambda
     auto pin                     = 1;
@@ -85,7 +85,7 @@ TEST_F(OdometerBasicTest, attach_WhenValidInterruptPin_WillSetUpPinAndInterrupt)
     EXPECT_CALL(mRuntime, pinToInterrupt(_)).WillOnce(Return(kAnInterrupt));
     EXPECT_CALL(mRuntime, setInterrupt(pin, _, kRisingEdge)).WillOnce(SaveArg<1>(&expectedIsr));
 
-    EXPECT_TRUE(mOdometer.attach(pin, interruptServiceRoutine));
+    EXPECT_TRUE(mDirectionlessOdometer.attach(pin, interruptServiceRoutine));
 
     // Check if the correct callback was passed
     auto expectedCounterValue = counter + 1;
@@ -93,13 +93,13 @@ TEST_F(OdometerBasicTest, attach_WhenValidInterruptPin_WillSetUpPinAndInterrupt)
     EXPECT_EQ(expectedCounterValue, counter);
 }
 
-TEST_F(OdometerNotAttachedTest, getDistance_WhenNotAttached_WillReturnError)
+TEST_F(DirectionlessOdometerNotAttachedTest, getDistance_WhenNotAttached_WillReturnError)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_EQ(mOdometer.getDistance(), kErrorReading);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), kErrorReading);
 }
 
-TEST_F(OdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
+TEST_F(DirectionlessOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
 {
     // Simulate the triggering of the callback for as many pulses constitute a meter
     unsigned long oneMillisecondInterval = 1000;
@@ -108,27 +108,27 @@ TEST_F(OdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
         // Simulate pulses at 1 millisecond interval
         EXPECT_CALL(mRuntime, currentTimeMicros())
             .WillOnce(Return((i + 1) * oneMillisecondInterval));
-        mOdometer.update();
+        mDirectionlessOdometer.update();
     }
 
     // The expected distance in cm is (pulses/pulsesPerMeter) * centimetersPerMeter
     unsigned long expectedDistance = 100;
-    EXPECT_EQ(mOdometer.getDistance(), expectedDistance);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), expectedDistance);
 }
 
-TEST_F(OdometerNotAttachedTest, getSpeed_WhenNotAttached_WillReturnError)
+TEST_F(DirectionlessOdometerNotAttachedTest, getSpeed_WhenNotAttached_WillReturnError)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), 0);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
 }
 
-TEST_F(OdometerAttachedTest, getSpeed_WhenNoPulses_WillNotCrashAndReturnZero)
+TEST_F(DirectionlessOdometerAttachedTest, getSpeed_WhenNoPulses_WillNotCrashAndReturnZero)
 {
     // Verify we did not divide by the current dT which is 0
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), 0);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
 }
 
-TEST_F(OdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpeed)
+TEST_F(DirectionlessOdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpeed)
 {
     unsigned long firstPulse  = 1000;
     unsigned long secondPulse = 21000;
@@ -137,16 +137,16 @@ TEST_F(OdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpeed)
         EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));
         EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(secondPulse));
     }
-    mOdometer.update();
-    mOdometer.update();
+    mDirectionlessOdometer.update();
+    mDirectionlessOdometer.update();
 
     // The expected speed in m/s is millisecondsInSecond * (millimetersPerPulse) / dt
     // where millimetersPerPulse is millimetersInMeter / pulsesPerMeter
     float expectedSpeed = 0.5;
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), expectedSpeed);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), expectedSpeed);
 }
 
-TEST_F(OdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistanceToZero)
+TEST_F(DirectionlessOdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistanceToZero)
 {
     unsigned long firstPulse  = 1000;
     unsigned long secondPulse = 21000;
@@ -155,21 +155,21 @@ TEST_F(OdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistanceToZero)
         EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));
         EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(secondPulse));
     }
-    mOdometer.update();
-    mOdometer.update();
-    mOdometer.reset();
+    mDirectionlessOdometer.update();
+    mDirectionlessOdometer.update();
+    mDirectionlessOdometer.reset();
 
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), 0);
-    EXPECT_EQ(mOdometer.getDistance(), 0);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), 0);
 }
 
-TEST_F(OdometerNotAttachedTest, update_WhenNotAttached_WillDoNothing)
+TEST_F(DirectionlessOdometerNotAttachedTest, update_WhenNotAttached_WillDoNothing)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    mOdometer.update();
+    mDirectionlessOdometer.update();
 }
 
-TEST_F(OdometerAttachedTest, update_WhenPulsesTooClose_WillIgnorePulses)
+TEST_F(DirectionlessOdometerAttachedTest, update_WhenPulsesTooClose_WillIgnorePulses)
 {
     unsigned long firstPulse         = 1000;
     unsigned long secondPulse        = 21000;
@@ -181,35 +181,35 @@ TEST_F(OdometerAttachedTest, update_WhenPulsesTooClose_WillIgnorePulses)
         EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(thirdPulseTooClose));
     }
     // Two pulses arrive well-spaced from each other
-    mOdometer.update();
-    mOdometer.update();
-    auto initialSpeed    = mOdometer.getSpeed();
-    auto initialDistance = mOdometer.getDistance();
+    mDirectionlessOdometer.update();
+    mDirectionlessOdometer.update();
+    auto initialSpeed    = mDirectionlessOdometer.getSpeed();
+    auto initialDistance = mDirectionlessOdometer.getDistance();
     // Third pulse arrives too fast and thus should be ignored
-    mOdometer.update();
+    mDirectionlessOdometer.update();
 
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), initialSpeed);
-    EXPECT_EQ(mOdometer.getDistance(), initialDistance);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), initialSpeed);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), initialDistance);
 }
 
-TEST_F(OdometerAttachedTest, update_WhenFirstPulseArrives_WillCalculateDistanceButNotSpeed)
+TEST_F(DirectionlessOdometerAttachedTest, update_WhenFirstPulseArrives_WillCalculateDistanceButNotSpeed)
 {
     unsigned long firstPulse = 2000;
     EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));
-    mOdometer.update();
+    mDirectionlessOdometer.update();
 
     auto expectedDistance = 1;
-    EXPECT_EQ(mOdometer.getDistance(), expectedDistance);
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), 0);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), expectedDistance);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
 }
 
-TEST_F(OdometerAttachedTest, update_WhenFirstPulseArrivesFast_WillCalculateDistanceButNotSpeed)
+TEST_F(DirectionlessOdometerAttachedTest, update_WhenFirstPulseArrivesFast_WillCalculateDistanceButNotSpeed)
 {
     unsigned long firstPulse = kMinimumPulseGap - 1;
     EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));
-    mOdometer.update();
+    mDirectionlessOdometer.update();
 
     auto expectedDistance = 1;
-    EXPECT_EQ(mOdometer.getDistance(), expectedDistance);
-    EXPECT_FLOAT_EQ(mOdometer.getSpeed(), 0);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), expectedDistance);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
 }
