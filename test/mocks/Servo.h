@@ -26,19 +26,11 @@ class Servo
 public:
     void attach(uint8_t pin, int maxPulseLength, int minPulseLength)
     {
-        if (!mMockServo)
-        {
-            throw std::logic_error("No mockServo attached! Please set the mMockServo with a MockServo shared pointer.");
-        }
         mMockServo->attach(pin, maxPulseLength, minPulseLength);
     }
 
     void writeMicroseconds(int microseconds)
     {
-        if (!mMockServo)
-        {
-            throw std::logic_error("No mockServo attached! Please set the mMockServo with a MockServo shared pointer.");
-        }
         mMockServo->writeMicroseconds(microseconds);
     }
 
