@@ -128,3 +128,20 @@ TEST_F(DirectionalOdometerBasicTest, getDirection_WhenPinStateBackward_WillRetur
 
     EXPECT_EQ(mDirectionalOdometer.getDirection(), smartcarlib::constants::odometry::kBackward);
 }
+
+TEST_F(DirectionalOdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistanceToZero)
+{
+    unsigned long firstPulse  = 1000;
+    unsigned long secondPulse = 21000;
+    {
+        InSequence seq;
+        EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));
+        EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(secondPulse));
+    }
+    mDirectionalOdometer.update();
+    mDirectionalOdometer.update();
+    mDirectionalOdometer.reset();
+
+    EXPECT_FLOAT_EQ(mDirectionalOdometer.getSpeed(), 0);
+    EXPECT_EQ(mDirectionalOdometer.getRelativeDistance(), 0);
+}
