@@ -1,3 +1,5 @@
+# Set language to `none` because if set to `cpp` CXX and C environment variables
+# are overriden with those of older versions
 language: none
 
 env:
