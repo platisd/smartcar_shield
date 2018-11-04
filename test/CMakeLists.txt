@@ -3,7 +3,7 @@ project(Smartcar_Tests)
 
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(UNIT_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/ut)
-set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src/include)
+set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # Coverage
