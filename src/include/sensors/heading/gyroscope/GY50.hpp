@@ -16,9 +16,9 @@ namespace constants
 {
 namespace gy50
 {
-const int kDefaultOffset                  = 8;   // Sensor measurement when standing still
-const uint8_t kDefaultSamplingInterval    = 100; // In milliseconds
-const int kDefaultCalibrationMeasurements = 100;
+const int kDefaultOffset                           = 8;   // Sensor measurement when standing still
+const uint8_t kDefaultSamplingInterval             = 100; // In milliseconds
+const unsigned int kDefaultCalibrationMeasurements = 100;
 } // namespace gy50
 } // namespace constants
 } // namespace smartcarlib
@@ -50,7 +50,8 @@ public:
      * @param  measurements The amount of measurements to conduct to determine the offset
      * @return              The sensor's offset
      */
-    int getOffset(int measurements = smartcarlib::constants::gy50::kDefaultCalibrationMeasurements);
+    int getOffset(unsigned int measurements
+                  = smartcarlib::constants::gy50::kDefaultCalibrationMeasurements);
 
 private:
     const int kOffset;

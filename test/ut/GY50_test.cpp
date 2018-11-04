@@ -221,3 +221,26 @@ TEST_F(GY50AttachedTest, getOffset_WhenInvalidArgument_WillReturnError)
 
     EXPECT_EQ(mGyro.getOffset(0), kError);
 }
+
+TEST_F(GY50AttachedTest, getOffset_WhenAttached_WillReturnCorrectAverageOfMeasurements)
+{
+    unsigned int measurements = 100;
+    int msb                   = 0;
+    int highMeasurement       = 560;
+    int lowMeasurement        = -120;
+    int expectedOffset        = (lowMeasurement + highMeasurement) / 2;
+    int step                  = 0;
+    int token                 = 0;
+    auto mockReader           = [&step, &token, highMeasurement, lowMeasurement, msb]() {
+        auto measurement
+            = step++ % 2 == 0 ? msb : (token++ % 2 == 0 ? highMeasurement : lowMeasurement);
+        return measurement;
+    };
+    ON_CALL(mRuntime, i2cAvailable()).WillByDefault(Return(1));
+
+    EXPECT_CALL(mRuntime, i2cRead())
+        .Times(measurements * 2) // Two i2c calls per run
+        .WillRepeatedly(InvokeWithoutArgs(mockReader));
+
+    EXPECT_EQ(mGyro.getOffset(measurements), expectedOffset);
+}

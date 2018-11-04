@@ -89,7 +89,7 @@ void GY50::attach()
     mAttached = true;
 }
 
-int GY50::getOffset(int measurements)
+int GY50::getOffset(unsigned int measurements)
 {
     if (measurements == 0 || !mAttached)
     {
