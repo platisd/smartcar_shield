@@ -74,6 +74,13 @@ public:
     GP2Y0A02 mGP2Y0A02;
 };
 
+TEST_F(GP2Y0A02Test, getDistance_WhenSensorNotAttached_WillReturnError)
+{
+    EXPECT_CALL(mRuntime, getAnalogPinState(_)).Times(0);
+
+    EXPECT_EQ(mGP2Y0A02.getDistance(), kErrorReading);
+}
+
 TEST_F(GP2Y0A02Test, getDistance_WhenReadingTooLow_WillReturnZero)
 {
     uint8_t pin = 3;
@@ -115,6 +122,13 @@ public:
     NiceMock<MockRuntime> mRuntime;
     GP2Y0A21 mGP2Y0A21;
 };
+
+TEST_F(GP2Y0A21Test, getDistance_WhenSensorNotAttached_WillReturnError)
+{
+    EXPECT_CALL(mRuntime, getAnalogPinState(_)).Times(0);
+
+    EXPECT_EQ(mGP2Y0A21.getDistance(), kErrorReading);
+}
 
 TEST_F(GP2Y0A21Test, getDistance_WhenReadingTooLow_WillReturnZero)
 {
