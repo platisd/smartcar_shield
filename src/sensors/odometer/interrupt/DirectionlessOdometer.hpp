@@ -15,21 +15,14 @@
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
-namespace smartcarlib
-{
-namespace constants
-{
-namespace odometer
-{
-const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
-} // namespace odometer
-} // namespace constants
-} // namespace smartcarlib
-
 class DirectionlessOdometer : public Odometer
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
+    /**
+     * Constructs an odometer that can measure distance, speed but not direction
+     * @param pulsesPerMeter The amount of odometer pulses that constitute a meter
+     */
     DirectionlessOdometer(unsigned long pulsesPerMeter
                           = smartcarlib::constants::odometer::kDefaultPulsesPerMeter,
                           Runtime& runtime = arduinoRuntime);
@@ -50,10 +43,13 @@ public:
     virtual bool attach(uint8_t pin, void (*callback)());
 
     /* Check `Odometer` interface for documentation */
-    unsigned long getDistance() override;
+    long getDistance() override;
 
     /* Check `Odometer` interface for documentation */
     float getSpeed() override;
+
+    /* Check `Odometer` interface for documentation */
+    bool isAttached() override;
 
     /**
      * Resets the total travelled distance and speed to `0`

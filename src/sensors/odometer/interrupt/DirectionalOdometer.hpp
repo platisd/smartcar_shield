@@ -7,22 +7,16 @@
 
 #include "DirectionlessOdometer.hpp"
 
-namespace smartcarlib
-{
-namespace constants
-{
-namespace odometer
-{
-const int8_t kForward  = 1;
-const int8_t kBackward = -1;
-} // namespace odometer
-} // namespace constants
-} // namespace smartcarlib
-
 class DirectionalOdometer : public DirectionlessOdometer
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD
+    /**
+     * Constructs an odometer that can measure distance, speed and direction
+     * @param directionPin        The pin that receives the direction signal
+     * @param pinStateWhenForward The direction pin state when moving forward
+     * @param pulsesPerMeter       The amount of odometer pulses that constitute a meter
+     */
     DirectionalOdometer(uint8_t directionPin,
                         uint8_t pinStateWhenForward,
                         unsigned long pulsesPerMeter
@@ -44,12 +38,11 @@ public:
     /* Check `DirectionlessOdometer` for documentation */
     void update() override;
 
-    /**
-     * Get the relative travelled distance since the sensor was attached or resetted
-     * @return The travelled distance in centimeters. A positive value if movement
-     *         was mostly forward and negative if it was mostly backward.
-     */
-    long getRelativeDistance();
+    /* Check `DirectionlessOdometer` for documentation */
+    long getDistance() override;
+
+    /* Check `DirectionlessOdometer` for documentation */
+    float getSpeed() override;
 
     /**
      * Get the direction of movement

@@ -47,24 +47,29 @@ bool DirectionlessOdometer::attach(uint8_t pin, void (*callback)(void))
     return true;
 }
 
-unsigned long DirectionlessOdometer::getDistance()
+long DirectionlessOdometer::getDistance()
 {
-    if (!mSensorAttached)
+    if (!isAttached())
     {
-        return -1;
+        return kNotAttachedError;
     }
     return mPulsesCounter / mPulsesPerMeterRatio;
 }
 
 float DirectionlessOdometer::getSpeed()
 {
-    if (!mSensorAttached)
+    if (!isAttached())
     {
-        return 0;
+        return kNotAttachedError;
     }
     // To get the current speed in m/sec, divide the meters per pulse (dx) with
     // the length between the last two pulses (dt)
     return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / mDt : 0;
+}
+
+bool DirectionlessOdometer::isAttached()
+{
+    return mSensorAttached;
 }
 
 void DirectionlessOdometer::reset()
@@ -76,7 +81,7 @@ void DirectionlessOdometer::reset()
 
 void DirectionlessOdometer::update()
 {
-    if (!mSensorAttached)
+    if (!isAttached())
     {
         return;
     }

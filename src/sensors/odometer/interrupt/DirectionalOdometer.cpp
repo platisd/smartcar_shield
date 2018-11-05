@@ -3,7 +3,9 @@
 namespace
 {
 const uint8_t kInput = 0;
-}
+} // namespace
+
+using namespace smartcarlib::constants::odometer;
 
 DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
                                          uint8_t pinStateWhenForward,
@@ -31,6 +33,11 @@ void DirectionalOdometer::reset()
 
 void DirectionalOdometer::update()
 {
+    if (!isAttached())
+    {
+        return;
+    }
+
     DirectionlessOdometer::update();
     if (mRuntime.getPinState(mDirectionPin) != mPinStateWhenForward)
     {
@@ -38,12 +45,26 @@ void DirectionalOdometer::update()
     }
 }
 
-long DirectionalOdometer::getRelativeDistance()
+long DirectionalOdometer::getDistance()
 {
+    if (!isAttached())
+    {
+        return kNotAttachedError;
+    }
     // Calculate the relative distance by subtracting twice the backward distance
     // from the absolute distance. Subtracting with double the backward distance
     // since it was included when calculating the absolute distance.
-    return getDistance() - 2 * mNegativePulsesCounter / mPulsesPerMeterRatio;
+    return DirectionlessOdometer::getDistance() - 2 * mNegativePulsesCounter / mPulsesPerMeterRatio;
+}
+
+float DirectionalOdometer::getSpeed()
+{
+    if (!isAttached())
+    {
+        return kNotAttachedError;
+    }
+
+    return DirectionlessOdometer::getSpeed() * getDirection();
 }
 
 int8_t DirectionalOdometer::getDirection()

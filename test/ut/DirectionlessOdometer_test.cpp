@@ -5,11 +5,10 @@
 #include "DirectionlessOdometer.hpp"
 
 using namespace ::testing;
+using namespace smartcarlib::constants::odometer;
 
 namespace
 {
-const auto kErrorReading                   = static_cast<unsigned long>(-1);
-const unsigned long kDefaultPulsesPerMeter = 100;
 const int8_t kNotAnInterrupt               = -1;
 const int8_t kAnInterrupt                  = 1;
 const uint8_t kRisingEdge                  = 1;
@@ -96,7 +95,7 @@ TEST_F(DirectionlessOdometerBasicTest, attach_WhenValidInterruptPin_WillSetUpPin
 TEST_F(DirectionlessOdometerNotAttachedTest, getDistance_WhenNotAttached_WillReturnError)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_EQ(mDirectionlessOdometer.getDistance(), kErrorReading);
+    EXPECT_EQ(mDirectionlessOdometer.getDistance(), kNotAttachedError);
 }
 
 TEST_F(DirectionlessOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
@@ -119,7 +118,7 @@ TEST_F(DirectionlessOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorre
 TEST_F(DirectionlessOdometerNotAttachedTest, getSpeed_WhenNotAttached_WillReturnError)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
+    EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), kNotAttachedError);
 }
 
 TEST_F(DirectionlessOdometerAttachedTest, getSpeed_WhenNoPulses_WillNotCrashAndReturnZero)
@@ -212,4 +211,14 @@ TEST_F(DirectionlessOdometerAttachedTest, update_WhenFirstPulseArrivesFast_WillC
     auto expectedDistance = 1;
     EXPECT_EQ(mDirectionlessOdometer.getDistance(), expectedDistance);
     EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
+}
+
+TEST_F(DirectionlessOdometerNotAttachedTest, isAttached_WhenNotAttached_WillReturnFalse)
+{
+    EXPECT_FALSE(mDirectionlessOdometer.isAttached());
+}
+
+TEST_F(DirectionlessOdometerAttachedTest, isAttached_WhenAttached_WillReturnTrue)
+{
+    EXPECT_TRUE(mDirectionlessOdometer.isAttached());
 }
