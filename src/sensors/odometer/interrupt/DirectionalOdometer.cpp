@@ -21,8 +21,13 @@ DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
 
 bool DirectionalOdometer::attach(uint8_t pin, void (*callback)(void))
 {
-    DirectionlessOdometer::attach(pin, callback);
-    mRuntime.setPinDirection(mDirectionPin, kInput);
+    auto success = DirectionlessOdometer::attach(pin, callback);
+    if (success)
+    {
+        mRuntime.setPinDirection(mDirectionPin, kInput);
+    }
+
+    return success;
 }
 
 void DirectionalOdometer::reset()

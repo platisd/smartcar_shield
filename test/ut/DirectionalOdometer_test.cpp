@@ -12,6 +12,7 @@ const uint8_t kInput               = 0;
 const int8_t kAnInterrupt          = 1;
 const uint8_t kDirectionPin        = 5;
 const uint8_t kPinStateWhenForward = 1;
+const int8_t kNotAnInterrupt       = -1;
 } // namespace
 
 class DirectionalOdometerBasicTest : public Test
@@ -53,6 +54,14 @@ public:
     unsigned long mCounter;
 };
 
+TEST_F(DirectionalOdometerBasicTest, attach_WhenInvalidPin_WillNotSetAnyPinDirections)
+{
+    EXPECT_CALL(mRuntime, pinToInterrupt(_)).WillOnce(Return(kNotAnInterrupt));
+    EXPECT_CALL(mRuntime, setPinDirection(_, _)).Times(0);
+
+    EXPECT_FALSE(mDirectionalOdometer.attach(0, []() {}));
+}
+
 TEST_F(DirectionalOdometerBasicTest, attach_WhenCalled_WillSetDirectionPin)
 {
     uint8_t pulsePin = 1;
@@ -60,7 +69,7 @@ TEST_F(DirectionalOdometerBasicTest, attach_WhenCalled_WillSetDirectionPin)
     EXPECT_CALL(mRuntime, setPinDirection(pulsePin, kInput));
     EXPECT_CALL(mRuntime, setPinDirection(kDirectionPin, kInput));
 
-    mDirectionalOdometer.attach(pulsePin, []() {});
+    EXPECT_TRUE(mDirectionalOdometer.attach(pulsePin, []() {}));
 }
 
 TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateNotForward_WillRegisterNegativeDistance)
