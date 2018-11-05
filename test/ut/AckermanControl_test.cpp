@@ -76,3 +76,21 @@ TEST_F(AckerManControlTest, setSpeed_WhenSpeedInRange_WillSetCorrectSpeedToThrot
 
     mAckermanControl.setSpeed(kMaxMotorSpeed / 2);
 }
+
+TEST_F(AckerManControlTest, overrideMotorSpeed_WhenSpeedOutOfRange_WillSetCorrectSpeedToMotors)
+{
+    EXPECT_CALL(mSteering, setSpeed(kMinMotorSpeed));
+    EXPECT_CALL(mThrottling, setSpeed(kMaxMotorSpeed));
+
+    mAckermanControl.overrideMotorSpeed(kMinMotorSpeed - 1, kMaxMotorSpeed + 1);
+}
+
+TEST_F(AckerManControlTest, overrideMotorSpeed_WhenValidSpeed_WillSetSpeedToMotors)
+{
+    int expectedSteeringSpeed = kMaxMotorSpeed / 2;
+    int expectedThrottlingSpeed = kMinMotorSpeed / 2;
+    EXPECT_CALL(mSteering, setSpeed(expectedSteeringSpeed));
+    EXPECT_CALL(mThrottling, setSpeed(expectedThrottlingSpeed));
+
+    mAckermanControl.overrideMotorSpeed(expectedSteeringSpeed, expectedThrottlingSpeed);
+}

@@ -33,4 +33,12 @@ public:
      * @param speed The driving speed
      */
     virtual void setSpeed(int speed) = 0;
+
+    /**
+     * Set the motor speed individually as a percentage of the motors` total
+     * power. Use this with caution.
+     * @param firstMotorSpeed  The first motor speed [-100, 100]
+     * @param secondMotorSpeed The second motor speed [-100, 100]
+     */
+    virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) = 0;
 };

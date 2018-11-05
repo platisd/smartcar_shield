@@ -23,8 +23,10 @@ public:
     /**
      * Set the motor speed individually as a percentage of the motors` total
      * power. Use this with caution.
-     * @param firstMotorSpeed  The first motor speed [-100, 100]
-     * @param secondMotorSpeed The second motor speed [-100, 100]
+     * @param firstMotorSpeed  The speed of the motor passed as first argument
+     *                         argument to the car's control class [-100, 100]
+     * @param secondMotorSpeed The speed of the motor passed as second argument
+     *                         argument to the car's control class [-100, 100]
      */
     virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) = 0;
 };

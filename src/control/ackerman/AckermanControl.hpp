@@ -23,6 +23,9 @@ public:
     /* Check `Control` interface for documentation */
     void setSpeed(int speed) override;
 
+    /* Check `Control` interface for documentation */
+    virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
+
 private:
     Motor& mSteering;
     Motor& mThrottling;

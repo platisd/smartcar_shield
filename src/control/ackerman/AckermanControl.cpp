@@ -27,3 +27,12 @@ void AckermanControl::setSpeed(int speed)
     speed = getConstrain(speed, kMinMotorSpeed, kMaxMotorSpeed);
     mThrottling.setSpeed(speed);
 }
+
+void AckermanControl::overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed)
+{
+    firstMotorSpeed  = getConstrain(firstMotorSpeed, kMinMotorSpeed, kMaxMotorSpeed);
+    secondMotorSpeed = getConstrain(secondMotorSpeed, kMinMotorSpeed, kMaxMotorSpeed);
+
+    mSteering.setSpeed(firstMotorSpeed);
+    mThrottling.setSpeed(secondMotorSpeed);
+}

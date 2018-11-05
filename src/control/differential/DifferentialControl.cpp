@@ -44,3 +44,12 @@ void DifferentialControl::setMotors()
         mRightMotor.setSpeed(static_cast<int>(mSpeed * ratio));
     }
 }
+
+void DifferentialControl::overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed)
+{
+    firstMotorSpeed  = getConstrain(firstMotorSpeed, kMinMotorSpeed, kMaxMotorSpeed);
+    secondMotorSpeed = getConstrain(secondMotorSpeed, kMinMotorSpeed, kMaxMotorSpeed);
+
+    mLeftMotor.setSpeed(firstMotorSpeed);
+    mRightMotor.setSpeed(secondMotorSpeed);
+}
