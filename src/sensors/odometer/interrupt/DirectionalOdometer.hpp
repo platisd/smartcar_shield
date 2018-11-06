@@ -38,11 +38,14 @@ public:
     /* Check `DirectionlessOdometer` for documentation */
     void update() override;
 
-    /* Check `DirectionlessOdometer` for documentation */
+    /* Check `Odometer` interface for documentation */
     long getDistance() override;
 
-    /* Check `DirectionlessOdometer` for documentation */
+    /* Check `Odometer` interface for documentation */
     float getSpeed() override;
+
+    /* Check `Odometer` interface for documentation */
+    bool canGetDirection() override;
 
     /**
      * Get the direction of movement
@@ -50,6 +53,7 @@ public:
      *         `-1` if travelling backward
      */
     int8_t getDirection();
+
 
 private:
     const uint8_t mDirectionPin;

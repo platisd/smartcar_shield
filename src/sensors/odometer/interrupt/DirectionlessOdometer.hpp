@@ -51,6 +51,9 @@ public:
     /* Check `Odometer` interface for documentation */
     bool isAttached() override;
 
+    /* Check `Odometer` interface for documentation */
+    bool canGetDirection() override;
+
     /**
      * Resets the total travelled distance and speed to `0`
      */

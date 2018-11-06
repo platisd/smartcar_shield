@@ -103,3 +103,8 @@ void DirectionlessOdometer::update()
     mPreviousPulse = currentPulse;
     mPulsesCounter++;
 }
+
+bool DirectionlessOdometer::canGetDirection()
+{
+    return false;
+}

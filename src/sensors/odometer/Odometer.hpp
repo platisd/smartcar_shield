@@ -3,6 +3,8 @@
  */
 #pragma once
 
+#include <stdint.h>
+
 namespace smartcarlib
 {
 namespace constants
@@ -19,6 +21,7 @@ const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
 
 class Odometer
 {
+public:
     /**
      * Returns the travelled distance in centimeters where sign can indicate
      * direction if there is hardware support
@@ -38,4 +41,10 @@ class Odometer
      * @return True if the sensor has been attached successfully false otherwise
      */
     virtual bool isAttached() = 0;
+
+    /**
+     * Return whether the sensor is capable of inferring the direction of movement
+     * @return `true` if the sensor supports direction readings otherwise `false`
+     */
+    virtual bool canGetDirection() = 0;
 };
