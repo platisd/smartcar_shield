@@ -197,3 +197,17 @@ target_include_directories(simplecar_test PUBLIC
 )
 target_link_libraries(simplecar_test gtest gmock_main)
 add_test_and_coverage(SIMPLE_CAR_TEST simplecar_test)
+
+# HeadingCar test
+add_executable(headingcar_test
+    ${SMARTCAR_LIB}/car/heading/HeadingCar.cpp
+    ${SMARTCAR_LIB}/car/simple/SimpleCar.cpp
+    ${UNIT_TESTS}/HeadingCar_test.cpp
+)
+target_include_directories(headingcar_test PUBLIC
+    ${SMARTCAR_LIB}/car/heading
+    ${SMARTCAR_LIB}/control
+    ${SMARTCAR_LIB}/sensors/heading
+)
+target_link_libraries(headingcar_test gtest gmock_main)
+add_test_and_coverage(HEADING_CAR_TEST headingcar_test)

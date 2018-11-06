@@ -1,15 +1,18 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "SimpleCar.hpp"
 #include "MockControl.hpp"
+#include "SimpleCar.hpp"
 
 using namespace ::testing;
 
 class SimpleCarTest : public Test
 {
 public:
-    SimpleCarTest() : mSimpleCar{mControl} {}
+    SimpleCarTest()
+        : mSimpleCar{ mControl }
+    {
+    }
 
     NiceMock<MockControl> mControl;
     SimpleCar mSimpleCar;
@@ -17,7 +20,7 @@ public:
 
 TEST_F(SimpleCarTest, setSpeed_WhenCalled_WillSetCorrectSpeed)
 {
-    float speed = 45.2;
+    float speed       = 45.2;
     int expectedSpeed = static_cast<int>(speed);
     EXPECT_CALL(mControl, setSpeed(expectedSpeed));
 
@@ -34,7 +37,7 @@ TEST_F(SimpleCarTest, setAngle_WhenCalled_WillSetCorrectAngle)
 
 TEST_F(SimpleCarTest, overrideMotorSpeed_WhenCalled_WillSetCorrectSpeed)
 {
-    int firstMotorSpeed = 50;
+    int firstMotorSpeed  = 50;
     int secondMotorSpeed = -20;
     EXPECT_CALL(mControl, overrideMotorSpeed(firstMotorSpeed, secondMotorSpeed));
 
