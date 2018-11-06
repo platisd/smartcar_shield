@@ -27,4 +27,7 @@ public:
 
     /* Check `Car` interface for documentation */
     virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
+
+private:
+    Control& mControl;
 };

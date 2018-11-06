@@ -185,3 +185,15 @@ target_include_directories(differentialcontrol_test PUBLIC
 )
 target_link_libraries(differentialcontrol_test gtest gmock_main)
 add_test_and_coverage(DIFFERENTIAL_CONTROL_TEST differentialcontrol_test)
+
+# SimpleCar test
+add_executable(simplecar_test
+    ${SMARTCAR_LIB}/car/simple/SimpleCar.cpp
+    ${UNIT_TESTS}/SimpleCar_test.cpp
+)
+target_include_directories(simplecar_test PUBLIC
+    ${SMARTCAR_LIB}/car/simple
+    ${SMARTCAR_LIB}/control
+)
+target_link_libraries(simplecar_test gtest gmock_main)
+add_test_and_coverage(SIMPLE_CAR_TEST simplecar_test)
