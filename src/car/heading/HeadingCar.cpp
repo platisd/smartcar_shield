@@ -1,8 +1,8 @@
 #include "HeadingCar.hpp"
 
 HeadingCar::HeadingCar(Control& control, HeadingSensor& headingSensor)
-    : mHeadingSensor{ headingSensor }
-    , SimpleCar(control)
+    : SimpleCar(control)
+    , mHeadingSensor{ headingSensor }
 {
 }
 
