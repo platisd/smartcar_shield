@@ -67,5 +67,16 @@ constexpr AnyNumber getMap(const AnyNumber& valueToMap,
                ? toLow
                : (valueToMap - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;
 }
+
+/**
+ * Compares two floating point numbers
+ * @param  a The first floating point number to compare
+ * @param  b The second floating point number to compare
+ * @return   `true` if the two numbers are amost equal, false otherwise
+ */
+constexpr bool areAlmostEqual(float a, float b)
+{
+    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= 0.001f;
+}
 } // namespace utils
 } // namespace smartcarlib

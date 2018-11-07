@@ -103,3 +103,18 @@ TEST(MapTest, getMap_WhenFloatArguments_WillReturnValidFloatValue)
 
     EXPECT_FLOAT_EQ(getMap(valueToMap, fromLow, fromHigh, toLow, toHigh), expectedValue);
 }
+
+TEST(AlmostEqualTest, areAlmostEqual_WhenNotEqual_WillReturnFalse)
+{
+    EXPECT_FALSE(areAlmostEqual(1.2f, 11.523f));
+}
+
+TEST(AlmostEqualTest, areAlmostEqual_WhenSignedDifferentlyButAlmostEqual_WillReturnTrue)
+{
+    EXPECT_TRUE(areAlmostEqual(-0.0001f, 0.0001f));
+}
+
+TEST(AlmostEqualTest, areAlmostEqual_WhenSignedSameAndAlmostEqual_WillReturnTrue)
+{
+    EXPECT_TRUE(areAlmostEqual(10.0f / 3.0f, 3.333f));
+}
