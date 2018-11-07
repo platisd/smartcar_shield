@@ -104,7 +104,7 @@ void DirectionlessOdometer::update()
     mPulsesCounter++;
 }
 
-bool DirectionlessOdometer::canGetDirection()
+bool DirectionlessOdometer::providesDirection()
 {
     return false;
 }

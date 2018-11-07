@@ -45,7 +45,7 @@ public:
     float getSpeed() override;
 
     /* Check `Odometer` interface for documentation */
-    bool canGetDirection() override;
+    bool providesDirection() override;
 
     /**
      * Get the direction of movement

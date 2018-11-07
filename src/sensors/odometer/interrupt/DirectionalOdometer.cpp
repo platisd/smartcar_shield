@@ -79,7 +79,7 @@ int8_t DirectionalOdometer::getDirection()
                : smartcarlib::constants::odometer::kBackward;
 }
 
-bool DirectionalOdometer::canGetDirection()
+bool DirectionalOdometer::providesDirection()
 {
     return true;
 }

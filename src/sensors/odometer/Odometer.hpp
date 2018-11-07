@@ -46,5 +46,5 @@ public:
      * Return whether the sensor is capable of inferring the direction of movement
      * @return `true` if the sensor supports direction readings otherwise `false`
      */
-    virtual bool canGetDirection() = 0;
+    virtual bool providesDirection() = 0;
 };

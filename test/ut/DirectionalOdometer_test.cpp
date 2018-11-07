@@ -194,7 +194,7 @@ TEST_F(DirectionalOdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpe
     EXPECT_FLOAT_EQ(mDirectionalOdometer.getSpeed(), expectedSpeed);
 }
 
-TEST_F(DirectionalOdometerBasicTest, canGetDirection_WhenCalled_WillReturnTrue)
+TEST_F(DirectionalOdometerBasicTest, providesDirection_WhenCalled_WillReturnTrue)
 {
-    EXPECT_TRUE(mDirectionalOdometer.canGetDirection());
+    EXPECT_TRUE(mDirectionalOdometer.providesDirection());
 }

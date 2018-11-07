@@ -52,7 +52,7 @@ public:
     bool isAttached() override;
 
     /* Check `Odometer` interface for documentation */
-    bool canGetDirection() override;
+    bool providesDirection() override;
 
     /**
      * Resets the total travelled distance and speed to `0`

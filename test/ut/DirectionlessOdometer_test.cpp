@@ -223,7 +223,7 @@ TEST_F(DirectionlessOdometerAttachedTest, isAttached_WhenAttached_WillReturnTrue
     EXPECT_TRUE(mDirectionlessOdometer.isAttached());
 }
 
-TEST_F(DirectionlessOdometerBasicTest, canGetDirection_WhenCalled_WillReturnFalse)
+TEST_F(DirectionlessOdometerBasicTest, providesDirection_WhenCalled_WillReturnFalse)
 {
-    EXPECT_FALSE(mDirectionlessOdometer.canGetDirection());
+    EXPECT_FALSE(mDirectionlessOdometer.providesDirection());
 }
