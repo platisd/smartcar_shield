@@ -12,6 +12,9 @@ namespace control
 const int kMinControlAngle  = -90;
 const int kIdleControlAngle = 0;
 const int kMaxControlAngle  = 90;
+const int kMinControlSpeed  = -100;
+const int kIdleControlSpeed = 0;
+const int kMaxControlSpeed  = 100;
 } // namespace control
 } // namespace constants
 } // namespace smartcarlib
