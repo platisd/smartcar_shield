@@ -35,12 +35,16 @@ add_definitions(-DENABLE_TESTS -DPLATFORM_AGNOSTIC_BUILD)
 enable_testing()
 
 # Utility functions
-function(add_test_and_coverage testName testExecutable)
+function(configure_test testExecutable)
+    # Link against gtest library
+    target_link_libraries(${testExecutable} gtest gmock_main)
+    # Create test name as the capitalized form of the test executable
+    string(TOUPPER ${testExecutable} testName)
     # Add executable to test suite
     add_test(${testName} ${testExecutable} ${GTEST_RUN_FLAGS})
     # Add tests to coverage reports
     setup_target_for_coverage(NAME ${testName} EXECUTABLE ${testExecutable} DEPENDENCIES ${testExecutable})
-endfunction(add_test_and_coverage)
+endfunction(configure_test)
 
 # Common headers
 include_directories(
@@ -57,8 +61,7 @@ add_executable(srf08_test
 target_include_directories(srf08_test PUBLIC
     ${SMARTCAR_LIB}/sensors/distance/ultrasound/i2c
 )
-target_link_libraries(srf08_test gtest gmock_main)
-add_test_and_coverage(SRF08_TEST srf08_test)
+configure_test(srf08_test)
 
 # SR04 sensor test
 add_executable(sr04_test
@@ -68,8 +71,7 @@ add_executable(sr04_test
 target_include_directories(sr04_test PUBLIC
     ${SMARTCAR_LIB}/sensors/distance/ultrasound/ping
 )
-target_link_libraries(sr04_test gtest gmock_main)
-add_test_and_coverage(SR04_TEST sr04_test)
+configure_test(sr04_test)
 
 # Median calculator test
 add_executable(utilities_test
@@ -78,8 +80,7 @@ add_executable(utilities_test
 target_include_directories(utilities_test PUBLIC
     ${SMARTCAR_LIB}/utilities
 )
-target_link_libraries(utilities_test gtest gmock_main)
-add_test_and_coverage(UTILITIES_TEST utilities_test)
+configure_test(utilities_test)
 
 # InfraredAnalogSensor test
 add_executable(infraredanalogsensor_test
@@ -89,8 +90,7 @@ add_executable(infraredanalogsensor_test
 target_include_directories(infraredanalogsensor_test PUBLIC
     ${SMARTCAR_LIB}/sensors/distance/infrared/analog
 )
-target_link_libraries(infraredanalogsensor_test gtest gmock_main)
-add_test_and_coverage(INFRARED_ANALOG_SENSOR_TEST infraredanalogsensor_test)
+configure_test(infraredanalogsensor_test)
 
 # SHARP Infrared sensors test
 add_executable(sharpsensors_test
@@ -103,8 +103,7 @@ add_executable(sharpsensors_test
 target_include_directories(sharpsensors_test PUBLIC
     ${SMARTCAR_LIB}/sensors/distance/infrared/analog/sharp
 )
-target_link_libraries(sharpsensors_test gtest gmock_main)
-add_test_and_coverage(SHARP_IR_SENSORS_TEST sharpsensors_test)
+configure_test(sharpsensors_test)
 
 # DirectionlessOdometer test
 add_executable(directionlessodometer_test
@@ -114,8 +113,7 @@ add_executable(directionlessodometer_test
 target_include_directories(directionlessodometer_test PUBLIC
     ${SMARTCAR_LIB}/sensors/odometer/interrupt
 )
-target_link_libraries(directionlessodometer_test gtest gmock_main)
-add_test_and_coverage(DIRECTIONLESS_ODOMETER_TEST directionlessodometer_test)
+configure_test(directionlessodometer_test)
 
 # DirectionalOdometer test
 add_executable(directionalodometer_test
@@ -126,8 +124,7 @@ add_executable(directionalodometer_test
 target_include_directories(directionalodometer_test PUBLIC
     ${SMARTCAR_LIB}/sensors/odometer/interrupt
 )
-target_link_libraries(directionalodometer_test gtest gmock_main)
-add_test_and_coverage(DIRECTIONAL_ODOMETER_TEST directionalodometer_test)
+configure_test(directionalodometer_test)
 
 # GY50 (Gyroscope) test
 add_executable(gy50_test
@@ -137,8 +134,7 @@ add_executable(gy50_test
 target_include_directories(gy50_test PUBLIC
     ${SMARTCAR_LIB}/sensors/heading/gyroscope
 )
-target_link_libraries(gy50_test gtest gmock_main)
-add_test_and_coverage(GY50_TEST gy50_test)
+configure_test(gy50_test)
 
 # BrushlessMotor test
 add_executable(brushedmotor_test
@@ -148,8 +144,7 @@ add_executable(brushedmotor_test
 target_include_directories(brushedmotor_test PUBLIC
     ${SMARTCAR_LIB}/motor/analog/pwm/
 )
-target_link_libraries(brushedmotor_test gtest gmock_main)
-add_test_and_coverage(BRUSHED_MOTOR_TEST brushedmotor_test)
+configure_test(brushedmotor_test)
 
 # ServoMotor test
 add_executable(servomotor_test
@@ -159,8 +154,7 @@ add_executable(servomotor_test
 target_include_directories(servomotor_test PUBLIC
     ${SMARTCAR_LIB}/motor/digital/servo
 )
-target_link_libraries(servomotor_test gtest gmock_main)
-add_test_and_coverage(SERVO_MOTOR_TEST servomotor_test)
+configure_test(servomotor_test)
 
 # AckermanControl test
 add_executable(ackermancontrol_test
@@ -171,8 +165,7 @@ target_include_directories(ackermancontrol_test PUBLIC
     ${SMARTCAR_LIB}/control/ackerman
     ${SMARTCAR_LIB}/motor
 )
-target_link_libraries(ackermancontrol_test gtest gmock_main)
-add_test_and_coverage(ACKERMAN_CONTROL_TEST ackermancontrol_test)
+configure_test(ackermancontrol_test)
 
 # DifferentialControl test
 add_executable(differentialcontrol_test
@@ -183,8 +176,7 @@ target_include_directories(differentialcontrol_test PUBLIC
     ${SMARTCAR_LIB}/control/differential
     ${SMARTCAR_LIB}/motor
 )
-target_link_libraries(differentialcontrol_test gtest gmock_main)
-add_test_and_coverage(DIFFERENTIAL_CONTROL_TEST differentialcontrol_test)
+configure_test(differentialcontrol_test)
 
 # SimpleCar test
 add_executable(simplecar_test
@@ -195,8 +187,7 @@ target_include_directories(simplecar_test PUBLIC
     ${SMARTCAR_LIB}/car/simple
     ${SMARTCAR_LIB}/control
 )
-target_link_libraries(simplecar_test gtest gmock_main)
-add_test_and_coverage(SIMPLE_CAR_TEST simplecar_test)
+configure_test(simplecar_test)
 
 # HeadingCar test
 add_executable(headingcar_test
@@ -209,5 +200,4 @@ target_include_directories(headingcar_test PUBLIC
     ${SMARTCAR_LIB}/control
     ${SMARTCAR_LIB}/sensors/heading
 )
-target_link_libraries(headingcar_test gtest gmock_main)
-add_test_and_coverage(HEADING_CAR_TEST headingcar_test)
+configure_test(headingcar_test)
