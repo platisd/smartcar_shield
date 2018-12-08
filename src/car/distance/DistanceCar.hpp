@@ -133,5 +133,9 @@ private:
     float controlMotorSpeed(const float& previousSpeed,
                             const float& targetSpeed,
                             const float& currentSpeed);
+
+    /**
+     * Used internally making an attempt to stop the car based on the current speed
+     */
     void brake();
 };
