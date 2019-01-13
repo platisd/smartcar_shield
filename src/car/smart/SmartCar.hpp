@@ -1,5 +1,5 @@
 /**
- * An class to programmatically represent a vehicle equipped with odometers and
+ * A class to programmatically represent a vehicle equipped with odometers and
  * a heading sensor
  */
 #pragma once

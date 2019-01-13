@@ -1,5 +1,5 @@
 /**
- * An class to programmatically represent a vehicle equipped with a heading sensor
+ * A class to programmatically represent a vehicle equipped with a heading sensor
  */
 #pragma once
 

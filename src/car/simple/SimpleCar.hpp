@@ -1,5 +1,5 @@
 /**
- * An class to programmatically represent a very basic vehicle with two motors
+ * A class to programmatically represent a very basic vehicle with two motors
  */
 #pragma once
 
