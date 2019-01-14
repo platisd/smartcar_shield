@@ -15,6 +15,8 @@ public:
      */
     SimpleCar(Control& control);
 
+    virtual ~SimpleCar() = default;
+
     /**
      * Sets the car's driving speed as a percentage of the motors total speed where
      * the sign indicates direction.

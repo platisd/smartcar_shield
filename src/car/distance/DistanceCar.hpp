@@ -27,7 +27,7 @@ const int kOdometersNotAttachedError     = -1000;
 } // namespace constants
 } // namespace smartcarlib
 
-class DistanceCar : public SimpleCar
+class DistanceCar : virtual public SimpleCar
 {
 public:
 #ifndef PLATFORM_AGNOSTIC_BUILD

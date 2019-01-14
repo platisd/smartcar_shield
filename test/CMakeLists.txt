@@ -214,3 +214,19 @@ target_include_directories(distancecar_test PUBLIC
     ${SMARTCAR_LIB}/sensors/odometer
 )
 configure_test(distancecar_test)
+
+# SmartCar test
+add_executable(smartcar_test
+    ${SMARTCAR_LIB}/car/smart/SmartCar.cpp
+    ${SMARTCAR_LIB}/car/heading/HeadingCar.cpp
+    ${SMARTCAR_LIB}/car/distance/DistanceCar.cpp
+    ${SMARTCAR_LIB}/car/simple/SimpleCar.cpp
+    ${UNIT_TESTS}/SmartCar_test.cpp
+)
+target_include_directories(smartcar_test PUBLIC
+    ${SMARTCAR_LIB}/car/smart/
+    ${SMARTCAR_LIB}/control
+    ${SMARTCAR_LIB}/sensors/odometer
+    ${SMARTCAR_LIB}/sensors/heading
+)
+configure_test(smartcar_test)

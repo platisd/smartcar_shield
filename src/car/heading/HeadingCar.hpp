@@ -6,7 +6,7 @@
 #include "../../sensors/heading/HeadingSensor.hpp"
 #include "../simple/SimpleCar.hpp"
 
-class HeadingCar : public SimpleCar
+class HeadingCar : virtual public SimpleCar
 {
 public:
     /**
