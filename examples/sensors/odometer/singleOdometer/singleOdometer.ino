@@ -1,16 +1,17 @@
 #include <Smartcar.h>
 
-Odometer encoder;
-const int encoderPin = 2;
+DirectionlessOdometer odometer(80); // 80 pulses per meter
+const int odometerPin = 2;
 
 void setup() {
   Serial.begin(9600);
-  encoder.attach(encoderPin);
-  encoder.begin();
+  odometer.attach(odometerPin, []() {
+    odometer.update();
+  });
 }
 
 void loop() {
-  Serial.print(encoder.getDistance());
+  Serial.print(odometer.getDistance());
   delay(100);
 }
 

@@ -2,10 +2,10 @@
 
 const unsigned short GAIN = 0x1F; //maximum gain
 const unsigned short RANGE = 0x07; //7 for 34 centimeters
-SRF08 front;
+const unsigned short I2C_ADDRESS = 112;
+SRF08 front(I2C_ADDRESS);
 
 void setup() {
-  front.attach(112);
  // front.setGain(GAIN);
  // front.setRange(RANGE);
  // front.setPingDelay(8); //uncomment if u want to use custom measurement range

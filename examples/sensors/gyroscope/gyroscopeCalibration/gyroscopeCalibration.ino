@@ -1,17 +1,14 @@
 #include <Smartcar.h>
 
-Gyroscope gyro;
+GY50 gyro(0); // Provide the gyroscope with a random offset
 
 void setup() {
-  gyro.attach();
   Serial.begin(9600);
-  delay(1500);
-  gyro.begin();
   Serial.println("Calibrating gyroscope, this might take some seconds");
-  int offset = gyro.calibrate();
+  int offset = gyro.getOffset();
   Serial.print("This gyro's offset value is: ");
   Serial.println(offset);
-  Serial.print("Please initialize Gyroscope with the above value as: Gyroscope gyro(");
+  Serial.print("Please initialize Gyroscope with the above value as: GY50 gyro(");
   Serial.print(offset);
   Serial.println("); or another similar value that works better according to your experimentation.");
 }
