@@ -23,8 +23,7 @@ public:
      * Constructs an odometer that can measure distance, speed but not direction
      * @param pulsesPerMeter The amount of odometer pulses that constitute a meter
      */
-    DirectionlessOdometer(unsigned long pulsesPerMeter
-                          = smartcarlib::constants::odometer::kDefaultPulsesPerMeter,
+    DirectionlessOdometer(unsigned long pulsesPerMeter,
                           Runtime& runtime = arduinoRuntime);
 #else
     DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime);

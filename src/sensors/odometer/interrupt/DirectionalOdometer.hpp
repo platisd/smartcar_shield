@@ -19,8 +19,7 @@ public:
      */
     DirectionalOdometer(uint8_t directionPin,
                         uint8_t pinStateWhenForward,
-                        unsigned long pulsesPerMeter
-                        = smartcarlib::constants::odometer::kDefaultPulsesPerMeter,
+                        unsigned long pulsesPerMeter,
                         Runtime& runtime = arduinoRuntime);
 #else
     DirectionalOdometer(uint8_t directionPin,
