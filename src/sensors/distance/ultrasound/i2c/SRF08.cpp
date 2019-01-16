@@ -15,10 +15,10 @@ using namespace smartcarlib::constants::srf08;
 using namespace smartcarlib::utils;
 
 SRF08::SRF08(uint8_t address, Runtime& runtime)
-    : mAddress { address}
+    : mAddress{ address }
     , mRuntime{ runtime }
     , mPingDelay{ kDefaultPingDelay }
-    , mAttached { false }
+    , mAttached{ false }
 {
 }
 
