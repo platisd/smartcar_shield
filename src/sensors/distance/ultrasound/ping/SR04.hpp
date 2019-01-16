@@ -25,6 +25,7 @@ namespace sr04
 {
 const uint8_t kDefaultIterations       = 5;
 const unsigned int kDefaultMaxDistance = 70;
+const unsigned int kError              = 0;
 } // namespace sr04
 } // namespace constants
 } // namespace smartcarlib
@@ -57,6 +58,7 @@ public:
 private:
     const uint8_t kTriggerPin;
     const uint8_t kEchoPin;
+    const unsigned int kMaxDistance;
     const unsigned long kTimeout;
     Runtime& mRuntime;
     bool mAttached;
