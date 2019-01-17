@@ -1,34 +1,43 @@
 #include <Smartcar.h>
 
-Odometer encoderLeft, encoderRight;
-Car car;
-
 const float fSpeed = 0.5; //a ground speed (m/sec) for going forward
 const float bSpeed = -0.5; //a ground speed (m/sec)y for going backward
 const int lDegrees = -75; //degrees to turn left
 const int rDegrees = 75; //degrees to turn right
-const int encoderLeftPin = 2;
-const int encoderRightPin = 3;
+const int leftOdometerPin = 2;
+const int rightOdometerPin = 3;
+
+
+BrushedMotor leftMotor(8, 10, 9);
+BrushedMotor rightMotor(12, 13, 11);
+DifferentialControl control(leftMotor, rightMotor);
+
+DirectionlessOdometer leftOdometer(110);
+DirectionlessOdometer rightOdometer(120);
+
+DistanceCar car(control, leftOdometer, rightOdometer);
 
 void setup() {
-  Serial3.begin(9600);
-  encoderLeft.attach(encoderLeftPin);
-  encoderRight.attach(encoderRightPin);
-  encoderLeft.begin();
-  encoderRight.begin();
-  car.begin(encoderLeft, encoderRight); //initialize the car using the encoders
+  Serial.begin(9600);
+
+  leftOdometer.attach(leftOdometerPin, []() {
+    leftOdometer.update();
+  });
+  rightOdometer.attach(rightOdometerPin, []() {
+    rightOdometer.update();
+  });
+
   car.enableCruiseControl(); //using default PID values
- // car.enableCruiseControl(12,5,17,30); //using custom values and control frequency
 }
 
 void loop() {
-  car.updateMotors();
+  car.update();
   handleInput();
 }
 
 void handleInput() { //handle serial input if there is any
-  if (Serial3.available()) {
-    char input = Serial3.read(); //read everything that has been received so far and log down the last entry
+  if (Serial.available()) {
+    char input = Serial.read(); //read everything that has been received so far and log down the last entry
     switch (input) {
       case 'l': //rotate counter-clockwise going forward
         car.setSpeed(fSpeed);

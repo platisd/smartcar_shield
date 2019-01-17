@@ -1,11 +1,14 @@
 #include <Smartcar.h>
 
-Car car;
+BrushedMotor leftMotor(8, 10, 9);
+BrushedMotor rightMotor(12, 13, 11);
+DifferentialControl control(leftMotor, rightMotor);
+
+SimpleCar car(control);
 
 void setup() {
   Serial.begin(9600);
   Serial.setTimeout(200);
-  car.begin();
 }
 
 void loop() {

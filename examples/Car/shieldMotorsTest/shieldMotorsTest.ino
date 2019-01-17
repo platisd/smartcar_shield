@@ -10,13 +10,15 @@
 
 #include <Smartcar.h>
 
-Car car;
-//Car car(INVERTED); //uncomment this if you have connected the shield's right side terminals to your left side motors
+BrushedMotor leftMotor(8, 10, 9);
+BrushedMotor rightMotor(12, 13, 11);
+DifferentialControl control(leftMotor, rightMotor);
+
+SimpleCar car(control);
 
 void setup() {
   Serial.begin(9600);
   Serial.setTimeout(100);
-  car.begin(); //initialize the car
   Serial.println(F("\n========="));
   Serial.println(F("Welcome to the Smartcar platform!"));
   Serial.println(F("========="));
@@ -45,6 +47,7 @@ void setup() {
     delay(6000);
     car.setSpeed(0);
     Serial.println(F(">>>> If there were some motors not turning towards the correct direction, FLIP the respective cables in the terminals!"));
+    Serial.println(F("Alternatively, change the two first arguments of the BrushedMotor constructor, e.g. leftMotor(10, 8, 9);"));
     delay(100);
     Serial.println(F("Repeat this until every wheel is turning FORWARD!"));
     delay(1500);
@@ -77,9 +80,9 @@ void setup() {
   while (Serial.available()) Serial.read(); //empty the input buffer by reading the character(s) by reading the character(s)
   while (true) {
     delay(500);
-    car.setMotorSpeed(0, -80);
+    car.overrideMotorSpeed(0, -80);
     delay(6000);
-    car.setMotorSpeed(0, 0);
+    car.overrideMotorSpeed(0, 0);
     while (Serial.available()) Serial.read(); //empty the input buffer by reading the character(s) by reading the character(s)
     Serial.println(F("Do you want to try again? Press 'y' for YES or 'n' for NO and then enter."));
     delay(1500);
@@ -104,7 +107,7 @@ void setup() {
   delay(100);
   Serial.println(F("a) Change the orientation of the arduino and the shield. Then repeat this process to set the motors again."));
   delay(100);
-  Serial.println(F("b) Initialize the Car instance with an argument like this: Car car(INVERTED);\nYou can change the code of this sketch accordingly and run it again."));
+  Serial.println(F("b) Change the arguments of the leftMotor to the ones of the rightMotor and vice versa."));
   delay(1500);
   Serial.println(F("That was it! Happy hacking!"));
 }
