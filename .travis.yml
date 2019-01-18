@@ -48,3 +48,4 @@ after_success:
     - bash run_coverage.sh
     # Upload report to codecov
     - bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
+    - doxygen Doxyfile
