@@ -1,0 +1,50 @@
+# Set language to `none` because if set to `cpp` CXX and C environment variables
+# are overriden with those of older versions
+language: none
+
+env:
+    global:
+        - CXX=g++-5
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-5
+            - lcov
+
+notifications:
+    email: false
+
+cache:
+    directories:
+        # Cache gtest sources
+        - test/build/googletest-build
+        - test/build/googletest-src
+        - test/build/googletest-download
+        - ~/arduino_ide
+        - ~/.arduino15/packages/
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: version_5
+
+before_install:
+  # Set up the environment for building with the Arduino IDE
+  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+
+script:
+    # Build and run unit tests
+    - bash test/build_and_run_ut.sh
+    # Build all examples using Arduino UNO as the board
+    - build_platform uno
+
+after_success:
+    - bash run_coverage.sh
+    # Upload report to codecov
+    - bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
