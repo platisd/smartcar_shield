@@ -12,6 +12,3 @@ If you do not want to bother with CAD softwareand just want to buy the PCBs for 
 
 * [PCBWay](https://www.pcbway.com/project/shareproject/SmartCar_Shield_rev__2.html) (rev. 2)
 * [OSH-Park](https://oshpark.com/shared_projects/pCO3kBPB) (rev. 2)
-
-### License
-CC-BY 4.0 International
