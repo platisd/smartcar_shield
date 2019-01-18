@@ -32,7 +32,7 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: true
   on:
-    branch: version_5
+    branch: master
 
 before_install:
   # Set up the environment for building with the Arduino IDE

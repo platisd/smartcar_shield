@@ -11,3 +11,8 @@ build
 # Ignore static code analysis files and scripts
 staticAnalysis.sh
 static-analysis-report/
+
+# Ignore files created during CI
+arduino-1.8.7-linux64.tar.xz
+coverage-reports
+coverage.info
