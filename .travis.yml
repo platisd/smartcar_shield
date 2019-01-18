@@ -23,10 +23,18 @@ cache:
         - test/build/googletest-build
         - test/build/googletest-src
         - test/build/googletest-download
+        - ~/arduino_ide
+        - ~/.arduino15/packages/
 
-# Build the project
+before_install:
+  # Set up the environment for building with the Arduino IDE
+  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+
 script:
+    # Build and run unit tests
     - bash test/build_and_run_ut.sh
+    # Build all examples using Arduino UNO as the board
+    - build_platform uno
 
 after_success:
     - bash run_coverage.sh
