@@ -1,3 +1,0 @@
-## Description
-
-## Definition of Done

@@ -1,3 +1,0 @@
-## Description
-
-## Solved issue(s)
