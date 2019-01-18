@@ -2,30 +2,41 @@
 
 #include <Smartcar.h>
 
-Odometer encoderLeft(94), encoderRight(94);
-Car car;
 const unsigned long PRINTOUT_INTERVAL = 100;
+const unsigned short LEFT_ODOMETER_PIN = 2;
+const unsigned short RIGHT_ODOMETER_PIN = 3;
 unsigned long previousPrintOut = 0;
 float carSpeed = 0.5;
 
+BrushedMotor leftMotor(8, 10, 9);
+BrushedMotor rightMotor(12, 13, 11);
+DifferentialControl control(leftMotor, rightMotor);
+
+DirectionlessOdometer leftOdometer(78);
+DirectionlessOdometer rightOdometer(78);
+
+DistanceCar car(control, leftOdometer, rightOdometer);
+
 void setup() {
   Serial.begin(9600);
-  encoderLeft.attach(3);
-  encoderRight.attach(2);
-  encoderLeft.begin();
-  encoderRight.begin();
-  car.begin(encoderLeft, encoderRight);
+
+  leftOdometer.attach(LEFT_ODOMETER_PIN, []() {
+    leftOdometer.update();
+  });
+  rightOdometer.attach(RIGHT_ODOMETER_PIN, []() {
+    rightOdometer.update();
+  });
+
   car.enableCruiseControl(2,0,4);
   car.setSpeed(carSpeed);
 }
 
 void loop() {
-  car.updateMotors();
+  car.update();
   if (millis() > previousPrintOut + PRINTOUT_INTERVAL) {
-    Serial.print(car.getSpeed()); //print the controllers set point (the speed set to the car, i.e. during setup())
+    Serial.print(carSpeed); //print the controllers set point (the speed set to the car, i.e. during setup())
     Serial.print(","); //print a comma, in order to be easily parsed by the Serial Plotter or other program
-    Serial.println((encoderLeft.getSpeed() + encoderRight.getSpeed()) / 2); //get the average speed of the two odometers
+    Serial.println(car.getSpeed()); //get the average speed of the two odometers
     previousPrintOut = millis(); //update the previous print out moment
   }
-
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.06" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -90,8 +90,13 @@
 <layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="113" name="IDFDebug" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="114" name="FRNTMAAT1" color="7" fill="1" visible="no" active="no"/>
+<layer number="115" name="FRNTMAAT2" color="7" fill="1" visible="no" active="no"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="117" name="BACKMAAT1" color="7" fill="1" visible="no" active="no"/>
 <layer number="118" name="Rect_Pads" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="119" name="KAP_TEKEN" color="7" fill="1" visible="no" active="no"/>
+<layer number="120" name="KAP_MAAT1" color="7" fill="1" visible="no" active="no"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
@@ -101,8 +106,10 @@
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="SMDSTROOK" color="7" fill="1" visible="no" active="no"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="no" active="no"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
@@ -143,6 +150,8 @@
 <layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
+<layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -171,7 +180,7 @@
 <text x="27.7" y="23.3" size="1.4224" layer="21" font="vector" rot="R180">L3G4200D</text>
 <text x="34.5" y="34.7" size="0.8128" layer="21" font="vector" rot="R90">VBAT&gt;</text>
 <text x="2.75" y="45.6" size="0.85" layer="21" font="vector" rot="R90" align="bottom-right">Smartcar shield
-rev. 1</text>
+rev. 2</text>
 <text x="37.2" y="10.1" size="1.15" layer="21" font="vector" align="bottom-right">GND</text>
 <text x="36.7" y="7.3" size="1.15" layer="21" font="vector" align="bottom-right">5V</text>
 <text x="43" y="4.1" size="4.8" layer="22" font="vector" rot="MR47">platis.solutions</text>
@@ -179,14 +188,11 @@ rev. 1</text>
 Dimitris Platis
 for
 platis.solutions</text>
-<text x="48.82" y="21.2" size="0.7096" layer="21" font="vector" rot="R90">LEFT MOTORS</text>
-<text x="-0.12" y="27.5" size="0.7096" layer="21" font="vector" rot="R270">RIGHT MOTORS</text>
-<text x="36.36" y="44.64" size="0.86" layer="21" font="vector" distance="190" rot="R15">GND
-5V</text>
-<text x="48.975" y="34.95" size="0.77" layer="21" font="vector" rot="R90">VBAT</text>
-<text x="48.975" y="40.275" size="0.77" layer="21" font="vector" rot="R90">GND</text>
-<text x="3.675" y="39.75" size="0.8128" layer="22" font="vector" rot="MR270" align="bottom-center">Find documentation
-at
+<text x="48.52" y="4.8" size="0.7096" layer="21" font="vector" rot="R90">LEFT MOTORS</text>
+<text x="0.08" y="12.8" size="0.7096" layer="21" font="vector" rot="R270">RIGHT MOTORS</text>
+<text x="48.675" y="34.25" size="1.2" layer="21" font="vector" rot="R90">VBAT</text>
+<text x="48.775" y="39.575" size="1.2" layer="21" font="vector" rot="R90">GND</text>
+<text x="22.55" y="12.025" size="1.2" layer="21" font="vector" align="bottom-center">Documentation at
 http://plat.is/smartcar</text>
 <rectangle x1="5.745" y1="1.455" x2="5.895" y2="1.485" layer="22"/>
 <rectangle x1="5.775" y1="1.485" x2="5.955" y2="1.515" layer="22"/>
@@ -967,6 +973,10 @@ http://plat.is/smartcar</text>
 <rectangle x1="6.405" y1="5.895" x2="6.765" y2="5.925" layer="22"/>
 <rectangle x1="6.495" y1="5.925" x2="6.525" y2="5.955" layer="22"/>
 <rectangle x1="6.555" y1="5.925" x2="6.615" y2="5.955" layer="22"/>
+<text x="26.6" y="47.3" size="0.6" layer="21" font="vector" rot="R180">---IN USE BY MOTOR SHIELD---</text>
+<text x="26.7" y="52.9" size="0.6" layer="21" font="vector" rot="R180">---IN USE BY MOTOR SHIELD---</text>
+<text x="34.9" y="46.1" size="1.27" layer="21" font="vector" rot="R20">GND</text>
+<text x="43.4" y="45" size="1.27" layer="21" font="vector">5V</text>
 </plain>
 <libraries>
 <library name="SparkFun-Boards">
@@ -1139,16 +1149,16 @@ Grid 5.00 mm&lt;p&gt;
 <description>&lt;b&gt;WAGO SCREW CLAMP&lt;/b&gt;</description>
 <wire x1="-3.491" y1="-2.286" x2="-1.484" y2="-0.279" width="0.254" layer="51"/>
 <wire x1="1.488" y1="-2.261" x2="3.469" y2="-0.254" width="0.254" layer="51"/>
-<wire x1="-4.989" y1="-5.461" x2="4.993" y2="-5.461" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="-6.731" x2="4.993" y2="-6.731" width="0.1524" layer="21"/>
 <wire x1="4.993" y1="3.734" x2="4.993" y2="3.531" width="0.1524" layer="21"/>
 <wire x1="4.993" y1="3.734" x2="-4.989" y2="3.734" width="0.1524" layer="21"/>
-<wire x1="-4.989" y1="-5.461" x2="-4.989" y2="-3.073" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="-6.731" x2="-4.989" y2="-3.073" width="0.1524" layer="21"/>
 <wire x1="-4.989" y1="-3.073" x2="-3.389" y2="-3.073" width="0.1524" layer="21"/>
 <wire x1="-3.389" y1="-3.073" x2="-1.611" y2="-3.073" width="0.1524" layer="51"/>
 <wire x1="-1.611" y1="-3.073" x2="1.615" y2="-3.073" width="0.1524" layer="21"/>
 <wire x1="3.393" y1="-3.073" x2="4.993" y2="-3.073" width="0.1524" layer="21"/>
 <wire x1="-4.989" y1="-3.073" x2="-4.989" y2="3.531" width="0.1524" layer="21"/>
-<wire x1="4.993" y1="-3.073" x2="4.993" y2="-5.461" width="0.1524" layer="21"/>
+<wire x1="4.993" y1="-3.073" x2="4.993" y2="-6.731" width="0.1524" layer="21"/>
 <wire x1="-4.989" y1="3.531" x2="4.993" y2="3.531" width="0.1524" layer="21"/>
 <wire x1="-4.989" y1="3.531" x2="-4.989" y2="3.734" width="0.1524" layer="21"/>
 <wire x1="4.993" y1="3.531" x2="4.993" y2="-3.073" width="0.1524" layer="21"/>
@@ -1159,8 +1169,8 @@ Grid 5.00 mm&lt;p&gt;
 <circle x="2.5038" y="2.2098" radius="0.508" width="0.1524" layer="21"/>
 <pad name="1" x="-2.5" y="-1.27" drill="1.1938" shape="long" rot="R90"/>
 <pad name="2" x="2.5" y="-1.27" drill="1.1938" shape="long" rot="R90"/>
-<text x="-5.04" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-3.8462" y="-5.0038" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.04" y="-8.89" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.8462" y="-6.2738" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-4.532" y="0.635" size="1.27" layer="21" ratio="10">1</text>
 <text x="0.421" y="0.635" size="1.27" layer="21" ratio="10">2</text>
 </package>
@@ -2585,35 +2595,37 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="9589619" x="20.3" y="40.75" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="12.807" y="40.115" size="1.27" layer="21" ratio="10"/>
 </element>
-<element name="MOTOR2" library="con-wago-500" package="W237-102" value="" x="6.2" y="29.35" rot="R270">
-<attribute name="OC_NEWARK" value="70K9898" x="6.2" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="237-102" x="6.2" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="" x="6.2" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="6.2" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="MOTOR2" library="con-wago-500" package="W237-102" value="" x="6.6" y="29.35" rot="R270">
+<attribute name="OC_NEWARK" value="70K9898" x="6.6" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="237-102" x="6.6" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="" x="6.6" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="6.6" y="29.35" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="MOTOR3" library="con-wago-500" package="W237-102" value="" x="42.45" y="28.05" rot="R90">
-<attribute name="OC_NEWARK" value="70K9898" x="42.45" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="237-102" x="42.45" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MF" value="" x="42.45" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="42.45" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="MOTOR3" library="con-wago-500" package="W237-102" value="" x="42.25" y="28.05" rot="R90">
+<attribute name="OC_NEWARK" value="70K9898" x="42.25" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="237-102" x="42.25" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="" x="42.25" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="42.25" y="28.05" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="POWER" library="con-wago-500" package="W237-102" value="" x="42.45" y="38.7" rot="R90">
-<attribute name="OC_NEWARK" value="70K9898" x="42.45" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="237-102" x="42.45" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MF" value="" x="42.45" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="42.45" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="POWER" library="con-wago-500" package="W237-102" value="" x="42.25" y="38.7" smashed="yes" rot="R90">
+<attribute name="OC_NEWARK" value="70K9898" x="42.25" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="237-102" x="42.25" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="" x="42.25" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="42.25" y="38.7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="51.14" y="33.66" size="1.27" layer="27" ratio="10" rot="R90"/>
+<attribute name="NAME" x="46.9238" y="35.9538" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
-<element name="MOTOR1" library="con-wago-500" package="W237-102" value="" x="6.2" y="18" rot="R270">
-<attribute name="OC_NEWARK" value="70K9898" x="6.2" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="237-102" x="6.2" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="" x="6.2" y="18" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="6.2" y="18" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="MOTOR1" library="con-wago-500" package="W237-102" value="" x="6.6" y="18" rot="R270">
+<attribute name="OC_NEWARK" value="70K9898" x="6.6" y="18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="237-102" x="6.6" y="18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="" x="6.6" y="18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="6.6" y="18" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="MOTOR4" library="con-wago-500" package="W237-102" value="" x="42.45" y="17.25" rot="R90">
-<attribute name="OC_NEWARK" value="70K9898" x="42.45" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="237-102" x="42.45" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MF" value="" x="42.45" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="42.45" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="MOTOR4" library="con-wago-500" package="W237-102" value="" x="42.25" y="17.25" rot="R90">
+<attribute name="OC_NEWARK" value="70K9898" x="42.25" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="237-102" x="42.25" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value="" x="42.25" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="42.25" y="17.25" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C1" library="SparkFun-Capacitors" package="CAP-PTH-SMALL-KIT" value="0.1uF" x="3.5" y="9" rot="R90"/>
 <element name="C4" library="SparkFun-Capacitors" package="CAP-PTH-SMALL-KIT" value="0.1uF" x="7" y="9" rot="R270"/>
@@ -2631,7 +2643,7 @@ design rules under a new name.</description>
 <element name="JP3" library="SparkFun-Connectors" package="1X04_NO_SILK_ALL_ROUND" value="" x="31.25" y="18.8" smashed="yes" rot="R90">
 <attribute name="VALUE" x="34.425" y="17.53" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="U$1" library="SparkFun-Aesthetics" package="OSHW-LOGO-M" value="" x="4.45" y="37.7" rot="R90"/>
+<element name="U$1" library="SparkFun-Aesthetics" package="OSHW-LOGO-M" value="" x="6.35" y="40.4" rot="R90"/>
 <element name="JP4" library="SparkFun-Connectors" package="1X04_NO_SILK_ALL_ROUND" value="" x="38.4" y="10.6" smashed="yes">
 <attribute name="VALUE" x="37.13" y="7.425" size="1.27" layer="27"/>
 </element>
@@ -2744,15 +2756,17 @@ design rules under a new name.</description>
 <contactref element="MOTOR1" pad="1"/>
 <contactref element="C1" pad="2"/>
 <wire x1="16.49" y1="36.94" x2="11.4" y2="31.85" width="0.4064" layer="1"/>
-<wire x1="11.4" y1="31.85" x2="4.93" y2="31.85" width="0.4064" layer="1"/>
-<wire x1="4.93" y1="20.5" x2="2.2" y2="17.77" width="0.4064" layer="1"/>
-<wire x1="2.2" y1="17.77" x2="2.2" y2="12.1" width="0.4064" layer="1"/>
-<wire x1="2.2" y1="12.1" x2="3.5" y2="10.8" width="0.4064" layer="1"/>
 <wire x1="3.5" y1="10.8" x2="3.5" y2="10.397" width="0.4064" layer="1"/>
-<wire x1="4.93" y1="20.5" x2="1.725" y2="23.705" width="0.4064" layer="1"/>
-<wire x1="1.725" y1="23.705" x2="1.725" y2="30.45" width="0.4064" layer="1"/>
-<wire x1="1.725" y1="30.45" x2="3.125" y2="31.85" width="0.4064" layer="1"/>
-<wire x1="3.125" y1="31.85" x2="4.93" y2="31.85" width="0.4064" layer="1"/>
+<wire x1="11.4" y1="31.85" x2="5.33" y2="31.85" width="0.4064" layer="1"/>
+<wire x1="3.5" y1="10.8" x2="2.1" y2="12.2" width="0.4064" layer="1"/>
+<wire x1="1.6" y1="25.1" x2="1.6" y2="29.3" width="0.4064" layer="1"/>
+<wire x1="1.6" y1="29.3" x2="4.15" y2="31.85" width="0.4064" layer="1"/>
+<wire x1="4.15" y1="31.85" x2="5.33" y2="31.85" width="0.4064" layer="1"/>
+<wire x1="2.1" y1="12.2" x2="2.1" y2="16.8" width="0.4064" layer="1"/>
+<wire x1="2.1" y1="16.8" x2="5.33" y2="20.03" width="0.4064" layer="1"/>
+<wire x1="5.33" y1="20.03" x2="5.33" y2="20.5" width="0.4064" layer="1"/>
+<wire x1="5.33" y1="20.5" x2="1.6" y2="24.23" width="0.4064" layer="1"/>
+<wire x1="1.6" y1="24.23" x2="1.6" y2="25.1" width="0.4064" layer="1"/>
 </signal>
 <signal name="MOTORA-OUT2">
 <contactref element="IC1" pad="6"/>
@@ -2764,33 +2778,36 @@ design rules under a new name.</description>
 <wire x1="23.2" y1="34.4" x2="15.4" y2="34.4" width="0.4064" layer="1"/>
 <wire x1="15.4" y1="34.4" x2="11.9" y2="30.9" width="0.4064" layer="1"/>
 <wire x1="11.9" y1="30.9" x2="8.98" y2="30.9" width="0.4064" layer="1"/>
-<wire x1="8.98" y1="30.9" x2="4.93" y2="26.85" width="0.4064" layer="1"/>
-<wire x1="4.93" y1="26.85" x2="7.8" y2="23.98" width="0.4064" layer="1"/>
-<wire x1="7.8" y1="23.98" x2="7.8" y2="17.5" width="0.4064" layer="1"/>
-<wire x1="7.8" y1="17.5" x2="5.8" y2="15.5" width="0.4064" layer="1"/>
-<wire x1="5.8" y1="15.5" x2="4.93" y2="15.5" width="0.4064" layer="1"/>
-<wire x1="7" y1="10.397" x2="4.93" y2="12.467" width="0.4064" layer="1"/>
-<wire x1="4.93" y1="12.467" x2="4.93" y2="15.5" width="0.4064" layer="1"/>
+<wire x1="8.98" y1="30.9" x2="5.33" y2="27.25" width="0.4064" layer="1"/>
+<wire x1="5.33" y1="27.25" x2="5.33" y2="26.85" width="0.4064" layer="1"/>
+<wire x1="5.33" y1="26.85" x2="7.9" y2="24.28" width="0.4064" layer="1"/>
+<wire x1="7" y1="10.397" x2="5.33" y2="12.067" width="0.4064" layer="1"/>
+<wire x1="5.33" y1="12.067" x2="5.33" y2="15.5" width="0.4064" layer="1"/>
+<wire x1="5.33" y1="15.5" x2="7.9" y2="18.07" width="0.4064" layer="1"/>
+<wire x1="7.9" y1="18.07" x2="7.9" y2="24.28" width="0.4064" layer="1"/>
 </signal>
 <signal name="MOTORB-OUT1">
 <contactref element="MOTOR3" pad="1"/>
 <contactref element="IC1" pad="14"/>
 <contactref element="MOTOR4" pad="1"/>
 <contactref element="C7" pad="2"/>
-<wire x1="43.72" y1="25.55" x2="46.6" y2="22.67" width="0.4064" layer="1"/>
-<wire x1="46.6" y1="22.67" x2="46.6" y2="16.9" width="0.4064" layer="1"/>
-<wire x1="46.6" y1="16.9" x2="44.45" y2="14.75" width="0.4064" layer="1"/>
-<wire x1="44.45" y1="14.75" x2="43.72" y2="14.75" width="0.4064" layer="1"/>
-<wire x1="36.25" y1="17.153" x2="41.317" y2="17.153" width="0.4064" layer="1"/>
-<wire x1="41.317" y1="17.153" x2="43.72" y2="14.75" width="0.4064" layer="1"/>
 <wire x1="16.49" y1="44.56" x2="16.49" y2="45.69" width="0.4064" layer="1"/>
 <wire x1="16.49" y1="45.69" x2="18.8" y2="48" width="0.4064" layer="1"/>
 <wire x1="18.8" y1="48" x2="33.2" y2="48" width="0.4064" layer="1"/>
 <wire x1="33.2" y1="48" x2="37.8" y2="43.4" width="0.4064" layer="1"/>
 <wire x1="37.8" y1="43.4" x2="46" y2="43.4" width="0.4064" layer="1"/>
-<wire x1="46" y1="43.4" x2="46.7" y2="42.7" width="0.4064" layer="1"/>
-<wire x1="46.7" y1="42.7" x2="46.7" y2="28.53" width="0.4064" layer="1"/>
-<wire x1="46.7" y1="28.53" x2="43.72" y2="25.55" width="0.4064" layer="1"/>
+<wire x1="46" y1="43.4" x2="46.8" y2="42.6" width="0.4064" layer="1"/>
+<wire x1="43.52" y1="14.75" x2="44.45" y2="14.75" width="0.4064" layer="1"/>
+<wire x1="44.45" y1="14.75" x2="46.7" y2="17" width="0.4064" layer="1"/>
+<wire x1="43.52" y1="14.75" x2="38.653" y2="14.75" width="0.4064" layer="1"/>
+<wire x1="38.653" y1="14.75" x2="36.25" y2="17.153" width="0.4064" layer="1"/>
+<wire x1="46.7" y1="17" x2="46.7" y2="21.2" width="0.4064" layer="1"/>
+<wire x1="46.7" y1="21.2" x2="43.52" y2="24.38" width="0.4064" layer="1"/>
+<wire x1="43.52" y1="24.38" x2="43.52" y2="25.55" width="0.4064" layer="1"/>
+<wire x1="46.8" y1="42.6" x2="46.8" y2="30.3" width="0.4064" layer="1"/>
+<wire x1="46.8" y1="30.3" x2="43.5" y2="27" width="0.4064" layer="1"/>
+<wire x1="43.5" y1="27" x2="43.5" y2="25.57" width="0.4064" layer="1"/>
+<wire x1="43.5" y1="25.57" x2="43.52" y2="25.55" width="0.4064" layer="1"/>
 </signal>
 <signal name="MOTORB-OUT2">
 <contactref element="MOTOR3" pad="2"/>
@@ -2806,10 +2823,10 @@ design rules under a new name.</description>
 <wire x1="30.5" y1="32.3" x2="30.5" y2="30.2" width="0.4064" layer="1"/>
 <wire x1="30.5" y1="30.2" x2="35.397" y2="25.303" width="0.4064" layer="1"/>
 <wire x1="35.397" y1="25.303" x2="36.25" y2="25.303" width="0.4064" layer="1"/>
-<wire x1="43.72" y1="30.55" x2="41.497" y2="30.55" width="0.4064" layer="1"/>
 <wire x1="41.497" y1="30.55" x2="36.25" y2="25.303" width="0.4064" layer="1"/>
-<wire x1="36.25" y1="25.303" x2="38.167" y2="25.303" width="0.4064" layer="1"/>
-<wire x1="38.167" y1="25.303" x2="43.72" y2="19.75" width="0.4064" layer="1"/>
+<wire x1="36.25" y1="25.303" x2="37.967" y2="25.303" width="0.4064" layer="1"/>
+<wire x1="43.52" y1="30.55" x2="41.497" y2="30.55" width="0.4064" layer="1"/>
+<wire x1="43.52" y1="19.75" x2="37.967" y2="25.303" width="0.4064" layer="1"/>
 </signal>
 <signal name="12V">
 <contactref element="POWER" pad="1"/>
@@ -2821,8 +2838,8 @@ design rules under a new name.</description>
 <wire x1="34.9" y1="38.1" x2="36.2" y2="36.8" width="0.4064" layer="1"/>
 <wire x1="29.19" y1="36.94" x2="35.64" y2="36.94" width="0.4064" layer="16"/>
 <wire x1="35.64" y1="36.94" x2="35.85" y2="37.15" width="0.4064" layer="16"/>
-<wire x1="36.2" y1="36.8" x2="43.12" y2="36.8" width="0.4064" layer="1"/>
-<wire x1="43.12" y1="36.8" x2="43.72" y2="36.2" width="0.4064" layer="1"/>
+<wire x1="43.52" y1="36.2" x2="42.92" y2="36.8" width="0.4064" layer="1"/>
+<wire x1="42.92" y1="36.8" x2="36.2" y2="36.8" width="0.4064" layer="1"/>
 <wire x1="35.85" y1="37.15" x2="36.2" y2="36.8" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="MOTORA-2">
