@@ -18,6 +18,7 @@ addons:
             - doxygen-latex
             - doxygen-gui
             - graphviz
+            - cppcheck
 
 notifications:
     email: false
@@ -31,6 +32,25 @@ cache:
         - ~/arduino_ide
         - ~/.arduino15/packages/
 
+before_install:
+  # Set up the environment for building with the Arduino IDE
+  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+
+script:
+    # Build and run unit tests
+    - bash test/build_and_run_ut.sh
+    # Run static code analysis over the source code
+    - cppcheck --std=c++11 --enable=performance,portability,information --quiet --error-exitcode=1 src/
+    # Build all examples using Arduino UNO as the board
+    - build_platform uno
+
+after_success:
+    - bash run_coverage.sh
+    # Upload report to codecov
+    - bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
+    # Generate documentation
+    - doxygen Doxyfile
+
 deploy:
   provider: pages
   skip-cleanup: true
@@ -39,19 +59,3 @@ deploy:
   local-dir: docs
   on:
     branch: master
-
-before_install:
-  # Set up the environment for building with the Arduino IDE
-  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
-
-script:
-    # Build and run unit tests
-    - bash test/build_and_run_ut.sh
-    # Build all examples using Arduino UNO as the board
-    - build_platform uno
-
-after_success:
-    - bash run_coverage.sh
-    # Upload report to codecov
-    - bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
-    - doxygen Doxyfile
