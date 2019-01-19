@@ -105,6 +105,7 @@ You can utilize the object oriented design of this library in order to easily ex
 Have a look at the [Library Architecture](../../wiki/Library-architecture).
 
 ### Project documentation
+* [Doxygen](https://platisd.github.io/smartcar_shield/)
 * [The Smartcar platform](http://plat.is/smartcar)
 * [Wiki](../../wiki)
 * [Turning software engineers into Makers](https://platis.solutions/blog/2016/06/17/turning-software-engineers-into-makers/)
