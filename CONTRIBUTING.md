@@ -6,3 +6,4 @@ Interested in contributing to this awesome open source project? Awesome! We will
 * Do not decrease the code coverage, unless you have an extremely good reason.
 * Maintain the coding style, within each file and throughout the project, as consistent as possible.
 * Code against an issue which you mention in your commit message and/or pull request. If an issue does not exist, create one.
+* Write *atomic* unit tests with human readable names that clarify the business value they verify.
