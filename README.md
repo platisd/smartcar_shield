@@ -1,4 +1,4 @@
-# Smartcar shield [![Build Status](https://travis-ci.org/platisd/smartcar_shield.svg?branch=master)](https://travis-ci.org/platisd/smartcar_shield) [![codecov](https://codecov.io/gh/platisd/smartcar_shield/branch/master/graph/badge.svg)](https://codecov.io/gh/platisd/smartcar_shield)
+# Smartcar shield [![Build Status](https://travis-ci.org/platisd/smartcar_shield.svg?branch=master)](https://travis-ci.org/platisd/smartcar_shield) [![codecov](https://codecov.io/gh/platisd/smartcar_shield/branch/master/graph/badge.svg)](https://codecov.io/gh/platisd/smartcar_shield) [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/466/badge)](https://bestpractices.coreinfrastructure.org/projects/466)
 A versatile and easy to use vehicle platform for hobby-grade projects
 
 ## Contents
