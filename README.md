@@ -1,5 +1,5 @@
 # Smartcar shield [![Build Status](https://travis-ci.org/platisd/smartcar_shield.svg?branch=master)](https://travis-ci.org/platisd/smartcar_shield) [![codecov](https://codecov.io/gh/platisd/smartcar_shield/branch/master/graph/badge.svg)](https://codecov.io/gh/platisd/smartcar_shield)
-A versatile and easy to use platform for hobby-grade vehicle projects
+A versatile and easy to use vehicle platform for hobby-grade projects
 
 ## Contents
 * [Description](#description)
