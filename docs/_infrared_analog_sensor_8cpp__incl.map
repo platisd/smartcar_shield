@@ -1,0 +1,6 @@
+<map id="src/sensors/distance/infrared/analog/InfraredAnalogSensor.cpp" name="src/sensors/distance/infrared/analog/InfraredAnalogSensor.cpp">
+<area shape="rect" id="node2" href="$_infrared_analog_sensor_8hpp.html" title="InfraredAnalogSensor.hpp" alt="" coords="21,117,192,144"/>
+<area shape="rect" id="node7" href="$_utilities_8hpp.html" title="../../../../utilities\l/Utilities.hpp" alt="" coords="217,110,327,151"/>
+<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="213,201,325,242"/>
+<area shape="rect" id="node6" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="25,208,188,235"/>
+</map>

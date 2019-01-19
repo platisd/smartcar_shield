@@ -1,0 +1,6 @@
+<map id="DirectionalOdometer::attach" name="DirectionalOdometer::attach">
+<area shape="rect" id="node2" href="$class_directionless_odometer.html#a78e7dc4b038445d9f542d32f941e6e3b" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="195,46,349,87"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino. " alt="" coords="397,108,565,135"/>
+<area shape="rect" id="node3" href="$class_runtime.html#a517ad270d4dd374f7e94fddf687484f1" title="Gets the interrupt number of the specified pin, equivalent of digitalPinToInterrupt in Arduino..." alt="" coords="402,5,561,32"/>
+<area shape="rect" id="node5" href="$class_runtime.html#aab5b1a3c2710f1388175fe31a23b6c30" title="Enables an external hardware interrupt and provides a callback, equivalent to attachInterrupt in Ardu..." alt="" coords="409,56,554,83"/>
+</map>

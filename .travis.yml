@@ -13,6 +13,11 @@ addons:
         packages:
             - g++-5
             - lcov
+            - doxygen
+            - doxygen-doc
+            - doxygen-latex
+            - doxygen-gui
+            - graphviz
 
 notifications:
     email: false

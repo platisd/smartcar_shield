@@ -1,0 +1,4 @@
+<map id="DirectionlessOdometer" name="DirectionlessOdometer">
+<area shape="rect" id="node3" href="$class_directional_odometer.html" title="A class to represent directional Odometers. " alt="" coords="15,419,176,599"/>
+<area shape="rect" id="node2" href="$class_odometer.html" title="{Odometer\n||+ getDistance()\l+ getSpeed()\l+ isAttached()\l+ providesDirection()\l}" alt="" coords="25,6,167,127"/>
+</map>

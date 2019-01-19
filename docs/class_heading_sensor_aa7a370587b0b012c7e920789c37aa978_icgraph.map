@@ -1,0 +1,3 @@
+<map id="HeadingSensor::getHeading" name="HeadingSensor::getHeading">
+<area shape="rect" id="node2" href="$class_heading_car.html#ae08c04a216c68908111e06e7ebb01dac" title="Returns the car&#39;s current heading in degrees [0, 360) " alt="" coords="240,5,405,32"/>
+</map>

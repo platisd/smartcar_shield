@@ -1,0 +1,6 @@
+<map id="src/sensors/distance/infrared/analog/sharp/GP2Y0A21.hpp" name="src/sensors/distance/infrared/analog/sharp/GP2Y0A21.hpp">
+<area shape="rect" id="node2" href="$_runtime_8hpp.html" title="../../../../../runtime\l/Runtime.hpp" alt="" coords="90,201,215,242"/>
+<area shape="rect" id="node5" href="$_infrared_analog_sensor_8hpp.html" title="../InfraredAnalogSensor.hpp" alt="" coords="289,117,473,144"/>
+<area shape="rect" id="node7" href="$_arduino_runtime_8hpp.html" title="../../../../../runtime\l/arduino_runtime/ArduinoRuntime.hpp" alt="" coords="25,110,265,151"/>
+<area shape="rect" id="node6" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="299,208,462,235"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="SimpleCar::setAngle" name="SimpleCar::setAngle">
+<area shape="rect" id="node2" href="$class_control.html#aa3cb860359387de070c95e72e64b71aa" title="Sets the driving angle in degrees [&#45;90, 90]. " alt="" coords="197,5,320,32"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="199,57,318,98"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="src/sensors/heading/HeadingSensor.hpp" name="src/sensors/heading/HeadingSensor.hpp">
+<area shape="rect" id="node2" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="226,104,435,131"/>
+<area shape="rect" id="node7" href="$_g_y50_8hpp.html" title="src/sensors/heading\l/gyroscope/GY50.hpp" alt="" coords="459,97,607,138"/>
+<area shape="rect" id="node3" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="5,195,213,221"/>
+<area shape="rect" id="node4" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="239,195,423,221"/>
+<area shape="rect" id="node6" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="426,277,533,304"/>
+<area shape="rect" id="node5" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="217,277,401,304"/>
+<area shape="rect" id="node8" href="$_g_y50_8cpp.html" title="src/sensors/heading\l/gyroscope/GY50.cpp" alt="" coords="549,187,696,229"/>
+</map>

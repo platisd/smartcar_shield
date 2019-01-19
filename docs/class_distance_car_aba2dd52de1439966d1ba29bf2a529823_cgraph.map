@@ -1,0 +1,3 @@
+<map id="DistanceCar::getSpeed" name="DistanceCar::getSpeed">
+<area shape="rect" id="node2" href="$class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="214,5,357,32"/>
+</map>

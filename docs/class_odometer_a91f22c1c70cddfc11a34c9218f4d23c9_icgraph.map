@@ -1,0 +1,5 @@
+<map id="Odometer::getSpeed" name="Odometer::getSpeed">
+<area shape="rect" id="node2" href="$class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second. " alt="" coords="198,5,357,32"/>
+<area shape="rect" id="node3" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="406,5,549,32"/>
+<area shape="rect" id="node4" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="597,5,723,32"/>
+</map>

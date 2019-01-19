@@ -1,0 +1,4 @@
+<map id="Motor" name="Motor">
+<area shape="rect" id="node2" href="$class_brushed_motor.html" title="{BrushedMotor\n||+ BrushedMotor()\l+ setSpeed()\l}" alt="" coords="5,147,128,239"/>
+<area shape="rect" id="node3" href="$class_servo_motor.html" title="{ServoMotor\n||+ ServoMotor()\l+ setSpeed()\l}" alt="" coords="152,147,261,239"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="SmartCar::update" name="SmartCar::update">
+<area shape="rect" id="node2" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="179,69,322,96"/>
+<area shape="rect" id="node9" href="$class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor. " alt="" coords="181,132,320,159"/>
+<area shape="rect" id="node3" href="$class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="371,5,549,32"/>
+<area shape="rect" id="node4" href="$class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second. " alt="" coords="381,56,539,83"/>
+<area shape="rect" id="node6" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="387,107,533,133"/>
+<area shape="rect" id="node5" href="$class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="598,56,741,83"/>
+<area shape="rect" id="node7" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="606,107,733,133"/>
+<area shape="rect" id="node8" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="610,158,729,199"/>
+<area shape="rect" id="node10" href="$class_heading_sensor.html#a4f28f71383bb82257a4cdade671d17d6" title="Updates the sensor&#39;s readings. " alt="" coords="381,157,539,184"/>
+</map>

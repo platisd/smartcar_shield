@@ -1,0 +1,7 @@
+<map id="src/car/heading/HeadingCar.cpp" name="src/car/heading/HeadingCar.cpp">
+<area shape="rect" id="node2" href="$_heading_car_8hpp.html" title="HeadingCar.hpp" alt="" coords="105,80,220,107"/>
+<area shape="rect" id="node3" href="$_heading_sensor_8hpp.html" title="../../sensors/heading\l/HeadingSensor.hpp" alt="" coords="4,155,144,197"/>
+<area shape="rect" id="node4" href="$_simple_car_8hpp.html" title="../simple/SimpleCar.hpp" alt="" coords="169,163,332,189"/>
+<area shape="rect" id="node5" href="$_control_8hpp.html" title="../../control/Control.hpp" alt="" coords="101,245,256,272"/>
+<area shape="rect" id="node6" href="$_car_8hpp.html" title="../Car.hpp" alt="" coords="281,245,360,272"/>
+</map>

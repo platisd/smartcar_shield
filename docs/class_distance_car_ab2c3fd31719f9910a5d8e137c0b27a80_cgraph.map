@@ -1,0 +1,7 @@
+<map id="DistanceCar::setSpeed" name="DistanceCar::setSpeed">
+<area shape="rect" id="node2" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="213,16,360,43"/>
+<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="413,57,531,98"/>
+<area shape="rect" id="node5" href="$namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa" title="Compares two floating point numbers. " alt="" coords="225,119,348,161"/>
+<area shape="rect" id="node3" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="409,5,535,32"/>
+<area shape="rect" id="node6" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="smartcarlib::utils\l::getAbsolute" alt="" coords="413,122,531,163"/>
+</map>
