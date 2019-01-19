@@ -30,9 +30,9 @@ template <typename AnyNumber>
 AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int& arraySize)
 {
     // Sort the array using bubble sort
-    for (auto i = 0; i < arraySize - 1; i++)
+    for (unsigned int i = 0; i < arraySize - 1; i++)
     {
-        for (auto j = 0; j < arraySize - 1 - i; j++)
+        for (unsigned int j = 0; j < arraySize - 1 - i; j++)
         {
             if (unsortedNumbers[j] > unsortedNumbers[j + 1])
             {

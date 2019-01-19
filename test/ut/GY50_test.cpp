@@ -199,12 +199,6 @@ TEST_F(GY50AttachedTest, getOffset_WhenInvalidArgument_WillReturnError)
 
 TEST_F(GY50BasicTest, getOffset_WhenCalled_WillSetupSensorViaI2COnce)
 {
-    uint8_t controlRegister1 = 0x20;
-    uint8_t controlRegister2 = 0x21;
-    uint8_t controlRegister3 = 0x22;
-    uint8_t controlRegister4 = 0x23;
-    uint8_t controlRegister5 = 0x24;
-
     EXPECT_CALL(mRuntime, i2cInit()).Times(1);
 
     mGyro.getOffset(1);

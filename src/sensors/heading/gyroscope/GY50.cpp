@@ -92,7 +92,7 @@ int GY50::getOffset(unsigned int measurements)
 
     static const unsigned long measurementInterval = 10;
     long sum                                       = 0;
-    for (auto i = 0; i < measurements; i++)
+    for (unsigned int i = 0; i < measurements; i++)
     {
         sum += getAngularVelocity();
         mRuntime.delayMillis(measurementInterval);

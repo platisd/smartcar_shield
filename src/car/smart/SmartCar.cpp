@@ -4,9 +4,9 @@ SmartCar::SmartCar(Control& control,
                    HeadingSensor& headingSensor,
                    Odometer& odometer,
                    Runtime& runtime)
-    : HeadingCar::HeadingCar(control, headingSensor)
+    : SimpleCar::SimpleCar(control)
     , DistanceCar::DistanceCar(control, odometer, runtime)
-    , SimpleCar::SimpleCar(control)
+    , HeadingCar::HeadingCar(control, headingSensor)
 {
 }
 
@@ -15,9 +15,9 @@ SmartCar::SmartCar(Control& control,
                    Odometer& odometerleft,
                    Odometer& odometerRight,
                    Runtime& runtime)
-    : HeadingCar::HeadingCar(control, headingSensor)
+    : SimpleCar::SimpleCar(control)
     , DistanceCar::DistanceCar(control, odometerleft, odometerRight, runtime)
-    , SimpleCar::SimpleCar(control)
+    , HeadingCar::HeadingCar(control, headingSensor)
 {
 }
 

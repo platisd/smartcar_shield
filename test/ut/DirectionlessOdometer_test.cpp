@@ -102,7 +102,7 @@ TEST_F(DirectionlessOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorre
 {
     // Simulate the triggering of the callback for as many pulses constitute a meter
     unsigned long oneMillisecondInterval = 1000;
-    for (auto i = 0; i < kDefaultPulsesPerMeter; i++)
+    for (unsigned long i = 0; i < kDefaultPulsesPerMeter; i++)
     {
         // Simulate pulses at 1 millisecond interval
         EXPECT_CALL(mRuntime, currentTimeMicros())
