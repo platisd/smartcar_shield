@@ -42,7 +42,7 @@ enable its users to perform tasks easily with relatively few lines of code. It i
 hide implementation details or low level hardware operations. The library, handles
 the various components (i.e. the vehicle and the various sensors) as objects, therefore
 enabling trivial control over the car's functions. The various operations exposed by the API,
-are thoroughly explained in [wiki/API-documentation](../../wiki/API-documentation).
+are thoroughly explained in [API Documentation](https://platisd.github.io/smartcar_shield/).
 You can find examples on how to use the library, in [/examples](/examples).
 
 The library is versatile and is independent from the shield or specific hardware.
@@ -105,7 +105,7 @@ You can utilize the object oriented design of this library in order to easily ex
 Have a look at the [Library Architecture](../../wiki/Library-architecture).
 
 ### Project documentation
-* [Doxygen](https://platisd.github.io/smartcar_shield/)
+* [API Documentation](https://platisd.github.io/smartcar_shield/)
 * [The Smartcar platform](http://plat.is/smartcar)
 * [Wiki](../../wiki)
 * [Turning software engineers into Makers](https://platis.solutions/blog/2016/06/17/turning-software-engineers-into-makers/)
