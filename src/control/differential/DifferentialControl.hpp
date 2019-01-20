@@ -1,4 +1,5 @@
 /**
+ * \class DifferentialControl
  * Class to represent controling a vehicle by applying different speed on each
  * side, like a tank.
  */
@@ -14,6 +15,13 @@ public:
      * Constructs an Ackerman way of controlling the vehicle
      * @param steering   The motor that controls the steering
      * @param throttling The motor that controls the throttling
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor rightMotor(12, 13, 11);
+     * DifferentialControl control(leftMotor, rightMotor);
+     * \endcode
      */
     DifferentialControl(Motor& leftMotor, Motor& rightMotor);
 

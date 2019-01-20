@@ -1,8 +1,9 @@
 /**
- * The SR04 (or SRF05) is an inexpensive ultrasonic sensor controllable over two
+ * \class SR04
+ *  The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two
  * digital pins.
  *
- * For a more advanced solution (faster readings, not using `pulseIn`, non-blocking measurements)
+ * For a more advanced solution (faster readings, not using `pulseIn`, non-blocking measurements etc)
  * please use the [NewPing library](https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home).
  */
 #pragma once
@@ -39,6 +40,14 @@ public:
      * @param triggerPin  The pin to produce the trigger signal
      * @param echoPin     The pin to receive the echo signal
      * @param maxDistance The maximum measurement distance in centimeters
+     *
+     * **Example:**
+     * \code
+     * unsigned short TRIGGER_PIN = 6;
+     * unsigned short ECHO_PIN = 7;
+     *
+     * SR04 sr04(TRIGGER_PIN, ECHO_PIN);
+     * \endcode
      */
     SR04(uint8_t triggerPin,
          uint8_t echoPin,

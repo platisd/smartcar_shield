@@ -1,5 +1,6 @@
 /**
- * Utilities commonly used within the Smartcar library
+ * \class Utilities
+ * Utilitiy functions commonly used within the Smartcar library
  */
 #pragma once
 
@@ -7,12 +8,40 @@ namespace smartcarlib
 {
 namespace utils
 {
+/**
+ * Gets the absolute of the supplied number
+ * @param  number The number to get the absolute of
+ * @return        The absolute value
+ *
+ * **Example:**
+ * \code
+ * int num = -5;
+ * num = smartcarlib::utils::getAbsolute(num);
+ * // `num` is now `5`
+ * \endcode
+ */
 template <typename AnyNumber>
 constexpr AnyNumber getAbsolute(const AnyNumber& number)
 {
     return number < 0 ? -number : number;
 }
 
+/**
+ * Limit the number between a range
+ * @param  number The number to limit
+ * @param  min    The minimum limit of the range
+ * @param  max    The maximum limit of the range
+ * @return        The number unchanged if it was within the range, otherwise the
+ *                lower limit of the range if it was smaller or the higher limit
+ *                if it was larger
+ *
+ * **Example:**
+ * \code
+ * int num = -5;
+ * num = smartcarlib::utils::getConstrain(num, 0, 100);
+ * // `num` is now `0`
+ * \endcode
+ */
 template <typename AnyNumber>
 constexpr AnyNumber
 getConstrain(const AnyNumber& number, const AnyNumber& min, const AnyNumber& max)
@@ -25,6 +54,14 @@ getConstrain(const AnyNumber& number, const AnyNumber& min, const AnyNumber& max
  * @param  unsortedNumbers   An array containing numbers
  * @param  arraySize         Amount of numbers contained in the array
  * @return                   Median number of the supplied array
+ *
+ * **Example:**
+ * \code
+ * const int ARRAY_SIZE = 5;
+ * int array[ARRAY_SIZE] = {0, 3, 4, 1, 15};
+ * int median = smartcarlib::utils::getMedian(array, ARRAY_SIZE);
+ * // `median` is `3`
+ * \endcode
  */
 template <typename AnyNumber>
 AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int& arraySize)
@@ -55,6 +92,14 @@ AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int& arraySize)
  * @param  toHigh     The higher limit of the final range
  * @return            The mapped value if initial range valid otherwise the lower limit
  *                    of the target range
+ *
+ * **Example:**
+ * \code
+ * int num = 3;
+ *  // Scale a `num` from 0-10 to 0-100
+ *  num = smartcarlib::utils::getMap(num, 0, 10, 0, 100);
+ *  // `num` is now `30`
+ * \endcode
  */
 template <typename AnyNumber>
 constexpr AnyNumber getMap(const AnyNumber& valueToMap,
@@ -73,6 +118,12 @@ constexpr AnyNumber getMap(const AnyNumber& valueToMap,
  * @param  a The first floating point number to compare
  * @param  b The second floating point number to compare
  * @return   `true` if the two numbers are amost equal, false otherwise
+ *
+ * **Example:**
+ * \code
+ * bool result = smartcarlib::utils::areAlmostEqual(0.000001, 0,0000012);
+ * // `result` is `true`
+ * \endcode
  */
 constexpr bool areAlmostEqual(float a, float b)
 {

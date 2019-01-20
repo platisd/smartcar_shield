@@ -1,4 +1,5 @@
 /**
+ * \class DirectionalOdometer
  * A class to represent directional Odometers. These sensors typically expose three
  * signals lines, as opposed to two in the directionless counterparts. Depending
  * on the state of this third signal, the direction of movement can be inferred.
@@ -16,6 +17,15 @@ public:
      * @param directionPin        The pin that receives the direction signal
      * @param pinStateWhenForward The direction pin state when moving forward
      * @param pulsesPerMeter       The amount of odometer pulses that constitute a meter
+     *
+     * **Example:**
+     * \code
+     * unsigned short DIRECTION_PIN = 8;
+     * unsigned short FORWARD_STATE = LOW;
+     * unsigned long PULSES_PER_METER = 40;
+     *
+     * DirectionalOdometer odometer(DIRECTION_PIN, FORWARD_STATE, PULSES_PER_METER);
+     * \endcode
      */
     DirectionalOdometer(uint8_t directionPin,
                         uint8_t pinStateWhenForward,
@@ -50,6 +60,11 @@ public:
      * Get the direction of movement
      * @return `1` if travelling forward
      *         `-1` if travelling backward
+     *
+     * **Example:**
+     * \code
+     * unsigned short direction = odometer.getDirection();
+     * \endcode
      */
     int8_t getDirection();
 

@@ -1,4 +1,5 @@
 /**
+ * \class AckermanControl
  * Class to represent controling a vehicle by changing the angle of the front
  * wheels, like a common car.
  */
@@ -14,6 +15,13 @@ public:
      * Constructs an Ackerman way of controlling the vehicle
      * @param steering   The motor that controls the steering
      * @param throttling The motor that controls the throttling
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor motor(8, 10, 9);
+     * ServoMotor steeringWheel(7);
+     * AckermanControl control(steeringWheel, motor);
+     * \endcode
      */
     AckermanControl(Motor& steering, Motor& throttling);
 

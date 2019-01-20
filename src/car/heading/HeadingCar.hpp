@@ -1,4 +1,5 @@
 /**
+ * \class HeadingCar
  * A class to programmatically represent a vehicle equipped with a heading sensor
  */
 #pragma once
@@ -13,18 +14,44 @@ public:
      * Constructs a car equipped with a heading sensor
      * @param control       The car's control
      * @param headingSensor The heading sensor
+     *
+     * **Example:**
+     * \code
+     * const int GYROSCOPE_OFFSET = 37;
+     *
+     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor rightMotor(12, 13, 11);
+     * DifferentialControl control(leftMotor, rightMotor);
+     *
+     * GY50 gyroscope(GYROSCOPE_OFFSET);
+     * \endcode
      */
     HeadingCar(Control& control, HeadingSensor& headingSensor);
 
     /**
      * Returns the car's current heading in degrees [0, 360)
      * @return The car's current heading in degrees
+     *
+     * **Example:**
+     * \code
+     * unsigned int currentHeading = gyroscope.getHeading();
+     * \endcode
      */
     unsigned int getHeading();
 
     /**
-     * Updates the readings from the heading sensor. You must have this being
-     * executed as often as possible to get accurate heading readings.
+     * Updates the readings from the heading sensor.
+     * You must have this being executed as often as possible to get accurate
+     * heading readings.
+     *
+     * **Example:**
+     * \code
+     * void loop() {
+     *   // Update the car readings as often as possible
+     *   car.update();
+     *   // Other functionality
+     * }
+     * \endcode
      */
     virtual void update();
 

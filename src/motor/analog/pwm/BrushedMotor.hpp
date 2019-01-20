@@ -1,4 +1,5 @@
 /**
+ * \class BrushedMotor
  * A brushed motor is controlled via two wires where the flow of current determines
  * the direction of rotation and the duty cycle the speed.
  *
@@ -27,6 +28,11 @@ public:
      * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward
      * @param backwardPin The direction pin that when set to HIGH makes the motor spin forward
      * @param enablePin   The pin  that controls the motor's speed
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(8, 10, 9);
+     * \endcode
      */
     BrushedMotor(uint8_t forwardPin,
                  uint8_t backwardPin,

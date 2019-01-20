@@ -1,4 +1,5 @@
 /**
+ * \class DirectionlessOdometer
  * A class to represent the common - directionless - Odometers (speed encoders)
  * that can be used to primarily measure the travelled distance of the car
  * as well as its speed.
@@ -22,6 +23,13 @@ public:
     /**
      * Constructs an odometer that can measure distance, speed but not direction
      * @param pulsesPerMeter The amount of odometer pulses that constitute a meter
+     *
+     * **Example:**
+     * \code
+     * unsigned long PULSES_PER_METER = 110;
+     *
+     * DirectionlessOdometer odometer(PULSES_PER_METER);
+     * \endcode
      */
     DirectionlessOdometer(unsigned long pulsesPerMeter,
                           Runtime& runtime = arduinoRuntime);
@@ -31,15 +39,8 @@ public:
 
     virtual ~DirectionlessOdometer() = default;
 
-    /**
-     * Initializes the Odometer to receive pulses from the specified pin
-     * @param  pin      The pin to receive pulses from which must support external hardware
-     *                  interrupts
-     * @param  callback The function to be run on each incoming pulse. Please use the following as
-     *                  an argument: `[](){yourOdometerInstance.update();}`
-     * @return          `false` if an error occurred, i.e. invalid pin
-     */
-    virtual bool attach(uint8_t pin, void (*callback)());
+    /* Check `Odometer` interface for documentation */
+    bool attach(uint8_t pin, void (*callback)()) override;
 
     /* Check `Odometer` interface for documentation */
     long getDistance() override;

@@ -1,4 +1,5 @@
 /**
+ * \interface Runtime
  * An interface to serve as a wrapper for the native runtime environment,
  * greatly inspired by the Arduino library API.
  * Its purpose is to facilitate testing and porting onto different platforms.

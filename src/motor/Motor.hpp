@@ -1,4 +1,5 @@
 /**
+ * \interface Motor
  * Interface programmatically representing any kind of motor.
  * Fundamentally, a motor is something you can control the speed and direction
  * of its rotation.
@@ -32,6 +33,11 @@ public:
      *              towards the direction we have defined as backward.
      *              `100` interpreted as full speed forward.
      *              `0` means that the motor is at its idle/neutral state.
+     *
+     * **Example:**
+     * \code
+     * motor.setSpeed(0); // Stop the motor
+     * \endcode
      */
     virtual void setSpeed(int speed) = 0;
 };

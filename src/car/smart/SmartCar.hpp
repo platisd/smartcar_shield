@@ -1,5 +1,6 @@
 /**
- * @brief A class to programmatically represent a vehicle equipped with odometers and a heading
+ * \class SmartCar
+ * A class to programmatically represent a vehicle equipped with odometers and a heading
  * sensor
  */
 #pragma once
@@ -21,6 +22,18 @@ public:
      * @param control        The car's control
      * @param headingSensor  The heading sensor
      * @param odometer       The odometer
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor rightMotor(12, 13, 11);
+     * DifferentialControl control(leftMotor, rightMotor);
+     *
+     * GY50 gyroscope(37);
+     * DirectionlessOdometer odometer(100);
+
+     * SmartCar car(control, gyroscope, odometer);
+     * \endcode
      */
     SmartCar(Control& control,
              HeadingSensor& headingSensor,
@@ -33,6 +46,19 @@ public:
      * @param headingSensor The heading sensor
      * @param odometerLeft  The left odometer
      * @param odometerRight The right odometer
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor rightMotor(12, 13, 11);
+     * DifferentialControl control(leftMotor, rightMotor);
+     *
+     * GY50 gyroscope(37);
+     * DirectionlessOdometer leftOdometer(100);
+     * DirectionlessOdometer rightOdometer(100);
+
+     * SmartCar car(control, gyroscope, leftOdometer, rightOdometer);
+     * \endcode
      */
     SmartCar(Control& control,
              HeadingSensor& headingSensor,
@@ -49,9 +75,18 @@ public:
 #endif
 
     /**
-     * Adjusts the speed when cruise control is enabled and calculates the current
-     * heading. You must have this being executed as often as possible for highest
+     * Adjusts the speed when cruise control is enabled and calculates the current heading.
+     * You must have this being executed as often as possible for highest
      * accuracy of heading calculations and cruise control.
+     *
+     * **Example:**
+     * \code
+     * void loop() {
+     *   // Update the car readings as often as possible
+     *   car.update();
+     *   // Other functionality
+     * }
+     * \endcode
      */
     virtual void update() override;
 

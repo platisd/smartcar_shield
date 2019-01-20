@@ -1,4 +1,5 @@
 /**
+ * \class ArduinoRuntime
  * The class to programatically represent the Arduino runtime environment or
  * alternatively calls to the AVR and Arduino libraries.
  */

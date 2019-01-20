@@ -1,4 +1,5 @@
 /**
+ * \class SimpleCar
  * A class to programmatically represent a very basic vehicle with two motors
  */
 #pragma once
@@ -12,6 +13,15 @@ public:
     /**
      * Constructs a simple car
      * @param control The car's control
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor rightMotor(12, 13, 11);
+     * DifferentialControl control(leftMotor, rightMotor);
+     *
+     * SimpleCar car(control);
+     * \endcode
      */
     SimpleCar(Control& control);
 
@@ -21,6 +31,13 @@ public:
      * Sets the car's driving speed as a percentage of the motors total speed where
      * the sign indicates direction.
      * @param speed The car's speed [-100, 100]
+     *
+     * **Example:**
+     * \code
+     * car.setSpeed(-100); // Full speed backward
+     * car.setSpeed(0); // Car immobilized
+     * car.setSpeed(50); // Car with half speed forward
+     * \endcode
      */
     virtual void setSpeed(float speed) override;
 

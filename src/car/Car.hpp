@@ -1,4 +1,5 @@
 /**
+ * \interface Car
  * An interface to programmatically represent any kind of vehicle
  */
 #pragma once
@@ -17,6 +18,11 @@ public:
     /**
      * Set the car's driving angle
      * @param angle The car's angle in degrees [-90, 90]
+     *
+     * **Example:**
+     * \code
+     * car.setAngle(20);
+     * \endcode
      */
     virtual void setAngle(int angle) = 0;
 
@@ -27,6 +33,11 @@ public:
      *                         argument to the car's control class [-100, 100]
      * @param secondMotorSpeed The speed of the motor passed as second argument
      *                         argument to the car's control class [-100, 100]
+     *
+     * **Example:**
+     * \code
+     * car.overrideMotorSpeed(100, -100); // Make the car spin around clockwise
+     * \endcode
      */
     virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) = 0;
 };

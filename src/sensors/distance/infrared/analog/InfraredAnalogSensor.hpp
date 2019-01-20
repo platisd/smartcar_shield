@@ -1,7 +1,8 @@
 /**
- * An abstract class to represent the various infrared sensors that are able to
- * conduct measurements by emiting an analog signal that can be read by a
- * microcontroller through the ADC.
+ * \class InfraredAnalogSensor
+ * An abstract class to represent the various infrared analog sensors.
+ * These sensors are able to conduct measurements by emiting an analog signal
+ * that can be read by a microcontroller through the ADC.
  */
 #pragma once
 

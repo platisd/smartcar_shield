@@ -1,4 +1,5 @@
 /**
+ * \class ServoMotor
  * A motor that is controlled via the length of pulses that are sent to it
  * through a single signal line.
  * It can be either a traditional servo motor that controls a shaft (e.g. for steering)
@@ -42,6 +43,12 @@ public:
      * @param minPulseLength  The motor's minimum pulse length in microseconds
      * @param idlePulseLength The pulse length that the motor is idle in microseconds
      * @param maxPulseLength  The motor's maximum pulse length in microseconds
+     *
+     * **Example:**
+     * \code
+     * const unsigned short ESC_PIN = 7;
+     * ServoMotor esc(ESC_PIN);
+     * \endcode
      */
     ServoMotor(uint8_t controlPin,
                int minPulseLength  = smartcarlib::constants::servomotor::kDefaultMinPulseLength,
