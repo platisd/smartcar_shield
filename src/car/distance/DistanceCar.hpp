@@ -135,7 +135,21 @@ private:
                             const float& currentSpeed);
 
     /**
-     * Used internally making an attempt to stop the car based on the current speed
+     * Used internally making an attempt to stop the car based on the current speed.
      */
     void brake();
 };
+
+/**
+ * \example DistanceCar.ino
+ * A basic example on how to use the core functionality of the DistanceCar class.
+ *
+ * \example manualWithCruiseControl.ino
+ * An example on how to manually control a DistanceCar via Serial when having
+ * cruise control enabled.
+ *
+ * \example PidControllerMonitor.ino
+ * An example on how to observe the behavior of the PID controller used by
+ * cruise control of a DistanceCar, via the Arduino IDE's Serial Plotter
+ * feature. The sketch can be used during the cruise control's tuning process.
+ */

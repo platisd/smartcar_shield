@@ -31,3 +31,8 @@ private:
     const uint8_t kPin;
     Runtime& mRuntime;
 };
+
+/**
+* \example GP2Y0A21.ino
+* A basic example on how to get a distance measurement from a GP2Y0A21 infrared sensor.
+*/

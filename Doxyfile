@@ -155,13 +155,14 @@ FILE_PATTERNS          = *.c \
                          *.ucf \
                          *.qsf \
                          *.as \
-                         *.js
+                         *.js \
+                         *.ino
 RECURSIVE              = YES
 EXCLUDE                =
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
-EXAMPLE_PATH           =
+EXAMPLE_PATH           = examples
 EXAMPLE_PATTERNS       = *
 EXAMPLE_RECURSIVE      = NO
 IMAGE_PATH             =
@@ -173,7 +174,7 @@ USE_MDFILE_AS_MAINPAGE = README.md
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
-SOURCE_BROWSER         = NO
+SOURCE_BROWSER         = YES
 INLINE_SOURCES         = NO
 STRIP_CODE_COMMENTS    = YES
 REFERENCED_BY_RELATION = NO

@@ -92,3 +92,9 @@ private:
 
     void attach();
 };
+
+/**
+ * \example SRF08.ino
+ * An example on how to conduct a single measurement with the SRF08 sensor and
+ * print the results over Serial.
+ */

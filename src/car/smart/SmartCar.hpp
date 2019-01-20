@@ -1,6 +1,6 @@
 /**
- * A class to programmatically represent a vehicle equipped with odometers and
- * a heading sensor
+ * @brief A class to programmatically represent a vehicle equipped with odometers and a heading
+ * sensor
  */
 #pragma once
 
@@ -59,3 +59,16 @@ public:
     using DistanceCar::overrideMotorSpeed;
     using DistanceCar::setSpeed;
 };
+
+/**
+ * \example SmartCar.ino
+ * A basic example on how to use the core functionality of the SmartCar class.
+ *
+ * \example automatedMovements.ino
+ * An example of how to use the SmartCar functionality in order to perform a series
+ * of automated movements using the vehicle's HeadingSensor and Odometer capabilities.
+ *
+ * \example rotateOnSpot.ino
+ * An example on how to make a SmartCar rotate on spot by using the HeadingSensor
+ * and the SmartCar::overrideMotorSpeed functionality.
+ */

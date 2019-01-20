@@ -31,3 +31,8 @@ private:
     const uint8_t kPin;
     Runtime& mRuntime;
 };
+
+/**
+* \example GP2D120.ino
+* A basic example on how to get a distance measurement from a GP2D120 infrared sensor.
+*/

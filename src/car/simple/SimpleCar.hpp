@@ -33,3 +33,25 @@ public:
 private:
     Control& mControl;
 };
+
+/**
+ * \example SimpleCar.ino
+ * A basic example on how to use the core functionality of the SimpleCar class.
+ *
+ * \example FullSerialControl.ino
+ * An example on how to set via Serial the speed an angle for a SimpleCar. Other
+ * Car types (e.g. DistanceCar and SmartCar) can also be controled
+ * in the same way.
+ *
+ * \example manualControl.ino
+ * An example on how to manually control a SimpleCar (also applicable for DistanceCar
+ * and SmartCar) via Serial using predefined combinations of speeds and angles.
+ *
+ * \example SerialControlServoESC.ino
+ * A basic example on how to create a SimpleCar via Serial when it uses an
+ * ESC for throttling and a ServoMotor for steering via the AckermanControl method.
+ *
+ * \example shieldMotorsTest.ino
+ * A sketch used to help you set up the default Smartcar setup using four BrushedMotor
+ * via DifferentialControl.
+ */

@@ -65,3 +65,9 @@ private:
 
     void attach();
 };
+
+/**
+ * \example SR04.ino
+ * An example that indicates how to conduct a single measurement with the SR04
+ * ultrasonic sensor and print the results over Serial.
+ */

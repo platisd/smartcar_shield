@@ -84,3 +84,15 @@ private:
     volatile unsigned long mPreviousPulse;
     volatile unsigned long mDt;
 };
+
+/**
+ * \example findPulsesPerMeter.ino
+ * An example on how to determine how many pulses are emitted from your Odometer
+ * for every meter travelled. The output should be supplied to the constructor.
+ *
+ * \example singleOdometer.ino
+ * An example on how to get the travelled distance from a single DirectionlessOdometer.
+ *
+ * \example twoOdometers.ino
+ * An example on how to get the travelled distance from two DirectionlessOdometer.
+ */

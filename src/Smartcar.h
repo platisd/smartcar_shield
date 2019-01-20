@@ -22,3 +22,7 @@
 #include "car/heading/HeadingCar.hpp"
 #include "car/smart/SmartCar.hpp"
 #include "utilities/Utilities.hpp"
+
+/** \example BareMinimum.ino
+ * A example on the boiler-plate code needed to start using the library.
+ */

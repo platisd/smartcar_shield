@@ -31,3 +31,8 @@ public:
 private:
     HeadingSensor& mHeadingSensor;
 };
+
+/**
+ * \example HeadingCar.ino
+ * A basic example on how to use the core functionality of the HeadingCar class
+ */

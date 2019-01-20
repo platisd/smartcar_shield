@@ -67,3 +67,12 @@ private:
     int readL3G4200DRegister(uint8_t registerAddress);
     void writeL3G4200DRegister(uint8_t registerAddress, uint8_t value);
 };
+
+/**
+ * \example gyroscopeCalibration.ino
+ * An example on how to calibrate your GY50 gyroscope and determine its offset.
+ *
+ * \example gyroscopeHeading.ino
+ * A basic example on how to get the current heading from your GY50 gyroscope
+ * and print it out over Serial.
+ */
