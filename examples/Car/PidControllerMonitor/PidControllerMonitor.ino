@@ -1,4 +1,7 @@
-/* Print out the current speed as detected by the odometers, as well as the set point of the pid controller, so to observe its behavior */
+/**
+ Print out the current speed as detected by the odometers, as well as the set
+ point of the pid controller, so to observe its behavior
+*/
 
 #include <Smartcar.h>
 
