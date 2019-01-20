@@ -1,4 +1,4 @@
 <map id="GY50::update" name="GY50::update">
 <area shape="rect" id="node2" href="$class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="157,5,336,32"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="smartcarlib::utils\l::getAbsolute" alt="" coords="187,57,306,98"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="187,57,306,98"/>
 </map>

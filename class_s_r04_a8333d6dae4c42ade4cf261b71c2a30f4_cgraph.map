@@ -1,5 +1,5 @@
 <map id="SR04::getMedianDistance" name="SR04::getMedianDistance">
-<area shape="rect" id="node2" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor. " alt="" coords="233,56,367,83"/>
+<area shape="rect" id="node2" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="SR04::getDistance" alt="" coords="233,56,367,83"/>
 <area shape="rect" id="node6" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="230,107,370,133"/>
 <area shape="rect" id="node7" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="241,158,359,199"/>
 <area shape="rect" id="node3" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="435,5,581,32"/>

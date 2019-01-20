@@ -1,8 +1,0 @@
-<map id="DistanceSensor" name="DistanceSensor">
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="{InfraredAnalogSensor\n||+ InfraredAnalogSensor()\l+ getMedianDistance()\l}" alt="" coords="114,205,280,297"/>
-<area shape="rect" id="node6" href="$class_s_r04.html" title="{SR04\n||+ SR04()\l+ getDistance()\l+ getMedianDistance()\l}" alt="" coords="305,197,459,304"/>
-<area shape="rect" id="node7" href="$class_s_r_f08.html" title="{SRF08\n||+ SRF08()\l+ getDistance()\l+ getMedianDistance()\l+ setGain()\l+ setRange()\l+ setPingDelay()\l+ getLightReading()\l+ changeAddress()\l}" alt="" coords="484,161,637,341"/>
-<area shape="rect" id="node3" href="$class_g_p2_d120.html" title="{GP2D120\n||+ GP2D120()\l+ getDistance()\l}" alt="" coords="5,390,116,482"/>
-<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title="{GP2Y0A02\n||+ GP2Y0A02()\l+ getDistance()\l}" alt="" coords="141,390,252,482"/>
-<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title="{GP2Y0A21\n||+ GP2Y0A21()\l+ getDistance()\l}" alt="" coords="277,390,388,482"/>
-</map>

@@ -1,4 +1,4 @@
 <map id="DirectionalOdometer" name="DirectionalOdometer">
-<area shape="rect" id="node2" href="$class_directionless_odometer.html" title="{DirectionlessOdometer\n|# mPulsesPerMeterRatio\l|+ DirectionlessOdometer()\l+ ~DirectionlessOdometer()\l+ attach()\l+ getDistance()\l+ getSpeed()\l+ isAttached()\l+ providesDirection()\l+ reset()\l+ update()\l}" alt="" coords="5,176,187,371"/>
-<area shape="rect" id="node3" href="$class_odometer.html" title="{Odometer\n||+ getDistance()\l+ getSpeed()\l+ isAttached()\l+ providesDirection()\l}" alt="" coords="25,6,167,127"/>
+<area shape="rect" id="node2" href="$class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="5,189,187,384"/>
+<area shape="rect" id="node3" href="$class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="25,5,167,141"/>
 </map>

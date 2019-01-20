@@ -91,6 +91,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>The class representing a GY-50 gyroscope module based on the L3G4200D sensor.  
+ <a href="class_g_y50.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_g_y50_8hpp_source.html">GY50.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GY50:</div>
@@ -110,7 +113,7 @@ Collaboration diagram for GY50:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae948d86257902c7b2fb90c88ea3296ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_y50.html#ae948d86257902c7b2fb90c88ea3296ea">GY50</a> (int offset, unsigned long samplingInterval=<a class="el" href="namespacesmartcarlib_1_1constants_1_1gy50.html#a65fd0d8f15c2408e4b1cbbb1ff1ee3f2">smartcarlib::constants::gy50::kDefaultSamplingInterval</a>, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:ae948d86257902c7b2fb90c88ea3296ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_g_y50.html">GY50</a> gyroscope.  <a href="#ae948d86257902c7b2fb90c88ea3296ea">More...</a><br/></td></tr>
+<tr class="memdesc:ae948d86257902c7b2fb90c88ea3296ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_g_y50.html" title="The class representing a GY-50 gyroscope module based on the L3G4200D sensor. ">GY50</a> gyroscope.  <a href="#ae948d86257902c7b2fb90c88ea3296ea">More...</a><br/></td></tr>
 <tr class="separator:ae948d86257902c7b2fb90c88ea3296ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebcce47a693a09c4026b01823ef340c4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_y50.html#aebcce47a693a09c4026b01823ef340c4">getHeading</a> () override</td></tr>
 <tr class="memdesc:aebcce47a693a09c4026b01823ef340c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current heading of the vehicle.  <a href="#aebcce47a693a09c4026b01823ef340c4">More...</a><br/></td></tr>
@@ -126,9 +129,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab0f11734c727dcbb6f3854709ade026b inherit pub_methods_class_heading_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#_a2">automatedMovements.ino</a>, <a class="el" href="_distance_car_8ino-example.html#_a2">DistanceCar.ino</a>, <a class="el" href="gyroscope_calibration_8ino-example.html#_a0">gyroscopeCalibration.ino</a>, <a class="el" href="gyroscope_heading_8ino-example.html#_a0">gyroscopeHeading.ino</a>, <a class="el" href="_heading_car_8ino-example.html#_a2">HeadingCar.ino</a>, <a class="el" href="rotate_on_spot_8ino-example.html#_a2">rotateOnSpot.ino</a>, and <a class="el" href="_smart_car_8ino-example.html#_a2">SmartCar.ino</a>.</dd>
+<div class="textblock"><p>The class representing a GY-50 gyroscope module based on the L3G4200D sensor. </p>
+<p>This sensor allows you to get the current angular displacement, in degrees, since the beginning of the measurement <b>in the range of [0,360)</b>. By the default setup, clockwise movement increases the degree count and counter-clockwise decreases them. If you have different set up (orientation of gyroscope) you will have to adapt accordingly. This method will measure the angular displacement (rotation) since the first <a class="el" href="class_g_y50.html#ae4c481a17a698f138003d622c810525b" title="Updates the sensor&#39;s readings. ">GY50::update</a> was called.</p>
+<p><b>Always</b> remember to use <a class="el" href="class_g_y50.html#ae4c481a17a698f138003d622c810525b" title="Updates the sensor&#39;s readings. ">GY50::update</a> in your main loop along with this method. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#_a2">automatedMovements.ino</a>, <a class="el" href="_distance_car_8ino-example.html#_a2">DistanceCar.ino</a>, <a class="el" href="gyroscope_calibration_8ino-example.html#_a0">gyroscopeCalibration.ino</a>, <a class="el" href="gyroscope_heading_8ino-example.html#_a0">gyroscopeHeading.ino</a>, <a class="el" href="_heading_car_8ino-example.html#_a2">HeadingCar.ino</a>, <a class="el" href="rotate_on_spot_8ino-example.html#_a2">rotateOnSpot.ino</a>, and <a class="el" href="_smart_car_8ino-example.html#_a2">SmartCar.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_g_y50_8hpp_source.html#l00026">26</a> of file <a class="el" href="_g_y50_8hpp_source.html">GY50.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_g_y50_8hpp_source.html#l00038">38</a> of file <a class="el" href="_g_y50_8hpp_source.html">GY50.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae948d86257902c7b2fb90c88ea3296ea"></a>
 <div class="memitem">
@@ -160,15 +166,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="class_g_y50.html">GY50</a> gyroscope. </p>
+<p>Constructs a <a class="el" href="class_g_y50.html" title="The class representing a GY-50 gyroscope module based on the L3G4200D sensor. ">GY50</a> gyroscope. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td>The sensor-specific measurement value when idle. Find the value for your sensing with <code>getOffset</code>. </td></tr>
-    <tr><td class="paramname">samplingInterval</td><td>How often to upate the heading </td></tr>
+    <tr><td class="paramname">offset</td><td>The sensor-specific measurement value when idle. Find the value for your sensing with <a class="el" href="class_g_y50.html#ada8f41c268b5c1ba1edfc9250a18b21e" title="Get the sensor&#39;s offset which is the value the sensor returns when still. ">GY50::getOffset</a>. </td></tr>
+    <tr><td class="paramname">samplingInterval</td><td>How often to upate the heading</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> offset = 37; <span class="comment">// The offset we have acquired via the getOffset method</span></div>
+<div class="line"><a class="code" href="class_g_y50.html">GY50</a> gyro(offset);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_g_y50_8cpp_source.html#l00018">18</a> of file <a class="el" href="_g_y50_8cpp_source.html">GY50.cpp</a>.</p>
 
 </div>
@@ -196,8 +205,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the current heading of the vehicle. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current heading of the vehicle in the range of [0-360) </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The current heading of the vehicle in the range of [0-360)</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">sensor.getHeading();</div>
+</div><!-- fragment --> 
 <p>Implements <a class="el" href="class_heading_sensor.html#aa7a370587b0b012c7e920789c37aa978">HeadingSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_g_y50_8cpp_source.html#l00028">28</a> of file <a class="el" href="_g_y50_8cpp_source.html">GY50.cpp</a>.</p>
@@ -225,8 +236,13 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The sensor's offset </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The sensor's offset</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="comment">// Initialize it with any value, it does not play a role during calibration</span></div>
+<div class="line"><a class="code" href="class_g_y50.html">GY50</a> gyro(0);</div>
+<div class="line"><span class="comment">// Discover the offset and use it in the constructor next time</span></div>
+<div class="line"><span class="keywordtype">int</span> offset = gyro.getOffset();</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_g_y50_8cpp_source.html#l00086">86</a> of file <a class="el" href="_g_y50_8cpp_source.html">GY50.cpp</a>.</p>
 
 <p><div class="dynheader">
@@ -262,8 +278,13 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Updates the sensor's readings. </p>
-<p>If this is necessary this must be be able to be executed as often as possible. </p>
-
+<p>This method <b>must</b> be be able to be executed as often as possible.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  sensor.update();</div>
+<div class="line">  <span class="comment">// More code</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> 
 <p>Implements <a class="el" href="class_heading_sensor.html#a4f28f71383bb82257a4cdade671d17d6">HeadingSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_g_y50_8cpp_source.html#l00035">35</a> of file <a class="el" href="_g_y50_8cpp_source.html">GY50.cpp</a>.</p>
@@ -273,7 +294,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_g_y50_ae4c481a17a698f138003d622c810525b_cgraph.png" border="0" usemap="#class_g_y50_ae4c481a17a698f138003d622c810525b_cgraph" alt=""/></div>
 <map name="class_g_y50_ae4c481a17a698f138003d622c810525b_cgraph" id="class_g_y50_ae4c481a17a698f138003d622c810525b_cgraph">
-<area shape="rect" id="node2" href="class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="157,5,336,32"/><area shape="rect" id="node3" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="smartcarlib::utils\l::getAbsolute" alt="" coords="187,57,306,98"/></map>
+<area shape="rect" id="node2" href="class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="157,5,336,32"/><area shape="rect" id="node3" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="187,57,306,98"/></map>
 </div>
 </p>
 

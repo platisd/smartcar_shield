@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Smartcar Shield: Car Class Reference</title>
+<title>Smartcar Shield: Car Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,9 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_car-members.html">List of all members</a>  </div>
+<a href="interface_car-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Car Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Car Interface Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -100,7 +100,7 @@ Inheritance diagram for Car:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_car__inherit__graph.png" border="0" usemap="#_car_inherit__map" alt="Inheritance graph"/></div>
 <map name="_car_inherit__map" id="_car_inherit__map">
-<area shape="rect" id="node2" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/><area shape="rect" id="node3" href="class_distance_car.html" title="{DistanceCar\n||+ DistanceCar()\l+ DistanceCar()\l+ getDistance()\l+ setSpeed()\l+ getSpeed()\l+ enableCruiseControl()\l+ update()\l+ disableCruiseControl()\l+ overrideMotorSpeed()\l}" alt="" coords="5,360,168,555"/><area shape="rect" id="node5" href="class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/><area shape="rect" id="node4" href="class_smart_car.html" title="{SmartCar\n||+ SmartCar()\l+ SmartCar()\l+ update()\l}" alt="" coords="117,603,216,709"/></map>
+<area shape="rect" id="node2" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/><area shape="rect" id="node3" href="class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers. " alt="" coords="5,360,168,555"/><area shape="rect" id="node5" href="class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/><area shape="rect" id="node4" href="class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor..." alt="" coords="117,603,216,709"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for Car:</div>
@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An interface to programmatically represent any kind of vehicle. </p>
 
-<p>Definition at line <a class="el" href="_car_8hpp_source.html#l00006">6</a> of file <a class="el" href="_car_8hpp_source.html">Car.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_car_8hpp_source.html#l00007">7</a> of file <a class="el" href="_car_8hpp_source.html">Car.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6d0e7bf36bd2588f9c119cf1b76d8e21"></a>
 <div class="memitem">
@@ -190,11 +190,13 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">firstMotorSpeed</td><td>The speed of the motor passed as first argument argument to the car's control class [-100, 100] </td></tr>
-    <tr><td class="paramname">secondMotorSpeed</td><td>The speed of the motor passed as second argument argument to the car's control class [-100, 100] </td></tr>
+    <tr><td class="paramname">secondMotorSpeed</td><td>The speed of the motor passed as second argument argument to the car's control class [-100, 100]</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">car.overrideMotorSpeed(100, -100); <span class="comment">// Make the car spin around clockwise</span></div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">DistanceCar</a>, and <a class="el" href="class_simple_car.html#ac25a30173ae4f42a785363997c401e95">SimpleCar</a>.</p>
 
 </div>
@@ -224,11 +226,13 @@ Public Member Functions</h2></td></tr>
 <p>Set the car's driving angle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">angle</td><td>The car's angle in degrees [-90, 90] </td></tr>
+    <tr><td class="paramname">angle</td><td>The car's angle in degrees [-90, 90]</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">car.setAngle(20);</div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_simple_car.html#a336553aff9519f52560cb49491c9a1b9">SimpleCar</a>.</p>
 
 </div>
@@ -267,7 +271,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/car/<a class="el" href="_car_8hpp_source.html">Car.hpp</a></li>
 </ul>
 </div><!-- contents -->

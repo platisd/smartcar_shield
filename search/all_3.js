@@ -16,6 +16,6 @@ var searchData=
   ['distancecar',['DistanceCar',['../class_distance_car.html',1,'DistanceCar'],['../class_distance_car.html#a357ae565ed6f114607c419ef9ac3c34b',1,'DistanceCar::DistanceCar(Control &amp;control, Odometer &amp;odometer, Runtime &amp;runtime=arduinoRuntime)'],['../class_distance_car.html#a89db2701edbfd3b27e1b9cc2dbc01498',1,'DistanceCar::DistanceCar(Control &amp;control, Odometer &amp;odometerLeft, Odometer &amp;odometerRight, Runtime &amp;runtime=arduinoRuntime)']]],
   ['distancecar_2ecpp',['DistanceCar.cpp',['../_distance_car_8cpp.html',1,'']]],
   ['distancecar_2ehpp',['DistanceCar.hpp',['../_distance_car_8hpp.html',1,'']]],
-  ['distancesensor',['DistanceSensor',['../class_distance_sensor.html',1,'']]],
+  ['distancesensor',['DistanceSensor',['../interface_distance_sensor.html',1,'']]],
   ['distancesensor_2ehpp',['DistanceSensor.hpp',['../_distance_sensor_8hpp.html',1,'']]]
 ];

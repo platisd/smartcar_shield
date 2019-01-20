@@ -1,4 +1,4 @@
 <map id="GP2Y0A02" name="GP2Y0A02">
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="{InfraredAnalogSensor\n||+ InfraredAnalogSensor()\l+ getMedianDistance()\l}" alt="" coords="5,161,171,253"/>
-<area shape="rect" id="node3" href="$class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="11,5,164,112"/>
+<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors. " alt="" coords="5,131,171,223"/>
+<area shape="rect" id="node3" href="$interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="31,5,145,83"/>
 </map>

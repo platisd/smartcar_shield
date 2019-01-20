@@ -90,34 +90,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="_motor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>smartcarlib</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>constants</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html">   12</a></span>&#160;<span class="keyword">namespace </span>motor</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">   14</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">kMinMotorSpeed</a> = -100;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">   15</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a> = 0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">   16</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">kMaxMotorSpeed</a> = 100;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;} <span class="comment">// namespace motor</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <span class="comment">// namespace constants</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;} <span class="comment">// namespace smartcarlib</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_motor.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_motor.html">Motor</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_motor.html#a5f55b8e5d37cff7c43a75ea99c6129ee">~Motor</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_motor.html#a76d3728672a98ab9b4f1de19baec7e22">setSpeed</a>(<span class="keywordtype">int</span> speed) = 0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>smartcarlib</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>constants</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html">   13</a></span>&#160;<span class="keyword">namespace </span>motor</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">   15</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">kMinMotorSpeed</a> = -100;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">   16</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a> = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">   17</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">kMaxMotorSpeed</a> = 100;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <span class="comment">// namespace motor</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;} <span class="comment">// namespace constants</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} <span class="comment">// namespace smartcarlib</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_motor.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_motor.html">Motor</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_motor.html#a5f55b8e5d37cff7c43a75ea99c6129ee">~Motor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_motor.html#a76d3728672a98ab9b4f1de19baec7e22">setSpeed</a>(<span class="keywordtype">int</span> speed) = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
 <div class="ttc" id="class_motor_html_a76d3728672a98ab9b4f1de19baec7e22"><div class="ttname"><a href="class_motor.html#a76d3728672a98ab9b4f1de19baec7e22">Motor::setSpeed</a></div><div class="ttdeci">virtual void setSpeed(int speed)=0</div><div class="ttdoc">Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. </div></div>
-<div class="ttc" id="class_motor_html"><div class="ttname"><a href="class_motor.html">Motor</a></div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00021">Motor.hpp:21</a></div></div>
-<div class="ttc" id="namespacesmartcarlib_1_1constants_1_1motor_html_a4359ad23f00fd65b5f39a1256f79a9ce"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">smartcarlib::constants::motor::kMinMotorSpeed</a></div><div class="ttdeci">const int kMinMotorSpeed</div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00014">Motor.hpp:14</a></div></div>
-<div class="ttc" id="namespacesmartcarlib_1_1constants_1_1motor_html_a9e1f54b1abc6ab22d03d968876064a96"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">smartcarlib::constants::motor::kMaxMotorSpeed</a></div><div class="ttdeci">const int kMaxMotorSpeed</div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00016">Motor.hpp:16</a></div></div>
+<div class="ttc" id="class_motor_html"><div class="ttname"><a href="class_motor.html">Motor</a></div><div class="ttdoc">Interface programmatically representing any kind of motor. </div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00022">Motor.hpp:22</a></div></div>
+<div class="ttc" id="namespacesmartcarlib_1_1constants_1_1motor_html_a4359ad23f00fd65b5f39a1256f79a9ce"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">smartcarlib::constants::motor::kMinMotorSpeed</a></div><div class="ttdeci">const int kMinMotorSpeed</div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00015">Motor.hpp:15</a></div></div>
+<div class="ttc" id="namespacesmartcarlib_1_1constants_1_1motor_html_a9e1f54b1abc6ab22d03d968876064a96"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">smartcarlib::constants::motor::kMaxMotorSpeed</a></div><div class="ttdeci">const int kMaxMotorSpeed</div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00017">Motor.hpp:17</a></div></div>
 <div class="ttc" id="class_motor_html_a5f55b8e5d37cff7c43a75ea99c6129ee"><div class="ttname"><a href="class_motor.html#a5f55b8e5d37cff7c43a75ea99c6129ee">Motor::~Motor</a></div><div class="ttdeci">virtual ~Motor()=default</div></div>
-<div class="ttc" id="namespacesmartcarlib_1_1constants_1_1motor_html_a7500a035ba08e7d699358f6cdd9dccd2"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">smartcarlib::constants::motor::kIdleMotorSpeed</a></div><div class="ttdeci">const int kIdleMotorSpeed</div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00015">Motor.hpp:15</a></div></div>
+<div class="ttc" id="namespacesmartcarlib_1_1constants_1_1motor_html_a7500a035ba08e7d699358f6cdd9dccd2"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">smartcarlib::constants::motor::kIdleMotorSpeed</a></div><div class="ttdeci">const int kIdleMotorSpeed</div><div class="ttdef"><b>Definition:</b> <a href="_motor_8hpp_source.html#l00016">Motor.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Smartcar Shield: Control Class Reference</title>
+<title>Smartcar Shield: Control Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,11 +85,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_control-members.html">List of all members</a>  </div>
+<a href="interface_control-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Control Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Control Interface Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface to generalize all classes that can provide a way to control a <a class="el" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. ">Car</a>.  
+ <a href="class_control.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_control_8hpp_source.html">Control.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -122,8 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3dfa45882f96d57c5fd97c784ea41578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_control_8hpp_source.html#l00022">22</a> of file <a class="el" href="_control_8hpp_source.html">Control.hpp</a>.</p>
+<div class="textblock"><p>Interface to generalize all classes that can provide a way to control a <a class="el" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. ">Car</a>. </p>
+
+<p>Definition at line <a class="el" href="_control_8hpp_source.html#l00023">23</a> of file <a class="el" href="_control_8hpp_source.html">Control.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa7caa24b2044c5957a07f5e6f22a7507"></a>
 <div class="memitem">
@@ -186,11 +190,13 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">firstMotorSpeed</td><td>The first motor speed [-100, 100] </td></tr>
-    <tr><td class="paramname">secondMotorSpeed</td><td>The second motor speed [-100, 100] </td></tr>
+    <tr><td class="paramname">secondMotorSpeed</td><td>The second motor speed [-100, 100]</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">control.overrideMotorSpeed(100, -100); <span class="comment">// Make the car spin around clockwise</span></div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_ackerman_control.html#a5b5cc9c5958e68cb7e371c4623a10517">AckermanControl</a>, and <a class="el" href="class_differential_control.html#a8269d8146779a9cd0d5ea3b01676e4ff">DifferentialControl</a>.</p>
 
 <p><div class="dynheader">
@@ -229,11 +235,13 @@ Here is the caller graph for this function:</div>
 <p>Sets the driving angle in degrees [-90, 90]. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">angle</td><td>The driving angle </td></tr>
+    <tr><td class="paramname">angle</td><td>The driving angle</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">control.setAngle(90);</div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_ackerman_control.html#a077ddd008527819c908742c3409c1cc1">AckermanControl</a>, and <a class="el" href="class_differential_control.html#ac351a8845c522ea04a23f738780c8025">DifferentialControl</a>.</p>
 
 <p><div class="dynheader">
@@ -272,11 +280,13 @@ Here is the caller graph for this function:</div>
 <p>Sets the driving speed as percentage of the total motor speed where the sign represents the direction of movement [-100, 100]. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">speed</td><td>The driving speed </td></tr>
+    <tr><td class="paramname">speed</td><td>The driving speed</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">control.setSpeed(-100); <span class="comment">// Full speed backward</span></div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_ackerman_control.html#ac06358a5ef896a5408c2f8c8599973f8">AckermanControl</a>, and <a class="el" href="class_differential_control.html#a96c12b4a80e8632f1f72a883c799795b">DifferentialControl</a>.</p>
 
 <p><div class="dynheader">
@@ -290,7 +300,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/control/<a class="el" href="_control_8hpp_source.html">Control.hpp</a></li>
 </ul>
 </div><!-- contents -->

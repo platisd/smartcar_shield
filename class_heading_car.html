@@ -100,7 +100,7 @@ Inheritance diagram for HeadingCar:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_heading_car__inherit__graph.png" border="0" usemap="#_heading_car_inherit__map" alt="Inheritance graph"/></div>
 <map name="_heading_car_inherit__map" id="_heading_car_inherit__map">
-<area shape="rect" id="node4" href="class_smart_car.html" title="{SmartCar\n||+ SmartCar()\l+ SmartCar()\l+ update()\l}" alt="" coords="35,515,133,621"/><area shape="rect" id="node2" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="5,176,163,312"/><area shape="rect" id="node3" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="5,6,163,127"/></map>
+<area shape="rect" id="node4" href="class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor..." alt="" coords="35,515,133,621"/><area shape="rect" id="node2" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="5,176,163,312"/><area shape="rect" id="node3" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="5,6,163,127"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for HeadingCar:</div>
@@ -144,7 +144,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A class to programmatically represent a vehicle equipped with a heading sensor. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_heading_car_8ino-example.html#_a3">HeadingCar.ino</a>, and <a class="el" href="rotate_on_spot_8ino-example.html#_a3">rotateOnSpot.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_heading_car_8hpp_source.html#l00009">9</a> of file <a class="el" href="_heading_car_8hpp_source.html">HeadingCar.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_heading_car_8hpp_source.html#l00010">10</a> of file <a class="el" href="_heading_car_8hpp_source.html">HeadingCar.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1c71caaf8ea7857b81257056d13973ec"></a>
 <div class="memitem">
@@ -174,11 +174,19 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">control</td><td>The car's control </td></tr>
-    <tr><td class="paramname">headingSensor</td><td>The heading sensor </td></tr>
+    <tr><td class="paramname">headingSensor</td><td>The heading sensor</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">int</span> GYROSCOPE_OFFSET = 37;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> leftMotor(8, 10, 9);</div>
+<div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> rightMotor(12, 13, 11);</div>
+<div class="line"><a class="code" href="class_differential_control.html">DifferentialControl</a> control(leftMotor, rightMotor);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_g_y50.html">GY50</a> gyroscope(GYROSCOPE_OFFSET);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_heading_car_8cpp_source.html#l00003">3</a> of file <a class="el" href="_heading_car_8cpp_source.html">HeadingCar.cpp</a>.</p>
 
 </div>
@@ -198,8 +206,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the car's current heading in degrees [0, 360) </p>
-<dl class="section return"><dt>Returns</dt><dd>The car's current heading in degrees </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The car's current heading in degrees</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> currentHeading = gyroscope.getHeading();</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_heading_car_8cpp_source.html#l00009">9</a> of file <a class="el" href="_heading_car_8cpp_source.html">HeadingCar.cpp</a>.</p>
 
 <p><div class="dynheader">
@@ -235,8 +245,14 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Updates the readings from the heading sensor. </p>
-<p>You must have this being executed as often as possible to get accurate heading readings. </p>
-
+<p>You must have this being executed as often as possible to get accurate heading readings.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  <span class="comment">// Update the car readings as often as possible</span></div>
+<div class="line">  car.update();</div>
+<div class="line">  <span class="comment">// Other functionality</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> 
 <p>Reimplemented in <a class="el" href="class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3">SmartCar</a>.</p>
 
 <p>Definition at line <a class="el" href="_heading_car_8cpp_source.html#l00014">14</a> of file <a class="el" href="_heading_car_8cpp_source.html">HeadingCar.cpp</a>.</p>

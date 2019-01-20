@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Smartcar Shield: HeadingSensor Class Reference</title>
+<title>Smartcar Shield: HeadingSensor Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,9 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_heading_sensor-members.html">List of all members</a>  </div>
+<a href="interface_heading_sensor-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">HeadingSensor Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">HeadingSensor Interface Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -100,7 +100,7 @@ Inheritance diagram for HeadingSensor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_heading_sensor__inherit__graph.png" border="0" usemap="#_heading_sensor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_heading_sensor_inherit__map" id="_heading_sensor_inherit__map">
-<area shape="rect" id="node2" href="class_g_y50.html" title="{GY50\n||+ GY50()\l+ getHeading()\l+ update()\l+ getOffset()\l}" alt="" coords="21,161,128,282"/></map>
+<area shape="rect" id="node2" href="class_g_y50.html" title="The class representing a GY&#45;50 gyroscope module based on the L3G4200D sensor. " alt="" coords="21,161,128,282"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for HeadingSensor:</div>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A heading sensor is an interface that can represent all sensors which can provide the vehicle's heading. </p>
 
-<p>Definition at line <a class="el" href="_heading_sensor_8hpp_source.html#l00007">7</a> of file <a class="el" href="_heading_sensor_8hpp_source.html">HeadingSensor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_heading_sensor_8hpp_source.html#l00008">8</a> of file <a class="el" href="_heading_sensor_8hpp_source.html">HeadingSensor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab0f11734c727dcbb6f3854709ade026b"></a>
 <div class="memitem">
@@ -172,8 +172,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the current heading of the vehicle. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current heading of the vehicle in the range of [0-360) </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The current heading of the vehicle in the range of [0-360)</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">sensor.getHeading();</div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_g_y50.html#aebcce47a693a09c4026b01823ef340c4">GY50</a>.</p>
 
 <p><div class="dynheader">
@@ -209,8 +211,13 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Updates the sensor's readings. </p>
-<p>If this is necessary this must be be able to be executed as often as possible. </p>
-
+<p>This method <b>must</b> be be able to be executed as often as possible.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  sensor.update();</div>
+<div class="line">  <span class="comment">// More code</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_g_y50.html#ae4c481a17a698f138003d622c810525b">GY50</a>.</p>
 
 <p><div class="dynheader">
@@ -224,7 +231,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/sensors/heading/<a class="el" href="_heading_sensor_8hpp_source.html">HeadingSensor.hpp</a></li>
 </ul>
 </div><!-- contents -->

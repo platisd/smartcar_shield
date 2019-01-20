@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Smartcar Shield: Runtime Class Reference</title>
+<title>Smartcar Shield: Runtime Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,9 +85,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_runtime-members.html">List of all members</a>  </div>
+<a href="interface_runtime-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Runtime Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Runtime Interface Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -176,7 +176,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduino library API. </p>
 <p>Its purpose is to facilitate testing and porting onto different platforms. All used environment (e.g. Arduino) free functions should be included in this interface so they can be mocked in tests and ported to different environments. </p>
 
-<p>Definition at line <a class="el" href="_runtime_8hpp_source.html#l00013">13</a> of file <a class="el" href="_runtime_8hpp_source.html">Runtime.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_runtime_8hpp_source.html#l00014">14</a> of file <a class="el" href="_runtime_8hpp_source.html">Runtime.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a97113d850ac979ea2f04858fd266b648"></a>
 <div class="memitem">
@@ -313,7 +313,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a501d0c2b41eca7cd6933716bbe1726db_icgraph.png" border="0" usemap="#class_runtime_a501d0c2b41eca7cd6933716bbe1726db_icgraph" alt=""/></div>
 <map name="class_runtime_a501d0c2b41eca7cd6933716bbe1726db_icgraph" id="class_runtime_a501d0c2b41eca7cd6933716bbe1726db_icgraph">
-<area shape="rect" id="node2" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor. " alt="" coords="203,5,336,32"/><area shape="rect" id="node3" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements. " alt="" coords="385,5,559,32"/></map>
+<area shape="rect" id="node2" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="SR04::getDistance" alt="" coords="203,5,336,32"/><area shape="rect" id="node3" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="385,5,559,32"/></map>
 </div>
 </p>
 
@@ -356,7 +356,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a6276cf9e78df9d568659af143f712091_icgraph.png" border="0" usemap="#class_runtime_a6276cf9e78df9d568659af143f712091_icgraph" alt=""/></div>
 <map name="class_runtime_a6276cf9e78df9d568659af143f712091_icgraph" id="class_runtime_a6276cf9e78df9d568659af143f712091_icgraph">
-<area shape="rect" id="node2" href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title="Gets the median distance from the specified number of measurements. " alt="" coords="209,5,356,46"/><area shape="rect" id="node3" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="212,71,353,97"/><area shape="rect" id="node4" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="419,96,602,123"/><area shape="rect" id="node5" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="200,172,365,199"/><area shape="rect" id="node6" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements. " alt="" coords="195,223,370,249"/><area shape="rect" id="node7" href="class_g_y50.html#ada8f41c268b5c1ba1edfc9250a18b21e" title="Get the sensor&#39;s offset which is the value the sensor returns when still. " alt="" coords="224,273,341,300"/></map>
+<area shape="rect" id="node2" href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title="InfraredAnalogSensor\l::getMedianDistance" alt="" coords="209,5,356,46"/><area shape="rect" id="node3" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="212,71,353,97"/><area shape="rect" id="node4" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="419,96,602,123"/><area shape="rect" id="node5" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="200,172,365,199"/><area shape="rect" id="node6" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="195,223,370,249"/><area shape="rect" id="node7" href="class_g_y50.html#ada8f41c268b5c1ba1edfc9250a18b21e" title="Get the sensor&#39;s offset which is the value the sensor returns when still. " alt="" coords="224,273,341,300"/></map>
 </div>
 </p>
 
@@ -400,7 +400,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a31e12aaac34dff9c34cc2413f7092fbd_icgraph.png" border="0" usemap="#class_runtime_a31e12aaac34dff9c34cc2413f7092fbd_icgraph" alt=""/></div>
 <map name="class_runtime_a31e12aaac34dff9c34cc2413f7092fbd_icgraph" id="class_runtime_a31e12aaac34dff9c34cc2413f7092fbd_icgraph">
-<area shape="rect" id="node2" href="class_g_p2_d120.html#a3e582329bf4fafff3a6324a1da2c5fde" title="Gets the distance measured by the sensor. " alt="" coords="244,5,401,32"/><area shape="rect" id="node3" href="class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7" title="Gets the distance measured by the sensor. " alt="" coords="240,56,405,83"/><area shape="rect" id="node4" href="class_g_p2_y0_a21.html#a9b1e284d96a3e1aa0b98faa874fb2090" title="Gets the distance measured by the sensor. " alt="" coords="240,107,405,133"/></map>
+<area shape="rect" id="node2" href="class_g_p2_d120.html#a3e582329bf4fafff3a6324a1da2c5fde" title="GP2D120::getDistance" alt="" coords="244,5,401,32"/><area shape="rect" id="node3" href="class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7" title="GP2Y0A02::getDistance" alt="" coords="240,56,405,83"/><area shape="rect" id="node4" href="class_g_p2_y0_a21.html#a9b1e284d96a3e1aa0b98faa874fb2090" title="GP2Y0A21::getDistance" alt="" coords="240,107,405,133"/></map>
 </div>
 </p>
 
@@ -506,7 +506,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a8eb4d4f76de1496ffa3f0bb579ede608_icgraph.png" border="0" usemap="#class_runtime_a8eb4d4f76de1496ffa3f0bb579ede608_icgraph" alt=""/></div>
 <map name="class_runtime_a8eb4d4f76de1496ffa3f0bb579ede608_icgraph" id="class_runtime_a8eb4d4f76de1496ffa3f0bb579ede608_icgraph">
-<area shape="rect" id="node2" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor. " alt="" coords="232,5,365,32"/><area shape="rect" id="node3" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements. " alt="" coords="414,5,589,32"/></map>
+<area shape="rect" id="node2" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="SR04::getDistance" alt="" coords="232,5,365,32"/><area shape="rect" id="node3" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="414,5,589,32"/></map>
 </div>
 </p>
 
@@ -543,7 +543,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a8e114eac5d553743b3a5ce1ccc429f17_icgraph.png" border="0" usemap="#class_runtime_a8e114eac5d553743b3a5ce1ccc429f17_icgraph" alt=""/></div>
 <map name="class_runtime_a8e114eac5d553743b3a5ce1ccc429f17_icgraph" id="class_runtime_a8e114eac5d553743b3a5ce1ccc429f17_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="215,5,356,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="203,56,368,83"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="417,5,599,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="215,5,356,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="203,56,368,83"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="417,5,599,32"/></map>
 </div>
 </p>
 
@@ -586,7 +586,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a6e973d5f7f5d5b407730bbce7c750a0e_icgraph.png" border="0" usemap="#class_runtime_a6e973d5f7f5d5b407730bbce7c750a0e_icgraph" alt=""/></div>
 <map name="class_runtime_a6e973d5f7f5d5b407730bbce7c750a0e_icgraph" id="class_runtime_a6e973d5f7f5d5b407730bbce7c750a0e_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="273,5,415,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="286,56,402,83"/><area shape="rect" id="node5" href="class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="281,107,407,133"/><area shape="rect" id="node6" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="261,157,427,184"/><area shape="rect" id="node7" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="263,208,425,235"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="475,5,658,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="273,5,415,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="286,56,402,83"/><area shape="rect" id="node5" href="class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="281,107,407,133"/><area shape="rect" id="node6" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="261,157,427,184"/><area shape="rect" id="node7" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="263,208,425,235"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="475,5,658,32"/></map>
 </div>
 </p>
 
@@ -623,7 +623,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a77d79d4d46e173fea91cf63c2659bd10_icgraph.png" border="0" usemap="#class_runtime_a77d79d4d46e173fea91cf63c2659bd10_icgraph" alt=""/></div>
 <map name="class_runtime_a77d79d4d46e173fea91cf63c2659bd10_icgraph" id="class_runtime_a77d79d4d46e173fea91cf63c2659bd10_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="263,5,404,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="275,56,391,83"/><area shape="rect" id="node5" href="class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="270,107,397,133"/><area shape="rect" id="node6" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="251,157,416,184"/><area shape="rect" id="node7" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="253,208,414,235"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="465,5,647,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="263,5,404,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="275,56,391,83"/><area shape="rect" id="node5" href="class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="270,107,397,133"/><area shape="rect" id="node6" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="251,157,416,184"/><area shape="rect" id="node7" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="253,208,414,235"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="465,5,647,32"/></map>
 </div>
 </p>
 
@@ -687,7 +687,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a8fbc45763b87f3469a6d76c12c1834bb_icgraph.png" border="0" usemap="#class_runtime_a8fbc45763b87f3469a6d76c12c1834bb_icgraph" alt=""/></div>
 <map name="class_runtime_a8fbc45763b87f3469a6d76c12c1834bb_icgraph" id="class_runtime_a8fbc45763b87f3469a6d76c12c1834bb_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="193,5,335,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="181,56,347,83"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="395,5,578,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="193,5,335,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="181,56,347,83"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="395,5,578,32"/></map>
 </div>
 </p>
 
@@ -742,7 +742,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_ad29af260f2b283f2c461cf89e9b90a44_icgraph.png" border="0" usemap="#class_runtime_ad29af260f2b283f2c461cf89e9b90a44_icgraph" alt=""/></div>
 <map name="class_runtime_ad29af260f2b283f2c461cf89e9b90a44_icgraph" id="class_runtime_ad29af260f2b283f2c461cf89e9b90a44_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="241,5,383,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="229,56,395,83"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="443,5,626,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="241,5,383,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="229,56,395,83"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="443,5,626,32"/></map>
 </div>
 </p>
 
@@ -786,7 +786,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a37f9bee80fbc9ef6e8efd54a35b26a89_icgraph.png" border="0" usemap="#class_runtime_a37f9bee80fbc9ef6e8efd54a35b26a89_icgraph" alt=""/></div>
 <map name="class_runtime_a37f9bee80fbc9ef6e8efd54a35b26a89_icgraph" id="class_runtime_a37f9bee80fbc9ef6e8efd54a35b26a89_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="193,5,335,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="206,56,322,83"/><area shape="rect" id="node5" href="class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="201,107,327,133"/><area shape="rect" id="node6" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="181,157,347,184"/><area shape="rect" id="node7" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="183,208,345,235"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="395,5,578,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="193,5,335,32"/><area shape="rect" id="node4" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="206,56,322,83"/><area shape="rect" id="node5" href="class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="201,107,327,133"/><area shape="rect" id="node6" href="class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="181,157,347,184"/><area shape="rect" id="node7" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="183,208,345,235"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="395,5,578,32"/></map>
 </div>
 </p>
 
@@ -830,7 +830,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a517ad270d4dd374f7e94fddf687484f1_icgraph.png" border="0" usemap="#class_runtime_a517ad270d4dd374f7e94fddf687484f1_icgraph" alt=""/></div>
 <map name="class_runtime_a517ad270d4dd374f7e94fddf687484f1_icgraph" id="class_runtime_a517ad270d4dd374f7e94fddf687484f1_icgraph">
-<area shape="rect" id="node2" href="class_directionless_odometer.html#a78e7dc4b038445d9f542d32f941e6e3b" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="213,5,368,46"/><area shape="rect" id="node3" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="416,5,557,46"/></map>
+<area shape="rect" id="node2" href="class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="213,5,368,46"/><area shape="rect" id="node3" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="416,5,557,46"/></map>
 </div>
 </p>
 
@@ -891,7 +891,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_aab5b1a3c2710f1388175fe31a23b6c30_icgraph.png" border="0" usemap="#class_runtime_aab5b1a3c2710f1388175fe31a23b6c30_icgraph" alt=""/></div>
 <map name="class_runtime_aab5b1a3c2710f1388175fe31a23b6c30_icgraph" id="class_runtime_aab5b1a3c2710f1388175fe31a23b6c30_icgraph">
-<area shape="rect" id="node2" href="class_directionless_odometer.html#a78e7dc4b038445d9f542d32f941e6e3b" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="200,5,355,46"/><area shape="rect" id="node3" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="403,5,544,46"/></map>
+<area shape="rect" id="node2" href="class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="200,5,355,46"/><area shape="rect" id="node3" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="403,5,544,46"/></map>
 </div>
 </p>
 
@@ -945,7 +945,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_a8327df291b0bc05c7d6be45bbeae17e0_icgraph.png" border="0" usemap="#class_runtime_a8327df291b0bc05c7d6be45bbeae17e0_icgraph" alt=""/></div>
 <map name="class_runtime_a8327df291b0bc05c7d6be45bbeae17e0_icgraph" id="class_runtime_a8327df291b0bc05c7d6be45bbeae17e0_icgraph">
-<area shape="rect" id="node2" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="424,5,565,46"/><area shape="rect" id="node3" href="class_directionless_odometer.html#a78e7dc4b038445d9f542d32f941e6e3b" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="221,34,376,75"/></map>
+<area shape="rect" id="node2" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="424,5,565,46"/><area shape="rect" id="node3" href="class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="221,34,376,75"/></map>
 </div>
 </p>
 
@@ -999,7 +999,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_runtime_ab5ac143d9807ab5b62795ffccc5cb412_icgraph.png" border="0" usemap="#class_runtime_ab5ac143d9807ab5b62795ffccc5cb412_icgraph" alt=""/></div>
 <map name="class_runtime_ab5ac143d9807ab5b62795ffccc5cb412_icgraph" id="class_runtime_ab5ac143d9807ab5b62795ffccc5cb412_icgraph">
-<area shape="rect" id="node2" href="class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="201,5,367,32"/><area shape="rect" id="node3" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor. " alt="" coords="217,56,351,83"/><area shape="rect" id="node4" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements. " alt="" coords="417,56,591,83"/></map>
+<area shape="rect" id="node2" href="class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="201,5,367,32"/><area shape="rect" id="node3" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="SR04::getDistance" alt="" coords="217,56,351,83"/><area shape="rect" id="node4" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="417,56,591,83"/></map>
 </div>
 </p>
 
@@ -1059,7 +1059,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/runtime/<a class="el" href="_runtime_8hpp_source.html">Runtime.hpp</a></li>
 </ul>
 </div><!-- contents -->

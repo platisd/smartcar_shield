@@ -91,41 +91,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins...">SR04</a> (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins.  
+ <a href="class_s_r04.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_s_r04_8hpp_source.html">SR04.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SR04:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r04__inherit__graph.png" border="0" usemap="#_s_r04_inherit__map" alt="Inheritance graph"/></div>
 <map name="_s_r04_inherit__map" id="_s_r04_inherit__map">
-<area shape="rect" id="node2" href="class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="4,5,157,112"/></map>
+<area shape="rect" id="node2" href="interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="24,5,139,83"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for SR04:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r04__coll__graph.png" border="0" usemap="#_s_r04_coll__map" alt="Collaboration graph"/></div>
 <map name="_s_r04_coll__map" id="_s_r04_coll__map">
-<area shape="rect" id="node2" href="class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="4,5,157,112"/></map>
+<area shape="rect" id="node2" href="interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="24,5,139,83"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#aaf27e33f88449f6ba8bcbff3e74580f4">SR04</a> (uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance=<a class="el" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a5d703dbd53979b3128f9990feda35db1">smartcarlib::constants::sr04::kDefaultMaxDistance</a>, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r04.html">SR04</a> ultrasonic sensor.  <a href="#aaf27e33f88449f6ba8bcbff3e74580f4">More...</a><br/></td></tr>
+<tr class="memdesc:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins...">SR04</a> ultrasonic sensor.  <a href="#aaf27e33f88449f6ba8bcbff3e74580f4">More...</a><br/></td></tr>
 <tr class="separator:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6b0ddf6f127972fbd34886bfad34e3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3">getDistance</a> () override</td></tr>
-<tr class="memdesc:add6b0ddf6f127972fbd34886bfad34e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance measured by the sensor.  <a href="#add6b0ddf6f127972fbd34886bfad34e3">More...</a><br/></td></tr>
 <tr class="separator:add6b0ddf6f127972fbd34886bfad34e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8333d6dae4c42ade4cf261b71c2a30f4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a000be1cc241ec25fc474a766c67b2d57">smartcarlib::constants::sr04::kDefaultIterations</a>) override</td></tr>
-<tr class="memdesc:a8333d6dae4c42ade4cf261b71c2a30f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the median distance from the specified number of measurements.  <a href="#a8333d6dae4c42ade4cf261b71c2a30f4">More...</a><br/></td></tr>
 <tr class="separator:a8333d6dae4c42ade4cf261b71c2a30f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_distance_sensor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_distance_sensor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_distance_sensor.html">DistanceSensor</a></td></tr>
-<tr class="memitem:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#ab0be502a973a1fe20d1a281e2df63cd5">~DistanceSensor</a> ()=default</td></tr>
-<tr class="separator:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="_s_r04_8ino-example.html#_a0">SR04.ino</a>.</dd>
+<div class="textblock"><p>The <a class="el" href="class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins...">SR04</a> (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins. </p>
+<p>For a more advanced solution (faster readings, not using <code>pulseIn</code>, non-blocking measurements etc) please use the <a href="https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home">NewPing library</a>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_s_r04_8ino-example.html#_a0">SR04.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_s_r04_8hpp_source.html#l00033">33</a> of file <a class="el" href="_s_r04_8hpp_source.html">SR04.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_r04_8hpp_source.html#l00034">34</a> of file <a class="el" href="_s_r04_8hpp_source.html">SR04.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aaf27e33f88449f6ba8bcbff3e74580f4"></a>
 <div class="memitem">
@@ -163,16 +163,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <a class="el" href="class_s_r04.html">SR04</a> ultrasonic sensor. </p>
+<p>Constructs an <a class="el" href="class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins...">SR04</a> ultrasonic sensor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">triggerPin</td><td>The pin to produce the trigger signal </td></tr>
     <tr><td class="paramname">echoPin</td><td>The pin to receive the echo signal </td></tr>
-    <tr><td class="paramname">maxDistance</td><td>The maximum measurement distance in centimeters </td></tr>
+    <tr><td class="paramname">maxDistance</td><td>The maximum measurement distance in centimeters</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> TRIGGER_PIN = 6;</div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> ECHO_PIN = 7;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_s_r04.html">SR04</a> sr04(TRIGGER_PIN, ECHO_PIN);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r04_8cpp_source.html#l00019">19</a> of file <a class="el" href="_s_r04_8cpp_source.html">SR04.cpp</a>.</p>
 
 </div>
@@ -194,16 +199,10 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Gets the distance measured by the sensor. </p>
-<p>Calling this might trigger a new measurement by the sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>0</code> if an error has occured, otherwise the measured distance </dd></dl>
-
-<p>Implements <a class="el" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e">DistanceSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_s_r04_8cpp_source.html#l00039">39</a> of file <a class="el" href="_s_r04_8cpp_source.html">SR04.cpp</a>.</p>
 
@@ -221,7 +220,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r04_add6b0ddf6f127972fbd34886bfad34e3_icgraph.png" border="0" usemap="#class_s_r04_add6b0ddf6f127972fbd34886bfad34e3_icgraph" alt=""/></div>
 <map name="class_s_r04_add6b0ddf6f127972fbd34886bfad34e3_icgraph" id="class_s_r04_add6b0ddf6f127972fbd34886bfad34e3_icgraph">
-<area shape="rect" id="node2" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements. " alt="" coords="187,5,362,32"/></map>
+<area shape="rect" id="node2" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="187,5,362,32"/></map>
 </div>
 </p>
 
@@ -244,21 +243,10 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Gets the median distance from the specified number of measurements. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iterations</td><td>Number of measurements to conduct </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The median of the conducted measurements </dd></dl>
-
-<p>Implements <a class="el" href="class_distance_sensor.html#a52189b163354f2b27a3c4f4112e469cb">DistanceSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_s_r04_8cpp_source.html#l00057">57</a> of file <a class="el" href="_s_r04_8cpp_source.html">SR04.cpp</a>.</p>
 
@@ -267,7 +255,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r04_a8333d6dae4c42ade4cf261b71c2a30f4_cgraph.png" border="0" usemap="#class_s_r04_a8333d6dae4c42ade4cf261b71c2a30f4_cgraph" alt=""/></div>
 <map name="class_s_r04_a8333d6dae4c42ade4cf261b71c2a30f4_cgraph" id="class_s_r04_a8333d6dae4c42ade4cf261b71c2a30f4_cgraph">
-<area shape="rect" id="node2" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor. " alt="" coords="233,56,367,83"/><area shape="rect" id="node6" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="230,107,370,133"/><area shape="rect" id="node7" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="241,158,359,199"/><area shape="rect" id="node3" href="class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="435,5,581,32"/><area shape="rect" id="node4" href="class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db" title="Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu..." alt="" coords="433,56,583,83"/><area shape="rect" id="node5" href="class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608" title="Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI..." alt="" coords="419,107,597,133"/></map>
+<area shape="rect" id="node2" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="SR04::getDistance" alt="" coords="233,56,367,83"/><area shape="rect" id="node6" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="230,107,370,133"/><area shape="rect" id="node7" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="241,158,359,199"/><area shape="rect" id="node3" href="class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="435,5,581,32"/><area shape="rect" id="node4" href="class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db" title="Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu..." alt="" coords="433,56,583,83"/><area shape="rect" id="node5" href="class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608" title="Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI..." alt="" coords="419,107,597,133"/></map>
 </div>
 </p>
 

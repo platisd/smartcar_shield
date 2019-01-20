@@ -90,41 +90,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="_g_p2_y0_a02_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../../../../runtime/Runtime.hpp&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../InfraredAnalogSensor.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef PLATFORM_AGNOSTIC_BUILD</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;../../../../../runtime/arduino_runtime/ArduinoRuntime.hpp&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_arduino_runtime.html">ArduinoRuntime</a> <a class="code" href="_g_p2_y0_a02_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_g_p2_y0_a02.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_g_p2_y0_a02.html">GP2Y0A02</a> : <span class="keyword">public</span> <a class="code" href="class_infrared_analog_sensor.html">InfraredAnalogSensor</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef PLATFORM_AGNOSTIC_BUILD</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_g_p2_y0_a02.html#ae00b53149f4bfd7025d9efa490119922">GP2Y0A02</a>(uint8_t pin, <a class="code" href="class_runtime.html">Runtime</a>&amp; runtime = arduinoRuntime);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span>    <a class="code" href="class_g_p2_y0_a02.html#ae00b53149f4bfd7025d9efa490119922">GP2Y0A02</a>(uint8_t pin, <a class="code" href="class_runtime.html">Runtime</a>&amp; runtime);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">/* Check `DistanceSensor` interface for documentation */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7">getDistance</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> uint8_t kPin;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_runtime.html">Runtime</a>&amp; mRuntime;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../../../../runtime/Runtime.hpp&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../InfraredAnalogSensor.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef PLATFORM_AGNOSTIC_BUILD</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;../../../../../runtime/arduino_runtime/ArduinoRuntime.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_arduino_runtime.html">ArduinoRuntime</a> <a class="code" href="_g_p2_y0_a02_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_g_p2_y0_a02.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_g_p2_y0_a02.html">GP2Y0A02</a> : <span class="keyword">public</span> <a class="code" href="class_infrared_analog_sensor.html">InfraredAnalogSensor</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef PLATFORM_AGNOSTIC_BUILD</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_g_p2_y0_a02.html#ae00b53149f4bfd7025d9efa490119922">GP2Y0A02</a>(uint8_t pin, <a class="code" href="class_runtime.html">Runtime</a>&amp; runtime = arduinoRuntime);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span>    <a class="code" href="class_g_p2_y0_a02.html#ae00b53149f4bfd7025d9efa490119922">GP2Y0A02</a>(uint8_t pin, <a class="code" href="class_runtime.html">Runtime</a>&amp; runtime);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">/* Check `DistanceSensor` interface for documentation */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7">getDistance</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> uint8_t kPin;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_runtime.html">Runtime</a>&amp; mRuntime;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="ttc" id="class_g_p2_y0_a02_html_ae00b53149f4bfd7025d9efa490119922"><div class="ttname"><a href="class_g_p2_y0_a02.html#ae00b53149f4bfd7025d9efa490119922">GP2Y0A02::GP2Y0A02</a></div><div class="ttdeci">GP2Y0A02(uint8_t pin, Runtime &amp;runtime=arduinoRuntime)</div><div class="ttdoc">Constructs a GP2Y0A02 sensor. </div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_y0_a02_8cpp_source.html#l00009">GP2Y0A02.cpp:9</a></div></div>
-<div class="ttc" id="class_arduino_runtime_html"><div class="ttname"><a href="class_arduino_runtime.html">ArduinoRuntime</a></div><div class="ttdoc">The class to programatically represent the Arduino runtime environment or alternatively calls to the ...</div><div class="ttdef"><b>Definition:</b> <a href="_arduino_runtime_8hpp_source.html#l00010">ArduinoRuntime.hpp:10</a></div></div>
-<div class="ttc" id="_g_p2_y0_a02_8hpp_html_a77eea1a2d335315c8660f419b251c1ae"><div class="ttname"><a href="_g_p2_y0_a02_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></div><div class="ttdeci">ArduinoRuntime arduinoRuntime</div><div class="ttdoc">Programmatically represents a SHARP GP2Y0A02 infrared sensor. </div><div class="ttdef"><b>Definition:</b> <a href="_arduino_runtime_8cpp_source.html#l00006">ArduinoRuntime.cpp:6</a></div></div>
-<div class="ttc" id="class_g_p2_y0_a02_html_ab9bb6ebda93152d267ce3e82c3bba2c7"><div class="ttname"><a href="class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7">GP2Y0A02::getDistance</a></div><div class="ttdeci">unsigned int getDistance() override</div><div class="ttdoc">Gets the distance measured by the sensor. </div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_y0_a02_8cpp_source.html#l00016">GP2Y0A02.cpp:16</a></div></div>
-<div class="ttc" id="class_infrared_analog_sensor_html"><div class="ttname"><a href="class_infrared_analog_sensor.html">InfraredAnalogSensor</a></div><div class="ttdef"><b>Definition:</b> <a href="_infrared_analog_sensor_8hpp_source.html#l00024">InfraredAnalogSensor.hpp:24</a></div></div>
-<div class="ttc" id="class_runtime_html"><div class="ttname"><a href="class_runtime.html">Runtime</a></div><div class="ttdoc">An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduin...</div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8hpp_source.html#l00013">Runtime.hpp:13</a></div></div>
-<div class="ttc" id="class_g_p2_y0_a02_html"><div class="ttname"><a href="class_g_p2_y0_a02.html">GP2Y0A02</a></div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_y0_a02_8hpp_source.html#l00014">GP2Y0A02.hpp:14</a></div></div>
+<div class="ttc" id="class_arduino_runtime_html"><div class="ttname"><a href="class_arduino_runtime.html">ArduinoRuntime</a></div><div class="ttdoc">The class to programatically represent the Arduino runtime environment or alternatively calls to the ...</div><div class="ttdef"><b>Definition:</b> <a href="_arduino_runtime_8hpp_source.html#l00011">ArduinoRuntime.hpp:11</a></div></div>
+<div class="ttc" id="_g_p2_y0_a02_8hpp_html_a77eea1a2d335315c8660f419b251c1ae"><div class="ttname"><a href="_g_p2_y0_a02_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></div><div class="ttdeci">ArduinoRuntime arduinoRuntime</div><div class="ttdef"><b>Definition:</b> <a href="_arduino_runtime_8cpp_source.html#l00006">ArduinoRuntime.cpp:6</a></div></div>
+<div class="ttc" id="class_g_p2_y0_a02_html_ab9bb6ebda93152d267ce3e82c3bba2c7"><div class="ttname"><a href="class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7">GP2Y0A02::getDistance</a></div><div class="ttdeci">unsigned int getDistance() override</div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_y0_a02_8cpp_source.html#l00016">GP2Y0A02.cpp:16</a></div></div>
+<div class="ttc" id="class_infrared_analog_sensor_html"><div class="ttname"><a href="class_infrared_analog_sensor.html">InfraredAnalogSensor</a></div><div class="ttdoc">An abstract class to represent the various infrared analog sensors. </div><div class="ttdef"><b>Definition:</b> <a href="_infrared_analog_sensor_8hpp_source.html#l00025">InfraredAnalogSensor.hpp:25</a></div></div>
+<div class="ttc" id="class_runtime_html"><div class="ttname"><a href="class_runtime.html">Runtime</a></div><div class="ttdoc">An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduin...</div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8hpp_source.html#l00014">Runtime.hpp:14</a></div></div>
+<div class="ttc" id="class_g_p2_y0_a02_html"><div class="ttname"><a href="class_g_p2_y0_a02.html">GP2Y0A02</a></div><div class="ttdoc">Programmatically represents a SHARP GP2Y0A02 infrared sensor. </div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_y0_a02_8hpp_source.html#l00016">GP2Y0A02.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

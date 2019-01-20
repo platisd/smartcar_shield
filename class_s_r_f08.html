@@ -91,32 +91,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus.  
+ <a href="class_s_r_f08.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_s_r_f08_8hpp_source.html">SRF08.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SRF08:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08__inherit__graph.png" border="0" usemap="#_s_r_f08_inherit__map" alt="Inheritance graph"/></div>
 <map name="_s_r_f08_inherit__map" id="_s_r_f08_inherit__map">
-<area shape="rect" id="node2" href="class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="4,5,157,112"/></map>
+<area shape="rect" id="node2" href="interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="24,5,139,83"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for SRF08:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08__coll__graph.png" border="0" usemap="#_s_r_f08_coll__map" alt="Collaboration graph"/></div>
 <map name="_s_r_f08_coll__map" id="_s_r_f08_coll__map">
-<area shape="rect" id="node2" href="class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="4,5,157,112"/></map>
+<area shape="rect" id="node2" href="interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="24,5,139,83"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9bb0b70206459831fd8ec0b931884b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#ae9bb0b70206459831fd8ec0b931884b7">SRF08</a> (uint8_t address, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:ae9bb0b70206459831fd8ec0b931884b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r_f08.html">SRF08</a> sensor that communicates over I2C.  <a href="#ae9bb0b70206459831fd8ec0b931884b7">More...</a><br/></td></tr>
+<tr class="memdesc:ae9bb0b70206459831fd8ec0b931884b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor that communicates over I2C.  <a href="#ae9bb0b70206459831fd8ec0b931884b7">More...</a><br/></td></tr>
 <tr class="separator:ae9bb0b70206459831fd8ec0b931884b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff420958b791fe5261f33eeab89f7f7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7">getDistance</a> () override</td></tr>
-<tr class="memdesc:aaff420958b791fe5261f33eeab89f7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance measured by the sensor.  <a href="#aaff420958b791fe5261f33eeab89f7f7">More...</a><br/></td></tr>
 <tr class="separator:aaff420958b791fe5261f33eeab89f7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1srf08.html#a83c9554c76cb9324ad9860642ac2f153">smartcarlib::constants::srf08::kDefaultIterations</a>) override</td></tr>
-<tr class="memdesc:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the median distance from the specified number of measurements.  <a href="#a9ab73d6660bd8d80aac45a89fd3f7d21">More...</a><br/></td></tr>
 <tr class="separator:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac02024ad486ef18868493afa8836c2a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4">setGain</a> (uint8_t gain)</td></tr>
 <tr class="memdesc:ac02024ad486ef18868493afa8836c2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combined with the range setting affects how much time each measurement will last as well as the maximum detectable distance.  <a href="#ac02024ad486ef18868493afa8836c2a4">More...</a><br/></td></tr>
@@ -131,16 +132,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab8f62dc8e4789bd21cd3a68253b33410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conducts a measurement from the on-board light sensor.  <a href="#ab8f62dc8e4789bd21cd3a68253b33410">More...</a><br/></td></tr>
 <tr class="separator:ab8f62dc8e4789bd21cd3a68253b33410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441">changeAddress</a> (uint8_t newAddress)</td></tr>
-<tr class="memdesc:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the address of the specific <a class="el" href="class_s_r_f08.html">SRF08</a> sensor.  <a href="#ab5d0ccd285a4013b5b0ee0e7ffa8e441">More...</a><br/></td></tr>
+<tr class="memdesc:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the address of the specific <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor.  <a href="#ab5d0ccd285a4013b5b0ee0e7ffa8e441">More...</a><br/></td></tr>
 <tr class="separator:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_distance_sensor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_distance_sensor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_distance_sensor.html">DistanceSensor</a></td></tr>
-<tr class="memitem:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#ab0be502a973a1fe20d1a281e2df63cd5">~DistanceSensor</a> ()=default</td></tr>
-<tr class="separator:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="_s_r_f08_8ino-example.html#_a0">SRF08.ino</a>.</dd>
+<div class="textblock"><p>The <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus. </p>
+<p>You can find more information on the module <a href="https://www.robot-electronics.co.uk/htm/srf08tech.html">here</a>. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_s_r_f08_8ino-example.html#_a0">SRF08.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_s_r_f08_8hpp_source.html#l00030">30</a> of file <a class="el" href="_s_r_f08_8hpp_source.html">SRF08.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_r_f08_8hpp_source.html#l00031">31</a> of file <a class="el" href="_s_r_f08_8hpp_source.html">SRF08.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae9bb0b70206459831fd8ec0b931884b7"></a>
 <div class="memitem">
@@ -166,14 +166,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <a class="el" href="class_s_r_f08.html">SRF08</a> sensor that communicates over I2C. </p>
+<p>Constructs an <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor that communicates over I2C. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>I2C address which should be within the range of [112, 127] </td></tr>
+    <tr><td class="paramname">address</td><td>I2C address which should be within the range of [112, 127]</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="class_s_r_f08.html">SRF08</a> srf08(112);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00017">17</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 </div>
@@ -193,15 +195,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Changes the address of the specific <a class="el" href="class_s_r_f08.html">SRF08</a> sensor. </p>
+<p>Changes the address of the specific <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newAddress</td><td>New address to use [112, 127] </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The in-bounds address set for the sensor </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The in-bounds address set for the sensor</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> badAddress = 130;</div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> actualAddress = srf08.changeAddress(badAddress);</div>
+<div class="line"><span class="comment">// The actual newly acquired address should now be 127</span></div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00135">135</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 <p><div class="dynheader">
@@ -209,7 +215,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_ab5d0ccd285a4013b5b0ee0e7ffa8e441_cgraph.png" border="0" usemap="#class_s_r_f08_ab5d0ccd285a4013b5b0ee0e7ffa8e441_cgraph" alt=""/></div>
 <map name="class_s_r_f08_ab5d0ccd285a4013b5b0ee0e7ffa8e441_cgraph" id="class_s_r_f08_ab5d0ccd285a4013b5b0ee0e7ffa8e441_cgraph">
-<area shape="rect" id="node2" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="261,5,379,46"/><area shape="rect" id="node3" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="217,71,423,97"/><area shape="rect" id="node4" href="class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="257,121,383,148"/><area shape="rect" id="node5" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="221,172,419,199"/></map>
+<area shape="rect" id="node2" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="261,5,379,46"/><area shape="rect" id="node3" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="217,71,423,97"/><area shape="rect" id="node4" href="class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="257,121,383,148"/><area shape="rect" id="node5" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="221,172,419,199"/></map>
 </div>
 </p>
 
@@ -231,16 +237,10 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Gets the distance measured by the sensor. </p>
-<p>Calling this might trigger a new measurement by the sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>0</code> if an error has occured, otherwise the measured distance </dd></dl>
-
-<p>Implements <a class="el" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e">DistanceSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00034">34</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
@@ -258,7 +258,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph.png" border="0" usemap="#class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph" alt=""/></div>
 <map name="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph" id="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="195,5,378,32"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="195,5,378,32"/></map>
 </div>
 </p>
 
@@ -278,8 +278,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Conducts a measurement from the on-board light sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd>The light measurement [0, 255] </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The light measurement [0, 255]</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> lightIntensity = srf08.getLightReading();</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00111">111</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 <p><div class="dynheader">
@@ -310,21 +312,10 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Gets the median distance from the specified number of measurements. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iterations</td><td>Number of measurements to conduct </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The median of the conducted measurements </dd></dl>
-
-<p>Implements <a class="el" href="class_distance_sensor.html#a52189b163354f2b27a3c4f4112e469cb">DistanceSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00061">61</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
@@ -333,7 +324,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph.png" border="0" usemap="#class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph" alt=""/></div>
 <map name="class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph" id="class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph">
-<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="237,183,379,209"/><area shape="rect" id="node6" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="461,309,601,336"/><area shape="rect" id="node10" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="249,335,367,377"/><area shape="rect" id="node3" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="427,5,634,32"/><area shape="rect" id="node4" href="class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="467,56,594,83"/><area shape="rect" id="node5" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="432,107,629,133"/><area shape="rect" id="node7" href="class_runtime.html#ad29af260f2b283f2c461cf89e9b90a44" title="Request a number of bytes from the specified I2C slave, equivalent of Wire.requestFrom in Arduino..." alt="" coords="443,157,618,184"/><area shape="rect" id="node8" href="class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino..." alt="" coords="456,208,605,235"/><area shape="rect" id="node9" href="class_runtime.html#a8fbc45763b87f3469a6d76c12c1834bb" title="Reads a byte from I2C bus, equivalent of Wire.read in Arduino. " alt="" coords="467,259,594,285"/></map>
+<area shape="rect" id="node2" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="237,183,379,209"/><area shape="rect" id="node6" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="461,309,601,336"/><area shape="rect" id="node10" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="249,335,367,377"/><area shape="rect" id="node3" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="427,5,634,32"/><area shape="rect" id="node4" href="class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="467,56,594,83"/><area shape="rect" id="node5" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="432,107,629,133"/><area shape="rect" id="node7" href="class_runtime.html#ad29af260f2b283f2c461cf89e9b90a44" title="Request a number of bytes from the specified I2C slave, equivalent of Wire.requestFrom in Arduino..." alt="" coords="443,157,618,184"/><area shape="rect" id="node8" href="class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino..." alt="" coords="456,208,605,235"/><area shape="rect" id="node9" href="class_runtime.html#a8fbc45763b87f3469a6d76c12c1834bb" title="Reads a byte from I2C bus, equivalent of Wire.read in Arduino. " alt="" coords="467,259,594,285"/></map>
 </div>
 </p>
 
@@ -356,11 +347,18 @@ Here is the call graph for this function:</div>
 <p>Combined with the range setting affects how much time each measurement will last as well as the maximum detectable distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gain</td><td>Gain Value [0, 31] </td></tr>
+    <tr><td class="paramname">gain</td><td>Gain Value [0, 31]</td></tr>
   </table>
   </dd>
 </dl>
-
+<p>By default, the <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor measurements last 70 milliseconds, <em>blocking</em> the execution of the sketch. If you need to measure distances faster then you need to set a default gain, range and ping delay manually, during <code>setup()</code>. You can find more information about this <a href="http://www.robot-electronics.co.uk/htm/srf08tech.html">here</a>.</p>
+<p>The allowed range for gain values is from 0 to 31. There is no rule about which combinations of values work for every range. Some <b>empirical</b> range, gain and ping delay combinations are listed below. Please beware that these might not apply in your setting. Experiment and adapt accordingly.</p>
+<p><b>Settings:</b> Gain: 31 Range: 7 Delay: 6 <b>Results:</b> Maximum range: 34 centimeters - Measurements every 6 milliseconds</p>
+<p><b>Settings:</b> Gain: 0 Range: 23 Delay: 11 <b>Results:</b> Maximum range: 103 centimeters - Measurements every 11 milliseconds</p>
+<p><b>Settings:</b> Gain: 10 Range: 35 Delay: 15 <b>Results:</b> Maximum range: 155 centimeters - Measurements every 15 milliseconds</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">srf08.setGain(10);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00078">78</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 <p><div class="dynheader">
@@ -368,7 +366,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_ac02024ad486ef18868493afa8836c2a4_cgraph.png" border="0" usemap="#class_s_r_f08_ac02024ad486ef18868493afa8836c2a4_cgraph" alt=""/></div>
 <map name="class_s_r_f08_ac02024ad486ef18868493afa8836c2a4_cgraph" id="class_s_r_f08_ac02024ad486ef18868493afa8836c2a4_cgraph">
-<area shape="rect" id="node2" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="171,5,378,32"/><area shape="rect" id="node3" href="class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="211,56,338,83"/><area shape="rect" id="node4" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="215,107,334,149"/><area shape="rect" id="node5" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="176,173,373,200"/></map>
+<area shape="rect" id="node2" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="171,5,378,32"/><area shape="rect" id="node3" href="class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="211,56,338,83"/><area shape="rect" id="node4" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="215,107,334,149"/><area shape="rect" id="node5" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="176,173,373,200"/></map>
 </div>
 </p>
 
@@ -396,8 +394,11 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The set delay </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The set delay</dd></dl>
+<p>Use this method to set the delay between the measurements. Remember, that just setting this delay, does not by itself mean that the sensor will be able to initiate measurements faster or have a shorter range. If you need to do that, then you will have to set the rest of the values as well. Refer to the documentation of <a class="el" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim...">SRF08::setGain</a> for more details.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">srf08.setPingDelay(15);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00105">105</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 </div>
@@ -420,11 +421,15 @@ Here is the call graph for this function:</div>
 <p>The maximum range can be calculated as <code>Max_Range = (range * 3.4) + 3.4 in cm</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">range</td><td>Range Value </td></tr>
+    <tr><td class="paramname">range</td><td>Range Value</td></tr>
   </table>
   </dd>
 </dl>
-
+<p>By default, the <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor measurements last 70 milliseconds, <em>blocking</em> the execution of the sketch. If you need to measure distances faster, then you need to set a default gain, range and ping delay manually, during <code>setup()</code>. You can find more information about this <a href="http://www.robot-electronics.co.uk/htm/srf08tech.html">here</a>.</p>
+<p>The maximum range the sensor can measure, is calculated by the following formula, giving a result in centimeters: <code>(rangeValue + 1) * 4.3</code>. Remember, that just setting the range, will not change the delay between the measurements or how fast the measurements can be initiated. If you need to do this, then you will have to set the rest of the values as well. There is no rule about which combinations of values work for every range. Some <b>empirical</b> range, gain and ping delay combinations are listed in the documentation of <a class="el" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim...">SRF08::setGain</a>. Please beware that these might not apply in your setting. Experiment and adapt accordingly.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">srf08.setRange(35);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00092">92</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 <p><div class="dynheader">

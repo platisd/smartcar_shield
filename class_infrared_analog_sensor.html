@@ -91,20 +91,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>An abstract class to represent the various infrared analog sensors.  
+ <a href="class_infrared_analog_sensor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_infrared_analog_sensor_8hpp_source.html">InfraredAnalogSensor.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for InfraredAnalogSensor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_infrared_analog_sensor__inherit__graph.png" border="0" usemap="#_infrared_analog_sensor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_infrared_analog_sensor_inherit__map" id="_infrared_analog_sensor_inherit__map">
-<area shape="rect" id="node3" href="class_g_p2_d120.html" title="{GP2D120\n||+ GP2D120()\l+ getDistance()\l}" alt="" coords="5,302,116,394"/><area shape="rect" id="node4" href="class_g_p2_y0_a02.html" title="{GP2Y0A02\n||+ GP2Y0A02()\l+ getDistance()\l}" alt="" coords="141,302,252,394"/><area shape="rect" id="node5" href="class_g_p2_y0_a21.html" title="{GP2Y0A21\n||+ GP2Y0A21()\l+ getDistance()\l}" alt="" coords="277,302,388,394"/><area shape="rect" id="node2" href="class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="120,5,273,112"/></map>
+<area shape="rect" id="node3" href="class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor. " alt="" coords="5,273,116,365"/><area shape="rect" id="node4" href="class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor. " alt="" coords="141,273,252,365"/><area shape="rect" id="node5" href="class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor. " alt="" coords="277,273,388,365"/><area shape="rect" id="node2" href="interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="140,5,255,83"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for InfraredAnalogSensor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_infrared_analog_sensor__coll__graph.png" border="0" usemap="#_infrared_analog_sensor_coll__map" alt="Collaboration graph"/></div>
 <map name="_infrared_analog_sensor_coll__map" id="_infrared_analog_sensor_coll__map">
-<area shape="rect" id="node2" href="class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="11,5,164,112"/></map>
+<area shape="rect" id="node2" href="interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="31,5,145,83"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -112,18 +115,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adcb88deca37844b2c3b1d8f6c74d750c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_infrared_analog_sensor.html#adcb88deca37844b2c3b1d8f6c74d750c">InfraredAnalogSensor</a> (<a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
 <tr class="separator:adcb88deca37844b2c3b1d8f6c74d750c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb1e0315debead1754501f3913d2701"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1analog_infrared_sensor.html#a85d6e9b1833adc2188403d56a7f1631a">smartcarlib::constants::analogInfraredSensor::kDefaultIterations</a>) override</td></tr>
-<tr class="memdesc:a8fb1e0315debead1754501f3913d2701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the median distance from the specified number of measurements.  <a href="#a8fb1e0315debead1754501f3913d2701">More...</a><br/></td></tr>
 <tr class="separator:a8fb1e0315debead1754501f3913d2701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_distance_sensor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_distance_sensor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_distance_sensor.html">DistanceSensor</a></td></tr>
-<tr class="memitem:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#ab0be502a973a1fe20d1a281e2df63cd5">~DistanceSensor</a> ()=default</td></tr>
-<tr class="separator:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af00db814504c60dc0343a0dce4999d6e inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e">getDistance</a> ()=0</td></tr>
-<tr class="memdesc:af00db814504c60dc0343a0dce4999d6e inherit pub_methods_class_distance_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance measured by the sensor.  <a href="#af00db814504c60dc0343a0dce4999d6e">More...</a><br/></td></tr>
-<tr class="separator:af00db814504c60dc0343a0dce4999d6e inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_infrared_analog_sensor_8hpp_source.html#l00024">24</a> of file <a class="el" href="_infrared_analog_sensor_8hpp_source.html">InfraredAnalogSensor.hpp</a>.</p>
+<div class="textblock"><p>An abstract class to represent the various infrared analog sensors. </p>
+<p>These sensors are able to conduct measurements by emiting an analog signal that can be read by a microcontroller through the ADC. </p>
+
+<p>Definition at line <a class="el" href="_infrared_analog_sensor_8hpp_source.html#l00025">25</a> of file <a class="el" href="_infrared_analog_sensor_8hpp_source.html">InfraredAnalogSensor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adcb88deca37844b2c3b1d8f6c74d750c"></a>
 <div class="memitem">
@@ -161,21 +159,10 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Gets the median distance from the specified number of measurements. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iterations</td><td>Number of measurements to conduct </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The median of the conducted measurements </dd></dl>
-
-<p>Implements <a class="el" href="class_distance_sensor.html#a52189b163354f2b27a3c4f4112e469cb">DistanceSensor</a>.</p>
 
 <p>Definition at line <a class="el" href="_infrared_analog_sensor_8cpp_source.html#l00016">16</a> of file <a class="el" href="_infrared_analog_sensor_8cpp_source.html">InfraredAnalogSensor.cpp</a>.</p>
 
@@ -184,7 +171,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph.png" border="0" usemap="#class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph" alt=""/></div>
 <map name="class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph" id="class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph">
-<area shape="rect" id="node2" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e" title="Gets the distance measured by the sensor. " alt="" coords="201,5,394,32"/><area shape="rect" id="node3" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="227,56,367,83"/><area shape="rect" id="node4" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="238,107,357,149"/></map>
+<area shape="rect" id="node2" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="201,5,341,32"/><area shape="rect" id="node3" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="211,57,330,98"/></map>
 </div>
 </p>
 

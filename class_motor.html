@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Smartcar Shield: Motor Class Reference</title>
+<title>Smartcar Shield: Motor Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,11 +85,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_motor-members.html">List of all members</a>  </div>
+<a href="interface_motor-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Motor Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Motor Interface Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface programmatically representing any kind of motor.  
+ <a href="class_motor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_motor_8hpp_source.html">Motor.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -97,7 +100,7 @@ Inheritance diagram for Motor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_motor__inherit__graph.png" border="0" usemap="#_motor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_motor_inherit__map" id="_motor_inherit__map">
-<area shape="rect" id="node2" href="class_brushed_motor.html" title="{BrushedMotor\n||+ BrushedMotor()\l+ setSpeed()\l}" alt="" coords="5,147,128,239"/><area shape="rect" id="node3" href="class_servo_motor.html" title="{ServoMotor\n||+ ServoMotor()\l+ setSpeed()\l}" alt="" coords="152,147,261,239"/></map>
+<area shape="rect" id="node2" href="class_brushed_motor.html" title="A brushed motor is controlled via two wires where the flow of current determines the direction of rot..." alt="" coords="5,147,128,239"/><area shape="rect" id="node3" href="class_servo_motor.html" title="A motor that is controlled via the length of pulses that are sent to it through a single signal line..." alt="" coords="152,147,261,239"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for Motor:</div>
@@ -116,8 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76d3728672a98ab9b4f1de19baec7e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_motor_8hpp_source.html#l00021">21</a> of file <a class="el" href="_motor_8hpp_source.html">Motor.hpp</a>.</p>
+<div class="textblock"><p>Interface programmatically representing any kind of motor. </p>
+<p>Fundamentally, a motor is something you can control the speed and direction of its rotation. </p>
+
+<p>Definition at line <a class="el" href="_motor_8hpp_source.html#l00022">22</a> of file <a class="el" href="_motor_8hpp_source.html">Motor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5f55b8e5d37cff7c43a75ea99c6129ee"></a>
 <div class="memitem">
@@ -168,11 +173,13 @@ Public Member Functions</h2></td></tr>
 <p>Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">speed</td><td>The speed and direction within the range of [-100, 100]. <code>-100</code> means that the motor is spinning at full speed towards the direction we have defined as backward. <code>100</code> interpreted as full speed forward. <code>0</code> means that the motor is at its idle/neutral state. </td></tr>
+    <tr><td class="paramname">speed</td><td>The speed and direction within the range of [-100, 100]. <code>-100</code> means that the motor is spinning at full speed towards the direction we have defined as backward. <code>100</code> interpreted as full speed forward. <code>0</code> means that the motor is at its idle/neutral state.</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">motor.setSpeed(0); <span class="comment">// Stop the motor</span></div>
+</div><!-- fragment --> 
 <p>Implemented in <a class="el" href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">ServoMotor</a>, and <a class="el" href="class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120">BrushedMotor</a>.</p>
 
 <p><div class="dynheader">
@@ -186,7 +193,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/motor/<a class="el" href="_motor_8hpp_source.html">Motor.hpp</a></li>
 </ul>
 </div><!-- contents -->

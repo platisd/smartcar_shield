@@ -1,5 +1,5 @@
 <map id="SRF08::getMedianDistance" name="SRF08::getMedianDistance">
-<area shape="rect" id="node2" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor. " alt="" coords="237,183,379,209"/>
+<area shape="rect" id="node2" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="237,183,379,209"/>
 <area shape="rect" id="node6" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="461,309,601,336"/>
 <area shape="rect" id="node10" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="249,335,367,377"/>
 <area shape="rect" id="node3" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="427,5,634,32"/>

@@ -96,9 +96,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Functions</h2></td></tr>
 <tr class="memitem:a77e571ec2839c5c5e9c914e099a5435c"><td class="memTemplParams" colspan="2">template&lt;typename AnyNumber &gt; </td></tr>
 <tr class="memitem:a77e571ec2839c5c5e9c914e099a5435c"><td class="memTemplItemLeft" align="right" valign="top">constexpr AnyNumber&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">getAbsolute</a> (const AnyNumber &amp;number)</td></tr>
+<tr class="memdesc:a77e571ec2839c5c5e9c914e099a5435c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the absolute of the supplied number.  <a href="#a77e571ec2839c5c5e9c914e099a5435c">More...</a><br/></td></tr>
 <tr class="separator:a77e571ec2839c5c5e9c914e099a5435c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae17f4cf0145f18603372874d03bc672b"><td class="memTemplParams" colspan="2">template&lt;typename AnyNumber &gt; </td></tr>
 <tr class="memitem:ae17f4cf0145f18603372874d03bc672b"><td class="memTemplItemLeft" align="right" valign="top">constexpr AnyNumber&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b">getConstrain</a> (const AnyNumber &amp;number, const AnyNumber &amp;min, const AnyNumber &amp;max)</td></tr>
+<tr class="memdesc:ae17f4cf0145f18603372874d03bc672b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit the number between a range.  <a href="#ae17f4cf0145f18603372874d03bc672b">More...</a><br/></td></tr>
 <tr class="separator:ae17f4cf0145f18603372874d03bc672b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c97aad0f3bbf79c10be28c35137a47"><td class="memTemplParams" colspan="2">template&lt;typename AnyNumber &gt; </td></tr>
 <tr class="memitem:ac0c97aad0f3bbf79c10be28c35137a47"><td class="memTemplItemLeft" align="right" valign="top">AnyNumber&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">getMedian</a> (AnyNumber unsortedNumbers[], const unsigned int &amp;arraySize)</td></tr>
@@ -145,16 +147,19 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the two numbers are amost equal, false otherwise </dd></dl>
-
-<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00077">77</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the two numbers are amost equal, false otherwise</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> result = <a class="code" href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">smartcarlib::utils::areAlmostEqual</a>(0.000001, 0,0000012);</div>
+<div class="line"><span class="comment">// `result` is `true`</span></div>
+</div><!-- fragment --> 
+<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00128">128</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacesmartcarlib_1_1utils_a865191e1cba38fc04e7de61954ab4bfa_cgraph.png" border="0" usemap="#namespacesmartcarlib_1_1utils_a865191e1cba38fc04e7de61954ab4bfa_cgraph" alt=""/></div>
 <map name="namespacesmartcarlib_1_1utils_a865191e1cba38fc04e7de61954ab4bfa_cgraph" id="namespacesmartcarlib_1_1utils_a865191e1cba38fc04e7de61954ab4bfa_cgraph">
-<area shape="rect" id="node2" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="smartcarlib::utils\l::getAbsolute" alt="" coords="177,5,295,46"/></map>
+<area shape="rect" id="node2" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="177,5,295,46"/></map>
 </div>
 </p>
 
@@ -184,9 +189,22 @@ template&lt;typename AnyNumber &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#a5">automatedMovements.ino</a>, and <a class="el" href="rotate_on_spot_8ino-example.html#a4">rotateOnSpot.ino</a>.</dd>
+
+<p>Gets the absolute of the supplied number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>The number to get the absolute of </td></tr>
+  </table>
+  </dd>
 </dl>
-<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00011">11</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>The absolute value</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> num = -5;</div>
+<div class="line">num = <a class="code" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">smartcarlib::utils::getAbsolute</a>(num);</div>
+<div class="line"><span class="comment">// `num` is now `5`</span></div>
+</div><!-- fragment --> <dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#a5">automatedMovements.ino</a>, and <a class="el" href="rotate_on_spot_8ino-example.html#a4">rotateOnSpot.ino</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00024">24</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -231,7 +249,22 @@ template&lt;typename AnyNumber &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00018">18</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
+<p>Limit the number between a range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>The number to limit </td></tr>
+    <tr><td class="paramname">min</td><td>The minimum limit of the range </td></tr>
+    <tr><td class="paramname">max</td><td>The maximum limit of the range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number unchanged if it was within the range, otherwise the lower limit of the range if it was smaller or the higher limit if it was larger</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> num = -5;</div>
+<div class="line">num = <a class="code" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b">smartcarlib::utils::getConstrain</a>(num, 0, 100);</div>
+<div class="line"><span class="comment">// `num` is now `0`</span></div>
+</div><!-- fragment --> 
+<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00047">47</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -300,9 +333,14 @@ template&lt;typename AnyNumber &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The mapped value if initial range valid otherwise the lower limit of the target range </dd></dl>
-
-<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00060">60</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>The mapped value if initial range valid otherwise the lower limit of the target range</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> num = 3;</div>
+<div class="line"> <span class="comment">// Scale a `num` from 0-10 to 0-100</span></div>
+<div class="line"> num = <a class="code" href="namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc">smartcarlib::utils::getMap</a>(num, 0, 10, 0, 100);</div>
+<div class="line"> <span class="comment">// `num` is now `30`</span></div>
+</div><!-- fragment --> 
+<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00105">105</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -349,16 +387,21 @@ template&lt;typename AnyNumber &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Median number of the supplied array </dd></dl>
-
-<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00030">30</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>Median number of the supplied array</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">int</span> ARRAY_SIZE = 5;</div>
+<div class="line"><span class="keywordtype">int</span> array[ARRAY_SIZE] = {0, 3, 4, 1, 15};</div>
+<div class="line"><span class="keywordtype">int</span> median = <a class="code" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">smartcarlib::utils::getMedian</a>(array, ARRAY_SIZE);</div>
+<div class="line"><span class="comment">// `median` is `3`</span></div>
+</div><!-- fragment --> 
+<p>Definition at line <a class="el" href="_utilities_8hpp_source.html#l00067">67</a> of file <a class="el" href="_utilities_8hpp_source.html">Utilities.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacesmartcarlib_1_1utils_ac0c97aad0f3bbf79c10be28c35137a47_icgraph.png" border="0" usemap="#namespacesmartcarlib_1_1utils_ac0c97aad0f3bbf79c10be28c35137a47_icgraph" alt=""/></div>
 <map name="namespacesmartcarlib_1_1utils_ac0c97aad0f3bbf79c10be28c35137a47_icgraph" id="namespacesmartcarlib_1_1utils_ac0c97aad0f3bbf79c10be28c35137a47_icgraph">
-<area shape="rect" id="node2" href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title="Gets the median distance from the specified number of measurements. " alt="" coords="192,5,339,46"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements. " alt="" coords="174,71,357,97"/><area shape="rect" id="node4" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements. " alt="" coords="178,121,353,148"/></map>
+<area shape="rect" id="node2" href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title="InfraredAnalogSensor\l::getMedianDistance" alt="" coords="192,5,339,46"/><area shape="rect" id="node3" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="174,71,357,97"/><area shape="rect" id="node4" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="178,121,353,148"/></map>
 </div>
 </p>
 

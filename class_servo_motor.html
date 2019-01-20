@@ -91,20 +91,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A motor that is controlled via the length of pulses that are sent to it through a single signal line.  
+ <a href="class_servo_motor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_servo_motor_8hpp_source.html">ServoMotor.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ServoMotor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_servo_motor__inherit__graph.png" border="0" usemap="#_servo_motor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_servo_motor_inherit__map" id="_servo_motor_inherit__map">
-<area shape="rect" id="node3" href="class_motor.html" title="{Motor\n||+ ~Motor()\l+ setSpeed()\l}" alt="" coords="86,6,183,98"/></map>
+<area shape="rect" id="node3" href="class_motor.html" title="Interface programmatically representing any kind of motor. " alt="" coords="86,6,183,98"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for ServoMotor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_servo_motor__coll__graph.png" border="0" usemap="#_servo_motor_coll__map" alt="Collaboration graph"/></div>
 <map name="_servo_motor_coll__map" id="_servo_motor_coll__map">
-<area shape="rect" id="node3" href="class_motor.html" title="{Motor\n||+ ~Motor()\l+ setSpeed()\l}" alt="" coords="86,6,183,98"/></map>
+<area shape="rect" id="node3" href="class_motor.html" title="Interface programmatically representing any kind of motor. " alt="" coords="86,6,183,98"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -120,9 +123,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5f55b8e5d37cff7c43a75ea99c6129ee inherit pub_methods_class_motor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="_serial_control_servo_e_s_c_8ino-example.html#_a0">SerialControlServoESC.ino</a>.</dd>
+<div class="textblock"><p>A motor that is controlled via the length of pulses that are sent to it through a single signal line. </p>
+<p>It can be either a traditional servo motor that controls a shaft (e.g. for steering) or an Electronic Speed Controller (ESC) that interpets speed in the same manner and controls a (typically brushless) motor. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_serial_control_servo_e_s_c_8ino-example.html#_a0">SerialControlServoESC.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_servo_motor_8hpp_source.html#l00035">35</a> of file <a class="el" href="_servo_motor_8hpp_source.html">ServoMotor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_servo_motor_8hpp_source.html#l00036">36</a> of file <a class="el" href="_servo_motor_8hpp_source.html">ServoMotor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4d273b1525b5a5afcc4ff00ba571b296"></a>
 <div class="memitem">
@@ -172,11 +177,14 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">controlPin</td><td>The pin controlling the speed of the motor </td></tr>
     <tr><td class="paramname">minPulseLength</td><td>The motor's minimum pulse length in microseconds </td></tr>
     <tr><td class="paramname">idlePulseLength</td><td>The pulse length that the motor is idle in microseconds </td></tr>
-    <tr><td class="paramname">maxPulseLength</td><td>The motor's maximum pulse length in microseconds </td></tr>
+    <tr><td class="paramname">maxPulseLength</td><td>The motor's maximum pulse length in microseconds</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> ESC_PIN = 7;</div>
+<div class="line"><a class="code" href="class_servo_motor.html">ServoMotor</a> esc(ESC_PIN);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_servo_motor_8cpp_source.html#l00007">7</a> of file <a class="el" href="_servo_motor_8cpp_source.html">ServoMotor.cpp</a>.</p>
 
 </div>
@@ -207,11 +215,13 @@ Public Member Functions</h2></td></tr>
 <p>Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">speed</td><td>The speed and direction within the range of [-100, 100]. <code>-100</code> means that the motor is spinning at full speed towards the direction we have defined as backward. <code>100</code> interpreted as full speed forward. <code>0</code> means that the motor is at its idle/neutral state. </td></tr>
+    <tr><td class="paramname">speed</td><td>The speed and direction within the range of [-100, 100]. <code>-100</code> means that the motor is spinning at full speed towards the direction we have defined as backward. <code>100</code> interpreted as full speed forward. <code>0</code> means that the motor is at its idle/neutral state.</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">motor.setSpeed(0); <span class="comment">// Stop the motor</span></div>
+</div><!-- fragment --> 
 <p>Implements <a class="el" href="class_motor.html#a76d3728672a98ab9b4f1de19baec7e22">Motor</a>.</p>
 
 <p>Definition at line <a class="el" href="_servo_motor_8cpp_source.html#l00021">21</a> of file <a class="el" href="_servo_motor_8cpp_source.html">ServoMotor.cpp</a>.</p>
@@ -221,7 +231,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_servo_motor_ae7f117e9af63400e0dac7fa9263233e6_cgraph.png" border="0" usemap="#class_servo_motor_ae7f117e9af63400e0dac7fa9263233e6_cgraph" alt=""/></div>
 <map name="class_servo_motor_ae7f117e9af63400e0dac7fa9263233e6_cgraph" id="class_servo_motor_ae7f117e9af63400e0dac7fa9263233e6_cgraph">
-<area shape="rect" id="node2" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="206,5,325,46"/><area shape="rect" id="node3" href="namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc" title="Maps a value from a range to another. " alt="" coords="206,70,325,111"/></map>
+<area shape="rect" id="node2" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="206,5,325,46"/><area shape="rect" id="node3" href="namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc" title="Maps a value from a range to another. " alt="" coords="206,70,325,111"/></map>
 </div>
 </p>
 

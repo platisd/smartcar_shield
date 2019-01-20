@@ -91,20 +91,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class to programmatically represent a vehicle equipped with odometers and a heading sensor.  
+ <a href="class_smart_car.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_smart_car_8hpp_source.html">SmartCar.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SmartCar:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_smart_car__inherit__graph.png" border="0" usemap="#_smart_car_inherit__map" alt="Inheritance graph"/></div>
 <map name="_smart_car_inherit__map" id="_smart_car_inherit__map">
-<area shape="rect" id="node2" href="class_distance_car.html" title="{DistanceCar\n||+ DistanceCar()\l+ DistanceCar()\l+ getDistance()\l+ setSpeed()\l+ getSpeed()\l+ enableCruiseControl()\l+ update()\l+ disableCruiseControl()\l+ overrideMotorSpeed()\l}" alt="" coords="5,360,168,555"/><area shape="rect" id="node3" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/><area shape="rect" id="node5" href="class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/><area shape="rect" id="node4" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="87,6,245,127"/></map>
+<area shape="rect" id="node2" href="class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers. " alt="" coords="5,360,168,555"/><area shape="rect" id="node3" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/><area shape="rect" id="node5" href="class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/><area shape="rect" id="node4" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="87,6,245,127"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for SmartCar:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_smart_car__coll__graph.png" border="0" usemap="#_smart_car_coll__map" alt="Collaboration graph"/></div>
 <map name="_smart_car_coll__map" id="_smart_car_coll__map">
-<area shape="rect" id="node2" href="class_distance_car.html" title="{DistanceCar\n||+ DistanceCar()\l+ DistanceCar()\l+ getDistance()\l+ setSpeed()\l+ getSpeed()\l+ enableCruiseControl()\l+ update()\l+ disableCruiseControl()\l+ overrideMotorSpeed()\l}" alt="" coords="5,360,168,555"/><area shape="rect" id="node3" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/><area shape="rect" id="node5" href="class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/><area shape="rect" id="node4" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="87,6,245,127"/></map>
+<area shape="rect" id="node2" href="class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers. " alt="" coords="5,360,168,555"/><area shape="rect" id="node3" href="class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/><area shape="rect" id="node5" href="class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/><area shape="rect" id="node4" href="class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="87,6,245,127"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -164,9 +167,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae08c04a216c68908111e06e7ebb01dac inherit pub_methods_class_heading_car"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#_a4">automatedMovements.ino</a>, and <a class="el" href="_smart_car_8ino-example.html#_a4">SmartCar.ino</a>.</dd>
+<div class="textblock"><p>A class to programmatically represent a vehicle equipped with odometers and a heading sensor. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#_a4">automatedMovements.ino</a>, and <a class="el" href="_smart_car_8ino-example.html#_a4">SmartCar.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_smart_car_8hpp_source.html#l00015">15</a> of file <a class="el" href="_smart_car_8hpp_source.html">SmartCar.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_smart_car_8hpp_source.html#l00016">16</a> of file <a class="el" href="_smart_car_8hpp_source.html">SmartCar.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a73dec391c134568e14c1e99ac1550c2a"></a>
 <div class="memitem">
@@ -209,11 +213,20 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">control</td><td>The car's control </td></tr>
     <tr><td class="paramname">headingSensor</td><td>The heading sensor </td></tr>
-    <tr><td class="paramname">odometer</td><td>The odometer </td></tr>
+    <tr><td class="paramname">odometer</td><td>The odometer</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> leftMotor(8, 10, 9);</div>
+<div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> rightMotor(12, 13, 11);</div>
+<div class="line"><a class="code" href="class_differential_control.html">DifferentialControl</a> control(leftMotor, rightMotor);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_g_y50.html">GY50</a> gyroscope(37);</div>
+<div class="line"><a class="code" href="class_directionless_odometer.html">DirectionlessOdometer</a> odometer(100);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_smart_car.html">SmartCar</a> car(control, gyroscope, odometer);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_smart_car_8cpp_source.html#l00003">3</a> of file <a class="el" href="_smart_car_8cpp_source.html">SmartCar.cpp</a>.</p>
 
 </div>
@@ -266,11 +279,21 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">control</td><td>The car's control </td></tr>
     <tr><td class="paramname">headingSensor</td><td>The heading sensor </td></tr>
     <tr><td class="paramname">odometerLeft</td><td>The left odometer </td></tr>
-    <tr><td class="paramname">odometerRight</td><td>The right odometer </td></tr>
+    <tr><td class="paramname">odometerRight</td><td>The right odometer</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> leftMotor(8, 10, 9);</div>
+<div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> rightMotor(12, 13, 11);</div>
+<div class="line"><a class="code" href="class_differential_control.html">DifferentialControl</a> control(leftMotor, rightMotor);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_g_y50.html">GY50</a> gyroscope(37);</div>
+<div class="line"><a class="code" href="class_directionless_odometer.html">DirectionlessOdometer</a> leftOdometer(100);</div>
+<div class="line"><a class="code" href="class_directionless_odometer.html">DirectionlessOdometer</a> rightOdometer(100);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_smart_car.html">SmartCar</a> car(control, gyroscope, leftOdometer, rightOdometer);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_smart_car_8cpp_source.html#l00013">13</a> of file <a class="el" href="_smart_car_8cpp_source.html">SmartCar.cpp</a>.</p>
 
 </div>
@@ -298,8 +321,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adjusts the speed when cruise control is enabled and calculates the current heading. </p>
-<p>You must have this being executed as often as possible for highest accuracy of heading calculations and cruise control. </p>
-
+<p>You must have this being executed as often as possible for highest accuracy of heading calculations and cruise control.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  <span class="comment">// Update the car readings as often as possible</span></div>
+<div class="line">  car.update();</div>
+<div class="line">  <span class="comment">// Other functionality</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> 
 <p>Reimplemented from <a class="el" href="class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60">DistanceCar</a>.</p>
 
 <p>Definition at line <a class="el" href="_smart_car_8cpp_source.html#l00024">24</a> of file <a class="el" href="_smart_car_8cpp_source.html">SmartCar.cpp</a>.</p>
@@ -309,7 +338,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_smart_car_ae6cd4a31632721f3a808c36da15cd5d3_cgraph.png" border="0" usemap="#class_smart_car_ae6cd4a31632721f3a808c36da15cd5d3_cgraph" alt=""/></div>
 <map name="class_smart_car_ae6cd4a31632721f3a808c36da15cd5d3_cgraph" id="class_smart_car_ae6cd4a31632721f3a808c36da15cd5d3_cgraph">
-<area shape="rect" id="node2" href="class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="179,69,322,96"/><area shape="rect" id="node9" href="class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor. " alt="" coords="181,132,320,159"/><area shape="rect" id="node3" href="class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="371,5,549,32"/><area shape="rect" id="node4" href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second. " alt="" coords="381,56,539,83"/><area shape="rect" id="node6" href="class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="387,107,533,133"/><area shape="rect" id="node5" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="598,56,741,83"/><area shape="rect" id="node7" href="class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="606,107,733,133"/><area shape="rect" id="node8" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="smartcarlib::utils\l::getConstrain" alt="" coords="610,158,729,199"/><area shape="rect" id="node10" href="class_heading_sensor.html#a4f28f71383bb82257a4cdade671d17d6" title="Updates the sensor&#39;s readings. " alt="" coords="381,157,539,184"/></map>
+<area shape="rect" id="node2" href="class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="179,69,322,96"/><area shape="rect" id="node9" href="class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor. " alt="" coords="181,132,320,159"/><area shape="rect" id="node3" href="class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="371,5,549,32"/><area shape="rect" id="node4" href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second. " alt="" coords="381,56,539,83"/><area shape="rect" id="node6" href="class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="387,107,533,133"/><area shape="rect" id="node5" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="598,56,741,83"/><area shape="rect" id="node7" href="class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="606,107,733,133"/><area shape="rect" id="node8" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="610,158,729,199"/><area shape="rect" id="node10" href="class_heading_sensor.html#a4f28f71383bb82257a4cdade671d17d6" title="Updates the sensor&#39;s readings. " alt="" coords="381,157,539,184"/></map>
 </div>
 </p>
 

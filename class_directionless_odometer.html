@@ -92,20 +92,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class to represent the common - directionless - Odometers (speed encoders) that can be used to primarily measure the travelled distance of the car as well as its speed.  
+ <a href="class_directionless_odometer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_directionless_odometer_8hpp_source.html">DirectionlessOdometer.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DirectionlessOdometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_directionless_odometer__inherit__graph.png" border="0" usemap="#_directionless_odometer_inherit__map" alt="Inheritance graph"/></div>
 <map name="_directionless_odometer_inherit__map" id="_directionless_odometer_inherit__map">
-<area shape="rect" id="node3" href="class_directional_odometer.html" title="A class to represent directional Odometers. " alt="" coords="15,419,176,599"/><area shape="rect" id="node2" href="class_odometer.html" title="{Odometer\n||+ getDistance()\l+ getSpeed()\l+ isAttached()\l+ providesDirection()\l}" alt="" coords="25,6,167,127"/></map>
+<area shape="rect" id="node3" href="class_directional_odometer.html" title="A class to represent directional Odometers. " alt="" coords="15,433,176,613"/><area shape="rect" id="node2" href="class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="25,5,167,141"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for DirectionlessOdometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_directionless_odometer__coll__graph.png" border="0" usemap="#_directionless_odometer_coll__map" alt="Collaboration graph"/></div>
 <map name="_directionless_odometer_coll__map" id="_directionless_odometer_coll__map">
-<area shape="rect" id="node2" href="class_odometer.html" title="{Odometer\n||+ getDistance()\l+ getSpeed()\l+ isAttached()\l+ providesDirection()\l}" alt="" coords="25,6,167,127"/></map>
+<area shape="rect" id="node2" href="class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="25,5,167,141"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -115,9 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9a2b404e6e68a858121154af24b7af49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2075b3bcfb5394f767f53b555003d0c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#ab2075b3bcfb5394f767f53b555003d0c">~DirectionlessOdometer</a> ()=default</td></tr>
 <tr class="separator:ab2075b3bcfb5394f767f53b555003d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78e7dc4b038445d9f542d32f941e6e3b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#a78e7dc4b038445d9f542d32f941e6e3b">attach</a> (uint8_t pin, void(*callback)())</td></tr>
-<tr class="memdesc:a78e7dc4b038445d9f542d32f941e6e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_odometer.html">Odometer</a> to receive pulses from the specified pin.  <a href="#a78e7dc4b038445d9f542d32f941e6e3b">More...</a><br/></td></tr>
-<tr class="separator:a78e7dc4b038445d9f542d32f941e6e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a5f943fcd0ce2a67b2ede3e1763fda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda">attach</a> (uint8_t pin, void(*callback)()) override</td></tr>
+<tr class="memdesc:a88a5f943fcd0ce2a67b2ede3e1763fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_odometer.html" title="An interface to programmatically represent all odometers. ">Odometer</a> to receive pulses from the specified pin.  <a href="#a88a5f943fcd0ce2a67b2ede3e1763fda">More...</a><br/></td></tr>
+<tr class="separator:a88a5f943fcd0ce2a67b2ede3e1763fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad98b03236639fb182b03cfe860be8829"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#ad98b03236639fb182b03cfe860be8829">getDistance</a> () override</td></tr>
 <tr class="memdesc:ad98b03236639fb182b03cfe860be8829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the travelled distance in centimeters where sign can indicate direction if there is hardware support.  <a href="#ad98b03236639fb182b03cfe860be8829">More...</a><br/></td></tr>
 <tr class="separator:ad98b03236639fb182b03cfe860be8829"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,9 +146,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aa5f0abab9d7877c26c9a2e6142aa5b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#_a3">automatedMovements.ino</a>, <a class="el" href="_distance_car_8ino-example.html#_a3">DistanceCar.ino</a>, <a class="el" href="find_pulses_per_meter_8ino-example.html#_a0">findPulsesPerMeter.ino</a>, <a class="el" href="manual_with_cruise_control_8ino-example.html#_a2">manualWithCruiseControl.ino</a>, <a class="el" href="_pid_controller_monitor_8ino-example.html#_a2">PidControllerMonitor.ino</a>, <a class="el" href="single_odometer_8ino-example.html#_a0">singleOdometer.ino</a>, <a class="el" href="_smart_car_8ino-example.html#_a3">SmartCar.ino</a>, and <a class="el" href="two_odometers_8ino-example.html#_a0">twoOdometers.ino</a>.</dd>
+<div class="textblock"><p>A class to represent the common - directionless - Odometers (speed encoders) that can be used to primarily measure the travelled distance of the car as well as its speed. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="automated_movements_8ino-example.html#_a3">automatedMovements.ino</a>, <a class="el" href="_distance_car_8ino-example.html#_a3">DistanceCar.ino</a>, <a class="el" href="find_pulses_per_meter_8ino-example.html#_a0">findPulsesPerMeter.ino</a>, <a class="el" href="manual_with_cruise_control_8ino-example.html#_a2">manualWithCruiseControl.ino</a>, <a class="el" href="_pid_controller_monitor_8ino-example.html#_a2">PidControllerMonitor.ino</a>, <a class="el" href="single_odometer_8ino-example.html#_a0">singleOdometer.ino</a>, <a class="el" href="_smart_car_8ino-example.html#_a3">SmartCar.ino</a>, and <a class="el" href="two_odometers_8ino-example.html#_a0">twoOdometers.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_directionless_odometer_8hpp_source.html#l00018">18</a> of file <a class="el" href="_directionless_odometer_8hpp_source.html">DirectionlessOdometer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_directionless_odometer_8hpp_source.html#l00019">19</a> of file <a class="el" href="_directionless_odometer_8hpp_source.html">DirectionlessOdometer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9a2b404e6e68a858121154af24b7af49"></a>
 <div class="memitem">
@@ -174,11 +178,15 @@ Protected Attributes</h2></td></tr>
 <p>Constructs an odometer that can measure distance, speed but not direction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pulsesPerMeter</td><td>The amount of odometer pulses that constitute a meter </td></tr>
+    <tr><td class="paramname">pulsesPerMeter</td><td>The amount of odometer pulses that constitute a meter</td></tr>
   </table>
   </dd>
 </dl>
-
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> PULSES_PER_METER = 110;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="class_directionless_odometer.html">DirectionlessOdometer</a> odometer(PULSES_PER_METER);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_directionless_odometer_8cpp_source.html#l00017">17</a> of file <a class="el" href="_directionless_odometer_8cpp_source.html">DirectionlessOdometer.cpp</a>.</p>
 
 </div>
@@ -207,7 +215,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a78e7dc4b038445d9f542d32f941e6e3b"></a>
+<a class="anchor" id="a88a5f943fcd0ce2a67b2ede3e1763fda"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -234,30 +242,41 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the <a class="el" href="class_odometer.html">Odometer</a> to receive pulses from the specified pin. </p>
+<p>Initializes the <a class="el" href="class_odometer.html" title="An interface to programmatically represent all odometers. ">Odometer</a> to receive pulses from the specified pin. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin</td><td>The pin to receive pulses from which must support external hardware interrupts </td></tr>
+    <tr><td class="paramname">pin</td><td>The pin to receive pulses from, which <b>must</b> support external hardware interrupts </td></tr>
     <tr><td class="paramname">callback</td><td>The function to be run on each incoming pulse. Please use the following as an argument: <code>[](){yourOdometerInstance.update();}</code> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>false</code> if an error occurred, i.e. invalid pin </dd></dl>
-
-<p>Reimplemented in <a class="el" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504">DirectionalOdometer</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>false</code> if an error occurred, i.e. invalid pin</dd></dl>
+<p>You <b>must</b> run this function before making any calls to your <a class="el" href="class_odometer.html" title="An interface to programmatically represent all odometers. ">Odometer</a> or you will not get any usable distance or speed from it.</p>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> LEFT_ODOMETER_PIN = 2;</div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> PULSES_PER_METER = 80;</div>
+<div class="line"><a class="code" href="class_directionless_odometer.html">DirectionlessOdometer</a> leftOdometer(PULSES_PER_METER);</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  leftOdometer.attach(LEFT_ODOMETER_PIN, []() {</div>
+<div class="line">    leftOdometer.update();</div>
+<div class="line">  });</div>
+<div class="line">}</div>
+</div><!-- fragment --> 
+<p>Implements <a class="el" href="class_odometer.html#a3439b8d475a4afc5d185541152ad55d4">Odometer</a>.</p>
 
 <p>Definition at line <a class="el" href="_directionless_odometer_8cpp_source.html#l00034">34</a> of file <a class="el" href="_directionless_odometer_8cpp_source.html">DirectionlessOdometer.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_cgraph.png" border="0" usemap="#class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_cgraph" alt=""/></div>
-<map name="class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_cgraph" id="class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_cgraph">
+<div class="center"><img src="class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_cgraph.png" border="0" usemap="#class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_cgraph" alt=""/></div>
+<map name="class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_cgraph" id="class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_cgraph">
 <area shape="rect" id="node2" href="class_runtime.html#a517ad270d4dd374f7e94fddf687484f1" title="Gets the interrupt number of the specified pin, equivalent of digitalPinToInterrupt in Arduino..." alt="" coords="213,5,371,32"/><area shape="rect" id="node3" href="class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino. " alt="" coords="208,56,376,83"/><area shape="rect" id="node4" href="class_runtime.html#aab5b1a3c2710f1388175fe31a23b6c30" title="Enables an external hardware interrupt and provides a callback, equivalent to attachInterrupt in Ardu..." alt="" coords="219,107,365,133"/></map>
 </div>
 </p>
@@ -265,8 +284,8 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_icgraph.png" border="0" usemap="#class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_icgraph" alt=""/></div>
-<map name="class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_icgraph" id="class_directionless_odometer_a78e7dc4b038445d9f542d32f941e6e3b_icgraph">
+<div class="center"><img src="class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_icgraph.png" border="0" usemap="#class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_icgraph" alt=""/></div>
+<map name="class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_icgraph" id="class_directionless_odometer_a88a5f943fcd0ce2a67b2ede3e1763fda_icgraph">
 <area shape="rect" id="node2" href="class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="208,5,349,46"/></map>
 </div>
 </p>
@@ -295,8 +314,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Returns the travelled distance in centimeters where sign can indicate direction if there is hardware support. </p>
-<dl class="section return"><dt>Returns</dt><dd>The travelled distance in centimeters </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The travelled distance in centimeters</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> travelledDistance = odometer.getDistance();</div>
+</div><!-- fragment --> 
 <p>Implements <a class="el" href="class_odometer.html#a4b0f780d4b4695c9e3dd37dbcf3406be">Odometer</a>.</p>
 
 <p>Definition at line <a class="el" href="_directionless_odometer_8cpp_source.html#l00050">50</a> of file <a class="el" href="_directionless_odometer_8cpp_source.html">DirectionlessOdometer.cpp</a>.</p>
@@ -343,8 +364,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Returns the current speed in meters/sec where sign can indicate direction if there is hardware support. </p>
-<dl class="section return"><dt>Returns</dt><dd>The speed in meters/sec </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>The speed in meters/sec</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> speed = odometer.getSpeed();</div>
+</div><!-- fragment --> 
 <p>Implements <a class="el" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9">Odometer</a>.</p>
 
 <p>Definition at line <a class="el" href="_directionless_odometer_8cpp_source.html#l00059">59</a> of file <a class="el" href="_directionless_odometer_8cpp_source.html">DirectionlessOdometer.cpp</a>.</p>
@@ -391,7 +414,8 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Returns whether the sensor has been properly attached. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the sensor has been attached successfully false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if <a class="el" href="class_odometer.html#a3439b8d475a4afc5d185541152ad55d4" title="Initializes the Odometer to receive pulses from the specified pin. ">Odometer::attach</a> has been successfully run, false otherwise <b>Example:</b> <div class="fragment"><div class="line"><span class="keywordtype">bool</span> hasAttachBeenRun = odometer.isAttached();</div>
+</div><!-- fragment --> </dd></dl>
 
 <p>Implements <a class="el" href="class_odometer.html#a59a5a088fa7c2ae2ea92d88a998cf982">Odometer</a>.</p>
 
@@ -430,8 +454,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Return whether the sensor is capable of inferring the direction of movement. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the sensor supports direction readings otherwise <code>false</code> </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the sensor supports direction readings otherwise <code>false</code></dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> directional = odometer.providesDirection();</div>
+</div><!-- fragment --> 
 <p>Implements <a class="el" href="class_odometer.html#a24b8ff5ecb6584d2ce89a3537cf01deb">Odometer</a>.</p>
 
 <p>Definition at line <a class="el" href="_directionless_odometer_8cpp_source.html#l00107">107</a> of file <a class="el" href="_directionless_odometer_8cpp_source.html">DirectionlessOdometer.cpp</a>.</p>
@@ -498,7 +524,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Conducts the distance and speed measurements. </p>
-<p>Updates the current dt with the time difference between the last two pulses and increases the pulse counter. <b>Do not</b> call it directly in your sketch! Instead, pass it inside a lambda as an argument to <code>attach</code>. Example: ``` const int ODOMETER_PIN = 2; <a class="el" href="class_odometer.html">Odometer</a> odometer; odometer.attach(ODOMETER_PIN, [](){odometer.update();}); ``` </p>
+<p>Updates the current dt with the time difference between the last two pulses and increases the pulse counter. <b>Do not</b> call it directly in your sketch! Instead, pass it inside a lambda as an argument to <code>attach</code>. Example: ``` const int ODOMETER_PIN = 2; <a class="el" href="class_odometer.html" title="An interface to programmatically represent all odometers. ">Odometer</a> odometer; odometer.attach(ODOMETER_PIN, [](){odometer.update();}); ``` </p>
 
 <p>Reimplemented in <a class="el" href="class_directional_odometer.html#a04c435d7adc63f16c7139a66281eca0a">DirectionalOdometer</a>.</p>
 
@@ -543,7 +569,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_directionless_odometer_8hpp_source.html#l00076">76</a> of file <a class="el" href="_directionless_odometer_8hpp_source.html">DirectionlessOdometer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_directionless_odometer_8hpp_source.html#l00077">77</a> of file <a class="el" href="_directionless_odometer_8hpp_source.html">DirectionlessOdometer.hpp</a>.</p>
 
 </div>
 </div>

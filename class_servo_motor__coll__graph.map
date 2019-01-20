@@ -1,3 +1,3 @@
 <map id="ServoMotor" name="ServoMotor">
-<area shape="rect" id="node3" href="$class_motor.html" title="{Motor\n||+ ~Motor()\l+ setSpeed()\l}" alt="" coords="86,6,183,98"/>
+<area shape="rect" id="node3" href="$class_motor.html" title="Interface programmatically representing any kind of motor. " alt="" coords="86,6,183,98"/>
 </map>
