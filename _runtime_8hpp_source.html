@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -153,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_runtime_html_a97113d850ac979ea2f04858fd266b648"><div class="ttname"><a href="class_runtime.html#a97113d850ac979ea2f04858fd266b648">Runtime::~Runtime</a></div><div class="ttdeci">virtual ~Runtime()=default</div></div>
 <div class="ttc" id="class_runtime_html_a517ad270d4dd374f7e94fddf687484f1"><div class="ttname"><a href="class_runtime.html#a517ad270d4dd374f7e94fddf687484f1">Runtime::pinToInterrupt</a></div><div class="ttdeci">virtual int8_t pinToInterrupt(uint8_t pin)=0</div><div class="ttdoc">Gets the interrupt number of the specified pin, equivalent of digitalPinToInterrupt in Arduino...</div></div>
 <div class="ttc" id="class_runtime_html_a8eb4d4f76de1496ffa3f0bb579ede608"><div class="ttname"><a href="class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608">Runtime::getPulseDuration</a></div><div class="ttdeci">virtual unsigned long getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout)=0</div><div class="ttdoc">Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI...</div></div>
-<div class="ttc" id="class_runtime_html"><div class="ttname"><a href="class_runtime.html">Runtime</a></div><div class="ttdoc">An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduin...</div><div class="ttdef"><b>Definition:</b> Runtime.hpp:13</div></div>
+<div class="ttc" id="class_runtime_html"><div class="ttname"><a href="class_runtime.html">Runtime</a></div><div class="ttdoc">An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduin...</div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8hpp_source.html#l00013">Runtime.hpp:13</a></div></div>
 <div class="ttc" id="class_runtime_html_a8fbc45763b87f3469a6d76c12c1834bb"><div class="ttname"><a href="class_runtime.html#a8fbc45763b87f3469a6d76c12c1834bb">Runtime::i2cRead</a></div><div class="ttdeci">virtual int i2cRead()=0</div><div class="ttdoc">Reads a byte from I2C bus, equivalent of Wire.read in Arduino. </div></div>
 <div class="ttc" id="class_runtime_html_a501d0c2b41eca7cd6933716bbe1726db"><div class="ttname"><a href="class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db">Runtime::delayMicros</a></div><div class="ttdeci">virtual void delayMicros(unsigned int microseconds)=0</div><div class="ttdoc">Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu...</div></div>
 <div class="ttc" id="class_runtime_html_a31e12aaac34dff9c34cc2413f7092fbd"><div class="ttname"><a href="class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd">Runtime::getAnalogPinState</a></div><div class="ttdeci">virtual int getAnalogPinState(uint8_t pin)=0</div><div class="ttdoc">Get pin&#39;s analog (ADC) reading, equivalent of analogRead in Arduino. </div></div>
