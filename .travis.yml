@@ -41,8 +41,10 @@ script:
     - bash test/build_and_run_ut.sh
     # Run static code analysis over the source code
     - cppcheck --std=c++11 --enable=performance,portability,information --quiet --error-exitcode=1 src/
-    # Build all examples using Arduino UNO as the board
+    # Ensure examples are buildable for various boards
     - build_platform uno
+    - build_platform mega2560
+    - build_platform leonardo
 
 after_success:
     - bash run_coverage.sh
