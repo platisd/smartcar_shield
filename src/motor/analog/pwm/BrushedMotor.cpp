@@ -20,7 +20,7 @@ BrushedMotor::BrushedMotor(uint8_t forwardPin,
     : kForwardPin{ forwardPin }
     , kBackwardPin{ backwardPin }
     , kEnablePin{ enablePin }
-    , mRuntime{ runtime }
+    , mRuntime(runtime)
     , mAttached{ false }
 {
 }

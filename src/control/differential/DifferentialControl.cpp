@@ -7,8 +7,8 @@ using namespace smartcarlib::constants::control;
 using namespace smartcarlib::constants::motor;
 
 DifferentialControl::DifferentialControl(Motor& leftMotor, Motor& rightMotor)
-    : mLeftMotor{ leftMotor }
-    , mRightMotor{ rightMotor }
+    : mLeftMotor(leftMotor)
+    , mRightMotor(rightMotor)
     , mAngle{ 0 }
     , mSpeed{ 0 }
 {

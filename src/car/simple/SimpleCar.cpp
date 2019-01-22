@@ -5,7 +5,7 @@ using namespace smartcarlib::constants::control;
 using namespace smartcarlib::utils;
 
 SimpleCar::SimpleCar(Control& control)
-    : mControl{ control }
+    : mControl(control)
 {
 }
 

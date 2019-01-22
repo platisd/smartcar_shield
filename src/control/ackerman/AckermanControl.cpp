@@ -7,8 +7,8 @@ using namespace smartcarlib::constants::control;
 using namespace smartcarlib::constants::motor;
 
 AckermanControl::AckermanControl(Motor& steering, Motor& throttling)
-    : mSteering{ steering }
-    , mThrottling{ throttling }
+    : mSteering(steering)
+    , mThrottling(throttling)
 {
 }
 

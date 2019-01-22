@@ -9,7 +9,7 @@ const unsigned long kMedianMeasurementDelay = 15;
 using namespace smartcarlib::utils;
 
 InfraredAnalogSensor::InfraredAnalogSensor(Runtime& runtime)
-    : mRuntime{ runtime }
+    : mRuntime(runtime)
 {
 }
 
@@ -20,7 +20,7 @@ unsigned int InfraredAnalogSensor::getMedianDistance(uint8_t iterations)
         return -1; // Return a large number to indicate error
     }
 
-    unsigned int measurements[iterations] = { 0 };
+    unsigned int measurements[iterations];
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();

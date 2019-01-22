@@ -16,10 +16,10 @@ using namespace smartcarlib::utils;
 
 DistanceCar::DistanceCar(Control& control, Odometer& odometer, Runtime& runtime)
     : SimpleCar(control)
-    , mControl{ control }
-    , mOdometerLeft{ odometer }
-    , mOdometerRight{ odometer }
-    , mRuntime{ runtime }
+    , mControl(control)
+    , mOdometerLeft(odometer)
+    , mOdometerRight(odometer)
+    , mRuntime(runtime)
     , mCruiseControlEnabled{ false }
     , mProportional{ 0 }
     , mIntegral{ 0 }
@@ -38,10 +38,10 @@ DistanceCar::DistanceCar(Control& control,
                          Odometer& odometerRight,
                          Runtime& runtime)
     : SimpleCar(control)
-    , mControl{ control }
-    , mOdometerLeft{ odometerLeft }
-    , mOdometerRight{ odometerRight }
-    , mRuntime{ runtime }
+    , mControl(control)
+    , mOdometerLeft(odometerLeft)
+    , mOdometerRight(odometerRight)
+    , mRuntime(runtime)
     , mCruiseControlEnabled{ false }
     , mProportional{ 0 }
     , mIntegral{ 0 }

@@ -16,7 +16,7 @@ using namespace smartcarlib::utils;
 
 SRF08::SRF08(uint8_t address, Runtime& runtime)
     : mAddress{ address }
-    , mRuntime{ runtime }
+    , mRuntime(runtime)
     , mPingDelay{ kDefaultPingDelay }
     , mAttached{ false }
 {
@@ -65,7 +65,7 @@ unsigned int SRF08::getMedianDistance(uint8_t iterations)
         return -1; // Return a large number to indicate error
     }
 
-    unsigned int measurements[iterations] = { 0 };
+    unsigned int measurements[iterations];
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();

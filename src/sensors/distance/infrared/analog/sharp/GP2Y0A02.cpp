@@ -9,7 +9,7 @@ const auto kMaxDistance = 120; // GP2Y0A02's maximum distance
 GP2Y0A02::GP2Y0A02(uint8_t pin, Runtime& runtime)
     : InfraredAnalogSensor(runtime)
     , kPin{ pin }
-    , mRuntime{ runtime }
+    , mRuntime(runtime)
 {
 }
 

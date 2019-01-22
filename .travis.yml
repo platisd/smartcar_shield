@@ -45,6 +45,7 @@ script:
     - build_platform uno
     - build_platform mega2560
     - build_platform leonardo
+    - build_platform esp8266
 
 after_success:
     - bash run_coverage.sh

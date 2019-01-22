@@ -22,7 +22,7 @@ DirectionlessOdometer::DirectionlessOdometer(unsigned long pulsesPerMeter, Runti
                                       lroundf(kMillimetersInMeter / pulsesPerMeter))
                                 : static_cast<unsigned long>(
                                       lroundf(kMillimetersInMeter / kDefaultPulsesPerMeter)) }
-    , mRuntime{ runtime }
+    , mRuntime(runtime)
     , mPin{ 0 }
     , mSensorAttached{ false }
     , mPulsesCounter{ 0 }

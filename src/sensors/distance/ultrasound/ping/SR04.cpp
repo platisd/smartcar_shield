@@ -21,7 +21,7 @@ SR04::SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtim
     , kEchoPin{ echoPin }
     , kMaxDistance{ maxDistance > 0 ? maxDistance : kDefaultMaxDistance }
     , kTimeout{ kMaxDistance * kTimeToMeasureOneCm }
-    , mRuntime{ runtime }
+    , mRuntime(runtime)
     , mAttached{ false }
 {
 }
@@ -61,7 +61,7 @@ unsigned int SR04::getMedianDistance(uint8_t iterations)
         return kError;
     }
 
-    unsigned int measurements[iterations] = { 0 };
+    unsigned int measurements[iterations];
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();

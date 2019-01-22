@@ -14,7 +14,7 @@ DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
     : DirectionlessOdometer(pulsesPerMeter, runtime)
     , mDirectionPin{ directionPin }
     , mPinStateWhenForward{ pinStateWhenForward }
-    , mRuntime{ runtime }
+    , mRuntime(runtime)
     , mNegativePulsesCounter{ 0 }
 {
 }

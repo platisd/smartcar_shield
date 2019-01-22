@@ -2,7 +2,7 @@
 
 HeadingCar::HeadingCar(Control& control, HeadingSensor& headingSensor)
     : SimpleCar(control)
-    , mHeadingSensor{ headingSensor }
+    , mHeadingSensor(headingSensor)
 {
 }
 
