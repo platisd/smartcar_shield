@@ -112,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    , kEchoPin{ echoPin }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    , kMaxDistance{ maxDistance &gt; 0 ? maxDistance : <a class="code" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a5d703dbd53979b3128f9990feda35db1">kDefaultMaxDistance</a> }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    , kTimeout{ kMaxDistance * kTimeToMeasureOneCm }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    , mRuntime{ runtime }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    , mRuntime(runtime)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    , mAttached{ <span class="keyword">false</span> }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
@@ -152,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a503ceb8377b591c24c801690ce5f53b8">kError</a>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> measurements[iterations] = { 0 };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> measurements[iterations];</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iterations; i++)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        measurements[i] = <a class="code" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3">getDistance</a>();</div>
