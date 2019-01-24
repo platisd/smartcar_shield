@@ -95,6 +95,7 @@ making updates particularly easy, without the need to use GitHub or git.
  * Assemble the vehicle
  * [Install the library](../../wiki/Start-up-guide#get-libraries)
  * [Connect the motors appropriately](examples/Car/shieldMotorsTest/shieldMotorsTest.ino) (if using the default setup)
+ * [Getting started with the Smartcar Platform](https://www.hackster.io/platisd/getting-started-with-the-smartcar-platform-1648ad)
 
 ### Dependencies
 - [Wire library](http://arduino.cc/en/reference/Wire) (included with the Arduino IDE)
