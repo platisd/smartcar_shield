@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,9 +112,8 @@ Collaboration diagram for SR04:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#aaf27e33f88449f6ba8bcbff3e74580f4">SR04</a> (uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance=<a class="el" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a5d703dbd53979b3128f9990feda35db1">smartcarlib::constants::sr04::kDefaultMaxDistance</a>, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins...">SR04</a> ultrasonic sensor.  <a href="#aaf27e33f88449f6ba8bcbff3e74580f4">More...</a><br/></td></tr>
-<tr class="separator:aaf27e33f88449f6ba8bcbff3e74580f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89b75302f5ba30d2bd8216889afe88bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#a89b75302f5ba30d2bd8216889afe88bc">SR04</a> (uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
+<tr class="separator:a89b75302f5ba30d2bd8216889afe88bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6b0ddf6f127972fbd34886bfad34e3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3">getDistance</a> () override</td></tr>
 <tr class="separator:add6b0ddf6f127972fbd34886bfad34e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8333d6dae4c42ade4cf261b71c2a30f4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a000be1cc241ec25fc474a766c67b2d57">smartcarlib::constants::sr04::kDefaultIterations</a>) override</td></tr>
@@ -127,7 +126,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="_s_r04_8hpp_source.html#l00034">34</a> of file <a class="el" href="_s_r04_8hpp_source.html">SR04.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aaf27e33f88449f6ba8bcbff3e74580f4"></a>
+<a class="anchor" id="a89b75302f5ba30d2bd8216889afe88bc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -147,13 +146,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>maxDistance</em> = <code><a class="el" href="namespacesmartcarlib_1_1constants_1_1sr04.html#a5d703dbd53979b3128f9990feda35db1">smartcarlib::constants::sr04::kDefaultMaxDistance</a></code>, </td>
+          <td class="paramname"><em>maxDistance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em> = <code><a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></code>&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -163,21 +162,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <a class="el" href="class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins...">SR04</a> ultrasonic sensor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">triggerPin</td><td>The pin to produce the trigger signal </td></tr>
-    <tr><td class="paramname">echoPin</td><td>The pin to receive the echo signal </td></tr>
-    <tr><td class="paramname">maxDistance</td><td>The maximum measurement distance in centimeters</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><b>Example:</b> </p>
-<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> TRIGGER_PIN = 6;</div>
-<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> ECHO_PIN = 7;</div>
-<div class="line"></div>
-<div class="line"><a class="code" href="class_s_r04.html">SR04</a> sr04(TRIGGER_PIN, ECHO_PIN);</div>
-</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r04_8cpp_source.html#l00019">19</a> of file <a class="el" href="_s_r04_8cpp_source.html">SR04.cpp</a>.</p>
 
 </div>

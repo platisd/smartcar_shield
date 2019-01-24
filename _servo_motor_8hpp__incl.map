@@ -1,5 +1,4 @@
 <map id="src/motor/digital/servo/ServoMotor.hpp" name="src/motor/digital/servo/ServoMotor.hpp">
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="64,187,243,213"/>
-<area shape="rect" id="node6" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="191,104,295,131"/>
-<area shape="rect" id="node7" href="$_arduino_runtime_8hpp.html" title="../../../runtime/arduino\l_runtime/ArduinoRuntime.hpp" alt="" coords="319,97,513,138"/>
+<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="113,96,291,123"/>
+<area shape="rect" id="node6" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="315,96,419,123"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="src/sensors/distance/ultrasound/ping/SR04.hpp" name="src/sensors/distance/ultrasound/ping/SR04.hpp">
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="212,187,325,229"/>
-<area shape="rect" id="node5" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="24,195,187,221"/>
-<area shape="rect" id="node6" href="$_arduino_runtime_8hpp.html" title="../../../../runtime\l/arduino_runtime/ArduinoRuntime.hpp" alt="" coords="171,97,411,138"/>
+<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="213,97,325,138"/>
+<area shape="rect" id="node5" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="25,104,188,131"/>
 </map>

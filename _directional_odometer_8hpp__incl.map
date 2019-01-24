@@ -1,6 +1,5 @@
 <map id="src/sensors/odometer/interrupt/DirectionalOdometer.hpp" name="src/sensors/odometer/interrupt/DirectionalOdometer.hpp">
 <area shape="rect" id="node2" href="$_directionless_odometer_8hpp.html" title="DirectionlessOdometer.hpp" alt="" coords="26,96,205,123"/>
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="180,261,359,288"/>
-<area shape="rect" id="node6" href="$_odometer_8hpp.html" title="../Odometer.hpp" alt="" coords="39,261,155,288"/>
-<area shape="rect" id="node7" href="$_arduino_runtime_8hpp.html" title="../../../runtime/arduino\l_runtime/ArduinoRuntime.hpp" alt="" coords="179,171,373,213"/>
+<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="199,171,377,197"/>
+<area shape="rect" id="node6" href="$_odometer_8hpp.html" title="../Odometer.hpp" alt="" coords="58,171,173,197"/>
 </map>

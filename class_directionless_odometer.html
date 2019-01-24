@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,9 +113,8 @@ Collaboration diagram for DirectionlessOdometer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9a2b404e6e68a858121154af24b7af49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#a9a2b404e6e68a858121154af24b7af49">DirectionlessOdometer</a> (unsigned long pulsesPerMeter, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:a9a2b404e6e68a858121154af24b7af49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an odometer that can measure distance, speed but not direction.  <a href="#a9a2b404e6e68a858121154af24b7af49">More...</a><br/></td></tr>
-<tr class="separator:a9a2b404e6e68a858121154af24b7af49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d5052731b20c389189605d585b2583"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#a75d5052731b20c389189605d585b2583">DirectionlessOdometer</a> (unsigned long pulsesPerMeter, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
+<tr class="separator:a75d5052731b20c389189605d585b2583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2075b3bcfb5394f767f53b555003d0c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#ab2075b3bcfb5394f767f53b555003d0c">~DirectionlessOdometer</a> ()=default</td></tr>
 <tr class="separator:ab2075b3bcfb5394f767f53b555003d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a5f943fcd0ce2a67b2ede3e1763fda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda">attach</a> (uint8_t pin, void(*callback)()) override</td></tr>
@@ -151,7 +150,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="_directionless_odometer_8hpp_source.html#l00019">19</a> of file <a class="el" href="_directionless_odometer_8hpp_source.html">DirectionlessOdometer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9a2b404e6e68a858121154af24b7af49"></a>
+<a class="anchor" id="a75d5052731b20c389189605d585b2583"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -165,7 +164,7 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em> = <code><a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></code>&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,18 +174,6 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an odometer that can measure distance, speed but not direction. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pulsesPerMeter</td><td>The amount of odometer pulses that constitute a meter</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><b>Example:</b> </p>
-<div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> PULSES_PER_METER = 110;</div>
-<div class="line"></div>
-<div class="line"><a class="code" href="class_directionless_odometer.html">DirectionlessOdometer</a> odometer(PULSES_PER_METER);</div>
-</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_directionless_odometer_8cpp_source.html#l00017">17</a> of file <a class="el" href="_directionless_odometer_8cpp_source.html">DirectionlessOdometer.cpp</a>.</p>
 
 </div>

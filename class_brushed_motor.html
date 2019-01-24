@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,9 +112,8 @@ Collaboration diagram for BrushedMotor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9c62111b8788ce48a86a98796d821686"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#a9c62111b8788ce48a86a98796d821686">BrushedMotor</a> (uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:a9c62111b8788ce48a86a98796d821686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a brushed DC motor instance.  <a href="#a9c62111b8788ce48a86a98796d821686">More...</a><br/></td></tr>
-<tr class="separator:a9c62111b8788ce48a86a98796d821686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a4eae354ff56356d3687e0dd5005e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#a17a4eae354ff56356d3687e0dd5005e1">BrushedMotor</a> (uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
+<tr class="separator:a17a4eae354ff56356d3687e0dd5005e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2441f3e01dc7cb593c11d2cc59d1a120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120">setSpeed</a> (int speed) override</td></tr>
 <tr class="memdesc:a2441f3e01dc7cb593c11d2cc59d1a120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction.  <a href="#a2441f3e01dc7cb593c11d2cc59d1a120">More...</a><br/></td></tr>
 <tr class="separator:a2441f3e01dc7cb593c11d2cc59d1a120"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,7 +128,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="_brushed_motor_8hpp_source.html#l00022">22</a> of file <a class="el" href="_brushed_motor_8hpp_source.html">BrushedMotor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9c62111b8788ce48a86a98796d821686"></a>
+<a class="anchor" id="a17a4eae354ff56356d3687e0dd5005e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -155,7 +154,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em> = <code><a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></code>&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -165,18 +164,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a brushed DC motor instance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">forwardPin</td><td>The direction pin that when set to HIGH makes the motor spin forward </td></tr>
-    <tr><td class="paramname">backwardPin</td><td>The direction pin that when set to HIGH makes the motor spin forward </td></tr>
-    <tr><td class="paramname">enablePin</td><td>The pin that controls the motor's speed</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><b>Example:</b> </p>
-<div class="fragment"><div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> leftMotor(8, 10, 9);</div>
-</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_brushed_motor_8cpp_source.html#l00016">16</a> of file <a class="el" href="_brushed_motor_8cpp_source.html">BrushedMotor.cpp</a>.</p>
 
 </div>

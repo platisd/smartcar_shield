@@ -1,5 +1,4 @@
 <map id="src/sensors/heading/gyroscope/GY50.hpp" name="src/sensors/heading/gyroscope/GY50.hpp">
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="57,187,236,213"/>
-<area shape="rect" id="node5" href="$_heading_sensor_8hpp.html" title="../HeadingSensor.hpp" alt="" coords="109,104,256,131"/>
-<area shape="rect" id="node6" href="$_arduino_runtime_8hpp.html" title="../../../runtime/arduino\l_runtime/ArduinoRuntime.hpp" alt="" coords="281,97,476,138"/>
+<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="57,96,236,123"/>
+<area shape="rect" id="node5" href="$_heading_sensor_8hpp.html" title="../HeadingSensor.hpp" alt="" coords="261,96,408,123"/>
 </map>

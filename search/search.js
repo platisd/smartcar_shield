@@ -12,7 +12,8 @@ var indexSectionsWithContent =
   2: "s",
   3: "abcdghimorsu",
   4: "abcdeghioprsu~",
-  5: "akm"
+  5: "akm",
+  6: "s"
 };
 
 var indexSectionNames =
@@ -22,7 +23,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "variables"
+  5: "variables",
+  6: "defines"
 };
 
 function convertToId(search)

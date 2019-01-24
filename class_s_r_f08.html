@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,9 +112,8 @@ Collaboration diagram for SRF08:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae9bb0b70206459831fd8ec0b931884b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#ae9bb0b70206459831fd8ec0b931884b7">SRF08</a> (uint8_t address, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:ae9bb0b70206459831fd8ec0b931884b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor that communicates over I2C.  <a href="#ae9bb0b70206459831fd8ec0b931884b7">More...</a><br/></td></tr>
-<tr class="separator:ae9bb0b70206459831fd8ec0b931884b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d0c5528d5b53bdb15f3615a2eacafc7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#a7d0c5528d5b53bdb15f3615a2eacafc7">SRF08</a> (uint8_t address, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
+<tr class="separator:a7d0c5528d5b53bdb15f3615a2eacafc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff420958b791fe5261f33eeab89f7f7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7">getDistance</a> () override</td></tr>
 <tr class="separator:aaff420958b791fe5261f33eeab89f7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1srf08.html#a83c9554c76cb9324ad9860642ac2f153">smartcarlib::constants::srf08::kDefaultIterations</a>) override</td></tr>
@@ -142,7 +141,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="_s_r_f08_8hpp_source.html#l00031">31</a> of file <a class="el" href="_s_r_f08_8hpp_source.html">SRF08.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae9bb0b70206459831fd8ec0b931884b7"></a>
+<a class="anchor" id="a7d0c5528d5b53bdb15f3615a2eacafc7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -156,7 +155,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em> = <code><a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></code>&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,16 +165,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <a class="el" href="class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus...">SRF08</a> sensor that communicates over I2C. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">address</td><td>I2C address which should be within the range of [112, 127]</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><b>Example:</b> </p>
-<div class="fragment"><div class="line"><a class="code" href="class_s_r_f08.html">SRF08</a> srf08(112);</div>
-</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00017">17</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 
 </div>

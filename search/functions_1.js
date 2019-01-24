@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['brushedmotor',['BrushedMotor',['../class_brushed_motor.html#a9c62111b8788ce48a86a98796d821686',1,'BrushedMotor']]]
+  ['brushedmotor',['BrushedMotor',['../class_brushed_motor.html#a17a4eae354ff56356d3687e0dd5005e1',1,'BrushedMotor']]]
 ];

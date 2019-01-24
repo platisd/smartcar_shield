@@ -1,7 +1,6 @@
 <map id="src/motor/analog/pwm/BrushedMotor.cpp" name="src/motor/analog/pwm/BrushedMotor.cpp">
-<area shape="rect" id="node2" href="$_brushed_motor_8hpp.html" title="BrushedMotor.hpp" alt="" coords="51,104,179,131"/>
-<area shape="rect" id="node8" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="203,97,301,138"/>
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="57,277,236,304"/>
-<area shape="rect" id="node6" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="108,195,212,221"/>
-<area shape="rect" id="node7" href="$_arduino_runtime_8hpp.html" title="../../../runtime/arduino\l_runtime/ArduinoRuntime.hpp" alt="" coords="236,187,431,229"/>
+<area shape="rect" id="node2" href="$_brushed_motor_8hpp.html" title="BrushedMotor.hpp" alt="" coords="83,104,211,131"/>
+<area shape="rect" id="node7" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="235,97,333,138"/>
+<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="57,187,236,213"/>
+<area shape="rect" id="node6" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="260,187,364,213"/>
 </map>

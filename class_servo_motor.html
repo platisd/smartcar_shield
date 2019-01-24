@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,9 +112,8 @@ Collaboration diagram for ServoMotor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4d273b1525b5a5afcc4ff00ba571b296"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_servo_motor.html#a4d273b1525b5a5afcc4ff00ba571b296">ServoMotor</a> (uint8_t controlPin, int minPulseLength=<a class="el" href="namespacesmartcarlib_1_1constants_1_1servomotor.html#a1896bd3cec76931012820d6ead5a2eae">smartcarlib::constants::servomotor::kDefaultMinPulseLength</a>, int idlePulseLength=<a class="el" href="namespacesmartcarlib_1_1constants_1_1servomotor.html#a42473f52f81ee1871f6f36fdbf2f7eed">smartcarlib::constants::servomotor::kDefaultIdlePulseLength</a>, int maxPulseLength=<a class="el" href="namespacesmartcarlib_1_1constants_1_1servomotor.html#aa1688cd1aa6933dd491b5d0e07576018">smartcarlib::constants::servomotor::kDefaultMaxPulseLength</a>, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:a4d273b1525b5a5afcc4ff00ba571b296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a servo motor.  <a href="#a4d273b1525b5a5afcc4ff00ba571b296">More...</a><br/></td></tr>
-<tr class="separator:a4d273b1525b5a5afcc4ff00ba571b296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a90e2c0f1c54f654bfbd6c87d014d9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_servo_motor.html#a9a90e2c0f1c54f654bfbd6c87d014d9a">ServoMotor</a> (uint8_t controlPin, int minPulseLength, int idlePulseLength, int maxPulseLength, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
+<tr class="separator:a9a90e2c0f1c54f654bfbd6c87d014d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7f117e9af63400e0dac7fa9263233e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">setSpeed</a> (int speed) override</td></tr>
 <tr class="memdesc:ae7f117e9af63400e0dac7fa9263233e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction.  <a href="#ae7f117e9af63400e0dac7fa9263233e6">More...</a><br/></td></tr>
 <tr class="separator:ae7f117e9af63400e0dac7fa9263233e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,7 +128,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="_servo_motor_8hpp_source.html#l00036">36</a> of file <a class="el" href="_servo_motor_8hpp_source.html">ServoMotor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4d273b1525b5a5afcc4ff00ba571b296"></a>
+<a class="anchor" id="a9a90e2c0f1c54f654bfbd6c87d014d9a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -143,25 +142,25 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>minPulseLength</em> = <code><a class="el" href="namespacesmartcarlib_1_1constants_1_1servomotor.html#a1896bd3cec76931012820d6ead5a2eae">smartcarlib::constants::servomotor::kDefaultMinPulseLength</a></code>, </td>
+          <td class="paramname"><em>minPulseLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>idlePulseLength</em> = <code><a class="el" href="namespacesmartcarlib_1_1constants_1_1servomotor.html#a42473f52f81ee1871f6f36fdbf2f7eed">smartcarlib::constants::servomotor::kDefaultIdlePulseLength</a></code>, </td>
+          <td class="paramname"><em>idlePulseLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxPulseLength</em> = <code><a class="el" href="namespacesmartcarlib_1_1constants_1_1servomotor.html#aa1688cd1aa6933dd491b5d0e07576018">smartcarlib::constants::servomotor::kDefaultMaxPulseLength</a></code>, </td>
+          <td class="paramname"><em>maxPulseLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em> = <code><a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></code>&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -171,20 +170,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a servo motor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">controlPin</td><td>The pin controlling the speed of the motor </td></tr>
-    <tr><td class="paramname">minPulseLength</td><td>The motor's minimum pulse length in microseconds </td></tr>
-    <tr><td class="paramname">idlePulseLength</td><td>The pulse length that the motor is idle in microseconds </td></tr>
-    <tr><td class="paramname">maxPulseLength</td><td>The motor's maximum pulse length in microseconds</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><b>Example:</b> </p>
-<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> ESC_PIN = 7;</div>
-<div class="line"><a class="code" href="class_servo_motor.html">ServoMotor</a> esc(ESC_PIN);</div>
-</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_servo_motor_8cpp_source.html#l00007">7</a> of file <a class="el" href="_servo_motor_8cpp_source.html">ServoMotor.cpp</a>.</p>
 
 </div>

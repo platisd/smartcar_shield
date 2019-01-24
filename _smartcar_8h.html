@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,11 +85,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Smartcar.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_s_r_f08_8hpp_source.html">sensors/distance/ultrasound/i2c/SRF08.hpp</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="_arduino_runtime_8hpp_source.html">runtime/arduino_runtime/ArduinoRuntime.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_s_r_f08_8hpp_source.html">sensors/distance/ultrasound/i2c/SRF08.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_s_r04_8hpp_source.html">sensors/distance/ultrasound/ping/SR04.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_g_p2_d120_8hpp_source.html">sensors/distance/infrared/analog/sharp/GP2D120.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_g_p2_y0_a02_8hpp_source.html">sensors/distance/infrared/analog/sharp/GP2Y0A02.hpp</a>&quot;</code><br/>
@@ -111,10 +115,55 @@ Include dependency graph for Smartcar.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_smartcar_8h__incl.png" border="0" usemap="#src_2_smartcar_8h" alt=""/></div>
 <map name="src_2_smartcar_8h" id="src_2_smartcar_8h">
-<area shape="rect" id="node2" href="_s_r_f08_8hpp.html" title="sensors/distance/ultrasound\l/i2c/SRF08.hpp" alt="" coords="863,171,1048,213"/><area shape="rect" id="node8" href="_s_r04_8hpp.html" title="sensors/distance/ultrasound\l/ping/SR04.hpp" alt="" coords="5,171,189,213"/><area shape="rect" id="node9" href="_g_p2_d120_8hpp.html" title="sensors/distance/infrared\l/analog/sharp/GP2D120.hpp" alt="" coords="215,171,401,213"/><area shape="rect" id="node11" href="_g_p2_y0_a02_8hpp.html" title="sensors/distance/infrared\l/analog/sharp/GP2Y0A02.hpp" alt="" coords="425,171,620,213"/><area shape="rect" id="node12" href="_g_p2_y0_a21_8hpp.html" title="sensors/distance/infrared\l/analog/sharp/GP2Y0A21.hpp" alt="" coords="644,171,839,213"/><area shape="rect" id="node13" href="_directionless_odometer_8hpp.html" title="sensors/odometer/interrupt\l/DirectionlessOdometer.hpp" alt="" coords="1343,171,1527,213"/><area shape="rect" id="node15" href="_directional_odometer_8hpp.html" title="sensors/odometer/interrupt\l/DirectionalOdometer.hpp" alt="" coords="1375,81,1552,122"/><area shape="rect" id="node16" href="_g_y50_8hpp.html" title="sensors/heading/gyroscope\l/GY50.hpp" alt="" coords="1551,171,1732,213"/><area shape="rect" id="node18" href="_brushed_motor_8hpp.html" title="motor/analog/pwm/Brushed\lMotor.hpp" alt="" coords="1967,171,2148,213"/><area shape="rect" id="node20" href="_servo_motor_8hpp.html" title="motor/digital/servo\l/ServoMotor.hpp" alt="" coords="2223,171,2352,213"/><area shape="rect" id="node22" href="_ackerman_control_8hpp.html" title="control/ackerman/Ackerman\lControl.hpp" alt="" coords="2557,171,2741,213"/><area shape="rect" id="node24" href="_differential_control_8hpp.html" title="control/differential\l/DifferentialControl.hpp" alt="" coords="2377,171,2532,213"/><area shape="rect" id="node25" href="_simple_car_8hpp.html" title="car/simple/SimpleCar.hpp" alt="" coords="1839,269,2011,296"/><area shape="rect" id="node27" href="_distance_car_8hpp.html" title="car/distance/DistanceCar.hpp" alt="" coords="1124,179,1319,205"/><area shape="rect" id="node28" href="_heading_car_8hpp.html" title="car/heading/HeadingCar.hpp" alt="" coords="1756,179,1943,205"/><area shape="rect" id="node29" href="_smart_car_8hpp.html" title="car/smart/SmartCar.hpp" alt="" coords="1137,88,1300,115"/><area shape="rect" id="node30" href="_utilities_8hpp.html" title="utilities/Utilities.hpp" alt="" coords="2375,88,2509,115"/><area shape="rect" id="node4" href="_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="789,353,901,394"/><area shape="rect" id="node6" href="_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="494,360,657,387"/><area shape="rect" id="node7" href="_arduino_runtime_8hpp.html" title="../../../../runtime\l/arduino_runtime/ArduinoRuntime.hpp" alt="" coords="956,262,1196,303"/><area shape="rect" id="node10" href="_infrared_analog_sensor_8hpp.html" title="../InfraredAnalogSensor.hpp" alt="" coords="444,269,628,296"/><area shape="rect" id="node14" href="_odometer_8hpp.html" title="../Odometer.hpp" alt="" coords="1322,269,1437,296"/><area shape="rect" id="node17" href="_heading_sensor_8hpp.html" title="../HeadingSensor.hpp" alt="" coords="1615,269,1763,296"/><area shape="rect" id="node19" href="_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="2329,269,2433,296"/><area shape="rect" id="node23" href="_control_8hpp.html" title="../Control.hpp" alt="" coords="2420,360,2521,387"/><area shape="rect" id="node26" href="_car_8hpp.html" title="../Car.hpp" alt="" coords="1885,360,1964,387"/></map>
+<area shape="rect" id="node2" href="_arduino_runtime_8hpp.html" title="runtime/arduino_runtime\l/ArduinoRuntime.hpp" alt="" coords="295,81,456,122"/><area shape="rect" id="node6" href="_s_r_f08_8hpp.html" title="sensors/distance/ultrasound\l/i2c/SRF08.hpp" alt="" coords="5,171,189,213"/><area shape="rect" id="node8" href="_s_r04_8hpp.html" title="sensors/distance/ultrasound\l/ping/SR04.hpp" alt="" coords="214,171,399,213"/><area shape="rect" id="node9" href="_g_p2_d120_8hpp.html" title="sensors/distance/infrared\l/analog/sharp/GP2D120.hpp" alt="" coords="481,81,668,122"/><area shape="rect" id="node11" href="_g_p2_y0_a02_8hpp.html" title="sensors/distance/infrared\l/analog/sharp/GP2Y0A02.hpp" alt="" coords="692,81,887,122"/><area shape="rect" id="node12" href="_g_p2_y0_a21_8hpp.html" title="sensors/distance/infrared\l/analog/sharp/GP2Y0A21.hpp" alt="" coords="911,81,1105,122"/><area shape="rect" id="node13" href="_directionless_odometer_8hpp.html" title="sensors/odometer/interrupt\l/DirectionlessOdometer.hpp" alt="" coords="835,171,1019,213"/><area shape="rect" id="node15" href="_directional_odometer_8hpp.html" title="sensors/odometer/interrupt\l/DirectionalOdometer.hpp" alt="" coords="1181,81,1357,122"/><area shape="rect" id="node16" href="_g_y50_8hpp.html" title="sensors/heading/gyroscope\l/GY50.hpp" alt="" coords="1043,171,1224,213"/><area shape="rect" id="node18" href="_brushed_motor_8hpp.html" title="motor/analog/pwm/Brushed\lMotor.hpp" alt="" coords="1248,171,1429,213"/><area shape="rect" id="node20" href="_servo_motor_8hpp.html" title="motor/digital/servo\l/ServoMotor.hpp" alt="" coords="1673,171,1801,213"/><area shape="rect" id="node22" href="_ackerman_control_8hpp.html" title="control/ackerman/Ackerman\lControl.hpp" alt="" coords="1826,171,2011,213"/><area shape="rect" id="node24" href="_differential_control_8hpp.html" title="control/differential\l/DifferentialControl.hpp" alt="" coords="2247,171,2403,213"/><area shape="rect" id="node25" href="_simple_car_8hpp.html" title="car/simple/SimpleCar.hpp" alt="" coords="2043,261,2215,288"/><area shape="rect" id="node27" href="_distance_car_8hpp.html" title="car/distance/DistanceCar.hpp" alt="" coords="1453,179,1648,205"/><area shape="rect" id="node28" href="_heading_car_8hpp.html" title="car/heading/HeadingCar.hpp" alt="" coords="2036,179,2223,205"/><area shape="rect" id="node29" href="_smart_car_8hpp.html" title="car/smart/SmartCar.hpp" alt="" coords="1585,88,1748,115"/><area shape="rect" id="node30" href="_utilities_8hpp.html" title="utilities/Utilities.hpp" alt="" coords="2479,88,2613,115"/><area shape="rect" id="node3" href="_runtime_8hpp.html" title="../Runtime.hpp" alt="" coords="718,261,825,288"/><area shape="rect" id="node7" href="_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="275,261,439,288"/><area shape="rect" id="node10" href="_infrared_analog_sensor_8hpp.html" title="../InfraredAnalogSensor.hpp" alt="" coords="525,179,709,205"/><area shape="rect" id="node14" href="_odometer_8hpp.html" title="../Odometer.hpp" alt="" coords="953,261,1068,288"/><area shape="rect" id="node17" href="_heading_sensor_8hpp.html" title="../HeadingSensor.hpp" alt="" coords="1403,261,1551,288"/><area shape="rect" id="node19" href="_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="1812,261,1916,288"/><area shape="rect" id="node23" href="_control_8hpp.html" title="../Control.hpp" alt="" coords="2021,336,2123,363"/><area shape="rect" id="node26" href="_car_8hpp.html" title="../Car.hpp" alt="" coords="2147,336,2225,363"/></map>
 </div>
 </div>
 <p><a href="_smartcar_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a4fae36c031f4364a15356b04615cf047"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartcar_8h.html#a4fae36c031f4364a15356b04615cf047">SMARTCAR_BUILD_FOR_ARDUINO</a></td></tr>
+<tr class="memdesc:a4fae36c031f4364a15356b04615cf047"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entrypoint for the Smartcar platform on boards that are compatible with the Arduino API.  <a href="#a4fae36c031f4364a15356b04615cf047">More...</a><br/></td></tr>
+<tr class="separator:a4fae36c031f4364a15356b04615cf047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a77eea1a2d335315c8660f419b251c1ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_arduino_runtime.html">ArduinoRuntime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_smartcar_8h.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></td></tr>
+<tr class="separator:a77eea1a2d335315c8660f419b251c1ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a4fae36c031f4364a15356b04615cf047"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SMARTCAR_BUILD_FOR_ARDUINO</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The entrypoint for the Smartcar platform on boards that are compatible with the Arduino API. </p>
+<p>Everything needed to control the platform (i.e. the vehicle as well as its sensors) are included through this header file. </p>
+
+<p>Definition at line <a class="el" href="_smartcar_8h_source.html#l00011">11</a> of file <a class="el" href="_smartcar_8h_source.html">Smartcar.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a77eea1a2d335315c8660f419b251c1ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_arduino_runtime.html">ArduinoRuntime</a> arduinoRuntime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smartcar_8h_source.html#l00018">18</a> of file <a class="el" href="_smartcar_8h_source.html">Smartcar.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,9 +112,8 @@ Collaboration diagram for GY50:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae948d86257902c7b2fb90c88ea3296ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_y50.html#ae948d86257902c7b2fb90c88ea3296ea">GY50</a> (int offset, unsigned long samplingInterval=<a class="el" href="namespacesmartcarlib_1_1constants_1_1gy50.html#a65fd0d8f15c2408e4b1cbbb1ff1ee3f2">smartcarlib::constants::gy50::kDefaultSamplingInterval</a>, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime=<a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a>)</td></tr>
-<tr class="memdesc:ae948d86257902c7b2fb90c88ea3296ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_g_y50.html" title="The class representing a GY-50 gyroscope module based on the L3G4200D sensor. ">GY50</a> gyroscope.  <a href="#ae948d86257902c7b2fb90c88ea3296ea">More...</a><br/></td></tr>
-<tr class="separator:ae948d86257902c7b2fb90c88ea3296ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5af95b1a9c590834cfee49ed93b2b4c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_y50.html#a5af95b1a9c590834cfee49ed93b2b4c5">GY50</a> (int offset, unsigned long samplingInterval, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
+<tr class="separator:a5af95b1a9c590834cfee49ed93b2b4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebcce47a693a09c4026b01823ef340c4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_y50.html#aebcce47a693a09c4026b01823ef340c4">getHeading</a> () override</td></tr>
 <tr class="memdesc:aebcce47a693a09c4026b01823ef340c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current heading of the vehicle.  <a href="#aebcce47a693a09c4026b01823ef340c4">More...</a><br/></td></tr>
 <tr class="separator:aebcce47a693a09c4026b01823ef340c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,7 +135,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="_g_y50_8hpp_source.html#l00038">38</a> of file <a class="el" href="_g_y50_8hpp_source.html">GY50.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae948d86257902c7b2fb90c88ea3296ea"></a>
+<a class="anchor" id="a5af95b1a9c590834cfee49ed93b2b4c5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -150,13 +149,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>samplingInterval</em> = <code><a class="el" href="namespacesmartcarlib_1_1constants_1_1gy50.html#a65fd0d8f15c2408e4b1cbbb1ff1ee3f2">smartcarlib::constants::gy50::kDefaultSamplingInterval</a></code>, </td>
+          <td class="paramname"><em>samplingInterval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em> = <code><a class="el" href="_directionless_odometer_8hpp.html#a77eea1a2d335315c8660f419b251c1ae">arduinoRuntime</a></code>&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,18 +165,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="class_g_y50.html" title="The class representing a GY-50 gyroscope module based on the L3G4200D sensor. ">GY50</a> gyroscope. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">offset</td><td>The sensor-specific measurement value when idle. Find the value for your sensing with <a class="el" href="class_g_y50.html#ada8f41c268b5c1ba1edfc9250a18b21e" title="Get the sensor&#39;s offset which is the value the sensor returns when still. ">GY50::getOffset</a>. </td></tr>
-    <tr><td class="paramname">samplingInterval</td><td>How often to upate the heading</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><b>Example:</b> </p>
-<div class="fragment"><div class="line"><span class="keywordtype">int</span> offset = 37; <span class="comment">// The offset we have acquired via the getOffset method</span></div>
-<div class="line"><a class="code" href="class_g_y50.html">GY50</a> gyro(offset);</div>
-</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="_g_y50_8cpp_source.html#l00018">18</a> of file <a class="el" href="_g_y50_8cpp_source.html">GY50.cpp</a>.</p>
 
 </div>
