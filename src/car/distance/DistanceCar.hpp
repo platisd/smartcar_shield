@@ -8,7 +8,7 @@
 #include "../../sensors/odometer/Odometer.hpp"
 #include "../simple/SimpleCar.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -31,7 +31,7 @@ const int kOdometersNotAttachedError     = -1000;
 class DistanceCar : virtual public SimpleCar
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a car equipped with a distance sensor
      * @param control  The car's control

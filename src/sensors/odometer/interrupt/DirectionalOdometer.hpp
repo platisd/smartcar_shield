@@ -11,7 +11,7 @@
 class DirectionalOdometer : public DirectionlessOdometer
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed and direction
      * @param directionPin        The pin that receives the direction signal

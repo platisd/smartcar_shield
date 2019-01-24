@@ -15,7 +15,7 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -36,7 +36,7 @@ const int kDefaultMaxPulseLength  = 2000;
 class ServoMotor : public Servo, public Motor
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a servo motor
      * @param controlPin      The pin controlling the speed of the motor

@@ -13,7 +13,7 @@
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -34,7 +34,7 @@ const unsigned int kError              = 0;
 class SR04 : public DistanceSensor
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an SR04 ultrasonic sensor
      * @param triggerPin  The pin to produce the trigger signal

@@ -14,7 +14,7 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -22,7 +22,7 @@ extern ArduinoRuntime arduinoRuntime;
 class BrushedMotor : public Motor
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a brushed DC motor instance
      * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward

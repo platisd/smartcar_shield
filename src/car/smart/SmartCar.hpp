@@ -8,7 +8,7 @@
 #include "../distance/DistanceCar.hpp"
 #include "../heading/HeadingCar.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -16,7 +16,7 @@ extern ArduinoRuntime arduinoRuntime;
 class SmartCar : public DistanceCar, public HeadingCar
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a car equipped with a heading sensor and an odometer
      * @param control        The car's control

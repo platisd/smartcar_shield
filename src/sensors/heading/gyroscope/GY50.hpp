@@ -17,7 +17,7 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../HeadingSensor.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -38,7 +38,7 @@ const unsigned int kDefaultCalibrationMeasurements = 100;
 class GY50 : public HeadingSensor
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a GY50 gyroscope
      * @param offset           The sensor-specific measurement value when idle.

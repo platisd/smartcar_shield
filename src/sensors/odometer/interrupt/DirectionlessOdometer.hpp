@@ -11,7 +11,7 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../Odometer.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -19,7 +19,7 @@ extern ArduinoRuntime arduinoRuntime;
 class DirectionlessOdometer : public Odometer
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed but not direction
      * @param pulsesPerMeter The amount of odometer pulses that constitute a meter

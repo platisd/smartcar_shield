@@ -8,7 +8,7 @@
 #include "../../../../../runtime/Runtime.hpp"
 #include "../InfraredAnalogSensor.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -16,7 +16,7 @@ extern ArduinoRuntime arduinoRuntime;
 class GP2Y0A21 : public InfraredAnalogSensor
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a GP2Y0A21 sensor
      * @param pin   The analog pin receiving sensor signals

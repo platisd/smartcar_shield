@@ -11,7 +11,7 @@
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"
 
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
 #include "../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
 extern ArduinoRuntime arduinoRuntime;
 #endif
@@ -31,7 +31,7 @@ const uint8_t kDefaultPingDelay  = 70;
 class SRF08 : public DistanceSensor
 {
 public:
-#ifndef PLATFORM_AGNOSTIC_BUILD
+#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an SRF08 sensor that communicates over I2C
      * @param address I2C address which should be within the range of [112, 127]
