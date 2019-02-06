@@ -93,7 +93,7 @@ making updates particularly easy, without the need to use GitHub or git.
 
 ### How to get started
  * Assemble the vehicle
- * [Install the library](../../wiki/Start-up-guide#get-libraries)
+ * [Install the library](https://www.ardu-badge.com/Smartcar%20shield)
  * [Connect the motors appropriately](examples/Car/shieldMotorsTest/shieldMotorsTest.ino) (if using the default setup)
  * [Getting started with the Smartcar Platform](https://www.hackster.io/platisd/getting-started-with-the-smartcar-platform-1648ad)
 
