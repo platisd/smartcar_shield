@@ -38,11 +38,8 @@ unsigned int SRF08::getDistance()
     static const uint8_t kFirstEchoHighByte      = 0x02;
     static const uint8_t kNumberOfBytesToRequest = 2;
 
-    mRuntime.i2cBeginTransmission(mAddress);
-    mRuntime.i2cWrite(kRangingCommandRegister);
-    mRuntime.i2cWrite(kRangingInCm);
-    mRuntime.i2cEndTransmission();
-    mRuntime.delayMillis(mPingDelay);
+    measureDistance();
+
     mRuntime.i2cBeginTransmission(mAddress);
     mRuntime.i2cWrite(kFirstEchoHighByte);
     mRuntime.i2cEndTransmission();
@@ -116,11 +113,7 @@ uint8_t SRF08::getLightReading()
     static const uint8_t kNumberOfBytesToRequest = 1;
 
     // Start a ranging
-    mRuntime.i2cBeginTransmission(mAddress);
-    mRuntime.i2cWrite(kRangingCommandRegister);
-    mRuntime.i2cWrite(kRangingInCm);
-    mRuntime.i2cEndTransmission();
-    mRuntime.delayMillis(mPingDelay);
+    measureDistance();
 
     // Get only the light reading byte
     mRuntime.i2cBeginTransmission(mAddress);
@@ -165,4 +158,13 @@ uint8_t SRF08::changeAddress(uint8_t newAddress)
     mAddress = newAddress;
 
     return mAddress;
+}
+
+void SRF08::measureDistance()
+{
+    mRuntime.i2cBeginTransmission(mAddress);
+    mRuntime.i2cWrite(kRangingCommandRegister);
+    mRuntime.i2cWrite(kRangingInCm);
+    mRuntime.i2cEndTransmission();
+    mRuntime.delayMillis(mPingDelay);
 }
