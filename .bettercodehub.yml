@@ -1,0 +1,8 @@
+component_depth: 2
+languages:
+- cpp
+
+exclude:
+- /examples/.*
+- /docs/.*
+- /extras/.*
