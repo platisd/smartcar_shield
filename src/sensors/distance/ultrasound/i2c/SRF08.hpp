@@ -166,6 +166,7 @@ private:
     bool mAttached;
 
     void attach();
+    void measureDistance();
 };
 
 /**
