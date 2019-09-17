@@ -5,7 +5,7 @@
 namespace
 {
 const int8_t kNotAnInterrupt         = -1;
-const uint8_t kRisingEdge            = 1;
+const uint8_t kRisingEdge            = 3;
 const uint8_t kInput                 = 0;
 const unsigned long kMinimumPulseGap = 700;
 const float kMillisecondsInSecond    = 1000.0;

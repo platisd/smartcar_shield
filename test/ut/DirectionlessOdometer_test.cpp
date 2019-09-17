@@ -1,19 +1,19 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "MockRuntime.hpp"
 #include "DirectionlessOdometer.hpp"
+#include "MockRuntime.hpp"
 
 using namespace ::testing;
 using namespace smartcarlib::constants::odometer;
 
 namespace
 {
-const int8_t kNotAnInterrupt               = -1;
-const int8_t kAnInterrupt                  = 1;
-const uint8_t kRisingEdge                  = 1;
-const uint8_t kInput                       = 0;
-const unsigned long kMinimumPulseGap       = 700;
+const int8_t kNotAnInterrupt         = -1;
+const int8_t kAnInterrupt            = 1;
+const uint8_t kRisingEdge            = 3;
+const uint8_t kInput                 = 0;
+const unsigned long kMinimumPulseGap = 700;
 } // namespace
 
 class DirectionlessOdometerBasicTest : public Test
@@ -56,10 +56,14 @@ public:
 class DirectionlessOdometerBadPulsesPerMeter : public DirectionlessOdometerBasicTest
 {
 public:
-    DirectionlessOdometerBadPulsesPerMeter() : DirectionlessOdometerBasicTest(0) {}
+    DirectionlessOdometerBadPulsesPerMeter()
+        : DirectionlessOdometerBasicTest(0)
+    {
+    }
 };
 
-TEST_F(DirectionlessOdometerBadPulsesPerMeter, constructor_WhenCalledWithZeroPulsesPerMeter_WillNotDivideByZero)
+TEST_F(DirectionlessOdometerBadPulsesPerMeter,
+       constructor_WhenCalledWithZeroPulsesPerMeter_WillNotDivideByZero)
 {
     // Providing `0` as the argument to pulses per meter should not cause the constructor
     // to crash due to a division by zero
@@ -191,7 +195,8 @@ TEST_F(DirectionlessOdometerAttachedTest, update_WhenPulsesTooClose_WillIgnorePu
     EXPECT_EQ(mDirectionlessOdometer.getDistance(), initialDistance);
 }
 
-TEST_F(DirectionlessOdometerAttachedTest, update_WhenFirstPulseArrives_WillCalculateDistanceButNotSpeed)
+TEST_F(DirectionlessOdometerAttachedTest,
+       update_WhenFirstPulseArrives_WillCalculateDistanceButNotSpeed)
 {
     unsigned long firstPulse = 2000;
     EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));
@@ -202,7 +207,8 @@ TEST_F(DirectionlessOdometerAttachedTest, update_WhenFirstPulseArrives_WillCalcu
     EXPECT_FLOAT_EQ(mDirectionlessOdometer.getSpeed(), 0);
 }
 
-TEST_F(DirectionlessOdometerAttachedTest, update_WhenFirstPulseArrivesFast_WillCalculateDistanceButNotSpeed)
+TEST_F(DirectionlessOdometerAttachedTest,
+       update_WhenFirstPulseArrivesFast_WillCalculateDistanceButNotSpeed)
 {
     unsigned long firstPulse = kMinimumPulseGap - 1;
     EXPECT_CALL(mRuntime, currentTimeMicros()).WillOnce(Return(firstPulse));

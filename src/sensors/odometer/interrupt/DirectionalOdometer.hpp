@@ -28,12 +28,12 @@ public:
      * \endcode
      */
     DirectionalOdometer(uint8_t directionPin,
-                        uint8_t pinStateWhenForward,
+                        int pinStateWhenForward,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime = arduinoRuntime);
 #else
     DirectionalOdometer(uint8_t directionPin,
-                        uint8_t pinStateWhenForward,
+                        int pinStateWhenForward,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime);
 #endif
@@ -66,12 +66,12 @@ public:
      * unsigned short direction = odometer.getDirection();
      * \endcode
      */
-    int8_t getDirection();
-
+    int8_t getDirection() const;
 
 private:
     const uint8_t mDirectionPin;
-    const uint8_t mPinStateWhenForward;
+    const int mPinStateWhenForward;
     Runtime& mRuntime;
-    volatile unsigned long mNegativePulsesCounter;
+    volatile unsigned long mNegativePulsesCounter{ 0 };
+    volatile int mDirection{ smartcarlib::constants::odometer::kForward };
 };
