@@ -10,7 +10,11 @@
 
 #include <stdint.h>
 
+#ifdef ESP32
+#include "../../../external/ESP32-Arduino-Servo-Library/src/Servo.h"
+#else
 #include <Servo.h>
+#endif
 
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"

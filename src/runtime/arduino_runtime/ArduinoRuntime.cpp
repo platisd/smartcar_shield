@@ -2,15 +2,18 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <math.h>
+#ifdef ESP32
+#include "../../external/ESP32_AnalogWrite/src/analogWrite.h"
+#endif
 
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
 {
-    return pinMode(pin, direction);
+    pinMode(pin, direction);
 }
 
 void ArduinoRuntime::setPinState(uint8_t pin, uint8_t state)
 {
-    return digitalWrite(pin, state);
+    digitalWrite(pin, state);
 }
 
 int ArduinoRuntime::getPinState(uint8_t pin)
@@ -25,17 +28,17 @@ int ArduinoRuntime::getAnalogPinState(uint8_t pin)
 
 void ArduinoRuntime::setPWM(uint8_t pin, int dutyCycle)
 {
-    return analogWrite(pin, dutyCycle);
+    analogWrite(pin, dutyCycle);
 }
 
 void ArduinoRuntime::i2cInit()
 {
-    return Wire.begin();
+    Wire.begin();
 }
 
 void ArduinoRuntime::i2cBeginTransmission(uint8_t address)
 {
-    return Wire.beginTransmission(address);
+    Wire.beginTransmission(address);
 }
 
 size_t ArduinoRuntime::i2cWrite(uint8_t value)
@@ -80,12 +83,12 @@ unsigned long ArduinoRuntime::currentTimeMicros()
 
 void ArduinoRuntime::delayMillis(unsigned long milliseconds)
 {
-    return delay(milliseconds);
+    delay(milliseconds);
 }
 
 void ArduinoRuntime::delayMicros(unsigned int microseconds)
 {
-    return delayMicroseconds(microseconds);
+    delayMicroseconds(microseconds);
 }
 
 unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout)
@@ -95,5 +98,5 @@ unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsig
 
 void ArduinoRuntime::setInterrupt(uint8_t pin, void (*callback)(void), int mode)
 {
-    return attachInterrupt(pin, callback, mode);
+    attachInterrupt(pin, callback, mode);
 }
