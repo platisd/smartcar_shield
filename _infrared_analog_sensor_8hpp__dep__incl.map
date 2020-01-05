@@ -1,10 +1,10 @@
 <map id="src/sensors/distance/infrared/analog/InfraredAnalogSensor.hpp" name="src/sensors/distance/infrared/analog/InfraredAnalogSensor.hpp">
-<area shape="rect" id="node2" href="$_infrared_analog_sensor_8cpp.html" title="src/sensors/distance\l/infrared/analog/InfraredAnalog\lSensor.cpp" alt="" coords="5,109,203,165"/>
-<area shape="rect" id="node3" href="$_g_p2_d120_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.hpp" alt="" coords="228,109,375,165"/>
-<area shape="rect" id="node6" href="$_g_p2_y0_a02_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.hpp" alt="" coords="399,109,545,165"/>
-<area shape="rect" id="node8" href="$_g_p2_y0_a21_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.hpp" alt="" coords="569,109,716,165"/>
-<area shape="rect" id="node4" href="$_g_p2_d120_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.cpp" alt="" coords="161,213,308,269"/>
-<area shape="rect" id="node5" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="333,228,440,255"/>
-<area shape="rect" id="node7" href="$_g_p2_y0_a02_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.cpp" alt="" coords="465,213,612,269"/>
-<area shape="rect" id="node9" href="$_g_p2_y0_a21_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.cpp" alt="" coords="636,213,783,269"/>
+<area shape="rect" id="node2" href="$_infrared_analog_sensor_8cpp.html" title="src/sensors/distance\l/infrared/analog/InfraredAnalog\lSensor.cpp" alt="" coords="5,109,204,165"/>
+<area shape="rect" id="node3" href="$_g_p2_d120_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.hpp" alt="" coords="229,109,375,165"/>
+<area shape="rect" id="node6" href="$_g_p2_y0_a02_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.hpp" alt="" coords="399,109,546,165"/>
+<area shape="rect" id="node8" href="$_g_p2_y0_a21_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.hpp" alt="" coords="570,109,717,165"/>
+<area shape="rect" id="node4" href="$_g_p2_d120_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.cpp" alt="" coords="162,213,309,269"/>
+<area shape="rect" id="node5" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="333,228,441,255"/>
+<area shape="rect" id="node7" href="$_g_p2_y0_a02_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.cpp" alt="" coords="466,213,613,269"/>
+<area shape="rect" id="node9" href="$_g_p2_y0_a21_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.cpp" alt="" coords="637,213,783,269"/>
 </map>

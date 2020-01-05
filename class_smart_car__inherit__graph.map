@@ -1,6 +1,6 @@
 <map id="SmartCar" name="SmartCar">
-<area shape="rect" id="node2" href="$class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers. " alt="" coords="5,360,168,555"/>
-<area shape="rect" id="node3" href="$class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,176,245,312"/>
-<area shape="rect" id="node5" href="$class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,404,303,511"/>
-<area shape="rect" id="node4" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="87,6,245,127"/>
+<area shape="rect" id="node2" href="$class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers. " alt="" coords="5,359,168,553"/>
+<area shape="rect" id="node3" href="$class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="87,175,246,311"/>
+<area shape="rect" id="node5" href="$class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="193,403,303,509"/>
+<area shape="rect" id="node4" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="87,5,246,127"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="InfraredAnalogSensor" name="InfraredAnalogSensor">
-<area shape="rect" id="node3" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor. " alt="" coords="5,273,116,365"/>
-<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor. " alt="" coords="141,273,252,365"/>
-<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor. " alt="" coords="277,273,388,365"/>
+<area shape="rect" id="node3" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor. " alt="" coords="5,271,117,363"/>
+<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor. " alt="" coords="141,271,253,363"/>
+<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor. " alt="" coords="277,271,389,363"/>
 <area shape="rect" id="node2" href="$interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="140,5,255,83"/>
 </map>

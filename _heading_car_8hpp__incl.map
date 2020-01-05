@@ -1,6 +1,6 @@
 <map id="src/car/heading/HeadingCar.hpp" name="src/car/heading/HeadingCar.hpp">
-<area shape="rect" id="node2" href="$_heading_sensor_8hpp.html" title="../../sensors/heading\l/HeadingSensor.hpp" alt="" coords="4,81,144,122"/>
-<area shape="rect" id="node3" href="$_simple_car_8hpp.html" title="../simple/SimpleCar.hpp" alt="" coords="169,88,332,115"/>
-<area shape="rect" id="node4" href="$_control_8hpp.html" title="../../control/Control.hpp" alt="" coords="101,171,256,197"/>
-<area shape="rect" id="node5" href="$_car_8hpp.html" title="../Car.hpp" alt="" coords="281,171,360,197"/>
+<area shape="rect" id="node2" href="$_heading_sensor_8hpp.html" title="../../sensors/heading\l/HeadingSensor.hpp" alt="" coords="5,80,147,121"/>
+<area shape="rect" id="node3" href="$_simple_car_8hpp.html" title="../simple/SimpleCar.hpp" alt="" coords="171,87,333,114"/>
+<area shape="rect" id="node4" href="$_control_8hpp.html" title="../../control/Control.hpp" alt="" coords="102,169,258,196"/>
+<area shape="rect" id="node5" href="$_car_8hpp.html" title="../Car.hpp" alt="" coords="283,169,363,196"/>
 </map>

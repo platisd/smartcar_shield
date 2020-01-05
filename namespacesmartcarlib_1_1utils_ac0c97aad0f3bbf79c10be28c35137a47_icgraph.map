@@ -1,5 +1,5 @@
 <map id="smartcarlib::utils::getMedian" name="smartcarlib::utils::getMedian">
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title="InfraredAnalogSensor\l::getMedianDistance" alt="" coords="192,5,339,46"/>
-<area shape="rect" id="node3" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="174,71,357,97"/>
-<area shape="rect" id="node4" href="$class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="178,121,353,148"/>
+<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title="InfraredAnalogSensor\l::getMedianDistance" alt="" coords="190,5,337,47"/>
+<area shape="rect" id="node3" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="172,71,355,98"/>
+<area shape="rect" id="node4" href="$class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="SR04::getMedianDistance" alt="" coords="176,122,351,149"/>
 </map>

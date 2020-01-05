@@ -1,5 +1,6 @@
 <map id="Runtime::i2cRead" name="Runtime::i2cRead">
-<area shape="rect" id="node2" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="193,5,335,32"/>
-<area shape="rect" id="node4" href="$class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="181,56,347,83"/>
-<area shape="rect" id="node3" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="395,5,578,32"/>
+<area shape="rect" id="node2" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="SRF08::getDistance" alt="" coords="192,5,333,32"/>
+<area shape="rect" id="node4" href="$class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="180,56,345,83"/>
+<area shape="rect" id="node5" href="$class_g_y50.html#ada8f41c268b5c1ba1edfc9250a18b21e" title="Get the sensor&#39;s offset which is the value the sensor returns when still. " alt="" coords="204,107,321,133"/>
+<area shape="rect" id="node3" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="393,5,576,32"/>
 </map>

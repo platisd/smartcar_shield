@@ -1,4 +1,4 @@
 <map id="DistanceCar::getSpeed" name="DistanceCar::getSpeed">
-<area shape="rect" id="node2" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="214,5,357,32"/>
-<area shape="rect" id="node3" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="405,5,531,32"/>
+<area shape="rect" id="node2" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="212,5,355,32"/>
+<area shape="rect" id="node3" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="403,5,528,32"/>
 </map>

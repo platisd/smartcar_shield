@@ -1,8 +1,8 @@
 <map id="DirectionlessOdometer::isAttached" name="DirectionlessOdometer::isAttached">
-<area shape="rect" id="node2" href="$class_directional_odometer.html#a04c435d7adc63f16c7139a66281eca0a" title="Conducts the distance and speed measurements. " alt="" coords="411,7,552,48"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="411,138,552,179"/>
-<area shape="rect" id="node4" href="$class_directional_odometer.html#ae89bc5a3d479b0cfb09edbb0bb7fdb35" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="411,228,552,270"/>
-<area shape="rect" id="node5" href="$class_directionless_odometer.html#ad98b03236639fb182b03cfe860be8829" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="208,154,363,195"/>
-<area shape="rect" id="node6" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="208,271,363,312"/>
-<area shape="rect" id="node7" href="$class_directionless_odometer.html#ada37113744c0819f9aa91ef4cbfddb2d" title="Conducts the distance and speed measurements. " alt="" coords="208,36,363,78"/>
+<area shape="rect" id="node2" href="$class_directional_odometer.html#a04c435d7adc63f16c7139a66281eca0a" title="Conducts the distance and speed measurements. " alt="" coords="411,8,552,50"/>
+<area shape="rect" id="node3" href="$class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="411,139,552,180"/>
+<area shape="rect" id="node4" href="$class_directional_odometer.html#ae89bc5a3d479b0cfb09edbb0bb7fdb35" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="411,230,552,271"/>
+<area shape="rect" id="node5" href="$class_directionless_odometer.html#ad98b03236639fb182b03cfe860be8829" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="208,155,363,196"/>
+<area shape="rect" id="node6" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="208,272,363,314"/>
+<area shape="rect" id="node7" href="$class_directionless_odometer.html#ada37113744c0819f9aa91ef4cbfddb2d" title="Conducts the distance and speed measurements. " alt="" coords="208,38,363,79"/>
 </map>

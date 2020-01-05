@@ -1,7 +1,8 @@
 <map id="BrushedMotor::setSpeed" name="BrushedMotor::setSpeed">
-<area shape="rect" id="node2" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="221,5,368,32"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="235,57,354,98"/>
-<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="235,122,354,163"/>
-<area shape="rect" id="node5" href="$class_runtime.html#a87b1a3ff2e9a2e594b279dc084835f73" title="Set PWM state, equivalent of analogWrite in Arduino. " alt="" coords="229,188,360,215"/>
-<area shape="rect" id="node6" href="$namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc" title="Maps a value from a range to another. " alt="" coords="235,239,354,281"/>
+<area shape="rect" id="node2" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="231,5,377,32"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="245,57,363,98"/>
+<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="245,122,363,163"/>
+<area shape="rect" id="node5" href="$class_runtime.html#a87b1a3ff2e9a2e594b279dc084835f73" title="Set PWM state, equivalent of analogWrite in Arduino. " alt="" coords="239,188,369,215"/>
+<area shape="rect" id="node6" href="$namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc" title="Maps a value from a range to another. " alt="" coords="245,239,363,281"/>
+<area shape="rect" id="node7" href="$class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino. " alt="" coords="220,305,388,332"/>
 </map>

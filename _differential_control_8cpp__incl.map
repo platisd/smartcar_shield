@@ -1,6 +1,6 @@
 <map id="src/control/differential/DifferentialControl.cpp" name="src/control/differential/DifferentialControl.cpp">
-<area shape="rect" id="node2" href="$_differential_control_8hpp.html" title="DifferentialControl.hpp" alt="" coords="72,96,224,123"/>
-<area shape="rect" id="node5" href="$_utilities_8hpp.html" title="../../utilities/Utilities.hpp" alt="" coords="248,96,407,123"/>
-<area shape="rect" id="node3" href="$_motor_8hpp.html" title="../../motor/Motor.hpp" alt="" coords="5,171,145,197"/>
-<area shape="rect" id="node4" href="$_control_8hpp.html" title="../Control.hpp" alt="" coords="171,171,272,197"/>
+<area shape="rect" id="node2" href="$_differential_control_8hpp.html" title="DifferentialControl.hpp" alt="" coords="72,95,224,121"/>
+<area shape="rect" id="node5" href="$_utilities_8hpp.html" title="../../utilities/Utilities.hpp" alt="" coords="248,95,408,121"/>
+<area shape="rect" id="node3" href="$_motor_8hpp.html" title="../../motor/Motor.hpp" alt="" coords="5,169,147,196"/>
+<area shape="rect" id="node4" href="$_control_8hpp.html" title="../Control.hpp" alt="" coords="171,169,272,196"/>
 </map>

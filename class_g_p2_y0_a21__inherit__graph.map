@@ -1,4 +1,4 @@
 <map id="GP2Y0A21" name="GP2Y0A21">
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors. " alt="" coords="5,131,171,223"/>
-<area shape="rect" id="node3" href="$interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="31,5,145,83"/>
+<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors. " alt="" coords="5,131,172,223"/>
+<area shape="rect" id="node3" href="$interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="31,5,146,83"/>
 </map>

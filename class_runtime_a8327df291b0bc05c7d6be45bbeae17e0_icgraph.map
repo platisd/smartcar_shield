@@ -1,4 +1,6 @@
 <map id="Runtime::setPinDirection" name="Runtime::setPinDirection">
-<area shape="rect" id="node2" href="$class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="424,5,565,46"/>
-<area shape="rect" id="node3" href="$class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="221,34,376,75"/>
+<area shape="rect" id="node2" href="$class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="221,5,388,32"/>
+<area shape="rect" id="node3" href="$class_s_r04.html#a89b75302f5ba30d2bd8216889afe88bc" title="SR04::SR04" alt="" coords="257,56,353,83"/>
+<area shape="rect" id="node4" href="$class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="436,129,577,170"/>
+<area shape="rect" id="node5" href="$class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="227,158,382,199"/>
 </map>

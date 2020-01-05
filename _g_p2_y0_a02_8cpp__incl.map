@@ -1,6 +1,6 @@
 <map id="src/sensors/distance/infrared/analog/sharp/GP2Y0A02.cpp" name="src/sensors/distance/infrared/analog/sharp/GP2Y0A02.cpp">
-<area shape="rect" id="node2" href="$_g_p2_y0_a02_8hpp.html" title="GP2Y0A02.hpp" alt="" coords="61,109,172,136"/>
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../../runtime\l/Runtime.hpp" alt="" coords="5,259,131,301"/>
+<area shape="rect" id="node2" href="$_g_p2_y0_a02_8hpp.html" title="GP2Y0A02.hpp" alt="" coords="61,109,173,136"/>
+<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../../runtime\l/Runtime.hpp" alt="" coords="5,259,131,300"/>
 <area shape="rect" id="node6" href="$_infrared_analog_sensor_8hpp.html" title="../InfraredAnalogSensor.hpp" alt="" coords="91,184,275,211"/>
-<area shape="rect" id="node7" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="206,267,369,293"/>
+<area shape="rect" id="node7" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="206,266,370,293"/>
 </map>

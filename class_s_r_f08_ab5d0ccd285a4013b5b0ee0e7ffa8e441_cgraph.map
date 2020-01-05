@@ -1,6 +1,7 @@
 <map id="SRF08::changeAddress" name="SRF08::changeAddress">
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="261,5,379,46"/>
-<area shape="rect" id="node3" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="217,71,423,97"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="257,121,383,148"/>
-<area shape="rect" id="node5" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="221,172,419,199"/>
+<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="259,5,377,47"/>
+<area shape="rect" id="node3" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="215,71,421,98"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="255,122,381,149"/>
+<area shape="rect" id="node5" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="219,173,417,199"/>
+<area shape="rect" id="node6" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="248,223,388,250"/>
 </map>

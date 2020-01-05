@@ -4,5 +4,6 @@
 <area shape="rect" id="node5" href="$class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="270,107,397,133"/>
 <area shape="rect" id="node6" href="$class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor. " alt="" coords="251,157,416,184"/>
 <area shape="rect" id="node7" href="$class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor. " alt="" coords="253,208,414,235"/>
-<area shape="rect" id="node3" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="465,5,647,32"/>
+<area shape="rect" id="node8" href="$class_g_y50.html#ada8f41c268b5c1ba1edfc9250a18b21e" title="Get the sensor&#39;s offset which is the value the sensor returns when still. " alt="" coords="275,259,392,285"/>
+<area shape="rect" id="node3" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="SRF08::getMedianDistance" alt="" coords="464,5,647,32"/>
 </map>

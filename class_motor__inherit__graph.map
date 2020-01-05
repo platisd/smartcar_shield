@@ -1,4 +1,4 @@
 <map id="Motor" name="Motor">
-<area shape="rect" id="node2" href="$class_brushed_motor.html" title="A brushed motor is controlled via two wires where the flow of current determines the direction of rot..." alt="" coords="5,147,128,239"/>
-<area shape="rect" id="node3" href="$class_servo_motor.html" title="A motor that is controlled via the length of pulses that are sent to it through a single signal line..." alt="" coords="152,147,261,239"/>
+<area shape="rect" id="node2" href="$class_brushed_motor.html" title="A brushed motor is controlled via two wires where the flow of current determines the direction of rot..." alt="" coords="5,145,128,237"/>
+<area shape="rect" id="node3" href="$class_servo_motor.html" title="A motor that is controlled via the length of pulses that are sent to it through a single signal line..." alt="" coords="152,145,261,237"/>
 </map>

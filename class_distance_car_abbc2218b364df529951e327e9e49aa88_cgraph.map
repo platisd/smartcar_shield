@@ -1,0 +1,4 @@
+<map id="DistanceCar::enableCruiseControl" name="DistanceCar::enableCruiseControl">
+<area shape="rect" id="node2" href="$class_odometer.html#a59a5a088fa7c2ae2ea92d88a998cf982" title="Returns whether the sensor has been properly attached. " alt="" coords="251,5,401,32"/>
+<area shape="rect" id="node3" href="$class_odometer.html#a24b8ff5ecb6584d2ce89a3537cf01deb" title="Return whether the sensor is capable of inferring the direction of movement. " alt="" coords="232,56,420,83"/>
+</map>

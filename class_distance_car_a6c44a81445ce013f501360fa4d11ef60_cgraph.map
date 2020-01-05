@@ -1,8 +1,8 @@
 <map id="DistanceCar::update" name="DistanceCar::update">
-<area shape="rect" id="node2" href="$class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="197,5,376,32"/>
-<area shape="rect" id="node3" href="$class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second. " alt="" coords="207,56,366,83"/>
-<area shape="rect" id="node5" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="213,107,360,133"/>
-<area shape="rect" id="node4" href="$class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="425,56,567,83"/>
-<area shape="rect" id="node6" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="433,107,559,133"/>
-<area shape="rect" id="node7" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="437,158,555,199"/>
+<area shape="rect" id="node2" href="$class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="196,5,375,32"/>
+<area shape="rect" id="node3" href="$class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second. " alt="" coords="206,56,365,83"/>
+<area shape="rect" id="node5" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="212,107,359,133"/>
+<area shape="rect" id="node7" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="435,155,553,197"/>
+<area shape="rect" id="node4" href="$class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="423,53,565,80"/>
+<area shape="rect" id="node6" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="431,104,557,131"/>
 </map>

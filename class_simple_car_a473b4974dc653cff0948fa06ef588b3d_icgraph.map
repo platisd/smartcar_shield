@@ -1,5 +1,5 @@
 <map id="SimpleCar::setSpeed" name="SimpleCar::setSpeed">
-<area shape="rect" id="node2" href="$class_distance_car.html#ab2c3fd31719f9910a5d8e137c0b27a80" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="201,5,359,32"/>
-<area shape="rect" id="node3" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="209,56,351,83"/>
-<area shape="rect" id="node4" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="408,56,533,83"/>
+<area shape="rect" id="node2" href="$class_distance_car.html#ab2c3fd31719f9910a5d8e137c0b27a80" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="200,5,359,32"/>
+<area shape="rect" id="node3" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed. " alt="" coords="208,56,351,83"/>
+<area shape="rect" id="node4" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="407,56,532,83"/>
 </map>

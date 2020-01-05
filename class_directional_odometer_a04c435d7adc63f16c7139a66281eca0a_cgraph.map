@@ -1,6 +1,6 @@
 <map id="DirectionalOdometer::update" name="DirectionalOdometer::update">
-<area shape="rect" id="node2" href="$class_directionless_odometer.html#a4b62519f40b5679c290e6bd5e3f63360" title="Returns whether the sensor has been properly attached. " alt="" coords="413,5,568,46"/>
-<area shape="rect" id="node3" href="$class_directionless_odometer.html#ada37113744c0819f9aa91ef4cbfddb2d" title="Conducts the distance and speed measurements. " alt="" coords="195,63,349,105"/>
-<area shape="rect" id="node5" href="$class_runtime.html#ab9c7e02ed22ae135c45624b2e901c181" title="Get the pin state, equivalent of digitalRead in Arduino. " alt="" coords="199,129,345,156"/>
-<area shape="rect" id="node4" href="$class_runtime.html#abd9e2469c2fc7cceac8623624b1cfdba" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="397,71,584,97"/>
+<area shape="rect" id="node2" href="$class_directionless_odometer.html#a4b62519f40b5679c290e6bd5e3f63360" title="Returns whether the sensor has been properly attached. " alt="" coords="413,5,568,47"/>
+<area shape="rect" id="node3" href="$class_directionless_odometer.html#ada37113744c0819f9aa91ef4cbfddb2d" title="Conducts the distance and speed measurements. " alt="" coords="195,64,349,105"/>
+<area shape="rect" id="node5" href="$class_runtime.html#ab9c7e02ed22ae135c45624b2e901c181" title="Get the pin state, equivalent of digitalRead in Arduino. " alt="" coords="199,130,345,157"/>
+<area shape="rect" id="node4" href="$class_runtime.html#abd9e2469c2fc7cceac8623624b1cfdba" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="397,71,584,98"/>
 </map>

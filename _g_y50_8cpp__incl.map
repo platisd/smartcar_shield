@@ -1,6 +1,6 @@
 <map id="src/sensors/heading/gyroscope/GY50.cpp" name="src/sensors/heading/gyroscope/GY50.cpp">
-<area shape="rect" id="node2" href="$_g_y50_8hpp.html" title="GY50.hpp" alt="" coords="107,104,185,131"/>
-<area shape="rect" id="node7" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="211,97,309,138"/>
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="57,187,236,213"/>
-<area shape="rect" id="node6" href="$_heading_sensor_8hpp.html" title="../HeadingSensor.hpp" alt="" coords="261,187,408,213"/>
+<area shape="rect" id="node2" href="$_g_y50_8hpp.html" title="GY50.hpp" alt="" coords="107,102,187,129"/>
+<area shape="rect" id="node7" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="211,95,310,136"/>
+<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="58,184,237,211"/>
+<area shape="rect" id="node6" href="$_heading_sensor_8hpp.html" title="../HeadingSensor.hpp" alt="" coords="261,184,409,211"/>
 </map>

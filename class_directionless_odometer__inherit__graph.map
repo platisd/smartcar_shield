@@ -1,4 +1,4 @@
 <map id="DirectionlessOdometer" name="DirectionlessOdometer">
-<area shape="rect" id="node3" href="$class_directional_odometer.html" title="A class to represent directional Odometers. " alt="" coords="15,433,176,613"/>
-<area shape="rect" id="node2" href="$class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="25,5,167,141"/>
+<area shape="rect" id="node3" href="$class_directional_odometer.html" title="A class to represent directional Odometers. " alt="" coords="16,432,177,612"/>
+<area shape="rect" id="node2" href="$class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="25,5,168,141"/>
 </map>

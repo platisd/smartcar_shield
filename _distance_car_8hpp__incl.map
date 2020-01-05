@@ -1,7 +1,7 @@
 <map id="src/car/distance/DistanceCar.hpp" name="src/car/distance/DistanceCar.hpp">
-<area shape="rect" id="node2" href="$_runtime_8hpp.html" title="../../runtime/Runtime.hpp" alt="" coords="5,104,171,131"/>
-<area shape="rect" id="node5" href="$_odometer_8hpp.html" title="../../sensors/odometer\l/Odometer.hpp" alt="" coords="195,97,345,138"/>
-<area shape="rect" id="node6" href="$_simple_car_8hpp.html" title="../simple/SimpleCar.hpp" alt="" coords="371,104,533,131"/>
-<area shape="rect" id="node7" href="$_control_8hpp.html" title="../../control/Control.hpp" alt="" coords="327,187,483,213"/>
-<area shape="rect" id="node8" href="$_car_8hpp.html" title="../Car.hpp" alt="" coords="508,187,587,213"/>
+<area shape="rect" id="node2" href="$_runtime_8hpp.html" title="../../runtime/Runtime.hpp" alt="" coords="5,102,172,129"/>
+<area shape="rect" id="node5" href="$_odometer_8hpp.html" title="../../sensors/odometer\l/Odometer.hpp" alt="" coords="196,95,347,136"/>
+<area shape="rect" id="node6" href="$_simple_car_8hpp.html" title="../simple/SimpleCar.hpp" alt="" coords="371,102,534,129"/>
+<area shape="rect" id="node7" href="$_control_8hpp.html" title="../../control/Control.hpp" alt="" coords="328,184,484,211"/>
+<area shape="rect" id="node8" href="$_car_8hpp.html" title="../Car.hpp" alt="" coords="509,184,589,211"/>
 </map>

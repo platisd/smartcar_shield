@@ -1,4 +1,4 @@
 <map id="Control" name="Control">
-<area shape="rect" id="node2" href="$class_ackerman_control.html" title="Class to represent controling a vehicle by changing the angle of the front wheels, like a common car. " alt="" coords="5,177,163,298"/>
-<area shape="rect" id="node3" href="$class_differential_control.html" title="Class to represent controling a vehicle by applying different speed on each side, like a tank..." alt="" coords="187,177,345,298"/>
+<area shape="rect" id="node2" href="$class_ackerman_control.html" title="Class to represent controling a vehicle by changing the angle of the front wheels, like a common car. " alt="" coords="5,175,164,296"/>
+<area shape="rect" id="node3" href="$class_differential_control.html" title="Class to represent controling a vehicle by applying different speed on each side, like a tank..." alt="" coords="188,175,347,296"/>
 </map>

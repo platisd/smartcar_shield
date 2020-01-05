@@ -1,11 +1,11 @@
 <map id="src/car/Car.hpp" name="src/car/Car.hpp">
 <area shape="rect" id="node2" href="$_simple_car_8hpp.html" title="src/car/simple/SimpleCar.hpp" alt="" coords="445,80,640,107"/>
-<area shape="rect" id="node3" href="$_distance_car_8hpp.html" title="src/car/distance/Distance\lCar.hpp" alt="" coords="193,155,364,197"/>
-<area shape="rect" id="node7" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="418,336,525,363"/>
-<area shape="rect" id="node8" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="510,163,719,189"/>
-<area shape="rect" id="node10" href="$_simple_car_8cpp.html" title="src/car/simple/SimpleCar.cpp" alt="" coords="744,163,939,189"/>
-<area shape="rect" id="node4" href="$_distance_car_8cpp.html" title="src/car/distance/Distance\lCar.cpp" alt="" coords="5,246,176,287"/>
-<area shape="rect" id="node5" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="251,253,435,280"/>
-<area shape="rect" id="node6" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="209,336,393,363"/>
-<area shape="rect" id="node9" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="561,253,769,280"/>
+<area shape="rect" id="node3" href="$_distance_car_8hpp.html" title="src/car/distance/Distance\lCar.hpp" alt="" coords="193,155,364,196"/>
+<area shape="rect" id="node7" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="418,333,526,360"/>
+<area shape="rect" id="node8" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="510,162,719,189"/>
+<area shape="rect" id="node10" href="$_simple_car_8cpp.html" title="src/car/simple/SimpleCar.cpp" alt="" coords="744,162,939,189"/>
+<area shape="rect" id="node4" href="$_distance_car_8cpp.html" title="src/car/distance/Distance\lCar.cpp" alt="" coords="5,244,176,285"/>
+<area shape="rect" id="node5" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="251,251,435,278"/>
+<area shape="rect" id="node6" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="209,333,393,360"/>
+<area shape="rect" id="node9" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="561,251,770,278"/>
 </map>
