@@ -6,6 +6,7 @@
 */
 #include "GY50.hpp"
 #include "../../../utilities/Utilities.hpp"
+#include <Arduino.h>
 
 namespace
 {
@@ -90,7 +91,7 @@ int GY50::getOffset(unsigned int measurements)
         return kError;
     }
 
-    static const unsigned long measurementInterval = 10;
+    static const unsigned long measurementInterval = 100;
     long sum                                       = 0;
     for (unsigned int i = 0; i < measurements; i++)
     {
@@ -108,10 +109,12 @@ int GY50::getAngularVelocity()
     static const uint8_t zAxisFirstByteRegister  = 0x2D;
     static const uint8_t zAxisSecondByteRegister = 0x2C;
 
-    auto firstByte  = readL3G4200DRegister(zAxisFirstByteRegister);
+    auto firstByte = readL3G4200DRegister(zAxisFirstByteRegister);
+    // Serial.println("Bytes:");
+    // Serial.println(firstByte, BIN);
     auto secondByte = readL3G4200DRegister(zAxisSecondByteRegister);
 
-    return (firstByte << 8) | secondByte;
+    return static_cast<int16_t>((firstByte << 8) | secondByte);
 }
 
 int GY50::readL3G4200DRegister(uint8_t registerAddress)
