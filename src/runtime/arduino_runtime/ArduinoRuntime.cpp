@@ -3,7 +3,7 @@
 #include <Wire.h>
 #include <math.h>
 #ifdef ESP32
-#include "../../external/ESP32_AnalogWrite/src/analogWrite.h"
+#include "analogWrite.h"
 #endif
 
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)

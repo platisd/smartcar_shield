@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 #ifdef ESP32
-#include "../../../external/ESP32-Arduino-Servo-Library/src/Servo.h"
+#include "ESP32ArduinoServo.h"
 #else
 #include <Servo.h>
 #endif
