@@ -1,6 +1,0 @@
-[submodule "src/external/ESP32_AnalogWrite"]
-	path = src/external/ESP32_AnalogWrite
-	url = https://github.com/ERROPiX/ESP32_AnalogWrite.git
-[submodule "src/external/ESP32-Arduino-Servo-Library"]
-	path = src/external/ESP32-Arduino-Servo-Library
-	url = https://github.com/platisd/ESP32-Arduino-Servo-Library.git
