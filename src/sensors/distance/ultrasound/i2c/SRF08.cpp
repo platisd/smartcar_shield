@@ -52,7 +52,7 @@ unsigned int SRF08::getDistance()
     auto high = mRuntime.i2cRead();
     auto low  = mRuntime.i2cRead();
 
-    return (high << 8) + low;
+    return static_cast<int16_t>((high << 8) + low);
 }
 
 unsigned int SRF08::getMedianDistance(uint8_t iterations)
