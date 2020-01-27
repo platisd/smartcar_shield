@@ -35,6 +35,9 @@ cache:
 before_install:
   # Set up the environment for building with the Arduino IDE
   - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+install:
+  - arduino --install-library "ESP32 AnalogWrite"
+# - arduino --install-library "ESP32ArduinoServo"
 
 script:
     # Build and run unit tests
