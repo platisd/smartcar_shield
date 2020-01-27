@@ -27,4 +27,9 @@ public:
     MOCK_METHOD3(getPulseDuration,
                  unsigned long(uint8_t pin, uint8_t state, unsigned long timeout));
     MOCK_METHOD3(setInterrupt, void(uint8_t pin, void (*callback)(void), int mode));
+    MOCK_CONST_METHOD0(getLowState, uint8_t());
+    MOCK_CONST_METHOD0(getHighState, uint8_t());
+    MOCK_CONST_METHOD0(getOutputState, uint8_t());
+    MOCK_CONST_METHOD0(getInputState, uint8_t());
+    MOCK_CONST_METHOD0(getRisingEdgeMode, int());
 };
