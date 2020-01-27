@@ -6,7 +6,6 @@
 */
 #include "GY50.hpp"
 #include "../../../utilities/Utilities.hpp"
-#include <Arduino.h>
 
 namespace
 {
