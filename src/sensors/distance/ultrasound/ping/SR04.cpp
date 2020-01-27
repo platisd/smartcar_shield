@@ -4,10 +4,6 @@ namespace
 {
 const float kTimeToTravelOneCmAndBack   = 29.15 * 2; // In microseconds
 const unsigned long kTimeToMeasureOneCm = 120;       // Empirically determined
-const uint8_t kInput                    = 0;
-const uint8_t kOutput                   = 1;
-const uint8_t kLow                      = 0;
-const uint8_t kHigh                     = 1;
 // We should wait long enough between two consecutive measurements
 // so to avoid getting parasitic readings from old returning waves.
 const unsigned long kMedianMeasurementDelay = 15; // In milliseconds
@@ -22,7 +18,11 @@ SR04::SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtim
     , kMaxDistance{ maxDistance > 0 ? maxDistance : kDefaultMaxDistance }
     , kTimeout{ kMaxDistance * kTimeToMeasureOneCm }
     , mRuntime(runtime)
-    , mAttached{ false }
+    , kOutput{ mRuntime.getOutputState() }
+    , kInput{ mRuntime.getInputState() }
+    , kLow{ mRuntime.getLowState() }
+    , kHigh{ mRuntime.getHighState() }
+
 {
 }
 

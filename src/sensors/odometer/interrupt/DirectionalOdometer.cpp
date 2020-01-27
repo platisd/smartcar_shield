@@ -1,10 +1,5 @@
 #include "DirectionalOdometer.hpp"
 
-namespace
-{
-const uint8_t kInput = 0;
-} // namespace
-
 using namespace smartcarlib::constants::odometer;
 
 DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
@@ -15,6 +10,7 @@ DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
     , mDirectionPin{ directionPin }
     , mPinStateWhenForward{ pinStateWhenForward }
     , mRuntime(runtime)
+    , kInput{ mRuntime.getInputState() }
 {
 }
 

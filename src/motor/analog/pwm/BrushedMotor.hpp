@@ -42,8 +42,8 @@ public:
     BrushedMotor(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, Runtime& runtime);
 #endif
 
-/* Check `Motor` interface for documentation */
-void setSpeed(int speed) override;
+    /* Check `Motor` interface for documentation */
+    void setSpeed(int speed) override;
 
 private:
     void attach();
@@ -51,5 +51,8 @@ private:
     const uint8_t kBackwardPin;
     const uint8_t kEnablePin;
     Runtime& mRuntime;
-    bool mAttached;
+    const uint8_t kOutput;
+    const uint8_t kLow;
+    const uint8_t kHigh;
+    bool mAttached{ false };
 };

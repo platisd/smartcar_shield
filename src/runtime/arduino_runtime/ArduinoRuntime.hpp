@@ -30,4 +30,9 @@ public:
     void delayMicros(unsigned int microseconds) override;
     unsigned long getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout) override;
     void setInterrupt(uint8_t pin, void (*callback)(void), int mode) override;
+    uint8_t getLowState() const override;
+    uint8_t getHighState() const override;
+    uint8_t getOutputState() const override;
+    uint8_t getInputState() const override;
+    int getRisingEdgeMode() const override;
 };

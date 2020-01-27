@@ -100,3 +100,28 @@ void ArduinoRuntime::setInterrupt(uint8_t pin, void (*callback)(void), int mode)
 {
     attachInterrupt(pin, callback, mode);
 }
+
+uint8_t ArduinoRuntime::getLowState() const
+{
+    return LOW;
+}
+
+uint8_t ArduinoRuntime::getHighState() const
+{
+    return HIGH;
+}
+
+uint8_t ArduinoRuntime::getOutputState() const
+{
+    return OUTPUT;
+}
+
+uint8_t ArduinoRuntime::getInputState() const
+{
+    return INPUT;
+}
+
+int ArduinoRuntime::getRisingEdgeMode() const
+{
+    return RISING;
+}

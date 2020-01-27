@@ -31,8 +31,7 @@ public:
      * DirectionlessOdometer odometer(PULSES_PER_METER);
      * \endcode
      */
-    DirectionlessOdometer(unsigned long pulsesPerMeter,
-                          Runtime& runtime = arduinoRuntime);
+    DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime = arduinoRuntime);
 #else
     DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime);
 #endif
@@ -79,6 +78,8 @@ protected:
 private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
+    const uint8_t kInput;
+    const int kRisingEdge;
     uint8_t mPin;
     bool mSensorAttached;
     volatile unsigned long mPulsesCounter;

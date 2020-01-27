@@ -154,4 +154,39 @@ public:
      * @param mode      The state of the pin to run the callback
      */
     virtual void setInterrupt(uint8_t pin, void (*callback)(void), int mode) = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing a logical `LOW` voltage state
+     *
+     * @return uint8_t The `LOW` value
+     */
+    virtual uint8_t getLowState() const = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing a logical `HIGH` voltage state
+     *
+     * @return uint8_t The `HIGH` value
+     */
+    virtual uint8_t getHighState() const = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing an `OUTPUT` pin state
+     *
+     * @return uint8_t The `OUTPUT` state
+     */
+    virtual uint8_t getOutputState() const = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing an `INPUT` pin state
+     *
+     * @return uint8_t The `INPUT` state
+     */
+    virtual uint8_t getInputState() const = 0;
+
+    /**
+     * @brief Get the rising edge constant for setting an interrupt
+     *
+     * @return int The rising edge mode
+     */
+    virtual int getRisingEdgeMode() const = 0;
 };

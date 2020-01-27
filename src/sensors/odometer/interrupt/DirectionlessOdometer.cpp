@@ -5,8 +5,6 @@
 namespace
 {
 const int8_t kNotAnInterrupt         = -1;
-const uint8_t kRisingEdge            = 3;
-const uint8_t kInput                 = 0;
 const unsigned long kMinimumPulseGap = 700;
 const float kMillisecondsInSecond    = 1000.0;
 const float kMillimetersInMeter      = 1000.0;
@@ -17,12 +15,13 @@ using namespace smartcarlib::constants::odometer;
 DirectionlessOdometer::DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime)
     : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? pulsesPerMeter / 100.0f
                                                : kDefaultPulsesPerMeter / 100.0f }
-    , mMillimetersPerPulse{ pulsesPerMeter > 0
-                                ? static_cast<unsigned long>(
-                                      lroundf(kMillimetersInMeter / pulsesPerMeter))
-                                : static_cast<unsigned long>(
-                                      lroundf(kMillimetersInMeter / kDefaultPulsesPerMeter)) }
+    , mMillimetersPerPulse{ pulsesPerMeter > 0 ? static_cast<unsigned long>(
+                                lroundf(kMillimetersInMeter / pulsesPerMeter))
+                                               : static_cast<unsigned long>(lroundf(
+                                                   kMillimetersInMeter / kDefaultPulsesPerMeter)) }
     , mRuntime(runtime)
+    , kInput{ mRuntime.getInputState() }
+    , kRisingEdge{ mRuntime.getRisingEdgeMode() }
     , mPin{ 0 }
     , mSensorAttached{ false }
     , mPulsesCounter{ 0 }

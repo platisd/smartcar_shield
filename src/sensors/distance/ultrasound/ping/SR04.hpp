@@ -3,8 +3,8 @@
  *  The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two
  * digital pins.
  *
- * For a more advanced solution (faster readings, not using `pulseIn`, non-blocking measurements etc)
- * please use the [NewPing library](https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home).
+ * For a more advanced solution (faster readings, not using `pulseIn`, non-blocking measurements
+ * etc) please use the [NewPing library](https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home).
  */
 #pragma once
 
@@ -70,7 +70,11 @@ private:
     const unsigned int kMaxDistance;
     const unsigned long kTimeout;
     Runtime& mRuntime;
-    bool mAttached;
+    bool mAttached{ false };
+    const uint8_t kOutput;
+    const uint8_t kInput;
+    const uint8_t kLow;
+    const uint8_t kHigh;
 
     void attach();
 };
