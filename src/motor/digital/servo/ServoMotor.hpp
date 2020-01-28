@@ -8,13 +8,8 @@
  */
 #pragma once
 
-#include <stdint.h>
-
-#ifdef ESP32
-#include "ESP32ArduinoServo.h"
-#else
 #include <Servo.h>
-#endif
+#include <stdint.h>
 
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
