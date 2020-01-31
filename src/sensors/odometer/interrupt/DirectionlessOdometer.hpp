@@ -39,7 +39,7 @@ public:
     virtual ~DirectionlessOdometer() = default;
 
     /* Check `Odometer` interface for documentation */
-    bool attach(uint8_t pin, void (*callback)()) override;
+    bool attach(uint8_t pin, InterruptCallback callback) override;
 
     /* Check `Odometer` interface for documentation */
     long getDistance() override;
@@ -67,10 +67,16 @@ public:
      * ```
      * const int ODOMETER_PIN = 2;
      * Odometer odometer;
-     * odometer.attach(ODOMETER_PIN, [](){odometer.update();});
+     * #ifdef ESP_BOARD
+     * odometer.attach(ODOMETER_PIN, std::bind(&DirectionlessOdometer::update, &odometer));
+     * #else
+     * odometer.attach(ODOMETER_PIN, []() { odometer.update(); });
+     * #endif
      * ```
      */
     virtual void update();
+
+    volatile unsigned long mPulsesCounter{ 0 };
 
 protected:
     const float mPulsesPerMeterRatio;
@@ -78,13 +84,10 @@ protected:
 private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
-    const uint8_t kInput;
-    const int kRisingEdge;
-    uint8_t mPin;
-    bool mSensorAttached;
-    volatile unsigned long mPulsesCounter;
-    volatile unsigned long mPreviousPulse;
-    volatile unsigned long mDt;
+    bool mSensorAttached{ false };
+    // volatile unsigned long mPulsesCounter{ 0 };
+    volatile unsigned long mPreviousPulse{ 0 };
+    volatile unsigned long mDt{ 0 };
 };
 
 /**

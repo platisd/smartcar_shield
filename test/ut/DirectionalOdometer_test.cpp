@@ -20,7 +20,7 @@ class DirectionalOdometerBasicTest : public Test
 public:
     DirectionalOdometerBasicTest()
         : mDirectionalOdometer(
-              kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, mRuntime)
+            kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, mRuntime)
     {
     }
 
@@ -86,12 +86,6 @@ TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateNotForward_WillRegist
     // The absolute distance has the same value but opposite sign to the relative distance
     // since we have only been moving backward
     EXPECT_LT(mDirectionalOdometer.getDistance(), 0);
-}
-
-TEST_F(DirectionalOdometerBasicTest, update_WhenNotAttached_WillDoNothing)
-{
-    EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    mDirectionalOdometer.update();
 }
 
 TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateForward_WillNotRegisterNegativeDistance)

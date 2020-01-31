@@ -2,8 +2,9 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <math.h>
-#ifdef ESP32
+#ifdef ESP_BOARD
 #include "analogWrite.h"
+#include <FunctionalInterrupt.h>
 #endif
 
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
@@ -11,12 +12,12 @@ void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
     pinMode(pin, direction);
 }
 
-void ArduinoRuntime::setPinState(uint8_t pin, uint8_t state)
+void STORED_IN_RAM ArduinoRuntime::setPinState(uint8_t pin, uint8_t state)
 {
     digitalWrite(pin, state);
 }
 
-int ArduinoRuntime::getPinState(uint8_t pin)
+int STORED_IN_RAM ArduinoRuntime::getPinState(uint8_t pin)
 {
     return digitalRead(pin);
 }
@@ -96,7 +97,7 @@ unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsig
     return pulseIn(pin, state, timeout);
 }
 
-void ArduinoRuntime::setInterrupt(uint8_t pin, void (*callback)(void), int mode)
+void ArduinoRuntime::setInterrupt(uint8_t pin, InterruptCallback callback, int mode)
 {
     attachInterrupt(pin, callback, mode);
 }

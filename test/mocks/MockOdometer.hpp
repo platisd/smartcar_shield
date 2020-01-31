@@ -7,7 +7,7 @@
 class MockOdometer : public Odometer
 {
 public:
-    MOCK_METHOD2(attach, bool(uint8_t pin, void (*callback)()));
+    MOCK_METHOD2(attach, bool(uint8_t pin, InterruptCallback callback));
     MOCK_METHOD0(getDistance, long());
     MOCK_METHOD0(getSpeed, float());
     MOCK_METHOD0(isAttached, bool());

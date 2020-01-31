@@ -39,7 +39,7 @@ public:
 #endif
 
     /* Check `DirectionlessOdometer` for documentation */
-    bool attach(uint8_t pin, void (*callback)()) override;
+    bool attach(uint8_t pin, InterruptCallback callback) override;
 
     /* Check `DirectionlessOdometer` for documentation */
     void reset() override;
@@ -72,7 +72,6 @@ private:
     const uint8_t mDirectionPin;
     const int mPinStateWhenForward;
     Runtime& mRuntime;
-    const uint8_t kInput;
     volatile unsigned long mNegativePulsesCounter{ 0 };
-    volatile int mDirection{ smartcarlib::constants::odometer::kForward };
+    volatile int mDirectionPinState;
 };

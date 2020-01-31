@@ -6,15 +6,17 @@
 
 #include <stdint.h>
 
+#include "../../runtime/InterruptCallback.hpp"
+
 namespace smartcarlib
 {
 namespace constants
 {
 namespace odometer
 {
-const int8_t kForward  = 1;
-const int8_t kBackward = -1;
-const int kNotAttachedError = -1000;
+const int8_t kForward                      = 1;
+const int8_t kBackward                     = -1;
+const int kNotAttachedError                = -1000;
 const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
 } // namespace odometer
 } // namespace constants
@@ -23,7 +25,6 @@ const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
 class Odometer
 {
 public:
-
     /**
      * Initializes the Odometer to receive pulses from the specified pin
      * @param  pin      The pin to receive pulses from, which **must** support
@@ -42,13 +43,14 @@ public:
      * DirectionlessOdometer leftOdometer(PULSES_PER_METER);
      *
      * void setup() {
-     *   leftOdometer.attach(LEFT_ODOMETER_PIN, []() {
-     *     leftOdometer.update();
-     *   });
+     * #ifdef ESP_BOARD
+     * leftOdometer.attach(RIGHT_ODOMETER_PIN, std::bind(&DirectionlessOdometer::update,
+     * leftOdometer)); #else leftOdometer.attach(odometerPin, []() { leftOdometer.update(); });
+     * #endif
      * }
      * \endcode
      */
-    virtual bool attach(uint8_t pin, void (*callback)()) = 0;
+    virtual bool attach(uint8_t pin, InterruptCallback callback) = 0;
 
     /**
      * Returns the travelled distance in centimeters where sign can indicate

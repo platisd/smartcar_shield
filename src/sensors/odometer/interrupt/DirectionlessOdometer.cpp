@@ -20,28 +20,20 @@ DirectionlessOdometer::DirectionlessOdometer(unsigned long pulsesPerMeter, Runti
                                                : static_cast<unsigned long>(lroundf(
                                                    kMillimetersInMeter / kDefaultPulsesPerMeter)) }
     , mRuntime(runtime)
-    , kInput{ mRuntime.getInputState() }
-    , kRisingEdge{ mRuntime.getRisingEdgeMode() }
-    , mPin{ 0 }
-    , mSensorAttached{ false }
-    , mPulsesCounter{ 0 }
-    , mPreviousPulse{ 0 }
-    , mDt{ 0 }
 {
 }
 
-bool DirectionlessOdometer::attach(uint8_t pin, void (*callback)(void))
+bool DirectionlessOdometer::attach(uint8_t pin, InterruptCallback callback)
 {
     auto interruptPin = mRuntime.pinToInterrupt(pin);
     if (interruptPin == kNotAnInterrupt)
     {
         return false;
     }
-    mRuntime.setPinDirection(pin, kInput);
-    mPin            = interruptPin;
+    mRuntime.setPinDirection(pin, mRuntime.getInputState());
     mSensorAttached = true;
 
-    mRuntime.setInterrupt(mPin, callback, kRisingEdge);
+    mRuntime.setInterrupt(interruptPin, callback, mRuntime.getRisingEdgeMode());
 
     return true;
 }
@@ -78,12 +70,8 @@ void DirectionlessOdometer::reset()
     mDt            = 0;
 }
 
-void DirectionlessOdometer::update()
+void STORED_IN_RAM DirectionlessOdometer::update()
 {
-    if (!isAttached())
-    {
-        return;
-    }
     // Calculate the difference in time between the last two pulses (in microseconds)
     auto currentPulse = mRuntime.currentTimeMicros();
     auto dt           = currentPulse - mPreviousPulse;

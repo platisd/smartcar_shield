@@ -11,6 +11,23 @@
 #include <stddef.h>
 #include <stdint.h>
 
+// Determine if we use an Espressif platform (i.e. an ESP32 or ESP8266 board).
+// We need this since they are not fully compatible with the Arduino API
+// and therefore we have to do some extra adaptations.
+#if defined(ESP32) || defined(ESP8266)
+#define ESP_BOARD
+#endif
+
+#include "InterruptCallback.hpp"
+
+#ifdef ESP_BOARD
+#include "esp_attr.h"
+#define STORED_IN_RAM IRAM_ATTR
+#else
+using InterruptCallback = void (*)();
+#define STORED_IN_RAM
+#endif
+
 class Runtime
 {
 public:
@@ -153,7 +170,7 @@ public:
      * @param callback  The callback to be executed
      * @param mode      The state of the pin to run the callback
      */
-    virtual void setInterrupt(uint8_t pin, void (*callback)(void), int mode) = 0;
+    virtual void setInterrupt(uint8_t pin, InterruptCallback callback, int mode) = 0;
 
     /**
      * @brief Get the runtime-specific value representing a logical `LOW` voltage state
