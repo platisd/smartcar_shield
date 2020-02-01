@@ -82,8 +82,6 @@ TEST_F(DistanceCarTest, getDistance_WhenOdometersNotAttached_WillReturnError)
 {
     EXPECT_CALL(mOdometerLeft, isAttached()).Times(AtMost(1)).WillOnce(Return(false));
     EXPECT_CALL(mOdometerRight, isAttached()).Times(AtMost(1)).WillOnce(Return(false));
-    EXPECT_CALL(mOdometerLeft, attach(_, _)).Times(AtMost(2));
-    EXPECT_CALL(mOdometerRight, attach(_, _)).Times(AtMost(2));
     EXPECT_CALL(mOdometerLeft, getDistance()).Times(0);
     EXPECT_CALL(mOdometerRight, getDistance()).Times(0);
 

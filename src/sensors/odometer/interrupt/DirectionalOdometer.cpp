@@ -2,27 +2,19 @@
 
 using namespace smartcarlib::constants::odometer;
 
-DirectionalOdometer::DirectionalOdometer(uint8_t directionPin,
+DirectionalOdometer::DirectionalOdometer(uint8_t pin,
+                                         InterruptCallback callback,
+                                         uint8_t directionPin,
                                          int pinStateWhenForward,
                                          unsigned long pulsesPerMeter,
                                          Runtime& runtime)
-    : DirectionlessOdometer(pulsesPerMeter, runtime)
+    : DirectionlessOdometer(pin, callback, pulsesPerMeter, runtime)
     , mDirectionPin{ directionPin }
     , mPinStateWhenForward{ pinStateWhenForward }
     , mRuntime(runtime)
-    , mDirectionPinState{ pinStateWhenForward }
+    , mDirectionPinState{ mRuntime.getPinState(mDirectionPin) }
 {
-}
-
-bool DirectionalOdometer::attach(uint8_t pin, InterruptCallback callback)
-{
-    auto success = DirectionlessOdometer::attach(pin, callback);
-    if (success)
-    {
-        mRuntime.setPinDirection(mDirectionPin, mRuntime.getInputState());
-    }
-
-    return success;
+    mRuntime.setPinDirection(mDirectionPin, mRuntime.getInputState());
 }
 
 void DirectionalOdometer::reset()
@@ -69,7 +61,7 @@ int8_t DirectionalOdometer::getDirection() const
                                                       : smartcarlib::constants::odometer::kBackward;
 }
 
-bool DirectionalOdometer::providesDirection()
+bool DirectionalOdometer::providesDirection() const
 {
     return true;
 }

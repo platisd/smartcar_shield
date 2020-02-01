@@ -26,33 +26,6 @@ class Odometer
 {
 public:
     /**
-     * Initializes the Odometer to receive pulses from the specified pin
-     * @param  pin      The pin to receive pulses from, which **must** support
-     *                  external hardware interrupts
-     * @param  callback The function to be run on each incoming pulse. Please use the following as
-     *                  an argument: `[](){yourOdometerInstance.update();}`
-     * @return          `false` if an error occurred, i.e. invalid pin
-     *
-     * You **must** run this function before making any calls to your Odometer
-     * or you will not get any usable distance or speed from it.
-     *
-     * **Example:**
-     * \code
-     * const unsigned short LEFT_ODOMETER_PIN = 2;
-     * const unsigned long PULSES_PER_METER = 80;
-     * DirectionlessOdometer leftOdometer(PULSES_PER_METER);
-     *
-     * void setup() {
-     * #ifdef ESP_BOARD
-     * leftOdometer.attach(RIGHT_ODOMETER_PIN, std::bind(&DirectionlessOdometer::update,
-     * leftOdometer)); #else leftOdometer.attach(odometerPin, []() { leftOdometer.update(); });
-     * #endif
-     * }
-     * \endcode
-     */
-    virtual bool attach(uint8_t pin, InterruptCallback callback) = 0;
-
-    /**
      * Returns the travelled distance in centimeters where sign can indicate
      * direction if there is hardware support
      * @return The travelled distance in centimeters
@@ -85,7 +58,7 @@ public:
      * bool hasAttachBeenRun = odometer.isAttached();
      * \endcode
      */
-    virtual bool isAttached() = 0;
+    virtual bool isAttached() const = 0;
 
     /**
      * Return whether the sensor is capable of inferring the direction of movement
@@ -96,5 +69,5 @@ public:
      * bool directional = odometer.providesDirection();
      * \endcode
      */
-    virtual bool providesDirection() = 0;
+    virtual bool providesDirection() const = 0;
 };

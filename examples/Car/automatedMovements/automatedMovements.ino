@@ -1,34 +1,39 @@
 #include <Smartcar.h>
 
-const unsigned short LEFT_ODOMETER_PIN  = 2;
-const unsigned short RIGHT_ODOMETER_PIN = 3;
-const float carSpeed                    = 1.0;
-const long distanceToTravel             = 40;
-const int degreesToTurn                 = 90;
+const float carSpeed        = 1.0;
+const long distanceToTravel = 40;
+const int degreesToTurn     = 90;
 
 BrushedMotor leftMotor(8, 10, 9);
 BrushedMotor rightMotor(12, 13, 11);
 DifferentialControl control(leftMotor, rightMotor);
 
 GY50 gyroscope(37);
-DirectionlessOdometer leftOdometer(100);
-DirectionlessOdometer rightOdometer(100);
+
+const auto odometerLeftPin       = 2;
+const auto odometerRightPin      = 3;
+const auto pulsesPerMeterLeft    = 50;
+const auto pulsesPerMeterRight   = 60;
+const unsigned short odometerPin = 2;
+
+#ifdef ESP_BOARD
+DirectionlessOdometer leftOdometer(odometerLeftPin,
+                                   std::bind(&DirectionlessOdometer::update, &leftOdometer),
+                                   pulsesPerMeterLeft);
+DirectionlessOdometer rightOdometer(odometerRightPin,
+                                    std::bind(&DirectionlessOdometer::update, &rightOdometer),
+                                    pulsesPerMeterRight);
+#else
+DirectionlessOdometer leftOdometer(
+    odometerLeftPin, []() { leftOdometer.update(); }, pulsesPerMeterLeft);
+DirectionlessOdometer rightOdometer(
+    odometerRightPin, []() { rightOdometer.update(); }, pulsesPerMeterRight);
+#endif
 
 SmartCar car(control, gyroscope, leftOdometer, rightOdometer);
 
 void setup()
 {
-
-#ifdef ESP_BOARD
-    leftOdometer.attach(LEFT_ODOMETER_PIN,
-                        std::bind(&DirectionlessOdometer::update, &leftOdometer));
-    rightOdometer.attach(RIGHT_ODOMETER_PIN,
-                         std::bind(&DirectionlessOdometer::update, &rightOdometer));
-#else
-    leftOdometer.attach(LEFT_ODOMETER_PIN, []() { leftOdometer.update(); });
-    rightOdometer.attach(RIGHT_ODOMETER_PIN, []() { rightOdometer.update(); });
-#endif
-
     car.enableCruiseControl();
 
     // Travel around an imaginary square

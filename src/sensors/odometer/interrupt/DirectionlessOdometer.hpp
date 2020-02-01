@@ -26,20 +26,32 @@ public:
      *
      * **Example:**
      * \code
+     * unsigned short ODOMETER_PIN = 32;
      * unsigned long PULSES_PER_METER = 110;
      *
-     * DirectionlessOdometer odometer(PULSES_PER_METER);
+     * #ifdef ESP_BOARD
+     * DirectionlessOdometer odometer(ODOMETER_PIN,
+     *                                std::bind(&DirectionlessOdometer::update, odometer),
+     *                                PULSES_PER_METER);
+     * #else
+     * DirectionlessOdometer odometer(ODOMETER_PIN,
+     *                                []() { odometer.update(); },
+     *                                PULSES_PER_METER);
+     * #endif
      * \endcode
      */
-    DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime = arduinoRuntime);
+    DirectionlessOdometer(uint8_t pin,
+                          InterruptCallback callback,
+                          unsigned long pulsesPerMeter,
+                          Runtime& runtime = arduinoRuntime);
 #else
-    DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime);
+    DirectionlessOdometer(uint8_t pin,
+                          InterruptCallback callback,
+                          unsigned long pulsesPerMeter,
+                          Runtime& runtime);
 #endif
 
     virtual ~DirectionlessOdometer() = default;
-
-    /* Check `Odometer` interface for documentation */
-    bool attach(uint8_t pin, InterruptCallback callback) override;
 
     /* Check `Odometer` interface for documentation */
     long getDistance() override;
@@ -48,10 +60,10 @@ public:
     float getSpeed() override;
 
     /* Check `Odometer` interface for documentation */
-    bool isAttached() override;
+    bool isAttached() const override;
 
     /* Check `Odometer` interface for documentation */
-    bool providesDirection() override;
+    bool providesDirection() const override;
 
     /**
      * Resets the total travelled distance and speed to `0`
@@ -63,16 +75,7 @@ public:
      * Updates the current dt with the time difference between the last two pulses
      * and increases the pulse counter.
      * **Do not** call it directly in your sketch!
-     * Instead, pass it inside a lambda as an argument to `attach`. Example:
-     * ```
-     * const int ODOMETER_PIN = 2;
-     * Odometer odometer;
-     * #ifdef ESP_BOARD
-     * odometer.attach(ODOMETER_PIN, std::bind(&DirectionlessOdometer::update, &odometer));
-     * #else
-     * odometer.attach(ODOMETER_PIN, []() { odometer.update(); });
-     * #endif
-     * ```
+     * Instead, pass it in a lambda or `std::bind` expression to the constructor.
      */
     virtual void update();
 
@@ -84,7 +87,7 @@ protected:
 private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
-    bool mSensorAttached{ false };
+    const bool kSensorAttached;
     // volatile unsigned long mPulsesCounter{ 0 };
     volatile unsigned long mPreviousPulse{ 0 };
     volatile unsigned long mDt{ 0 };

@@ -1,20 +1,28 @@
 #include <Smartcar.h>
 
-DirectionlessOdometer leftOdometer(50), rightOdometer(60);
-const int odometerLeftPin  = 2;
-const int odometerRightPin = 3;
+const auto odometerLeftPin       = 2;
+const auto odometerRightPin      = 3;
+const auto pulsesPerMeterLeft    = 50;
+const auto pulsesPerMeterRight   = 60;
+const unsigned short odometerPin = 2;
+
+#ifdef ESP_BOARD
+DirectionlessOdometer leftOdometer(odometerLeftPin,
+                                   std::bind(&DirectionlessOdometer::update, &leftOdometer),
+                                   pulsesPerMeterLeft);
+DirectionlessOdometer rightOdometer(odometerRightPin,
+                                    std::bind(&DirectionlessOdometer::update, &rightOdometer),
+                                    pulsesPerMeterRight);
+#else
+DirectionlessOdometer leftOdometer(
+    odometerLeftPin, []() { leftOdometer.update(); }, pulsesPerMeterLeft);
+DirectionlessOdometer rightOdometer(
+    odometerRightPin, []() { rightOdometer.update(); }, pulsesPerMeterRight);
+#endif
 
 void setup()
 {
     Serial.begin(9600);
-#ifdef ESP_BOARD
-    leftOdometer.attach(LEFT_ODOMETER_PIN, std::bind(&DirectionlessOdometer::update, &leftOdometer));
-    rightOdometer.attach(RIGHT_ODOMETER_PIN,
-                         std::bind(&DirectionlessOdometer::update, &rightOdometer));
-#else
-    leftOdometer.attach(LEFT_ODOMETER_PIN, []() { leftOdometer.update(); });
-    rightOdometer.attach(RIGHT_ODOMETER_PIN, []() { rightOdometer.update(); });
-#endif
 }
 
 void loop()

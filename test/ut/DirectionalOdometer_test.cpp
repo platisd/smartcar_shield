@@ -13,19 +13,17 @@ const int8_t kAnInterrupt          = 1;
 const uint8_t kDirectionPin        = 5;
 const uint8_t kPinStateWhenForward = 1;
 const int8_t kNotAnInterrupt       = -1;
+const uint8_t kPin                 = 23;
+const auto kDummyCallback          = []() {};
 } // namespace
 
 class DirectionalOdometerBasicTest : public Test
 {
 public:
-    DirectionalOdometerBasicTest()
-        : mDirectionalOdometer(
-            kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, mRuntime)
-    {
-    }
-
     NiceMock<MockRuntime> mRuntime;
-    DirectionalOdometer mDirectionalOdometer;
+    DirectionalOdometer mDirectionalOdometer{
+        kPin, kDummyCallback, kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, mRuntime
+    };
 };
 
 class DirectionalOdometerAttachedTest : public DirectionalOdometerBasicTest
@@ -38,11 +36,6 @@ public:
 
     virtual void SetUp()
     {
-        // Attach the sensor
-        uint8_t pulsePin = 13;
-        ON_CALL(mRuntime, pinToInterrupt(_)).WillByDefault(Return(kAnInterrupt));
-        mDirectionalOdometer.attach(pulsePin, []() {});
-
         // Calls to microseconds timer return values at 1 millisecond intervals
         auto timer = [this]() {
             mCounter += 1000;
@@ -54,22 +47,34 @@ public:
     unsigned long mCounter;
 };
 
-TEST_F(DirectionalOdometerBasicTest, attach_WhenInvalidPin_WillNotSetAnyPinDirections)
+class DirectionalOdometerNotAttachedTest : public Test
 {
-    EXPECT_CALL(mRuntime, pinToInterrupt(_)).WillOnce(Return(kNotAnInterrupt));
-    EXPECT_CALL(mRuntime, setPinDirection(_, _)).Times(0);
+public:
+    virtual void SetUp()
+    {
+        EXPECT_CALL(mRuntime, pinToInterrupt(_)).Times(2).WillRepeatedly(Return(kNotAnInterrupt));
+        mDirectionalOdometer = std::make_unique<DirectionalOdometer>(kPin,
+                                                                     kDummyCallback,
+                                                                     kDirectionPin,
+                                                                     kPinStateWhenForward,
+                                                                     kDefaultPulsesPerMeter,
+                                                                     mRuntime);
+    }
 
-    EXPECT_FALSE(mDirectionalOdometer.attach(0, []() {}));
-}
+    NiceMock<MockRuntime> mRuntime;
+    std::unique_ptr<DirectionalOdometer> mDirectionalOdometer;
+};
 
-TEST_F(DirectionalOdometerBasicTest, attach_WhenCalled_WillSetDirectionPin)
+TEST(DirectionalOdometerConstructorTest, constructor_WhenCalled_WillSetDirectionPin)
 {
-    uint8_t pulsePin = 1;
-    EXPECT_CALL(mRuntime, pinToInterrupt(_)).WillOnce(Return(kAnInterrupt));
-    EXPECT_CALL(mRuntime, setPinDirection(pulsePin, kInput));
-    EXPECT_CALL(mRuntime, setPinDirection(kDirectionPin, kInput));
-
-    EXPECT_TRUE(mDirectionalOdometer.attach(pulsePin, []() {}));
+    NiceMock<MockRuntime> runtime;
+    const auto inputState = 2;
+    EXPECT_CALL(runtime, getInputState()).Times(AtLeast(1)).WillRepeatedly(Return(inputState));
+    EXPECT_CALL(runtime, setPinDirection(_, inputState)).Times(AtLeast(1));
+    EXPECT_CALL(runtime, setPinDirection(kDirectionPin, inputState));
+    DirectionalOdometer directionalOdometer{
+        kPin, kDummyCallback, kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, runtime
+    };
 }
 
 TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateNotForward_WillRegisterNegativeDistance)
@@ -104,10 +109,10 @@ TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateForward_WillNotRegist
     EXPECT_GT(mDirectionalOdometer.getDistance(), 0);
 }
 
-TEST_F(DirectionalOdometerBasicTest, getDistance_WhenNotAttached_WillReturnError)
+TEST_F(DirectionalOdometerNotAttachedTest, getDistance_WhenNotAttached_WillReturnError)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_EQ(mDirectionalOdometer.getDistance(), kNotAttachedError);
+    EXPECT_EQ(mDirectionalOdometer->getDistance(), kNotAttachedError);
 }
 
 TEST_F(DirectionalOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
@@ -165,10 +170,10 @@ TEST_F(DirectionalOdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistance
     EXPECT_EQ(mDirectionalOdometer.getDistance(), 0);
 }
 
-TEST_F(DirectionalOdometerBasicTest, getSpeed_WhenNotAttached_WillReturnError)
+TEST_F(DirectionalOdometerNotAttachedTest, getSpeed_WhenNotAttached_WillReturnError)
 {
     EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_FLOAT_EQ(mDirectionalOdometer.getSpeed(), kNotAttachedError);
+    EXPECT_FLOAT_EQ(mDirectionalOdometer->getSpeed(), kNotAttachedError);
 }
 
 TEST_F(DirectionalOdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpeed)

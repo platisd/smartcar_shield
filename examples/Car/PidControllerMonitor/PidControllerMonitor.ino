@@ -5,33 +5,39 @@
 
 #include <Smartcar.h>
 
-const unsigned long PRINTOUT_INTERVAL   = 100;
-const unsigned short LEFT_ODOMETER_PIN  = 2;
-const unsigned short RIGHT_ODOMETER_PIN = 3;
-unsigned long previousPrintOut          = 0;
-float carSpeed                          = 0.5;
+const unsigned long PRINTOUT_INTERVAL = 100;
+unsigned long previousPrintOut        = 0;
+float carSpeed                        = 0.5;
 
 BrushedMotor leftMotor(8, 10, 9);
 BrushedMotor rightMotor(12, 13, 11);
 DifferentialControl control(leftMotor, rightMotor);
 
-DirectionlessOdometer leftOdometer(78);
-DirectionlessOdometer rightOdometer(78);
+const auto odometerLeftPin       = 2;
+const auto odometerRightPin      = 3;
+const auto pulsesPerMeterLeft    = 50;
+const auto pulsesPerMeterRight   = 60;
+const unsigned short odometerPin = 2;
+
+#ifdef ESP_BOARD
+DirectionlessOdometer leftOdometer(odometerLeftPin,
+                                   std::bind(&DirectionlessOdometer::update, &leftOdometer),
+                                   pulsesPerMeterLeft);
+DirectionlessOdometer rightOdometer(odometerRightPin,
+                                    std::bind(&DirectionlessOdometer::update, &rightOdometer),
+                                    pulsesPerMeterRight);
+#else
+DirectionlessOdometer leftOdometer(
+    odometerLeftPin, []() { leftOdometer.update(); }, pulsesPerMeterLeft);
+DirectionlessOdometer rightOdometer(
+    odometerRightPin, []() { rightOdometer.update(); }, pulsesPerMeterRight);
+#endif
 
 DistanceCar car(control, leftOdometer, rightOdometer);
 
 void setup()
 {
     Serial.begin(9600);
-
-#ifdef ESP_BOARD
-    leftOdometer.attach(LEFT_ODOMETER_PIN, std::bind(&DirectionlessOdometer::update, &leftOdometer));
-    rightOdometer.attach(RIGHT_ODOMETER_PIN,
-                         std::bind(&DirectionlessOdometer::update, &rightOdometer));
-#else
-    leftOdometer.attach(LEFT_ODOMETER_PIN, []() { leftOdometer.update(); });
-    rightOdometer.attach(RIGHT_ODOMETER_PIN, []() { rightOdometer.update(); });
-#endif
 
     car.enableCruiseControl(2, 0, 4);
     car.setSpeed(carSpeed);

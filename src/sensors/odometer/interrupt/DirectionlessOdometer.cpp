@@ -12,7 +12,10 @@ const float kMillimetersInMeter      = 1000.0;
 
 using namespace smartcarlib::constants::odometer;
 
-DirectionlessOdometer::DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime)
+DirectionlessOdometer::DirectionlessOdometer(uint8_t pin,
+                                             InterruptCallback callback,
+                                             unsigned long pulsesPerMeter,
+                                             Runtime& runtime)
     : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? pulsesPerMeter / 100.0f
                                                : kDefaultPulsesPerMeter / 100.0f }
     , mMillimetersPerPulse{ pulsesPerMeter > 0 ? static_cast<unsigned long>(
@@ -20,22 +23,10 @@ DirectionlessOdometer::DirectionlessOdometer(unsigned long pulsesPerMeter, Runti
                                                : static_cast<unsigned long>(lroundf(
                                                    kMillimetersInMeter / kDefaultPulsesPerMeter)) }
     , mRuntime(runtime)
+    , kSensorAttached{ mRuntime.pinToInterrupt(pin) != kNotAnInterrupt }
 {
-}
-
-bool DirectionlessOdometer::attach(uint8_t pin, InterruptCallback callback)
-{
-    auto interruptPin = mRuntime.pinToInterrupt(pin);
-    if (interruptPin == kNotAnInterrupt)
-    {
-        return false;
-    }
     mRuntime.setPinDirection(pin, mRuntime.getInputState());
-    mSensorAttached = true;
-
-    mRuntime.setInterrupt(interruptPin, callback, mRuntime.getRisingEdgeMode());
-
-    return true;
+    mRuntime.setInterrupt(mRuntime.pinToInterrupt(pin), callback, mRuntime.getRisingEdgeMode());
 }
 
 long DirectionlessOdometer::getDistance()
@@ -58,9 +49,9 @@ float DirectionlessOdometer::getSpeed()
     return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / mDt : 0;
 }
 
-bool DirectionlessOdometer::isAttached()
+bool DirectionlessOdometer::isAttached() const
 {
-    return mSensorAttached;
+    return kSensorAttached;
 }
 
 void DirectionlessOdometer::reset()
@@ -91,7 +82,7 @@ void STORED_IN_RAM DirectionlessOdometer::update()
     mPulsesCounter++;
 }
 
-bool DirectionlessOdometer::providesDirection()
+bool DirectionlessOdometer::providesDirection() const
 {
     return false;
 }

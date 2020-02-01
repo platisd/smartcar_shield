@@ -20,26 +20,40 @@ public:
      *
      * **Example:**
      * \code
+     * unsigned short ODOMETER_PIN = 32;
      * unsigned short DIRECTION_PIN = 8;
      * unsigned short FORWARD_STATE = LOW;
      * unsigned long PULSES_PER_METER = 40;
      *
-     * DirectionalOdometer odometer(DIRECTION_PIN, FORWARD_STATE, PULSES_PER_METER);
+     * #ifdef ESP_BOARD
+     * DirectionalOdometer odometer(ODOMETER_PIN,
+     *                              std::bind(&DirectionlessOdometer::update, odometer),
+     *                              DIRECTION_PIN,
+     *                              FORWARD_STATE,
+     *                              PULSES_PER_METER);
+     * #else
+     * DirectionalOdometer odometer(ODOMETER_PIN,
+     *                              []() { odometer.update(); },
+     *                              DIRECTION_PIN,
+     *                              FORWARD_STATE,
+     *                              PULSES_PER_METER);
+     * #endif
      * \endcode
      */
-    DirectionalOdometer(uint8_t directionPin,
+    DirectionalOdometer(uint8_t pin,
+                        InterruptCallback callback,
+                        uint8_t directionPin,
                         int pinStateWhenForward,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime = arduinoRuntime);
 #else
-    DirectionalOdometer(uint8_t directionPin,
+    DirectionalOdometer(uint8_t pin,
+                        InterruptCallback callback,
+                        uint8_t directionPin,
                         int pinStateWhenForward,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime);
 #endif
-
-    /* Check `DirectionlessOdometer` for documentation */
-    bool attach(uint8_t pin, InterruptCallback callback) override;
 
     /* Check `DirectionlessOdometer` for documentation */
     void reset() override;
@@ -54,7 +68,7 @@ public:
     float getSpeed() override;
 
     /* Check `Odometer` interface for documentation */
-    bool providesDirection() override;
+    bool providesDirection() const override;
 
     /**
      * Get the direction of movement
@@ -75,3 +89,8 @@ private:
     volatile unsigned long mNegativePulsesCounter{ 0 };
     volatile int mDirectionPinState;
 };
+
+/**
+ * \example directionalOdometers.ino
+ * An example on how to get the travelled distance from two DirectionalOdometer.
+ */
