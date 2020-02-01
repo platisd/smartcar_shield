@@ -21,9 +21,14 @@
 #include "InterruptCallback.hpp"
 
 #ifdef ESP_BOARD
+#if defined(ESP32)
 #include "esp_attr.h"
 #define STORED_IN_RAM IRAM_ATTR
-#else
+#else // ESP8266
+#include "c_types.h"
+#define STORED_IN_RAM ICACHE_RAM_ATTR
+#endif
+#else // Other architectures
 using InterruptCallback = void (*)();
 #define STORED_IN_RAM
 #endif

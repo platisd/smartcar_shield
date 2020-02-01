@@ -3,7 +3,13 @@
 #include <Wire.h>
 #include <math.h>
 #ifdef ESP_BOARD
+#if defined(ESP32)
 #include "analogWrite.h"
+#endif
+#if defined(ESP8266)
+#define TEN_BIT_ANALOG
+#include "../../utilities/Utilities.hpp"
+#endif
 #include <FunctionalInterrupt.h>
 #endif
 
@@ -29,6 +35,9 @@ int ArduinoRuntime::getAnalogPinState(uint8_t pin)
 
 void ArduinoRuntime::setPWM(uint8_t pin, int dutyCycle)
 {
+#ifdef TEN_BIT_ANALOG
+    dutyCycle = smartcarlib::utils::getMap(dutyCycle, 0, 255, 0, 1023);
+#endif
     analogWrite(pin, dutyCycle);
 }
 
