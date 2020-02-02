@@ -29,7 +29,6 @@
 #define STORED_IN_RAM ICACHE_RAM_ATTR
 #endif
 #else // Other architectures
-using InterruptCallback = void (*)();
 #define STORED_IN_RAM
 #endif
 

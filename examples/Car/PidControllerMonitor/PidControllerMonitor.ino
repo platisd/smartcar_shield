@@ -19,19 +19,10 @@ const auto pulsesPerMeterLeft    = 50;
 const auto pulsesPerMeterRight   = 60;
 const unsigned short odometerPin = 2;
 
-#ifdef ESP_BOARD
-DirectionlessOdometer leftOdometer(odometerLeftPin,
-                                   std::bind(&DirectionlessOdometer::update, &leftOdometer),
-                                   pulsesPerMeterLeft);
-DirectionlessOdometer rightOdometer(odometerRightPin,
-                                    std::bind(&DirectionlessOdometer::update, &rightOdometer),
-                                    pulsesPerMeterRight);
-#else
 DirectionlessOdometer leftOdometer(
     odometerLeftPin, []() { leftOdometer.update(); }, pulsesPerMeterLeft);
 DirectionlessOdometer rightOdometer(
     odometerRightPin, []() { rightOdometer.update(); }, pulsesPerMeterRight);
-#endif
 
 DistanceCar car(control, leftOdometer, rightOdometer);
 

@@ -25,19 +25,11 @@ public:
      * unsigned short FORWARD_STATE = LOW;
      * unsigned long PULSES_PER_METER = 40;
      *
-     * #ifdef ESP_BOARD
-     * DirectionalOdometer odometer(ODOMETER_PIN,
-     *                              std::bind(&DirectionlessOdometer::update, odometer),
-     *                              DIRECTION_PIN,
-     *                              FORWARD_STATE,
-     *                              PULSES_PER_METER);
-     * #else
      * DirectionalOdometer odometer(ODOMETER_PIN,
      *                              []() { odometer.update(); },
      *                              DIRECTION_PIN,
      *                              FORWARD_STATE,
      *                              PULSES_PER_METER);
-     * #endif
      * \endcode
      */
     DirectionalOdometer(uint8_t pin,

@@ -29,15 +29,9 @@ public:
      * unsigned short ODOMETER_PIN = 32;
      * unsigned long PULSES_PER_METER = 110;
      *
-     * #ifdef ESP_BOARD
-     * DirectionlessOdometer odometer(ODOMETER_PIN,
-     *                                std::bind(&DirectionlessOdometer::update, odometer),
-     *                                PULSES_PER_METER);
-     * #else
      * DirectionlessOdometer odometer(ODOMETER_PIN,
      *                                []() { odometer.update(); },
      *                                PULSES_PER_METER);
-     * #endif
      * \endcode
      */
     DirectionlessOdometer(uint8_t pin,
@@ -75,7 +69,7 @@ public:
      * Updates the current dt with the time difference between the last two pulses
      * and increases the pulse counter.
      * **Do not** call it directly in your sketch!
-     * Instead, pass it in a lambda or `std::bind` expression to the constructor.
+     * Instead, pass it in a lambda to the constructor.
      */
     virtual void update();
 

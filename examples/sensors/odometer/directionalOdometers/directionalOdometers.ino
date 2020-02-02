@@ -8,18 +8,6 @@ const unsigned short FORWARD_STATE         = LOW;
 const unsigned long LEFT_PULSES_PER_METER  = 600;
 const unsigned long RIGHT_PULSES_PER_METER = 740;
 
-#ifdef ESP_BOARD
-DirectionalOdometer leftOdometer(LEFT_ODOMETER_PIN,
-                                 std::bind(&DirectionlessOdometer::update, &leftOdometer),
-                                 LEFT_DIRECTION_PIN,
-                                 FORWARD_STATE,
-                                 LEFT_PULSES_PER_METER);
-DirectionalOdometer rightOdometer(RIGHT_ODOMETER_PIN,
-                                  std::bind(&DirectionlessOdometer::update, &rightOdometer),
-                                  RIGHT_DIRECTION_PIN,
-                                  FORWARD_STATE,
-                                  RIGHT_PULSES_PER_METER);
-#else
 DirectionalOdometer leftOdometer(
     LEFT_ODOMETER_PIN,
     []() { leftOdometer.update(); },
@@ -32,7 +20,6 @@ DirectionalOdometer rightOdometer(
     RIGHT_DIRECTION_PIN,
     FORWARD_STATE,
     RIGHT_PULSES_PER_METER);
-#endif
 
 void setup()
 {

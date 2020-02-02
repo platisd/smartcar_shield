@@ -2,13 +2,9 @@
 
 const unsigned short odometerPin   = 2;
 const unsigned long pulsesPerMeter = 100;
-#ifdef ESP_BOARD
-DirectionlessOdometer
-    odometer(odometerPin, std::bind(&DirectionlessOdometer::update, &odometer), pulsesPerMeter);
-#else
+
 DirectionlessOdometer odometer(
     odometerPin, []() { odometer.update(); }, pulsesPerMeter);
-#endif
 
 void setup()
 {

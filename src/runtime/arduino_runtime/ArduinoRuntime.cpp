@@ -10,7 +10,6 @@
 #define TEN_BIT_ANALOG
 #include "../../utilities/Utilities.hpp"
 #endif
-#include <FunctionalInterrupt.h>
 #endif
 
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
