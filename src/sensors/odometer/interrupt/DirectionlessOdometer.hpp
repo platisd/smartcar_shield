@@ -73,8 +73,6 @@ public:
      */
     virtual void update();
 
-    volatile unsigned long mPulsesCounter{ 0 };
-
 protected:
     const float mPulsesPerMeterRatio;
 
@@ -82,7 +80,7 @@ private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
     const bool kSensorAttached;
-    // volatile unsigned long mPulsesCounter{ 0 };
+    volatile unsigned long mPulsesCounter{ 0 };
     volatile unsigned long mPreviousPulse{ 0 };
     volatile unsigned long mDt{ 0 };
 };
