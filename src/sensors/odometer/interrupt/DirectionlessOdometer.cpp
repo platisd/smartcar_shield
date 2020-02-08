@@ -4,10 +4,9 @@
 
 namespace
 {
-const int8_t kNotAnInterrupt         = -1;
-const unsigned long kMinimumPulseGap = 700;
-const float kMillisecondsInSecond    = 1000.0;
-const float kMillimetersInMeter      = 1000.0;
+const int8_t kNotAnInterrupt      = -1;
+const float kMillisecondsInSecond = 1000.0;
+const float kMillimetersInMeter   = 1000.0;
 } // namespace
 
 using namespace smartcarlib::constants::odometer;

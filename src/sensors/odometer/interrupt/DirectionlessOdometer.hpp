@@ -75,14 +75,14 @@ public:
 
 protected:
     const float mPulsesPerMeterRatio;
+    volatile unsigned long mPulsesCounter{ 0 };
+    volatile unsigned long mPreviousPulse{ 0 };
+    volatile unsigned long mDt{ 0 };
 
 private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
     const bool kSensorAttached;
-    volatile unsigned long mPulsesCounter{ 0 };
-    volatile unsigned long mPreviousPulse{ 0 };
-    volatile unsigned long mDt{ 0 };
 };
 
 /**

@@ -1,6 +1,12 @@
 #include "DirectionalOdometer.hpp"
+#include <limits.h>
 
 using namespace smartcarlib::constants::odometer;
+
+namespace
+{
+const auto kInvalidPinState = INT_MIN;
+}
 
 DirectionalOdometer::DirectionalOdometer(uint8_t pin,
                                          InterruptCallback callback,
@@ -12,8 +18,8 @@ DirectionalOdometer::DirectionalOdometer(uint8_t pin,
     , mDirectionPin{ directionPin }
     , mPinStateWhenForward{ pinStateWhenForward }
     , mRuntime(runtime)
-    , mDirectionPinState{ mRuntime.getPinState(mDirectionPin) }
-    , mPreviousDirectionPinState{ mDirectionPinState }
+    , mDirectionPinState{ kInvalidPinState }
+    , mPreviousDirectionPinState{ kInvalidPinState }
 {
     mRuntime.setPinDirection(mDirectionPin, mRuntime.getInputState());
 }
@@ -26,13 +32,35 @@ void DirectionalOdometer::reset()
 
 void STORED_IN_RAM DirectionalOdometer::update()
 {
+    // Calculate the difference in time between the last two pulses (in microseconds)
+    const auto currentPulse = mRuntime.currentTimeMicros();
+    const auto dt           = currentPulse - mPreviousPulse;
+    // Unless this is the first time we are called, if two pulses are too close
+    // then the signal is noisy and they should be ignored
+    if (mPreviousPulse != 0 && dt < kMinimumPulseGap)
+    {
+        return;
+    }
+
     const auto currentDirectionPinState = mRuntime.getPinState(mDirectionPin);
-    DirectionlessOdometer::update();
+
+    // Unless this is the first time we are called then calculate the dT since
+    // on the first time we cannot determine the speed yet
+    if (mPreviousPulse != 0)
+    {
+        mDt = dt;
+    }
+    mPreviousPulse = currentPulse;
+
     if (currentDirectionPinState != mPreviousDirectionPinState)
     {
         if (currentDirectionPinState == mPinStateWhenForward)
         {
             mNegativePulsesCounter++;
+        }
+        else
+        {
+            mPulsesCounter++;
         }
     }
     else
@@ -41,6 +69,10 @@ void STORED_IN_RAM DirectionalOdometer::update()
         if (currentDirectionPinState != mPinStateWhenForward)
         {
             mNegativePulsesCounter++;
+        }
+        else
+        {
+            mPulsesCounter++;
         }
     }
     mPreviousDirectionPinState = currentDirectionPinState;
@@ -52,10 +84,8 @@ long DirectionalOdometer::getDistance()
     {
         return kNotAttachedError;
     }
-    // Calculate the relative distance by subtracting twice the backward distance
-    // from the absolute distance. Subtracting with double the backward distance
-    // since it was included when calculating the absolute distance.
-    return DirectionlessOdometer::getDistance() - 2 * mNegativePulsesCounter / mPulsesPerMeterRatio;
+
+    return DirectionlessOdometer::getDistance() - (mNegativePulsesCounter / mPulsesPerMeterRatio);
 }
 
 float DirectionalOdometer::getSpeed()

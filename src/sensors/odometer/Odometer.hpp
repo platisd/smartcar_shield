@@ -16,8 +16,10 @@ namespace odometer
 {
 const int8_t kForward                      = 1;
 const int8_t kBackward                     = -1;
+const int8_t kIdle                         = 0;
 const int kNotAttachedError                = -1000;
 const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
+const unsigned long kMinimumPulseGap       = 700;
 } // namespace odometer
 } // namespace constants
 } // namespace smartcarlib
