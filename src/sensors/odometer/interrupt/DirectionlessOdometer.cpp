@@ -64,8 +64,8 @@ void DirectionlessOdometer::reset()
 void STORED_IN_RAM DirectionlessOdometer::update()
 {
     // Calculate the difference in time between the last two pulses (in microseconds)
-    auto currentPulse = mRuntime.currentTimeMicros();
-    auto dt           = currentPulse - mPreviousPulse;
+    const auto currentPulse = mRuntime.currentTimeMicros();
+    const auto dt           = currentPulse - mPreviousPulse;
     // Unless this is the first time we are called, if two pulses are too close
     // then the signal is noisy and they should be ignored
     if (mPreviousPulse != 0 && dt < kMinimumPulseGap)
