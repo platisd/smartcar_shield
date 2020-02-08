@@ -80,6 +80,7 @@ private:
     Runtime& mRuntime;
     volatile unsigned long mNegativePulsesCounter{ 0 };
     volatile int mDirectionPinState;
+    volatile int mPreviousDirectionPinState;
 };
 
 /**

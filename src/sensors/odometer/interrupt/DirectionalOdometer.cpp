@@ -13,6 +13,7 @@ DirectionalOdometer::DirectionalOdometer(uint8_t pin,
     , mPinStateWhenForward{ pinStateWhenForward }
     , mRuntime(runtime)
     , mDirectionPinState{ mRuntime.getPinState(mDirectionPin) }
+    , mPreviousDirectionPinState{ mDirectionPinState }
 {
     mRuntime.setPinDirection(mDirectionPin, mRuntime.getInputState());
 }
@@ -25,12 +26,24 @@ void DirectionalOdometer::reset()
 
 void STORED_IN_RAM DirectionalOdometer::update()
 {
-    mDirectionPinState = mRuntime.getPinState(mDirectionPin);
+    const auto currentDirectionPinState = mRuntime.getPinState(mDirectionPin);
     DirectionlessOdometer::update();
-    if (mDirectionPinState != mPinStateWhenForward)
+    if (currentDirectionPinState != mPreviousDirectionPinState)
     {
-        mNegativePulsesCounter++;
+        if (currentDirectionPinState == mPinStateWhenForward)
+        {
+            mNegativePulsesCounter++;
+        }
     }
+    else
+    {
+        mDirectionPinState = currentDirectionPinState;
+        if (currentDirectionPinState != mPinStateWhenForward)
+        {
+            mNegativePulsesCounter++;
+        }
+    }
+    mPreviousDirectionPinState = currentDirectionPinState;
 }
 
 long DirectionalOdometer::getDistance()
