@@ -12,7 +12,7 @@ coverage_ignore_dirs="\
     '*/external/*'\
 "
 
-# Run coverage for ins-node and ins-server
+# Run coverage
 eval mkdir -p $coverage_report_dir
 eval lcov --directory . --capture --output-file coverage.info
 eval lcov --remove coverage.info $coverage_ignore_dirs --output-file $coverage_report_dir/cpp_coverage.info
