@@ -105,12 +105,6 @@ TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateForward_WillNotRegist
     EXPECT_GT(mDirectionalOdometer.getDistance(), 0);
 }
 
-TEST_F(DirectionalOdometerNotAttachedTest, getDistance_WhenNotAttached_WillReturnError)
-{
-    EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_EQ(mDirectionalOdometer->getDistance(), kNotAttachedError);
-}
-
 TEST_F(DirectionalOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
 {
     auto numberOfPulses                = 400;
@@ -166,12 +160,6 @@ TEST_F(DirectionalOdometerAttachedTest, reset_WhenCalled_WillSetSpeedAndDistance
 
     EXPECT_FLOAT_EQ(mDirectionalOdometer.getSpeed(), 0);
     EXPECT_EQ(mDirectionalOdometer.getDistance(), 0);
-}
-
-TEST_F(DirectionalOdometerNotAttachedTest, getSpeed_WhenNotAttached_WillReturnError)
-{
-    EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_FLOAT_EQ(mDirectionalOdometer->getSpeed(), kNotAttachedError);
 }
 
 TEST_F(DirectionalOdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpeed)

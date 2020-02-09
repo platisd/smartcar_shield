@@ -80,21 +80,11 @@ void STORED_IN_RAM DirectionalOdometer::update()
 
 long DirectionalOdometer::getDistance()
 {
-    if (!isAttached())
-    {
-        return kNotAttachedError;
-    }
-
     return DirectionlessOdometer::getDistance() - (mNegativePulsesCounter / mPulsesPerMeterRatio);
 }
 
 float DirectionalOdometer::getSpeed()
 {
-    if (!isAttached())
-    {
-        return kNotAttachedError;
-    }
-
     return DirectionlessOdometer::getSpeed() * getDirection();
 }
 

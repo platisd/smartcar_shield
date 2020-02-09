@@ -30,19 +30,11 @@ DirectionlessOdometer::DirectionlessOdometer(uint8_t pin,
 
 long DirectionlessOdometer::getDistance()
 {
-    if (!isAttached())
-    {
-        return kNotAttachedError;
-    }
     return mPulsesCounter / mPulsesPerMeterRatio;
 }
 
 float DirectionlessOdometer::getSpeed()
 {
-    if (!isAttached())
-    {
-        return kNotAttachedError;
-    }
     // To get the current speed in m/sec, divide the meters per pulse (dx) with
     // the length between the last two pulses (dt)
     return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / mDt : 0;

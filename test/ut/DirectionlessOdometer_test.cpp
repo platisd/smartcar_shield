@@ -95,12 +95,6 @@ TEST(DirectionlessOdometerBadPulsesPerMeter,
     EXPECT_NO_THROW(DirectionlessOdometer(kPin, kDummyCallback, badPulsesPerMeter, mRuntime));
 }
 
-TEST_F(DirectionlessOdometerNotAttachedTest, getDistance_WhenNotAttached_WillReturnError)
-{
-    EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_EQ(mDirectionlessOdometer->getDistance(), kNotAttachedError);
-}
-
 TEST_F(DirectionlessOdometerBasicTest, getDistance_WhenCalled_WillReturnCorrectDistance)
 {
     // Simulate the triggering of the callback for as many pulses constitute a meter
@@ -116,12 +110,6 @@ TEST_F(DirectionlessOdometerBasicTest, getDistance_WhenCalled_WillReturnCorrectD
     // The expected distance in cm is (pulses/pulsesPerMeter) * centimetersPerMeter
     unsigned long expectedDistance = 100;
     EXPECT_EQ(mDirectionlessOdometer->getDistance(), expectedDistance);
-}
-
-TEST_F(DirectionlessOdometerNotAttachedTest, getSpeed_WhenNotAttached_WillReturnError)
-{
-    EXPECT_CALL(mRuntime, currentTimeMicros()).Times(0);
-    EXPECT_FLOAT_EQ(mDirectionlessOdometer->getSpeed(), kNotAttachedError);
 }
 
 TEST_F(DirectionlessOdometerBasicTest, getSpeed_WhenNoPulses_WillNotCrashAndReturnZero)
