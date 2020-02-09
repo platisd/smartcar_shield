@@ -29,11 +29,6 @@ public:
 class DirectionalOdometerAttachedTest : public DirectionalOdometerBasicTest
 {
 public:
-    DirectionalOdometerAttachedTest()
-        : mCounter{ 0 }
-    {
-    }
-
     virtual void SetUp()
     {
         // Calls to microseconds timer return values at 1 millisecond intervals
@@ -44,7 +39,7 @@ public:
         ON_CALL(mRuntime, currentTimeMicros()).WillByDefault(InvokeWithoutArgs(timer));
     }
 
-    unsigned long mCounter;
+    unsigned long mCounter{ 0 };
 };
 
 class DirectionalOdometerNotAttachedTest : public Test
@@ -105,7 +100,8 @@ TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateForward_WillNotRegist
     EXPECT_GT(mDirectionalOdometer.getDistance(), 0);
 }
 
-TEST_F(DirectionalOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrectDistance)
+TEST_F(DirectionalOdometerAttachedTest,
+       getDistance_WhenWhenGoingForwardAndThenBackward_WillReturnCorrectDistance)
 {
     auto numberOfPulses                = 400;
     int currentPulse                   = 0;
@@ -113,6 +109,29 @@ TEST_F(DirectionalOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrect
         // `-1` to compensate for the "lost" pulse filtered out when changing direction
         return currentPulse < (numberOfPulses / 2) - 1 ? kPinStateWhenForward
                                                        : !kPinStateWhenForward;
+    };
+    EXPECT_CALL(mRuntime, getPinState(kDirectionPin))
+        .Times(numberOfPulses)
+        .WillRepeatedly(InvokeWithoutArgs(equalForwardAndBackwardPulses));
+
+    for (currentPulse = 0; currentPulse < numberOfPulses; currentPulse++)
+    {
+        mDirectionalOdometer.update();
+    }
+
+    // The relative distance should be `0` as we have been moving forward as much as backward
+    EXPECT_EQ(mDirectionalOdometer.getDistance(), 0);
+}
+
+TEST_F(DirectionalOdometerAttachedTest,
+       getDistance_WhenGoingBackwardAndThenForward_WillReturnCorrectDistance)
+{
+    auto numberOfPulses                = 400;
+    int currentPulse                   = 0;
+    auto equalForwardAndBackwardPulses = [&currentPulse, numberOfPulses]() {
+        // `-1` to compensate for the "lost" pulse filtered out when changing direction
+        return currentPulse < (numberOfPulses / 2) - 1 ? !kPinStateWhenForward
+                                                       : kPinStateWhenForward;
     };
     EXPECT_CALL(mRuntime, getPinState(kDirectionPin))
         .Times(numberOfPulses)
@@ -186,4 +205,18 @@ TEST_F(DirectionalOdometerAttachedTest, getSpeed_WhenCalled_WillReturnCorrectSpe
 TEST_F(DirectionalOdometerBasicTest, providesDirection_WhenCalled_WillReturnTrue)
 {
     EXPECT_TRUE(mDirectionalOdometer.providesDirection());
+}
+
+TEST_F(DirectionalOdometerAttachedTest, update_WhenPulseArrivesTooFast_WillBeIgnored)
+{
+    unsigned long firstPulse  = 123;
+    unsigned long secondPulse = kMinimumPulseGap - firstPulse;
+    EXPECT_CALL(mRuntime, currentTimeMicros())
+        .WillOnce(Return(firstPulse))
+        .WillOnce(Return(secondPulse));
+    mDirectionalOdometer.update();
+    mDirectionalOdometer.update();
+
+    auto expectedDistance = 1;
+    EXPECT_EQ(mDirectionalOdometer.getDistance(), expectedDistance);
 }
