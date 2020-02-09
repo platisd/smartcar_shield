@@ -11,7 +11,7 @@ namespace
 const uint8_t kInput               = 0;
 const int8_t kAnInterrupt          = 1;
 const uint8_t kDirectionPin        = 5;
-const uint8_t kPinStateWhenForward = 1;
+const uint8_t kPinStateWhenForward = 0;
 const int8_t kNotAnInterrupt       = -1;
 const uint8_t kPin                 = 23;
 const auto kDummyCallback          = []() {};
@@ -22,7 +22,7 @@ class DirectionalOdometerBasicTest : public Test
 public:
     NiceMock<MockRuntime> mRuntime;
     DirectionalOdometer mDirectionalOdometer{
-        kPin, kDummyCallback, kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, mRuntime
+        kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime
     };
 };
 
@@ -53,12 +53,8 @@ public:
     virtual void SetUp()
     {
         EXPECT_CALL(mRuntime, pinToInterrupt(_)).Times(2).WillRepeatedly(Return(kNotAnInterrupt));
-        mDirectionalOdometer = std::make_unique<DirectionalOdometer>(kPin,
-                                                                     kDummyCallback,
-                                                                     kDirectionPin,
-                                                                     kPinStateWhenForward,
-                                                                     kDefaultPulsesPerMeter,
-                                                                     mRuntime);
+        mDirectionalOdometer = std::make_unique<DirectionalOdometer>(
+            kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime);
     }
 
     NiceMock<MockRuntime> mRuntime;
@@ -73,7 +69,7 @@ TEST(DirectionalOdometerConstructorTest, constructor_WhenCalled_WillSetDirection
     EXPECT_CALL(runtime, setPinDirection(_, inputState)).Times(AtLeast(1));
     EXPECT_CALL(runtime, setPinDirection(kDirectionPin, inputState));
     DirectionalOdometer directionalOdometer{
-        kPin, kDummyCallback, kDirectionPin, kPinStateWhenForward, kDefaultPulsesPerMeter, runtime
+        kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter, runtime
     };
 }
 
@@ -120,7 +116,9 @@ TEST_F(DirectionalOdometerAttachedTest, getDistance_WhenCalled_WillReturnCorrect
     auto numberOfPulses                = 400;
     int currentPulse                   = 0;
     auto equalForwardAndBackwardPulses = [&currentPulse, numberOfPulses]() {
-        return currentPulse < numberOfPulses / 2 ? kPinStateWhenForward : !kPinStateWhenForward;
+        // `-1` to compensate for the "lost" pulse filtered out when changing direction
+        return currentPulse < (numberOfPulses / 2) - 1 ? kPinStateWhenForward
+                                                       : !kPinStateWhenForward;
     };
     EXPECT_CALL(mRuntime, getPinState(kDirectionPin))
         .Times(numberOfPulses)

@@ -14,9 +14,10 @@ public:
 #ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed and direction
-     * @param directionPin        The pin that receives the direction signal
-     * @param pinStateWhenForward The direction pin state when moving forward
-     * @param pulsesPerMeter       The amount of odometer pulses that constitute a meter
+     * @param pin               The pin that receives the pulses
+     * @param forwardWhenLowPin The pin that is set to LOW when moving forward
+     * @param callback          The callback to be invoked when a pulse is received (see example)
+     * @param pulsesPerMeter    The amount of odometer pulses that constitute a meter
      *
      * **Example:**
      * \code
@@ -26,23 +27,21 @@ public:
      * unsigned long PULSES_PER_METER = 40;
      *
      * DirectionalOdometer odometer(ODOMETER_PIN,
-     *                              []() { odometer.update(); },
      *                              DIRECTION_PIN,
+     *                              []() { odometer.update(); },
      *                              FORWARD_STATE,
      *                              PULSES_PER_METER);
      * \endcode
      */
     DirectionalOdometer(uint8_t pin,
+                        uint8_t forwardWhenLowPin,
                         InterruptCallback callback,
-                        uint8_t directionPin,
-                        int pinStateWhenForward,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime = arduinoRuntime);
 #else
     DirectionalOdometer(uint8_t pin,
+                        uint8_t forwardWhenLowPin,
                         InterruptCallback callback,
-                        uint8_t directionPin,
-                        int pinStateWhenForward,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime);
 #endif
@@ -76,8 +75,8 @@ public:
 
 private:
     const uint8_t mDirectionPin;
-    const int mPinStateWhenForward;
     Runtime& mRuntime;
+    const int kPinStateWhenForward;
     volatile unsigned long mNegativePulsesCounter{ 0 };
     volatile int mDirectionPinState;
     volatile int mPreviousDirectionPinState;

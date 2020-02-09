@@ -10,13 +10,12 @@ using namespace smartcarlib::constants::odometer;
 
 namespace
 {
-const int8_t kNotAnInterrupt         = -1;
-const int8_t kAnInterrupt            = 1;
-const uint8_t kRisingEdge            = 3;
-const uint8_t kInput                 = 0;
-const unsigned long kMinimumPulseGap = 700;
-const uint8_t kPin                   = 23;
-const auto kDummyCallback            = []() {};
+const int8_t kNotAnInterrupt = -1;
+const int8_t kAnInterrupt    = 1;
+const uint8_t kRisingEdge    = 3;
+const uint8_t kInput         = 0;
+const uint8_t kPin           = 23;
+const auto kDummyCallback    = []() {};
 
 struct MockOdometerUser
 {

@@ -9,15 +9,14 @@ const auto kInvalidPinState = INT_MIN;
 }
 
 DirectionalOdometer::DirectionalOdometer(uint8_t pin,
+                                         uint8_t forwardWhenLowPin,
                                          InterruptCallback callback,
-                                         uint8_t directionPin,
-                                         int pinStateWhenForward,
                                          unsigned long pulsesPerMeter,
                                          Runtime& runtime)
     : DirectionlessOdometer(pin, callback, pulsesPerMeter, runtime)
-    , mDirectionPin{ directionPin }
-    , mPinStateWhenForward{ pinStateWhenForward }
+    , mDirectionPin{ forwardWhenLowPin }
     , mRuntime(runtime)
+    , kPinStateWhenForward{ mRuntime.getLowState() }
     , mDirectionPinState{ kInvalidPinState }
     , mPreviousDirectionPinState{ kInvalidPinState }
 {
@@ -52,9 +51,10 @@ void STORED_IN_RAM DirectionalOdometer::update()
     }
     mPreviousPulse = currentPulse;
 
-    if (currentDirectionPinState != mPreviousDirectionPinState)
+    if ((currentDirectionPinState != mPreviousDirectionPinState)
+        && (mPreviousDirectionPinState != kInvalidPinState))
     {
-        if (currentDirectionPinState == mPinStateWhenForward)
+        if (currentDirectionPinState == kPinStateWhenForward)
         {
             mNegativePulsesCounter++;
         }
@@ -66,7 +66,7 @@ void STORED_IN_RAM DirectionalOdometer::update()
     else
     {
         mDirectionPinState = currentDirectionPinState;
-        if (currentDirectionPinState != mPinStateWhenForward)
+        if (currentDirectionPinState != kPinStateWhenForward)
         {
             mNegativePulsesCounter++;
         }
@@ -100,7 +100,7 @@ float DirectionalOdometer::getSpeed()
 
 int8_t DirectionalOdometer::getDirection() const
 {
-    return mDirectionPinState == mPinStateWhenForward ? smartcarlib::constants::odometer::kForward
+    return mDirectionPinState == kPinStateWhenForward ? smartcarlib::constants::odometer::kForward
                                                       : smartcarlib::constants::odometer::kBackward;
 }
 

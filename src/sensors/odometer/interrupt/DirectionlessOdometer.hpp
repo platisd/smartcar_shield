@@ -22,7 +22,9 @@ public:
 #ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed but not direction
-     * @param pulsesPerMeter The amount of odometer pulses that constitute a meter
+     * @param pin               The pin that receives the pulses
+     * @param callback          The callback to be invoked when a pulse is received (see example)
+     * @param pulsesPerMeter    The amount of odometer pulses that constitute a meter
      *
      * **Example:**
      * \code
