@@ -20,16 +20,6 @@ DistanceCar::DistanceCar(Control& control, Odometer& odometer, Runtime& runtime)
     , mOdometerLeft(odometer)
     , mOdometerRight(odometer)
     , mRuntime(runtime)
-    , mCruiseControlEnabled{ false }
-    , mProportional{ 0 }
-    , mIntegral{ 0 }
-    , mDerivative{ 0 }
-    , mFrequency{ 0 }
-    , mPreviousUpdate{ 0 }
-    , mTargetSpeed{ 0 }
-    , mPreviousControlledSpeed{ 0 }
-    , mIntegratedError{ 0 }
-    , mPreviousError{ 0 }
 {
 }
 
@@ -42,16 +32,6 @@ DistanceCar::DistanceCar(Control& control,
     , mOdometerLeft(odometerLeft)
     , mOdometerRight(odometerRight)
     , mRuntime(runtime)
-    , mCruiseControlEnabled{ false }
-    , mProportional{ 0 }
-    , mIntegral{ 0 }
-    , mDerivative{ 0 }
-    , mFrequency{ 0 }
-    , mPreviousUpdate{ 0 }
-    , mTargetSpeed{ 0 }
-    , mPreviousControlledSpeed{ 0 }
-    , mIntegratedError{ 0 }
-    , mPreviousError{ 0 }
 {
 }
 

@@ -194,16 +194,16 @@ private:
     Odometer& mOdometerLeft;
     Odometer& mOdometerRight;
     Runtime& mRuntime;
-    bool mCruiseControlEnabled;
-    float mProportional;
-    float mIntegral;
-    float mDerivative;
-    unsigned long mFrequency;
-    unsigned long mPreviousUpdate;
-    float mTargetSpeed;
-    float mPreviousControlledSpeed;
-    float mIntegratedError;
-    float mPreviousError;
+    bool mCruiseControlEnabled{ false };
+    float mProportional{ 0 };
+    float mIntegral{ 0 };
+    float mDerivative{ 0 };
+    unsigned long mFrequency{ 0 };
+    unsigned long mPreviousUpdate{ 0 };
+    float mTargetSpeed{ 0 };
+    float mPreviousControlledSpeed{ 0 };
+    float mIntegratedError{ 0 };
+    float mPreviousError{ 0 };
 
     bool areOdometersAttached();
     bool areOdometersDirectional();
