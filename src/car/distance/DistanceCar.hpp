@@ -190,7 +190,6 @@ public:
     virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
 
 private:
-    Control& mControl;
     Odometer& mOdometerLeft;
     Odometer& mOdometerRight;
     Runtime& mRuntime;

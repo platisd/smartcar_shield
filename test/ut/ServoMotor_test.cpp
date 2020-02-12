@@ -3,7 +3,6 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
-#include "MockRuntime.hpp"
 #include "ServoMotor.hpp"
 
 using namespace ::testing;
@@ -21,14 +20,12 @@ class ServoMotorTest : public Test
 {
 public:
     ServoMotorTest()
-        : mRuntime{}
-        , mMockServo{ std::make_shared<MockServo>() }
-        , mServoMotor{ kControlPin, kMinPulseLength, kIdlePulseLength, kMaxPulseLength, mRuntime}
+        : mMockServo{ std::make_shared<MockServo>() }
+        , mServoMotor{ kControlPin, kMinPulseLength, kIdlePulseLength, kMaxPulseLength }
     {
         mServoMotor.mMockServo = mMockServo;
     }
 
-    NiceMock<MockRuntime> mRuntime;
     NiceMock<std::shared_ptr<MockServo>> mMockServo;
     ServoMotor mServoMotor;
 };
