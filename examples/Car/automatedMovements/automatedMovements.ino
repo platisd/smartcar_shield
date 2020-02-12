@@ -10,11 +10,10 @@ DifferentialControl control(leftMotor, rightMotor);
 
 GY50 gyroscope(37);
 
-const auto odometerLeftPin       = 2;
-const auto odometerRightPin      = 3;
-const auto pulsesPerMeterLeft    = 50;
-const auto pulsesPerMeterRight   = 60;
-const unsigned short odometerPin = 2;
+const auto odometerLeftPin     = 2;
+const auto odometerRightPin    = 3;
+const auto pulsesPerMeterLeft  = 50;
+const auto pulsesPerMeterRight = 60;
 
 DirectionlessOdometer leftOdometer(
     odometerLeftPin, []() { leftOdometer.update(); }, pulsesPerMeterLeft);
