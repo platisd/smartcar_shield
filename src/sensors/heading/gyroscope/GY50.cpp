@@ -9,7 +9,8 @@
 
 namespace
 {
-const uint8_t kGyroAddress = 105;
+const uint8_t kGyroAddress      = 105;
+const auto kMeasurementInterval = 100;
 } // namespace
 
 using namespace smartcarlib::utils;
@@ -83,19 +84,18 @@ void GY50::attach()
     mAttached = true;
 }
 
-int GY50::getOffset(unsigned int measurements)
+int GY50::getOffset(int measurements)
 {
-    if (measurements == 0)
+    if (measurements <= 0)
     {
         return kError;
     }
 
-    static const unsigned long measurementInterval = 100;
-    long sum                                       = 0;
-    for (unsigned int i = 0; i < measurements; i++)
+    long sum = 0;
+    for (auto i = 0; i < measurements; i++)
     {
         sum += getAngularVelocity();
-        mRuntime.delayMillis(measurementInterval);
+        mRuntime.delayMillis(kMeasurementInterval);
     }
 
     return sum / measurements;
