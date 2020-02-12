@@ -11,6 +11,8 @@ namespace
 {
 const uint8_t kGyroAddress      = 105;
 const auto kMeasurementInterval = 100;
+const float kGyroSensitivity    = 0.07f;
+const int kGyroThreshold        = 12; // Smaller changes are to be ignored
 } // namespace
 
 using namespace smartcarlib::utils;
@@ -42,13 +44,11 @@ void GY50::update()
         return; // Not the time to read yet
     }
 
-    static const float gyroSensitivity = 0.07f;
-    static const int gyroThreshold     = 12; // Smaller changes are to be ignored
-    int drift                          = kOffset - getAngularVelocity();
+    int drift = kOffset - getAngularVelocity();
 
-    if (getAbsolute(drift) > gyroThreshold)
+    if (getAbsolute(drift) > kGyroThreshold)
     {
-        float gyroRate = drift * gyroSensitivity;
+        float gyroRate = drift * kGyroSensitivity;
         mAngularDisplacement += gyroRate / (1000.0 / interval);
     }
     mPreviousSample = currentTime;
