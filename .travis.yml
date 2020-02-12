@@ -1,17 +1,12 @@
-# Set language to `none` because if set to `cpp` CXX and C environment variables
-# are overriden with those of older versions
-language: none
-
-env:
-    global:
-        - CXX=g++-5
+language: cpp
+dist: bionic
 
 addons:
     apt:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - g++-5
+            - g++
             - lcov
             - doxygen
             - doxygen-doc
