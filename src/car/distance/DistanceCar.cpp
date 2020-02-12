@@ -87,7 +87,7 @@ void DistanceCar::brake()
     // Apply the opposite speed than the one currently applied to the motors
     // until the car is moving slow enough and is practically stopped
     auto currentSpeed = mCruiseControlEnabled ? mPreviousControlledSpeed : mTargetSpeed;
-    SimpleCar::setSpeed(-currentSpeed);
+    SimpleCar::setSpeed(-currentSpeed / kBreakSpeedScale);
     // Determine when we are moving slow enough to stop applying speed towards
     // the opposite direction. We do not use the interrupt-based `getSpeed` from
     // the odometers since when there are no pulses there will be no speed

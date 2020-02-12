@@ -24,6 +24,7 @@ const float kDefaultProportional         = 5.0f;
 const float kDefaultIntegral             = 0.0f;
 const float kDefaultDerivative           = 10.0f;
 const int kOdometersNotAttachedError     = -1000;
+const auto kBreakSpeedScale              = 10;
 } // namespace car
 } // namespace constants
 } // namespace smartcarlib

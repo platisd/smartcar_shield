@@ -144,7 +144,7 @@ TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenCarShouldStop_WillBrake)
     auto initialSpeed = 50.0;
     mDistanceCar.setSpeed(initialSpeed);
 
-    EXPECT_CALL(mControl, setSpeed(-initialSpeed));
+    EXPECT_CALL(mControl, setSpeed(-initialSpeed / kBreakSpeedScale));
     EXPECT_CALL(mControl, setSpeed(static_cast<float>(kIdleControlSpeed)));
 
     mDistanceCar.setSpeed(static_cast<float>(kIdleControlSpeed));
