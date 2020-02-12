@@ -19,7 +19,7 @@ public:
      * sensor.getHeading();
      * \endcode
      */
-    virtual unsigned int getHeading() = 0;
+    virtual int getHeading() = 0;
 
     /**
      * Updates the sensor's readings. This method **must** be be able to be executed

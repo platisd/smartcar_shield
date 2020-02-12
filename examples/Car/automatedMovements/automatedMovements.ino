@@ -70,12 +70,12 @@ void rotate(int degrees, float speed)
         car.setAngle(-90);
     }
 
-    unsigned int initialHeading  = car.getHeading();
+    const auto initialHeading    = car.getHeading();
     bool hasReachedTargetDegrees = false;
     while (!hasReachedTargetDegrees)
     {
         car.update();
-        int currentHeading = car.getHeading();
+        auto currentHeading = car.getHeading();
         if (degrees < 0 && currentHeading > initialHeading)
         {
             // If we are turning left and the current heading is larger than the

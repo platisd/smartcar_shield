@@ -34,10 +34,10 @@ public:
      *
      * **Example:**
      * \code
-     * unsigned int currentHeading = gyroscope.getHeading();
+     * auto currentHeading = gyroscope.getHeading();
      * \endcode
      */
-    unsigned int getHeading();
+    int getHeading();
 
     /**
      * Updates the readings from the heading sensor.

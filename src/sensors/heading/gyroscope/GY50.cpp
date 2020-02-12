@@ -26,7 +26,7 @@ GY50::GY50(int offset, unsigned long samplingInterval, Runtime& runtime)
 {
 }
 
-unsigned int GY50::getHeading()
+int GY50::getHeading()
 {
     // Get the reading from (-180,180) to [0, 360) scale
     auto normalizedReading = static_cast<int>(mAngularDisplacement) % 360;

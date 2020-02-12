@@ -6,7 +6,7 @@ HeadingCar::HeadingCar(Control& control, HeadingSensor& headingSensor)
 {
 }
 
-unsigned int HeadingCar::getHeading()
+int HeadingCar::getHeading()
 {
     return mHeadingSensor.getHeading();
 }

@@ -59,7 +59,7 @@ public:
 #endif
 
     /* Check `HeadingSensor` interface for documentation */
-    unsigned int getHeading() override;
+    int getHeading() override;
 
     /* Check `HeadingSensor` interface for documentation */
     void update() override;
