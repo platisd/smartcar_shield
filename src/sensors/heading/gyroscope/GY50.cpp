@@ -108,9 +108,7 @@ int GY50::getAngularVelocity()
     static const uint8_t zAxisFirstByteRegister  = 0x2D;
     static const uint8_t zAxisSecondByteRegister = 0x2C;
 
-    auto firstByte = readL3G4200DRegister(zAxisFirstByteRegister);
-    // Serial.println("Bytes:");
-    // Serial.println(firstByte, BIN);
+    auto firstByte  = readL3G4200DRegister(zAxisFirstByteRegister);
     auto secondByte = readL3G4200DRegister(zAxisSecondByteRegister);
 
     return static_cast<int16_t>((firstByte << 8) | secondByte);
