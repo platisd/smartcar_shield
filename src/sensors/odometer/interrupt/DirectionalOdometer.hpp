@@ -79,7 +79,6 @@ private:
     const int kPinStateWhenForward;
     volatile unsigned long mNegativePulsesCounter{ 0 };
     volatile int mDirectionPinState;
-    volatile int mPreviousDirectionPinState;
 };
 
 /**

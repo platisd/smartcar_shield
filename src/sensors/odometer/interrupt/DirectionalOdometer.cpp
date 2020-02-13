@@ -18,7 +18,6 @@ DirectionalOdometer::DirectionalOdometer(uint8_t pin,
     , mRuntime(runtime)
     , kPinStateWhenForward{ mRuntime.getLowState() }
     , mDirectionPinState{ kInvalidPinState }
-    , mPreviousDirectionPinState{ kInvalidPinState }
 {
     mRuntime.setPinDirection(mDirectionPin, mRuntime.getInputState());
 }
@@ -41,7 +40,7 @@ void STORED_IN_RAM DirectionalOdometer::update()
         return;
     }
 
-    const auto currentDirectionPinState = mRuntime.getPinState(mDirectionPin);
+    mDirectionPinState = mRuntime.getPinState(mDirectionPin);
 
     // Unless this is the first time we are called then calculate the dT since
     // on the first time we cannot determine the speed yet
@@ -51,31 +50,14 @@ void STORED_IN_RAM DirectionalOdometer::update()
     }
     mPreviousPulse = currentPulse;
 
-    if ((currentDirectionPinState != mPreviousDirectionPinState)
-        && (mPreviousDirectionPinState != kInvalidPinState))
+    if (mDirectionPinState != kPinStateWhenForward)
     {
-        if (currentDirectionPinState == kPinStateWhenForward)
-        {
-            mNegativePulsesCounter++;
-        }
-        else
-        {
-            mPulsesCounter++;
-        }
+        mNegativePulsesCounter++;
     }
     else
     {
-        mDirectionPinState = currentDirectionPinState;
-        if (currentDirectionPinState != kPinStateWhenForward)
-        {
-            mNegativePulsesCounter++;
-        }
-        else
-        {
-            mPulsesCounter++;
-        }
+        mPulsesCounter++;
     }
-    mPreviousDirectionPinState = currentDirectionPinState;
 }
 
 long DirectionalOdometer::getDistance()

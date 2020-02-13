@@ -85,7 +85,7 @@ unsigned long ArduinoRuntime::currentTimeMillis()
     return millis();
 }
 
-unsigned long ArduinoRuntime::currentTimeMicros()
+unsigned long STORED_IN_RAM ArduinoRuntime::currentTimeMicros()
 {
     return micros();
 }

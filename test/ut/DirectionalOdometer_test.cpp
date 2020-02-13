@@ -113,9 +113,7 @@ TEST_F(DirectionalOdometerAttachedTest,
     auto numberOfPulses                = 400;
     int currentPulse                   = 0;
     auto equalForwardAndBackwardPulses = [&currentPulse, numberOfPulses]() {
-        // `-1` to compensate for the "lost" pulse filtered out when changing direction
-        return currentPulse < (numberOfPulses / 2) - 1 ? kPinStateWhenForward
-                                                       : kPinStateWhenForward + 1;
+        return currentPulse < numberOfPulses / 2 ? kPinStateWhenForward : kPinStateWhenForward + 1;
     };
     EXPECT_CALL(mRuntime, getPinState(kDirectionPin))
         .Times(numberOfPulses)
@@ -136,9 +134,7 @@ TEST_F(DirectionalOdometerAttachedTest,
     auto numberOfPulses                = 400;
     int currentPulse                   = 0;
     auto equalForwardAndBackwardPulses = [&currentPulse, numberOfPulses]() {
-        // `-1` to compensate for the "lost" pulse filtered out when changing direction
-        return currentPulse < (numberOfPulses / 2) - 1 ? kPinStateWhenForward + 1
-                                                       : kPinStateWhenForward;
+        return currentPulse < numberOfPulses / 2 ? kPinStateWhenForward + 1 : kPinStateWhenForward;
     };
     EXPECT_CALL(mRuntime, getPinState(kDirectionPin))
         .Times(numberOfPulses)
