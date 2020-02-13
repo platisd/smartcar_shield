@@ -40,8 +40,8 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
-     * BrushedMotor rightMotor(12, 13, 11);
+     * BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
+     * BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * DirectionlessOdometer odometer(100);
@@ -59,8 +59,8 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
-     * BrushedMotor rightMotor(12, 13, 11);
+     * BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
+     * BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * DirectionlessOdometer leftOdometer(100);

@@ -52,13 +52,23 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor leftMotor(8, 9, 10);
      * \endcode
      */
     BrushedMotor(uint8_t forwardPin,
                  uint8_t backwardPin,
                  uint8_t enablePin,
                  Runtime& runtime = arduinoRuntime);
+
+    /**
+     * Constructs a brushed DC motor instance
+     * @param pins  The `BrushedMotorPins` object with the pins of the motor
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
+     * \endcode
+     */
     BrushedMotor(BrushedMotorPins pins, Runtime& runtime = arduinoRuntime);
 
 #else

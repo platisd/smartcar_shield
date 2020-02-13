@@ -1,7 +1,7 @@
 #include <Smartcar.h>
 
-BrushedMotor leftMotor(8, 10, 9);
-BrushedMotor rightMotor(12, 13, 11);
+BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
+BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 const auto odometerLeftPin       = 2;
