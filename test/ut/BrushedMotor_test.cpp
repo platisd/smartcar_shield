@@ -36,6 +36,18 @@ public:
     std::unique_ptr<BrushedMotor> mBrushedMotor;
 };
 
+TEST(BrushedMotorHelperConstructorTest,
+     BrushedMotorPinsConstructor_WhenCalled_WillCallPrimaryConstructor)
+{
+    NiceMock<MockRuntime> runtime;
+    EXPECT_CALL(runtime, getOutputState()).WillOnce(Return(kOutput));
+    EXPECT_CALL(runtime, getLowState()).WillOnce(Return(kLow));
+    EXPECT_CALL(runtime, getHighState()).WillOnce(Return(kHigh));
+
+    BrushedMotorPins pins{ kForwardPin, kBackwardPin, kEnablePin };
+    BrushedMotor motor{ pins, runtime };
+}
+
 TEST_F(BrushedMotorTest, setSpeed_WhenNotAttached_WillAttach)
 {
     EXPECT_CALL(mRuntime, setPinDirection(kForwardPin, kOutput));

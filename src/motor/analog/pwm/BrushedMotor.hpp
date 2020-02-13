@@ -19,6 +19,27 @@
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
+struct BrushedMotorPins
+{
+    /**
+     * @brief Helper class to represent brushed motor pins
+     *
+     * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward
+     * @param backwardPin The direction pin that when set to HIGH makes the motor spin forward
+     * @param enablePin   The pin  that controls the motor's speed
+     */
+    BrushedMotorPins(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin)
+        : forward{ forwardPin }
+        , backward{ backwardPin }
+        , enable{ enablePin }
+    {
+    }
+
+    const uint8_t forward;
+    const uint8_t backward;
+    const uint8_t enable;
+};
+
 class BrushedMotor : public Motor
 {
 public:
@@ -38,8 +59,11 @@ public:
                  uint8_t backwardPin,
                  uint8_t enablePin,
                  Runtime& runtime = arduinoRuntime);
+    BrushedMotor(BrushedMotorPins pins, Runtime& runtime = arduinoRuntime);
+
 #else
     BrushedMotor(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, Runtime& runtime);
+    BrushedMotor(BrushedMotorPins pins, Runtime& runtime);
 #endif
 
     /* Check `Motor` interface for documentation */

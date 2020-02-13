@@ -1,4 +1,6 @@
 /**
+ * @file Smartcar.h
+ * @brief The entrypoint for the Smartcar library
  * The entrypoint for the Smartcar platform on boards that are compatible with
  * the Arduino API. Everything needed to control the platform (i.e. the vehicle
  * as well as its sensors) are included through this header file.
@@ -34,6 +36,33 @@ ArduinoRuntime arduinoRuntime;
 #include "sensors/odometer/interrupt/DirectionalOdometer.hpp"
 #include "sensors/odometer/interrupt/DirectionlessOdometer.hpp"
 #include "utilities/Utilities.hpp"
+
+namespace smartcarlib
+{
+namespace hw
+{
+/**
+ * \namespace v1
+ * Helper resources for the `v1` platform (i.e. the Smartcar shield)
+ */
+namespace v1
+{
+// Helper
+BrushedMotorPins leftMotorPins{ 8, 10, 9 };
+BrushedMotorPins rightMotorPins{ 12, 13, 11 };
+} // namespace v1
+
+/**
+ * \namespace v2
+ * Helper resources for the `v2` platform (i.e. the Smartcar shield)
+ */
+namespace v2
+{
+BrushedMotorPins leftMotorPins{ 12, 14, 13 };
+BrushedMotorPins rightMotorPins{ 25, 26, 27 };
+} // namespace v2
+} // namespace hw
+} // namespace smartcarlib
 
 /** \example BareMinimum.ino
  * A example on the boiler-plate code needed to start using the library.

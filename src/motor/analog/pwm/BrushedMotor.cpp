@@ -24,6 +24,11 @@ BrushedMotor::BrushedMotor(uint8_t forwardPin,
 {
 }
 
+BrushedMotor::BrushedMotor(BrushedMotorPins pins, Runtime& runtime)
+    : BrushedMotor{ pins.forward, pins.backward, pins.enable, runtime }
+{
+}
+
 void BrushedMotor::setSpeed(int speed)
 {
     if (!mAttached)
