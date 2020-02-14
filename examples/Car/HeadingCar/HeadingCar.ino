@@ -26,8 +26,5 @@ void loop()
     {
         previousPrintout = currentTime;
         Serial.println(car.getHeading());
-        {
-            previousPrintout = currentTime;
-            Serial.println(car.getHeading());
-        }
     }
+}

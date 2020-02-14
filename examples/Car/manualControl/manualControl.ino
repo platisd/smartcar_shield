@@ -49,23 +49,5 @@ void handleInput()
             car.setSpeed(0);
             car.setAngle(0);
         }
-        car.setAngle(0);
-        break;
-    default: // if you receive something that you don't know, just stop
-        car.setSpeed(0);
-        car.setAngle(0);
     }
-    car.setAngle(0);
-    break;
-default: // if you receive something that you don't know, just stop
-    car.setSpeed(0);
-    car.setAngle(0);
-}
-car.setAngle(0);
-break;
-default: // if you receive something that you don't know, just stop
-car.setSpeed(0);
-car.setAngle(0);
-}
-}
 }
