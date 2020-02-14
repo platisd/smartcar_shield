@@ -5,8 +5,8 @@ const float bSpeed = -0.5; // a ground speed (m/sec)y for going backward
 const int lDegrees = -75;  // degrees to turn left
 const int rDegrees = 75;   // degrees to turn right
 
-BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
+BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 const auto odometerLeftPin       = 2;

@@ -9,8 +9,8 @@ const unsigned long PRINTOUT_INTERVAL = 100;
 unsigned long previousPrintOut        = 0;
 float carSpeed                        = 0.5;
 
-BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
+BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 const auto odometerLeftPin       = 2;

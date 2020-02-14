@@ -11,8 +11,8 @@
 
 #include <Smartcar.h>
 
-BrushedMotor leftMotor(smartcarlib::hw::v1::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::hw::v1::rightMotorPins);
+BrushedMotor leftMotor(smartcarlib::pins::v1::leftMotorPins);
+BrushedMotor rightMotor(smartcarlib::pins::v1::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);

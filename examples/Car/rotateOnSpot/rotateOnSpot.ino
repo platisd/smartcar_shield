@@ -3,8 +3,8 @@
 const int carSpeed         = 80; // 80% of the max speed
 const int GYROSCOPE_OFFSET = 37;
 
-BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
+BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 GY50 gyroscope(GYROSCOPE_OFFSET);

@@ -4,8 +4,8 @@ const float carSpeed        = 1.0;
 const long distanceToTravel = 40;
 const int degreesToTurn     = 90;
 
-BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::hw::v2::rightMotorPins);
+BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 GY50 gyroscope(37);
