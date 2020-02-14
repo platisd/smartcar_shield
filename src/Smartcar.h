@@ -39,7 +39,7 @@ ArduinoRuntime arduinoRuntime;
 
 namespace smartcarlib
 {
-namespace hw
+namespace pins
 {
 /**
  * \namespace v1
@@ -47,9 +47,8 @@ namespace hw
  */
 namespace v1
 {
-// Helper
-BrushedMotorPins leftMotorPins{ 8, 10, 9 };
-BrushedMotorPins rightMotorPins{ 12, 13, 11 };
+const BrushedMotorPins leftMotorPins{ 8, 10, 9 };
+const BrushedMotorPins rightMotorPins{ 12, 13, 11 };
 } // namespace v1
 
 /**
@@ -58,10 +57,12 @@ BrushedMotorPins rightMotorPins{ 12, 13, 11 };
  */
 namespace v2
 {
-BrushedMotorPins leftMotorPins{ 12, 14, 13 };
-BrushedMotorPins rightMotorPins{ 25, 26, 27 };
+const BrushedMotorPins leftMotorPins{ 12, 14, 13 };
+const BrushedMotorPins rightMotorPins{ 25, 26, 27 };
+const DirectionalOdometerPins leftOdometerPins{ 35, 34 };
+const DirectionalOdometerPins rightOdometerPins{ 36, 39 };
 } // namespace v2
-} // namespace hw
+} // namespace pins
 } // namespace smartcarlib
 
 /** \example BareMinimum.ino

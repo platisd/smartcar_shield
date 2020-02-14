@@ -19,10 +19,13 @@
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
+/**
+ * @brief Helper class to represent brushed motor pins
+ */
 struct BrushedMotorPins
 {
     /**
-     * @brief Helper class to represent brushed motor pins
+     * @brief Construct a BrushedMotorPins object
      *
      * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward
      * @param backwardPin The direction pin that when set to HIGH makes the motor spin forward
@@ -66,7 +69,7 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(smartcarlib::hw::v2::leftMotorPins);
+     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
      * \endcode
      */
     BrushedMotor(BrushedMotorPins pins, Runtime& runtime = arduinoRuntime);

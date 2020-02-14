@@ -75,6 +75,20 @@ TEST(DirectionalOdometerConstructorTest, constructor_WhenCalled_WillSetDirection
     };
 }
 
+TEST(DirectionalOdometerConstructorTest,
+     DirectionalOdometerHerlerConstructor_WhenCalled_WillCallPrimaryConstructor)
+{
+    NiceMock<MockRuntime> runtime;
+    const auto inputState = 2;
+    EXPECT_CALL(runtime, getInputState()).Times(AtLeast(1)).WillRepeatedly(Return(inputState));
+    EXPECT_CALL(runtime, setPinDirection(_, inputState)).Times(AtLeast(1));
+    EXPECT_CALL(runtime, setPinDirection(kDirectionPin, inputState));
+    DirectionalOdometerPins pins{ kPin, kDirectionPin };
+    DirectionalOdometer directionalOdometer{
+        pins, kDummyCallback, kDefaultPulsesPerMeter, runtime
+    };
+}
+
 TEST_F(DirectionalOdometerAttachedTest, update_WhenPinStateNotForward_WillRegisterNegativeDistance)
 {
     auto numberOfPulses = 1000;

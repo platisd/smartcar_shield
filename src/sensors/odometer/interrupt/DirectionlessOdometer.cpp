@@ -11,7 +11,7 @@ const float kMillimetersInMeter   = 1000.0;
 
 using namespace smartcarlib::constants::odometer;
 
-DirectionlessOdometer::DirectionlessOdometer(uint8_t pin,
+DirectionlessOdometer::DirectionlessOdometer(uint8_t pulsePin,
                                              InterruptCallback callback,
                                              unsigned long pulsesPerMeter,
                                              Runtime& runtime)
@@ -22,10 +22,11 @@ DirectionlessOdometer::DirectionlessOdometer(uint8_t pin,
                                                : static_cast<unsigned long>(lroundf(
                                                    kMillimetersInMeter / kDefaultPulsesPerMeter)) }
     , mRuntime(runtime)
-    , kSensorAttached{ mRuntime.pinToInterrupt(pin) != kNotAnInterrupt }
+    , kSensorAttached{ mRuntime.pinToInterrupt(pulsePin) != kNotAnInterrupt }
 {
-    mRuntime.setPinDirection(pin, mRuntime.getInputState());
-    mRuntime.setInterrupt(mRuntime.pinToInterrupt(pin), callback, mRuntime.getRisingEdgeMode());
+    mRuntime.setPinDirection(pulsePin, mRuntime.getInputState());
+    mRuntime.setInterrupt(
+        mRuntime.pinToInterrupt(pulsePin), callback, mRuntime.getRisingEdgeMode());
 }
 
 long DirectionlessOdometer::getDistance()
