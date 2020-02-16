@@ -8,5 +8,5 @@ var searchData=
   ['i2crequestfrom',['i2cRequestFrom',['../class_arduino_runtime.html#ae2bfcb23cc97fd99053636294f88643e',1,'ArduinoRuntime::i2cRequestFrom()'],['../class_runtime.html#ad29af260f2b283f2c461cf89e9b90a44',1,'Runtime::i2cRequestFrom()']]],
   ['i2cwrite',['i2cWrite',['../class_arduino_runtime.html#a86e78ed78d7049c792bb869ea73947f2',1,'ArduinoRuntime::i2cWrite()'],['../class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89',1,'Runtime::i2cWrite()']]],
   ['infraredanalogsensor',['InfraredAnalogSensor',['../class_infrared_analog_sensor.html#adcb88deca37844b2c3b1d8f6c74d750c',1,'InfraredAnalogSensor']]],
-  ['isattached',['isAttached',['../class_directionless_odometer.html#a4b62519f40b5679c290e6bd5e3f63360',1,'DirectionlessOdometer::isAttached()'],['../class_odometer.html#a59a5a088fa7c2ae2ea92d88a998cf982',1,'Odometer::isAttached()']]]
+  ['isattached',['isAttached',['../class_directionless_odometer.html#a564130bfff1475ddcc2d7a0c99c56b7c',1,'DirectionlessOdometer::isAttached()'],['../class_odometer.html#a9a05ce69a2f1bdfd251e7d470090923f',1,'Odometer::isAttached()']]]
 ];

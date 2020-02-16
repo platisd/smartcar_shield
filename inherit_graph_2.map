@@ -1,9 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="5,107,120,133"/>
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors. " alt="" coords="168,56,315,83"/>
-<area shape="rect" id="node6" href="$class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins..." alt="" coords="214,107,269,133"/>
-<area shape="rect" id="node7" href="$class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus..." alt="" coords="210,157,273,184"/>
-<area shape="rect" id="node3" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor. " alt="" coords="367,5,445,32"/>
-<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor. " alt="" coords="363,56,449,83"/>
-<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor. " alt="" coords="363,107,449,133"/>
+<area shape="rect" id="node1" href="$class_control.html" title="Interface to generalize all classes that can provide a way to control a Car. " alt="" coords="5,31,75,57"/>
+<area shape="rect" id="node2" href="$class_ackerman_control.html" title="Class to represent controling a vehicle by changing the angle of the front wheels, like a common car. " alt="" coords="127,5,261,32"/>
+<area shape="rect" id="node3" href="$class_differential_control.html" title="Class to represent controling a vehicle by applying different speed on each side, like a tank..." alt="" coords="123,56,265,83"/>
 </map>

@@ -1,15 +1,15 @@
 <map id="src/control/Control.hpp" name="src/control/Control.hpp">
-<area shape="rect" id="node2" href="$_simple_car_8hpp.html" title="src/car/simple/SimpleCar.hpp" alt="" coords="627,87,821,114"/>
-<area shape="rect" id="node11" href="$_ackerman_control_8hpp.html" title="src/control/ackerman\l/AckermanControl.hpp" alt="" coords="119,80,271,121"/>
-<area shape="rect" id="node13" href="$_differential_control_8hpp.html" title="src/control/differential\l/DifferentialControl.hpp" alt="" coords="957,80,1113,121"/>
-<area shape="rect" id="node3" href="$_distance_car_8hpp.html" title="src/car/distance/Distance\lCar.hpp" alt="" coords="323,169,493,211"/>
-<area shape="rect" id="node7" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="782,348,890,375"/>
-<area shape="rect" id="node8" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="737,177,946,203"/>
-<area shape="rect" id="node10" href="$_simple_car_8cpp.html" title="src/car/simple/SimpleCar.cpp" alt="" coords="517,177,712,203"/>
-<area shape="rect" id="node4" href="$_distance_car_8cpp.html" title="src/car/distance/Distance\lCar.cpp" alt="" coords="232,259,403,300"/>
-<area shape="rect" id="node5" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="477,266,661,293"/>
-<area shape="rect" id="node6" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="477,348,661,375"/>
-<area shape="rect" id="node9" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="686,266,895,293"/>
-<area shape="rect" id="node12" href="$_ackerman_control_8cpp.html" title="src/control/ackerman\l/AckermanControl.cpp" alt="" coords="5,169,157,211"/>
-<area shape="rect" id="node14" href="$_differential_control_8cpp.html" title="src/control/differential\l/DifferentialControl.cpp" alt="" coords="1073,169,1229,211"/>
+<area shape="rect" id="node2" href="$_simple_car_8hpp.html" title="src/car/simple/SimpleCar.hpp" alt="" coords="659,87,870,114"/>
+<area shape="rect" id="node11" href="$_ackerman_control_8hpp.html" title="src/control/ackerman\l/AckermanControl.hpp" alt="" coords="127,80,293,121"/>
+<area shape="rect" id="node13" href="$_differential_control_8hpp.html" title="src/control/differential\l/DifferentialControl.hpp" alt="" coords="1009,80,1184,121"/>
+<area shape="rect" id="node3" href="$_distance_car_8hpp.html" title="src/car/distance/Distance\lCar.hpp" alt="" coords="335,169,520,211"/>
+<area shape="rect" id="node7" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="834,348,949,375"/>
+<area shape="rect" id="node8" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="780,177,1008,203"/>
+<area shape="rect" id="node10" href="$_simple_car_8cpp.html" title="src/car/simple/SimpleCar.cpp" alt="" coords="545,177,755,203"/>
+<area shape="rect" id="node4" href="$_distance_car_8cpp.html" title="src/car/distance/Distance\lCar.cpp" alt="" coords="248,259,433,300"/>
+<area shape="rect" id="node5" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="508,266,707,293"/>
+<area shape="rect" id="node6" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="508,348,707,375"/>
+<area shape="rect" id="node9" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="731,266,958,293"/>
+<area shape="rect" id="node12" href="$_ackerman_control_8cpp.html" title="src/control/ackerman\l/AckermanControl.cpp" alt="" coords="5,169,172,211"/>
+<area shape="rect" id="node14" href="$_differential_control_8cpp.html" title="src/control/differential\l/DifferentialControl.cpp" alt="" coords="1134,169,1307,211"/>
 </map>

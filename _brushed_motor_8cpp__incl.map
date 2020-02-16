@@ -1,6 +1,7 @@
 <map id="src/motor/analog/pwm/BrushedMotor.cpp" name="src/motor/analog/pwm/BrushedMotor.cpp">
-<area shape="rect" id="node2" href="$_brushed_motor_8hpp.html" title="BrushedMotor.hpp" alt="" coords="83,102,211,129"/>
-<area shape="rect" id="node7" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="235,95,334,136"/>
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="58,184,237,211"/>
-<area shape="rect" id="node6" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="261,184,365,211"/>
+<area shape="rect" id="node2" href="$_brushed_motor_8hpp.html" title="BrushedMotor.hpp" alt="" coords="87,102,226,129"/>
+<area shape="rect" id="node8" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="250,95,357,136"/>
+<area shape="rect" id="node4" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="59,184,254,211"/>
+<area shape="rect" id="node7" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="279,184,389,211"/>
+<area shape="rect" id="node6" href="$_interrupt_callback_8hpp.html" title="InterruptCallback.hpp" alt="" coords="209,259,371,285"/>
 </map>

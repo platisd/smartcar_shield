@@ -1,4 +1,4 @@
 <map id="SimpleCar::setSpeed" name="SimpleCar::setSpeed">
-<area shape="rect" id="node2" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="200,5,327,32"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="204,57,323,98"/>
+<area shape="rect" id="node2" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="211,5,348,32"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="213,57,345,98"/>
 </map>

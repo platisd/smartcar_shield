@@ -1,10 +1,10 @@
 <map id="DistanceCar::setSpeed" name="DistanceCar::setSpeed">
-<area shape="rect" id="node2" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="225,20,372,47"/>
-<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="453,57,571,98"/>
-<area shape="rect" id="node5" href="$namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa" title="Compares two floating point numbers. " alt="" coords="237,122,360,163"/>
-<area shape="rect" id="node7" href="$class_distance_car.html#a42f84a0cebba3fb5f8ac4c5672875fd4" title="Gets the car&#39;s travelled distance. " alt="" coords="212,188,385,215"/>
-<area shape="rect" id="node9" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="229,239,369,265"/>
-<area shape="rect" id="node3" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="449,5,575,32"/>
-<area shape="rect" id="node6" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="453,122,571,163"/>
-<area shape="rect" id="node8" href="$class_odometer.html#a4b0f780d4b4695c9e3dd37dbcf3406be" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="433,188,591,215"/>
+<area shape="rect" id="node2" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="237,20,395,47"/>
+<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="478,57,610,98"/>
+<area shape="rect" id="node5" href="$namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa" title="Compares two floating point numbers. " alt="" coords="249,122,383,163"/>
+<area shape="rect" id="node7" href="$class_distance_car.html#a42f84a0cebba3fb5f8ac4c5672875fd4" title="Gets the car&#39;s travelled distance. " alt="" coords="223,188,409,215"/>
+<area shape="rect" id="node9" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="239,239,393,265"/>
+<area shape="rect" id="node3" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="475,5,613,32"/>
+<area shape="rect" id="node6" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="478,122,610,163"/>
+<area shape="rect" id="node8" href="$class_odometer.html#a4b0f780d4b4695c9e3dd37dbcf3406be" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="457,188,631,215"/>
 </map>

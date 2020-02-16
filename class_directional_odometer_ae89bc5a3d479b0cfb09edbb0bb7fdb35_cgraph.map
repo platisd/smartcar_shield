@@ -1,5 +1,4 @@
 <map id="DirectionalOdometer::getSpeed" name="DirectionalOdometer::getSpeed">
-<area shape="rect" id="node2" href="$class_directionless_odometer.html#a4b62519f40b5679c290e6bd5e3f63360" title="Returns whether the sensor has been properly attached. " alt="" coords="397,5,552,47"/>
-<area shape="rect" id="node3" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="195,35,349,76"/>
-<area shape="rect" id="node4" href="$class_directional_odometer.html#a35697ff5f84ec953a1dcdff132726f31" title="Get the direction of movement. " alt="" coords="201,100,343,141"/>
+<area shape="rect" id="node2" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="212,5,384,47"/>
+<area shape="rect" id="node3" href="$class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952" title="Get the direction of movement. " alt="" coords="219,71,377,112"/>
 </map>

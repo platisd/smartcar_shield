@@ -1,5 +1,5 @@
 <map id="DistanceCar::overrideMotorSpeed" name="DistanceCar::overrideMotorSpeed">
-<area shape="rect" id="node2" href="$class_simple_car.html#ac25a30173ae4f42a785363997c401e95" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="236,27,407,69"/>
-<area shape="rect" id="node3" href="$class_control.html#a3dfa45882f96d57c5fd97c784ea41578" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="455,5,643,32"/>
-<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="489,57,608,98"/>
+<area shape="rect" id="node2" href="$class_simple_car.html#ac25a30173ae4f42a785363997c401e95" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="253,27,441,69"/>
+<area shape="rect" id="node3" href="$class_control.html#a3dfa45882f96d57c5fd97c784ea41578" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="489,5,697,32"/>
+<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="527,57,659,98"/>
 </map>

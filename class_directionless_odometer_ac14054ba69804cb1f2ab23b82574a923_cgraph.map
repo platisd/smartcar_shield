@@ -1,0 +1,7 @@
+<map id="DirectionlessOdometer::DirectionlessOdometer" name="DirectionlessOdometer::DirectionlessOdometer">
+<area shape="rect" id="node2" href="$class_runtime.html#a517ad270d4dd374f7e94fddf687484f1" title="Gets the interrupt number of the specified pin, equivalent of digitalPinToInterrupt in Arduino..." alt="" coords="252,5,427,32"/>
+<area shape="rect" id="node3" href="$class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino. " alt="" coords="248,56,431,83"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a9d02f816e650583bbda5c4de8ae78300" title="Get the runtime&#45;specific value representing an INPUT pin state. " alt="" coords="253,107,425,133"/>
+<area shape="rect" id="node5" href="$class_runtime.html#abbfd065d174c3e5219ac306561f2f2fc" title="Enables an external hardware interrupt and provides a callback, equivalent to attachInterrupt in Ardu..." alt="" coords="259,157,419,184"/>
+<area shape="rect" id="node6" href="$class_runtime.html#a021baafc7a448275de502ece59d938d2" title="Get the rising edge constant for setting an interrupt. " alt="" coords="233,208,445,235"/>
+</map>

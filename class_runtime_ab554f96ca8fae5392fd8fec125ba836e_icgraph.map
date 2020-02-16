@@ -1,4 +1,4 @@
 <map id="Runtime::i2cInit" name="Runtime::i2cInit">
-<area shape="rect" id="node2" href="$class_s_r_f08.html#a7d0c5528d5b53bdb15f3615a2eacafc7" title="SRF08::SRF08" alt="" coords="168,5,280,32"/>
-<area shape="rect" id="node3" href="$class_g_y50.html#ae4c481a17a698f138003d622c810525b" title="Updates the sensor&#39;s readings. " alt="" coords="173,56,275,83"/>
+<area shape="rect" id="node2" href="$class_s_r_f08.html#a7d0c5528d5b53bdb15f3615a2eacafc7" title="SRF08::SRF08" alt="" coords="177,5,288,32"/>
+<area shape="rect" id="node3" href="$class_g_y50.html#ae4c481a17a698f138003d622c810525b" title="Updates the sensor&#39;s readings. " alt="" coords="179,56,287,83"/>
 </map>

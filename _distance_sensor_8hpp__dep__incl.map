@@ -1,15 +1,15 @@
 <map id="src/sensors/distance/DistanceSensor.hpp" name="src/sensors/distance/DistanceSensor.hpp">
-<area shape="rect" id="node2" href="$_infrared_analog_sensor_8hpp.html" title="src/sensors/distance\l/infrared/analog/InfraredAnalog\lSensor.hpp" alt="" coords="373,95,572,151"/>
-<area shape="rect" id="node11" href="$_s_r_f08_8hpp.html" title="src/sensors/distance\l/ultrasound/i2c/SRF08.hpp" alt="" coords="691,102,868,143"/>
-<area shape="rect" id="node13" href="$_s_r04_8hpp.html" title="src/sensors/distance\l/ultrasound/ping/SR04.hpp" alt="" coords="919,102,1095,143"/>
-<area shape="rect" id="node3" href="$_infrared_analog_sensor_8cpp.html" title="src/sensors/distance\l/infrared/analog/InfraredAnalog\lSensor.cpp" alt="" coords="5,199,204,255"/>
-<area shape="rect" id="node4" href="$_g_p2_d120_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.hpp" alt="" coords="229,199,375,255"/>
-<area shape="rect" id="node7" href="$_g_p2_y0_a02_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.hpp" alt="" coords="399,199,546,255"/>
-<area shape="rect" id="node9" href="$_g_p2_y0_a21_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.hpp" alt="" coords="570,199,717,255"/>
-<area shape="rect" id="node5" href="$_g_p2_d120_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.cpp" alt="" coords="207,303,354,359"/>
-<area shape="rect" id="node6" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="720,317,828,344"/>
-<area shape="rect" id="node8" href="$_g_p2_y0_a02_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.cpp" alt="" coords="378,303,525,359"/>
-<area shape="rect" id="node10" href="$_g_p2_y0_a21_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.cpp" alt="" coords="549,303,695,359"/>
-<area shape="rect" id="node12" href="$_s_r_f08_8cpp.html" title="src/sensors/distance\l/ultrasound/i2c/SRF08.cpp" alt="" coords="792,206,969,247"/>
-<area shape="rect" id="node14" href="$_s_r04_8cpp.html" title="src/sensors/distance\l/ultrasound/ping/SR04.cpp" alt="" coords="1045,206,1221,247"/>
+<area shape="rect" id="node2" href="$_infrared_analog_sensor_8hpp.html" title="src/sensors/distance\l/infrared/analog/InfraredAnalog\lSensor.hpp" alt="" coords="413,95,639,151"/>
+<area shape="rect" id="node11" href="$_s_r_f08_8hpp.html" title="src/sensors/distance\l/ultrasound/i2c/SRF08.hpp" alt="" coords="764,102,955,143"/>
+<area shape="rect" id="node13" href="$_s_r04_8hpp.html" title="src/sensors/distance\l/ultrasound/ping/SR04.hpp" alt="" coords="1003,102,1195,143"/>
+<area shape="rect" id="node3" href="$_infrared_analog_sensor_8cpp.html" title="src/sensors/distance\l/infrared/analog/InfraredAnalog\lSensor.cpp" alt="" coords="5,199,231,255"/>
+<area shape="rect" id="node4" href="$_g_p2_d120_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.hpp" alt="" coords="254,199,419,255"/>
+<area shape="rect" id="node7" href="$_g_p2_y0_a02_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.hpp" alt="" coords="443,199,609,255"/>
+<area shape="rect" id="node9" href="$_g_p2_y0_a21_8hpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.hpp" alt="" coords="633,199,798,255"/>
+<area shape="rect" id="node5" href="$_g_p2_d120_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2D120.cpp" alt="" coords="233,303,398,359"/>
+<area shape="rect" id="node6" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="801,317,915,344"/>
+<area shape="rect" id="node8" href="$_g_p2_y0_a02_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A02.cpp" alt="" coords="422,303,587,359"/>
+<area shape="rect" id="node10" href="$_g_p2_y0_a21_8cpp.html" title="src/sensors/distance\l/infrared/analog/sharp\l/GP2Y0A21.cpp" alt="" coords="611,303,777,359"/>
+<area shape="rect" id="node12" href="$_s_r_f08_8cpp.html" title="src/sensors/distance\l/ultrasound/i2c/SRF08.cpp" alt="" coords="873,206,1062,247"/>
+<area shape="rect" id="node14" href="$_s_r04_8cpp.html" title="src/sensors/distance\l/ultrasound/ping/SR04.cpp" alt="" coords="1137,206,1328,247"/>
 </map>

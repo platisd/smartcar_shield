@@ -1,6 +1,5 @@
 <map id="src/motor/digital/servo/ServoMotor.cpp" name="src/motor/digital/servo/ServoMotor.cpp">
-<area shape="rect" id="node2" href="$_servo_motor_8hpp.html" title="ServoMotor.hpp" alt="" coords="71,102,186,129"/>
-<area shape="rect" id="node8" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="210,95,309,136"/>
-<area shape="rect" id="node5" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="113,184,291,211"/>
-<area shape="rect" id="node7" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="315,184,419,211"/>
+<area shape="rect" id="node2" href="$_servo_motor_8hpp.html" title="ServoMotor.hpp" alt="" coords="74,102,197,129"/>
+<area shape="rect" id="node6" href="$_utilities_8hpp.html" title="../../../utilities\l/Utilities.hpp" alt="" coords="221,95,327,136"/>
+<area shape="rect" id="node5" href="$_motor_8hpp.html" title="../../Motor.hpp" alt="" coords="195,184,305,211"/>
 </map>

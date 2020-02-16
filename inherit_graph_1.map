@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_control.html" title="Interface to generalize all classes that can provide a way to control a Car. " alt="" coords="5,31,69,57"/>
-<area shape="rect" id="node2" href="$class_ackerman_control.html" title="Class to represent controling a vehicle by changing the angle of the front wheels, like a common car. " alt="" coords="119,5,242,32"/>
-<area shape="rect" id="node3" href="$class_differential_control.html" title="Class to represent controling a vehicle by applying different speed on each side, like a tank..." alt="" coords="117,56,244,83"/>
+<area shape="rect" id="node1" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="5,31,49,57"/>
+<area shape="rect" id="node2" href="$class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="97,31,187,57"/>
+<area shape="rect" id="node3" href="$class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers. " alt="" coords="235,5,336,32"/>
+<area shape="rect" id="node5" href="$class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor. " alt="" coords="236,56,335,83"/>
+<area shape="rect" id="node4" href="$class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor..." alt="" coords="384,31,467,57"/>
 </map>

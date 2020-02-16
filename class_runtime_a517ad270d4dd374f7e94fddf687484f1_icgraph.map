@@ -1,4 +1,3 @@
 <map id="Runtime::pinToInterrupt" name="Runtime::pinToInterrupt">
-<area shape="rect" id="node2" href="$class_directionless_odometer.html#a88a5f943fcd0ce2a67b2ede3e1763fda" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="212,5,367,47"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html#aaaf2ecae7591cd9bf0bb0f3ab7452504" title="Initializes the Odometer to receive pulses from the specified pin. " alt="" coords="415,5,556,47"/>
+<area shape="rect" id="node2" href="$class_directionless_odometer.html#ac14054ba69804cb1f2ab23b82574a923" title="DirectionlessOdometer\l::DirectionlessOdometer" alt="" coords="228,5,408,47"/>
 </map>

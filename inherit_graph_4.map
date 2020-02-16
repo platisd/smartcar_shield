@@ -1,5 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="5,5,84,32"/>
-<area shape="rect" id="node2" href="$class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="132,5,287,32"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html" title="A class to represent directional Odometers. " alt="" coords="335,5,476,32"/>
+<area shape="rect" id="node1" href="$interface_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements. " alt="" coords="5,107,128,133"/>
+<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors. " alt="" coords="176,56,339,83"/>
+<area shape="rect" id="node6" href="$class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins..." alt="" coords="230,107,285,133"/>
+<area shape="rect" id="node7" href="$class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus..." alt="" coords="226,157,289,184"/>
+<area shape="rect" id="node3" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor. " alt="" coords="390,5,473,32"/>
+<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor. " alt="" coords="387,56,476,83"/>
+<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor. " alt="" coords="387,107,476,133"/>
 </map>

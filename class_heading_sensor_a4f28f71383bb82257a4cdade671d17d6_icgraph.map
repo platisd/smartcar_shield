@@ -1,4 +1,4 @@
 <map id="HeadingSensor::update" name="HeadingSensor::update">
-<area shape="rect" id="node2" href="$class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor. " alt="" coords="212,5,351,32"/>
-<area shape="rect" id="node3" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="399,5,524,32"/>
+<area shape="rect" id="node2" href="$class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor. " alt="" coords="227,5,377,32"/>
+<area shape="rect" id="node3" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading. " alt="" coords="425,5,561,32"/>
 </map>

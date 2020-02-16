@@ -1,3 +1,7 @@
 <map id="SR04::SR04" name="SR04::SR04">
-<area shape="rect" id="node2" href="$class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino. " alt="" coords="149,5,317,32"/>
+<area shape="rect" id="node2" href="$class_runtime.html#a7a1aa2153b68337b74eef58bda014079" title="Get the runtime&#45;specific value representing an OUTPUT pin state. " alt="" coords="149,5,332,32"/>
+<area shape="rect" id="node3" href="$class_runtime.html#a9d02f816e650583bbda5c4de8ae78300" title="Get the runtime&#45;specific value representing an INPUT pin state. " alt="" coords="155,56,327,83"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a1c3586a0b24044f9e47f30c5197bbb5c" title="Get the runtime&#45;specific value representing a logical LOW voltage state. " alt="" coords="158,107,323,133"/>
+<area shape="rect" id="node5" href="$class_runtime.html#abe2f0256fd53bd604abbc2dbff9cba35" title="Get the runtime&#45;specific value representing a logical HIGH voltage state. " alt="" coords="156,157,325,184"/>
+<area shape="rect" id="node6" href="$class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino. " alt="" coords="149,208,332,235"/>
 </map>

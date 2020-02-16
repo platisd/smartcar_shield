@@ -1,5 +1,5 @@
 <map id="SRF08::setRange" name="SRF08::setRange">
-<area shape="rect" id="node2" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="180,5,387,32"/>
-<area shape="rect" id="node3" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="220,56,347,83"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="185,107,382,133"/>
+<area shape="rect" id="node2" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="184,5,409,32"/>
+<area shape="rect" id="node3" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino. " alt="" coords="228,56,365,83"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino. " alt="" coords="191,107,403,133"/>
 </map>

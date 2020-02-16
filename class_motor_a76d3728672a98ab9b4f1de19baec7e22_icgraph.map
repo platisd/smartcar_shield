@@ -1,7 +1,7 @@
 <map id="Motor::setSpeed" name="Motor::setSpeed">
-<area shape="rect" id="node2" href="$class_ackerman_control.html#a077ddd008527819c908742c3409c1cc1" title="Sets the driving angle in degrees [&#45;90, 90]. " alt="" coords="174,5,357,32"/>
-<area shape="rect" id="node3" href="$class_ackerman_control.html#ac06358a5ef896a5408c2f8c8599973f8" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="172,56,359,83"/>
-<area shape="rect" id="node4" href="$class_ackerman_control.html#a5b5cc9c5958e68cb7e371c4623a10517" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="177,107,354,149"/>
-<area shape="rect" id="node5" href="$class_differential_control.html#a96c12b4a80e8632f1f72a883c799795b" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="202,173,329,214"/>
-<area shape="rect" id="node6" href="$class_differential_control.html#a8269d8146779a9cd0d5ea3b01676e4ff" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="192,238,339,279"/>
+<area shape="rect" id="node2" href="$class_ackerman_control.html#a077ddd008527819c908742c3409c1cc1" title="Sets the driving angle in degrees [&#45;90, 90]. " alt="" coords="181,5,381,32"/>
+<area shape="rect" id="node3" href="$class_ackerman_control.html#ac06358a5ef896a5408c2f8c8599973f8" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="180,56,383,83"/>
+<area shape="rect" id="node4" href="$class_ackerman_control.html#a5b5cc9c5958e68cb7e371c4623a10517" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="183,107,380,149"/>
+<area shape="rect" id="node5" href="$class_differential_control.html#a96c12b4a80e8632f1f72a883c799795b" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="210,173,353,214"/>
+<area shape="rect" id="node6" href="$class_differential_control.html#a8269d8146779a9cd0d5ea3b01676e4ff" title="Set the motor speed individually as a percentage of the motors` total power. " alt="" coords="201,238,362,279"/>
 </map>

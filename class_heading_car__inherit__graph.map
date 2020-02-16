@@ -1,5 +1,5 @@
 <map id="HeadingCar" name="HeadingCar">
-<area shape="rect" id="node4" href="$class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor..." alt="" coords="35,513,134,620"/>
-<area shape="rect" id="node2" href="$class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="5,175,164,311"/>
-<area shape="rect" id="node3" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="5,5,164,127"/>
+<area shape="rect" id="node4" href="$class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor..." alt="" coords="41,513,149,620"/>
+<area shape="rect" id="node2" href="$class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors. " alt="" coords="5,175,184,311"/>
+<area shape="rect" id="node3" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle. " alt="" coords="5,5,184,127"/>
 </map>

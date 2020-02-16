@@ -1,11 +1,11 @@
 <map id="src/car/Car.hpp" name="src/car/Car.hpp">
-<area shape="rect" id="node2" href="$_simple_car_8hpp.html" title="src/car/simple/SimpleCar.hpp" alt="" coords="445,80,640,107"/>
-<area shape="rect" id="node3" href="$_distance_car_8hpp.html" title="src/car/distance/Distance\lCar.hpp" alt="" coords="193,155,364,196"/>
-<area shape="rect" id="node7" href="$_smartcar_8h.html" title="src/Smartcar.h" alt="" coords="418,333,526,360"/>
-<area shape="rect" id="node8" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="510,162,719,189"/>
-<area shape="rect" id="node10" href="$_simple_car_8cpp.html" title="src/car/simple/SimpleCar.cpp" alt="" coords="744,162,939,189"/>
-<area shape="rect" id="node4" href="$_distance_car_8cpp.html" title="src/car/distance/Distance\lCar.cpp" alt="" coords="5,244,176,285"/>
-<area shape="rect" id="node5" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="251,251,435,278"/>
-<area shape="rect" id="node6" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="209,333,393,360"/>
-<area shape="rect" id="node9" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="561,251,770,278"/>
+<area shape="rect" id="node2" href="$_simple_car_8hpp.html" title="src/car/simple/SimpleCar.hpp" alt="" coords="471,80,682,107"/>
+<area shape="rect" id="node3" href="$_distance_car_8hpp.html" title="src/car/distance/Distance\lCar.hpp" alt="" coords="204,155,389,196"/>
+<area shape="rect" id="node7" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="443,333,558,360"/>
+<area shape="rect" id="node8" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="539,162,767,189"/>
+<area shape="rect" id="node10" href="$_simple_car_8cpp.html" title="src/car/simple/SimpleCar.cpp" alt="" coords="791,162,1002,189"/>
+<area shape="rect" id="node4" href="$_distance_car_8cpp.html" title="src/car/distance/Distance\lCar.cpp" alt="" coords="5,244,191,285"/>
+<area shape="rect" id="node5" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="265,251,464,278"/>
+<area shape="rect" id="node6" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="220,333,419,360"/>
+<area shape="rect" id="node9" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="589,251,815,278"/>
 </map>

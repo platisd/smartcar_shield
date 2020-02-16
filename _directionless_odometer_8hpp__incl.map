@@ -1,4 +1,5 @@
 <map id="src/sensors/odometer/interrupt/DirectionlessOdometer.hpp" name="src/sensors/odometer/interrupt/DirectionlessOdometer.hpp">
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="205,95,384,121"/>
-<area shape="rect" id="node5" href="$_odometer_8hpp.html" title="../Odometer.hpp" alt="" coords="65,95,181,121"/>
+<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../runtime/Runtime.hpp" alt="" coords="225,95,419,121"/>
+<area shape="rect" id="node6" href="$_odometer_8hpp.html" title="../Odometer.hpp" alt="" coords="73,95,200,121"/>
+<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title="InterruptCallback.hpp" alt="" coords="147,169,310,196"/>
 </map>

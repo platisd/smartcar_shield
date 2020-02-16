@@ -1,4 +1,5 @@
 <map id="src/sensors/distance/ultrasound/i2c/SRF08.hpp" name="src/sensors/distance/ultrasound/i2c/SRF08.hpp">
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="213,95,326,136"/>
-<area shape="rect" id="node5" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="25,102,189,129"/>
+<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="223,95,345,136"/>
+<area shape="rect" id="node6" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="25,102,199,129"/>
+<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title="InterruptCallback.hpp" alt="" coords="308,184,471,211"/>
 </map>
