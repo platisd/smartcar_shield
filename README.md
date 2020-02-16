@@ -33,7 +33,7 @@ possibilities, as it offers out-of-the-box connectivity.
 
 ### Platform
 
-![smartcar platform](https://i.imgur.com/tY0a4eu.jpg)
+![smartcar platform](https://i.imgur.com/cFrq2Wj.jpg)
 
 The Smartcar platform is a complete hardware solution for your hobby-grade, connected vehicle project.
 It is comprised of the chassis, made out of printed circuit boards, stacked on each other and an
