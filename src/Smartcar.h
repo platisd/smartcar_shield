@@ -53,14 +53,16 @@ const BrushedMotorPins rightMotorPins{ 12, 13, 11 };
 
 /**
  * \namespace v2
- * Helper resources for the `v2` platform (i.e. the Smartcar shield)
+ * Helper resources for the `v2` platform (i.e. the ESP32-enabled Smartcar)
  */
 namespace v2
 {
 const BrushedMotorPins leftMotorPins{ 12, 14, 13 };
 const BrushedMotorPins rightMotorPins{ 25, 26, 27 };
-const DirectionalOdometerPins leftOdometerPins{ 35, 34 };
-const DirectionalOdometerPins rightOdometerPins{ 36, 39 };
+const uint8_t leftOdometerPin  = 35;
+const uint8_t rightOdometerPin = 36;
+const DirectionalOdometerPins leftOdometerPins{ leftOdometerPin, 34 };
+const DirectionalOdometerPins rightOdometerPins{ rightOdometerPin, 39 };
 } // namespace v2
 } // namespace pins
 } // namespace smartcarlib

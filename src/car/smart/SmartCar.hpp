@@ -54,9 +54,15 @@ public:
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * GY50 gyroscope(37);
-     * DirectionlessOdometer leftOdometer(100);
-     * DirectionlessOdometer rightOdometer(100);
-
+     *
+     * const auto pulsesPerMeter = 600;
+     *
+     * DirectionlessOdometer leftOdometer(
+     *     smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+     * DirectionlessOdometer rightOdometer(
+     *     smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); },
+     *     pulsesPerMeter);
+     *
      * SmartCar car(control, gyroscope, leftOdometer, rightOdometer);
      * \endcode
      */

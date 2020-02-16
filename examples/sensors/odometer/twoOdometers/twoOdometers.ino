@@ -1,15 +1,11 @@
 #include <Smartcar.h>
 
-const auto odometerLeftPin       = 2;
-const auto odometerRightPin      = 3;
-const auto pulsesPerMeterLeft    = 50;
-const auto pulsesPerMeterRight   = 60;
-const unsigned short odometerPin = 2;
+const auto pulsesPerMeter = 600;
 
 DirectionlessOdometer leftOdometer(
-    odometerLeftPin, []() { leftOdometer.update(); }, pulsesPerMeterLeft);
+    smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
 DirectionlessOdometer rightOdometer(
-    odometerRightPin, []() { rightOdometer.update(); }, pulsesPerMeterRight);
+    smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); }, pulsesPerMeter);
 
 void setup()
 {

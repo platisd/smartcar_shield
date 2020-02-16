@@ -63,9 +63,14 @@ public:
      * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
-     * DirectionlessOdometer leftOdometer(100);
-     * DirectionlessOdometer rightOdometer(100);
-
+     * const auto pulsesPerMeter = 600;
+     *
+     * DirectionlessOdometer leftOdometer(
+     *     smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+     * DirectionlessOdometer rightOdometer(
+     *     smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); },
+     *     pulsesPerMeter);
+     *
      * DistanceCar car(control, gyroscope, leftOdometer, rightOdometer);
      * \endcode
      */
