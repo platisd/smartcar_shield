@@ -9,7 +9,10 @@
 
 namespace
 {
-const uint8_t kGyroAddress = 105;
+const uint8_t kGyroAddress      = 105;
+const auto kMeasurementInterval = 100;
+const float kGyroSensitivity    = 0.07f;
+const int kGyroThreshold        = 12; // Smaller changes are to be ignored
 } // namespace
 
 using namespace smartcarlib::utils;
@@ -25,7 +28,7 @@ GY50::GY50(int offset, unsigned long samplingInterval, Runtime& runtime)
 {
 }
 
-unsigned int GY50::getHeading()
+int GY50::getHeading()
 {
     // Get the reading from (-180,180) to [0, 360) scale
     auto normalizedReading = static_cast<int>(mAngularDisplacement) % 360;
@@ -41,13 +44,11 @@ void GY50::update()
         return; // Not the time to read yet
     }
 
-    static const float gyroSensitivity = 0.07f;
-    static const int gyroThreshold     = 12; // Smaller changes are to be ignored
-    int drift                          = kOffset - getAngularVelocity();
+    int drift = kOffset - getAngularVelocity();
 
-    if (getAbsolute(drift) > gyroThreshold)
+    if (getAbsolute(drift) > kGyroThreshold)
     {
-        float gyroRate = drift * gyroSensitivity;
+        float gyroRate = drift * kGyroSensitivity;
         mAngularDisplacement += gyroRate / (1000.0 / interval);
     }
     mPreviousSample = currentTime;
@@ -83,19 +84,18 @@ void GY50::attach()
     mAttached = true;
 }
 
-int GY50::getOffset(unsigned int measurements)
+int GY50::getOffset(int measurements)
 {
-    if (measurements == 0)
+    if (measurements <= 0)
     {
         return kError;
     }
 
-    static const unsigned long measurementInterval = 10;
-    long sum                                       = 0;
-    for (unsigned int i = 0; i < measurements; i++)
+    long sum = 0;
+    for (auto i = 0; i < measurements; i++)
     {
         sum += getAngularVelocity();
-        mRuntime.delayMillis(measurementInterval);
+        mRuntime.delayMillis(kMeasurementInterval);
     }
 
     return sum / measurements;
@@ -111,7 +111,7 @@ int GY50::getAngularVelocity()
     auto firstByte  = readL3G4200DRegister(zAxisFirstByteRegister);
     auto secondByte = readL3G4200DRegister(zAxisSecondByteRegister);
 
-    return (firstByte << 8) | secondByte;
+    return static_cast<int16_t>((firstByte << 8) | secondByte);
 }
 
 int GY50::readL3G4200DRegister(uint8_t registerAddress)

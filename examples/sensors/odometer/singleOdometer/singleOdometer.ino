@@ -1,18 +1,18 @@
 #include <Smartcar.h>
 
-DirectionlessOdometer odometer(80); // 80 pulses per meter
-const int odometerPin = 2;
+const unsigned short odometerPin   = 2;
+const unsigned long pulsesPerMeter = 400;
 
-void setup() {
-  Serial.begin(9600);
-  odometer.attach(odometerPin, []() {
-    odometer.update();
-  });
+DirectionlessOdometer odometer(
+    odometerPin, []() { odometer.update(); }, pulsesPerMeter);
+
+void setup()
+{
+    Serial.begin(9600);
 }
 
-void loop() {
-  Serial.print(odometer.getDistance());
-  delay(100);
+void loop()
+{
+    Serial.println(odometer.getDistance());
+    delay(100);
 }
-
-

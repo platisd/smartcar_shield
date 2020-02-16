@@ -22,25 +22,32 @@ public:
 #ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed but not direction
-     * @param pulsesPerMeter The amount of odometer pulses that constitute a meter
+     * @param pulsePin          The pin that receives the pulses
+     * @param callback          The callback to be invoked when a pulse is received (see example)
+     * @param pulsesPerMeter    The amount of odometer pulses that constitute a meter
      *
      * **Example:**
      * \code
+     * unsigned short ODOMETER_PIN = 32;
      * unsigned long PULSES_PER_METER = 110;
      *
-     * DirectionlessOdometer odometer(PULSES_PER_METER);
+     * DirectionlessOdometer odometer(ODOMETER_PIN,
+     *                                []() { odometer.update(); },
+     *                                PULSES_PER_METER);
      * \endcode
      */
-    DirectionlessOdometer(unsigned long pulsesPerMeter,
+    DirectionlessOdometer(uint8_t pulsePin,
+                          InterruptCallback callback,
+                          unsigned long pulsesPerMeter,
                           Runtime& runtime = arduinoRuntime);
 #else
-    DirectionlessOdometer(unsigned long pulsesPerMeter, Runtime& runtime);
+    DirectionlessOdometer(uint8_t pulsePin,
+                          InterruptCallback callback,
+                          unsigned long pulsesPerMeter,
+                          Runtime& runtime);
 #endif
 
     virtual ~DirectionlessOdometer() = default;
-
-    /* Check `Odometer` interface for documentation */
-    bool attach(uint8_t pin, void (*callback)()) override;
 
     /* Check `Odometer` interface for documentation */
     long getDistance() override;
@@ -49,10 +56,10 @@ public:
     float getSpeed() override;
 
     /* Check `Odometer` interface for documentation */
-    bool isAttached() override;
+    bool isAttached() const override;
 
     /* Check `Odometer` interface for documentation */
-    bool providesDirection() override;
+    bool providesDirection() const override;
 
     /**
      * Resets the total travelled distance and speed to `0`
@@ -64,26 +71,20 @@ public:
      * Updates the current dt with the time difference between the last two pulses
      * and increases the pulse counter.
      * **Do not** call it directly in your sketch!
-     * Instead, pass it inside a lambda as an argument to `attach`. Example:
-     * ```
-     * const int ODOMETER_PIN = 2;
-     * Odometer odometer;
-     * odometer.attach(ODOMETER_PIN, [](){odometer.update();});
-     * ```
+     * Instead, pass it in a lambda to the constructor.
      */
     virtual void update();
 
 protected:
     const float mPulsesPerMeterRatio;
+    volatile unsigned long mPulsesCounter{ 0 };
+    volatile unsigned long mPreviousPulse{ 0 };
+    volatile unsigned long mDt{ 0 };
 
 private:
     const unsigned long mMillimetersPerPulse;
     Runtime& mRuntime;
-    uint8_t mPin;
-    bool mSensorAttached;
-    volatile unsigned long mPulsesCounter;
-    volatile unsigned long mPreviousPulse;
-    volatile unsigned long mDt;
+    const bool kSensorAttached;
 };
 
 /**

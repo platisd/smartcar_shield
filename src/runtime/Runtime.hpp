@@ -11,6 +11,27 @@
 #include <stddef.h>
 #include <stdint.h>
 
+// Determine if we use an Espressif platform (i.e. an ESP32 or ESP8266 board).
+// We need this since they are not fully compatible with the Arduino API
+// and therefore we have to do some extra adaptations.
+#if defined(ESP32) || defined(ESP8266)
+#define ESP_BOARD
+#endif
+
+#include "InterruptCallback.hpp"
+
+#ifdef ESP_BOARD
+#if defined(ESP32)
+#include "esp_attr.h"
+#define STORED_IN_RAM IRAM_ATTR
+#else // ESP8266
+#include "c_types.h"
+#define STORED_IN_RAM ICACHE_RAM_ATTR
+#endif
+#else // Other architectures
+#define STORED_IN_RAM
+#endif
+
 class Runtime
 {
 public:
@@ -153,5 +174,40 @@ public:
      * @param callback  The callback to be executed
      * @param mode      The state of the pin to run the callback
      */
-    virtual void setInterrupt(uint8_t pin, void (*callback)(void), int mode) = 0;
+    virtual void setInterrupt(uint8_t pin, InterruptCallback callback, int mode) = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing a logical `LOW` voltage state
+     *
+     * @return uint8_t The `LOW` value
+     */
+    virtual uint8_t getLowState() const = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing a logical `HIGH` voltage state
+     *
+     * @return uint8_t The `HIGH` value
+     */
+    virtual uint8_t getHighState() const = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing an `OUTPUT` pin state
+     *
+     * @return uint8_t The `OUTPUT` state
+     */
+    virtual uint8_t getOutputState() const = 0;
+
+    /**
+     * @brief Get the runtime-specific value representing an `INPUT` pin state
+     *
+     * @return uint8_t The `INPUT` state
+     */
+    virtual uint8_t getInputState() const = 0;
+
+    /**
+     * @brief Get the rising edge constant for setting an interrupt
+     *
+     * @return int The rising edge mode
+     */
+    virtual int getRisingEdgeMode() const = 0;
 };

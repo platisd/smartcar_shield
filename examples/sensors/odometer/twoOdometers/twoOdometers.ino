@@ -1,23 +1,20 @@
 #include <Smartcar.h>
 
-DirectionlessOdometer leftOdometer(50), rightOdometer(60);
-const int odometerLeftPin = 2;
-const int odometerRightPin = 3;
+const auto pulsesPerMeter = 600;
 
-void setup() {
-  Serial.begin(9600);
-  leftOdometer.attach(odometerLeftPin, []() {
-    leftOdometer.update();
-  });
-  rightOdometer.attach(odometerRightPin, []() {
-    rightOdometer.update();
-  });
+DirectionlessOdometer leftOdometer(
+    smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+DirectionlessOdometer rightOdometer(
+    smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); }, pulsesPerMeter);
+
+void setup()
+{
+    Serial.begin(9600);
 }
 
-void loop() {
-  Serial.print(leftOdometer.getDistance());
-  Serial.print("\t\t");
-  Serial.println(rightOdometer.getDistance());
+void loop()
+{
+    Serial.print(leftOdometer.getDistance());
+    Serial.print("\t\t");
+    Serial.println(rightOdometer.getDistance());
 }
-
-

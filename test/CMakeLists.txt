@@ -4,7 +4,7 @@ project(Smartcar_Tests)
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(UNIT_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/ut)
 set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -Werror")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wextra -Werror")
 
 # Coverage
 list(APPEND CMAKE_MODULE_PATH ${REPOSITORY_ROOT}/CmakeModules)
@@ -43,7 +43,7 @@ function(configure_test testExecutable)
     # Add executable to test suite
     add_test(${testName} ${testExecutable} ${GTEST_RUN_FLAGS})
     # Add tests to coverage reports
-    setup_target_for_coverage(NAME ${testName} EXECUTABLE ${testExecutable} DEPENDENCIES ${testExecutable})
+    setup_target_for_coverage(NAME ${testName}_coverage EXECUTABLE ${testExecutable} DEPENDENCIES ${testExecutable})
 endfunction(configure_test)
 
 # Common headers

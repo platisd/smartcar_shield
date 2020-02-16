@@ -8,17 +8,10 @@
  */
 #pragma once
 
+#include <Servo.h>
 #include <stdint.h>
 
-#include <Servo.h>
-
-#include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
-
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
 
 namespace smartcarlib
 {
@@ -36,7 +29,6 @@ const int kDefaultMaxPulseLength  = 2000;
 class ServoMotor : public Servo, public Motor
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a servo motor
      * @param controlPin      The pin controlling the speed of the motor
@@ -53,15 +45,7 @@ public:
     ServoMotor(uint8_t controlPin,
                int minPulseLength  = smartcarlib::constants::servomotor::kDefaultMinPulseLength,
                int idlePulseLength = smartcarlib::constants::servomotor::kDefaultIdlePulseLength,
-               int maxPulseLength  = smartcarlib::constants::servomotor::kDefaultMaxPulseLength,
-               Runtime& runtime    = arduinoRuntime);
-#else
-    ServoMotor(uint8_t controlPin,
-               int minPulseLength,
-               int idlePulseLength,
-               int maxPulseLength,
-               Runtime& runtime);
-#endif
+               int maxPulseLength  = smartcarlib::constants::servomotor::kDefaultMaxPulseLength);
 
     /* Check `Motor` interface for documentation */
     void setSpeed(int speed) override;
@@ -71,6 +55,5 @@ private:
     const int kMinPulseLength;
     const int kIdlePulseLength;
     const int kMaxPulseLength;
-    Runtime& mRuntime;
     bool mAttached;
 };

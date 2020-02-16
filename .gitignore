@@ -16,3 +16,6 @@ static-analysis-report/
 arduino*.xz
 coverage-reports
 coverage.info
+
+# Ignore vscode configuration
+.vscode

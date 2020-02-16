@@ -19,8 +19,8 @@ public:
      * \code
      * const int GYROSCOPE_OFFSET = 37;
      *
-     * BrushedMotor leftMotor(8, 10, 9);
-     * BrushedMotor rightMotor(12, 13, 11);
+     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * GY50 gyroscope(GYROSCOPE_OFFSET);
@@ -34,10 +34,10 @@ public:
      *
      * **Example:**
      * \code
-     * unsigned int currentHeading = gyroscope.getHeading();
+     * auto currentHeading = gyroscope.getHeading();
      * \endcode
      */
-    unsigned int getHeading();
+    int getHeading();
 
     /**
      * Updates the readings from the heading sensor.

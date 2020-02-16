@@ -6,16 +6,19 @@
 
 #include <stdint.h>
 
+#include "../../runtime/InterruptCallback.hpp"
+
 namespace smartcarlib
 {
 namespace constants
 {
 namespace odometer
 {
-const int8_t kForward  = 1;
-const int8_t kBackward = -1;
-const int kNotAttachedError = -1000;
+const int8_t kForward                      = 1;
+const int8_t kBackward                     = -1;
+const int8_t kIdle                         = 0;
 const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
+const unsigned long kMinimumPulseGap       = 700;
 } // namespace odometer
 } // namespace constants
 } // namespace smartcarlib
@@ -23,33 +26,6 @@ const unsigned long kDefaultPulsesPerMeter = 100; // 1:1 cm to pulses ratio
 class Odometer
 {
 public:
-
-    /**
-     * Initializes the Odometer to receive pulses from the specified pin
-     * @param  pin      The pin to receive pulses from, which **must** support
-     *                  external hardware interrupts
-     * @param  callback The function to be run on each incoming pulse. Please use the following as
-     *                  an argument: `[](){yourOdometerInstance.update();}`
-     * @return          `false` if an error occurred, i.e. invalid pin
-     *
-     * You **must** run this function before making any calls to your Odometer
-     * or you will not get any usable distance or speed from it.
-     *
-     * **Example:**
-     * \code
-     * const unsigned short LEFT_ODOMETER_PIN = 2;
-     * const unsigned long PULSES_PER_METER = 80;
-     * DirectionlessOdometer leftOdometer(PULSES_PER_METER);
-     *
-     * void setup() {
-     *   leftOdometer.attach(LEFT_ODOMETER_PIN, []() {
-     *     leftOdometer.update();
-     *   });
-     * }
-     * \endcode
-     */
-    virtual bool attach(uint8_t pin, void (*callback)()) = 0;
-
     /**
      * Returns the travelled distance in centimeters where sign can indicate
      * direction if there is hardware support
@@ -83,7 +59,7 @@ public:
      * bool hasAttachBeenRun = odometer.isAttached();
      * \endcode
      */
-    virtual bool isAttached() = 0;
+    virtual bool isAttached() const = 0;
 
     /**
      * Return whether the sensor is capable of inferring the direction of movement
@@ -94,5 +70,5 @@ public:
      * bool directional = odometer.providesDirection();
      * \endcode
      */
-    virtual bool providesDirection() = 0;
+    virtual bool providesDirection() const = 0;
 };

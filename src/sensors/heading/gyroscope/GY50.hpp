@@ -28,9 +28,9 @@ namespace constants
 {
 namespace gy50
 {
-const uint8_t kDefaultSamplingInterval             = 100;
-const int kError                                   = -32767;
-const unsigned int kDefaultCalibrationMeasurements = 100;
+const uint8_t kDefaultSamplingInterval    = 100;
+const int kError                          = -32767;
+const int kDefaultCalibrationMeasurements = 100;
 } // namespace gy50
 } // namespace constants
 } // namespace smartcarlib
@@ -59,7 +59,7 @@ public:
 #endif
 
     /* Check `HeadingSensor` interface for documentation */
-    unsigned int getHeading() override;
+    int getHeading() override;
 
     /* Check `HeadingSensor` interface for documentation */
     void update() override;
@@ -77,8 +77,7 @@ public:
      * int offset = gyro.getOffset();
      * \endcode
      */
-    int getOffset(unsigned int measurements
-                  = smartcarlib::constants::gy50::kDefaultCalibrationMeasurements);
+    int getOffset(int measurements = smartcarlib::constants::gy50::kDefaultCalibrationMeasurements);
 
 private:
     const int kOffset;

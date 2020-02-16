@@ -2,18 +2,27 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <math.h>
+#ifdef ESP_BOARD
+#if defined(ESP32)
+#include "analogWrite.h"
+#endif
+#if defined(ESP8266)
+#define TEN_BIT_ANALOG
+#include "../../utilities/Utilities.hpp"
+#endif
+#endif
 
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
 {
-    return pinMode(pin, direction);
+    pinMode(pin, direction);
 }
 
-void ArduinoRuntime::setPinState(uint8_t pin, uint8_t state)
+void STORED_IN_RAM ArduinoRuntime::setPinState(uint8_t pin, uint8_t state)
 {
-    return digitalWrite(pin, state);
+    digitalWrite(pin, state);
 }
 
-int ArduinoRuntime::getPinState(uint8_t pin)
+int STORED_IN_RAM ArduinoRuntime::getPinState(uint8_t pin)
 {
     return digitalRead(pin);
 }
@@ -25,17 +34,20 @@ int ArduinoRuntime::getAnalogPinState(uint8_t pin)
 
 void ArduinoRuntime::setPWM(uint8_t pin, int dutyCycle)
 {
-    return analogWrite(pin, dutyCycle);
+#ifdef TEN_BIT_ANALOG
+    dutyCycle = smartcarlib::utils::getMap(dutyCycle, 0, 255, 0, 1023);
+#endif
+    analogWrite(pin, dutyCycle);
 }
 
 void ArduinoRuntime::i2cInit()
 {
-    return Wire.begin();
+    Wire.begin();
 }
 
 void ArduinoRuntime::i2cBeginTransmission(uint8_t address)
 {
-    return Wire.beginTransmission(address);
+    Wire.beginTransmission(address);
 }
 
 size_t ArduinoRuntime::i2cWrite(uint8_t value)
@@ -73,19 +85,19 @@ unsigned long ArduinoRuntime::currentTimeMillis()
     return millis();
 }
 
-unsigned long ArduinoRuntime::currentTimeMicros()
+unsigned long STORED_IN_RAM ArduinoRuntime::currentTimeMicros()
 {
     return micros();
 }
 
 void ArduinoRuntime::delayMillis(unsigned long milliseconds)
 {
-    return delay(milliseconds);
+    delay(milliseconds);
 }
 
 void ArduinoRuntime::delayMicros(unsigned int microseconds)
 {
-    return delayMicroseconds(microseconds);
+    delayMicroseconds(microseconds);
 }
 
 unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsigned long timeout)
@@ -93,7 +105,32 @@ unsigned long ArduinoRuntime::getPulseDuration(uint8_t pin, uint8_t state, unsig
     return pulseIn(pin, state, timeout);
 }
 
-void ArduinoRuntime::setInterrupt(uint8_t pin, void (*callback)(void), int mode)
+void ArduinoRuntime::setInterrupt(uint8_t pin, InterruptCallback callback, int mode)
 {
-    return attachInterrupt(pin, callback, mode);
+    attachInterrupt(pin, callback, mode);
+}
+
+uint8_t ArduinoRuntime::getLowState() const
+{
+    return LOW;
+}
+
+uint8_t ArduinoRuntime::getHighState() const
+{
+    return HIGH;
+}
+
+uint8_t ArduinoRuntime::getOutputState() const
+{
+    return OUTPUT;
+}
+
+uint8_t ArduinoRuntime::getInputState() const
+{
+    return INPUT;
+}
+
+int ArduinoRuntime::getRisingEdgeMode() const
+{
+    return RISING;
 }

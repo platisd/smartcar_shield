@@ -25,8 +25,8 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
-     * BrushedMotor rightMotor(12, 13, 11);
+     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * GY50 gyroscope(37);
@@ -49,14 +49,20 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
-     * BrushedMotor rightMotor(12, 13, 11);
+     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * GY50 gyroscope(37);
-     * DirectionlessOdometer leftOdometer(100);
-     * DirectionlessOdometer rightOdometer(100);
-
+     *
+     * const auto pulsesPerMeter = 600;
+     *
+     * DirectionlessOdometer leftOdometer(
+     *     smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+     * DirectionlessOdometer rightOdometer(
+     *     smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); },
+     *     pulsesPerMeter);
+     *
      * SmartCar car(control, gyroscope, leftOdometer, rightOdometer);
      * \endcode
      */

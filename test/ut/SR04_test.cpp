@@ -1,5 +1,6 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
+#include <memory>
 
 #include "MockRuntime.hpp"
 #include "SR04.hpp"
@@ -25,12 +26,17 @@ class SR04Test : public Test
 {
 public:
     SR04Test(unsigned int maxDistance = kMaxDistance)
-        : mSR04{ kTriggerPin, kEchoPin, maxDistance, mRuntime }
     {
+        EXPECT_CALL(mRuntime, getOutputState()).WillOnce(Return(kOutput));
+        EXPECT_CALL(mRuntime, getInputState()).WillOnce(Return(kInput));
+        EXPECT_CALL(mRuntime, getLowState()).WillOnce(Return(kLow));
+        EXPECT_CALL(mRuntime, getHighState()).WillOnce(Return(kHigh));
+
+        mSR04 = std::make_unique<SR04>(kTriggerPin, kEchoPin, maxDistance, mRuntime);
     }
 
     NiceMock<MockRuntime> mRuntime;
-    SR04 mSR04;
+    std::unique_ptr<SR04> mSR04;
 };
 
 class SR04BadMaxDistanceTest : public SR04Test
@@ -47,8 +53,8 @@ TEST_F(SR04Test, getDistance_WhenSensorNotAttached_WillSetPinDirectionsOnce)
     EXPECT_CALL(mRuntime, setPinDirection(kTriggerPin, kOutput));
     EXPECT_CALL(mRuntime, setPinDirection(kEchoPin, kInput));
 
-    mSR04.getDistance();
-    mSR04.getDistance();
+    mSR04->getDistance();
+    mSR04->getDistance();
 }
 
 TEST_F(SR04Test, getDistance_WhenCalled_WillMeasureCorrectly)
@@ -68,7 +74,7 @@ TEST_F(SR04Test, getDistance_WhenCalled_WillMeasureCorrectly)
             .WillOnce(Return(pulseLength));
     }
 
-    EXPECT_EQ(mSR04.getDistance(), expectedDistance);
+    EXPECT_EQ(mSR04->getDistance(), expectedDistance);
 }
 
 TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturnMaxDistance)
@@ -88,7 +94,7 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturn
             .WillOnce(Return(pulseLength));
     }
 
-    EXPECT_EQ(mSR04.getDistance(), expectedDistance);
+    EXPECT_EQ(mSR04->getDistance(), expectedDistance);
 }
 
 TEST_F(SR04Test, getDistance_WhenCalculatedDistanceMoreThanMaxDistance_WillReturnError)
@@ -109,7 +115,7 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceMoreThanMaxDistance_WillRetur
             .WillOnce(Return(pulseLength));
     }
 
-    EXPECT_EQ(mSR04.getDistance(), expectedDistance);
+    EXPECT_EQ(mSR04->getDistance(), expectedDistance);
 }
 
 TEST_F(SR04BadMaxDistanceTest, getDistance_WhenBadMaxDistanceSupplied_WillUseDefaultMaxDistance)
@@ -121,7 +127,7 @@ TEST_F(SR04BadMaxDistanceTest, getDistance_WhenBadMaxDistanceSupplied_WillUseDef
     EXPECT_CALL(mRuntime, getPulseDuration(kEchoPin, kHigh, expectedTimeout))
         .WillOnce(Return(pulseLength));
 
-    EXPECT_EQ(mSR04.getDistance(), expectedDistance);
+    EXPECT_EQ(mSR04->getDistance(), expectedDistance);
 }
 
 TEST_F(SR04Test, getMedianDistance_WhenNoIterations_WillReturnError)
@@ -130,7 +136,7 @@ TEST_F(SR04Test, getMedianDistance_WhenNoIterations_WillReturnError)
 
     EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(expectedMeasurements);
 
-    EXPECT_EQ(mSR04.getMedianDistance(expectedMeasurements), kError);
+    EXPECT_EQ(mSR04->getMedianDistance(expectedMeasurements), kError);
 }
 
 TEST_F(SR04Test, getMedianDistance_WhenCalled_WillMakeCorrectNumberOfMeasurements)
@@ -140,5 +146,5 @@ TEST_F(SR04Test, getMedianDistance_WhenCalled_WillMakeCorrectNumberOfMeasurement
     EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(expectedMeasurements);
     EXPECT_CALL(mRuntime, delayMillis(kMedianMeasurementDelay)).Times(expectedMeasurements);
 
-    mSR04.getMedianDistance(expectedMeasurements);
+    mSR04->getMedianDistance(expectedMeasurements);
 }

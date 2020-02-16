@@ -7,13 +7,11 @@ using namespace smartcarlib::constants::motor;
 ServoMotor::ServoMotor(uint8_t controlPin,
                        int minPulseLength,
                        int idlePulseLength,
-                       int maxPulseLength,
-                       Runtime& runtime)
+                       int maxPulseLength)
     : kControlPin{ controlPin }
     , kMinPulseLength{ minPulseLength }
     , kIdlePulseLength{ idlePulseLength }
     , kMaxPulseLength{ maxPulseLength }
-    , mRuntime(runtime)
     , mAttached{ false }
 {
 }

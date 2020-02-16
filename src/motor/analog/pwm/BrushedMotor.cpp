@@ -3,11 +3,8 @@
 
 namespace
 {
-const uint8_t kOutput = 1;
-const uint8_t kLow    = 0;
-const uint8_t kHigh   = 1;
-const int kMinPwm     = 0;
-const int kMaxPwm     = 255;
+const int kMinPwm = 0;
+const int kMaxPwm = 255;
 } // namespace
 
 using namespace smartcarlib::utils;
@@ -21,7 +18,14 @@ BrushedMotor::BrushedMotor(uint8_t forwardPin,
     , kBackwardPin{ backwardPin }
     , kEnablePin{ enablePin }
     , mRuntime(runtime)
-    , mAttached{ false }
+    , kOutput{ mRuntime.getOutputState() }
+    , kLow{ mRuntime.getLowState() }
+    , kHigh{ mRuntime.getHighState() }
+{
+}
+
+BrushedMotor::BrushedMotor(BrushedMotorPins pins, Runtime& runtime)
+    : BrushedMotor{ pins.forward, pins.backward, pins.enable, runtime }
 {
 }
 

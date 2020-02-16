@@ -22,7 +22,7 @@ public:
 
 TEST_F(HeadingCarTest, getHeading_WhenCalled_WillReturnHeading)
 {
-    unsigned int expectedHeading = 260;
+    int expectedHeading = 260;
     EXPECT_CALL(mHeadingSensor, getHeading()).WillOnce(Return(expectedHeading));
 
     EXPECT_EQ(mHeadingCar.getHeading(), expectedHeading);

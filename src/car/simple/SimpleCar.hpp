@@ -16,8 +16,8 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
-     * BrushedMotor rightMotor(12, 13, 11);
+     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * SimpleCar car(control);

@@ -19,6 +19,30 @@
 extern ArduinoRuntime arduinoRuntime;
 #endif
 
+/**
+ * @brief Helper class to represent brushed motor pins
+ */
+struct BrushedMotorPins
+{
+    /**
+     * @brief Construct a BrushedMotorPins object
+     *
+     * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward
+     * @param backwardPin The direction pin that when set to HIGH makes the motor spin forward
+     * @param enablePin   The pin  that controls the motor's speed
+     */
+    BrushedMotorPins(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin)
+        : forward{ forwardPin }
+        , backward{ backwardPin }
+        , enable{ enablePin }
+    {
+    }
+
+    const uint8_t forward;
+    const uint8_t backward;
+    const uint8_t enable;
+};
+
 class BrushedMotor : public Motor
 {
 public:
@@ -31,19 +55,32 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 10, 9);
+     * BrushedMotor leftMotor(8, 9, 10);
      * \endcode
      */
     BrushedMotor(uint8_t forwardPin,
                  uint8_t backwardPin,
                  uint8_t enablePin,
                  Runtime& runtime = arduinoRuntime);
+
+    /**
+     * Constructs a brushed DC motor instance
+     * @param pins  The `BrushedMotorPins` object with the pins of the motor
+     *
+     * **Example:**
+     * \code
+     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+     * \endcode
+     */
+    BrushedMotor(BrushedMotorPins pins, Runtime& runtime = arduinoRuntime);
+
 #else
     BrushedMotor(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, Runtime& runtime);
+    BrushedMotor(BrushedMotorPins pins, Runtime& runtime);
 #endif
 
-/* Check `Motor` interface for documentation */
-void setSpeed(int speed) override;
+    /* Check `Motor` interface for documentation */
+    void setSpeed(int speed) override;
 
 private:
     void attach();
@@ -51,5 +88,8 @@ private:
     const uint8_t kBackwardPin;
     const uint8_t kEnablePin;
     Runtime& mRuntime;
-    bool mAttached;
+    const uint8_t kOutput;
+    const uint8_t kLow;
+    const uint8_t kHigh;
+    bool mAttached{ false };
 };

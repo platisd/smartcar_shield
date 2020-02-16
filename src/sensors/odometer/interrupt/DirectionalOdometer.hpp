@@ -8,38 +8,87 @@
 
 #include "DirectionlessOdometer.hpp"
 
+/**
+ * @brief Helper class to represent directional odometer pins
+ */
+struct DirectionalOdometerPins
+{
+    /**
+     * @brief Construct a DirectionalOdometerPins object
+     *
+     * @param pulsePin          The pin that receives the pulses
+     * @param forwardWhenLowPin The pin that is set to LOW when moving forward
+     */
+    DirectionalOdometerPins(uint8_t pulsePin, uint8_t forwardWhenLowPin)
+        : pulse{ pulsePin }
+        , direction{ forwardWhenLowPin }
+    {
+    }
+
+    const uint8_t pulse;
+    const uint8_t direction;
+};
+
 class DirectionalOdometer : public DirectionlessOdometer
 {
 public:
 #ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed and direction
-     * @param directionPin        The pin that receives the direction signal
-     * @param pinStateWhenForward The direction pin state when moving forward
-     * @param pulsesPerMeter       The amount of odometer pulses that constitute a meter
+     * @param pulsePin          The pin that receives the pulses
+     * @param forwardWhenLowPin The pin that is set to LOW when moving forward
+     * @param callback          The callback to be invoked when a pulse is received (see example)
+     * @param pulsesPerMeter    The amount of odometer pulses that constitute a meter
      *
      * **Example:**
      * \code
+     * unsigned short ODOMETER_PIN = 32;
      * unsigned short DIRECTION_PIN = 8;
-     * unsigned short FORWARD_STATE = LOW;
      * unsigned long PULSES_PER_METER = 40;
      *
-     * DirectionalOdometer odometer(DIRECTION_PIN, FORWARD_STATE, PULSES_PER_METER);
+     * DirectionalOdometer odometer(ODOMETER_PIN,
+     *                              DIRECTION_PIN,
+     *                              []() { odometer.update(); },
+     *                              PULSES_PER_METER);
      * \endcode
      */
-    DirectionalOdometer(uint8_t directionPin,
-                        int pinStateWhenForward,
+    DirectionalOdometer(uint8_t pulsePin,
+                        uint8_t forwardWhenLowPin,
+                        InterruptCallback callback,
+                        unsigned long pulsesPerMeter,
+                        Runtime& runtime = arduinoRuntime);
+
+    /**
+     * Constructs an odometer that can measure distance, speed and direction
+     * @param pins              The `DirectionalOdometerPins` object with the pins of the odometer
+     * @param callback          The callback to be invoked when a pulse is received (see example)
+     * @param pulsesPerMeter    The amount of odometer pulses that constitute a meter
+     *
+     * **Example:**
+     * \code
+     * unsigned long PULSES_PER_METER = 40;
+     *
+     * DirectionalOdometer leftOdometer(smartcarlib::pins::v2::leftOdometerPins,
+     *                                  []() { odometer.update(); },
+     *                                  PULSES_PER_METER);
+     * \endcode
+     */
+    DirectionalOdometer(DirectionalOdometerPins pins,
+                        InterruptCallback callback,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime = arduinoRuntime);
 #else
-    DirectionalOdometer(uint8_t directionPin,
-                        int pinStateWhenForward,
+    DirectionalOdometer(uint8_t pulsePin,
+                        uint8_t forwardWhenLowPin,
+                        InterruptCallback callback,
+                        unsigned long pulsesPerMeter,
+                        Runtime& runtime);
+
+    DirectionalOdometer(DirectionalOdometerPins pins,
+                        InterruptCallback callback,
                         unsigned long pulsesPerMeter,
                         Runtime& runtime);
 #endif
-
-    /* Check `DirectionlessOdometer` for documentation */
-    bool attach(uint8_t pin, void (*callback)()) override;
 
     /* Check `DirectionlessOdometer` for documentation */
     void reset() override;
@@ -54,7 +103,7 @@ public:
     float getSpeed() override;
 
     /* Check `Odometer` interface for documentation */
-    bool providesDirection() override;
+    bool providesDirection() const override;
 
     /**
      * Get the direction of movement
@@ -70,8 +119,13 @@ public:
 
 private:
     const uint8_t mDirectionPin;
-    const int mPinStateWhenForward;
     Runtime& mRuntime;
+    const int kPinStateWhenForward;
     volatile unsigned long mNegativePulsesCounter{ 0 };
-    volatile int mDirection{ smartcarlib::constants::odometer::kForward };
+    volatile int mDirectionPinState;
 };
+
+/**
+ * \example directionalOdometers.ino
+ * An example on how to get the travelled distance from two DirectionalOdometer.
+ */
