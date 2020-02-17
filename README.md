@@ -92,8 +92,8 @@ making updates particularly easy, without the need to use GitHub or git.
 
 * 1 x [Modules board](https://www.pcbway.com/project/shareproject/Smartcar___Module_board.html)
 * 1 x [Motor board](https://www.pcbway.com/project/shareproject/Smartcar___Motors_board.html)
-* 4 x [Brushed motors](https://www.aliexpress.com/item/32872592243.html?spm=a2g0s.9042311.0.0.40d44c4dvsYt5w)
-* 2 x [TTL level shifters](https://www.aliexpress.com/item/32472491036.html?spm=a2g0s.9042311.0.0.40d44c4dvsYt5w)
+* 4 x [Brushed motors](https://www.aliexpress.com/item/32872592243.html)
+* 2 x [TTL level shifters](https://www.aliexpress.com/item/32472491036.html)
 * 1 x DOIT ESP32 devkit v1 (30 GPIO pins)
 * 1 x [TB6612FNG dual motor driver (Sparkfun)](https://www.sparkfun.com/products/14451)
 * 4 x M6 (30mm) screws
@@ -108,7 +108,7 @@ making updates particularly easy, without the need to use GitHub or git.
 * 4 x 8pin 2.54 pitch female pin headers
 * 3 x 10KOhm resistors
 * 8 x [AA battery holders](https://www.electrokit.com/produkt/batterihallare-1xaa-pcb/)
-* 1 x [DD40AJSA adjustable buck converter](https://www.aliexpress.com/item/32816584868.html) 
+* 1 x [DD40AJSA adjustable buck converter](https://www.aliexpress.com/item/32816584868.html)
 * 4 x [VL45L0x ToF distance sensors](https://www.aliexpress.com/item/32828144370.html) (optional)
   * 4 x 4pin 2.54 angled headers to mount the sensors vertically
 
