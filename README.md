@@ -92,7 +92,7 @@ making updates particularly easy, without the need to use GitHub or git.
 
 * 1 x [Modules board](https://www.pcbway.com/project/shareproject/Smartcar___Module_board.html)
 * 1 x [Motor board](https://www.pcbway.com/project/shareproject/Smartcar___Motors_board.html)
-* 4 x [Brushed motors](https://www.aliexpress.com/item/32872592243.html)
+* 4 x [Brushed motors](https://www.aliexpress.com/item/32872592243.html) (530rpm @ 12V)
 * 2 x [TTL level shifters](https://www.aliexpress.com/item/32472491036.html)
 * 1 x DOIT ESP32 devkit v1 (30 GPIO pins)
 * 1 x [TB6612FNG dual motor driver (Sparkfun)](https://www.sparkfun.com/products/14451)
