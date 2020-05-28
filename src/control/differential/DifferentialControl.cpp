@@ -29,19 +29,20 @@ void DifferentialControl::setSpeed(int speed)
 void DifferentialControl::setMotors()
 {
     // With differential control, angle represents the ratio of speed between the two motors
-    float ratio = (kMaxControlAngle - getAbsolute(mAngle)) / static_cast<float>(kMaxControlAngle);
+    float ratio = static_cast<float>(kMaxControlAngle - getAbsolute(mAngle))
+                  / static_cast<float>(kMaxControlAngle);
 
     if (mAngle < kIdleControlAngle)
     {
         // Turning to the left (counter clockwise) by setting lower speed to the left motor
-        mLeftMotor.setSpeed(static_cast<int>(mSpeed * ratio));
+        mLeftMotor.setSpeed(static_cast<int>(static_cast<float>(mSpeed) * ratio));
         mRightMotor.setSpeed(mSpeed);
     }
     else
     {
         // Turning to the right (clockwise) by setting lower speed to the right motor
         mLeftMotor.setSpeed(mSpeed);
-        mRightMotor.setSpeed(static_cast<int>(mSpeed * ratio));
+        mRightMotor.setSpeed(static_cast<int>(static_cast<float>(mSpeed) * ratio));
     }
 }
 

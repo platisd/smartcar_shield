@@ -12,6 +12,7 @@ const uint8_t kRangingInCm            = 0x51;
 } // namespace
 
 using namespace smartcarlib::constants::srf08;
+using namespace smartcarlib::constants::distanceSensor;
 using namespace smartcarlib::utils;
 
 SRF08::SRF08(uint8_t address, Runtime& runtime)
@@ -47,22 +48,22 @@ unsigned int SRF08::getDistance()
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
     if (!mRuntime.i2cAvailable())
     {
-        return -1; // Return a large error-like value
+        return static_cast<unsigned int>(-1); // Return a large error-like value
     }
     auto high = mRuntime.i2cRead();
     auto low  = mRuntime.i2cRead();
 
-    return static_cast<int16_t>((high << 8) + low);
+    return static_cast<uint16_t>((high << 8) + low);
 }
 
 unsigned int SRF08::getMedianDistance(uint8_t iterations)
 {
-    if (iterations == 0)
+    if (iterations == 0 || iterations > kMaxMedianMeasurements)
     {
-        return -1; // Return a large number to indicate error
+        return static_cast<unsigned int>(-1); // Return a large number to indicate error
     }
 
-    unsigned int measurements[iterations];
+    unsigned int measurements[kMaxMedianMeasurements];
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();
@@ -122,7 +123,8 @@ uint8_t SRF08::getLightReading()
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
     mRuntime.delayMillis(mPingDelay);
 
-    return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : -1;
+    return mRuntime.i2cAvailable() ? static_cast<uint8_t>(mRuntime.i2cRead())
+                                   : static_cast<uint8_t>(-1);
 }
 
 uint8_t SRF08::changeAddress(uint8_t newAddress)
@@ -152,7 +154,7 @@ uint8_t SRF08::changeAddress(uint8_t newAddress)
 
     mRuntime.i2cBeginTransmission(mAddress);
     mRuntime.i2cWrite(kRangingCommandRegister);
-    mRuntime.i2cWrite(newAddress << 1);
+    mRuntime.i2cWrite(static_cast<uint8_t>(newAddress << 0x01));
     mRuntime.i2cEndTransmission();
 
     mAddress = newAddress;

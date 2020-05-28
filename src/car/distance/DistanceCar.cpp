@@ -154,7 +154,7 @@ void DistanceCar::update()
         controlledSpeed = kIdleControlSpeed;
     }
     // Pass the rounded output of the pid as an input to the control
-    SimpleCar::setSpeed(lroundf(controlledSpeed));
+    SimpleCar::setSpeed(roundf(controlledSpeed));
     // Save the unrounded float output of the PID controller
     mPreviousControlledSpeed = controlledSpeed;
 }

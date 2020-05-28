@@ -48,8 +48,8 @@ void GY50::update()
 
     if (getAbsolute(drift) > kGyroThreshold)
     {
-        float gyroRate = drift * kGyroSensitivity;
-        mAngularDisplacement += gyroRate / (1000.0 / interval);
+        float gyroRate = static_cast<float>(drift) * kGyroSensitivity;
+        mAngularDisplacement += gyroRate / (1000.0f / static_cast<float>(interval));
     }
     mPreviousSample = currentTime;
 }
@@ -98,7 +98,7 @@ int GY50::getOffset(int measurements)
         mRuntime.delayMillis(kMeasurementInterval);
     }
 
-    return sum / measurements;
+    return static_cast<int>(sum / measurements);
 }
 
 int GY50::getAngularVelocity()

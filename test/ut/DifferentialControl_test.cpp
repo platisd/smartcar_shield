@@ -72,7 +72,7 @@ TEST_F(DifferentialControlSpeedTest, setAngle_WhenIdleAngle_WillSetSameSpeedToMo
 TEST_F(DifferentialControlSpeedTest, setAngle_WhenValidAngle_WillSetCorrectSpeedToMotors)
 {
     EXPECT_CALL(mLeftMotor, setSpeed(kSpeed));
-    EXPECT_CALL(mRightMotor, setSpeed(kSpeed * 2 / 3.0f));
+    EXPECT_CALL(mRightMotor, setSpeed((kSpeed * 2) / 3));
 
     mDifferentialControl.setAngle(kMaxControlAngle / 3);
 }
@@ -122,7 +122,8 @@ TEST_F(DifferentialControlBasicTest, setSpeed_WhenAngleSet_WillSetCorrectSpeedTo
     mDifferentialControl.setSpeed(kMaxMotorSpeed);
 }
 
-TEST_F(DifferentialControlBasicTest, overrideMotorSpeed_WhenSpeedOutOfRange_WillSetCorrectSpeedToMotors)
+TEST_F(DifferentialControlBasicTest,
+       overrideMotorSpeed_WhenSpeedOutOfRange_WillSetCorrectSpeedToMotors)
 {
     EXPECT_CALL(mLeftMotor, setSpeed(kMinMotorSpeed));
     EXPECT_CALL(mRightMotor, setSpeed(kMaxMotorSpeed));
@@ -132,7 +133,7 @@ TEST_F(DifferentialControlBasicTest, overrideMotorSpeed_WhenSpeedOutOfRange_Will
 
 TEST_F(DifferentialControlBasicTest, overrideMotorSpeed_WhenValidSpeed_WillSetSpeedToMotors)
 {
-    int expectedLeftMotorSpeed = kMaxMotorSpeed / 2;
+    int expectedLeftMotorSpeed  = kMaxMotorSpeed / 2;
     int expectedRightMotorSpeed = kMinMotorSpeed / 2;
     EXPECT_CALL(mLeftMotor, setSpeed(expectedLeftMotorSpeed));
     EXPECT_CALL(mRightMotor, setSpeed(expectedRightMotorSpeed));

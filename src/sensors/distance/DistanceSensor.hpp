@@ -6,6 +6,17 @@
 
 #include <stdint.h>
 
+namespace smartcarlib
+{
+namespace constants
+{
+namespace distanceSensor
+{
+const int kMaxMedianMeasurements = 100;
+}
+} // namespace constants
+} // namespace smartcarlib
+
 class DistanceSensor
 {
 public:
@@ -25,8 +36,9 @@ public:
 
     /**
      * Gets the median distance from the specified number of measurements.
-     * @param  iterations Number of measurements to conduct
-     * @return            The median of the conducted measurements
+     * @param  iterations Number of measurements to conduct (at most `kMaxMedianMeasurements`)
+     * @return            The median of the conducted measurements or an error value
+     *                    if the number of iterations is `0` or larger than `kMaxMedianMeasurements`
      *
      * **Example:**
      * \code

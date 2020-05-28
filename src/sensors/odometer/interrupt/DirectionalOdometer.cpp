@@ -70,7 +70,8 @@ void STORED_IN_RAM DirectionalOdometer::update()
 
 long DirectionalOdometer::getDistance()
 {
-    return DirectionlessOdometer::getDistance() - (mNegativePulsesCounter / mPulsesPerMeterRatio);
+    return DirectionlessOdometer::getDistance()
+           - static_cast<long>(static_cast<float>(mNegativePulsesCounter) / mPulsesPerMeterRatio);
 }
 
 float DirectionalOdometer::getSpeed()

@@ -16,7 +16,7 @@ GP2Y0A02::GP2Y0A02(uint8_t pin, Runtime& runtime)
 unsigned int GP2Y0A02::getDistance()
 {
     auto analogReading = mRuntime.getAnalogPinState(kPin);
-    auto result        = 9462 / (analogReading - 16.92);
+    auto result        = static_cast<unsigned int>(9462 / (analogReading - 16.92));
 
     return (result >= kMinDistance && result <= kMaxDistance ? result : 0);
 }

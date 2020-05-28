@@ -26,6 +26,8 @@ const unsigned long kMinimumPulseGap       = 700;
 class Odometer
 {
 public:
+    virtual ~Odometer() = default;
+
     /**
      * Returns the travelled distance in centimeters where sign can indicate
      * direction if there is hardware support

@@ -59,11 +59,6 @@ public:
 class DistanceCarCruiseControlTest : public DistanceCarTest
 {
 public:
-    DistanceCarCruiseControlTest()
-        : mNumberOfCurrentTimeMillisCalls{ 0 }
-    {
-    }
-
     virtual void SetUp()
     {
         auto validCallTimer
@@ -75,7 +70,7 @@ public:
         mDistanceCar.enableCruiseControl();
     }
 
-    int mNumberOfCurrentTimeMillisCalls;
+    unsigned long mNumberOfCurrentTimeMillisCalls{ 0 };
 };
 
 TEST_F(DistanceCarTest, getDistance_WhenOdometersNotAttached_WillReturnError)
@@ -113,7 +108,7 @@ TEST_F(DistanceCarTest, getDistance_WhenOneOdometerAttached_WillReturnItsDistanc
 
 TEST_F(DistanceCarTest, setSpeed_WhenNotAttached_WillNotConsiderCruiseControlAndSetOnlySpeed)
 {
-    float speed = 50.0;
+    const int speed = 50;
 
     EXPECT_CALL(mOdometerLeft, isAttached()).Times(AtMost(1)).WillOnce(Return(false));
     EXPECT_CALL(mOdometerRight, isAttached()).Times(AtMost(1)).WillOnce(Return(false));
@@ -141,27 +136,27 @@ TEST_F(
 
 TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenCarShouldStop_WillBrake)
 {
-    auto initialSpeed = 50.0;
+    auto initialSpeed = 50.0f;
     mDistanceCar.setSpeed(initialSpeed);
 
-    EXPECT_CALL(mControl, setSpeed(-initialSpeed / kBreakSpeedScale));
-    EXPECT_CALL(mControl, setSpeed(static_cast<float>(kIdleControlSpeed)));
+    EXPECT_CALL(mControl, setSpeed(static_cast<int>(-initialSpeed) / kBreakSpeedScale));
+    EXPECT_CALL(mControl, setSpeed(kIdleControlSpeed));
 
-    mDistanceCar.setSpeed(static_cast<float>(kIdleControlSpeed));
+    mDistanceCar.setSpeed(kIdleControlSpeed);
 }
 
 TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenDirectionChangesInCruiseControl_WillBrake)
 {
-    auto initialSpeed = 50.0;
+    auto initialSpeed = 50.0f;
     mDistanceCar.enableCruiseControl();
     mDistanceCar.setSpeed(initialSpeed);
     // When braking we will sample the distance at least two times (to determine a dX)
     // and will eventually set the speed to idle
     EXPECT_CALL(mOdometerLeft, getDistance()).Times(AtLeast(2));
     EXPECT_CALL(mOdometerRight, getDistance()).Times(AtLeast(2));
-    EXPECT_CALL(mControl, setSpeed(static_cast<float>(kIdleControlSpeed))).Times(AtLeast(1));
+    EXPECT_CALL(mControl, setSpeed(kIdleControlSpeed)).Times(AtLeast(1));
 
-    mDistanceCar.setSpeed(-initialSpeed / 2);
+    mDistanceCar.setSpeed(-initialSpeed / 2.0f);
 }
 
 TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenNotMoving_WillNotBrake)
@@ -169,7 +164,7 @@ TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenNotMoving_WillNotBrake)
     // Speed might be set to idle but without sampling the dX or other attempts to stop the car
     EXPECT_CALL(mOdometerLeft, getDistance()).Times(0);
     EXPECT_CALL(mOdometerRight, getDistance()).Times(0);
-    EXPECT_CALL(mControl, setSpeed(static_cast<float>(kIdleControlSpeed))).Times(AtMost(1));
+    EXPECT_CALL(mControl, setSpeed(kIdleControlSpeed)).Times(AtMost(1));
 
     mDistanceCar.setSpeed(static_cast<float>(kIdleControlSpeed));
 }
@@ -177,7 +172,7 @@ TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenNotMoving_WillNotBrake)
 TEST_F(DistanceCarOdometersAttachedTest,
        setSpeed_WhenCruiseControlAndNoBrake_WillSetSpeedInPidController)
 {
-    auto speed = -30.0;
+    auto speed = -30.0f;
     // Speed should be set via the PID controller algorithm and not directly here
     EXPECT_CALL(mControl, setSpeed(_)).Times(0);
 
@@ -187,8 +182,8 @@ TEST_F(DistanceCarOdometersAttachedTest,
 
 TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenNoCruiseControlAndNoBrake_WillSetSpeed)
 {
-    auto speed = 10.0;
-    EXPECT_CALL(mControl, setSpeed(speed));
+    auto speed = 10.0f;
+    EXPECT_CALL(mControl, setSpeed(static_cast<int>(speed)));
 
     mDistanceCar.setSpeed(speed);
 }
@@ -203,8 +198,8 @@ TEST_F(DistanceCarTest, getSpeed_WhenOdometersNotAttaached_WillReturnError)
 
 TEST_F(DistanceCarOdometersAttachedTest, getSpeed_WhenOdometersAttached_WillReturnAverageSpeed)
 {
-    float leftSpeed    = 2.1;
-    float rightSpeed   = 1.8;
+    float leftSpeed    = 2.1f;
+    float rightSpeed   = 1.8f;
     auto expectedSpeed = (leftSpeed + rightSpeed) / 2;
     EXPECT_CALL(mOdometerLeft, getSpeed()).WillOnce(Return(leftSpeed));
     EXPECT_CALL(mOdometerRight, getSpeed()).WillOnce(Return(rightSpeed));
@@ -317,7 +312,7 @@ TEST_F(DistanceCarCruiseControlTest,
        update_WhenGroundSpeedAboveTargetAndOdometersAreDirectionless_WillSetIdleSpeed)
 {
     float targetSpeed = 10;
-    float groundSpeed = targetSpeed * 1.1;
+    float groundSpeed = targetSpeed * 1.1f;
 
     ON_CALL(mOdometerLeft, getSpeed()).WillByDefault(Return(groundSpeed));
     ON_CALL(mOdometerRight, getSpeed()).WillByDefault(Return(groundSpeed));
@@ -339,7 +334,7 @@ TEST_F(DistanceCarCruiseControlTest,
        update_WhenGroundSpeedAboveTargetAndOdometersAreDirectional_WillDecreaseSpeedToMotors)
 {
     float targetSpeed = 6.5;
-    float groundSpeed = targetSpeed * 1.1;
+    float groundSpeed = targetSpeed * 1.1f;
 
     ON_CALL(mOdometerLeft, providesDirection()).WillByDefault(Return(true));
     ON_CALL(mOdometerRight, providesDirection()).WillByDefault(Return(true));
@@ -362,7 +357,7 @@ TEST_F(DistanceCarCruiseControlTest,
        update_WhenBackwardSpeedBelowTarget_WillIncreaseMotorSpeedBackward)
 {
     float targetSpeed = -3.5;
-    float groundSpeed = abs(targetSpeed * 0.9); // Directionless odometers return unsigned speed
+    float groundSpeed = abs(targetSpeed * 0.9f); // Directionless odometers return unsigned speed
 
     ON_CALL(mOdometerLeft, getSpeed()).WillByDefault(Return(groundSpeed));
     ON_CALL(mOdometerRight, getSpeed()).WillByDefault(Return(groundSpeed));

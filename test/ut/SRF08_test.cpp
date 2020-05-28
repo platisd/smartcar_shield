@@ -9,6 +9,7 @@
 #include "SRF08.hpp"
 
 using namespace ::testing;
+using namespace smartcarlib::constants::distanceSensor;
 
 namespace
 {
@@ -58,8 +59,8 @@ TEST_F(SRF08Test, getDistance_WhenI2cNotInitialized_WillInitializeBusOnce)
 
 TEST_F(SRF08Test, getDistance_WhenBusAvailable_WillReturnCorrectDistance)
 {
-    auto expectedReading = 267;
-    auto expectedBytes   = readingToBytes(expectedReading);
+    unsigned int expectedReading = 267;
+    auto expectedBytes           = readingToBytes(expectedReading);
     Sequence rangingSequence, readingSequence;
 
     EXPECT_CALL(mRuntime, i2cAvailable()).WillOnce(Return(1));
@@ -82,6 +83,14 @@ TEST_F(SRF08Test, getMedianDistance_WhenNoIterations_WillReturnError)
 {
     uint8_t expectedMeasurements = 0;
     EXPECT_CALL(mRuntime, i2cRead()).Times(expectedMeasurements);
+
+    EXPECT_EQ(mSRF08.getMedianDistance(expectedMeasurements), kErrorReading);
+}
+
+TEST_F(SRF08Test, getMedianDistance_WhenTooManyIterations_WillReturnError)
+{
+    uint8_t expectedMeasurements = kMaxMedianMeasurements + 1;
+    EXPECT_CALL(mRuntime, i2cRead()).Times(0);
 
     EXPECT_EQ(mSRF08.getMedianDistance(expectedMeasurements), kErrorReading);
 }
@@ -213,7 +222,7 @@ TEST_F(SRF08Test, changeAddress_WhenCalled_WillChangeAddress)
         EXPECT_CALL(mRuntime, i2cWrite(thirdInChangeAddressSequence));
 
         EXPECT_CALL(mRuntime, i2cWrite(kRangingCommandRegister));
-        EXPECT_CALL(mRuntime, i2cWrite(newAddress << 1));
+        EXPECT_CALL(mRuntime, i2cWrite(static_cast<uint8_t>(newAddress << 0x01)));
     }
 
     EXPECT_EQ(mSRF08.changeAddress(newAddress), newAddress);

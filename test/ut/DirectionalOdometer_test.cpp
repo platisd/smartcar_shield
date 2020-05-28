@@ -9,8 +9,6 @@ using namespace smartcarlib::constants::odometer;
 
 namespace
 {
-const uint8_t kInput               = 0;
-const int8_t kAnInterrupt          = 1;
 const uint8_t kDirectionPin        = 5;
 const uint8_t kPinStateWhenForward = 102;
 const int8_t kNotAnInterrupt       = -1;

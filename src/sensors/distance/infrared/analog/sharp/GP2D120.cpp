@@ -16,7 +16,7 @@ GP2D120::GP2D120(uint8_t pin, Runtime& runtime)
 unsigned int GP2D120::getDistance()
 {
     auto analogReading = mRuntime.getAnalogPinState(kPin);
-    auto result        = ((2914 / (analogReading + 5)) - 1);
+    auto result        = static_cast<unsigned int>((2914 / (analogReading + 5)) - 1);
 
     return (result >= kMinDistance && result <= kMaxDistance ? result : 0);
 }

@@ -6,10 +6,11 @@
 #include "MockRuntime.hpp"
 
 using namespace ::testing;
+using namespace smartcarlib::constants::distanceSensor;
 
 namespace
 {
-const auto kErrorReading                    = static_cast<unsigned int>(-1);
+const auto kErrorReading = static_cast<unsigned int>(-1);
 } // namespace
 
 class InfraredAnalogSensorTest : public Test
@@ -28,6 +29,14 @@ TEST_F(InfraredAnalogSensorTest, getMedianDistance_WhenNoIterations_WillReturnEr
 {
     uint8_t expectedMeasurements = 0;
     EXPECT_CALL(mInfraredAnalogSensor, getDistance()).Times(expectedMeasurements);
+
+    EXPECT_EQ(mInfraredAnalogSensor.getMedianDistance(expectedMeasurements), kErrorReading);
+}
+
+TEST_F(InfraredAnalogSensorTest, getMedianDistance_WhenTooManyIterations_WillReturnError)
+{
+    uint8_t expectedMeasurements = kMaxMedianMeasurements + 1;
+    EXPECT_CALL(mInfraredAnalogSensor, getDistance()).Times(0);
 
     EXPECT_EQ(mInfraredAnalogSensor.getMedianDistance(expectedMeasurements), kErrorReading);
 }

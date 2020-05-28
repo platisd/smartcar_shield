@@ -15,30 +15,30 @@ DirectionlessOdometer::DirectionlessOdometer(uint8_t pulsePin,
                                              InterruptCallback callback,
                                              unsigned long pulsesPerMeter,
                                              Runtime& runtime)
-    : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? pulsesPerMeter / 100.0f
+    : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? static_cast<float>(pulsesPerMeter) / 100.0f
                                                : kDefaultPulsesPerMeter / 100.0f }
-    , mMillimetersPerPulse{ pulsesPerMeter > 0 ? static_cast<unsigned long>(
-                                lroundf(kMillimetersInMeter / pulsesPerMeter))
-                                               : static_cast<unsigned long>(lroundf(
-                                                   kMillimetersInMeter / kDefaultPulsesPerMeter)) }
+    , mMillimetersPerPulse{ pulsesPerMeter > 0
+                                ? kMillimetersInMeter / static_cast<float>(pulsesPerMeter)
+                                : kMillimetersInMeter / static_cast<float>(kDefaultPulsesPerMeter) }
     , mRuntime(runtime)
     , kSensorAttached{ mRuntime.pinToInterrupt(pulsePin) != kNotAnInterrupt }
 {
     mRuntime.setPinDirection(pulsePin, mRuntime.getInputState());
-    mRuntime.setInterrupt(
-        mRuntime.pinToInterrupt(pulsePin), callback, mRuntime.getRisingEdgeMode());
+    mRuntime.setInterrupt(static_cast<uint8_t>(mRuntime.pinToInterrupt(pulsePin)),
+                          callback,
+                          mRuntime.getRisingEdgeMode());
 }
 
 long DirectionlessOdometer::getDistance()
 {
-    return mPulsesCounter / mPulsesPerMeterRatio;
+    return static_cast<long>(static_cast<float>(mPulsesCounter) / mPulsesPerMeterRatio);
 }
 
 float DirectionlessOdometer::getSpeed()
 {
     // To get the current speed in m/sec, divide the meters per pulse (dx) with
     // the length between the last two pulses (dt)
-    return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / mDt : 0;
+    return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / static_cast<float>(mDt) : 0.0f;
 }
 
 bool DirectionlessOdometer::isAttached() const

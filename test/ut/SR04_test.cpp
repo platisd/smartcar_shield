@@ -7,6 +7,7 @@
 
 using namespace ::testing;
 using namespace smartcarlib::constants::sr04;
+using namespace smartcarlib::constants::distanceSensor;
 
 namespace
 {
@@ -15,7 +16,7 @@ const uint8_t kOutput                       = 1;
 const uint8_t kLow                          = 0;
 const uint8_t kHigh                         = 1;
 const unsigned int kMaxDistance             = 100;
-const auto kTimeToTravelOneCmAndBack        = 29.15 * 2;
+const auto kTimeToTravelOneCmAndBack        = 29.15f * 2.0f;
 const unsigned long kTimeToMeasureOneCm     = 120;
 const unsigned long kMedianMeasurementDelay = 15;
 const uint8_t kTriggerPin                   = 5;
@@ -60,7 +61,7 @@ TEST_F(SR04Test, getDistance_WhenSensorNotAttached_WillSetPinDirectionsOnce)
 TEST_F(SR04Test, getDistance_WhenCalled_WillMeasureCorrectly)
 {
     unsigned long pulseLength     = 200;
-    unsigned int expectedDistance = pulseLength / kTimeToTravelOneCmAndBack;
+    const auto expectedDistance   = static_cast<float>(pulseLength) / kTimeToTravelOneCmAndBack;
     unsigned long expectedTimeout = kMaxDistance * kTimeToMeasureOneCm;
 
     {
@@ -74,12 +75,12 @@ TEST_F(SR04Test, getDistance_WhenCalled_WillMeasureCorrectly)
             .WillOnce(Return(pulseLength));
     }
 
-    EXPECT_EQ(mSR04->getDistance(), expectedDistance);
+    EXPECT_EQ(mSR04->getDistance(), static_cast<unsigned int>(expectedDistance));
 }
 
 TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturnMaxDistance)
 {
-    unsigned long pulseLength     = kMaxDistance * kTimeToTravelOneCmAndBack;
+    const auto pulseLength        = static_cast<float>(kMaxDistance) * kTimeToTravelOneCmAndBack;
     unsigned int expectedDistance = kMaxDistance;
     unsigned long expectedTimeout = kMaxDistance * kTimeToMeasureOneCm;
 
@@ -91,7 +92,7 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturn
         EXPECT_CALL(mRuntime, delayMicros(10));
         EXPECT_CALL(mRuntime, setPinState(kTriggerPin, kLow));
         EXPECT_CALL(mRuntime, getPulseDuration(kEchoPin, kHigh, expectedTimeout))
-            .WillOnce(Return(pulseLength));
+            .WillOnce(Return(static_cast<unsigned long>(pulseLength)));
     }
 
     EXPECT_EQ(mSR04->getDistance(), expectedDistance);
@@ -100,7 +101,7 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturn
 TEST_F(SR04Test, getDistance_WhenCalculatedDistanceMoreThanMaxDistance_WillReturnError)
 {
     // kMaxDistance + 1 not enough due to rounding down
-    unsigned long pulseLength     = (kMaxDistance + 2) * kTimeToTravelOneCmAndBack;
+    const auto pulseLength        = (kMaxDistance + 2) * kTimeToTravelOneCmAndBack;
     unsigned int expectedDistance = kError;
     unsigned long expectedTimeout = kMaxDistance * kTimeToMeasureOneCm;
 
@@ -112,7 +113,7 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceMoreThanMaxDistance_WillRetur
         EXPECT_CALL(mRuntime, delayMicros(10));
         EXPECT_CALL(mRuntime, setPinState(kTriggerPin, kLow));
         EXPECT_CALL(mRuntime, getPulseDuration(kEchoPin, kHigh, expectedTimeout))
-            .WillOnce(Return(pulseLength));
+            .WillOnce(Return(static_cast<unsigned long>(pulseLength)));
     }
 
     EXPECT_EQ(mSR04->getDistance(), expectedDistance);
@@ -120,14 +121,14 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceMoreThanMaxDistance_WillRetur
 
 TEST_F(SR04BadMaxDistanceTest, getDistance_WhenBadMaxDistanceSupplied_WillUseDefaultMaxDistance)
 {
-    unsigned long pulseLength     = 200;
-    unsigned int expectedDistance = pulseLength / kTimeToTravelOneCmAndBack;
+    const auto pulseLength        = 200.0f;
+    const auto expectedDistance   = pulseLength / kTimeToTravelOneCmAndBack;
     unsigned long expectedTimeout = kDefaultMaxDistance * kTimeToMeasureOneCm;
 
     EXPECT_CALL(mRuntime, getPulseDuration(kEchoPin, kHigh, expectedTimeout))
         .WillOnce(Return(pulseLength));
 
-    EXPECT_EQ(mSR04->getDistance(), expectedDistance);
+    EXPECT_EQ(mSR04->getDistance(), static_cast<unsigned int>(expectedDistance));
 }
 
 TEST_F(SR04Test, getMedianDistance_WhenNoIterations_WillReturnError)
@@ -135,6 +136,15 @@ TEST_F(SR04Test, getMedianDistance_WhenNoIterations_WillReturnError)
     uint8_t expectedMeasurements = 0;
 
     EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(expectedMeasurements);
+
+    EXPECT_EQ(mSR04->getMedianDistance(expectedMeasurements), kError);
+}
+
+TEST_F(SR04Test, getMedianDistance_WhenTooManyIterations_WillReturnError)
+{
+    uint8_t expectedMeasurements = kMaxMedianMeasurements + 1;
+
+    EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(0);
 
     EXPECT_EQ(mSR04->getMedianDistance(expectedMeasurements), kError);
 }
