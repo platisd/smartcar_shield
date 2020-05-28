@@ -75,8 +75,8 @@ Inheritance diagram for DirectionalOdometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_directional_odometer__inherit__graph.png" border="0" usemap="#_directional_odometer_inherit__map" alt="Inheritance graph"/></div>
 <map name="_directional_odometer_inherit__map" id="_directional_odometer_inherit__map">
-<area shape="rect" id="node2" href="class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="5,175,213,399"/>
-<area shape="rect" id="node3" href="class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="28,5,191,127"/>
+<area shape="rect" id="node2" href="class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="5,189,213,413"/>
+<area shape="rect" id="node3" href="class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="28,5,191,141"/>
 </map>
 </div>
 <div class="dynheader">
@@ -84,8 +84,8 @@ Collaboration diagram for DirectionalOdometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_directional_odometer__coll__graph.png" border="0" usemap="#_directional_odometer_coll__map" alt="Collaboration graph"/></div>
 <map name="_directional_odometer_coll__map" id="_directional_odometer_coll__map">
-<area shape="rect" id="node2" href="class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="5,175,213,399"/>
-<area shape="rect" id="node3" href="class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="28,5,191,127"/>
+<area shape="rect" id="node2" href="class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="5,189,213,413"/>
+<area shape="rect" id="node3" href="class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="28,5,191,141"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -130,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad715170f563a251d6fbfe3e0f3319ef1 inherit pub_methods_class_directionless_odometer"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_directionless_odometer.html#ad715170f563a251d6fbfe3e0f3319ef1">providesDirection</a> () const override</td></tr>
 <tr class="memdesc:ad715170f563a251d6fbfe3e0f3319ef1 inherit pub_methods_class_directionless_odometer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether the sensor is capable of inferring the direction of movement.  <a href="class_directionless_odometer.html#ad715170f563a251d6fbfe3e0f3319ef1">More...</a><br /></td></tr>
 <tr class="separator:ad715170f563a251d6fbfe3e0f3319ef1 inherit pub_methods_class_directionless_odometer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_odometer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_odometer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_odometer.html">Odometer</a></td></tr>
+<tr class="memitem:ab29346b64567d540ec84a0260f948391 inherit pub_methods_class_odometer"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_odometer.html#ab29346b64567d540ec84a0260f948391">~Odometer</a> ()=default</td></tr>
+<tr class="separator:ab29346b64567d540ec84a0260f948391 inherit pub_methods_class_odometer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -268,7 +271,7 @@ Here is the call graph for this function:</div>
 <p>Get the direction of movement. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>1</code> if travelling forward <code>-1</code> if travelling backward</dd></dl>
 <p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> direction = odometer.getDirection();</div></div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="_directional_odometer_8cpp_source.html#l00081">81</a> of file <a class="el" href="_directional_odometer_8cpp_source.html">DirectionalOdometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_directional_odometer_8cpp_source.html#l00082">82</a> of file <a class="el" href="_directional_odometer_8cpp_source.html">DirectionalOdometer.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -348,7 +351,7 @@ Here is the call graph for this function:</div>
 <p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="keywordtype">float</span> speed = odometer.getSpeed();</div></div><!-- fragment --> 
 <p>Implements <a class="el" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9">Odometer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_directional_odometer_8cpp_source.html#l00076">76</a> of file <a class="el" href="_directional_odometer_8cpp_source.html">DirectionalOdometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_directional_odometer_8cpp_source.html#l00077">77</a> of file <a class="el" href="_directional_odometer_8cpp_source.html">DirectionalOdometer.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -389,7 +392,7 @@ Here is the call graph for this function:</div>
 <p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> directional = odometer.providesDirection();</div></div><!-- fragment --> 
 <p>Implements <a class="el" href="class_odometer.html#a24e558dbb4b8f14d2671c04d021ba6af">Odometer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_directional_odometer_8cpp_source.html#l00087">87</a> of file <a class="el" href="_directional_odometer_8cpp_source.html">DirectionalOdometer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_directional_odometer_8cpp_source.html#l00088">88</a> of file <a class="el" href="_directional_odometer_8cpp_source.html">DirectionalOdometer.cpp</a>.</p>
 
 </div>
 </div>

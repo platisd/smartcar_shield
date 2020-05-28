@@ -23,6 +23,7 @@ var searchData=
   ['kidlemotorspeed',['kIdleMotorSpeed',['../namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2',1,'smartcarlib::constants::motor']]],
   ['kmaxcontrolangle',['kMaxControlAngle',['../namespacesmartcarlib_1_1constants_1_1control.html#af7e3ab7048ac3a05c9a3ae40e2aacbea',1,'smartcarlib::constants::control']]],
   ['kmaxcontrolspeed',['kMaxControlSpeed',['../namespacesmartcarlib_1_1constants_1_1control.html#af038e27d320dc13bdc5d56e454e80087',1,'smartcarlib::constants::control']]],
+  ['kmaxmedianmeasurements',['kMaxMedianMeasurements',['../namespacesmartcarlib_1_1constants_1_1distance_sensor.html#aec4a0ac1d8981148bd9f457df3aabefb',1,'smartcarlib::constants::distanceSensor']]],
   ['kmaxmotorspeed',['kMaxMotorSpeed',['../namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96',1,'smartcarlib::constants::motor']]],
   ['kmincontrolangle',['kMinControlAngle',['../namespacesmartcarlib_1_1constants_1_1control.html#af07e2ce7a8931a3afeea9d883baf3b11',1,'smartcarlib::constants::control']]],
   ['kmincontrolspeed',['kMinControlSpeed',['../namespacesmartcarlib_1_1constants_1_1control.html#a494bd0e1b86baee42ac508970757a1fe',1,'smartcarlib::constants::control']]],
