@@ -12,6 +12,7 @@ const uint8_t kRangingInCm            = 0x51;
 } // namespace
 
 using namespace smartcarlib::constants::srf08;
+using namespace smartcarlib::constants::distanceSensor;
 using namespace smartcarlib::utils;
 
 SRF08::SRF08(uint8_t address, Runtime& runtime)
@@ -57,12 +58,12 @@ unsigned int SRF08::getDistance()
 
 unsigned int SRF08::getMedianDistance(uint8_t iterations)
 {
-    if (iterations == 0)
+    if (iterations == 0 || iterations > kMaxMedianMeasurements)
     {
         return -1; // Return a large number to indicate error
     }
 
-    unsigned int measurements[iterations];
+    unsigned int measurements[kMaxMedianMeasurements];
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();

@@ -10,6 +10,7 @@ const unsigned long kMedianMeasurementDelay = 15; // In milliseconds
 } // namespace
 
 using namespace smartcarlib::constants::sr04;
+using namespace smartcarlib::constants::distanceSensor;
 using namespace smartcarlib::utils;
 
 SR04::SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtime& runtime)
@@ -56,12 +57,12 @@ unsigned int SR04::getDistance()
 
 unsigned int SR04::getMedianDistance(uint8_t iterations)
 {
-    if (iterations == 0)
+    if (iterations == 0 || iterations > kMaxMedianMeasurements)
     {
         return kError;
     }
 
-    unsigned int measurements[iterations];
+    unsigned int measurements[kMaxMedianMeasurements];
     for (auto i = 0; i < iterations; i++)
     {
         measurements[i] = getDistance();

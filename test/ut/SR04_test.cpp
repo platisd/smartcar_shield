@@ -7,6 +7,7 @@
 
 using namespace ::testing;
 using namespace smartcarlib::constants::sr04;
+using namespace smartcarlib::constants::distanceSensor;
 
 namespace
 {
@@ -135,6 +136,15 @@ TEST_F(SR04Test, getMedianDistance_WhenNoIterations_WillReturnError)
     uint8_t expectedMeasurements = 0;
 
     EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(expectedMeasurements);
+
+    EXPECT_EQ(mSR04->getMedianDistance(expectedMeasurements), kError);
+}
+
+TEST_F(SR04Test, getMedianDistance_WhenTooManyIterations_WillReturnError)
+{
+    uint8_t expectedMeasurements = kMaxMedianMeasurements + 1;
+
+    EXPECT_CALL(mRuntime, getPulseDuration(_, _, _)).Times(0);
 
     EXPECT_EQ(mSR04->getMedianDistance(expectedMeasurements), kError);
 }

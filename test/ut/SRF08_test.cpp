@@ -9,6 +9,7 @@
 #include "SRF08.hpp"
 
 using namespace ::testing;
+using namespace smartcarlib::constants::distanceSensor;
 
 namespace
 {
@@ -82,6 +83,14 @@ TEST_F(SRF08Test, getMedianDistance_WhenNoIterations_WillReturnError)
 {
     uint8_t expectedMeasurements = 0;
     EXPECT_CALL(mRuntime, i2cRead()).Times(expectedMeasurements);
+
+    EXPECT_EQ(mSRF08.getMedianDistance(expectedMeasurements), kErrorReading);
+}
+
+TEST_F(SRF08Test, getMedianDistance_WhenTooManyIterations_WillReturnError)
+{
+    uint8_t expectedMeasurements = kMaxMedianMeasurements + 1;
+    EXPECT_CALL(mRuntime, i2cRead()).Times(0);
 
     EXPECT_EQ(mSRF08.getMedianDistance(expectedMeasurements), kErrorReading);
 }
