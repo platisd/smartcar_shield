@@ -59,8 +59,8 @@ TEST_F(SRF08Test, getDistance_WhenI2cNotInitialized_WillInitializeBusOnce)
 
 TEST_F(SRF08Test, getDistance_WhenBusAvailable_WillReturnCorrectDistance)
 {
-    auto expectedReading = 267;
-    auto expectedBytes   = readingToBytes(expectedReading);
+    unsigned int expectedReading = 267;
+    auto expectedBytes           = readingToBytes(expectedReading);
     Sequence rangingSequence, readingSequence;
 
     EXPECT_CALL(mRuntime, i2cAvailable()).WillOnce(Return(1));

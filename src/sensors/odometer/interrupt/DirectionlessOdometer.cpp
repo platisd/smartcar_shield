@@ -24,8 +24,9 @@ DirectionlessOdometer::DirectionlessOdometer(uint8_t pulsePin,
     , kSensorAttached{ mRuntime.pinToInterrupt(pulsePin) != kNotAnInterrupt }
 {
     mRuntime.setPinDirection(pulsePin, mRuntime.getInputState());
-    mRuntime.setInterrupt(
-        mRuntime.pinToInterrupt(pulsePin), callback, mRuntime.getRisingEdgeMode());
+    mRuntime.setInterrupt(static_cast<uint8_t>(mRuntime.pinToInterrupt(pulsePin)),
+                          callback,
+                          mRuntime.getRisingEdgeMode());
 }
 
 long DirectionlessOdometer::getDistance()

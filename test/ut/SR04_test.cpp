@@ -80,7 +80,7 @@ TEST_F(SR04Test, getDistance_WhenCalled_WillMeasureCorrectly)
 
 TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturnMaxDistance)
 {
-    unsigned long pulseLength     = kMaxDistance * kTimeToTravelOneCmAndBack;
+    const auto pulseLength        = static_cast<float>(kMaxDistance) * kTimeToTravelOneCmAndBack;
     unsigned int expectedDistance = kMaxDistance;
     unsigned long expectedTimeout = kMaxDistance * kTimeToMeasureOneCm;
 
@@ -92,7 +92,7 @@ TEST_F(SR04Test, getDistance_WhenCalculatedDistanceEqualToMaxDistance_WillReturn
         EXPECT_CALL(mRuntime, delayMicros(10));
         EXPECT_CALL(mRuntime, setPinState(kTriggerPin, kLow));
         EXPECT_CALL(mRuntime, getPulseDuration(kEchoPin, kHigh, expectedTimeout))
-            .WillOnce(Return(pulseLength));
+            .WillOnce(Return(static_cast<unsigned long>(pulseLength)));
     }
 
     EXPECT_EQ(mSR04->getDistance(), expectedDistance);

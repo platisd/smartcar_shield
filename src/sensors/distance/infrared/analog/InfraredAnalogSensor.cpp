@@ -18,7 +18,7 @@ unsigned int InfraredAnalogSensor::getMedianDistance(uint8_t iterations)
 {
     if (iterations == 0 || iterations > kMaxMedianMeasurements)
     {
-        return -1; // Return a large number to indicate error
+        return static_cast<unsigned int>(-1); // Return a large number to indicate error
     }
 
     unsigned int measurements[kMaxMedianMeasurements];

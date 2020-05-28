@@ -207,14 +207,14 @@ TEST_F(GY50BasicTest, getOffset_WhenCalled_WillSetupSensorViaI2COnce)
 
 TEST_F(GY50BasicTest, getOffset_WhenCalled_WillReturnCorrectAverageOfMeasurements)
 {
-    unsigned int measurements = 100;
-    int msb                   = 0;
-    int highMeasurement       = 560;
-    int lowMeasurement        = -120;
-    int expectedOffset        = (lowMeasurement + highMeasurement) / 2;
-    int step                  = 0;
-    int token                 = 0;
-    auto mockReader           = [&step, &token, highMeasurement, lowMeasurement, msb]() {
+    int measurements    = 100;
+    int msb             = 0;
+    int highMeasurement = 560;
+    int lowMeasurement  = -120;
+    int expectedOffset  = (lowMeasurement + highMeasurement) / 2;
+    int step            = 0;
+    int token           = 0;
+    auto mockReader     = [&step, &token, highMeasurement, lowMeasurement, msb]() {
         auto measurement
             = step++ % 2 == 0 ? msb : (token++ % 2 == 0 ? highMeasurement : lowMeasurement);
         return measurement;

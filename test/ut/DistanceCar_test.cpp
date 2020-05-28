@@ -59,11 +59,6 @@ public:
 class DistanceCarCruiseControlTest : public DistanceCarTest
 {
 public:
-    DistanceCarCruiseControlTest()
-        : mNumberOfCurrentTimeMillisCalls{ 0 }
-    {
-    }
-
     virtual void SetUp()
     {
         auto validCallTimer
@@ -75,7 +70,7 @@ public:
         mDistanceCar.enableCruiseControl();
     }
 
-    int mNumberOfCurrentTimeMillisCalls;
+    unsigned long mNumberOfCurrentTimeMillisCalls{ 0 };
 };
 
 TEST_F(DistanceCarTest, getDistance_WhenOdometersNotAttached_WillReturnError)
@@ -159,7 +154,7 @@ TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenDirectionChangesInCruiseCo
     // and will eventually set the speed to idle
     EXPECT_CALL(mOdometerLeft, getDistance()).Times(AtLeast(2));
     EXPECT_CALL(mOdometerRight, getDistance()).Times(AtLeast(2));
-    EXPECT_CALL(mControl, setSpeed(static_cast<float>(kIdleControlSpeed))).Times(AtLeast(1));
+    EXPECT_CALL(mControl, setSpeed(kIdleControlSpeed)).Times(AtLeast(1));
 
     mDistanceCar.setSpeed(-initialSpeed / 2.0f);
 }
@@ -169,7 +164,7 @@ TEST_F(DistanceCarOdometersAttachedTest, setSpeed_WhenNotMoving_WillNotBrake)
     // Speed might be set to idle but without sampling the dX or other attempts to stop the car
     EXPECT_CALL(mOdometerLeft, getDistance()).Times(0);
     EXPECT_CALL(mOdometerRight, getDistance()).Times(0);
-    EXPECT_CALL(mControl, setSpeed(static_cast<float>(kIdleControlSpeed))).Times(AtMost(1));
+    EXPECT_CALL(mControl, setSpeed(kIdleControlSpeed)).Times(AtMost(1));
 
     mDistanceCar.setSpeed(static_cast<float>(kIdleControlSpeed));
 }

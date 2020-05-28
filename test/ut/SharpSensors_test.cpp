@@ -10,8 +10,7 @@ using namespace ::testing;
 
 namespace
 {
-const uint8_t kPin       = 5;
-const auto kErrorReading = static_cast<unsigned int>(-1);
+const uint8_t kPin = 5;
 } // namespace
 
 class GP2D120Test : public Test

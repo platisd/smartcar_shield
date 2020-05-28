@@ -48,19 +48,19 @@ unsigned int SRF08::getDistance()
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
     if (!mRuntime.i2cAvailable())
     {
-        return -1; // Return a large error-like value
+        return static_cast<unsigned int>(-1); // Return a large error-like value
     }
     auto high = mRuntime.i2cRead();
     auto low  = mRuntime.i2cRead();
 
-    return static_cast<int16_t>((high << 8) + low);
+    return static_cast<uint16_t>((high << 8) + low);
 }
 
 unsigned int SRF08::getMedianDistance(uint8_t iterations)
 {
     if (iterations == 0 || iterations > kMaxMedianMeasurements)
     {
-        return -1; // Return a large number to indicate error
+        return static_cast<unsigned int>(-1); // Return a large number to indicate error
     }
 
     unsigned int measurements[kMaxMedianMeasurements];
