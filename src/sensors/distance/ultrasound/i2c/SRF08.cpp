@@ -123,7 +123,8 @@ uint8_t SRF08::getLightReading()
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
     mRuntime.delayMillis(mPingDelay);
 
-    return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : -1;
+    return mRuntime.i2cAvailable() ? static_cast<uint8_t>(mRuntime.i2cRead())
+                                   : static_cast<uint8_t>(-1);
 }
 
 uint8_t SRF08::changeAddress(uint8_t newAddress)
@@ -153,7 +154,7 @@ uint8_t SRF08::changeAddress(uint8_t newAddress)
 
     mRuntime.i2cBeginTransmission(mAddress);
     mRuntime.i2cWrite(kRangingCommandRegister);
-    mRuntime.i2cWrite(newAddress << 1);
+    mRuntime.i2cWrite(static_cast<uint8_t>(newAddress << 0x01));
     mRuntime.i2cEndTransmission();
 
     mAddress = newAddress;

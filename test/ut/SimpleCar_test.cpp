@@ -39,7 +39,7 @@ TEST_F(SimpleCarTest, setSpeed_WhenTooLowSpeed_WillSetMinSpeed)
 
 TEST_F(SimpleCarTest, setSpeed_WhenValidSpeed_WillSetCorrectSpeed)
 {
-    float speed       = 45.2;
+    float speed       = 45.2f;
     int expectedSpeed = static_cast<int>(speed);
     EXPECT_CALL(mControl, setSpeed(expectedSpeed));
 

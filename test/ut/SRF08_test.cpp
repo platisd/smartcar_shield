@@ -222,7 +222,7 @@ TEST_F(SRF08Test, changeAddress_WhenCalled_WillChangeAddress)
         EXPECT_CALL(mRuntime, i2cWrite(thirdInChangeAddressSequence));
 
         EXPECT_CALL(mRuntime, i2cWrite(kRangingCommandRegister));
-        EXPECT_CALL(mRuntime, i2cWrite(newAddress << 1));
+        EXPECT_CALL(mRuntime, i2cWrite(static_cast<uint8_t>(newAddress << 0x01)));
     }
 
     EXPECT_EQ(mSRF08.changeAddress(newAddress), newAddress);

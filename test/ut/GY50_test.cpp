@@ -136,9 +136,9 @@ TEST_F(GY50AttachedTest, getHeading_WhenAngularVelocityRead_WillReturnCorrectDis
 
 TEST_F(GY50AttachedTest, getHeading_WhenAngularVelocityReadOverTime_WillReturnCorrectDistance)
 {
-    const int step       = kInterval + 1;
-    int currentIteration = 0;
-    auto timer           = [&step, &currentIteration]() { return ++currentIteration * step; };
+    const unsigned long step       = kInterval + 1;
+    unsigned long currentIteration = 0;
+    auto timer = [&step, &currentIteration]() { return ++currentIteration * step; };
     ON_CALL(mRuntime, currentTimeMillis()).WillByDefault(InvokeWithoutArgs(timer));
     ON_CALL(mRuntime, i2cAvailable()).WillByDefault(Return(1));
     EXPECT_CALL(mRuntime, i2cRead())
@@ -159,8 +159,8 @@ TEST_F(GY50AttachedTest, getHeading_WhenTooLowAngularVelocityRead_WillNotUpdateH
 {
     const int gyroThreshold            = 12;
     const unsigned int expectedHeading = 1;
-    const int step                     = kInterval + 1;
-    int currentIteration               = 0;
+    const auto step                    = kInterval + 1;
+    unsigned long currentIteration     = 0;
     auto timer = [&step, &currentIteration]() { return ++currentIteration * step; };
     ON_CALL(mRuntime, currentTimeMillis()).WillByDefault(InvokeWithoutArgs(timer));
     ON_CALL(mRuntime, i2cAvailable()).WillByDefault(Return(1));

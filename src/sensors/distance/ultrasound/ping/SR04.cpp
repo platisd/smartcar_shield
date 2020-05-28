@@ -2,8 +2,8 @@
 #include "../../../../utilities/Utilities.hpp"
 namespace
 {
-const float kTimeToTravelOneCmAndBack   = 29.15 * 2; // In microseconds
-const unsigned long kTimeToMeasureOneCm = 120;       // Empirically determined
+const float kTimeToTravelOneCmAndBack   = 29.15f * 2.0f; // In microseconds
+const unsigned long kTimeToMeasureOneCm = 120;           // Empirically determined
 // We should wait long enough between two consecutive measurements
 // so to avoid getting parasitic readings from old returning waves.
 const unsigned long kMedianMeasurementDelay = 15; // In milliseconds
@@ -50,7 +50,8 @@ unsigned int SR04::getDistance()
     // Wait for the pulse to arrive and measure its duration
     auto duration = mRuntime.getPulseDuration(kEchoPin, kHigh, kTimeout);
     // Calculate how much far out the object is
-    unsigned int calculatedDistance = duration / kTimeToTravelOneCmAndBack;
+    unsigned int calculatedDistance
+        = static_cast<unsigned int>(static_cast<float>(duration) / kTimeToTravelOneCmAndBack);
 
     return calculatedDistance <= kMaxDistance ? calculatedDistance : kError;
 }

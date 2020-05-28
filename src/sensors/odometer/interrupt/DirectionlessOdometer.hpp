@@ -82,7 +82,7 @@ protected:
     volatile unsigned long mDt{ 0 };
 
 private:
-    const unsigned long mMillimetersPerPulse;
+    const float mMillimetersPerPulse;
     Runtime& mRuntime;
     const bool kSensorAttached;
 };

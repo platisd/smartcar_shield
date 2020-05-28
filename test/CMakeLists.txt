@@ -4,7 +4,27 @@ project(Smartcar_Tests)
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(UNIT_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/ut)
 set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wextra -Werror")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
+    -std=c++14 \
+    -Wcast-align \
+    -Wpedantic \
+    -Wcast-qual \
+    -Wconversion \
+    -Wdisabled-optimization \
+    -Winit-self \
+    -Wnon-virtual-dtor \
+    -Wold-style-cast \
+    -Woverloaded-virtual \
+    -Wparentheses \
+    -Wredundant-decls \
+    -Wshadow \
+    -Wsign-promo \
+    -Wstrict-aliasing \
+    -Wall \
+    -Wextra \
+    -Werror \
+    -pthread \
+")
 
 # Coverage
 list(APPEND CMAKE_MODULE_PATH ${REPOSITORY_ROOT}/CmakeModules)
