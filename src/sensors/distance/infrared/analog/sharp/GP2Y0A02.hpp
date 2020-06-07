@@ -8,29 +8,22 @@
 #include "../../../../../runtime/Runtime.hpp"
 #include "../InfraredAnalogSensor.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 class GP2Y0A02 : public InfraredAnalogSensor
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a GP2Y0A02 sensor
-     * @param pin   The analog pin receiving sensor signals
+     * @param runtime The runtime environment you want to run the class for
+     * @param pin     The analog pin receiving sensor signals
      *
      * **Example:**
      * \code
+     * ArduinoRuntime arduino,
      * const unsigned short IR_PIN = A1;
-     * GP2Y0A02 infraredSensor(IR_PIN);
+     * GP2Y0A02 infraredSensor(arduino, IR_PIN);
      * \endcode
      */
-    GP2Y0A02(uint8_t pin, Runtime& runtime = arduinoRuntime);
-#else
-    GP2Y0A02(uint8_t pin, Runtime& runtime);
-#endif
+    GP2Y0A02(Runtime& runtime, uint8_t pin);
 
     /* Check `DistanceSensor` interface for documentation */
     unsigned int getDistance() override;
@@ -41,6 +34,6 @@ private:
 };
 
 /**
-* \example GP2Y0A02.ino
-* A basic example on how to get a distance measurement from a GP2Y0A02 infrared sensor.
-*/
+ * \example GP2Y0A02.ino
+ * A basic example on how to get a distance measurement from a GP2Y0A02 infrared sensor.
+ */

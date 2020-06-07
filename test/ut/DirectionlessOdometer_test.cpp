@@ -39,7 +39,7 @@ public:
     {
         EXPECT_CALL(mRuntime, pinToInterrupt(kPin)).Times(2).WillRepeatedly(Return(kAnInterrupt));
         mDirectionlessOdometer = std::make_unique<DirectionlessOdometer>(
-            kPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime);
+            mRuntime, kPin, kDummyCallback, kDefaultPulsesPerMeter);
     }
 
     const unsigned long kPulsesPerMeter;
@@ -54,7 +54,7 @@ public:
     {
         EXPECT_CALL(mRuntime, pinToInterrupt(_)).Times(2).WillRepeatedly(Return(kNotAnInterrupt));
         mDirectionlessOdometer = std::make_unique<DirectionlessOdometer>(
-            kPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime);
+            mRuntime, kPin, kDummyCallback, kDefaultPulsesPerMeter);
     }
 
     NiceMock<MockRuntime> mRuntime;
@@ -71,7 +71,7 @@ TEST_F(DirectionlessOdometerConstructorTest, constructor_WhenCalled_WillSetInter
     EXPECT_CALL(mRuntime, getRisingEdgeMode()).WillOnce(Return(risingEdge));
     EXPECT_CALL(mRuntime, setPinDirection(kPin, inputState));
     EXPECT_CALL(mRuntime, setInterrupt(interruptPin, _, risingEdge));
-    DirectionlessOdometer odometer(kPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime);
+    DirectionlessOdometer odometer(mRuntime, kPin, kDummyCallback, kDefaultPulsesPerMeter);
 }
 
 TEST_F(DirectionlessOdometerConstructorTest, constructor_WhenCalled_WillPassCorrectInterrupt)
@@ -80,7 +80,7 @@ TEST_F(DirectionlessOdometerConstructorTest, constructor_WhenCalled_WillPassCorr
     EXPECT_CALL(odometerUser, update());
     EXPECT_CALL(mRuntime, setInterrupt(_, _, _)).WillOnce(InvokeArgument<1>());
     DirectionlessOdometer odometer(
-        kPin, []() { odometerUser.update(); }, kDefaultPulsesPerMeter, mRuntime);
+        mRuntime, kPin, []() { odometerUser.update(); }, kDefaultPulsesPerMeter);
 }
 
 TEST(DirectionlessOdometerBadPulsesPerMeter,
@@ -90,7 +90,7 @@ TEST(DirectionlessOdometerBadPulsesPerMeter,
     // to crash due to a division by zero
     NiceMock<MockRuntime> mRuntime;
     const auto badPulsesPerMeter = 0;
-    EXPECT_NO_THROW(DirectionlessOdometer(kPin, kDummyCallback, badPulsesPerMeter, mRuntime));
+    EXPECT_NO_THROW(DirectionlessOdometer(mRuntime, kPin, kDummyCallback, badPulsesPerMeter));
 }
 
 TEST_F(DirectionlessOdometerBasicTest, getDistance_WhenCalled_WillReturnCorrectDistance)

@@ -24,7 +24,7 @@ class SRF08Test : public Test
 {
 public:
     SRF08Test()
-        : mSRF08{ kAddress, mRuntime }
+        : mSRF08{ mRuntime, kAddress }
     {
     }
 

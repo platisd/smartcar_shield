@@ -8,12 +8,12 @@ namespace
 const auto kInvalidPinState = INT_MIN;
 }
 
-DirectionalOdometer::DirectionalOdometer(uint8_t pulsePin,
+DirectionalOdometer::DirectionalOdometer(Runtime& runtime,
+                                         uint8_t pulsePin,
                                          uint8_t forwardWhenLowPin,
                                          InterruptCallback callback,
-                                         unsigned long pulsesPerMeter,
-                                         Runtime& runtime)
-    : DirectionlessOdometer(pulsePin, callback, pulsesPerMeter, runtime)
+                                         unsigned long pulsesPerMeter)
+    : DirectionlessOdometer(runtime, pulsePin, callback, pulsesPerMeter)
     , mDirectionPin{ forwardWhenLowPin }
     , mRuntime(runtime)
     , kPinStateWhenForward{ mRuntime.getLowState() }
@@ -22,11 +22,11 @@ DirectionalOdometer::DirectionalOdometer(uint8_t pulsePin,
     mRuntime.setPinDirection(mDirectionPin, mRuntime.getInputState());
 }
 
-DirectionalOdometer::DirectionalOdometer(DirectionalOdometerPins pins,
+DirectionalOdometer::DirectionalOdometer(Runtime& runtime,
+                                         DirectionalOdometerPins pins,
                                          InterruptCallback callback,
-                                         unsigned long pulsesPerMeter,
-                                         Runtime& runtime)
-    : DirectionalOdometer(pins.pulse, pins.direction, callback, pulsesPerMeter, runtime)
+                                         unsigned long pulsesPerMeter)
+    : DirectionalOdometer(runtime, pins.pulse, pins.direction, callback, pulsesPerMeter)
 {
 }
 

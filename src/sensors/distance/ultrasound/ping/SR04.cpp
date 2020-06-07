@@ -13,7 +13,7 @@ using namespace smartcarlib::constants::sr04;
 using namespace smartcarlib::constants::distanceSensor;
 using namespace smartcarlib::utils;
 
-SR04::SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtime& runtime)
+SR04::SR04(Runtime& runtime, uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance)
     : kTriggerPin{ triggerPin }
     , kEchoPin{ echoPin }
     , kMaxDistance{ maxDistance > 0 ? maxDistance : kDefaultMaxDistance }

@@ -11,11 +11,6 @@
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 namespace smartcarlib
 {
 namespace constants
@@ -31,20 +26,18 @@ const uint8_t kDefaultPingDelay  = 70;
 class SRF08 : public DistanceSensor
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an SRF08 sensor that communicates over I2C
+     * @param runtime The runtime environment you want to run the class for
      * @param address I2C address which should be within the range of [112, 127]
      *
      * **Example:**
      * \code
-     * SRF08 srf08(112);
+     * ArduinoRuntime arduino;
+     * SRF08 srf08(arduino, 112);
      * \endcode
      */
-    SRF08(uint8_t address, Runtime& runtime = arduinoRuntime);
-#else
-    SRF08(uint8_t address, Runtime& runtime);
-#endif
+    SRF08(Runtime& runtime, uint8_t address);
 
     /* Check `DistanceSensor` interface for documentation */
     unsigned int getDistance() override;

@@ -17,7 +17,7 @@ class GY50BasicTest : public Test
 public:
     GY50BasicTest(int offset             = kOffset,
                   unsigned long interval = smartcarlib::constants::gy50::kDefaultSamplingInterval)
-        : mGyro{ offset, interval, mRuntime }
+        : mGyro{ mRuntime, offset, interval }
         , kInterval{ interval }
     {
     }

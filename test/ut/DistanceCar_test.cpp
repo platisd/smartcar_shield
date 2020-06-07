@@ -15,26 +15,16 @@ using namespace smartcarlib::constants::car;
 class DistanceCarTest : public Test
 {
 public:
-    DistanceCarTest()
-        : mDistanceCar{ mControl, mOdometerLeft, mOdometerRight, mRuntime }
-    {
-    }
-
     NiceMock<MockControl> mControl;
     NiceMock<MockOdometer> mOdometerLeft;
     NiceMock<MockOdometer> mOdometerRight;
     NiceMock<MockRuntime> mRuntime;
-    DistanceCar mDistanceCar;
+    DistanceCar mDistanceCar{ mRuntime, mControl, mOdometerLeft, mOdometerRight };
 };
 
 class DistanceCarSingleOdometerTest : public Test
 {
 public:
-    DistanceCarSingleOdometerTest()
-        : mDistanceCar{ mControl, mOdometer, mRuntime }
-    {
-    }
-
     virtual void SetUp()
     {
         ON_CALL(mOdometer, isAttached()).WillByDefault(Return(true));
@@ -43,7 +33,7 @@ public:
     NiceMock<MockControl> mControl;
     NiceMock<MockOdometer> mOdometer;
     NiceMock<MockRuntime> mRuntime;
-    DistanceCar mDistanceCar;
+    DistanceCar mDistanceCar{ mRuntime, mControl, mOdometer };
 };
 
 class DistanceCarOdometersAttachedTest : public DistanceCarTest
@@ -102,7 +92,7 @@ TEST_F(DistanceCarTest, getDistance_WhenOneOdometerAttached_WillReturnItsDistanc
     EXPECT_CALL(mOdometerLeft, isAttached()).Times(2).WillRepeatedly(Return(true));
     EXPECT_CALL(mOdometerLeft, getDistance()).Times(2).WillRepeatedly(Return(leftOdometerDistance));
 
-    DistanceCar distanceCar(mControl, mOdometerLeft, mOdometerLeft, mRuntime);
+    DistanceCar distanceCar(mRuntime, mControl, mOdometerLeft, mOdometerLeft);
     EXPECT_EQ(distanceCar.getDistance(), leftOdometerDistance);
 }
 

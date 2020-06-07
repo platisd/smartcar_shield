@@ -18,7 +18,7 @@ const int kGyroThreshold        = 12; // Smaller changes are to be ignored
 using namespace smartcarlib::utils;
 using namespace smartcarlib::constants::gy50;
 
-GY50::GY50(int offset, unsigned long samplingInterval, Runtime& runtime)
+GY50::GY50(Runtime& runtime, int offset, unsigned long samplingInterval)
     : kOffset{ offset }
     , kSamplingInterval{ samplingInterval }
     , mRuntime(runtime)

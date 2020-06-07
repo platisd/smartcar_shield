@@ -6,7 +6,7 @@ const auto kMinDistance = 5;  // GP2D120's minimum distance
 const auto kMaxDistance = 25; // GP2D120's maximum distance
 } // namespace
 
-GP2D120::GP2D120(uint8_t pin, Runtime& runtime)
+GP2D120::GP2D120(Runtime& runtime, uint8_t pin)
     : InfraredAnalogSensor(runtime)
     , kPin{ pin }
     , mRuntime(runtime)
