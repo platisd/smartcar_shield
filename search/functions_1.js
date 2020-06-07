@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['brushedmotor',['BrushedMotor',['../class_brushed_motor.html#a17a4eae354ff56356d3687e0dd5005e1',1,'BrushedMotor::BrushedMotor(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, Runtime &amp;runtime)'],['../class_brushed_motor.html#aa173de20cde28591f1a6315018ffbc86',1,'BrushedMotor::BrushedMotor(BrushedMotorPins pins, Runtime &amp;runtime)']]],
+  ['brushedmotor',['BrushedMotor',['../class_brushed_motor.html#a08aeb4ffed26fa12e3736ec2141674e8',1,'BrushedMotor::BrushedMotor(Runtime &amp;runtime, uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin)'],['../class_brushed_motor.html#ad4ce563a4b97f0ee638445c1bfe25892',1,'BrushedMotor::BrushedMotor(Runtime &amp;runtime, BrushedMotorPins pins)']]],
   ['brushedmotorpins',['BrushedMotorPins',['../struct_brushed_motor_pins.html#a480980fd0009d2f7e1915bf724069308',1,'BrushedMotorPins']]]
 ];

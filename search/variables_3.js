@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enable',['enable',['../struct_brushed_motor_pins.html#a83c4e4d6ad5508dd80c91448cb81452e',1,'BrushedMotorPins']]]
+  ['forward',['forward',['../struct_brushed_motor_pins.html#acf36853e65a2e0609fc08e845501c8bc',1,'BrushedMotorPins']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['leftmotorpins',['leftMotorPins',['../namespacesmartcarlib_1_1pins_1_1v1.html#a6fd6bb10f4ff4a6b573ed1b9d1d0343c',1,'smartcarlib::pins::v1::leftMotorPins()'],['../namespacesmartcarlib_1_1pins_1_1v2.html#aad65ad016d9876e654b9d2e185521087',1,'smartcarlib::pins::v2::leftMotorPins()']]],
-  ['leftodometerpin',['leftOdometerPin',['../namespacesmartcarlib_1_1pins_1_1v2.html#ae778856779d1b0317d669fbeba19ff0d',1,'smartcarlib::pins::v2']]],
-  ['leftodometerpins',['leftOdometerPins',['../namespacesmartcarlib_1_1pins_1_1v2.html#a0f2da2c3519ea4417636b4044375b99e',1,'smartcarlib::pins::v2']]]
+  ['mdt',['mDt',['../class_directionless_odometer.html#a7d76497ea082530279d0486dcd51febf',1,'DirectionlessOdometer']]],
+  ['mpreviouspulse',['mPreviousPulse',['../class_directionless_odometer.html#a14c135efda273a8896206c5692ae0c6c',1,'DirectionlessOdometer']]],
+  ['mpulsescounter',['mPulsesCounter',['../class_directionless_odometer.html#a13a475210605da113a674a5a26d42c23',1,'DirectionlessOdometer']]],
+  ['mpulsespermeterratio',['mPulsesPerMeterRatio',['../class_directionless_odometer.html#aa5f0abab9d7877c26c9a2e6142aa5b84',1,'DirectionlessOdometer']]]
 ];

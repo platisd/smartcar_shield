@@ -89,10 +89,12 @@ Collaboration diagram for BrushedMotor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a17a4eae354ff56356d3687e0dd5005e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#a17a4eae354ff56356d3687e0dd5005e1">BrushedMotor</a> (uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
-<tr class="separator:a17a4eae354ff56356d3687e0dd5005e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa173de20cde28591f1a6315018ffbc86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#aa173de20cde28591f1a6315018ffbc86">BrushedMotor</a> (<a class="el" href="struct_brushed_motor_pins.html">BrushedMotorPins</a> pins, <a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
-<tr class="separator:aa173de20cde28591f1a6315018ffbc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08aeb4ffed26fa12e3736ec2141674e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#a08aeb4ffed26fa12e3736ec2141674e8">BrushedMotor</a> (<a class="el" href="class_runtime.html">Runtime</a> &amp;runtime, uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin)</td></tr>
+<tr class="memdesc:a08aeb4ffed26fa12e3736ec2141674e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a brushed DC motor instance.  <a href="#a08aeb4ffed26fa12e3736ec2141674e8">More...</a><br /></td></tr>
+<tr class="separator:a08aeb4ffed26fa12e3736ec2141674e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ce563a4b97f0ee638445c1bfe25892"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#ad4ce563a4b97f0ee638445c1bfe25892">BrushedMotor</a> (<a class="el" href="class_runtime.html">Runtime</a> &amp;runtime, <a class="el" href="struct_brushed_motor_pins.html">BrushedMotorPins</a> pins)</td></tr>
+<tr class="memdesc:ad4ce563a4b97f0ee638445c1bfe25892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a brushed DC motor instance.  <a href="#ad4ce563a4b97f0ee638445c1bfe25892">More...</a><br /></td></tr>
+<tr class="separator:ad4ce563a4b97f0ee638445c1bfe25892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2441f3e01dc7cb593c11d2cc59d1a120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120">setSpeed</a> (int speed) override</td></tr>
 <tr class="memdesc:a2441f3e01dc7cb593c11d2cc59d1a120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction.  <a href="#a2441f3e01dc7cb593c11d2cc59d1a120">More...</a><br /></td></tr>
 <tr class="separator:a2441f3e01dc7cb593c11d2cc59d1a120"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,10 +106,10 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A brushed motor is controlled via two wires where the flow of current determines the direction of rotation and the duty cycle the speed. </p>
 <p>For their control, we will assume the existince of a half-bridge such as the L293D chip where three signals are needed, two for determining the direction and another for determining the speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_brushed_motor_8hpp_source.html#l00046">46</a> of file <a class="el" href="_brushed_motor_8hpp_source.html">BrushedMotor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_brushed_motor_8hpp_source.html#l00041">41</a> of file <a class="el" href="_brushed_motor_8hpp_source.html">BrushedMotor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a17a4eae354ff56356d3687e0dd5005e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17a4eae354ff56356d3687e0dd5005e1">&#9670;&nbsp;</a></span>BrushedMotor() <span class="overload">[1/2]</span></h2>
+<a id="a08aeb4ffed26fa12e3736ec2141674e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08aeb4ffed26fa12e3736ec2141674e8">&#9670;&nbsp;</a></span>BrushedMotor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,6 +117,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">BrushedMotor::BrushedMotor </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>forwardPin</em>, </td>
         </tr>
@@ -128,13 +136,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>enablePin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em>&#160;</td>
+          <td class="paramname"><em>enablePin</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,12 +146,23 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a brushed DC motor instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">runtime</td><td>The runtime environment you want to run the class for </td></tr>
+    <tr><td class="paramname">forwardPin</td><td>The direction pin that when set to HIGH makes the motor spin forward </td></tr>
+    <tr><td class="paramname">backwardPin</td><td>The direction pin that when set to HIGH makes the motor spin forward </td></tr>
+    <tr><td class="paramname">enablePin</td><td>The pin that controls the motor's speed</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><a class="code" href="class_arduino_runtime.html">ArduinoRuntime</a> arduinoRuntime;</div><div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> leftMotor(arduinoRuntime, 8, 9, 10);</div></div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="_brushed_motor_8cpp_source.html#l00013">13</a> of file <a class="el" href="_brushed_motor_8cpp_source.html">BrushedMotor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_brushed_motor_a17a4eae354ff56356d3687e0dd5005e1_cgraph.png" border="0" usemap="#class_brushed_motor_a17a4eae354ff56356d3687e0dd5005e1_cgraph" alt=""/></div>
-<map name="class_brushed_motor_a17a4eae354ff56356d3687e0dd5005e1_cgraph" id="class_brushed_motor_a17a4eae354ff56356d3687e0dd5005e1_cgraph">
+<div class="center"><img src="class_brushed_motor_a08aeb4ffed26fa12e3736ec2141674e8_cgraph.png" border="0" usemap="#class_brushed_motor_a08aeb4ffed26fa12e3736ec2141674e8_cgraph" alt=""/></div>
+<map name="class_brushed_motor_a08aeb4ffed26fa12e3736ec2141674e8_cgraph" id="class_brushed_motor_a08aeb4ffed26fa12e3736ec2141674e8_cgraph">
 <area shape="rect" id="node2" href="class_runtime.html#a7a1aa2153b68337b74eef58bda014079" title="Get the runtime&#45;specific value representing an OUTPUT pin state. " alt="" coords="264,5,447,32"/>
 <area shape="rect" id="node3" href="class_runtime.html#a1c3586a0b24044f9e47f30c5197bbb5c" title="Get the runtime&#45;specific value representing a logical LOW voltage state. " alt="" coords="273,56,438,83"/>
 <area shape="rect" id="node4" href="class_runtime.html#abe2f0256fd53bd604abbc2dbff9cba35" title="Get the runtime&#45;specific value representing a logical HIGH voltage state. " alt="" coords="271,107,440,133"/>
@@ -158,8 +171,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aa173de20cde28591f1a6315018ffbc86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa173de20cde28591f1a6315018ffbc86">&#9670;&nbsp;</a></span>BrushedMotor() <span class="overload">[2/2]</span></h2>
+<a id="ad4ce563a4b97f0ee638445c1bfe25892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ce563a4b97f0ee638445c1bfe25892">&#9670;&nbsp;</a></span>BrushedMotor() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,14 +180,14 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">BrushedMotor::BrushedMotor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_brushed_motor_pins.html">BrushedMotorPins</a>&#160;</td>
-          <td class="paramname"><em>pins</em>, </td>
+          <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_runtime.html">Runtime</a> &amp;&#160;</td>
-          <td class="paramname"><em>runtime</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_brushed_motor_pins.html">BrushedMotorPins</a>&#160;</td>
+          <td class="paramname"><em>pins</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -184,6 +197,15 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a brushed DC motor instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">runtime</td><td>The runtime environment you want to run the class for </td></tr>
+    <tr><td class="paramname">pins</td><td>The <code><a class="el" href="struct_brushed_motor_pins.html" title="Helper class to represent brushed motor pins. ">BrushedMotorPins</a></code> object with the pins of the motor</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><a class="code" href="class_arduino_runtime.html">ArduinoRuntime</a> arduinoRuntime;</div><div class="line"><a class="code" href="class_brushed_motor.html">BrushedMotor</a> leftMotor(arduinoRuntime, <a class="code" href="namespacesmartcarlib_1_1pins_1_1v2.html#aad65ad016d9876e654b9d2e185521087">smartcarlib::pins::v2::leftMotorPins</a>);</div></div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="_brushed_motor_8cpp_source.html#l00027">27</a> of file <a class="el" href="_brushed_motor_8cpp_source.html">BrushedMotor.cpp</a>.</p>
 
 </div>

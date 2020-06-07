@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['backward',['backward',['../struct_brushed_motor_pins.html#aaf61e92b96a45e1dbdff3036682ec9ec',1,'BrushedMotorPins']]]
+  ['direction',['direction',['../struct_directional_odometer_pins.html#ae7c44b23975ca588b436866ccdb3b7fc',1,'DirectionalOdometerPins']]]
 ];

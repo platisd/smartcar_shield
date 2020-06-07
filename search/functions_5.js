@@ -19,8 +19,8 @@ var searchData=
   ['getpulseduration',['getPulseDuration',['../class_arduino_runtime.html#a8d1f412f20fb7699a301fff9e4c33ac2',1,'ArduinoRuntime::getPulseDuration()'],['../class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608',1,'Runtime::getPulseDuration()']]],
   ['getrisingedgemode',['getRisingEdgeMode',['../class_arduino_runtime.html#a809efc5ea57b21516fb1b61bae4cb368',1,'ArduinoRuntime::getRisingEdgeMode()'],['../class_runtime.html#a021baafc7a448275de502ece59d938d2',1,'Runtime::getRisingEdgeMode()']]],
   ['getspeed',['getSpeed',['../class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823',1,'DistanceCar::getSpeed()'],['../class_directional_odometer.html#ae89bc5a3d479b0cfb09edbb0bb7fdb35',1,'DirectionalOdometer::getSpeed()'],['../class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e',1,'DirectionlessOdometer::getSpeed()'],['../class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9',1,'Odometer::getSpeed()']]],
-  ['gp2d120',['GP2D120',['../class_g_p2_d120.html#aa819e06bcb4659fa212fe793900a2095',1,'GP2D120']]],
-  ['gp2y0a02',['GP2Y0A02',['../class_g_p2_y0_a02.html#a72d19c8c580beec064ede0feb2650801',1,'GP2Y0A02']]],
-  ['gp2y0a21',['GP2Y0A21',['../class_g_p2_y0_a21.html#a212cecfdcdb7b96d3461ba13db324859',1,'GP2Y0A21']]],
-  ['gy50',['GY50',['../class_g_y50.html#a5af95b1a9c590834cfee49ed93b2b4c5',1,'GY50']]]
+  ['gp2d120',['GP2D120',['../class_g_p2_d120.html#a4a15f8a4c359e970cd493cc1f88ac10a',1,'GP2D120']]],
+  ['gp2y0a02',['GP2Y0A02',['../class_g_p2_y0_a02.html#ac261017dbb277ede1e16b8d1e062be07',1,'GP2Y0A02']]],
+  ['gp2y0a21',['GP2Y0A21',['../class_g_p2_y0_a21.html#a940e3a46f210815390ce67863ff656c5',1,'GP2Y0A21']]],
+  ['gy50',['GY50',['../class_g_y50.html#ab2db701e6f035e718a7481ce0d9fbb51',1,'GY50']]]
 ];
