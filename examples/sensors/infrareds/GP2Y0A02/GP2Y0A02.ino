@@ -2,8 +2,9 @@
 
 const int SIDE_FRONT_PIN = A0;
 
-ArduinoRuntime arduino;
-GP2Y0A02 sideFrontIR(arduino, SIDE_FRONT_PIN); // measure distances between 25 and 120 centimeters
+ArduinoRuntime arduinoRuntime;
+GP2Y0A02 sideFrontIR(arduinoRuntime,
+                     SIDE_FRONT_PIN); // measure distances between 25 and 120 centimeters
 
 void setup()
 {

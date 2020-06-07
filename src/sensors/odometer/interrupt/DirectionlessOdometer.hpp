@@ -25,9 +25,9 @@ public:
      * \code
      * unsigned short ODOMETER_PIN = 32;
      * unsigned long PULSES_PER_METER = 110;
-     * ArduinoRuntime arduino;
+     * ArduinoRuntime arduinoRuntime;
      *
-     * DirectionlessOdometer odometer(arduino,
+     * DirectionlessOdometer odometer(arduinoRuntime,
      *                                ODOMETER_PIN,
      *                                []() { odometer.update(); },
      *                                PULSES_PER_METER);

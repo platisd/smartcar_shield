@@ -1,7 +1,7 @@
 #include <Smartcar.h>
 
-ArduinoRuntime arduino;
-GY50 gyro(arduino, 0); // Provide the gyroscope with a random offset
+ArduinoRuntime arduinoRuntime;
+GY50 gyro(arduinoRuntime, 0); // Provide the gyroscope with a random offset
 
 void setup()
 {

@@ -35,15 +35,15 @@ public:
      *
      * **Example:**
      * \code
-     * ArduinoRuntime arduino;
-     * BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
-     * BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
+     * ArduinoRuntime arduinoRuntime;
+     * BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
      * DirectionlessOdometer odometer(
-     *   arduino, smartcarlib::pins::v2::leftOdometerPin, []() { odometer.update(); }, 100);
+     *   arduinoRuntime, smartcarlib::pins::v2::leftOdometerPin, []() { odometer.update(); }, 100);
 
-     * DistanceCar car(arduino, control, odometer);
+     * DistanceCar car(arduinoRuntime, control, odometer);
      * \endcode
      */
     DistanceCar(Runtime& runtime, Control& control, Odometer& odometer);

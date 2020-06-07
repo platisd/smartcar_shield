@@ -18,9 +18,9 @@ public:
      *
      * **Example:**
      * \code
-     * ArduinoRuntime arduino;
+     * ArduinoRuntime arduinoRuntime;
      * const unsigned short IR_PIN = A1;
-     * GP2D120 infraredSensor(arduino, IR_PIN);
+     * GP2D120 infraredSensor(arduinoRuntime, IR_PIN);
      * \endcode
      */
     GP2D120(Runtime& runtime, uint8_t pin);

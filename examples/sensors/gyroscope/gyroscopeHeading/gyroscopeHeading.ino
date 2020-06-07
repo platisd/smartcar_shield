@@ -1,9 +1,9 @@
 #include <Smartcar.h>
 
-ArduinoRuntime arduino;
+ArduinoRuntime arduinoRuntime;
 // Determine the offset for your gyroscope using the `getOffset` method
 const int GYROSCOPE_OFFSET = 37;
-GY50 gyro(arduino, GYROSCOPE_OFFSET);
+GY50 gyro(arduinoRuntime, GYROSCOPE_OFFSET);
 
 void setup()
 {
