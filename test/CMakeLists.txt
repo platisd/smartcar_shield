@@ -54,6 +54,9 @@ include_directories("${gtest_SOURCE_DIR}/include"
 add_definitions(-DENABLE_TESTS -DPLATFORM_AGNOSTIC_BUILD)
 enable_testing()
 
+# GTest and GMock do not play nicely with these flags, so disable them
+target_compile_options(gtest PRIVATE -Wno-sign-promo)
+
 # Utility functions
 function(configure_test testExecutable)
     # Link against gtest library
