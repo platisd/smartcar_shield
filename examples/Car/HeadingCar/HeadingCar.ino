@@ -4,11 +4,12 @@ const int GYROSCOPE_OFFSET         = 37;
 const unsigned long PRINT_INTERVAL = 100;
 unsigned long previousPrintout     = 0;
 
-BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+ArduinoRuntime arduino;
+BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
-GY50 gyroscope(GYROSCOPE_OFFSET);
+GY50 gyroscope(arduino, GYROSCOPE_OFFSET);
 
 HeadingCar car(control, gyroscope);
 

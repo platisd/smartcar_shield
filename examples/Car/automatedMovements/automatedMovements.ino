@@ -4,20 +4,27 @@ const float carSpeed        = 1.0;
 const long distanceToTravel = 40;
 const int degreesToTurn     = 90;
 
-BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+ArduinoRuntime arduino;
+BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
-GY50 gyroscope(37);
+GY50 gyroscope(arduino, 37);
 
 const auto pulsesPerMeter = 600;
 
 DirectionlessOdometer leftOdometer(
-    smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+    arduino,
+    smartcarlib::pins::v2::leftOdometerPin,
+    []() { leftOdometer.update(); },
+    pulsesPerMeter);
 DirectionlessOdometer rightOdometer(
-    smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); }, pulsesPerMeter);
+    arduino,
+    smartcarlib::pins::v2::rightOdometerPin,
+    []() { rightOdometer.update(); },
+    pulsesPerMeter);
 
-SmartCar car(control, gyroscope, leftOdometer, rightOdometer);
+SmartCar car(arduino, control, gyroscope, leftOdometer, rightOdometer);
 
 void setup()
 {

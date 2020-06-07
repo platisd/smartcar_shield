@@ -9,18 +9,25 @@ const unsigned long PRINTOUT_INTERVAL = 100;
 unsigned long previousPrintOut        = 0;
 float carSpeed                        = 0.5;
 
-BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+ArduinoRuntime arduino;
+BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 const auto pulsesPerMeter = 600;
 
 DirectionlessOdometer leftOdometer(
-    smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+    arduino,
+    smartcarlib::pins::v2::leftOdometerPin,
+    []() { leftOdometer.update(); },
+    pulsesPerMeter);
 DirectionlessOdometer rightOdometer(
-    smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); }, pulsesPerMeter);
+    arduino,
+    smartcarlib::pins::v2::rightOdometerPin,
+    []() { rightOdometer.update(); },
+    pulsesPerMeter);
 
-DistanceCar car(control, leftOdometer, rightOdometer);
+DistanceCar car(arduino, control, leftOdometer, rightOdometer);
 
 void setup()
 {

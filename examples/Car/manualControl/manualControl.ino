@@ -5,8 +5,9 @@ const int bSpeed   = -70; // 70% of the full speed backward
 const int lDegrees = -75; // degrees to turn left
 const int rDegrees = 75;  // degrees to turn right
 
-BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+ArduinoRuntime arduino;
+BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);
