@@ -45,9 +45,9 @@ public:
      * unsigned short ODOMETER_PIN = 32;
      * unsigned short DIRECTION_PIN = 8;
      * unsigned long PULSES_PER_METER = 40;
-     * ArduinoRuntime arduino;
+     * ArduinoRuntime arduinoRuntime;
      *
-     * DirectionalOdometer odometer(arduino,
+     * DirectionalOdometer odometer(arduinoRuntime,
      *                              ODOMETER_PIN,
      *                              DIRECTION_PIN,
      *                              []() { odometer.update(); },
@@ -69,9 +69,9 @@ public:
      * **Example:**
      * \code
      * unsigned long PULSES_PER_METER = 40;
-     * ArduinoRuntime arduino;
+     * ArduinoRuntime arduinoRuntime;
      *
-     * DirectionalOdometer leftOdometer(arduino,
+     * DirectionalOdometer leftOdometer(arduinoRuntime,
      *                                  smartcarlib::pins::v2::leftOdometerPins,
      *                                  []() { odometer.update(); },
      *                                  PULSES_PER_METER);

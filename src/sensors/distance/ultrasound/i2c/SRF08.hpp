@@ -33,8 +33,8 @@ public:
      *
      * **Example:**
      * \code
-     * ArduinoRuntime arduino;
-     * SRF08 srf08(arduino, 112);
+     * ArduinoRuntime arduinoRuntime;
+     * SRF08 srf08(arduinoRuntime, 112);
      * \endcode
      */
     SRF08(Runtime& runtime, uint8_t address);

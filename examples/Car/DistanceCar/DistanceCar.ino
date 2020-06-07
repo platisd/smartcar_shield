@@ -1,24 +1,24 @@
 #include <Smartcar.h>
 
-ArduinoRuntime arduino;
-BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
-BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
+ArduinoRuntime arduinoRuntime;
+BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 const auto pulsesPerMeter = 600;
 
 DirectionlessOdometer leftOdometer(
-    arduino,
+    arduinoRuntime,
     smartcarlib::pins::v2::leftOdometerPin,
     []() { leftOdometer.update(); },
     pulsesPerMeter);
 DirectionlessOdometer rightOdometer(
-    arduino,
+    arduinoRuntime,
     smartcarlib::pins::v2::rightOdometerPin,
     []() { rightOdometer.update(); },
     pulsesPerMeter);
 
-DistanceCar car(arduino, control, leftOdometer, rightOdometer);
+DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);
 
 void setup()
 {

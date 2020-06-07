@@ -3,9 +3,9 @@
 const unsigned short odometerPin   = 2;
 const unsigned long pulsesPerMeter = 100;
 
-ArduinoRuntime arduino;
+ArduinoRuntime arduinoRuntime;
 DirectionlessOdometer odometer(
-    arduino, odometerPin, []() { odometer.update(); }, pulsesPerMeter);
+    arduinoRuntime, odometerPin, []() { odometer.update(); }, pulsesPerMeter);
 
 void setup()
 {

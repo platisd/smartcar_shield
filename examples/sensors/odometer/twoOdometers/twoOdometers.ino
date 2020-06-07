@@ -2,14 +2,14 @@
 
 const auto pulsesPerMeter = 600;
 
-ArduinoRuntime arduino;
+ArduinoRuntime arduinoRuntime;
 DirectionlessOdometer leftOdometer(
-    arduino,
+    arduinoRuntime,
     smartcarlib::pins::v2::leftOdometerPin,
     []() { leftOdometer.update(); },
     pulsesPerMeter);
 DirectionlessOdometer rightOdometer(
-    arduino,
+    arduinoRuntime,
     smartcarlib::pins::v2::rightOdometerPin,
     []() { rightOdometer.update(); },
     pulsesPerMeter);

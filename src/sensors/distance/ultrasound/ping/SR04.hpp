@@ -41,8 +41,8 @@ public:
      * unsigned short TRIGGER_PIN = 6;
      * unsigned short ECHO_PIN = 7;
      *
-     * ArduinoRuntime arduino;
-     * SR04 sr04(arduino, TRIGGER_PIN, ECHO_PIN);
+     * ArduinoRuntime arduinoRuntime;
+     * SR04 sr04(arduinoRuntime, TRIGGER_PIN, ECHO_PIN);
      * \endcode
      */
     SR04(Runtime& runtime,

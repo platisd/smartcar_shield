@@ -42,9 +42,9 @@ public:
      *
      * **Example:**
      * \code
-     * ArduinoRuntime arduino;
+     * ArduinoRuntime arduinoRuntime;
      * int offset = 37; // The offset we have acquired via the getOffset method
-     * GY50 gyro(arduino, offset);
+     * GY50 gyro(arduinoRuntime, offset);
      * \endcode
      */
     GY50(Runtime& runtime,

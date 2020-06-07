@@ -1,8 +1,8 @@
 #include <Smartcar.h>
 
-ArduinoRuntime arduino;
-BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
-BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
+ArduinoRuntime arduinoRuntime;
+BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);

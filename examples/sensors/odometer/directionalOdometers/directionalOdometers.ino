@@ -3,14 +3,14 @@
 const unsigned long LEFT_PULSES_PER_METER  = 600;
 const unsigned long RIGHT_PULSES_PER_METER = 740;
 
-ArduinoRuntime arduino;
+ArduinoRuntime arduinoRuntime;
 DirectionalOdometer leftOdometer(
-    arduino,
+    arduinoRuntime,
     smartcarlib::pins::v2::leftOdometerPins,
     []() { leftOdometer.update(); },
     LEFT_PULSES_PER_METER);
 DirectionalOdometer rightOdometer(
-    arduino,
+    arduinoRuntime,
     smartcarlib::pins::v2::rightOdometerPins,
     []() { rightOdometer.update(); },
     RIGHT_PULSES_PER_METER);

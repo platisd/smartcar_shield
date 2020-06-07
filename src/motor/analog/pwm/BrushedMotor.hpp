@@ -50,8 +50,8 @@ public:
      *
      * **Example:**
      * \code
-     * ArduinoRuntime arduino;
-     * BrushedMotor leftMotor(arduino, 8, 9, 10);
+     * ArduinoRuntime arduinoRuntime;
+     * BrushedMotor leftMotor(arduinoRuntime, 8, 9, 10);
      * \endcode
      */
     BrushedMotor(Runtime& runtime, uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin);
@@ -63,8 +63,8 @@ public:
      *
      * **Example:**
      * \code
-     * ArduinoRuntime arduino;
-     * BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+     * ArduinoRuntime arduinoRuntime;
+     * BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
      * \endcode
      */
     BrushedMotor(Runtime& runtime, BrushedMotorPins pins);
