@@ -8,40 +8,39 @@
 #include "../distance/DistanceCar.hpp"
 #include "../heading/HeadingCar.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 class SmartCar : public DistanceCar, public HeadingCar
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a car equipped with a heading sensor and an odometer
+     * @param runtime        The runtime environment you want to run the class for
      * @param control        The car's control
      * @param headingSensor  The heading sensor
      * @param odometer       The odometer
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+     * ArduinoRuntime arduino;
+     * BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
-     * GY50 gyroscope(37);
-     * DirectionlessOdometer odometer(100);
-
-     * SmartCar car(control, gyroscope, odometer);
+     * GY50 gyroscope(arduino, 37);
+     *
+     * const auto pulsesPerMeter = 600;
+     *
+     * DirectionlessOdometer odometer(
+     *     arduino, smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); },
+     *     pulsesPerMeter);
+     *
+     * SmartCar car(arduino, control, gyroscope, odometer);
      * \endcode
      */
-    SmartCar(Control& control,
-             HeadingSensor& headingSensor,
-             Odometer& odometer,
-             Runtime& runtime = arduinoRuntime);
+    SmartCar(Runtime& runtime, Control& control, HeadingSensor& headingSensor, Odometer& odometer);
 
     /**
      * Constructs a car equipped with a heading sensor and two odometers
+     * @param runtime       The runtime environment you want to run the class for
      * @param control       The car's control
      * @param headingSensor The heading sensor
      * @param odometerLeft  The left odometer
@@ -49,36 +48,30 @@ public:
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+     * ArduinoRuntime arduino;
+     * BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
-     * GY50 gyroscope(37);
+     * GY50 gyroscope(arduino, 37);
      *
      * const auto pulsesPerMeter = 600;
      *
      * DirectionlessOdometer leftOdometer(
-     *     smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); }, pulsesPerMeter);
+     *     arduino, smartcarlib::pins::v2::leftOdometerPin, []() { leftOdometer.update(); },
+     *     pulsesPerMeter);
      * DirectionlessOdometer rightOdometer(
-     *     smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); },
+     *     arduino, smartcarlib::pins::v2::rightOdometerPin, []() { rightOdometer.update(); },
      *     pulsesPerMeter);
      *
-     * SmartCar car(control, gyroscope, leftOdometer, rightOdometer);
+     * SmartCar car(arduino, control, gyroscope, leftOdometer, rightOdometer);
      * \endcode
      */
-    SmartCar(Control& control,
+    SmartCar(Runtime& runtime,
+             Control& control,
              HeadingSensor& headingSensor,
              Odometer& odometerLeft,
-             Odometer& odometerRight,
-             Runtime& runtime = arduinoRuntime);
-#else
-    SmartCar(Control& control, HeadingSensor& headingSensor, Odometer& odometer, Runtime& runtime);
-    SmartCar(Control& control,
-             HeadingSensor& headingSensor,
-             Odometer& odometerLeft,
-             Odometer& odometerRight,
-             Runtime& runtime);
-#endif
+             Odometer& odometerRight);
 
     /**
      * Adjusts the speed when cruise control is enabled and calculates the current heading.

@@ -11,17 +11,12 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../Odometer.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 class DirectionlessOdometer : public Odometer
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed but not direction
+     * @param runtime           The runtime environment you want to run the class for
      * @param pulsePin          The pin that receives the pulses
      * @param callback          The callback to be invoked when a pulse is received (see example)
      * @param pulsesPerMeter    The amount of odometer pulses that constitute a meter
@@ -30,22 +25,18 @@ public:
      * \code
      * unsigned short ODOMETER_PIN = 32;
      * unsigned long PULSES_PER_METER = 110;
+     * ArduinoRuntime arduino;
      *
-     * DirectionlessOdometer odometer(ODOMETER_PIN,
+     * DirectionlessOdometer odometer(arduino,
+     *                                ODOMETER_PIN,
      *                                []() { odometer.update(); },
      *                                PULSES_PER_METER);
      * \endcode
      */
-    DirectionlessOdometer(uint8_t pulsePin,
+    DirectionlessOdometer(Runtime& runtime,
+                          uint8_t pulsePin,
                           InterruptCallback callback,
-                          unsigned long pulsesPerMeter,
-                          Runtime& runtime = arduinoRuntime);
-#else
-    DirectionlessOdometer(uint8_t pulsePin,
-                          InterruptCallback callback,
-                          unsigned long pulsesPerMeter,
-                          Runtime& runtime);
-#endif
+                          unsigned long pulsesPerMeter);
 
     virtual ~DirectionlessOdometer() = default;
 

@@ -1,22 +1,22 @@
 #include "SmartCar.hpp"
 
-SmartCar::SmartCar(Control& control,
+SmartCar::SmartCar(Runtime& runtime,
+                   Control& control,
                    HeadingSensor& headingSensor,
-                   Odometer& odometer,
-                   Runtime& runtime)
+                   Odometer& odometer)
     : SimpleCar::SimpleCar(control)
-    , DistanceCar::DistanceCar(control, odometer, runtime)
+    , DistanceCar::DistanceCar(runtime, control, odometer)
     , HeadingCar::HeadingCar(control, headingSensor)
 {
 }
 
-SmartCar::SmartCar(Control& control,
+SmartCar::SmartCar(Runtime& runtime,
+                   Control& control,
                    HeadingSensor& headingSensor,
                    Odometer& odometerleft,
-                   Odometer& odometerRight,
-                   Runtime& runtime)
+                   Odometer& odometerRight)
     : SimpleCar::SimpleCar(control)
-    , DistanceCar::DistanceCar(control, odometerleft, odometerRight, runtime)
+    , DistanceCar::DistanceCar(runtime, control, odometerleft, odometerRight)
     , HeadingCar::HeadingCar(control, headingSensor)
 {
 }

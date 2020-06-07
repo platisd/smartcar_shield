@@ -15,7 +15,7 @@ using namespace smartcarlib::constants::srf08;
 using namespace smartcarlib::constants::distanceSensor;
 using namespace smartcarlib::utils;
 
-SRF08::SRF08(uint8_t address, Runtime& runtime)
+SRF08::SRF08(Runtime& runtime, uint8_t address)
     : mAddress{ address }
     , mRuntime(runtime)
     , mPingDelay{ kDefaultPingDelay }

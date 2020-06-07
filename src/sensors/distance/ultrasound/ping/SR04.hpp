@@ -13,11 +13,6 @@
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 namespace smartcarlib
 {
 namespace constants
@@ -34,9 +29,9 @@ const unsigned int kError              = 0;
 class SR04 : public DistanceSensor
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an SR04 ultrasonic sensor
+     * @param runtime     The runtime environment you want to run the class for
      * @param triggerPin  The pin to produce the trigger signal
      * @param echoPin     The pin to receive the echo signal
      * @param maxDistance The maximum measurement distance in centimeters
@@ -46,16 +41,14 @@ public:
      * unsigned short TRIGGER_PIN = 6;
      * unsigned short ECHO_PIN = 7;
      *
-     * SR04 sr04(TRIGGER_PIN, ECHO_PIN);
+     * ArduinoRuntime arduino;
+     * SR04 sr04(arduino, TRIGGER_PIN, ECHO_PIN);
      * \endcode
      */
-    SR04(uint8_t triggerPin,
+    SR04(Runtime& runtime,
+         uint8_t triggerPin,
          uint8_t echoPin,
-         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance,
-         Runtime& runtime         = arduinoRuntime);
-#else
-    SR04(uint8_t triggerPin, uint8_t echoPin, unsigned int maxDistance, Runtime& runtime);
-#endif
+         unsigned int maxDistance = smartcarlib::constants::sr04::kDefaultMaxDistance);
 
     /* Check `DistanceSensor` interface for documentation */
     unsigned int getDistance() override;

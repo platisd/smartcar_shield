@@ -11,10 +11,10 @@ const float kMillimetersInMeter   = 1000.0;
 
 using namespace smartcarlib::constants::odometer;
 
-DirectionlessOdometer::DirectionlessOdometer(uint8_t pulsePin,
+DirectionlessOdometer::DirectionlessOdometer(Runtime& runtime,
+                                             uint8_t pulsePin,
                                              InterruptCallback callback,
-                                             unsigned long pulsesPerMeter,
-                                             Runtime& runtime)
+                                             unsigned long pulsesPerMeter)
     : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? static_cast<float>(pulsesPerMeter) / 100.0f
                                                : kDefaultPulsesPerMeter / 100.0f }
     , mMillimetersPerPulse{ pulsesPerMeter > 0

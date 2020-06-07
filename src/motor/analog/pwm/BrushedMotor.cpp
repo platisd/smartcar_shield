@@ -10,10 +10,10 @@ const int kMaxPwm = 255;
 using namespace smartcarlib::utils;
 using namespace smartcarlib::constants::motor;
 
-BrushedMotor::BrushedMotor(uint8_t forwardPin,
+BrushedMotor::BrushedMotor(Runtime& runtime,
+                           uint8_t forwardPin,
                            uint8_t backwardPin,
-                           uint8_t enablePin,
-                           Runtime& runtime)
+                           uint8_t enablePin)
     : kForwardPin{ forwardPin }
     , kBackwardPin{ backwardPin }
     , kEnablePin{ enablePin }
@@ -24,8 +24,8 @@ BrushedMotor::BrushedMotor(uint8_t forwardPin,
 {
 }
 
-BrushedMotor::BrushedMotor(BrushedMotorPins pins, Runtime& runtime)
-    : BrushedMotor{ pins.forward, pins.backward, pins.enable, runtime }
+BrushedMotor::BrushedMotor(Runtime& runtime, BrushedMotorPins pins)
+    : BrushedMotor{ runtime, pins.forward, pins.backward, pins.enable }
 {
 }
 

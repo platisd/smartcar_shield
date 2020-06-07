@@ -14,11 +14,6 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 /**
  * @brief Helper class to represent brushed motor pins
  */
@@ -46,38 +41,33 @@ struct BrushedMotorPins
 class BrushedMotor : public Motor
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a brushed DC motor instance
+     * @param runtime     The runtime environment you want to run the class for
      * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward
      * @param backwardPin The direction pin that when set to HIGH makes the motor spin forward
      * @param enablePin   The pin  that controls the motor's speed
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(8, 9, 10);
+     * ArduinoRuntime arduino;
+     * BrushedMotor leftMotor(arduino, 8, 9, 10);
      * \endcode
      */
-    BrushedMotor(uint8_t forwardPin,
-                 uint8_t backwardPin,
-                 uint8_t enablePin,
-                 Runtime& runtime = arduinoRuntime);
+    BrushedMotor(Runtime& runtime, uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin);
 
     /**
      * Constructs a brushed DC motor instance
-     * @param pins  The `BrushedMotorPins` object with the pins of the motor
+     * @param runtime The runtime environment you want to run the class for
+     * @param pins    The `BrushedMotorPins` object with the pins of the motor
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
+     * ArduinoRuntime arduino;
+     * BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
      * \endcode
      */
-    BrushedMotor(BrushedMotorPins pins, Runtime& runtime = arduinoRuntime);
-
-#else
-    BrushedMotor(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin, Runtime& runtime);
-    BrushedMotor(BrushedMotorPins pins, Runtime& runtime);
-#endif
+    BrushedMotor(Runtime& runtime, BrushedMotorPins pins);
 
     /* Check `Motor` interface for documentation */
     void setSpeed(int speed) override;

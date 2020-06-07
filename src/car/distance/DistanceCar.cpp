@@ -14,7 +14,7 @@ using namespace smartcarlib::constants::car;
 using namespace smartcarlib::constants::control;
 using namespace smartcarlib::utils;
 
-DistanceCar::DistanceCar(Control& control, Odometer& odometer, Runtime& runtime)
+DistanceCar::DistanceCar(Runtime& runtime, Control& control, Odometer& odometer)
     : SimpleCar(control)
     , mOdometerLeft(odometer)
     , mOdometerRight(odometer)
@@ -22,10 +22,10 @@ DistanceCar::DistanceCar(Control& control, Odometer& odometer, Runtime& runtime)
 {
 }
 
-DistanceCar::DistanceCar(Control& control,
+DistanceCar::DistanceCar(Runtime& runtime,
+                         Control& control,
                          Odometer& odometerLeft,
-                         Odometer& odometerRight,
-                         Runtime& runtime)
+                         Odometer& odometerRight)
     : SimpleCar(control)
     , mOdometerLeft(odometerLeft)
     , mOdometerRight(odometerRight)

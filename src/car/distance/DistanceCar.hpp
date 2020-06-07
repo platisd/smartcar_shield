@@ -8,11 +8,6 @@
 #include "../../sensors/odometer/Odometer.hpp"
 #include "../simple/SimpleCar.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 namespace smartcarlib
 {
 namespace constants
@@ -32,28 +27,31 @@ const auto kBreakSpeedScale              = 10;
 class DistanceCar : virtual public SimpleCar
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a car equipped with a distance sensor
+     * @param runtime  The runtime environment you want to run the class for
      * @param control  The car's control
      * @param odometer The odometer
      *
      * **Example:**
      * \code
-     * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
-     * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
+     * ArduinoRuntime arduino;
+     * BrushedMotor leftMotor(arduino, smartcarlib::pins::v2::leftMotorPins);
+     * BrushedMotor rightMotor(arduino, smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
-     * DirectionlessOdometer odometer(100);
+     * DirectionlessOdometer odometer(
+     *   arduino, smartcarlib::pins::v2::leftOdometerPin, []() { odometer.update(); }, 100);
 
-     * DistanceCar car(control, odometer);
+     * DistanceCar car(arduino, control, odometer);
      * \endcode
      */
-    DistanceCar(Control& control, Odometer& odometer, Runtime& runtime = arduinoRuntime);
+    DistanceCar(Runtime& runtime, Control& control, Odometer& odometer);
 
     /**
      * Constructs a car equipped with a distance sensor
-     * @param control        The car's control
+     * @param runtime       The runtime environment you want to run the class for
+     * @param control       The car's control
      * @param odometerLeft  The left odometer
      * @param odometerRight The right odometer
      *
@@ -74,17 +72,10 @@ public:
      * DistanceCar car(control, gyroscope, leftOdometer, rightOdometer);
      * \endcode
      */
-    DistanceCar(Control& control,
+    DistanceCar(Runtime& runtime,
+                Control& control,
                 Odometer& odometerLeft,
-                Odometer& odometerRight,
-                Runtime& runtime = arduinoRuntime);
-#else
-    DistanceCar(Control& control, Odometer& odometer, Runtime& runtime);
-    DistanceCar(Control& control,
-                Odometer& odometerLeft,
-                Odometer& odometerRight,
-                Runtime& runtime);
-#endif
+                Odometer& odometerRight);
 
     /**
      * Gets the car's travelled distance

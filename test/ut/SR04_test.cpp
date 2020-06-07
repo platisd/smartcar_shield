@@ -33,7 +33,7 @@ public:
         EXPECT_CALL(mRuntime, getLowState()).WillOnce(Return(kLow));
         EXPECT_CALL(mRuntime, getHighState()).WillOnce(Return(kHigh));
 
-        mSR04 = std::make_unique<SR04>(kTriggerPin, kEchoPin, maxDistance, mRuntime);
+        mSR04 = std::make_unique<SR04>(mRuntime, kTriggerPin, kEchoPin, maxDistance);
     }
 
     NiceMock<MockRuntime> mRuntime;

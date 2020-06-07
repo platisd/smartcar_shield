@@ -16,13 +16,8 @@ const uint8_t kPin = 5;
 class GP2D120Test : public Test
 {
 public:
-    GP2D120Test()
-        : mGP2D120{ kPin, mRuntime }
-    {
-    }
-
     NiceMock<MockRuntime> mRuntime;
-    GP2D120 mGP2D120;
+    GP2D120 mGP2D120{ mRuntime, kPin };
 };
 
 TEST_F(GP2D120Test, getDistance_WhenReadingTooLow_WillReturnZero)
@@ -52,13 +47,8 @@ TEST_F(GP2D120Test, getDistance_WhenReadingWithinRange_WillReturnCorrectResult)
 class GP2Y0A02Test : public Test
 {
 public:
-    GP2Y0A02Test()
-        : mGP2Y0A02{ kPin, mRuntime }
-    {
-    }
-
     NiceMock<MockRuntime> mRuntime;
-    GP2Y0A02 mGP2Y0A02;
+    GP2Y0A02 mGP2Y0A02{ mRuntime, kPin };
 };
 
 TEST_F(GP2Y0A02Test, getDistance_WhenReadingTooLow_WillReturnZero)
@@ -88,13 +78,8 @@ TEST_F(GP2Y0A02Test, getDistance_WhenReadingWithinRange_WillReturnCorrectResult)
 class GP2Y0A21Test : public Test
 {
 public:
-    GP2Y0A21Test()
-        : mGP2Y0A21{ kPin, mRuntime }
-    {
-    }
-
     NiceMock<MockRuntime> mRuntime;
-    GP2Y0A21 mGP2Y0A21;
+    GP2Y0A21 mGP2Y0A21{ mRuntime, kPin };
 };
 
 TEST_F(GP2Y0A21Test, getDistance_WhenReadingTooLow_WillReturnZero)

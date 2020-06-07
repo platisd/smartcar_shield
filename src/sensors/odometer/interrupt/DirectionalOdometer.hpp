@@ -32,9 +32,9 @@ struct DirectionalOdometerPins
 class DirectionalOdometer : public DirectionlessOdometer
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs an odometer that can measure distance, speed and direction
+     * @param runtime           The runtime environment you want to run the class for
      * @param pulsePin          The pin that receives the pulses
      * @param forwardWhenLowPin The pin that is set to LOW when moving forward
      * @param callback          The callback to be invoked when a pulse is received (see example)
@@ -45,18 +45,20 @@ public:
      * unsigned short ODOMETER_PIN = 32;
      * unsigned short DIRECTION_PIN = 8;
      * unsigned long PULSES_PER_METER = 40;
+     * ArduinoRuntime arduino;
      *
-     * DirectionalOdometer odometer(ODOMETER_PIN,
+     * DirectionalOdometer odometer(arduino,
+     *                              ODOMETER_PIN,
      *                              DIRECTION_PIN,
      *                              []() { odometer.update(); },
      *                              PULSES_PER_METER);
      * \endcode
      */
-    DirectionalOdometer(uint8_t pulsePin,
+    DirectionalOdometer(Runtime& runtime,
+                        uint8_t pulsePin,
                         uint8_t forwardWhenLowPin,
                         InterruptCallback callback,
-                        unsigned long pulsesPerMeter,
-                        Runtime& runtime = arduinoRuntime);
+                        unsigned long pulsesPerMeter);
 
     /**
      * Constructs an odometer that can measure distance, speed and direction
@@ -67,28 +69,18 @@ public:
      * **Example:**
      * \code
      * unsigned long PULSES_PER_METER = 40;
+     * ArduinoRuntime arduino;
      *
-     * DirectionalOdometer leftOdometer(smartcarlib::pins::v2::leftOdometerPins,
+     * DirectionalOdometer leftOdometer(arduino,
+     *                                  smartcarlib::pins::v2::leftOdometerPins,
      *                                  []() { odometer.update(); },
      *                                  PULSES_PER_METER);
      * \endcode
      */
-    DirectionalOdometer(DirectionalOdometerPins pins,
+    DirectionalOdometer(Runtime& runtime,
+                        DirectionalOdometerPins pins,
                         InterruptCallback callback,
-                        unsigned long pulsesPerMeter,
-                        Runtime& runtime = arduinoRuntime);
-#else
-    DirectionalOdometer(uint8_t pulsePin,
-                        uint8_t forwardWhenLowPin,
-                        InterruptCallback callback,
-                        unsigned long pulsesPerMeter,
-                        Runtime& runtime);
-
-    DirectionalOdometer(DirectionalOdometerPins pins,
-                        InterruptCallback callback,
-                        unsigned long pulsesPerMeter,
-                        Runtime& runtime);
-#endif
+                        unsigned long pulsesPerMeter);
 
     /* Check `DirectionlessOdometer` for documentation */
     void reset() override;

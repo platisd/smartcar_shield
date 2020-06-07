@@ -17,11 +17,6 @@
 #include "../../../runtime/Runtime.hpp"
 #include "../HeadingSensor.hpp"
 
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
-#include "../../../runtime/arduino_runtime/ArduinoRuntime.hpp"
-extern ArduinoRuntime arduinoRuntime;
-#endif
-
 namespace smartcarlib
 {
 namespace constants
@@ -38,25 +33,23 @@ const int kDefaultCalibrationMeasurements = 100;
 class GY50 : public HeadingSensor
 {
 public:
-#ifdef SMARTCAR_BUILD_FOR_ARDUINO
     /**
      * Constructs a GY50 gyroscope
+     * @param runtime          The runtime environment you want to run the class for
      * @param offset           The sensor-specific measurement value when idle.
      *                         Find the value for your sensing with GY50::getOffset.
      * @param samplingInterval How often to upate the heading
      *
      * **Example:**
      * \code
+     * ArduinoRuntime arduino;
      * int offset = 37; // The offset we have acquired via the getOffset method
-     * GY50 gyro(offset);
+     * GY50 gyro(arduino, offset);
      * \endcode
      */
-    GY50(int offset,
-         unsigned long samplingInterval = smartcarlib::constants::gy50::kDefaultSamplingInterval,
-         Runtime& runtime               = arduinoRuntime);
-#else
-    GY50(int offset, unsigned long samplingInterval, Runtime& runtime);
-#endif
+    GY50(Runtime& runtime,
+         int offset,
+         unsigned long samplingInterval = smartcarlib::constants::gy50::kDefaultSamplingInterval);
 
     /* Check `HeadingSensor` interface for documentation */
     int getHeading() override;

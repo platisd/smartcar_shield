@@ -29,7 +29,7 @@ public:
         EXPECT_CALL(mRuntime, getHighState()).WillOnce(Return(kHigh));
 
         mBrushedMotor
-            = std::make_unique<BrushedMotor>(kForwardPin, kBackwardPin, kEnablePin, mRuntime);
+            = std::make_unique<BrushedMotor>(mRuntime, kForwardPin, kBackwardPin, kEnablePin);
     }
 
     NiceMock<MockRuntime> mRuntime;
@@ -45,7 +45,7 @@ TEST(BrushedMotorHelperConstructorTest,
     EXPECT_CALL(runtime, getHighState()).WillOnce(Return(kHigh));
 
     BrushedMotorPins pins{ kForwardPin, kBackwardPin, kEnablePin };
-    BrushedMotor motor{ pins, runtime };
+    BrushedMotor motor{ runtime, pins };
 }
 
 TEST_F(BrushedMotorTest, setSpeed_WhenNotAttached_WillAttach)

@@ -6,7 +6,7 @@ const auto kMinDistance = 25;  // GP2Y0A02's minimum distance
 const auto kMaxDistance = 120; // GP2Y0A02's maximum distance
 } // namespace
 
-GP2Y0A02::GP2Y0A02(uint8_t pin, Runtime& runtime)
+GP2Y0A02::GP2Y0A02(Runtime& runtime, uint8_t pin)
     : InfraredAnalogSensor(runtime)
     , kPin{ pin }
     , mRuntime(runtime)

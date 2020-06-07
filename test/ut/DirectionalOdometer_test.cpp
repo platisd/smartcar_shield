@@ -23,7 +23,7 @@ public:
     {
         ON_CALL(mRuntime, getLowState()).WillByDefault(Return(kPinStateWhenForward));
         mDirectionalOdometer = std::make_unique<DirectionalOdometer>(
-            kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime);
+            mRuntime, kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter);
     }
 
     NiceMock<MockRuntime> mRuntime;
@@ -54,7 +54,7 @@ public:
     {
         EXPECT_CALL(mRuntime, pinToInterrupt(_)).Times(2).WillRepeatedly(Return(kNotAnInterrupt));
         mDirectionalOdometer = std::make_unique<DirectionalOdometer>(
-            kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter, mRuntime);
+            mRuntime, kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter);
     }
 
     NiceMock<MockRuntime> mRuntime;
@@ -69,7 +69,7 @@ TEST(DirectionalOdometerConstructorTest, constructor_WhenCalled_WillSetDirection
     EXPECT_CALL(runtime, setPinDirection(_, inputState)).Times(AtLeast(1));
     EXPECT_CALL(runtime, setPinDirection(kDirectionPin, inputState));
     DirectionalOdometer directionalOdometer{
-        kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter, runtime
+        runtime, kPin, kDirectionPin, kDummyCallback, kDefaultPulsesPerMeter
     };
 }
 
@@ -83,7 +83,7 @@ TEST(DirectionalOdometerConstructorTest,
     EXPECT_CALL(runtime, setPinDirection(kDirectionPin, inputState));
     DirectionalOdometerPins pins{ kPin, kDirectionPin };
     DirectionalOdometer directionalOdometer{
-        pins, kDummyCallback, kDefaultPulsesPerMeter, runtime
+        runtime, pins, kDummyCallback, kDefaultPulsesPerMeter
     };
 }
 

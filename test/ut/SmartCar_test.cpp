@@ -12,32 +12,22 @@ using namespace ::testing;
 class SmartCarTest : public Test
 {
 public:
-    SmartCarTest()
-        : mSmartCar{ mControl, mHeadingSensor, mOdometerLeft, mOdometerRight, mRuntime }
-    {
-    }
-
     NiceMock<MockControl> mControl;
     NiceMock<MockHeadingSensor> mHeadingSensor;
     NiceMock<MockOdometer> mOdometerLeft;
     NiceMock<MockOdometer> mOdometerRight;
     NiceMock<MockRuntime> mRuntime;
-    SmartCar mSmartCar;
+    SmartCar mSmartCar{ mRuntime, mControl, mHeadingSensor, mOdometerLeft, mOdometerRight };
 };
 
 class SmartCarOneOdometerTest : public Test
 {
 public:
-    SmartCarOneOdometerTest()
-        : mSmartCar{ mControl, mHeadingSensor, mOdometer, mRuntime }
-    {
-    }
-
     NiceMock<MockControl> mControl;
     NiceMock<MockHeadingSensor> mHeadingSensor;
     NiceMock<MockOdometer> mOdometer;
     NiceMock<MockRuntime> mRuntime;
-    SmartCar mSmartCar;
+    SmartCar mSmartCar{ mRuntime, mControl, mHeadingSensor, mOdometer };
 };
 
 TEST_F(SmartCarTest, update_WhenCalled_WillUpdateHeadingAndSpeed)
