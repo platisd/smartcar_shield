@@ -42,10 +42,16 @@ void BrushedMotor::setSpeed(int speed)
         mRuntime.setPinState(kForwardPin, kLow);
         mRuntime.setPinState(kBackwardPin, kHigh);
     }
-    else
+    else if (speed > 0)
     {
         // Set forward direction
         mRuntime.setPinState(kForwardPin, kHigh);
+        mRuntime.setPinState(kBackwardPin, kLow);
+    }
+    else
+    {
+        // Set idle
+        mRuntime.setPinState(kForwardPin, kLow);
         mRuntime.setPinState(kBackwardPin, kLow);
     }
 

@@ -73,6 +73,14 @@ TEST_F(BrushedMotorTest, setSpeed_WhenPositiveSpeed_WillSetDirectionForward)
     mBrushedMotor->setSpeed(50);
 }
 
+TEST_F(BrushedMotorTest, setSpeed_WhenZeroSpeed_WillSetMotorsToIdle)
+{
+    EXPECT_CALL(mRuntime, setPinState(kForwardPin, kLow));
+    EXPECT_CALL(mRuntime, setPinState(kBackwardPin, kLow));
+
+    mBrushedMotor->setSpeed(0);
+}
+
 TEST_F(BrushedMotorTest, setSpeed_WhenSpeedOverBounds_WillSetMaxSpeedForward)
 {
     EXPECT_CALL(mRuntime, setPinState(kForwardPin, kHigh));
