@@ -1,0 +1,7 @@
+<map id="smartcarlib::utils::getMap" name="smartcarlib::utils::getMap">
+<area shape="rect" id="node1" title="Maps a value from a range to another." alt="" coords="252,74,384,115"/>
+<area shape="rect" id="node2" href="$class_ackerman_control.html#a077ddd008527819c908742c3409c1cc1" title="Sets the driving angle in degrees [&#45;90, 90]." alt="" coords="5,5,204,32"/>
+<area shape="rect" id="node3" href="$class_arduino_runtime.html#a3d6c046e1d77430d81acfd275f193a67" title="Set PWM state, equivalent of analogWrite in Arduino." alt="" coords="11,56,199,83"/>
+<area shape="rect" id="node4" href="$class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="22,107,187,133"/>
+<area shape="rect" id="node5" href="$class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="14,157,195,184"/>
+</map>

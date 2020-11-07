@@ -1,0 +1,4 @@
+<map id="GY50::getOffset" name="GY50::getOffset">
+<area shape="rect" id="node1" title="Get the sensor&#39;s offset which is the value the sensor returns when still." alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node2" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="177,5,333,32"/>
+</map>

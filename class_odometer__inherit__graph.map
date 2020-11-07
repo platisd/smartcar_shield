@@ -1,0 +1,5 @@
+<map id="Odometer" name="Odometer">
+<area shape="rect" id="node1" title=" " alt="" coords="28,5,191,141"/>
+<area shape="rect" id="node2" href="$class_directionless_odometer.html" title=" " alt="" coords="5,189,213,413"/>
+<area shape="rect" id="node3" href="$class_directional_odometer.html" title=" " alt="" coords="18,461,201,641"/>
+</map>

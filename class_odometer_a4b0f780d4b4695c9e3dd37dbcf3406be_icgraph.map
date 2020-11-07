@@ -1,0 +1,4 @@
+<map id="Odometer::getDistance" name="Odometer::getDistance">
+<area shape="rect" id="node1" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="240,5,413,32"/>
+<area shape="rect" id="node2" href="$class_distance_car.html#a42f84a0cebba3fb5f8ac4c5672875fd4" title="Gets the car&#39;s travelled distance." alt="" coords="5,5,192,32"/>
+</map>

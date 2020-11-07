@@ -1,0 +1,4 @@
+<map id="HeadingCar::update" name="HeadingCar::update">
+<area shape="rect" id="node1" title="Updates the readings from the heading sensor." alt="" coords="5,5,156,32"/>
+<area shape="rect" id="node2" href="$class_heading_sensor.html#a4f28f71383bb82257a4cdade671d17d6" title="Updates the sensor&#39;s readings." alt="" coords="204,5,377,32"/>
+</map>

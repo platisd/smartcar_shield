@@ -1,0 +1,4 @@
+<map id="smartcarlib::utils::areAlmostEqual" name="smartcarlib::utils::areAlmostEqual">
+<area shape="rect" id="node1" title="Compares two floating point numbers." alt="" coords="223,5,356,47"/>
+<area shape="rect" id="node2" href="$class_distance_car.html#ab2c3fd31719f9910a5d8e137c0b27a80" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="5,13,175,39"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="src/sensors/distance/infrared/analog/sharp/GP2Y0A21.cpp" name="src/sensors/distance/infrared/analog/sharp/GP2Y0A21.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="155,5,320,61"/>
+<area shape="rect" id="node2" href="$_g_p2_y0_a21_8hpp.html" title=" " alt="" coords="179,109,296,136"/>
+<area shape="rect" id="node3" href="$_runtime_8hpp.html" title=" " alt="" coords="119,259,252,300"/>
+<area shape="rect" id="node7" href="$_infrared_analog_sensor_8hpp.html" title=" " alt="" coords="206,184,407,211"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,348,80,375"/>
+<area shape="rect" id="node5" title=" " alt="" coords="291,348,362,375"/>
+<area shape="rect" id="node6" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="104,348,267,375"/>
+<area shape="rect" id="node8" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="335,266,510,293"/>
+</map>

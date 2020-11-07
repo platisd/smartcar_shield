@@ -1,0 +1,5 @@
+<map id="ServoMotor" name="ServoMotor">
+<area shape="rect" id="node1" title=" " alt="" coords="27,145,149,237"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,64,90"/>
+<area shape="rect" id="node3" href="$class_motor.html" title=" " alt="" coords="88,5,195,97"/>
+</map>

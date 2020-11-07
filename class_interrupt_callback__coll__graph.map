@@ -1,0 +1,3 @@
+<map id="InterruptCallback" name="InterruptCallback">
+<area shape="rect" id="node1" title="A callback to be invoked. Depending on the platform different callback types may be necessary." alt="" coords="5,5,140,83"/>
+</map>

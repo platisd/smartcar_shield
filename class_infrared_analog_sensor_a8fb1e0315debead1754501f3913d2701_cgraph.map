@@ -1,0 +1,5 @@
+<map id="InfraredAnalogSensor::getMedianDistance" name="InfraredAnalogSensor::getMedianDistance">
+<area shape="rect" id="node1" title=" " alt="" coords="5,27,168,69"/>
+<area shape="rect" id="node2" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="216,5,372,32"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="228,57,360,98"/>
+</map>

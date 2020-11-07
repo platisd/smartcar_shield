@@ -1,0 +1,8 @@
+<map id="DistanceCar::setSpeed" name="DistanceCar::setSpeed">
+<area shape="rect" id="node1" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="5,77,175,103"/>
+<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa" title="Compares two floating point numbers." alt="" coords="235,8,368,49"/>
+<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range." alt="" coords="431,71,563,112"/>
+<area shape="rect" id="node5" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="223,127,380,154"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number." alt="" coords="431,5,563,47"/>
+<area shape="rect" id="node6" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="428,137,565,163"/>
+</map>

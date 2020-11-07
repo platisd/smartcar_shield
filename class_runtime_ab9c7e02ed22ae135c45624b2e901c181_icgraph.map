@@ -1,0 +1,4 @@
+<map id="Runtime::getPinState" name="Runtime::getPinState">
+<area shape="rect" id="node1" title="Get the pin state, equivalent of digitalRead in Arduino." alt="" coords="212,13,372,39"/>
+<area shape="rect" id="node2" href="$class_directional_odometer.html#a026ec8089374d42d4ebf0964cb273dd2" title="Conducts the distance and speed measurements." alt="" coords="5,5,164,47"/>
+</map>

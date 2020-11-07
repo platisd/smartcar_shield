@@ -1,0 +1,7 @@
+<map id="Control::setSpeed" name="Control::setSpeed">
+<area shape="rect" id="node1" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="612,31,749,57"/>
+<area shape="rect" id="node2" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="407,31,564,57"/>
+<area shape="rect" id="node3" href="$class_distance_car.html#ab2c3fd31719f9910a5d8e137c0b27a80" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="189,5,359,32"/>
+<area shape="rect" id="node4" href="$class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60" title="Adjusts the cruise control speed." alt="" coords="197,56,351,83"/>
+<area shape="rect" id="node5" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading." alt="" coords="5,56,141,83"/>
+</map>

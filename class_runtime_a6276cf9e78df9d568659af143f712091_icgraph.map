@@ -1,0 +1,8 @@
+<map id="Runtime::delayMillis" name="Runtime::delayMillis">
+<area shape="rect" id="node1" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="251,123,407,149"/>
+<area shape="rect" id="node2" href="$class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor." alt="" coords="15,5,193,32"/>
+<area shape="rect" id="node3" href="$class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701" title=" " alt="" coords="23,57,185,98"/>
+<area shape="rect" id="node4" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title=" " alt="" coords="5,123,203,149"/>
+<area shape="rect" id="node5" href="$class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title=" " alt="" coords="9,173,199,200"/>
+<area shape="rect" id="node6" href="$class_g_y50.html#aa459c2bcdcf176e4aa2045151554f56c" title="Get the sensor&#39;s offset which is the value the sensor returns when still." alt="" coords="42,224,166,251"/>
+</map>

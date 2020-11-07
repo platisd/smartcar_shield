@@ -1,0 +1,5 @@
+<map id="Runtime::currentTimeMicros" name="Runtime::currentTimeMicros">
+<area shape="rect" id="node1" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="225,46,432,73"/>
+<area shape="rect" id="node2" href="$class_directionless_odometer.html#ad9074cbed72e0c8aac3b856877819a87" title="Conducts the distance and speed measurements." alt="" coords="5,5,177,47"/>
+<area shape="rect" id="node3" href="$class_directional_odometer.html#a026ec8089374d42d4ebf0964cb273dd2" title="Conducts the distance and speed measurements." alt="" coords="12,71,171,112"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="SRF08::setRange" name="SRF08::setRange">
+<area shape="rect" id="node1" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="5,56,137,83"/>
+<area shape="rect" id="node2" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="185,5,412,32"/>
+<area shape="rect" id="node3" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="192,56,405,83"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino." alt="" coords="229,107,368,133"/>
+</map>

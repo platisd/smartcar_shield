@@ -1,0 +1,12 @@
+<map id="SRF08::getMedianDistance" name="SRF08::getMedianDistance">
+<area shape="rect" id="node1" title=" " alt="" coords="5,132,203,159"/>
+<area shape="rect" id="node2" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="251,81,407,108"/>
+<area shape="rect" id="node3" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title=" " alt="" coords="254,132,403,159"/>
+<area shape="rect" id="node10" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="263,183,395,225"/>
+<area shape="rect" id="node4" href="$class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino." alt="" coords="486,5,650,32"/>
+<area shape="rect" id="node5" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="455,56,681,83"/>
+<area shape="rect" id="node6" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="461,107,675,133"/>
+<area shape="rect" id="node7" href="$class_runtime.html#a8fbc45763b87f3469a6d76c12c1834bb" title="Reads a byte from I2C bus, equivalent of Wire.read in Arduino." alt="" coords="499,157,637,184"/>
+<area shape="rect" id="node8" href="$class_runtime.html#ad29af260f2b283f2c461cf89e9b90a44" title="Request a number of bytes from the specified I2C slave, equivalent of Wire.requestFrom in Arduino." alt="" coords="473,208,663,235"/>
+<area shape="rect" id="node9" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino." alt="" coords="499,259,637,285"/>
+</map>

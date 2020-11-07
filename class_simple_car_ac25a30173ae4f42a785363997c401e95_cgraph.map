@@ -1,0 +1,5 @@
+<map id="SimpleCar::overrideMotorSpeed" name="SimpleCar::overrideMotorSpeed">
+<area shape="rect" id="node1" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="5,35,195,76"/>
+<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range." alt="" coords="281,5,413,47"/>
+<area shape="rect" id="node3" href="$class_control.html#a3dfa45882f96d57c5fd97c784ea41578" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="243,71,452,98"/>
+</map>

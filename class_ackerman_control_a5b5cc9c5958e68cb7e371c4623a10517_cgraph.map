@@ -1,0 +1,5 @@
+<map id="AckermanControl::overrideMotorSpeed" name="AckermanControl::overrideMotorSpeed">
+<area shape="rect" id="node1" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="5,35,201,76"/>
+<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range." alt="" coords="249,5,381,47"/>
+<area shape="rect" id="node3" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="251,71,379,98"/>
+</map>

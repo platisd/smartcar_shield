@@ -1,0 +1,6 @@
+<map id="Runtime::getAnalogPinState" name="Runtime::getAnalogPinState">
+<area shape="rect" id="node1" title="Get pin&#39;s analog (ADC) reading, equivalent of analogRead in Arduino." alt="" coords="228,56,433,83"/>
+<area shape="rect" id="node2" href="$class_g_p2_d120.html#a3e582329bf4fafff3a6324a1da2c5fde" title=" " alt="" coords="9,5,177,32"/>
+<area shape="rect" id="node3" href="$class_g_p2_y0_a21.html#a9b1e284d96a3e1aa0b98faa874fb2090" title=" " alt="" coords="5,56,180,83"/>
+<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7" title=" " alt="" coords="5,107,180,133"/>
+</map>
