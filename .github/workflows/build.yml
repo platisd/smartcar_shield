@@ -1,0 +1,41 @@
+name: Examples
+
+on: [push]
+
+jobs:
+  build-sketch:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        board:
+          - platform: arduino:avr
+            name: uno
+            url: http://downloads.arduino.cc/packages/package_index.json
+          - platform: arduino:avr
+            name: mega
+            url: http://downloads.arduino.cc/packages/package_index.json
+          - platform: arduino:avr
+            name: leonardo
+            url: http://downloads.arduino.cc/packages/package_index.json
+          - platform: esp32:esp32
+            name: esp32doit-devkit-v1
+            url: https://dl.espressif.com/dl/package_esp32_index.json
+          - platform: esp8266:esp8266
+            name: d1_mini
+            url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile library examples
+        uses: platisd/actions/libraries/compile-examples@master
+        with:
+          platforms: |
+            - name: ${{ matrix.board.platform }}
+              source-url: ${{ matrix.board.url }}
+          fqbn: ${{ matrix.board.platform }}:${{ matrix.board.name }}
+          libraries: |
+            - name: Servo
+            - name: ServoESP32
+            - name: ESP32 AnalogWrite
+            - name: Smartcar shield
+              source-path: "."
