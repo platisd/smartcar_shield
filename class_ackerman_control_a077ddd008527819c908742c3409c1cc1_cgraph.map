@@ -1,5 +1,0 @@
-<map id="AckermanControl::setAngle" name="AckermanControl::setAngle">
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc" title="Maps a value from a range to another. " alt="" coords="253,5,385,47"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="253,71,385,112"/>
-<area shape="rect" id="node4" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="256,137,383,163"/>
-</map>

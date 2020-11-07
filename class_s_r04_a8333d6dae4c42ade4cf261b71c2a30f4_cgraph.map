@@ -1,8 +1,0 @@
-<map id="SR04::getMedianDistance" name="SR04::getMedianDistance">
-<area shape="rect" id="node2" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="SR04::getDistance" alt="" coords="248,56,389,83"/>
-<area shape="rect" id="node6" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino..." alt="" coords="241,107,396,133"/>
-<area shape="rect" id="node7" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array. " alt="" coords="253,158,385,199"/>
-<area shape="rect" id="node3" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="463,5,621,32"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db" title="Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu..." alt="" coords="461,56,623,83"/>
-<area shape="rect" id="node5" href="$class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608" title="Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI..." alt="" coords="444,107,640,133"/>
-</map>

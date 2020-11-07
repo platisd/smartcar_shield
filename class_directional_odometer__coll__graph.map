@@ -1,4 +1,0 @@
-<map id="DirectionalOdometer" name="DirectionalOdometer">
-<area shape="rect" id="node2" href="$class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="5,189,213,413"/>
-<area shape="rect" id="node3" href="$class_odometer.html" title="An interface to programmatically represent all odometers. " alt="" coords="28,5,191,141"/>
-</map>

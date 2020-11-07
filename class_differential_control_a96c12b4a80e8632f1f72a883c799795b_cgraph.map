@@ -1,5 +1,0 @@
-<map id="DifferentialControl::setSpeed" name="DifferentialControl::setSpeed">
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="196,5,328,47"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="196,71,328,112"/>
-<area shape="rect" id="node4" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="199,137,325,163"/>
-</map>

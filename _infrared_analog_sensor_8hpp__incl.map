@@ -1,5 +1,0 @@
-<map id="src/sensors/distance/infrared/analog/InfraredAnalogSensor.hpp" name="src/sensors/distance/infrared/analog/InfraredAnalogSensor.hpp">
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title="../../../../runtime\l/Runtime.hpp" alt="" coords="229,109,351,151"/>
-<area shape="rect" id="node6" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="31,117,205,143"/>
-<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title="InterruptCallback.hpp" alt="" coords="314,199,477,225"/>
-</map>

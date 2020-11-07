@@ -1,7 +1,0 @@
-<map id="smartcarlib::utils::getAbsolute" name="smartcarlib::utils::getAbsolute">
-<area shape="rect" id="node2" href="$class_differential_control.html#a96c12b4a80e8632f1f72a883c799795b" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="204,5,347,47"/>
-<area shape="rect" id="node3" href="$class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="185,71,365,98"/>
-<area shape="rect" id="node4" href="$class_g_y50.html#ae4c481a17a698f138003d622c810525b" title="Updates the sensor&#39;s readings. " alt="" coords="221,122,329,149"/>
-<area shape="rect" id="node5" href="$namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa" title="Compares two floating point numbers. " alt="" coords="209,173,342,215"/>
-<area shape="rect" id="node6" href="$class_distance_car.html#ab2c3fd31719f9910a5d8e137c0b27a80" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="413,181,583,207"/>
-</map>

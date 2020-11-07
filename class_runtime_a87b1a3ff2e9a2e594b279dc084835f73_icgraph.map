@@ -1,3 +1,0 @@
-<map id="Runtime::setPWM" name="Runtime::setPWM">
-<area shape="rect" id="node2" href="$class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="189,5,369,32"/>
-</map>

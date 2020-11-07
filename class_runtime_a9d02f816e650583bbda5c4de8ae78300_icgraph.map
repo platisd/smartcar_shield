@@ -1,5 +1,0 @@
-<map id="Runtime::getInputState" name="Runtime::getInputState">
-<area shape="rect" id="node2" href="$class_s_r04.html#ac703921d7779d2f3f6de57ebd669ae15" title="Constructs an SR04 ultrasonic sensor. " alt="" coords="267,5,363,32"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html#ad166b08cd0c6d28fe9270641944e4aa2" title="Constructs an odometer that can measure distance, speed and direction. " alt="" coords="232,57,399,98"/>
-<area shape="rect" id="node4" href="$class_directionless_odometer.html#a2ac9b53e96a2a366c0c26d91dbfa5dd7" title="Constructs an odometer that can measure distance, speed but not direction. " alt="" coords="225,122,405,163"/>
-</map>

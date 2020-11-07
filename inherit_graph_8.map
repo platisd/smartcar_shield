@@ -1,4 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_runtime.html" title="An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduin..." alt="" coords="5,5,81,32"/>
-<area shape="rect" id="node2" href="$class_arduino_runtime.html" title="The class to programatically represent the Arduino runtime environment or alternatively calls to the ..." alt="" coords="129,5,256,32"/>
-</map>

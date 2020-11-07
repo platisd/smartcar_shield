@@ -1,4 +1,0 @@
-<map id="Runtime::getHighState" name="Runtime::getHighState">
-<area shape="rect" id="node2" href="$class_brushed_motor.html#a08aeb4ffed26fa12e3736ec2141674e8" title="Constructs a brushed DC motor instance. " alt="" coords="223,5,433,32"/>
-<area shape="rect" id="node3" href="$class_s_r04.html#ac703921d7779d2f3f6de57ebd669ae15" title="Constructs an SR04 ultrasonic sensor. " alt="" coords="280,56,376,83"/>
-</map>

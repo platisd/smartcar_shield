@@ -1,5 +1,0 @@
-<map id="SR04::getDistance" name="SR04::getDistance">
-<area shape="rect" id="node2" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino. " alt="" coords="213,5,372,32"/>
-<area shape="rect" id="node3" href="$class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db" title="Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu..." alt="" coords="211,56,374,83"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608" title="Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI..." alt="" coords="195,107,391,133"/>
-</map>

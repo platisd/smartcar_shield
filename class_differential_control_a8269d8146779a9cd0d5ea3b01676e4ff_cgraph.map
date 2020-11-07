@@ -1,4 +1,0 @@
-<map id="DifferentialControl::overrideMotorSpeed" name="DifferentialControl::overrideMotorSpeed">
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range. " alt="" coords="215,5,347,47"/>
-<area shape="rect" id="node3" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed, where the sign of the argument represents the direction. " alt="" coords="217,71,344,98"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="src/sensors/heading/HeadingSensor.hpp" name="src/sensors/heading/HeadingSensor.hpp">
-<area shape="rect" id="node2" href="$_heading_car_8hpp.html" title="src/car/heading/HeadingCar.hpp" alt="" coords="242,102,470,129"/>
-<area shape="rect" id="node7" href="$_g_y50_8hpp.html" title="src/sensors/heading\l/gyroscope/GY50.hpp" alt="" coords="494,95,653,136"/>
-<area shape="rect" id="node3" href="$_heading_car_8cpp.html" title="src/car/heading/HeadingCar.cpp" alt="" coords="5,191,232,218"/>
-<area shape="rect" id="node4" href="$_smart_car_8hpp.html" title="src/car/smart/SmartCar.hpp" alt="" coords="257,191,455,218"/>
-<area shape="rect" id="node6" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="457,273,572,300"/>
-<area shape="rect" id="node5" href="$_smart_car_8cpp.html" title="src/car/smart/SmartCar.cpp" alt="" coords="234,273,433,300"/>
-<area shape="rect" id="node8" href="$_g_y50_8cpp.html" title="src/sensors/heading\l/gyroscope/GY50.cpp" alt="" coords="580,184,737,225"/>
-</map>

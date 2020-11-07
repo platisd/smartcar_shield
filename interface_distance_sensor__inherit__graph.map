@@ -1,8 +1,0 @@
-<map id="DistanceSensor" name="DistanceSensor">
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors. " alt="" coords="124,175,311,267"/>
-<area shape="rect" id="node6" href="$class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins..." alt="" coords="335,167,507,274"/>
-<area shape="rect" id="node7" href="$class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus..." alt="" coords="531,131,703,311"/>
-<area shape="rect" id="node3" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor. " alt="" coords="5,359,131,451"/>
-<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor. " alt="" coords="155,359,280,451"/>
-<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor. " alt="" coords="304,359,429,451"/>
-</map>

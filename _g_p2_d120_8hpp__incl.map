@@ -1,6 +1,0 @@
-<map id="src/sensors/distance/infrared/analog/sharp/GP2D120.hpp" name="src/sensors/distance/infrared/analog/sharp/GP2D120.hpp">
-<area shape="rect" id="node2" href="$_runtime_8hpp.html" title="../../../../../runtime\l/Runtime.hpp" alt="" coords="119,184,252,225"/>
-<area shape="rect" id="node6" href="$_infrared_analog_sensor_8hpp.html" title="../InfraredAnalogSensor.hpp" alt="" coords="206,109,407,136"/>
-<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title="InterruptCallback.hpp" alt="" coords="104,273,267,300"/>
-<area shape="rect" id="node7" href="$_distance_sensor_8hpp.html" title="../../DistanceSensor.hpp" alt="" coords="335,191,510,218"/>
-</map>

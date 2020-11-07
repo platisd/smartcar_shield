@@ -1,4 +1,0 @@
-<map id="DirectionalOdometer::getSpeed" name="DirectionalOdometer::getSpeed">
-<area shape="rect" id="node2" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="212,5,384,47"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952" title="Get the direction of movement. " alt="" coords="219,71,377,112"/>
-</map>

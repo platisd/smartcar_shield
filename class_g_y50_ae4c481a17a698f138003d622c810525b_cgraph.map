@@ -1,5 +1,0 @@
-<map id="GY50::update" name="GY50::update">
-<area shape="rect" id="node2" href="$class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="161,5,359,32"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number. " alt="" coords="194,57,326,98"/>
-<area shape="rect" id="node4" href="$class_runtime.html#ab554f96ca8fae5392fd8fec125ba836e" title="Initialize I2C bus as master, equivalent of Wire.begin in Arduino. " alt="" coords="198,123,322,149"/>
-</map>
