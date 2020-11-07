@@ -1,4 +1,4 @@
-name: Doxygen
+name: Documentation
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Get dependencies
         run: |
           sudo apt-get install -y doxygen doxygen-doc doxygen-latex doxygen-gui graphviz
-      - name: Generate documentation
+      - name: Generate doxygen documentation
         run: doxygen Doxyfile
       - name: Publish documentaton
         uses: JamesIves/github-pages-deploy-action@3.7.1

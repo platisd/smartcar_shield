@@ -2,7 +2,7 @@
 
 ![Tests](https://github.com/platisd/smartcar_shield/workflows/Tests/badge.svg)
 ![Examples](https://github.com/platisd/smartcar_shield/workflows/Examples/badge.svg)
-![Doxygen](https://github.com/platisd/smartcar_shield/workflows/Doxygen/badge.svg)
+![Documentation](https://github.com/platisd/smartcar_shield/workflows/Documentation/badge.svg)
 [![codecov](https://codecov.io/gh/platisd/smartcar_shield/branch/master/graph/badge.svg)](https://codecov.io/gh/platisd/smartcar_shield)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/466/badge)](https://bestpractices.coreinfrastructure.org/projects/466)
 [![BCH compliance](https://bettercodehub.com/edge/badge/platisd/smartcar_shield?branch=master)](https://bettercodehub.com/)
