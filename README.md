@@ -9,17 +9,14 @@
 
 A versatile and easy to use vehicle platform for hobby-grade projects
 
-## Contents
-* [Description](#description)
-* [Hardware](#hardware)
-* [Software](#software)
-* [Reference platforms](#reference-platforms)
-* [Supported sensors](#supported-sensors)
-* [How to get started](#how-to-get-started)
-* [Dependencies](#dependencies)
-* [Extensions](#extensions)
-* [Project documentation](#project-documentation)
-* [License](#license)
+- [Description](#description)
+- [Hardware](#hardware)
+- [Software](#software)
+- [Reference platforms](#reference-platforms)
+- [How to get started](#how-to-get-started)
+- [Dependencies](#dependencies)
+- [Project documentation](#project-documentation)
+- [License](#license)
 
 ## Description
 This repository, includes everything necessary to set up a Smartcar platform.
