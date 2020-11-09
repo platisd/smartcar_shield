@@ -3,7 +3,7 @@ name: Examples
 on: [push]
 
 jobs:
-  build-sketch:
+  build-examples:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,8 +26,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Install PySerial (needed for ESP32 compilation)
+        run: pip3 install pyserial
       - name: Compile library examples
-        uses: platisd/actions/libraries/compile-examples@master
+        uses: arduino/compile-sketches@main
         with:
           platforms: |
             - name: ${{ matrix.board.platform }}
