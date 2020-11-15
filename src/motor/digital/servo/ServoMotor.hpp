@@ -9,7 +9,7 @@
 #pragma once
 
 #include <Servo.h>
-#include <cstdint>
+#include <stdint.h> // NOLINT(modernize-deprecated-headers)
 
 #include "../../Motor.hpp"
 

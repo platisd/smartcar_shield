@@ -123,9 +123,9 @@ constexpr AnyNumber getMap(
  */
 constexpr bool areAlmostEqual(float a, float b)
 {
-    constexpr auto kAdequateDelta = 0.001F;
-
-    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= kAdequateDelta;
+    // C++11 does not allow us to declare the delta as a variable within the function body
+    // NOLINTNEXTLINE(readability-magic-numbers)
+    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= 0.001F;
 }
 } // namespace utils
 } // namespace smartcarlib

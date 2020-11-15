@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include <cstdint>
+#include <stdint.h> // NOLINT(modernize-deprecated-headers)
 
 #include "../../runtime/InterruptCallback.hpp"
 
