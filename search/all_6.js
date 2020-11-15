@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['getabsolute_42',['getAbsolute',['../namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c',1,'smartcarlib::utils']]],
+  ['getabsolute_42',['getAbsolute',['../namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6',1,'smartcarlib::utils']]],
   ['getanalogpinstate_43',['getAnalogPinState',['../class_arduino_runtime.html#a06eab529dacdf756945490cbe5771844',1,'ArduinoRuntime::getAnalogPinState()'],['../class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd',1,'Runtime::getAnalogPinState()']]],
-  ['getconstrain_44',['getConstrain',['../namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b',1,'smartcarlib::utils']]],
+  ['getconstrain_44',['getConstrain',['../namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c',1,'smartcarlib::utils']]],
   ['getdirection_45',['getDirection',['../class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952',1,'DirectionalOdometer']]],
   ['getdistance_46',['getDistance',['../class_distance_car.html#a42f84a0cebba3fb5f8ac4c5672875fd4',1,'DistanceCar::getDistance()'],['../class_g_p2_d120.html#a3e582329bf4fafff3a6324a1da2c5fde',1,'GP2D120::getDistance()'],['../class_g_p2_y0_a02.html#ab9bb6ebda93152d267ce3e82c3bba2c7',1,'GP2Y0A02::getDistance()'],['../class_g_p2_y0_a21.html#a9b1e284d96a3e1aa0b98faa874fb2090',1,'GP2Y0A21::getDistance()'],['../class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7',1,'SRF08::getDistance()'],['../class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3',1,'SR04::getDistance()'],['../class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4',1,'DirectionalOdometer::getDistance()'],['../class_directionless_odometer.html#ad98b03236639fb182b03cfe860be8829',1,'DirectionlessOdometer::getDistance()'],['../class_odometer.html#a4b0f780d4b4695c9e3dd37dbcf3406be',1,'Odometer::getDistance()']]],
   ['getheading_47',['getHeading',['../class_heading_car.html#acf9b28d19ebcd36bb24dfe17f04b90d1',1,'HeadingCar::getHeading()'],['../class_g_y50.html#ad10e5ecc6eeed236d8ba98c1957e9005',1,'GY50::getHeading()'],['../class_heading_sensor.html#a13ec6f8e7babfdd907485671d090506e',1,'HeadingSensor::getHeading()']]],
@@ -10,7 +10,7 @@ var searchData=
   ['getinputstate_49',['getInputState',['../class_arduino_runtime.html#a3ac5103e2bfe7ce7acfca03de6e4c003',1,'ArduinoRuntime::getInputState()'],['../class_runtime.html#a9d02f816e650583bbda5c4de8ae78300',1,'Runtime::getInputState()']]],
   ['getlightreading_50',['getLightReading',['../class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410',1,'SRF08']]],
   ['getlowstate_51',['getLowState',['../class_arduino_runtime.html#ad8c23cdda1f11fc10dfa94074fb30663',1,'ArduinoRuntime::getLowState()'],['../class_runtime.html#a1c3586a0b24044f9e47f30c5197bbb5c',1,'Runtime::getLowState()']]],
-  ['getmap_52',['getMap',['../namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc',1,'smartcarlib::utils']]],
+  ['getmap_52',['getMap',['../namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e',1,'smartcarlib::utils']]],
   ['getmedian_53',['getMedian',['../namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47',1,'smartcarlib::utils']]],
   ['getmediandistance_54',['getMedianDistance',['../class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701',1,'InfraredAnalogSensor::getMedianDistance()'],['../class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21',1,'SRF08::getMedianDistance()'],['../class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4',1,'SR04::getMedianDistance()']]],
   ['getoffset_55',['getOffset',['../class_g_y50.html#aa459c2bcdcf176e4aa2045151554f56c',1,'GY50']]],

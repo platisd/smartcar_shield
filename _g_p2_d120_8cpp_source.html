@@ -87,10 +87,12 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_g_p2_d120.html#a3e582329bf4fafff3a6324a1da2c5fde">   16</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_p2_d120.html#a3e582329bf4fafff3a6324a1da2c5fde">GP2D120::getDistance</a>()</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">auto</span> analogReading = mRuntime.<a class="code" href="class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd">getAnalogPinState</a>(kPin);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">auto</span> result        = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>((2914 / (analogReading + 5)) - 1);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> (result &gt;= kMinDistance &amp;&amp; result &lt;= kMaxDistance ? result : 0);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// It&#39;s OK to surpress this clang-tidy warning since this is part of a magic (!) formula</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// NOLINTNEXTLINE(readability-magic-numbers)</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">auto</span> result = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>((2914 / (analogReading + 5)) - 1);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> (result &gt;= kMinDistance &amp;&amp; result &lt;= kMaxDistance ? result : 0);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_g_p2_d120_html_a4a15f8a4c359e970cd493cc1f88ac10a"><div class="ttname"><a href="class_g_p2_d120.html#a4a15f8a4c359e970cd493cc1f88ac10a">GP2D120::GP2D120</a></div><div class="ttdeci">GP2D120(Runtime &amp;runtime, uint8_t pin)</div><div class="ttdoc">Constructs a GP2D120 sensor.</div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_d120_8cpp_source.html#l00009">GP2D120.cpp:9</a></div></div>
 <div class="ttc" id="aclass_runtime_html"><div class="ttname"><a href="class_runtime.html">Runtime</a></div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8hpp_source.html#l00035">Runtime.hpp:35</a></div></div>

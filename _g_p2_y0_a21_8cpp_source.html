@@ -88,10 +88,12 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">auto</span> analogReading = mRuntime.<a class="code" href="class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd">getAnalogPinState</a>(kPin);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Formula source: Jeroen Doggen http://plat.is/v3x25</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">auto</span> result = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(1 / (0.0002391473 * analogReading - 0.0100251467));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> (result &gt;= kMinDistance) &amp;&amp; (result &lt;= kMaxDistance) ? result : 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// It&#39;s OK to surpress this clang-tidy warning since this is part of a magic (!) formula</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// NOLINTNEXTLINE(readability-magic-numbers)</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">auto</span> result = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(1 / (0.0002391473 * analogReading - 0.0100251467));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> (result &gt;= kMinDistance) &amp;&amp; (result &lt;= kMaxDistance) ? result : 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_g_p2_y0_a21_html_a940e3a46f210815390ce67863ff656c5"><div class="ttname"><a href="class_g_p2_y0_a21.html#a940e3a46f210815390ce67863ff656c5">GP2Y0A21::GP2Y0A21</a></div><div class="ttdeci">GP2Y0A21(Runtime &amp;runtime, uint8_t pin)</div><div class="ttdoc">Constructs a GP2Y0A21 sensor.</div><div class="ttdef"><b>Definition:</b> <a href="_g_p2_y0_a21_8cpp_source.html#l00009">GP2Y0A21.cpp:9</a></div></div>
 <div class="ttc" id="aclass_runtime_html"><div class="ttname"><a href="class_runtime.html">Runtime</a></div><div class="ttdef"><b>Definition:</b> <a href="_runtime_8hpp_source.html#l00035">Runtime.hpp:35</a></div></div>

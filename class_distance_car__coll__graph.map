@@ -1,5 +1,5 @@
 <map id="DistanceCar" name="DistanceCar">
-<area shape="rect" id="node1" title=" " alt="" coords="5,359,188,553"/>
-<area shape="rect" id="node2" href="$class_simple_car.html" title=" " alt="" coords="7,175,186,311"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,344,188,539"/>
+<area shape="rect" id="node2" href="$class_simple_car.html" title=" " alt="" coords="7,175,186,296"/>
 <area shape="rect" id="node3" href="$class_car.html" title=" " alt="" coords="7,5,186,127"/>
 </map>

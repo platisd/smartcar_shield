@@ -77,63 +77,61 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html">    9</a></span>&#160;<span class="keyword">namespace </span>utils</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnyNumber&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">   24</a></span>&#160;constexpr AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">getAbsolute</a>(<span class="keyword">const</span> AnyNumber&amp; number)</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6">   24</a></span>&#160;constexpr AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6">getAbsolute</a>(AnyNumber number)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> number &lt; 0 ? -number : number;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnyNumber&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;constexpr AnyNumber</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b">   47</a></span>&#160;<a class="code" href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b">getConstrain</a>(<span class="keyword">const</span> AnyNumber&amp; number, <span class="keyword">const</span> AnyNumber&amp; min, <span class="keyword">const</span> AnyNumber&amp; max)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> number &lt; min ? min : (number &gt; max ? max : number);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnyNumber&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">   67</a></span>&#160;AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">getMedian</a>(AnyNumber unsortedNumbers[], <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; arraySize)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// Sort the array using bubble sort</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; arraySize - 1; i++)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; arraySize - 1 - i; j++)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span> (unsortedNumbers[j] &gt; unsortedNumbers[j + 1])</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keyword">auto</span> swappedValue      = unsortedNumbers[j];</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                unsortedNumbers[j]     = unsortedNumbers[j + 1];</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                unsortedNumbers[j + 1] = swappedValue;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Return the Median value now that the array is sorted</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> unsortedNumbers[arraySize / 2];</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnyNumber&gt;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc">  105</a></span>&#160;constexpr AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc">getMap</a>(<span class="keyword">const</span> AnyNumber&amp; valueToMap,</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                           <span class="keyword">const</span> AnyNumber&amp; fromLow,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                           <span class="keyword">const</span> AnyNumber&amp; fromHigh,</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                           <span class="keyword">const</span> AnyNumber&amp; toLow,</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                           <span class="keyword">const</span> AnyNumber&amp; toHigh)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> fromHigh == fromLow</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;               ? toLow</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;               : (valueToMap - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">  128</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">areAlmostEqual</a>(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> b)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">getAbsolute</a>(<a class="code" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">getAbsolute</a>(a) - <a class="code" href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">getAbsolute</a>(b)) &lt;= 0.001f;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} <span class="comment">// namespace utils</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">// namespace smartcarlib</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">   46</a></span>&#160;constexpr AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">getConstrain</a>(AnyNumber number, AnyNumber min, AnyNumber max)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> number &lt; min ? min : (number &gt; max ? max : number);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnyNumber&gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">   66</a></span>&#160;AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">getMedian</a>(AnyNumber unsortedNumbers[], <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; arraySize)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// Sort the array using bubble sort</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; arraySize - 1; i++)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j &lt; arraySize - 1 - i; j++)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> (unsortedNumbers[j] &gt; unsortedNumbers[j + 1])</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keyword">auto</span> swappedValue      = unsortedNumbers[j];</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                unsortedNumbers[j]     = unsortedNumbers[j + 1];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                unsortedNumbers[j + 1] = swappedValue;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// Return the Median value now that the array is sorted</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> unsortedNumbers[arraySize / 2];</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnyNumber&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">  104</a></span>&#160;constexpr AnyNumber <a class="code" href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">getMap</a>(</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    AnyNumber valueToMap, AnyNumber fromLow, AnyNumber fromHigh, AnyNumber toLow, AnyNumber toHigh)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> fromHigh == fromLow</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;               ? toLow</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;               : (valueToMap - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">  124</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">areAlmostEqual</a>(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> b)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// C++11 does not allow us to declare the delta as a variable within the function body</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// NOLINTNEXTLINE(readability-magic-numbers)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6">getAbsolute</a>(<a class="code" href="namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6">getAbsolute</a>(a) - <a class="code" href="namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6">getAbsolute</a>(b)) &lt;= 0.001F;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;} <span class="comment">// namespace utils</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;} <span class="comment">// namespace smartcarlib</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacesmartcarlib_html"><div class="ttname"><a href="namespacesmartcarlib.html">smartcarlib</a></div><div class="ttdef"><b>Definition:</b> <a href="_distance_car_8hpp_source.html#l00011">DistanceCar.hpp:11</a></div></div>
-<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_a77e571ec2839c5c5e9c914e099a5435c"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c">smartcarlib::utils::getAbsolute</a></div><div class="ttdeci">constexpr AnyNumber getAbsolute(const AnyNumber &amp;number)</div><div class="ttdoc">Gets the absolute of the supplied number.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00024">Utilities.hpp:24</a></div></div>
-<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_ac0c97aad0f3bbf79c10be28c35137a47"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">smartcarlib::utils::getMedian</a></div><div class="ttdeci">AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int &amp;arraySize)</div><div class="ttdoc">Gets the median value out of the supplied number array.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00067">Utilities.hpp:67</a></div></div>
-<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_ae17f4cf0145f18603372874d03bc672b"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b">smartcarlib::utils::getConstrain</a></div><div class="ttdeci">constexpr AnyNumber getConstrain(const AnyNumber &amp;number, const AnyNumber &amp;min, const AnyNumber &amp;max)</div><div class="ttdoc">Limit the number between a range.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00047">Utilities.hpp:47</a></div></div>
-<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_a865191e1cba38fc04e7de61954ab4bfa"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">smartcarlib::utils::areAlmostEqual</a></div><div class="ttdeci">constexpr bool areAlmostEqual(float a, float b)</div><div class="ttdoc">Compares two floating point numbers.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00128">Utilities.hpp:128</a></div></div>
-<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_ad979c892bb539caebee322e69d6662fc"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc">smartcarlib::utils::getMap</a></div><div class="ttdeci">constexpr AnyNumber getMap(const AnyNumber &amp;valueToMap, const AnyNumber &amp;fromLow, const AnyNumber &amp;fromHigh, const AnyNumber &amp;toLow, const AnyNumber &amp;toHigh)</div><div class="ttdoc">Maps a value from a range to another.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00105">Utilities.hpp:105</a></div></div>
+<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_ac0c97aad0f3bbf79c10be28c35137a47"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47">smartcarlib::utils::getMedian</a></div><div class="ttdeci">AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int &amp;arraySize)</div><div class="ttdoc">Gets the median value out of the supplied number array.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00066">Utilities.hpp:66</a></div></div>
+<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_a27a244dfaa0a3e41383d36a78582342e"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">smartcarlib::utils::getMap</a></div><div class="ttdeci">constexpr AnyNumber getMap(AnyNumber valueToMap, AnyNumber fromLow, AnyNumber fromHigh, AnyNumber toLow, AnyNumber toHigh)</div><div class="ttdoc">Maps a value from a range to another.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00104">Utilities.hpp:104</a></div></div>
+<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_ada7af3c356fedbee0fa591aa83231ff6"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6">smartcarlib::utils::getAbsolute</a></div><div class="ttdeci">constexpr AnyNumber getAbsolute(AnyNumber number)</div><div class="ttdoc">Gets the absolute of the supplied number.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00024">Utilities.hpp:24</a></div></div>
+<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_a865191e1cba38fc04e7de61954ab4bfa"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#a865191e1cba38fc04e7de61954ab4bfa">smartcarlib::utils::areAlmostEqual</a></div><div class="ttdeci">constexpr bool areAlmostEqual(float a, float b)</div><div class="ttdoc">Compares two floating point numbers.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00124">Utilities.hpp:124</a></div></div>
+<div class="ttc" id="anamespacesmartcarlib_1_1utils_html_ac336301fa79b629ba32c73cd7d746c7c"><div class="ttname"><a href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">smartcarlib::utils::getConstrain</a></div><div class="ttdeci">constexpr AnyNumber getConstrain(AnyNumber number, AnyNumber min, AnyNumber max)</div><div class="ttdoc">Limit the number between a range.</div><div class="ttdef"><b>Definition:</b> <a href="_utilities_8hpp_source.html#l00046">Utilities.hpp:46</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

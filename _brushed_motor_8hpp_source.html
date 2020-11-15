@@ -72,7 +72,7 @@ $(function() {
 <a href="_brushed_motor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// NOLINT(modernize-deprecated-headers)</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../../../runtime/Runtime.hpp&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../../Motor.hpp&quot;</span></div>
@@ -86,9 +86,9 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_brushed_motor_pins.html#acf36853e65a2e0609fc08e845501c8bc">   36</a></span>&#160;    <span class="keyword">const</span> uint8_t <a class="code" href="struct_brushed_motor_pins.html#acf36853e65a2e0609fc08e845501c8bc">forward</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="struct_brushed_motor_pins.html#aaf61e92b96a45e1dbdff3036682ec9ec">   37</a></span>&#160;    <span class="keyword">const</span> uint8_t <a class="code" href="struct_brushed_motor_pins.html#aaf61e92b96a45e1dbdff3036682ec9ec">backward</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="struct_brushed_motor_pins.html#a83c4e4d6ad5508dd80c91448cb81452e">   38</a></span>&#160;    <span class="keyword">const</span> uint8_t <a class="code" href="struct_brushed_motor_pins.html#a83c4e4d6ad5508dd80c91448cb81452e">enable</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_brushed_motor_pins.html#acf36853e65a2e0609fc08e845501c8bc">   36</a></span>&#160;    <span class="keyword">const</span> uint8_t <a class="code" href="struct_brushed_motor_pins.html#acf36853e65a2e0609fc08e845501c8bc">forward</a>;  <span class="comment">// NOLINT: It&#39;s OK for these to be public</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="struct_brushed_motor_pins.html#aaf61e92b96a45e1dbdff3036682ec9ec">   37</a></span>&#160;    <span class="keyword">const</span> uint8_t <a class="code" href="struct_brushed_motor_pins.html#aaf61e92b96a45e1dbdff3036682ec9ec">backward</a>; <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="struct_brushed_motor_pins.html#a83c4e4d6ad5508dd80c91448cb81452e">   38</a></span>&#160;    <span class="keyword">const</span> uint8_t <a class="code" href="struct_brushed_motor_pins.html#a83c4e4d6ad5508dd80c91448cb81452e">enable</a>;   <span class="comment">// NOLINT</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_brushed_motor.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_brushed_motor.html">BrushedMotor</a> : <span class="keyword">public</span> <a class="code" href="class_motor.html">Motor</a></div>

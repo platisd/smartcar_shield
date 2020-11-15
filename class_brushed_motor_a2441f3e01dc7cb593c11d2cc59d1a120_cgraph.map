@@ -1,8 +1,8 @@
 <map id="BrushedMotor::setSpeed" name="BrushedMotor::setSpeed">
 <area shape="rect" id="node1" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,143,187,170"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#a77e571ec2839c5c5e9c914e099a5435c" title="Gets the absolute of the supplied number." alt="" coords="248,5,380,47"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range." alt="" coords="248,71,380,112"/>
-<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#ad979c892bb539caebee322e69d6662fc" title="Maps a value from a range to another." alt="" coords="248,136,380,177"/>
+<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6" title="Gets the absolute of the supplied number." alt="" coords="248,5,380,47"/>
+<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="248,71,380,112"/>
+<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e" title="Maps a value from a range to another." alt="" coords="248,136,380,177"/>
 <area shape="rect" id="node5" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino." alt="" coords="235,202,393,229"/>
 <area shape="rect" id="node6" href="$class_runtime.html#a87b1a3ff2e9a2e594b279dc084835f73" title="Set PWM state, equivalent of analogWrite in Arduino." alt="" coords="245,253,383,279"/>
 </map>

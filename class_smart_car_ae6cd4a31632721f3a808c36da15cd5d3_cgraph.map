@@ -7,6 +7,6 @@
 <area shape="rect" id="node6" href="$class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second." alt="" coords="406,107,577,133"/>
 <area shape="rect" id="node8" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="413,161,570,188"/>
 <area shape="rect" id="node7" href="$class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="639,103,795,129"/>
-<area shape="rect" id="node9" href="$namespacesmartcarlib_1_1utils.html#ae17f4cf0145f18603372874d03bc672b" title="Limit the number between a range." alt="" coords="651,154,783,195"/>
+<area shape="rect" id="node9" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="651,154,783,195"/>
 <area shape="rect" id="node10" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="648,220,785,247"/>
 </map>
