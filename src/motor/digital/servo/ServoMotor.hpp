@@ -9,7 +9,7 @@
 #pragma once
 
 #include <Servo.h>
-#include <stdint.h>
+#include <cstdint>
 
 #include "../../Motor.hpp"
 

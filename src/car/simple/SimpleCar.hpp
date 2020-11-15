@@ -25,8 +25,6 @@ public:
      */
     SimpleCar(Control& control);
 
-    virtual ~SimpleCar() = default;
-
     /**
      * Sets the car's driving speed as a percentage of the motors total speed where
      * the sign indicates direction.
@@ -39,13 +37,13 @@ public:
      * car.setSpeed(50); // Car with half speed forward
      * \endcode
      */
-    virtual void setSpeed(float speed) override;
+    void setSpeed(float speed) override;
 
     /* Check `Car` interface for documentation */
-    virtual void setAngle(int angle) override;
+    void setAngle(int angle) override;
 
     /* Check `Car` interface for documentation */
-    virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
+    void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
 
 private:
     Control& mControl;

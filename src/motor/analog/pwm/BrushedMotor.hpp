@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include <stdint.h>
+#include <cstdint>
 
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
@@ -33,9 +33,9 @@ struct BrushedMotorPins
     {
     }
 
-    const uint8_t forward;
-    const uint8_t backward;
-    const uint8_t enable;
+    const uint8_t forward;  // NOLINT: It's OK for these to be public
+    const uint8_t backward; // NOLINT
+    const uint8_t enable;   // NOLINT
 };
 
 class BrushedMotor : public Motor
