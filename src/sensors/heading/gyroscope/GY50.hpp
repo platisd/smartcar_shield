@@ -12,7 +12,7 @@
  */
 #pragma once
 
-#include <stdint.h>
+#include <cstdint>
 
 #include "../../../runtime/Runtime.hpp"
 #include "../HeadingSensor.hpp"

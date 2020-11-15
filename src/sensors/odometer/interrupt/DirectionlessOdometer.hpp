@@ -6,7 +6,7 @@
  */
 #pragma once
 
-#include <stdint.h>
+#include <cstdint>
 
 #include "../../../runtime/Runtime.hpp"
 #include "../Odometer.hpp"
@@ -38,7 +38,7 @@ public:
                           InterruptCallback callback,
                           unsigned long pulsesPerMeter);
 
-    virtual ~DirectionlessOdometer() = default;
+    ~DirectionlessOdometer() override = default;
 
     /* Check `Odometer` interface for documentation */
     long getDistance() override;
@@ -67,10 +67,11 @@ public:
     virtual void update();
 
 protected:
-    const float mPulsesPerMeterRatio;
-    volatile unsigned long mPulsesCounter{ 0 };
-    volatile unsigned long mPreviousPulse{ 0 };
-    volatile unsigned long mDt{ 0 };
+    const float
+        mPulsesPerMeterRatio; // NOLINT: Refactor this so protected variables are not necessary
+    volatile unsigned long mPulsesCounter{ 0 }; // NOLINT
+    volatile unsigned long mPreviousPulse{ 0 }; // NOLINT
+    volatile unsigned long mDt{ 0 };            // NOLINT
 
 private:
     const float mMillimetersPerPulse;

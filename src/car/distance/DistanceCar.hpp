@@ -15,9 +15,9 @@ namespace constants
 namespace car
 {
 const unsigned long kDefaultPidFrequency = 80;
-const float kDefaultProportional         = 5.0f;
-const float kDefaultIntegral             = 0.0f;
-const float kDefaultDerivative           = 10.0f;
+const float kDefaultProportional         = 5.0F;
+const float kDefaultIntegral             = 0.0F;
+const float kDefaultDerivative           = 10.0F;
 const int kOdometersNotAttachedError     = -1000;
 const auto kBreakSpeedScale              = 10;
 } // namespace car
@@ -110,7 +110,7 @@ public:
      * car.setSpeed(speedInPercentageOfMotorPower);
      * \endcode
      */
-    virtual void setSpeed(float speed) override;
+    void setSpeed(float speed) override;
 
     /**
      * Gets the car's current speed in meters per second
@@ -184,7 +184,7 @@ public:
      * car.overrideMotorSpeed(100, -100);
      * \endcode
      */
-    virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
+    void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
 
 private:
     Odometer& mOdometerLeft;

@@ -21,7 +21,7 @@ namespace utils
  * \endcode
  */
 template <typename AnyNumber>
-constexpr AnyNumber getAbsolute(const AnyNumber& number)
+constexpr AnyNumber getAbsolute(AnyNumber number)
 {
     return number < 0 ? -number : number;
 }
@@ -43,8 +43,7 @@ constexpr AnyNumber getAbsolute(const AnyNumber& number)
  * \endcode
  */
 template <typename AnyNumber>
-constexpr AnyNumber
-getConstrain(const AnyNumber& number, const AnyNumber& min, const AnyNumber& max)
+constexpr AnyNumber getConstrain(AnyNumber number, AnyNumber min, AnyNumber max)
 {
     return number < min ? min : (number > max ? max : number);
 }
@@ -102,11 +101,8 @@ AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int& arraySize)
  * \endcode
  */
 template <typename AnyNumber>
-constexpr AnyNumber getMap(const AnyNumber& valueToMap,
-                           const AnyNumber& fromLow,
-                           const AnyNumber& fromHigh,
-                           const AnyNumber& toLow,
-                           const AnyNumber& toHigh)
+constexpr AnyNumber getMap(
+    AnyNumber valueToMap, AnyNumber fromLow, AnyNumber fromHigh, AnyNumber toLow, AnyNumber toHigh)
 {
     return fromHigh == fromLow
                ? toLow
@@ -127,7 +123,9 @@ constexpr AnyNumber getMap(const AnyNumber& valueToMap,
  */
 constexpr bool areAlmostEqual(float a, float b)
 {
-    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= 0.001f;
+    constexpr auto kAdequateDelta = 0.001F;
+
+    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= kAdequateDelta;
 }
 } // namespace utils
 } // namespace smartcarlib

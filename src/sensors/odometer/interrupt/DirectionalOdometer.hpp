@@ -25,8 +25,8 @@ struct DirectionalOdometerPins
     {
     }
 
-    const uint8_t pulse;
-    const uint8_t direction;
+    const uint8_t pulse;     // NOLINT: It's OK for these member variables to be non-private
+    const uint8_t direction; // NOLINT
 };
 
 class DirectionalOdometer : public DirectionlessOdometer

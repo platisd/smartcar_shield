@@ -46,14 +46,16 @@ unsigned int SRF08::getDistance()
     mRuntime.i2cEndTransmission();
 
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
-    if (!mRuntime.i2cAvailable())
+    if (mRuntime.i2cAvailable() == 0)
     {
         return static_cast<unsigned int>(-1); // Return a large error-like value
     }
     auto high = mRuntime.i2cRead();
     auto low  = mRuntime.i2cRead();
 
-    return static_cast<uint16_t>((high << 8) + low);
+    static constexpr auto kBitsInByte = 8;
+
+    return static_cast<uint16_t>((high << kBitsInByte) + low);
 }
 
 unsigned int SRF08::getMedianDistance(uint8_t iterations)
@@ -123,8 +125,8 @@ uint8_t SRF08::getLightReading()
     mRuntime.i2cRequestFrom(mAddress, kNumberOfBytesToRequest);
     mRuntime.delayMillis(mPingDelay);
 
-    return mRuntime.i2cAvailable() ? static_cast<uint8_t>(mRuntime.i2cRead())
-                                   : static_cast<uint8_t>(-1);
+    return mRuntime.i2cAvailable() != 0 ? static_cast<uint8_t>(mRuntime.i2cRead())
+                                        : static_cast<uint8_t>(-1);
 }
 
 uint8_t SRF08::changeAddress(uint8_t newAddress)

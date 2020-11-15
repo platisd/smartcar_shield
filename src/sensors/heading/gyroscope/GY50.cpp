@@ -11,7 +11,7 @@ namespace
 {
 const uint8_t kGyroAddress      = 105;
 const auto kMeasurementInterval = 100;
-const float kGyroSensitivity    = 0.07f;
+const float kGyroSensitivity    = 0.07F;
 const int kGyroThreshold        = 12; // Smaller changes are to be ignored
 } // namespace
 
@@ -31,8 +31,10 @@ GY50::GY50(Runtime& runtime, int offset, unsigned long samplingInterval)
 int GY50::getHeading()
 {
     // Get the reading from (-180,180) to [0, 360) scale
-    auto normalizedReading = static_cast<int>(mAngularDisplacement) % 360;
-    return normalizedReading < 0 ? normalizedReading + 360 : normalizedReading;
+    static constexpr auto kFullScaleDegrees = 360;
+    auto normalizedReading = static_cast<int>(mAngularDisplacement) % kFullScaleDegrees;
+
+    return normalizedReading < 0 ? normalizedReading + kFullScaleDegrees : normalizedReading;
 }
 
 void GY50::update()
@@ -48,8 +50,9 @@ void GY50::update()
 
     if (getAbsolute(drift) > kGyroThreshold)
     {
-        float gyroRate = static_cast<float>(drift) * kGyroSensitivity;
-        mAngularDisplacement += gyroRate / (1000.0f / static_cast<float>(interval));
+        float gyroRate                               = static_cast<float>(drift) * kGyroSensitivity;
+        static constexpr auto kGyroscopeReadingScale = 1000.0F;
+        mAngularDisplacement += gyroRate / (kGyroscopeReadingScale / static_cast<float>(interval));
     }
     mPreviousSample = currentTime;
 }
@@ -61,25 +64,24 @@ void GY50::attach()
         return;
     }
 
-    static const uint8_t controlRegister1 = 0x20;
-    static const uint8_t controlRegister2 = 0x21;
-    static const uint8_t controlRegister3 = 0x22;
-    static const uint8_t controlRegister4 = 0x23;
-    static const uint8_t controlRegister5 = 0x24;
-
     mRuntime.i2cInit();
     // Enable z and turn off power down
-    writeL3G4200DRegister(controlRegister1, 0b00001100);
+    static constexpr uint8_t kControlRegister1 = 0x20;
+    writeL3G4200DRegister(kControlRegister1, 0b00001100); // NOLINT(readability-magic-numbers)
     // If you'd like to adjust/use the HPF, you can edit the line below to configure CTRL_REG2
-    writeL3G4200DRegister(controlRegister2, 0b00000000);
+    static constexpr uint8_t kControlRegister2 = 0x21;
+    writeL3G4200DRegister(kControlRegister2, 0b00000000); // NOLINT(readability-magic-numbers)
     // Configure CTRL_REG3 to generate data ready interrupt on INT2
     // No interrupts used on INT1, if you'd like to configure INT1
     // or INT2 otherwise, consult the datasheet
-    writeL3G4200DRegister(controlRegister3, 0b00001000);
+    static constexpr uint8_t kControlRegister3 = 0x22;
+    writeL3G4200DRegister(kControlRegister3, 0b00001000); // NOLINT(readability-magic-numbers)
     // CTRL_REG4 controls the full-scale range, among other things
-    writeL3G4200DRegister(controlRegister4, 0b00110000);
+    static constexpr uint8_t kControlRegister4 = 0x23;
+    writeL3G4200DRegister(kControlRegister4, 0b00110000); // NOLINT(readability-magic-numbers)
     // CTRL_REG5 controls high-pass filtering of outputs, use it if you'd like
-    writeL3G4200DRegister(controlRegister5, 0b00000000);
+    static constexpr uint8_t kControlRegister5 = 0x24;
+    writeL3G4200DRegister(kControlRegister5, 0b00000000); // NOLINT(readability-magic-numbers)
 
     mAttached = true;
 }
@@ -111,7 +113,9 @@ int GY50::getAngularVelocity()
     auto firstByte  = readL3G4200DRegister(zAxisFirstByteRegister);
     auto secondByte = readL3G4200DRegister(zAxisSecondByteRegister);
 
-    return static_cast<int16_t>((firstByte << 8) | secondByte);
+    static constexpr auto kBitsInByte = 8;
+
+    return static_cast<int16_t>((firstByte << kBitsInByte) | secondByte);
 }
 
 int GY50::readL3G4200DRegister(uint8_t registerAddress)
@@ -121,7 +125,7 @@ int GY50::readL3G4200DRegister(uint8_t registerAddress)
     mRuntime.i2cEndTransmission();
     mRuntime.i2cRequestFrom(kGyroAddress, 1);
 
-    return mRuntime.i2cAvailable() ? mRuntime.i2cRead() : 0;
+    return mRuntime.i2cAvailable() != 0 ? mRuntime.i2cRead() : 0;
 }
 
 void GY50::writeL3G4200DRegister(uint8_t registerAddress, uint8_t value)

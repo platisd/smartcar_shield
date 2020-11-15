@@ -16,7 +16,9 @@ GP2Y0A02::GP2Y0A02(Runtime& runtime, uint8_t pin)
 unsigned int GP2Y0A02::getDistance()
 {
     auto analogReading = mRuntime.getAnalogPinState(kPin);
-    auto result        = static_cast<unsigned int>(9462 / (analogReading - 16.92));
+    // It's OK to surpress this clang-tidy warning since this is part of a magic (!) formula
+    // NOLINTNEXTLINE(readability-magic-numbers)
+    auto result = static_cast<unsigned int>(9462 / (analogReading - 16.92));
 
     return (result >= kMinDistance && result <= kMaxDistance ? result : 0);
 }
