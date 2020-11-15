@@ -1,4 +1,4 @@
-#include <cmath>
+#include <math.h> // NOLINT(modernize-deprecated-headers)
 
 #include "DirectionlessOdometer.hpp"
 

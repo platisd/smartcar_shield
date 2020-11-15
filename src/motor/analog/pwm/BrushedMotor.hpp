@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include <cstdint>
+#include <stdint.h> // NOLINT(modernize-deprecated-headers)
 
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"

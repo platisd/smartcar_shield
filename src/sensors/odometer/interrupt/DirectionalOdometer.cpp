@@ -1,5 +1,6 @@
+#include <limits.h> // NOLINT(modernize-deprecated-headers)
+
 #include "DirectionalOdometer.hpp"
-#include <climits>
 
 using namespace smartcarlib::constants::odometer;
 
