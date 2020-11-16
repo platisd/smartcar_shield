@@ -1,4 +1,4 @@
-#include <math.h>
+#include <cmath>
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
