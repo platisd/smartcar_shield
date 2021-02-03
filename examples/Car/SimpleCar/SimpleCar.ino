@@ -13,7 +13,7 @@ void setup()
     car.setSpeed(50);
     delay(3000);
     // Start turning sharp left
-    car.setSpeed(-90);
+    car.setAngle(-90);
     delay(3000);
     // Straighten the car and move backward
     car.setAngle(0);
