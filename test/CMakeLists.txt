@@ -55,7 +55,7 @@ add_definitions(-DENABLE_TESTS -DPLATFORM_AGNOSTIC_BUILD)
 enable_testing()
 
 # GTest and GMock do not play nicely with these flags, so disable them
-target_compile_options(gtest PRIVATE -Wno-sign-promo)
+target_compile_options(gtest PRIVATE -Wno-sign-promo -Wno-pedantic)
 
 # Utility functions
 function(configure_test testExecutable)
@@ -71,7 +71,6 @@ endfunction(configure_test)
 
 # Common headers
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_libs/gmock-gtest
     ${CMAKE_CURRENT_SOURCE_DIR}/mocks/
     ${SMARTCAR_LIB}/runtime
 )
