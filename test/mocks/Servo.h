@@ -17,16 +17,16 @@
 class MockServo
 {
 public:
-    MOCK_METHOD3(attach, void(uint8_t pin, int maxPulseLength, int minPulseLength));
+    MOCK_METHOD3(attach, void(uint8_t pin, int minPulseLength, int maxPulseLength));
     MOCK_METHOD1(writeMicroseconds, void(int microseconds));
 };
 
 class Servo
 {
 public:
-    void attach(uint8_t pin, int maxPulseLength, int minPulseLength)
+    void attach(uint8_t pin, int minPulseLength, int maxPulseLength)
     {
-        mMockServo->attach(pin, maxPulseLength, minPulseLength);
+        mMockServo->attach(pin, minPulseLength, maxPulseLength);
     }
 
     void writeMicroseconds(int microseconds)
