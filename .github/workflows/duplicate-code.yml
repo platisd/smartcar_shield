@@ -1,12 +1,11 @@
 name: Duplicate code
 
-on: issue_comment
+on: pull_request
 
 jobs:
   duplicate-code-check:
     name: Check for duplicate code
     # Trigger the tool only when a comment containing the keyword is published in a pull request
-    if: github.event.issue.pull_request && contains(github.event.comment.body, 'run_duplicate_code_detection_tool')
     runs-on: ubuntu-20.04
     steps:
       - name: Check for duplicate code
@@ -14,7 +13,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directories: "src"
-          ignore_below: 5
+          ignore_below: 50
           file_extensions: "c, cpp"
           warn_above: 15
           fail_above: 60
+          project_root_dir: "src"
