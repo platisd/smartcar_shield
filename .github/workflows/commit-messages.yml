@@ -8,5 +8,3 @@ jobs:
     steps:
       - name: Verify commit messages follow best practices in CI
         uses: platisd/bad-commit-message-blocker@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
