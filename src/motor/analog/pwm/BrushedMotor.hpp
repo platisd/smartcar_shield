@@ -23,7 +23,7 @@ struct BrushedMotorPins
      * @brief Construct a BrushedMotorPins object
      *
      * @param forwardPin  The direction pin that when set to HIGH makes the motor spin forward
-     * @param backwardPin The direction pin that when set to HIGH makes the motor spin forward
+     * @param backwardPin The direction pin that when set to HIGH makes the motor spin backward
      * @param enablePin   The pin  that controls the motor's speed
      */
     BrushedMotorPins(uint8_t forwardPin, uint8_t backwardPin, uint8_t enablePin)
