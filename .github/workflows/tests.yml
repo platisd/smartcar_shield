@@ -10,8 +10,6 @@ jobs:
         compiler:
           - cc: gcc-10
             cxx: g++-10
-          - cc: clang-10
-            cxx: clang++-10
     env:
       CC: ${{ matrix.compiler.cc }}
       CXX: ${{ matrix.compiler.cxx }}
@@ -25,14 +23,5 @@ jobs:
           sudo apt-get install -y lcov cppcheck clang-tidy-8
       - name: Build & run unit tests
         run: bash test/build_and_run_ut.sh
-      - name: Run static analysis (cppcheck)
-        run: |
-          cppcheck --std=c++11 --enable=performance,portability,information --quiet --error-exitcode=1 src/
-      - name: Run static analysis (clang-tidy)
-        run: bash run_clang-tidy.sh
-      - name: Get coverage report (only for GCC)
-        if: ${{ matrix.compiler.cc }} == 'gcc-10'
-        run: |
-          bash run_coverage.sh
-          bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
-
+      - name: Run clang-tidy-action
+        uses: platisd/clang-tidy-action@master
