@@ -1,5 +1,5 @@
-#include <math.h>   // NOLINT(modernize-deprecated-headers)
-#include <stdint.h> // NOLINT(modernize-deprecated-headers)
+#include <math.h>
+#include <stdint.h>
 
 #include "../../utilities/Utilities.hpp"
 #include "DistanceCar.hpp"

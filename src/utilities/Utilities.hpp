@@ -21,7 +21,7 @@ namespace utils
  * \endcode
  */
 template <typename AnyNumber>
-constexpr AnyNumber getAbsolute(AnyNumber number)
+constexpr AnyNumber getAbsolute(const AnyNumber& number)
 {
     return number < 0 ? -number : number;
 }
@@ -43,7 +43,8 @@ constexpr AnyNumber getAbsolute(AnyNumber number)
  * \endcode
  */
 template <typename AnyNumber>
-constexpr AnyNumber getConstrain(AnyNumber number, AnyNumber min, AnyNumber max)
+constexpr AnyNumber
+getConstrain(const AnyNumber& number, const AnyNumber& min, const AnyNumber& max)
 {
     return number < min ? min : (number > max ? max : number);
 }
@@ -101,8 +102,11 @@ AnyNumber getMedian(AnyNumber unsortedNumbers[], const unsigned int& arraySize)
  * \endcode
  */
 template <typename AnyNumber>
-constexpr AnyNumber getMap(
-    AnyNumber valueToMap, AnyNumber fromLow, AnyNumber fromHigh, AnyNumber toLow, AnyNumber toHigh)
+constexpr AnyNumber getMap(const AnyNumber& valueToMap,
+                           const AnyNumber& fromLow,
+                           const AnyNumber& fromHigh,
+                           const AnyNumber& toLow,
+                           const AnyNumber& toHigh)
 {
     return fromHigh == fromLow
                ? toLow
@@ -123,9 +127,7 @@ constexpr AnyNumber getMap(
  */
 constexpr bool areAlmostEqual(float a, float b)
 {
-    // C++11 does not allow us to declare the delta as a variable within the function body
-    // NOLINTNEXTLINE(readability-magic-numbers)
-    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= 0.001F;
+    return getAbsolute(getAbsolute(a) - getAbsolute(b)) <= 0.001f;
 }
 } // namespace utils
 } // namespace smartcarlib

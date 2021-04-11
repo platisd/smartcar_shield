@@ -1,6 +1,7 @@
 #include <limits.h> // NOLINT(modernize-deprecated-headers)
 
 #include "DirectionalOdometer.hpp"
+#include <limits.h>
 
 using namespace smartcarlib::constants::odometer;
 
@@ -77,7 +78,7 @@ long DirectionalOdometer::getDistance()
 
 float DirectionalOdometer::getSpeed()
 {
-    return DirectionlessOdometer::getSpeed() * static_cast<float>(getDirection());
+    return DirectionlessOdometer::getSpeed() * getDirection();
 }
 
 int8_t DirectionalOdometer::getDirection() const

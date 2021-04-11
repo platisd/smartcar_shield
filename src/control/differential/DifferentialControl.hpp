@@ -32,7 +32,7 @@ public:
     void setSpeed(int speed) override;
 
     /* Check `Control` interface for documentation */
-    void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
+    virtual void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override;
 
 private:
     void setMotors();

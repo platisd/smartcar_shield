@@ -87,7 +87,7 @@ public:
      * }
      * \endcode
      */
-    void update() override;
+    virtual void update() override;
 
     /* Use the overriden functions from DistanceCar */
     using DistanceCar::overrideMotorSpeed;

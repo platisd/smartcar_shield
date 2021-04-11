@@ -16,9 +16,7 @@ GP2D120::GP2D120(Runtime& runtime, uint8_t pin)
 unsigned int GP2D120::getDistance()
 {
     auto analogReading = mRuntime.getAnalogPinState(kPin);
-    // It's OK to surpress this clang-tidy warning since this is part of a magic (!) formula
-    // NOLINTNEXTLINE(readability-magic-numbers)
-    auto result = static_cast<unsigned int>((2914 / (analogReading + 5)) - 1);
+    auto result        = static_cast<unsigned int>((2914 / (analogReading + 5)) - 1);
 
     return (result >= kMinDistance && result <= kMaxDistance ? result : 0);
 }

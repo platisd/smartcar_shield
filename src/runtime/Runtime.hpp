@@ -8,8 +8,8 @@
  * environments.
  */
 #pragma once
-#include <stddef.h> // NOLINT(modernize-deprecated-headers)
-#include <stdint.h> // NOLINT(modernize-deprecated-headers)
+#include <stddef.h>
+#include <stdint.h>
 
 // Determine if we use an Espressif platform (i.e. an ESP32 or ESP8266 board).
 // We need this since they are not fully compatible with the Arduino API

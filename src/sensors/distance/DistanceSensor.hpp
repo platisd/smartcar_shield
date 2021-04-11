@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include <stdint.h> // NOLINT(modernize-deprecated-headers)
+#include <stdint.h>
 
 namespace smartcarlib
 {

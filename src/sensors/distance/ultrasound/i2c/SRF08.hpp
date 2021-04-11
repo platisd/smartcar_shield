@@ -6,7 +6,7 @@
  */
 #pragma once
 
-#include <stdint.h> // NOLINT(modernize-deprecated-headers)
+#include <stdint.h>
 
 #include "../../../../runtime/Runtime.hpp"
 #include "../../DistanceSensor.hpp"

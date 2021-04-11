@@ -1,4 +1,4 @@
-#include <math.h> // NOLINT(modernize-deprecated-headers)
+#include <math.h>
 
 #include "DirectionlessOdometer.hpp"
 
@@ -15,8 +15,8 @@ DirectionlessOdometer::DirectionlessOdometer(Runtime& runtime,
                                              uint8_t pulsePin,
                                              InterruptCallback callback,
                                              unsigned long pulsesPerMeter)
-    : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? static_cast<float>(pulsesPerMeter) / 100.0F
-                                               : kDefaultPulsesPerMeter / 100.0F }
+    : mPulsesPerMeterRatio{ pulsesPerMeter > 0 ? static_cast<float>(pulsesPerMeter) / 100.0f
+                                               : kDefaultPulsesPerMeter / 100.0f }
     , mMillimetersPerPulse{ pulsesPerMeter > 0
                                 ? kMillimetersInMeter / static_cast<float>(pulsesPerMeter)
                                 : kMillimetersInMeter / static_cast<float>(kDefaultPulsesPerMeter) }
@@ -38,7 +38,7 @@ float DirectionlessOdometer::getSpeed()
 {
     // To get the current speed in m/sec, divide the meters per pulse (dx) with
     // the length between the last two pulses (dt)
-    return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / static_cast<float>(mDt) : 0.0F;
+    return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / static_cast<float>(mDt) : 0.0f;
 }
 
 bool DirectionlessOdometer::isAttached() const

@@ -2,7 +2,7 @@
 #include "../../../../utilities/Utilities.hpp"
 namespace
 {
-const float kTimeToTravelOneCmAndBack   = 29.15F * 2.0F; // In microseconds
+const float kTimeToTravelOneCmAndBack   = 29.15f * 2.0f; // In microseconds
 const unsigned long kTimeToMeasureOneCm = 120;           // Empirically determined
 // We should wait long enough between two consecutive measurements
 // so to avoid getting parasitic readings from old returning waves.
@@ -43,16 +43,14 @@ unsigned int SR04::getDistance()
 
     // Generate the pulse
     mRuntime.setPinState(kTriggerPin, kLow);
-    static constexpr auto kSetPinToKnownStateDelay = 5;
-    mRuntime.delayMicros(kSetPinToKnownStateDelay);
+    mRuntime.delayMicros(5); // Set pin to known state
     mRuntime.setPinState(kTriggerPin, kHigh);
-    static constexpr auto kTenMicrosecondPulse = 10;
-    mRuntime.delayMicros(kTenMicrosecondPulse); // 10us pulse
+    mRuntime.delayMicros(10); // 10us pulse
     mRuntime.setPinState(kTriggerPin, kLow);
     // Wait for the pulse to arrive and measure its duration
     auto duration = mRuntime.getPulseDuration(kEchoPin, kHigh, kTimeout);
     // Calculate how much far out the object is
-    auto calculatedDistance
+    unsigned int calculatedDistance
         = static_cast<unsigned int>(static_cast<float>(duration) / kTimeToTravelOneCmAndBack);
 
     return calculatedDistance <= kMaxDistance ? calculatedDistance : kError;

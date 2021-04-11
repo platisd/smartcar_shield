@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include <stdint.h> // NOLINT(modernize-deprecated-headers)
+#include <stdint.h>
 
 #include "../../../runtime/Runtime.hpp"
 #include "../../Motor.hpp"
@@ -33,9 +33,9 @@ struct BrushedMotorPins
     {
     }
 
-    const uint8_t forward;  // NOLINT: It's OK for these to be public
-    const uint8_t backward; // NOLINT
-    const uint8_t enable;   // NOLINT
+    const uint8_t forward;
+    const uint8_t backward;
+    const uint8_t enable;
 };
 
 class BrushedMotor : public Motor
