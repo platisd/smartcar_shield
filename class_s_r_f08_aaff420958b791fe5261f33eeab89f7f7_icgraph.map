@@ -1,4 +1,4 @@
 <map id="SRF08::getDistance" name="SRF08::getDistance">
-<area shape="rect" id="node1" title=" " alt="" coords="251,5,400,32"/>
-<area shape="rect" id="node2" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title=" " alt="" coords="5,5,203,32"/>
+<area shape="rect" id="node1" title="Gets the distance measured by the sensor in centimeters." alt="" coords="251,5,400,32"/>
+<area shape="rect" id="node2" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements." alt="" coords="5,5,203,32"/>
 </map>

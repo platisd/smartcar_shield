@@ -1,0 +1,9 @@
+<map id="DistanceSensor" name="DistanceSensor">
+<area shape="rect" id="node1" title=" " alt="" coords="335,5,508,112"/>
+<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title=" " alt="" coords="124,204,311,296"/>
+<area shape="rect" id="node6" href="$class_s_r04.html" title=" " alt="" coords="335,197,508,303"/>
+<area shape="rect" id="node7" href="$class_s_r_f08.html" title=" " alt="" coords="532,160,705,340"/>
+<area shape="rect" id="node3" href="$class_g_p2_d120.html" title=" " alt="" coords="5,388,131,480"/>
+<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title=" " alt="" coords="155,388,280,480"/>
+<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title=" " alt="" coords="304,388,429,480"/>
+</map>

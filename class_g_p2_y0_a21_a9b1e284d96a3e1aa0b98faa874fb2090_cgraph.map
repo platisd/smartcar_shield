@@ -1,4 +1,4 @@
 <map id="GP2Y0A21::getDistance" name="GP2Y0A21::getDistance">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,180,32"/>
+<area shape="rect" id="node1" title="Gets the distance measured by the sensor in centimeters." alt="" coords="5,5,180,32"/>
 <area shape="rect" id="node2" href="$class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd" title="Get pin&#39;s analog (ADC) reading, equivalent of analogRead in Arduino." alt="" coords="228,5,433,32"/>
 </map>

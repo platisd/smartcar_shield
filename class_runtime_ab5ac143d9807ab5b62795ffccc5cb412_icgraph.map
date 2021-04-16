@@ -1,6 +1,6 @@
 <map id="Runtime::setPinState" name="Runtime::setPinState">
 <area shape="rect" id="node1" title="Set pin state, equivalent of digitalWrite in Arduino." alt="" coords="472,31,631,57"/>
-<area shape="rect" id="node2" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title=" " alt="" coords="263,5,404,32"/>
+<area shape="rect" id="node2" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor in centimeters." alt="" coords="263,5,404,32"/>
 <area shape="rect" id="node4" href="$class_brushed_motor.html#a2441f3e01dc7cb593c11d2cc59d1a120" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="243,56,424,83"/>
-<area shape="rect" id="node3" href="$class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title=" " alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node3" href="$class_s_r04.html#a8333d6dae4c42ade4cf261b71c2a30f4" title="Gets the median distance from the specified number of measurements." alt="" coords="5,5,195,32"/>
 </map>

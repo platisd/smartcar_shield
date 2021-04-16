@@ -75,8 +75,8 @@ Inheritance diagram for SRF08:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08__inherit__graph.png" border="0" usemap="#_s_r_f08_inherit__map" alt="Inheritance graph"/></div>
 <map name="_s_r_f08_inherit__map" id="_s_r_f08_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,131,179,311"/>
-<area shape="rect" href="interface_distance_sensor.html" title=" " alt="" coords="31,5,153,83"/>
+<area shape="rect" title=" " alt="" coords="5,160,179,340"/>
+<area shape="rect" href="class_distance_sensor.html" title=" " alt="" coords="5,5,179,112"/>
 </map>
 </div>
 <div class="dynheader">
@@ -84,8 +84,8 @@ Collaboration diagram for SRF08:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08__coll__graph.png" border="0" usemap="#_s_r_f08_coll__map" alt="Collaboration graph"/></div>
 <map name="_s_r_f08_coll__map" id="_s_r_f08_coll__map">
-<area shape="rect" title=" " alt="" coords="5,131,179,311"/>
-<area shape="rect" href="interface_distance_sensor.html" title=" " alt="" coords="31,5,153,83"/>
+<area shape="rect" title=" " alt="" coords="5,160,179,340"/>
+<area shape="rect" href="class_distance_sensor.html" title=" " alt="" coords="5,5,179,112"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -95,8 +95,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5f4d437f6592d28889d5634dd13c85bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_s_r_f08.html">SRF08</a> sensor that communicates over I2C.  <a href="class_s_r_f08.html#a5f4d437f6592d28889d5634dd13c85bc">More...</a><br /></td></tr>
 <tr class="separator:a5f4d437f6592d28889d5634dd13c85bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff420958b791fe5261f33eeab89f7f7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7">getDistance</a> () override</td></tr>
+<tr class="memdesc:aaff420958b791fe5261f33eeab89f7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance measured by the sensor in centimeters.  <a href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7">More...</a><br /></td></tr>
 <tr class="separator:aaff420958b791fe5261f33eeab89f7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1srf08.html#a83c9554c76cb9324ad9860642ac2f153">smartcarlib::constants::srf08::kDefaultIterations</a>) override</td></tr>
+<tr class="memdesc:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the median distance from the specified number of measurements.  <a href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21">More...</a><br /></td></tr>
 <tr class="separator:a9ab73d6660bd8d80aac45a89fd3f7d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac02024ad486ef18868493afa8836c2a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4">setGain</a> (uint8_t gain)</td></tr>
 <tr class="memdesc:ac02024ad486ef18868493afa8836c2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combined with the range setting affects how much time each measurement will last as well as the maximum detectable distance.  <a href="class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4">More...</a><br /></td></tr>
@@ -113,6 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441">changeAddress</a> (uint8_t newAddress)</td></tr>
 <tr class="memdesc:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the address of the specific <a class="el" href="class_s_r_f08.html">SRF08</a> sensor.  <a href="class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441">More...</a><br /></td></tr>
 <tr class="separator:ab5d0ccd285a4013b5b0ee0e7ffa8e441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_distance_sensor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_distance_sensor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_distance_sensor.html">DistanceSensor</a></td></tr>
+<tr class="memitem:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#ab0be502a973a1fe20d1a281e2df63cd5">~DistanceSensor</a> ()=default</td></tr>
+<tr class="separator:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_s_r_f08.html">SRF08</a> sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus. You can find more information on the module <a href="https://www.robot-electronics.co.uk/htm/srf08tech.html">here</a>. </p>
@@ -223,10 +228,17 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the distance measured by the sensor in centimeters. </p>
+<p>Calling this might trigger a new measurement by the sensor.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>0</code> if an error has occured, otherwise the measured distance in centimeters</dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> distance = sensor.getDistance();</div>
+</div><!-- fragment --> 
+<p>Implements <a class="el" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e">DistanceSensor</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00035">35</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 <div class="dynheader">
@@ -234,7 +246,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_cgraph.png" border="0" usemap="#class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_cgraph" alt=""/></div>
 <map name="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_cgraph" id="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_cgraph">
-<area shape="rect" title=" " alt="" coords="5,132,155,159"/>
+<area shape="rect" title="Gets the distance measured by the sensor in centimeters." alt="" coords="5,132,155,159"/>
 <area shape="rect" href="class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino." alt="" coords="234,5,398,32"/>
 <area shape="rect" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="203,56,429,83"/>
 <area shape="rect" href="class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="209,107,423,133"/>
@@ -248,8 +260,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph.png" border="0" usemap="#class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph" alt=""/></div>
 <map name="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph" id="class_s_r_f08_aaff420958b791fe5261f33eeab89f7f7_icgraph">
-<area shape="rect" title=" " alt="" coords="251,5,400,32"/>
-<area shape="rect" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title=" " alt="" coords="5,5,203,32"/>
+<area shape="rect" title="Gets the distance measured by the sensor in centimeters." alt="" coords="251,5,400,32"/>
+<area shape="rect" href="class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements." alt="" coords="5,5,203,32"/>
 </map>
 </div>
 
@@ -312,10 +324,23 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the median distance from the specified number of measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iterations</td><td>Number of measurements to conduct (at most <code>kMaxMedianMeasurements</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The median of the conducted measurements or an error value if the number of iterations is <code>0</code> or larger than <code>kMaxMedianMeasurements</code></dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="comment">// Get the median of `10` measurements</span></div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> distance = sensor.getMedianDistance(10);</div>
+</div><!-- fragment --> 
+<p>Implements <a class="el" href="class_distance_sensor.html#a52189b163354f2b27a3c4f4112e469cb">DistanceSensor</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_s_r_f08_8cpp_source.html#l00061">61</a> of file <a class="el" href="_s_r_f08_8cpp_source.html">SRF08.cpp</a>.</p>
 <div class="dynheader">
@@ -323,9 +348,9 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph.png" border="0" usemap="#class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph" alt=""/></div>
 <map name="class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph" id="class_s_r_f08_a9ab73d6660bd8d80aac45a89fd3f7d21_cgraph">
-<area shape="rect" title=" " alt="" coords="5,132,203,159"/>
+<area shape="rect" title="Gets the median distance from the specified number of measurements." alt="" coords="5,132,203,159"/>
 <area shape="rect" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="251,81,407,108"/>
-<area shape="rect" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title=" " alt="" coords="254,132,403,159"/>
+<area shape="rect" href="class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor in centimeters." alt="" coords="254,132,403,159"/>
 <area shape="rect" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="263,183,395,225"/>
 <area shape="rect" href="class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino." alt="" coords="486,5,650,32"/>
 <area shape="rect" href="class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="455,56,681,83"/>

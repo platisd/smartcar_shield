@@ -18,6 +18,6 @@ var searchData=
   ['distancecar_34',['DistanceCar',['../class_distance_car.html',1,'DistanceCar'],['../class_distance_car.html#acca8c5361ee97ee43addd78fa21d89a5',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometer)'],['../class_distance_car.html#a09fdff0fca9ba4a9440aa412ac2de39a',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometerLeft, Odometer &amp;odometerRight)']]],
   ['distancecar_2ecpp_35',['DistanceCar.cpp',['../_distance_car_8cpp.html',1,'']]],
   ['distancecar_2ehpp_36',['DistanceCar.hpp',['../_distance_car_8hpp.html',1,'']]],
-  ['distancesensor_37',['DistanceSensor',['../interface_distance_sensor.html',1,'']]],
+  ['distancesensor_37',['DistanceSensor',['../class_distance_sensor.html',1,'']]],
   ['distancesensor_2ehpp_38',['DistanceSensor.hpp',['../_distance_sensor_8hpp.html',1,'']]]
 ];

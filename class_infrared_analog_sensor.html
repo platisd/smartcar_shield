@@ -75,11 +75,11 @@ Inheritance diagram for InfraredAnalogSensor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_infrared_analog_sensor__inherit__graph.png" border="0" usemap="#_infrared_analog_sensor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_infrared_analog_sensor_inherit__map" id="_infrared_analog_sensor_inherit__map">
-<area shape="rect" title=" " alt="" coords="124,131,311,223"/>
-<area shape="rect" href="class_g_p2_d120.html" title=" " alt="" coords="5,271,131,363"/>
-<area shape="rect" href="class_g_p2_y0_a02.html" title=" " alt="" coords="155,271,280,363"/>
-<area shape="rect" href="class_g_p2_y0_a21.html" title=" " alt="" coords="304,271,429,363"/>
-<area shape="rect" href="interface_distance_sensor.html" title=" " alt="" coords="156,5,279,83"/>
+<area shape="rect" title=" " alt="" coords="124,160,311,252"/>
+<area shape="rect" href="class_g_p2_d120.html" title=" " alt="" coords="5,300,131,392"/>
+<area shape="rect" href="class_g_p2_y0_a02.html" title=" " alt="" coords="155,300,280,392"/>
+<area shape="rect" href="class_g_p2_y0_a21.html" title=" " alt="" coords="304,300,429,392"/>
+<area shape="rect" href="class_distance_sensor.html" title=" " alt="" coords="131,5,304,112"/>
 </map>
 </div>
 <div class="dynheader">
@@ -87,8 +87,8 @@ Collaboration diagram for InfraredAnalogSensor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_infrared_analog_sensor__coll__graph.png" border="0" usemap="#_infrared_analog_sensor_coll__map" alt="Collaboration graph"/></div>
 <map name="_infrared_analog_sensor_coll__map" id="_infrared_analog_sensor_coll__map">
-<area shape="rect" title=" " alt="" coords="5,131,192,223"/>
-<area shape="rect" href="interface_distance_sensor.html" title=" " alt="" coords="37,5,160,83"/>
+<area shape="rect" title=" " alt="" coords="5,160,192,252"/>
+<area shape="rect" href="class_distance_sensor.html" title=" " alt="" coords="12,5,185,112"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -97,7 +97,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adcb88deca37844b2c3b1d8f6c74d750c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_infrared_analog_sensor.html#adcb88deca37844b2c3b1d8f6c74d750c">InfraredAnalogSensor</a> (<a class="el" href="class_runtime.html">Runtime</a> &amp;runtime)</td></tr>
 <tr class="separator:adcb88deca37844b2c3b1d8f6c74d750c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb1e0315debead1754501f3913d2701"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701">getMedianDistance</a> (uint8_t iterations=<a class="el" href="namespacesmartcarlib_1_1constants_1_1analog_infrared_sensor.html#a85d6e9b1833adc2188403d56a7f1631a">smartcarlib::constants::analogInfraredSensor::kDefaultIterations</a>) override</td></tr>
+<tr class="memdesc:a8fb1e0315debead1754501f3913d2701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the median distance from the specified number of measurements.  <a href="class_infrared_analog_sensor.html#a8fb1e0315debead1754501f3913d2701">More...</a><br /></td></tr>
 <tr class="separator:a8fb1e0315debead1754501f3913d2701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_distance_sensor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_distance_sensor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_distance_sensor.html">DistanceSensor</a></td></tr>
+<tr class="memitem:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#ab0be502a973a1fe20d1a281e2df63cd5">~DistanceSensor</a> ()=default</td></tr>
+<tr class="separator:ab0be502a973a1fe20d1a281e2df63cd5 inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00db814504c60dc0343a0dce4999d6e inherit pub_methods_class_distance_sensor"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e">getDistance</a> ()=0</td></tr>
+<tr class="memdesc:af00db814504c60dc0343a0dce4999d6e inherit pub_methods_class_distance_sensor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance measured by the sensor in centimeters.  <a href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e">More...</a><br /></td></tr>
+<tr class="separator:af00db814504c60dc0343a0dce4999d6e inherit pub_methods_class_distance_sensor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract class to represent the various infrared analog sensors. These sensors are able to conduct measurements by emiting an analog signal that can be read by a microcontroller through the ADC. </p>
@@ -144,10 +151,23 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the median distance from the specified number of measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iterations</td><td>Number of measurements to conduct (at most <code>kMaxMedianMeasurements</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The median of the conducted measurements or an error value if the number of iterations is <code>0</code> or larger than <code>kMaxMedianMeasurements</code></dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="comment">// Get the median of `10` measurements</span></div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> distance = sensor.getMedianDistance(10);</div>
+</div><!-- fragment --> 
+<p>Implements <a class="el" href="class_distance_sensor.html#a52189b163354f2b27a3c4f4112e469cb">DistanceSensor</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_infrared_analog_sensor_8cpp_source.html#l00017">17</a> of file <a class="el" href="_infrared_analog_sensor_8cpp_source.html">InfraredAnalogSensor.cpp</a>.</p>
 <div class="dynheader">
@@ -155,9 +175,10 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph.png" border="0" usemap="#class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph" alt=""/></div>
 <map name="class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph" id="class_infrared_analog_sensor_a8fb1e0315debead1754501f3913d2701_cgraph">
-<area shape="rect" title=" " alt="" coords="5,27,168,69"/>
-<area shape="rect" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="216,5,372,32"/>
-<area shape="rect" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="228,57,360,98"/>
+<area shape="rect" title="Gets the median distance from the specified number of measurements." alt="" coords="5,49,168,90"/>
+<area shape="rect" href="class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="243,5,399,32"/>
+<area shape="rect" href="class_distance_sensor.html#af00db814504c60dc0343a0dce4999d6e" title="Gets the distance measured by the sensor in centimeters." alt="" coords="216,56,425,83"/>
+<area shape="rect" href="namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="255,107,387,149"/>
 </map>
 </div>
 

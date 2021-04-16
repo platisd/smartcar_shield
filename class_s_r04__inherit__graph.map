@@ -1,4 +1,4 @@
 <map id="SR04" name="SR04">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,179,237"/>
-<area shape="rect" id="node2" href="$interface_distance_sensor.html" title=" " alt="" coords="31,5,153,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,160,179,267"/>
+<area shape="rect" id="node2" href="$class_distance_sensor.html" title=" " alt="" coords="5,5,179,112"/>
 </map>
