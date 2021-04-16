@@ -23,9 +23,10 @@ public:
     virtual ~DistanceSensor() = default;
 
     /**
-     * Gets the distance measured by the sensor. Calling this might trigger
-     * a new measurement by the sensor.
-     * @return `0` if an error has occured, otherwise the measured distance
+     * @brief Gets the distance measured by the sensor in centimeters. Calling this might trigger a
+     * new measurement by the sensor.
+     *
+     * @return `0` if an error has occured, otherwise the measured distance in centimeters
      *
      * **Example:**
      * \code
@@ -35,10 +36,11 @@ public:
     virtual unsigned int getDistance() = 0;
 
     /**
-     * Gets the median distance from the specified number of measurements.
-     * @param  iterations Number of measurements to conduct (at most `kMaxMedianMeasurements`)
-     * @return            The median of the conducted measurements or an error value
-     *                    if the number of iterations is `0` or larger than `kMaxMedianMeasurements`
+     * @brief Gets the median distance from the specified number of measurements.
+     *
+     * @param iterations Number of measurements to conduct (at most `kMaxMedianMeasurements`)
+     * @return The median of the conducted measurements or an error value if the number of
+     * iterations is `0` or larger than `kMaxMedianMeasurements`
      *
      * **Example:**
      * \code
