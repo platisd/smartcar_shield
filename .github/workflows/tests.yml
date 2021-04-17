@@ -25,3 +25,5 @@ jobs:
         run: bash test/build_and_run_ut.sh
       - name: Run clang-tidy-action
         uses: platisd/clang-tidy-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
