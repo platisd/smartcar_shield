@@ -29,6 +29,7 @@ jobs:
         run: |
           cppcheck --std=c++11 --enable=performance,portability,information --quiet --error-exitcode=1 src/
       - name: Run clang-tidy
+        if: matrix.compiler.cc == 'clang-10'
         run: |
           run-clang-tidy-8 \
             -p=test/build \
@@ -38,12 +39,13 @@ jobs:
             -export-fixes clang-tidy-fixes.yaml
       - name: Run clang-tidy-pr-comments action
         uses: platisd/clang-tidy-pr-comments@master
+        if: matrix.compiler.cc == 'clang-10'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           clang_tidy_fixes: clang-tidy-fixes.yaml
           request_changes: true
       - name: Get coverage report (only for GCC)
-        if: ${{ matrix.compiler.cc }} == 'gcc-10'
+        if: matrix.compiler.cc == 'gcc-10'
         run: |
           bash run_coverage.sh
           bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
