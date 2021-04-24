@@ -34,6 +34,6 @@ jobs:
       - name: Run clang-tidy-action
         uses: platisd/clang-tidy-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          clang-tidy-fixes: clang-tidy-fixes.yaml
-          request-changes: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          clang_tidy_fixes: clang-tidy-fixes.yaml
+          request_changes: true
