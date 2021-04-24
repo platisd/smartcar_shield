@@ -28,8 +28,20 @@ jobs:
       - name: Run static analysis (cppcheck)
         run: |
           cppcheck --std=c++11 --enable=performance,portability,information --quiet --error-exitcode=1 src/
-      - name: Run static analysis (clang-tidy)
-        run: bash run_clang-tidy.sh
+      - name: Run clang-tidy
+        run: |
+          run-clang-tidy-8 \
+            -p=test/build \
+            -j$(nproc) \
+            -header-filter=src/* \
+            files src/* \
+            -export-fixes clang-tidy-fixes.yaml
+      - name: Run clang-tidy-pr-comments action
+        uses: platisd/clang-tidy-pr-comments@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          clang_tidy_fixes: clang-tidy-fixes.yaml
+          request_changes: true
       - name: Get coverage report (only for GCC)
         if: ${{ matrix.compiler.cc }} == 'gcc-10'
         run: |
