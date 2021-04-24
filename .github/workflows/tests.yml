@@ -20,12 +20,12 @@ jobs:
         run: |
           sudo apt-get install -y ${{ matrix.compiler.cc }}
           sudo apt-get install -y ${{ matrix.compiler.cxx }}
-          sudo apt-get install -y lcov cppcheck clang-tidy-8
+          sudo apt-get install -y lcov cppcheck clang-tidy-10
       - name: Build & run unit tests
         run: bash test/build_and_run_ut.sh
       - name: Run clang-tidy
         run: |
-          run-clang-tidy-8 \
+          run-clang-tidy-10 \
             -p=test/build \
             -j$(nproc) \
             -header-filter=src/* \
