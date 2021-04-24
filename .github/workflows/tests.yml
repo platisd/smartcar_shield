@@ -1,6 +1,6 @@
 name: Tests
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   run-unit-tests-and-static-analysis:
@@ -23,7 +23,17 @@ jobs:
           sudo apt-get install -y lcov cppcheck clang-tidy-8
       - name: Build & run unit tests
         run: bash test/build_and_run_ut.sh
+      - name: Run clang-tidy
+        run: |
+          run-clang-tidy-8 \
+            -p=test/build \
+            -j$(nproc) \
+            -header-filter=src/* \
+            files src/* \
+            -export-fixes clang-tidy-fixes.yaml
       - name: Run clang-tidy-action
         uses: platisd/clang-tidy-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          clang-tidy-fixes: clang-tidy-fixes.yaml
+          request-changes: true
