@@ -20,19 +20,19 @@ jobs:
         run: |
           sudo apt-get install -y ${{ matrix.compiler.cc }}
           sudo apt-get install -y ${{ matrix.compiler.cxx }}
-          sudo apt-get install -y lcov cppcheck clang-tidy-10
+          sudo apt-get install -y lcov cppcheck clang-tidy-8
       - name: Build & run unit tests
         run: bash test/build_and_run_ut.sh
       - name: Run clang-tidy
         run: |
-          run-clang-tidy-10 \
+          run-clang-tidy-8 \
             -p=test/build \
             -j$(nproc) \
             -header-filter=src/* \
             files src/* \
             -export-fixes clang-tidy-fixes.yaml
-      - name: Run clang-tidy-action
-        uses: platisd/clang-tidy-action@master
+      - name: Run clang-tidy-pr-comments action
+        uses: platisd/clang-tidy-pr-comments@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           clang_tidy_fixes: clang-tidy-fixes.yaml
