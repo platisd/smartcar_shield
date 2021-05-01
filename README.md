@@ -95,8 +95,8 @@ making updates particularly easy, without the need to use GitHub or git.
 
 ### Smartcar platform (default setup)
 
-* 1 x [Modules board](https://www.pcbway.com/project/shareproject/Smartcar___Module_board.html)
-* 1 x [Motor board](https://www.pcbway.com/project/shareproject/Smartcar___Motors_board.html)
+* 1 x [Modules board (rev.2)](https://www.pcbway.com/project/shareproject/Smartcar___Modules_board_rev_2.html)
+* 1 x [Motor board (rev. 0)](https://www.pcbway.com/project/shareproject/Smartcar___Motors_board.html)
 * 4 x [Brushed motors](https://www.aliexpress.com/item/32872592243.html) (530rpm @ 12V)
 * 2 x [TXS0108E TTL level shifters](https://www.aliexpress.com/item/32472491036.html)
 * 1 x DOIT ESP32 devkit v1 (30 GPIO pins)
