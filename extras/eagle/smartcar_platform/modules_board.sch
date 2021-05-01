@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -32608,19 +32608,9 @@ OSHW_LOGO</description>
 <pinref part="J2" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<pinref part="J6" gate="G$1" pin="15"/>
-<wire x1="-73.66" y1="-50.8" x2="-86.36" y2="-50.8" width="0.1524" layer="91"/>
-<label x="-86.36" y="-50.8" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="5V_REGULATOR" gate="J$1" pin="1"/>
 <wire x1="-134.62" y1="60.96" x2="-127" y2="60.96" width="0.1524" layer="91"/>
 <label x="-129.54" y="60.96" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="J8" gate="G$1" pin="15"/>
-<wire x1="-104.14" y1="-50.8" x2="-116.84" y2="-50.8" width="0.1524" layer="91"/>
-<label x="-119.38" y="-50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BAT8" gate="G$1" pin="+"/>
@@ -33200,6 +33190,16 @@ OSHW_LOGO</description>
 <pinref part="JP3" gate="G$1" pin="1"/>
 <wire x1="-116.84" y1="-7.62" x2="-111.76" y2="-7.62" width="0.1524" layer="91"/>
 <label x="-114.3" y="-7.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="J8" gate="G$1" pin="15"/>
+<wire x1="-104.14" y1="-50.8" x2="-116.84" y2="-50.8" width="0.1524" layer="91"/>
+<label x="-116.84" y="-50.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="J6" gate="G$1" pin="15"/>
+<wire x1="-73.66" y1="-50.8" x2="-86.36" y2="-50.8" width="0.1524" layer="91"/>
+<label x="-86.36" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$2" class="0">
