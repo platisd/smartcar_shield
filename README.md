@@ -114,6 +114,7 @@ making updates particularly easy, without the need to use GitHub or git.
 * 3 x 10KOhm resistors
 * 8 x [AA battery holders](https://www.electrokit.com/produkt/batterihallare-1xaa-pcb/)
 * 1 x [DD40AJSA adjustable buck converter](https://www.aliexpress.com/item/32816584868.html)
+* 1 x [SPDT switch](https://www.tme.eu/en/details/5ms1s102am2qe/slide-switches/)
 * 4 x [VL45L0x ToF distance sensors](https://www.aliexpress.com/item/32828144370.html) (optional)
   * 4 x 4pin 2.54 angled headers to mount the sensors vertically
 
