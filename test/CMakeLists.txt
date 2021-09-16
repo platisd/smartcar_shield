@@ -56,6 +56,7 @@ enable_testing()
 
 # GTest and GMock do not play nicely with these flags, so disable them
 target_compile_options(gtest PRIVATE -Wno-sign-promo -Wno-pedantic)
+target_compile_options(gmock PRIVATE -Wno-conversion -Wno-pedantic)
 
 # Utility functions
 function(configure_test testExecutable)
