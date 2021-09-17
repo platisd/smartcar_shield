@@ -1,35 +1,38 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project(Smartcar_Tests)
 
 set(REPOSITORY_ROOT ${PROJECT_SOURCE_DIR}/..)
 set(UNIT_TESTS ${PROJECT_SOURCE_DIR}/ut)
 set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-    -std=c++14 \
-    -Wcast-align \
-    -Wpedantic \
-    -Wcast-qual \
-    -Wconversion \
-    -Wdisabled-optimization \
-    -Winit-self \
-    -Wnon-virtual-dtor \
-    -Wold-style-cast \
-    -Woverloaded-virtual \
-    -Wparentheses \
-    -Wredundant-decls \
-    -Wshadow \
-    -Wsign-promo \
-    -Wstrict-aliasing \
-    -Wall \
-    -Wextra \
-    -Werror \
-    -pthread \
-")
+
+add_library (TestCommon INTERFACE)
+find_package (Threads REQUIRED)
+target_link_libraries (TestCommon INTERFACE Threads::Threads)
+target_compile_features (TestCommon INTERFACE cxx_std_14)
+target_compile_options(TestCommon INTERFACE
+    -Wcast-align
+    -Wpedantic
+    -Wcast-qual
+    -Wconversion
+    -Wdisabled-optimization
+    -Winit-self
+    -Wnon-virtual-dtor
+    -Wold-style-cast
+    -Woverloaded-virtual
+    -Wparentheses
+    -Wredundant-decls
+    -Wshadow
+    -Wsign-promo
+    -Wstrict-aliasing
+    -Wall
+    -Wextra
+    -Werror
+)
 
 # Coverage
 list(APPEND CMAKE_MODULE_PATH ${REPOSITORY_ROOT}/CmakeModules)
 include(CodeCoverage)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -fprofile-arcs -ftest-coverage")
+target_compile_options(TestCommon INTERFACE -O0 -fprofile-arcs -ftest-coverage)
 set(GTEST_RUN_FLAGS --gtest_color=yes --gtest_repeat=5 --gtest_shuffle)
 
 # Download and unpack googletest at configure time
@@ -45,23 +48,16 @@ execute_process(COMMAND ${CMAKE_COMMAND} --build .
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
 ${CMAKE_BINARY_DIR}/googletest-build)
 
-# The gtest/gmock targets carry header search path
-# dependencies automatically when using CMake 2.8.11 or
-# later. Otherwise we have to add them here ourselves.
-include_directories("${gtest_SOURCE_DIR}/include"
-    "${gmock_SOURCE_DIR}/include")
-
 add_definitions(-DENABLE_TESTS -DPLATFORM_AGNOSTIC_BUILD)
 enable_testing()
 
-# GTest and GMock do not play nicely with these flags, so disable them
-target_compile_options(gtest PRIVATE -Wno-sign-promo -Wno-pedantic)
-target_compile_options(gmock PRIVATE -Wno-conversion -Wno-pedantic)
+# Link against gtest library
+target_link_libraries (TestCommon INTERFACE gtest gmock_main)
 
 # Utility functions
 function(configure_test testExecutable)
-    # Link against gtest library
-    target_link_libraries(${testExecutable} gtest gmock_main)
+    # Inherit common test properties
+    target_link_libraries(${testExecutable} PUBLIC TestCommon)
     # Create test name as the capitalized form of the test executable
     string(TOUPPER ${testExecutable} testName)
     # Add executable to test suite
@@ -71,7 +67,7 @@ function(configure_test testExecutable)
 endfunction(configure_test)
 
 # Common headers
-include_directories(
+target_include_directories(TestCommon INTERFACE
     ${PROJECT_SOURCE_DIR}/mocks/
     ${SMARTCAR_LIB}/runtime
 )
