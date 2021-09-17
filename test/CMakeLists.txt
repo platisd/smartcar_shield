@@ -32,7 +32,8 @@ target_compile_options(TestCommon INTERFACE
 # Coverage
 list(APPEND CMAKE_MODULE_PATH ${REPOSITORY_ROOT}/CmakeModules)
 include(CodeCoverage)
-target_compile_options(TestCommon INTERFACE -O0 -fprofile-arcs -ftest-coverage)
+# Enable coverage on the executable
+target_enable_coverage(TestCommon INTERFACE)
 set(GTEST_RUN_FLAGS --gtest_color=yes --gtest_repeat=5 --gtest_shuffle)
 
 # Download and unpack googletest at configure time
@@ -62,7 +63,7 @@ function(configure_test testExecutable)
     # Add executable to test suite
     add_test(${testName} ${testExecutable} ${GTEST_RUN_FLAGS})
     # Add tests to coverage reports
-    setup_target_for_coverage(NAME ${testName}_coverage EXECUTABLE ${testExecutable} DEPENDENCIES ${testExecutable})
+    setup_coverage_target(${testExecutable})
 endfunction(configure_test)
 
 # Common headers
