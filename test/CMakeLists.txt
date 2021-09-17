@@ -46,9 +46,8 @@ execute_process(COMMAND ${CMAKE_COMMAND} --build .
 # the following targets: gtest, gtest_main, gmock
 # and gmock_main
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
-${CMAKE_BINARY_DIR}/googletest-build)
+${CMAKE_BINARY_DIR}/googletest-build EXCLUDE_FROM_ALL)
 
-add_definitions(-DENABLE_TESTS -DPLATFORM_AGNOSTIC_BUILD)
 enable_testing()
 
 # Link against gtest library
