@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(Smartcar_Tests)
 
-set(REPOSITORY_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
-set(UNIT_TESTS ${CMAKE_CURRENT_SOURCE_DIR}/ut)
+set(REPOSITORY_ROOT ${PROJECT_SOURCE_DIR}/..)
+set(UNIT_TESTS ${PROJECT_SOURCE_DIR}/ut)
 set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
     -std=c++14 \
@@ -72,7 +72,7 @@ endfunction(configure_test)
 
 # Common headers
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/mocks/
+    ${PROJECT_SOURCE_DIR}/mocks/
     ${SMARTCAR_LIB}/runtime
 )
 
