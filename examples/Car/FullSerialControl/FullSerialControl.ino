@@ -7,17 +7,6 @@ DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);
 
-void setup()
-{
-    Serial.begin(9600);
-    Serial.setTimeout(200);
-}
-
-void loop()
-{
-    handleInput();
-}
-
 void handleInput()
 {
     // handle serial input if there is any
@@ -35,4 +24,15 @@ void handleInput()
             car.setAngle(deg);
         }
     }
+}
+
+void setup()
+{
+    Serial.begin(9600);
+    Serial.setTimeout(200);
+}
+
+void loop()
+{
+    handleInput();
 }

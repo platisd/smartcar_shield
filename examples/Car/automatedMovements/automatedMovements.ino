@@ -26,29 +26,6 @@ DirectionlessOdometer rightOdometer(
 
 SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
 
-void setup()
-{
-    car.enableCruiseControl();
-
-    // Travel around an imaginary square
-    go(distanceToTravel, carSpeed);
-    rotate(degreesToTurn, carSpeed);
-
-    go(distanceToTravel, carSpeed);
-    rotate(degreesToTurn, carSpeed);
-
-    go(distanceToTravel, carSpeed);
-    rotate(degreesToTurn, carSpeed);
-
-    go(distanceToTravel, carSpeed);
-    rotate(degreesToTurn, carSpeed);
-}
-
-void loop()
-{
-    // put your main code here, to run repeatedly:
-}
-
 /**
    Rotate the car at the specified degrees with the certain speed
    @param degrees   The degrees to turn. Positive values for clockwise
@@ -135,4 +112,27 @@ void go(long centimeters, float speed)
             = travelledDistance >= smartcarlib::utils::getAbsolute(centimeters);
     }
     car.setSpeed(0);
+}
+
+void setup()
+{
+    car.enableCruiseControl();
+
+    // Travel around an imaginary square
+    go(distanceToTravel, carSpeed);
+    rotate(degreesToTurn, carSpeed);
+
+    go(distanceToTravel, carSpeed);
+    rotate(degreesToTurn, carSpeed);
+
+    go(distanceToTravel, carSpeed);
+    rotate(degreesToTurn, carSpeed);
+
+    go(distanceToTravel, carSpeed);
+    rotate(degreesToTurn, carSpeed);
+}
+
+void loop()
+{
+    // put your main code here, to run repeatedly:
 }
