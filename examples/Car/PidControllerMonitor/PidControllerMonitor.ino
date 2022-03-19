@@ -16,16 +16,14 @@ DifferentialControl control(leftMotor, rightMotor);
 
 const auto pulsesPerMeter = 600;
 
-DirectionlessOdometer leftOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::leftOdometerPin,
-    []() { leftOdometer.update(); },
-    pulsesPerMeter);
-DirectionlessOdometer rightOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::rightOdometerPin,
-    []() { rightOdometer.update(); },
-    pulsesPerMeter);
+DirectionlessOdometer leftOdometer{ arduinoRuntime,
+                                    smartcarlib::pins::v2::leftOdometerPin,
+                                    []() { leftOdometer.update(); },
+                                    pulsesPerMeter };
+DirectionlessOdometer rightOdometer{ arduinoRuntime,
+                                     smartcarlib::pins::v2::rightOdometerPin,
+                                     []() { rightOdometer.update(); },
+                                     pulsesPerMeter };
 
 DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);
 
@@ -42,10 +40,10 @@ void loop()
     car.update();
     if (millis() > previousPrintOut + PRINTOUT_INTERVAL)
     {
-        Serial.print(carSpeed); // print the controllers set point (the speed set to the car, i.e.
-                                // during setup())
-        Serial.print(","); // print a comma, in order to be easily parsed by the Serial Plotter or
-                           // other program
+        Serial.print(carSpeed); // print the controllers set point (the speed set to the car,
+                                // i.e. during setup())
+        Serial.print(",");      // print a comma, in order to be easily parsed by the Serial Plotter
+                                // or other program
         Serial.println(car.getSpeed()); // get the average speed of the two odometers
         previousPrintOut = millis();    // update the previous print out moment
     }

@@ -12,16 +12,14 @@ DifferentialControl control(leftMotor, rightMotor);
 
 const auto pulsesPerMeter = 600;
 
-DirectionlessOdometer leftOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::leftOdometerPin,
-    []() { leftOdometer.update(); },
-    pulsesPerMeter);
-DirectionlessOdometer rightOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::rightOdometerPin,
-    []() { rightOdometer.update(); },
-    pulsesPerMeter);
+DirectionlessOdometer leftOdometer{ arduinoRuntime,
+                                    smartcarlib::pins::v2::leftOdometerPin,
+                                    []() { leftOdometer.update(); },
+                                    pulsesPerMeter };
+DirectionlessOdometer rightOdometer{ arduinoRuntime,
+                                     smartcarlib::pins::v2::rightOdometerPin,
+                                     []() { rightOdometer.update(); },
+                                     pulsesPerMeter };
 
 DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);
 
@@ -29,8 +27,8 @@ void handleInput()
 { // handle serial input if there is any
     if (Serial.available())
     {
-        char input = Serial.read(); // read everything that has been received so far and log down
-                                    // the last entry
+        char input = Serial.read(); // read everything that has been received so far and log
+                                    // down the last entry
         switch (input)
         {
         case 'l': // rotate counter-clockwise going forward

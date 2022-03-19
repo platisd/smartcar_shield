@@ -13,16 +13,14 @@ GY50 gyroscope(arduinoRuntime, 37);
 
 const auto pulsesPerMeter = 600;
 
-DirectionlessOdometer leftOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::leftOdometerPin,
-    []() { leftOdometer.update(); },
-    pulsesPerMeter);
-DirectionlessOdometer rightOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::rightOdometerPin,
-    []() { rightOdometer.update(); },
-    pulsesPerMeter);
+DirectionlessOdometer leftOdometer{ arduinoRuntime,
+                                    smartcarlib::pins::v2::leftOdometerPin,
+                                    []() { leftOdometer.update(); },
+                                    pulsesPerMeter };
+DirectionlessOdometer rightOdometer{ arduinoRuntime,
+                                     smartcarlib::pins::v2::rightOdometerPin,
+                                     []() { rightOdometer.update(); },
+                                     pulsesPerMeter };
 
 SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
 
@@ -60,20 +58,21 @@ void rotate(int degrees, float speed)
         if (degrees < 0 && currentHeading > initialHeading)
         {
             // If we are turning left and the current heading is larger than the
-            // initial one (e.g. started at 10 degrees and now we are at 350), we need to substract
-            // 360 so to eventually get a signed displacement from the initial heading (-20)
+            // initial one (e.g. started at 10 degrees and now we are at 350), we need to
+            // substract 360 so to eventually get a signed displacement from the initial heading
+            // (-20)
             currentHeading -= 360;
         }
         else if (degrees > 0 && currentHeading < initialHeading)
         {
             // If we are turning right and the heading is smaller than the
-            // initial one (e.g. started at 350 degrees and now we are at 20), so to get a signed
-            // displacement (+30)
+            // initial one (e.g. started at 350 degrees and now we are at 20), so to get a
+            // signed displacement (+30)
             currentHeading += 360;
         }
         // Degrees turned so far is initial heading minus current (initial heading
-        // is at least 0 and at most 360. To handle the "edge" cases we substracted or added 360 to
-        // currentHeading)
+        // is at least 0 and at most 360. To handle the "edge" cases we substracted or added 360
+        // to currentHeading)
         int degreesTurnedSoFar  = initialHeading - currentHeading;
         hasReachedTargetDegrees = smartcarlib::utils::getAbsolute(degreesTurnedSoFar)
                                   >= smartcarlib::utils::getAbsolute(degrees);
