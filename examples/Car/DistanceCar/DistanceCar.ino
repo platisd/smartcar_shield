@@ -7,16 +7,14 @@ DifferentialControl control(leftMotor, rightMotor);
 
 const auto pulsesPerMeter = 600;
 
-DirectionlessOdometer leftOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::leftOdometerPin,
-    []() { leftOdometer.update(); },
-    pulsesPerMeter);
-DirectionlessOdometer rightOdometer(
-    arduinoRuntime,
-    smartcarlib::pins::v2::rightOdometerPin,
-    []() { rightOdometer.update(); },
-    pulsesPerMeter);
+DirectionlessOdometer leftOdometer{ arduinoRuntime,
+                                    smartcarlib::pins::v2::leftOdometerPin,
+                                    []() { leftOdometer.update(); },
+                                    pulsesPerMeter };
+DirectionlessOdometer rightOdometer{ arduinoRuntime,
+                                     smartcarlib::pins::v2::rightOdometerPin,
+                                     []() { rightOdometer.update(); },
+                                     pulsesPerMeter };
 
 DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);
 
