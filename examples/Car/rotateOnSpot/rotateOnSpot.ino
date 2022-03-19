@@ -12,16 +12,6 @@ GY50 gyroscope(arduinoRuntime, GYROSCOPE_OFFSET);
 
 HeadingCar car(control, gyroscope);
 
-void setup()
-{
-    delay(1000);
-    rotateOnSpot(90, carSpeed); // rotate clockwise 90 degrees on spot
-    delay(1000);
-    rotateOnSpot(-90, carSpeed); // rotate counter clockwise 90 degrees on spot
-}
-
-void loop() {}
-
 /**
    Rotate the car on spot at the specified degrees with the certain speed
    @param degrees   The degrees to rotate on spot. Positive values for clockwise
@@ -73,3 +63,13 @@ void rotateOnSpot(int targetDegrees, int speed)
     }
     car.setSpeed(0); // we have reached the target, so stop the car
 }
+
+void setup()
+{
+    delay(1000);
+    rotateOnSpot(90, carSpeed); // rotate clockwise 90 degrees on spot
+    delay(1000);
+    rotateOnSpot(-90, carSpeed); // rotate counter clockwise 90 degrees on spot
+}
+
+void loop() {}

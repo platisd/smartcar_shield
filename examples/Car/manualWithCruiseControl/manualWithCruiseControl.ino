@@ -25,19 +25,6 @@ DirectionlessOdometer rightOdometer(
 
 DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);
 
-void setup()
-{
-    Serial.begin(9600);
-
-    car.enableCruiseControl(); // using default PID values
-}
-
-void loop()
-{
-    car.update();
-    handleInput();
-}
-
 void handleInput()
 { // handle serial input if there is any
     if (Serial.available())
@@ -67,4 +54,17 @@ void handleInput()
             car.setAngle(0);
         }
     }
+}
+
+void setup()
+{
+    Serial.begin(9600);
+
+    car.enableCruiseControl(); // using default PID values
+}
+
+void loop()
+{
+    car.update();
+    handleInput();
 }

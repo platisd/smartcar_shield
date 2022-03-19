@@ -12,16 +12,6 @@ DifferentialControl control(leftMotor, rightMotor);
 
 SimpleCar car(control);
 
-void setup()
-{
-    Serial.begin(9600);
-}
-
-void loop()
-{
-    handleInput();
-}
-
 void handleInput()
 { // handle serial input if there is any
     if (Serial.available())
@@ -51,4 +41,14 @@ void handleInput()
             car.setAngle(0);
         }
     }
+}
+
+void setup()
+{
+    Serial.begin(9600);
+}
+
+void loop()
+{
+    handleInput();
 }
