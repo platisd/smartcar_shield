@@ -69,6 +69,18 @@ you can find 2D CAD drawings of the Smartcar chassis in various formats, at
 [/extras/cad/2D](extras/cad/2D) which you can freely use in order to fabricate your own,
 e.g. with a milling machine or a laser cutter.
 
+### Emulator
+
+[SMCE](https://github.com/ItJustWorksTM/smce-gd/) is the digital twin of the Smartcar platform
+along with a cool and customisable 3D world for your rover to roam in.<br>
+The core concept is that you write Arduino code that runs on both the real hardware as well as
+the virtual environment.
+This way, the need to have exclusive and frequent access to the car can be either alleviated
+or drastically decreased.
+The emulator allows limiting the unavoidable engagement with the physical car, to the point a
+team of developers may develop their features on the emulator and only access the real hardware
+to verify them.
+
 ## Software
 The software, is the Smartcar shield Arduino library. It sports a high level API, meant to
 enable its users to perform tasks easily with relatively few lines of code. It intends to
