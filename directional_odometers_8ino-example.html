@@ -72,16 +72,14 @@ $(function() {
 <div class="line">const unsigned long RIGHT_PULSES_PER_METER = 740;</div>
 <div class="line"> </div>
 <div class="line">ArduinoRuntime arduinoRuntime;</div>
-<div class="line">DirectionalOdometer leftOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::leftOdometerPins,</div>
-<div class="line">    []() { leftOdometer.update(); },</div>
-<div class="line">    LEFT_PULSES_PER_METER);</div>
-<div class="line">DirectionalOdometer rightOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::rightOdometerPins,</div>
-<div class="line">    []() { rightOdometer.update(); },</div>
-<div class="line">    RIGHT_PULSES_PER_METER);</div>
+<div class="line">DirectionalOdometer leftOdometer{ arduinoRuntime,</div>
+<div class="line">                                  smartcarlib::pins::v2::leftOdometerPins,</div>
+<div class="line">                                  []() { leftOdometer.update(); },</div>
+<div class="line">                                  LEFT_PULSES_PER_METER };</div>
+<div class="line">DirectionalOdometer rightOdometer{ arduinoRuntime,</div>
+<div class="line">                                   smartcarlib::pins::v2::rightOdometerPins,</div>
+<div class="line">                                   []() { rightOdometer.update(); },</div>
+<div class="line">                                   RIGHT_PULSES_PER_METER };</div>
 <div class="line"> </div>
 <div class="line">void setup()</div>
 <div class="line">{</div>

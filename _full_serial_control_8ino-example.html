@@ -75,17 +75,6 @@ $(function() {
 <div class="line"> </div>
 <div class="line">SimpleCar car(control);</div>
 <div class="line"> </div>
-<div class="line">void setup()</div>
-<div class="line">{</div>
-<div class="line">    Serial.begin(9600);</div>
-<div class="line">    Serial.setTimeout(200);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">void loop()</div>
-<div class="line">{</div>
-<div class="line">    handleInput();</div>
-<div class="line">}</div>
-<div class="line"> </div>
 <div class="line">void handleInput()</div>
 <div class="line">{</div>
 <div class="line">    // handle serial input if there is any</div>
@@ -103,6 +92,17 @@ $(function() {
 <div class="line">            car.setAngle(deg);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void setup()</div>
+<div class="line">{</div>
+<div class="line">    Serial.begin(9600);</div>
+<div class="line">    Serial.setTimeout(200);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void loop()</div>
+<div class="line">{</div>
+<div class="line">    handleInput();</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

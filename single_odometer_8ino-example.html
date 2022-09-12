@@ -72,8 +72,9 @@ $(function() {
 <div class="line">const unsigned long pulsesPerMeter = 400;</div>
 <div class="line"> </div>
 <div class="line">ArduinoRuntime arduinoRuntime;</div>
-<div class="line">DirectionlessOdometer odometer(</div>
-<div class="line">    arduinoRuntime, odometerPin, []() { odometer.update(); }, pulsesPerMeter);</div>
+<div class="line">DirectionlessOdometer odometer{</div>
+<div class="line">    arduinoRuntime, odometerPin, []() { odometer.update(); }, pulsesPerMeter</div>
+<div class="line">};</div>
 <div class="line"> </div>
 <div class="line">void setup()</div>
 <div class="line">{</div>

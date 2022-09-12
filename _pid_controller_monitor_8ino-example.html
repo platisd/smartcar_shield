@@ -84,16 +84,14 @@ $(function() {
 <div class="line"> </div>
 <div class="line">const auto pulsesPerMeter = 600;</div>
 <div class="line"> </div>
-<div class="line">DirectionlessOdometer leftOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::leftOdometerPin,</div>
-<div class="line">    []() { leftOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
-<div class="line">DirectionlessOdometer rightOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::rightOdometerPin,</div>
-<div class="line">    []() { rightOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
+<div class="line">DirectionlessOdometer leftOdometer{ arduinoRuntime,</div>
+<div class="line">                                    smartcarlib::pins::v2::leftOdometerPin,</div>
+<div class="line">                                    []() { leftOdometer.update(); },</div>
+<div class="line">                                    pulsesPerMeter };</div>
+<div class="line">DirectionlessOdometer rightOdometer{ arduinoRuntime,</div>
+<div class="line">                                     smartcarlib::pins::v2::rightOdometerPin,</div>
+<div class="line">                                     []() { rightOdometer.update(); },</div>
+<div class="line">                                     pulsesPerMeter };</div>
 <div class="line"> </div>
 <div class="line">DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);</div>
 <div class="line"> </div>
@@ -110,10 +108,10 @@ $(function() {
 <div class="line">    car.update();</div>
 <div class="line">    if (millis() &gt; previousPrintOut + PRINTOUT_INTERVAL)</div>
 <div class="line">    {</div>
-<div class="line">        Serial.print(carSpeed); // print the controllers set point (the speed set to the car, i.e.</div>
-<div class="line">                                // during setup())</div>
-<div class="line">        Serial.print(&quot;,&quot;); // print a comma, in order to be easily parsed by the Serial Plotter or</div>
-<div class="line">                           // other program</div>
+<div class="line">        Serial.print(carSpeed); // print the controllers set point (the speed set to the car,</div>
+<div class="line">                                // i.e. during setup())</div>
+<div class="line">        Serial.print(&quot;,&quot;);      // print a comma, in order to be easily parsed by the Serial Plotter</div>
+<div class="line">                                // or other program</div>
 <div class="line">        Serial.println(car.getSpeed()); // get the average speed of the two odometers</div>
 <div class="line">        previousPrintOut = millis();    // update the previous print out moment</div>
 <div class="line">    }</div>

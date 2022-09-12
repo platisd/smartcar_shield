@@ -80,38 +80,23 @@ $(function() {
 <div class="line"> </div>
 <div class="line">const auto pulsesPerMeter = 600;</div>
 <div class="line"> </div>
-<div class="line">DirectionlessOdometer leftOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::leftOdometerPin,</div>
-<div class="line">    []() { leftOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
-<div class="line">DirectionlessOdometer rightOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::rightOdometerPin,</div>
-<div class="line">    []() { rightOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
+<div class="line">DirectionlessOdometer leftOdometer{ arduinoRuntime,</div>
+<div class="line">                                    smartcarlib::pins::v2::leftOdometerPin,</div>
+<div class="line">                                    []() { leftOdometer.update(); },</div>
+<div class="line">                                    pulsesPerMeter };</div>
+<div class="line">DirectionlessOdometer rightOdometer{ arduinoRuntime,</div>
+<div class="line">                                     smartcarlib::pins::v2::rightOdometerPin,</div>
+<div class="line">                                     []() { rightOdometer.update(); },</div>
+<div class="line">                                     pulsesPerMeter };</div>
 <div class="line"> </div>
 <div class="line">DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);</div>
-<div class="line"> </div>
-<div class="line">void setup()</div>
-<div class="line">{</div>
-<div class="line">    Serial.begin(9600);</div>
-<div class="line"> </div>
-<div class="line">    car.enableCruiseControl(); // using default PID values</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">void loop()</div>
-<div class="line">{</div>
-<div class="line">    car.update();</div>
-<div class="line">    handleInput();</div>
-<div class="line">}</div>
 <div class="line"> </div>
 <div class="line">void handleInput()</div>
 <div class="line">{ // handle serial input if there is any</div>
 <div class="line">    if (Serial.available())</div>
 <div class="line">    {</div>
-<div class="line">        char input = Serial.read(); // read everything that has been received so far and log down</div>
-<div class="line">                                    // the last entry</div>
+<div class="line">        char input = Serial.read(); // read everything that has been received so far and log</div>
+<div class="line">                                    // down the last entry</div>
 <div class="line">        switch (input)</div>
 <div class="line">        {</div>
 <div class="line">        case &#39;l&#39;: // rotate counter-clockwise going forward</div>
@@ -135,6 +120,19 @@ $(function() {
 <div class="line">            car.setAngle(0);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void setup()</div>
+<div class="line">{</div>
+<div class="line">    Serial.begin(9600);</div>
+<div class="line"> </div>
+<div class="line">    car.enableCruiseControl(); // using default PID values</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void loop()</div>
+<div class="line">{</div>
+<div class="line">    car.update();</div>
+<div class="line">    handleInput();</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

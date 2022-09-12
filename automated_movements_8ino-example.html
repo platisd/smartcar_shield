@@ -81,41 +81,16 @@ $(function() {
 <div class="line"> </div>
 <div class="line">const auto pulsesPerMeter = 600;</div>
 <div class="line"> </div>
-<div class="line">DirectionlessOdometer leftOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::leftOdometerPin,</div>
-<div class="line">    []() { leftOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
-<div class="line">DirectionlessOdometer rightOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::rightOdometerPin,</div>
-<div class="line">    []() { rightOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
+<div class="line">DirectionlessOdometer leftOdometer{ arduinoRuntime,</div>
+<div class="line">                                    smartcarlib::pins::v2::leftOdometerPin,</div>
+<div class="line">                                    []() { leftOdometer.update(); },</div>
+<div class="line">                                    pulsesPerMeter };</div>
+<div class="line">DirectionlessOdometer rightOdometer{ arduinoRuntime,</div>
+<div class="line">                                     smartcarlib::pins::v2::rightOdometerPin,</div>
+<div class="line">                                     []() { rightOdometer.update(); },</div>
+<div class="line">                                     pulsesPerMeter };</div>
 <div class="line"> </div>
 <div class="line">SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);</div>
-<div class="line"> </div>
-<div class="line">void setup()</div>
-<div class="line">{</div>
-<div class="line">    car.enableCruiseControl();</div>
-<div class="line"> </div>
-<div class="line">    // Travel around an imaginary square</div>
-<div class="line">    go(distanceToTravel, carSpeed);</div>
-<div class="line">    rotate(degreesToTurn, carSpeed);</div>
-<div class="line"> </div>
-<div class="line">    go(distanceToTravel, carSpeed);</div>
-<div class="line">    rotate(degreesToTurn, carSpeed);</div>
-<div class="line"> </div>
-<div class="line">    go(distanceToTravel, carSpeed);</div>
-<div class="line">    rotate(degreesToTurn, carSpeed);</div>
-<div class="line"> </div>
-<div class="line">    go(distanceToTravel, carSpeed);</div>
-<div class="line">    rotate(degreesToTurn, carSpeed);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">void loop()</div>
-<div class="line">{</div>
-<div class="line">    // put your main code here, to run repeatedly:</div>
-<div class="line">}</div>
 <div class="line"> </div>
 <div class="line">/**</div>
 <div class="line">   Rotate the car at the specified degrees with the certain speed</div>
@@ -151,20 +126,21 @@ $(function() {
 <div class="line">        if (degrees &lt; 0 &amp;&amp; currentHeading &gt; initialHeading)</div>
 <div class="line">        {</div>
 <div class="line">            // If we are turning left and the current heading is larger than the</div>
-<div class="line">            // initial one (e.g. started at 10 degrees and now we are at 350), we need to substract</div>
-<div class="line">            // 360 so to eventually get a signed displacement from the initial heading (-20)</div>
+<div class="line">            // initial one (e.g. started at 10 degrees and now we are at 350), we need to</div>
+<div class="line">            // substract 360 so to eventually get a signed displacement from the initial heading</div>
+<div class="line">            // (-20)</div>
 <div class="line">            currentHeading -= 360;</div>
 <div class="line">        }</div>
 <div class="line">        else if (degrees &gt; 0 &amp;&amp; currentHeading &lt; initialHeading)</div>
 <div class="line">        {</div>
 <div class="line">            // If we are turning right and the heading is smaller than the</div>
-<div class="line">            // initial one (e.g. started at 350 degrees and now we are at 20), so to get a signed</div>
-<div class="line">            // displacement (+30)</div>
+<div class="line">            // initial one (e.g. started at 350 degrees and now we are at 20), so to get a</div>
+<div class="line">            // signed displacement (+30)</div>
 <div class="line">            currentHeading += 360;</div>
 <div class="line">        }</div>
 <div class="line">        // Degrees turned so far is initial heading minus current (initial heading</div>
-<div class="line">        // is at least 0 and at most 360. To handle the &quot;edge&quot; cases we substracted or added 360 to</div>
-<div class="line">        // currentHeading)</div>
+<div class="line">        // is at least 0 and at most 360. To handle the &quot;edge&quot; cases we substracted or added 360</div>
+<div class="line">        // to currentHeading)</div>
 <div class="line">        int degreesTurnedSoFar  = initialHeading - currentHeading;</div>
 <div class="line">        hasReachedTargetDegrees = smartcarlib::utils::getAbsolute(degreesTurnedSoFar)</div>
 <div class="line">                                  &gt;= smartcarlib::utils::getAbsolute(degrees);</div>
@@ -203,6 +179,29 @@ $(function() {
 <div class="line">            = travelledDistance &gt;= smartcarlib::utils::getAbsolute(centimeters);</div>
 <div class="line">    }</div>
 <div class="line">    car.setSpeed(0);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void setup()</div>
+<div class="line">{</div>
+<div class="line">    car.enableCruiseControl();</div>
+<div class="line"> </div>
+<div class="line">    // Travel around an imaginary square</div>
+<div class="line">    go(distanceToTravel, carSpeed);</div>
+<div class="line">    rotate(degreesToTurn, carSpeed);</div>
+<div class="line"> </div>
+<div class="line">    go(distanceToTravel, carSpeed);</div>
+<div class="line">    rotate(degreesToTurn, carSpeed);</div>
+<div class="line"> </div>
+<div class="line">    go(distanceToTravel, carSpeed);</div>
+<div class="line">    rotate(degreesToTurn, carSpeed);</div>
+<div class="line"> </div>
+<div class="line">    go(distanceToTravel, carSpeed);</div>
+<div class="line">    rotate(degreesToTurn, carSpeed);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void loop()</div>
+<div class="line">{</div>
+<div class="line">    // put your main code here, to run repeatedly:</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

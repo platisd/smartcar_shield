@@ -69,7 +69,7 @@ $(function() {
 <div class="fragment"><div class="line">#include &lt;Smartcar.h&gt;</div>
 <div class="line"> </div>
 <div class="line">const int SERVO_PIN = 8;</div>
-<div class="line">const int ESC_PIN = 9;</div>
+<div class="line">const int ESC_PIN   = 9;</div>
 <div class="line"> </div>
 <div class="line">ServoMotor steering(SERVO_PIN);</div>
 <div class="line">ServoMotor throttling(ESC_PIN);</div>
@@ -77,26 +77,33 @@ $(function() {
 <div class="line"> </div>
 <div class="line">SimpleCar car(control);</div>
 <div class="line"> </div>
-<div class="line">void setup() {</div>
-<div class="line">  Serial.begin(9600);</div>
-<div class="line">  Serial.setTimeout(100);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">void loop() {</div>
-<div class="line">  handleInput();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">void handleInput() { // Handle serial input if there is any</div>
-<div class="line">  if (Serial.available()) {</div>
-<div class="line">    String input = Serial.readStringUntil(&#39;\n&#39;);</div>
-<div class="line">    if (input.startsWith(&quot;m&quot;)) {</div>
-<div class="line">      int throttle = input.substring(1).toInt();</div>
-<div class="line">      car.setSpeed(throttle);</div>
-<div class="line">    } else if (input.startsWith(&quot;t&quot;)) {</div>
-<div class="line">      int deg = input.substring(1).toInt();</div>
-<div class="line">      car.setAngle(deg);</div>
+<div class="line">void handleInput()</div>
+<div class="line">{ // Handle serial input if there is any</div>
+<div class="line">    if (Serial.available())</div>
+<div class="line">    {</div>
+<div class="line">        String input = Serial.readStringUntil(&#39;\n&#39;);</div>
+<div class="line">        if (input.startsWith(&quot;m&quot;))</div>
+<div class="line">        {</div>
+<div class="line">            int throttle = input.substring(1).toInt();</div>
+<div class="line">            car.setSpeed(throttle);</div>
+<div class="line">        }</div>
+<div class="line">        else if (input.startsWith(&quot;t&quot;))</div>
+<div class="line">        {</div>
+<div class="line">            int deg = input.substring(1).toInt();</div>
+<div class="line">            car.setAngle(deg);</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void setup()</div>
+<div class="line">{</div>
+<div class="line">    Serial.begin(9600);</div>
+<div class="line">    Serial.setTimeout(100);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void loop()</div>
+<div class="line">{</div>
+<div class="line">    handleInput();</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

@@ -80,16 +80,6 @@ $(function() {
 <div class="line"> </div>
 <div class="line">HeadingCar car(control, gyroscope);</div>
 <div class="line"> </div>
-<div class="line">void setup()</div>
-<div class="line">{</div>
-<div class="line">    delay(1000);</div>
-<div class="line">    rotateOnSpot(90, carSpeed); // rotate clockwise 90 degrees on spot</div>
-<div class="line">    delay(1000);</div>
-<div class="line">    rotateOnSpot(-90, carSpeed); // rotate counter clockwise 90 degrees on spot</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">void loop() {}</div>
-<div class="line"> </div>
 <div class="line">/**</div>
 <div class="line">   Rotate the car on spot at the specified degrees with the certain speed</div>
 <div class="line">   @param degrees   The degrees to rotate on spot. Positive values for clockwise</div>
@@ -141,6 +131,16 @@ $(function() {
 <div class="line">    }</div>
 <div class="line">    car.setSpeed(0); // we have reached the target, so stop the car</div>
 <div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void setup()</div>
+<div class="line">{</div>
+<div class="line">    delay(1000);</div>
+<div class="line">    rotateOnSpot(90, carSpeed); // rotate clockwise 90 degrees on spot</div>
+<div class="line">    delay(1000);</div>
+<div class="line">    rotateOnSpot(-90, carSpeed); // rotate counter clockwise 90 degrees on spot</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">void loop() {}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

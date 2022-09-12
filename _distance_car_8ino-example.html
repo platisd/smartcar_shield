@@ -75,16 +75,14 @@ $(function() {
 <div class="line"> </div>
 <div class="line">const auto pulsesPerMeter = 600;</div>
 <div class="line"> </div>
-<div class="line">DirectionlessOdometer leftOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::leftOdometerPin,</div>
-<div class="line">    []() { leftOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
-<div class="line">DirectionlessOdometer rightOdometer(</div>
-<div class="line">    arduinoRuntime,</div>
-<div class="line">    smartcarlib::pins::v2::rightOdometerPin,</div>
-<div class="line">    []() { rightOdometer.update(); },</div>
-<div class="line">    pulsesPerMeter);</div>
+<div class="line">DirectionlessOdometer leftOdometer{ arduinoRuntime,</div>
+<div class="line">                                    smartcarlib::pins::v2::leftOdometerPin,</div>
+<div class="line">                                    []() { leftOdometer.update(); },</div>
+<div class="line">                                    pulsesPerMeter };</div>
+<div class="line">DirectionlessOdometer rightOdometer{ arduinoRuntime,</div>
+<div class="line">                                     smartcarlib::pins::v2::rightOdometerPin,</div>
+<div class="line">                                     []() { rightOdometer.update(); },</div>
+<div class="line">                                     pulsesPerMeter };</div>
 <div class="line"> </div>
 <div class="line">DistanceCar car(arduinoRuntime, control, leftOdometer, rightOdometer);</div>
 <div class="line"> </div>
