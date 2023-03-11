@@ -15,6 +15,7 @@
 #include "control/differential/DifferentialControl.hpp"
 #include "motor/analog/pwm/BrushedMotor.hpp"
 #include "motor/digital/servo/ServoMotor.hpp"
+#include "motor/dual/DualMotor.hpp"
 #include "runtime/arduino_runtime/ArduinoRuntime.hpp"
 #include "sensors/distance/infrared/analog/sharp/GP2D120.hpp"
 #include "sensors/distance/infrared/analog/sharp/GP2Y0A02.hpp"

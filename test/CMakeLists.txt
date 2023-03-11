@@ -155,7 +155,7 @@ target_include_directories(gy50_test PUBLIC
 )
 configure_test(gy50_test)
 
-# BrushlessMotor test
+# BrushedMotor test
 add_executable(brushedmotor_test
     ${SMARTCAR_LIB}/motor/analog/pwm/BrushedMotor.cpp
     ${UNIT_TESTS}/BrushedMotor_test.cpp
@@ -164,6 +164,17 @@ target_include_directories(brushedmotor_test PUBLIC
     ${SMARTCAR_LIB}/motor/analog/pwm/
 )
 configure_test(brushedmotor_test)
+
+# DualMotor test
+add_executable(dualmotor_test
+    ${SMARTCAR_LIB}/motor/dual/DualMotor.cpp
+    ${UNIT_TESTS}/DualMotor_test.cpp
+)
+target_include_directories(dualmotor_test PUBLIC
+    ${SMARTCAR_LIB}/motor/dual
+    ${SMARTCAR_LIB}/motor
+)
+configure_test(dualmotor_test)
 
 # ServoMotor test
 add_executable(servomotor_test
