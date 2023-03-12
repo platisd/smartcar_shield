@@ -1,5 +1,6 @@
 <map id="Motor" name="Motor">
-<area shape="rect" id="node1" title=" " alt="" coords="99,5,205,97"/>
+<area shape="rect" id="node1" title=" " alt="" coords="172,5,279,97"/>
 <area shape="rect" id="node2" href="$class_brushed_motor.html" title=" " alt="" coords="5,145,144,252"/>
-<area shape="rect" id="node3" href="$class_servo_motor.html" title=" " alt="" coords="168,153,291,245"/>
+<area shape="rect" id="node3" href="$class_dual_motor.html" title=" " alt="" coords="168,153,283,245"/>
+<area shape="rect" id="node4" href="$class_servo_motor.html" title=" " alt="" coords="307,153,429,245"/>
 </map>

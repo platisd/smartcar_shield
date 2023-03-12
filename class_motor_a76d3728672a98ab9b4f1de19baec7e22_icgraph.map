@@ -1,7 +1,8 @@
 <map id="Motor::setSpeed" name="Motor::setSpeed">
-<area shape="rect" id="node1" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="256,107,384,134"/>
+<area shape="rect" id="node1" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="256,137,384,163"/>
 <area shape="rect" id="node2" href="$class_ackerman_control.html#a5b5cc9c5958e68cb7e371c4623a10517" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="9,5,205,47"/>
 <area shape="rect" id="node3" href="$class_differential_control.html#a8269d8146779a9cd0d5ea3b01676e4ff" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="25,71,188,112"/>
 <area shape="rect" id="node4" href="$class_ackerman_control.html#a077ddd008527819c908742c3409c1cc1" title="Sets the driving angle in degrees [&#45;90, 90]." alt="" coords="7,137,206,163"/>
-<area shape="rect" id="node5" href="$class_ackerman_control.html#ac06358a5ef896a5408c2f8c8599973f8" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="5,187,208,214"/>
+<area shape="rect" id="node5" href="$class_dual_motor.html#afc0a50504f99a413df7451bcda5d0159" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="27,187,186,214"/>
+<area shape="rect" id="node6" href="$class_ackerman_control.html#ac06358a5ef896a5408c2f8c8599973f8" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="5,238,208,265"/>
 </map>

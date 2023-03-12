@@ -1,6 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_motor.html" title=" " alt="" coords="5,5,65,32"/>
+<area shape="rect" id="node1" href="$class_motor.html" title=" " alt="" coords="5,56,65,83"/>
 <area shape="rect" id="node2" href="$class_brushed_motor.html" title=" " alt="" coords="113,5,227,32"/>
-<area shape="rect" id="node3" href="$class_servo_motor.html" title=" " alt="" coords="121,56,219,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="6,56,65,83"/>
+<area shape="rect" id="node3" href="$class_dual_motor.html" title=" " alt="" coords="125,56,215,83"/>
+<area shape="rect" id="node4" href="$class_servo_motor.html" title=" " alt="" coords="121,107,219,133"/>
+<area shape="rect" id="node5" title=" " alt="" coords="6,107,65,133"/>
 </map>

@@ -19,5 +19,8 @@ var searchData=
   ['distancecar_2ecpp_35',['DistanceCar.cpp',['../_distance_car_8cpp.html',1,'']]],
   ['distancecar_2ehpp_36',['DistanceCar.hpp',['../_distance_car_8hpp.html',1,'']]],
   ['distancesensor_37',['DistanceSensor',['../class_distance_sensor.html',1,'']]],
-  ['distancesensor_2ehpp_38',['DistanceSensor.hpp',['../_distance_sensor_8hpp.html',1,'']]]
+  ['distancesensor_2ehpp_38',['DistanceSensor.hpp',['../_distance_sensor_8hpp.html',1,'']]],
+  ['dualmotor_39',['DualMotor',['../class_dual_motor.html',1,'DualMotor'],['../class_dual_motor.html#a5141a6f372ebe48c1f8543ee839946d8',1,'DualMotor::DualMotor()']]],
+  ['dualmotor_2ecpp_40',['DualMotor.cpp',['../_dual_motor_8cpp.html',1,'']]],
+  ['dualmotor_2ehpp_41',['DualMotor.hpp',['../_dual_motor_8hpp.html',1,'']]]
 ];
