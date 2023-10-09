@@ -101,10 +101,6 @@ void DistanceCar::brake()
         {
             break;
         }
-        else
-        
-            static_cast<void>(distanceTravelled);
-        
     }
     SimpleCar::setSpeed(static_cast<float>(kIdleControlSpeed));
     // Reset the speed controller variables since we have manually set the speed
