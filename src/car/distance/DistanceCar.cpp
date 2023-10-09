@@ -102,7 +102,7 @@ void DistanceCar::brake()
             break;
         }
         else
-        {
+        
             static_cast<void>(distanceTravelled);
         }
     }
