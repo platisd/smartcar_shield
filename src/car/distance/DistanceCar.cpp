@@ -113,6 +113,7 @@ void DistanceCar::update()
 {
     if (!areOdometersAttached() || !mCruiseControlEnabled)
     {
+        static_cast<void>(mCruiseControlEnabled);
         return;
     }
 
