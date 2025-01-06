@@ -17,13 +17,14 @@ public:
      *
      * **Example:**
      * \code
-     * const int GYROSCOPE_OFFSET = 37;
      *
      * BrushedMotor leftMotor(smartcarlib::pins::v2::leftMotorPins);
      * BrushedMotor rightMotor(smartcarlib::pins::v2::rightMotorPins);
      * DifferentialControl control(leftMotor, rightMotor);
      *
-     * GY50 gyroscope(GYROSCOPE_OFFSET);
+     * ArduinoRuntime arduinoRuntime;
+     * const int GYROSCOPE_OFFSET = 37;
+     * GY50 gyroscope(arduinoRuntime, GYROSCOPE_OFFSET);
      * \endcode
      */
     HeadingCar(Control& control, HeadingSensor& headingSensor);
