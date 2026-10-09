@@ -12,7 +12,7 @@ if [ "$arg" = "--fix" ] || [ "$arg" = "-fix" ]; then
     fix_errors="-fix"
 fi
 
-eval run-clang-tidy-8 \
+eval run-clang-tidy-18 \
     -p=${script_dir}/test/build \
     -j$(nproc) \
     -header-filter=src/* \
