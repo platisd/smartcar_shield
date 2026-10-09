@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build-examples:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         board:
