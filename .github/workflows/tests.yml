@@ -29,7 +29,7 @@ jobs:
         run: bash test/build_and_run_ut.sh
       - name: Run static analysis (cppcheck)
         run: |
-          cppcheck --std=c++11 --enable=performance,portability,information,missingInclude --quiet --error-exitcode=1 src/
+          cppcheck --std=c++11 --enable=performance,portability,information,missingInclude,missingIncludeSystem --quiet --error-exitcode=1 src/
       - name: Run clang-tidy
         if: matrix.compiler.cc == 'clang-18'
         run: |
