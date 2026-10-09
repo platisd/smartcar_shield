@@ -25,7 +25,7 @@ jobs:
             url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install PySerial (needed for ESP32 compilation)
         run: pip3 install pyserial
       - name: Compile library examples
