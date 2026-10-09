@@ -10,8 +10,7 @@ jobs:
     name: Sonarqube
     runs-on: ubuntu-24.04
     env:
-      SONAR_SCANNER_VERSION: 4.6.1.2450 # Find the latest version in the "Linux" link on this page:
-                                        # https://sonarcloud.io/documentation/analysis/scan/sonarscanner/
+      SONAR_SCANNER_VERSION: 7.2
       SONAR_SERVER_URL: "https://sonarcloud.io"
     steps:
       - uses: actions/checkout@v4
