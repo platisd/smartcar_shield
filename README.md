@@ -9,14 +9,20 @@
 
 A versatile and easy to use vehicle platform for hobby-grade projects
 
-- [Description](#description)
-- [Hardware](#hardware)
-- [Software](#software)
-- [Reference platforms](#reference-platforms)
-- [How to get started](#how-to-get-started)
-- [Dependencies](#dependencies)
-- [Project documentation](#project-documentation)
-- [License](#license)
+* [Description](#description)
+* [Hardware](#hardware)
+  * [Platform](#platform)
+  * [Shield](#shield)
+  * [Emulator](#emulator)
+* [Software](#software)
+* [Reference platforms](#reference-platforms)
+  * [Smartcar platform (default setup)](#smartcar-platform-default-setup)
+  * [Smartcar shield](#smartcar-shield-1)
+  * [Supported sensors](#supported-sensors)
+* [How to get started](#how-to-get-started)
+* [Dependencies](#dependencies)
+* [Project documentation](#project-documentation)
+* [License](#license)
 
 ## Description
 This repository, includes everything necessary to set up a Smartcar platform.
@@ -175,8 +181,7 @@ All dependencies should be downloaded automatically by the Arduino IDE's library
 
 - [Wire library](http://arduino.cc/en/reference/Wire)
 - [Servo library](https://www.arduino.cc/en/reference/servo)
-- [ServoESP32](https://github.com/RoboticsBrno/ServoESP32)
-- [ESP32 AnalogWrite](https://github.com/ERROPiX/ESP32_AnalogWrite)
+- [ESP32Servo](https://github.com/madhephaestus/ESP32Servo)
 
 ## Project documentation
 * [API Documentation](https://platisd.github.io/smartcar_shield/)

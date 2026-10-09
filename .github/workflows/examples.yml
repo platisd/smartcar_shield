@@ -23,7 +23,7 @@ jobs:
           - platform: esp32:esp32
             name: esp32doit-devkit-v1
             url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
-            version: 2.0.17
+            version: 3.3.12
           - platform: esp8266:esp8266
             name: d1_mini
             url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
@@ -43,7 +43,8 @@ jobs:
           fqbn: ${{ matrix.board.platform }}:${{ matrix.board.name }}
           libraries: |
             - name: Servo
-            - name: ServoESP32
-            - name: ESP32 AnalogWrite
+              version: 1.3.0
+            - name: ESP32Servo
+              version: 3.2.1
             - name: Smartcar shield
               source-path: "."

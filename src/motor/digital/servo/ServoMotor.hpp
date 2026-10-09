@@ -8,7 +8,11 @@
  */
 #pragma once
 
+#if defined(ESP32)
+#include <ESP32Servo.h>
+#else
 #include <Servo.h>
+#endif
 #include <stdint.h> // NOLINT(modernize-deprecated-headers)
 
 #include "../../Motor.hpp"
