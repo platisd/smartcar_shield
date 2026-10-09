@@ -11,29 +11,35 @@ jobs:
           - platform: arduino:avr
             name: uno
             url: http://downloads.arduino.cc/packages/package_index.json
+            version: 1.8.8
           - platform: arduino:avr
             name: mega
             url: http://downloads.arduino.cc/packages/package_index.json
+            version: 1.8.8
           - platform: arduino:avr
             name: leonardo
             url: http://downloads.arduino.cc/packages/package_index.json
+            version: 1.8.8
           - platform: esp32:esp32
             name: esp32doit-devkit-v1
-            url: https://dl.espressif.com/dl/package_esp32_index.json
+            url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
+            version: 2.0.17
           - platform: esp8266:esp8266
             name: d1_mini
             url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+            version: 3.1.2
 
     steps:
       - uses: actions/checkout@v4
       - name: Install PySerial (needed for ESP32 compilation)
         run: pip3 install pyserial
       - name: Compile library examples
-        uses: arduino/compile-sketches@main
+        uses: arduino/compile-sketches@v1.1.3
         with:
           platforms: |
             - name: ${{ matrix.board.platform }}
               source-url: ${{ matrix.board.url }}
+              version: ${{ matrix.board.version }}
           fqbn: ${{ matrix.board.platform }}:${{ matrix.board.name }}
           libraries: |
             - name: Servo
