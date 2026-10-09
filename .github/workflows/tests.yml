@@ -47,7 +47,7 @@ jobs:
           clang_tidy_fixes: clang-tidy-fixes.yaml
           request_changes: true
       - name: Get coverage report (only for GCC)
-        if: matrix.compiler.cc == 'gcc-10'
+        if: matrix.compiler.cc == 'gcc-12'
         run: |
           bash run_coverage.sh
           bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"
