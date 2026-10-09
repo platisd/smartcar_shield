@@ -10,7 +10,7 @@ jobs:
     name: Sonarqube
     runs-on: ubuntu-24.04
     env:
-      SONAR_SCANNER_VERSION: 7.2
+      SONAR_SCANNER_VERSION: 7.2.0.5079
       SONAR_SERVER_URL: "https://sonarcloud.io"
     steps:
       - uses: actions/checkout@v4
