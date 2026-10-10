@@ -197,12 +197,12 @@ void DistanceCar::enableCruiseControl(float proportional,
     mFrequency            = frequency;
 }
 
-bool DistanceCar::areOdometersAttached()
+bool DistanceCar::areOdometersAttached() const
 {
     return mOdometerLeft.isAttached() && mOdometerRight.isAttached();
 }
 
-bool DistanceCar::areOdometersDirectional()
+bool DistanceCar::areOdometersDirectional() const
 {
     return mOdometerLeft.providesDirection() && mOdometerRight.providesDirection();
 }

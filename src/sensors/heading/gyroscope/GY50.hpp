@@ -76,9 +76,9 @@ private:
     const int kOffset;
     const unsigned long kSamplingInterval;
     Runtime& mRuntime;
-    unsigned long mPreviousSample;
-    bool mAttached;
-    float mAngularDisplacement;
+    unsigned long mPreviousSample{ 0 };
+    bool mAttached{ false };
+    float mAngularDisplacement{ 0 };
 
     void attach();
     int getAngularVelocity();

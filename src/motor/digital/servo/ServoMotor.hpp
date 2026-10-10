@@ -46,10 +46,11 @@ public:
      * ServoMotor esc(ESC_PIN);
      * \endcode
      */
-    ServoMotor(uint8_t controlPin,
-               int minPulseLength  = smartcarlib::constants::servomotor::kDefaultMinPulseLength,
-               int idlePulseLength = smartcarlib::constants::servomotor::kDefaultIdlePulseLength,
-               int maxPulseLength  = smartcarlib::constants::servomotor::kDefaultMaxPulseLength);
+    explicit ServoMotor(
+        uint8_t controlPin,
+        int minPulseLength  = smartcarlib::constants::servomotor::kDefaultMinPulseLength,
+        int idlePulseLength = smartcarlib::constants::servomotor::kDefaultIdlePulseLength,
+        int maxPulseLength  = smartcarlib::constants::servomotor::kDefaultMaxPulseLength);
 
     /* Check `Motor` interface for documentation */
     void setSpeed(int speed) override;
@@ -59,5 +60,5 @@ private:
     const int kMinPulseLength;
     const int kIdlePulseLength;
     const int kMaxPulseLength;
-    bool mAttached;
+    bool mAttached{ false };
 };

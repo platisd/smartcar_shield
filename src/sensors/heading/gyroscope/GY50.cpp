@@ -21,10 +21,7 @@ using namespace smartcarlib::constants::gy50;
 GY50::GY50(Runtime& runtime, int offset, unsigned long samplingInterval)
     : kOffset{ offset }
     , kSamplingInterval{ samplingInterval }
-    , mRuntime(runtime)
-    , mPreviousSample{ 0 }
-    , mAttached{ false }
-    , mAngularDisplacement{ 0 }
+    , mRuntime{ runtime }
 {
 }
 

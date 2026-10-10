@@ -155,8 +155,8 @@ public:
 private:
     uint8_t mAddress;
     Runtime& mRuntime;
-    unsigned long mPingDelay;
-    bool mAttached;
+    unsigned long mPingDelay{ smartcarlib::constants::srf08::kDefaultPingDelay };
+    bool mAttached{ false };
 
     void attach();
     void measureDistance();
