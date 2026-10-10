@@ -1,7 +1,11 @@
 <map id="InfraredAnalogSensor" name="InfraredAnalogSensor">
-<area shape="rect" id="node1" title=" " alt="" coords="124,160,311,252"/>
-<area shape="rect" id="node3" href="$class_g_p2_d120.html" title=" " alt="" coords="5,300,131,392"/>
-<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title=" " alt="" coords="155,300,280,392"/>
-<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title=" " alt="" coords="304,300,429,392"/>
-<area shape="rect" id="node2" href="$class_distance_sensor.html" title=" " alt="" coords="131,5,304,112"/>
+<area shape="rect" id="Node000001" title="An abstract class to represent the various infrared analog sensors." alt="" coords="116,159,295,244"/>
+<area shape="rect" id="Node000003" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor." alt="" coords="5,292,123,377"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,255,111,294,107,290,149,251"/>
+<area shape="rect" id="Node000004" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor." alt="" coords="147,292,264,377"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,258,208,292,203,292,203,258"/>
+<area shape="rect" id="Node000005" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor." alt="" coords="288,292,405,377"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="262,251,304,290,300,294,258,255"/>
+<area shape="rect" id="Node000002" href="$class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements." alt="" coords="123,5,288,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,124,208,159,203,159,203,124"/>
 </map>

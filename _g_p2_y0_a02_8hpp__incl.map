@@ -1,9 +1,18 @@
 <map id="src/sensors/distance/infrared/analog/sharp/GP2Y0A02.hpp" name="src/sensors/distance/infrared/analog/sharp/GP2Y0A02.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="155,5,320,61"/>
-<area shape="rect" id="node2" href="$_runtime_8hpp.html" title=" " alt="" coords="119,184,252,225"/>
-<area shape="rect" id="node6" href="$_infrared_analog_sensor_8hpp.html" title=" " alt="" coords="206,109,407,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,273,80,300"/>
-<area shape="rect" id="node4" title=" " alt="" coords="291,273,362,300"/>
-<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="104,273,267,300"/>
-<area shape="rect" id="node7" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="335,191,510,218"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="155,5,320,60"/>
+<area shape="rect" id="Node000002" href="$_runtime_8hpp.html" title=" " alt="" coords="119,181,252,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,61,207,84,196,109,190,139,187,168,182,167,184,138,191,107,202,81,216,59"/>
+<area shape="rect" id="Node000006" href="$_infrared_analog_sensor_8hpp.html" title=" " alt="" coords="206,108,407,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="261,58,291,95,286,99,256,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,269,80,295"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,224,77,265,74,260,150,219"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="291,269,362,295"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="220,219,295,260,292,265,218,224"/>
+<area shape="rect" id="Node000005" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="104,269,267,295"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="188,222,188,255,183,255,183,222"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="290,136,227,176,225,172,287,131"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="311,133,326,255,321,256,305,134"/>
+<area shape="rect" id="Node000007" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="335,189,510,214"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="325,131,396,179,393,183,322,136"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="410,216,353,263,350,259,407,212"/>
 </map>

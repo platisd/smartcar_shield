@@ -1,5 +1,7 @@
 <map id="SimpleCar::overrideMotorSpeed" name="SimpleCar::overrideMotorSpeed">
-<area shape="rect" id="node1" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="5,35,195,76"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="281,5,413,47"/>
-<area shape="rect" id="node3" href="$class_control.html#a3dfa45882f96d57c5fd97c784ea41578" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="243,71,452,98"/>
+<area shape="rect" id="Node000001" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="5,35,195,75"/>
+<area shape="rect" id="Node000002" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="281,5,413,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,41,267,32,268,37,195,46"/>
+<area shape="rect" id="Node000003" href="$class_control.html#a3dfa45882f96d57c5fd97c784ea41578" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="243,70,452,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,63,229,67,229,72,195,68"/>
 </map>

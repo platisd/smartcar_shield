@@ -1,6 +1,9 @@
 <map id="Motor" name="Motor">
-<area shape="rect" id="node1" title=" " alt="" coords="172,5,279,97"/>
-<area shape="rect" id="node2" href="$class_brushed_motor.html" title=" " alt="" coords="5,145,144,252"/>
-<area shape="rect" id="node3" href="$class_dual_motor.html" title=" " alt="" coords="168,153,283,245"/>
-<area shape="rect" id="node4" href="$class_servo_motor.html" title=" " alt="" coords="307,153,429,245"/>
+<area shape="rect" id="Node000001" title="Interface programmatically representing any kind of motor." alt="" coords="163,5,262,91"/>
+<area shape="rect" id="Node000002" href="$class_brushed_motor.html" title="A brushed motor is controlled via two wires where the flow of current determines the direction of rot..." alt="" coords="5,139,135,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,102,124,140,120,136,159,99"/>
+<area shape="rect" id="Node000003" href="$class_dual_motor.html" title="A set of two motors that should always spin in the same way while being controlled by different pins." alt="" coords="159,149,266,234"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,104,215,148,210,148,210,104"/>
+<area shape="rect" id="Node000004" href="$class_servo_motor.html" title="A motor that is controlled via the length of pulses that are sent to it through a single signal line." alt="" coords="291,149,404,234"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="264,99,309,147,306,150,260,103"/>
 </map>

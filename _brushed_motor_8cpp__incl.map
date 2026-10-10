@@ -1,10 +1,18 @@
 <map id="src/motor/analog/pwm/BrushedMotor.cpp" name="src/motor/analog/pwm/BrushedMotor.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="147,5,315,47"/>
-<area shape="rect" id="node2" href="$_brushed_motor_8hpp.html" title=" " alt="" coords="88,102,228,129"/>
-<area shape="rect" id="node8" href="$_utilities_8hpp.html" title=" " alt="" coords="253,95,359,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,259,76,285"/>
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title=" " alt="" coords="60,184,256,211"/>
-<area shape="rect" id="node7" href="$_motor_8hpp.html" title=" " alt="" coords="280,184,391,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="110,259,185,285"/>
-<area shape="rect" id="node6" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="209,259,371,285"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="147,5,315,45"/>
+<area shape="rect" id="Node000002" href="$_brushed_motor_8hpp.html" title=" " alt="" coords="88,101,228,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,47,179,91,175,88,213,44"/>
+<area shape="rect" id="Node000008" href="$_utilities_8hpp.html" title=" " alt="" coords="253,93,359,133"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="250,44,282,81,278,85,246,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,255,76,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,128,83,149,65,164,50,183,40,212,40,241,34,241,35,211,45,180,61,161,80,145,122,124"/>
+<area shape="rect" id="Node000004" href="$_runtime_8hpp.html" title=" " alt="" coords="60,181,256,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="161,126,161,167,155,167,155,126"/>
+<area shape="rect" id="Node000007" href="$_motor_8hpp.html" title=" " alt="" coords="280,181,391,207"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="185,124,298,173,296,178,183,128"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="141,209,73,250,70,245,138,204"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="110,255,185,280"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="159,207,154,242,148,241,154,207"/>
+<area shape="rect" id="Node000006" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="209,255,371,280"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="180,204,258,246,255,250,178,209"/>
 </map>

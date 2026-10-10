@@ -1,4 +1,5 @@
 <map id="DirectionlessOdometer::getDistance" name="DirectionlessOdometer::getDistance">
-<area shape="rect" id="node1" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="212,5,384,47"/>
-<area shape="rect" id="node2" href="$class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="5,5,164,47"/>
+<area shape="rect" id="Node000001" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="212,5,384,45"/>
+<area shape="rect" id="Node000002" href="$class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,28,164,28,164,23,198,23"/>
 </map>

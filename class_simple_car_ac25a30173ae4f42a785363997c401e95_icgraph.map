@@ -1,4 +1,5 @@
 <map id="SimpleCar::overrideMotorSpeed" name="SimpleCar::overrideMotorSpeed">
-<area shape="rect" id="node1" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="255,5,444,47"/>
-<area shape="rect" id="node2" href="$class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732" title="Sets the motor speed individually as a percentage of the motors` total power unless cruise control is..." alt="" coords="5,5,207,47"/>
+<area shape="rect" id="Node000001" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="255,5,444,45"/>
+<area shape="rect" id="Node000002" href="$class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732" title="Sets the motor speed individually as a percentage of the motors` total power unless cruise control is..." alt="" coords="5,5,207,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,28,207,28,207,23,241,23"/>
 </map>

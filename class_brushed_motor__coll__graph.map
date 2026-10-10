@@ -1,4 +1,5 @@
 <map id="BrushedMotor" name="BrushedMotor">
-<area shape="rect" id="node1" title=" " alt="" coords="5,145,144,252"/>
-<area shape="rect" id="node2" href="$class_motor.html" title=" " alt="" coords="21,5,128,97"/>
+<area shape="rect" id="Node000001" title="A brushed motor is controlled via two wires where the flow of current determines the direction of rot..." alt="" coords="5,139,135,244"/>
+<area shape="rect" id="Node000002" href="$class_motor.html" title="Interface programmatically representing any kind of motor." alt="" coords="21,5,119,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,104,73,138,67,138,67,104"/>
 </map>

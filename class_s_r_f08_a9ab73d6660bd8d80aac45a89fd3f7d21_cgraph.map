@@ -1,12 +1,21 @@
 <map id="SRF08::getMedianDistance" name="SRF08::getMedianDistance">
-<area shape="rect" id="node1" title="Gets the median distance from the specified number of measurements." alt="" coords="5,132,203,159"/>
-<area shape="rect" id="node2" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="251,81,407,108"/>
-<area shape="rect" id="node3" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor in centimeters." alt="" coords="254,132,403,159"/>
-<area shape="rect" id="node10" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="263,183,395,225"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino." alt="" coords="486,5,650,32"/>
-<area shape="rect" id="node5" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="455,56,681,83"/>
-<area shape="rect" id="node6" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="461,107,675,133"/>
-<area shape="rect" id="node7" href="$class_runtime.html#a8fbc45763b87f3469a6d76c12c1834bb" title="Reads a byte from I2C bus, equivalent of Wire.read in Arduino." alt="" coords="499,157,637,184"/>
-<area shape="rect" id="node8" href="$class_runtime.html#ad29af260f2b283f2c461cf89e9b90a44" title="Request a number of bytes from the specified I2C slave, equivalent of Wire.requestFrom in Arduino." alt="" coords="473,208,663,235"/>
-<area shape="rect" id="node9" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino." alt="" coords="499,259,637,285"/>
+<area shape="rect" id="Node000001" title="Gets the median distance from the specified number of measurements." alt="" coords="5,129,203,155"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="251,80,407,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,127,256,106,257,111,163,132"/>
+<area shape="rect" id="Node000003" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor in centimeters." alt="" coords="254,129,403,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,139,240,139,240,145,203,145"/>
+<area shape="rect" id="Node000010" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="263,179,395,219"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="155,152,250,177,249,182,154,157"/>
+<area shape="rect" id="Node000004" href="$class_runtime.html#a8e114eac5d553743b3a5ce1ccc429f17" title="Gets the number of bytes available to be retrieved, equivalent of Wire.availableO in Arduino." alt="" coords="486,5,650,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,127,405,115,420,97,428,78,436,58,453,40,472,30,474,34,456,44,440,61,433,80,425,99,408,119,386,132"/>
+<area shape="rect" id="Node000005" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="455,55,681,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="372,127,406,114,429,101,454,89,479,81,480,86,456,94,432,106,408,119,374,132"/>
+<area shape="rect" id="Node000006" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="461,104,675,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="403,131,447,127,448,132,404,137"/>
+<area shape="rect" id="Node000007" href="$class_runtime.html#a8fbc45763b87f3469a6d76c12c1834bb" title="Reads a byte from I2C bus, equivalent of Wire.read in Arduino." alt="" coords="499,153,637,179"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="404,147,486,155,485,160,403,152"/>
+<area shape="rect" id="Node000008" href="$class_runtime.html#ad29af260f2b283f2c461cf89e9b90a44" title="Request a number of bytes from the specified I2C slave, equivalent of Wire.requestFrom in Arduino." alt="" coords="473,203,663,228"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="373,152,408,165,456,188,487,197,485,202,454,192,406,170,371,157"/>
+<area shape="rect" id="Node000009" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino." alt="" coords="499,252,637,277"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="386,152,408,165,425,184,433,204,440,222,456,239,487,253,485,258,453,243,436,225,428,206,420,187,405,169,383,157"/>
 </map>

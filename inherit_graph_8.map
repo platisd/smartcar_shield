@@ -1,4 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_runtime.html" title=" " alt="" coords="5,5,83,32"/>
-<area shape="rect" id="node2" href="$class_arduino_runtime.html" title=" " alt="" coords="131,5,257,32"/>
+<area shape="rect" id="Node000000" href="$class_odometer.html" title="An interface to programmatically represent all odometers." alt="" coords="5,5,92,31"/>
+<area shape="rect" id="Node000001" href="$class_directionless_odometer.html" title="A class to represent the common &#45; directionless &#45; Odometers (speed encoders) that can be used to prim..." alt="" coords="140,5,312,31"/>
+<area shape="poly" id="edge19_Node000000_Node000001" title=" " alt="" coords="106,15,140,15,140,21,106,21"/>
+<area shape="rect" id="Node000002" href="$class_directional_odometer.html" title="A class to represent directional Odometers." alt="" coords="360,5,519,31"/>
+<area shape="poly" id="edge20_Node000001_Node000002" title=" " alt="" coords="326,15,360,15,360,21,326,21"/>
 </map>

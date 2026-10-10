@@ -1,9 +1,15 @@
 <map id="Runtime::i2cBeginTransmission" name="Runtime::i2cBeginTransmission">
-<area shape="rect" id="node1" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="476,107,703,133"/>
-<area shape="rect" id="node2" href="$class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor." alt="" coords="254,5,425,32"/>
-<area shape="rect" id="node3" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor in centimeters." alt="" coords="265,56,414,83"/>
-<area shape="rect" id="node5" href="$class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor." alt="" coords="251,107,428,133"/>
-<area shape="rect" id="node6" href="$class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="279,157,400,184"/>
-<area shape="rect" id="node7" href="$class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="273,208,405,235"/>
-<area shape="rect" id="node4" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements." alt="" coords="5,56,203,83"/>
+<area shape="rect" id="Node000001" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="476,104,703,129"/>
+<area shape="rect" id="Node000002" href="$class_s_r_f08.html#ab5d0ccd285a4013b5b0ee0e7ffa8e441" title="Changes the address of the specific SRF08 sensor." alt="" coords="254,5,425,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="551,100,493,72,427,45,392,33,394,28,429,39,495,67,553,95"/>
+<area shape="rect" id="Node000003" href="$class_s_r_f08.html#aaff420958b791fe5261f33eeab89f7f7" title="Gets the distance measured by the sensor in centimeters." alt="" coords="265,55,414,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="510,104,404,83,405,77,512,99"/>
+<area shape="rect" id="Node000005" href="$class_s_r_f08.html#ab8f62dc8e4789bd21cd3a68253b33410" title="Conducts a measurement from the on&#45;board light sensor." alt="" coords="251,104,428,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="462,119,428,119,428,114,462,114"/>
+<area shape="rect" id="Node000006" href="$class_s_r_f08.html#ac02024ad486ef18868493afa8836c2a4" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="279,153,400,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="511,135,401,157,400,151,510,129"/>
+<area shape="rect" id="Node000007" href="$class_s_r_f08.html#a6fd79b5bea36d69b0eaa673683beac28" title="Combined with the gain setting affects how much time each measurement will last as well as the maximu..." alt="" coords="273,203,405,228"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="552,138,495,165,429,193,390,205,388,200,427,187,492,160,550,133"/>
+<area shape="rect" id="Node000004" href="$class_s_r_f08.html#a9ab73d6660bd8d80aac45a89fd3f7d21" title="Gets the median distance from the specified number of measurements." alt="" coords="5,55,203,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="251,70,203,70,203,65,251,65"/>
 </map>

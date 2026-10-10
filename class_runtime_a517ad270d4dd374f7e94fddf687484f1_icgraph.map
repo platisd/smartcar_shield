@@ -1,0 +1,5 @@
+<map id="Runtime::pinToInterrupt" name="Runtime::pinToInterrupt">
+<area shape="rect" id="Node000001" title="Gets the interrupt number of the specified pin, equivalent of digitalPinToInterrupt in Arduino." alt="" coords="233,13,408,38"/>
+<area shape="rect" id="Node000002" href="$class_directionless_odometer.html#a2ac9b53e96a2a366c0c26d91dbfa5dd7" title="Constructs an odometer that can measure distance, speed but not direction." alt="" coords="5,5,185,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,28,185,28,185,23,220,23"/>
+</map>

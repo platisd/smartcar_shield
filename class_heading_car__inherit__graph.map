@@ -1,6 +1,9 @@
 <map id="HeadingCar" name="HeadingCar">
-<area shape="rect" id="node1" title=" " alt="" coords="33,344,156,451"/>
-<area shape="rect" id="node4" href="$class_smart_car.html" title=" " alt="" coords="5,499,184,635"/>
-<area shape="rect" id="node2" href="$class_simple_car.html" title=" " alt="" coords="5,175,184,296"/>
-<area shape="rect" id="node3" href="$class_car.html" title=" " alt="" coords="5,5,184,127"/>
+<area shape="rect" id="Node000001" title="A class to programmatically represent a vehicle equipped with a heading sensor." alt="" coords="33,352,148,457"/>
+<area shape="rect" id="Node000004" href="$class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor." alt="" coords="5,505,176,651"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="93,471,93,505,88,505,88,471"/>
+<area shape="rect" id="Node000002" href="$class_simple_car.html" title="A class to programmatically represent a very basic vehicle with two motors." alt="" coords="5,179,176,304"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,318,93,352,88,352,88,318"/>
+<area shape="rect" id="Node000003" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle." alt="" coords="5,5,176,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,145,93,178,88,178,88,145"/>
 </map>

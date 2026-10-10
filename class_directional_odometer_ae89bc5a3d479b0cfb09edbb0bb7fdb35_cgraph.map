@@ -1,5 +1,7 @@
 <map id="DirectionalOdometer::getSpeed" name="DirectionalOdometer::getSpeed">
-<area shape="rect" id="node1" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="5,39,164,80"/>
-<area shape="rect" id="node2" href="$class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952" title="Get the direction of movement." alt="" coords="219,5,377,47"/>
-<area shape="rect" id="node3" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="212,71,384,112"/>
+<area shape="rect" id="Node000001" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000002" href="$class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952" title="Get the direction of movement." alt="" coords="219,5,377,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,43,205,37,205,42,165,48"/>
+<area shape="rect" id="Node000003" href="$class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="212,69,384,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,67,199,72,198,77,164,72"/>
 </map>

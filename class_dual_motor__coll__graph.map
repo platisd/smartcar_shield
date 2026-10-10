@@ -1,4 +1,5 @@
 <map id="DualMotor" name="DualMotor">
-<area shape="rect" id="node1" title=" " alt="" coords="5,145,120,237"/>
-<area shape="rect" id="node2" href="$class_motor.html" title=" " alt="" coords="9,5,116,97"/>
+<area shape="rect" id="Node000001" title="A set of two motors that should always spin in the same way while being controlled by different pins." alt="" coords="5,139,112,224"/>
+<area shape="rect" id="Node000002" href="$class_motor.html" title="Interface programmatically representing any kind of motor." alt="" coords="9,5,108,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,104,61,138,56,138,56,104"/>
 </map>

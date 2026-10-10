@@ -1,6 +1,9 @@
 <map id="src/runtime/Runtime.hpp" name="src/runtime/Runtime.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="49,5,231,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,80,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,80,175,107"/>
-<area shape="rect" id="node4" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="200,80,363,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,231,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,33,71,72,68,68,123,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,175,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,31,143,65,137,65,137,31"/>
+<area shape="rect" id="Node000004" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="200,79,363,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,28,247,70,245,75,162,33"/>
 </map>

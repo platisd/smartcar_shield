@@ -1,7 +1,11 @@
 <map id="src/runtime/arduino_runtime/ArduinoRuntime.hpp" name="src/runtime/arduino_runtime/ArduinoRuntime.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="31,5,249,47"/>
-<area shape="rect" id="node2" href="$_runtime_8hpp.html" title=" " alt="" coords="81,95,199,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,80,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,169,175,196"/>
-<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="200,169,363,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="31,5,249,45"/>
+<area shape="rect" id="Node000002" href="$_runtime_8hpp.html" title=" " alt="" coords="81,93,199,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,46,143,79,137,79,137,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,80,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,121,71,160,68,156,123,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,167,175,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="143,119,143,153,137,153,137,119"/>
+<area shape="rect" id="Node000005" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="200,167,363,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="164,116,247,158,245,163,162,121"/>
 </map>

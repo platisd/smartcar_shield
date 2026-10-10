@@ -1,7 +1,12 @@
 <map id="src/car/distance/DistanceCar.hpp" name="src/car/distance/DistanceCar.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="221,5,407,47"/>
-<area shape="rect" id="node2" href="$_distance_car_8cpp.html" title=" " alt="" coords="5,95,191,136"/>
-<area shape="rect" id="node3" href="$_smart_car_8hpp.html" title=" " alt="" coords="215,102,413,129"/>
-<area shape="rect" id="node5" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="393,184,507,211"/>
-<area shape="rect" id="node4" href="$_smart_car_8cpp.html" title=" " alt="" coords="169,184,368,211"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="24,5,209,45"/>
+<area shape="rect" id="Node000002" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="11,181,126,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,54,32,72,14,95,8,113,14,132,32,159,54,179,50,183,27,163,9,134,3,113,9,92,28,68,53,50"/>
+<area shape="rect" id="Node000003" href="$_distance_car_8cpp.html" title=" " alt="" coords="24,93,209,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,59,119,93,114,93,114,59"/>
+<area shape="rect" id="Node000004" href="$_smart_car_8hpp.html" title=" " alt="" coords="233,101,432,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,48,305,98,303,103,176,53"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="282,132,108,184,106,179,280,127"/>
+<area shape="rect" id="Node000005" href="$_smart_car_8cpp.html" title=" " alt="" coords="233,181,432,207"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="335,140,335,181,330,181,330,140"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="Control" name="Control">
-<area shape="rect" id="node1" title=" " alt="" coords="107,5,285,127"/>
-<area shape="rect" id="node2" href="$class_ackerman_control.html" title=" " alt="" coords="5,175,184,296"/>
-<area shape="rect" id="node3" href="$class_differential_control.html" title=" " alt="" coords="208,175,387,296"/>
+<area shape="rect" id="Node000001" title="Interface to generalize all classes that can provide a way to control a Car." alt="" coords="103,5,273,131"/>
+<area shape="rect" id="Node000002" href="$class_ackerman_control.html" title="Class to represent controling a vehicle by changing the angle of the front wheels,..." alt="" coords="5,179,176,304"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,144,128,180,123,177,144,141"/>
+<area shape="rect" id="Node000003" href="$class_differential_control.html" title="Class to represent controling a vehicle by applying different speed on each side, like a tank." alt="" coords="200,179,371,304"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,141,253,177,248,180,228,144"/>
 </map>

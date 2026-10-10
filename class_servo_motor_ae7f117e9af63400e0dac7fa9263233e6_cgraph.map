@@ -1,5 +1,7 @@
 <map id="ServoMotor::setSpeed" name="ServoMotor::setSpeed">
-<area shape="rect" id="node1" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,46,171,73"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="219,5,351,47"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e" title="Maps a value from a range to another." alt="" coords="219,71,351,112"/>
+<area shape="rect" id="Node000001" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,45,171,70"/>
+<area shape="rect" id="Node000002" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="219,5,351,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,42,204,36,205,41,167,47"/>
+<area shape="rect" id="Node000003" href="$namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e" title="Maps a value from a range to another." alt="" coords="219,69,351,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,67,205,74,204,79,166,73"/>
 </map>

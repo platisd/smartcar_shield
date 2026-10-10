@@ -1,5 +1,7 @@
 <map id="src/motor/dual/DualMotor.hpp" name="src/motor/dual/DualMotor.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,220,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="23,80,93,107"/>
-<area shape="rect" id="node3" href="$_motor_8hpp.html" title=" " alt="" coords="118,80,217,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,220,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="23,79,93,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,33,77,69,73,66,102,29"/>
+<area shape="rect" id="Node000003" href="$_motor_8hpp.html" title=" " alt="" coords="118,79,217,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,29,152,66,148,69,120,33"/>
 </map>

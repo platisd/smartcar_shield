@@ -1,5 +1,7 @@
 <map id="ServoMotor" name="ServoMotor">
-<area shape="rect" id="node1" title=" " alt="" coords="27,145,149,237"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,13,64,90"/>
-<area shape="rect" id="node3" href="$class_motor.html" title=" " alt="" coords="88,5,195,97"/>
+<area shape="rect" id="Node000001" title="A motor that is controlled via the length of pulses that are sent to it through a single signal line." alt="" coords="23,139,137,224"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,15,56,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,93,67,137,62,139,45,95"/>
+<area shape="rect" id="Node000003" href="$class_motor.html" title="Interface programmatically representing any kind of motor." alt="" coords="80,5,179,91"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,104,98,139,93,138,107,102"/>
 </map>

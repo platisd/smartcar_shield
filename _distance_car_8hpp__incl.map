@@ -1,11 +1,21 @@
 <map id="src/car/distance/DistanceCar.hpp" name="src/car/distance/DistanceCar.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="234,5,419,47"/>
-<area shape="rect" id="node2" href="$_runtime_8hpp.html" title=" " alt="" coords="37,102,221,129"/>
-<area shape="rect" id="node6" href="$_odometer_8hpp.html" title=" " alt="" coords="245,95,408,136"/>
-<area shape="rect" id="node7" href="$_simple_car_8hpp.html" title=" " alt="" coords="432,102,608,129"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,184,80,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="291,184,362,211"/>
-<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="104,184,267,211"/>
-<area shape="rect" id="node8" href="$_control_8hpp.html" title=" " alt="" coords="539,184,709,211"/>
-<area shape="rect" id="node9" href="$_car_8hpp.html" title=" " alt="" coords="432,184,515,211"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="234,5,419,45"/>
+<area shape="rect" id="Node000002" href="$_runtime_8hpp.html" title=" " alt="" coords="37,101,221,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="284,48,169,98,167,93,282,43"/>
+<area shape="rect" id="Node000006" href="$_odometer_8hpp.html" title=" " alt="" coords="245,93,408,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="329,46,329,79,324,79,324,46"/>
+<area shape="rect" id="Node000007" href="$_simple_car_8hpp.html" title=" " alt="" coords="432,101,608,126"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="370,43,483,93,481,98,368,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,181,80,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,128,68,174,64,170,115,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="291,181,362,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="159,124,286,174,284,179,157,128"/>
+<area shape="rect" id="Node000005" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="104,181,267,207"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="140,125,171,169,167,172,135,128"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="329,134,329,167,324,167,324,134"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="294,136,220,177,217,172,292,131"/>
+<area shape="rect" id="Node000008" href="$_control_8hpp.html" title=" " alt="" coords="539,181,709,207"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="537,124,599,171,596,175,534,128"/>
+<area shape="rect" id="Node000009" href="$_car_8hpp.html" title=" " alt="" coords="432,181,515,207"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="515,128,490,171,485,168,511,125"/>
 </map>

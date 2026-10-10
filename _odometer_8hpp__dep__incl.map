@@ -1,12 +1,24 @@
 <map id="src/sensors/odometer/Odometer.hpp" name="src/sensors/odometer/Odometer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="406,5,569,47"/>
-<area shape="rect" id="node2" href="$_distance_car_8hpp.html" title=" " alt="" coords="271,95,456,136"/>
-<area shape="rect" id="node7" href="$_directionless_odometer_8hpp.html" title=" " alt="" coords="505,95,768,136"/>
-<area shape="rect" id="node3" href="$_distance_car_8cpp.html" title=" " alt="" coords="5,184,191,225"/>
-<area shape="rect" id="node4" href="$_smart_car_8hpp.html" title=" " alt="" coords="215,191,413,218"/>
-<area shape="rect" id="node6" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="418,281,533,307"/>
-<area shape="rect" id="node5" href="$_smart_car_8cpp.html" title=" " alt="" coords="195,281,393,307"/>
-<area shape="rect" id="node8" href="$_directional_odometer_8hpp.html" title=" " alt="" coords="537,184,787,225"/>
-<area shape="rect" id="node10" href="$_directionless_odometer_8cpp.html" title=" " alt="" coords="811,184,1073,225"/>
-<area shape="rect" id="node9" href="$_directional_odometer_8cpp.html" title=" " alt="" coords="557,273,805,315"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="410,5,573,45"/>
+<area shape="rect" id="Node000002" href="$_distance_car_8hpp.html" title=" " alt="" coords="275,93,460,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,55,396,95,393,91,451,51"/>
+<area shape="rect" id="Node000007" href="$_directionless_odometer_8hpp.html" title=" " alt="" coords="508,93,771,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="537,50,608,91,606,96,535,55"/>
+<area shape="rect" id="Node000003" href="$_smartcar_8h.html" title="The entrypoint for the Smartcar library The entrypoint for the Smartcar platform on boards that are c..." alt="" coords="397,277,511,302"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="399,142,427,180,446,232,455,276,450,277,441,234,422,183,395,145"/>
+<area shape="rect" id="Node000004" href="$_distance_car_8cpp.html" title=" " alt="" coords="228,181,413,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="353,147,333,182,329,180,348,144"/>
+<area shape="rect" id="Node000005" href="$_smart_car_8hpp.html" title=" " alt="" coords="5,189,204,214"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="297,140,140,191,139,186,296,135"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="165,215,408,274,407,279,164,220"/>
+<area shape="rect" id="Node000006" href="$_smart_car_8cpp.html" title=" " alt="" coords="5,277,204,302"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="107,228,107,276,102,276,102,228"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="588,142,558,161,529,183,507,207,488,234,462,278,457,275,484,231,503,204,526,179,554,156,585,138"/>
+<area shape="rect" id="Node000008" href="$_directional_odometer_8hpp.html" title=" " alt="" coords="539,181,788,221"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="651,146,661,180,655,182,646,147"/>
+<area shape="rect" id="Node000010" href="$_directionless_odometer_8cpp.html" title=" " alt="" coords="812,181,1075,221"/>
+<area shape="poly" id="edge12_Node000007_Node000010" title=" " alt="" coords="720,135,877,179,876,184,719,140"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="606,229,483,279,481,274,604,224"/>
+<area shape="rect" id="Node000009" href="$_directional_odometer_8cpp.html" title=" " alt="" coords="539,269,787,309"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="666,235,666,269,661,269,661,235"/>
 </map>

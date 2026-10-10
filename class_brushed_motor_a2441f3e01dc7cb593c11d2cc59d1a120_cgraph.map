@@ -1,8 +1,13 @@
 <map id="BrushedMotor::setSpeed" name="BrushedMotor::setSpeed">
-<area shape="rect" id="node1" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,143,187,170"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6" title="Gets the absolute of the supplied number." alt="" coords="248,5,380,47"/>
-<area shape="rect" id="node3" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="248,71,380,112"/>
-<area shape="rect" id="node4" href="$namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e" title="Maps a value from a range to another." alt="" coords="248,136,380,177"/>
-<area shape="rect" id="node5" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino." alt="" coords="235,202,393,229"/>
-<area shape="rect" id="node6" href="$class_runtime.html#a87b1a3ff2e9a2e594b279dc084835f73" title="Set PWM state, equivalent of analogWrite in Arduino." alt="" coords="245,253,383,279"/>
+<area shape="rect" id="Node000001" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,141,187,166"/>
+<area shape="rect" id="Node000002" href="$namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6" title="Gets the absolute of the supplied number." alt="" coords="248,5,380,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,138,164,99,233,55,245,49,248,54,236,60,167,103,115,143"/>
+<area shape="rect" id="Node000003" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="248,69,380,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,138,234,110,235,115,141,143"/>
+<area shape="rect" id="Node000004" href="$namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e" title="Maps a value from a range to another." alt="" coords="248,133,380,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,151,234,151,234,156,187,156"/>
+<area shape="rect" id="Node000005" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino." alt="" coords="235,198,393,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="146,163,253,192,251,197,144,169"/>
+<area shape="rect" id="Node000006" href="$class_runtime.html#a87b1a3ff2e9a2e594b279dc084835f73" title="Set PWM state, equivalent of analogWrite in Arduino." alt="" coords="245,247,383,273"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="117,164,169,197,236,232,256,240,254,245,234,237,167,202,114,168"/>
 </map>

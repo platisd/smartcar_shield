@@ -1,5 +1,7 @@
 <map id="AckermanControl::overrideMotorSpeed" name="AckermanControl::overrideMotorSpeed">
-<area shape="rect" id="node1" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="5,35,201,76"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="249,5,381,47"/>
-<area shape="rect" id="node3" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="251,71,379,98"/>
+<area shape="rect" id="Node000001" title="Set the motor speed individually as a percentage of the motors` total power." alt="" coords="5,35,201,75"/>
+<area shape="rect" id="Node000002" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="249,5,381,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,38,235,34,236,39,202,44"/>
+<area shape="rect" id="Node000003" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="251,70,379,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,65,238,70,237,75,201,70"/>
 </map>

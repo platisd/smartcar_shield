@@ -1,4 +1,5 @@
 <map id="InfraredAnalogSensor" name="InfraredAnalogSensor">
-<area shape="rect" id="node1" title=" " alt="" coords="5,160,192,252"/>
-<area shape="rect" id="node2" href="$class_distance_sensor.html" title=" " alt="" coords="12,5,185,112"/>
+<area shape="rect" id="Node000001" title="An abstract class to represent the various infrared analog sensors." alt="" coords="5,159,184,244"/>
+<area shape="rect" id="Node000002" href="$class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements." alt="" coords="12,5,177,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,124,97,159,92,159,92,124"/>
 </map>

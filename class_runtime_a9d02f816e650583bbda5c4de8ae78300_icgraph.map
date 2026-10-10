@@ -1,0 +1,7 @@
+<map id="Runtime::getInputState" name="Runtime::getInputState">
+<area shape="rect" id="Node000001" title="Get the runtime&#45;specific value representing an INPUT pin state." alt="" coords="233,45,407,70"/>
+<area shape="rect" id="Node000002" href="$class_directional_odometer.html#ad166b08cd0c6d28fe9270641944e4aa2" title="Constructs an odometer that can measure distance, speed and direction." alt="" coords="12,5,179,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,46,179,40,179,35,220,40"/>
+<area shape="rect" id="Node000003" href="$class_directionless_odometer.html#a2ac9b53e96a2a366c0c26d91dbfa5dd7" title="Constructs an odometer that can measure distance, speed but not direction." alt="" coords="5,69,185,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,74,186,79,185,74,219,69"/>
+</map>

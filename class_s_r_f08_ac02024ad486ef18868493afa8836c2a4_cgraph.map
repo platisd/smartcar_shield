@@ -1,7 +1,11 @@
 <map id="SRF08::setGain" name="SRF08::setGain">
-<area shape="rect" id="node1" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="5,97,127,123"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="222,5,354,47"/>
-<area shape="rect" id="node3" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="175,71,401,98"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="181,122,395,149"/>
-<area shape="rect" id="node5" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino." alt="" coords="219,173,357,199"/>
+<area shape="rect" id="Node000001" title="Combined with the range setting affects how much time each measurement will last as well as the maxim..." alt="" coords="5,95,127,121"/>
+<area shape="rect" id="Node000002" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="222,5,354,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,93,174,55,208,43,210,48,176,60,93,98"/>
+<area shape="rect" id="Node000003" href="$class_runtime.html#a6e973d5f7f5d5b407730bbce7c750a0e" title="Initiate a transmission to the specified I2C slave device, equivalent of Wire.beginTransmission in Ar..." alt="" coords="175,70,401,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,98,163,94,164,100,127,104"/>
+<area shape="rect" id="Node000004" href="$class_runtime.html#a77d79d4d46e173fea91cf63c2659bd10" title="Ends a transmission to an I2C device equivalent of Wire.endTransmission in Arduino." alt="" coords="181,119,395,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="127,112,168,116,167,122,126,117"/>
+<area shape="rect" id="Node000005" href="$class_runtime.html#a37f9bee80fbc9ef6e8efd54a35b26a89" title="Send the specified byte via i2c, equivalent of Wire.write in Arduino." alt="" coords="219,169,357,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="93,118,176,153,208,163,206,168,174,159,91,123"/>
 </map>

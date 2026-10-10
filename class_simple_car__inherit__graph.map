@@ -1,7 +1,12 @@
 <map id="SimpleCar" name="SimpleCar">
-<area shape="rect" id="node1" title=" " alt="" coords="95,175,274,296"/>
-<area shape="rect" id="node3" href="$class_distance_car.html" title=" " alt="" coords="5,344,188,539"/>
-<area shape="rect" id="node5" href="$class_heading_car.html" title=" " alt="" coords="213,388,335,495"/>
-<area shape="rect" id="node2" href="$class_car.html" title=" " alt="" coords="95,5,274,127"/>
-<area shape="rect" id="node4" href="$class_smart_car.html" title=" " alt="" coords="95,587,274,723"/>
+<area shape="rect" id="Node000001" title="A class to programmatically represent a very basic vehicle with two motors." alt="" coords="91,179,261,304"/>
+<area shape="rect" id="Node000003" href="$class_distance_car.html" title="A class to programmatically represent a vehicle equipped with odometers." alt="" coords="5,352,179,577"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,318,137,353,132,351,145,316"/>
+<area shape="rect" id="Node000005" href="$class_heading_car.html" title="A class to programmatically represent a vehicle equipped with a heading sensor." alt="" coords="203,412,317,517"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="207,316,243,411,238,413,202,318"/>
+<area shape="rect" id="Node000002" href="$class_car.html" title="An interface to programmatically represent any kind of vehicle." alt="" coords="91,5,261,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,145,179,178,173,178,173,145"/>
+<area shape="rect" id="Node000004" href="$class_smart_car.html" title="A class to programmatically represent a vehicle equipped with odometers and a heading sensor." alt="" coords="91,625,261,771"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="140,590,152,624,147,626,135,591"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="239,531,205,626,200,624,234,530"/>
 </map>

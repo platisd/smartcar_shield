@@ -1,4 +1,5 @@
 <map id="GP2D120::getDistance" name="GP2D120::getDistance">
-<area shape="rect" id="node1" title="Gets the distance measured by the sensor in centimeters." alt="" coords="5,5,173,32"/>
-<area shape="rect" id="node2" href="$class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd" title="Get pin&#39;s analog (ADC) reading, equivalent of analogRead in Arduino." alt="" coords="221,5,427,32"/>
+<area shape="rect" id="Node000001" title="Gets the distance measured by the sensor in centimeters." alt="" coords="5,5,173,31"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#a31e12aaac34dff9c34cc2413f7092fbd" title="Get pin&#39;s analog (ADC) reading, equivalent of analogRead in Arduino." alt="" coords="221,5,427,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,15,208,15,208,21,174,21"/>
 </map>

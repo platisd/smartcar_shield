@@ -1,0 +1,15 @@
+<map id="SmartCar::setSpeed" name="SmartCar::setSpeed">
+<area shape="rect" id="Node000001" title="Sets the car&#39;s speed in meters per second if cruise control is enabled otherwise as a percentage of t..." alt="" coords="5,55,156,80"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#af21e924617474f9800989b4732a4d9b0" title="Gets the amount of milliseconds since the microcontroller started running, equivalent of millis in Ar..." alt="" coords="204,5,403,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,52,232,31,233,36,139,57"/>
+<area shape="rect" id="Node000003" href="$class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823" title="Gets the car&#39;s current speed in meters per second." alt="" coords="218,55,389,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,65,204,65,204,70,156,70"/>
+<area shape="rect" id="Node000005" href="$class_simple_car.html#a473b4974dc653cff0948fa06ef588b3d" title="Sets the car&#39;s driving speed as a percentage of the motors total speed where the sign indicates direc..." alt="" coords="225,108,382,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="135,78,237,102,236,107,134,83"/>
+<area shape="rect" id="Node000004" href="$class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="451,51,607,76"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="389,63,437,62,437,68,389,68"/>
+<area shape="rect" id="Node000006" href="$namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c" title="Limit the number between a range." alt="" coords="463,101,595,141"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="383,118,449,118,449,123,383,123"/>
+<area shape="rect" id="Node000007" href="$class_control.html#a945cbe5226b663e09e058f7851202f72" title="Sets the driving speed as percentage of the total motor speed where the sign represents the direction..." alt="" coords="460,165,597,191"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="355,131,466,159,464,165,353,136"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="DirectionalOdometer::DirectionalOdometer" name="DirectionalOdometer::DirectionalOdometer">
+<area shape="rect" id="Node000001" title="Constructs an odometer that can measure distance, speed and direction." alt="" coords="5,23,172,63"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#a9d02f816e650583bbda5c4de8ae78300" title="Get the runtime&#45;specific value representing an INPUT pin state." alt="" coords="225,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,31,211,27,212,32,172,37"/>
+<area shape="rect" id="Node000003" href="$class_runtime.html#a8327df291b0bc05c7d6be45bbeae17e0" title="Set pin direction, equivalent of pinMode in Arduino." alt="" coords="220,55,404,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,50,207,53,206,59,172,55"/>
+</map>

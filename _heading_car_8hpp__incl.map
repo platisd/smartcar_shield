@@ -1,7 +1,11 @@
 <map id="src/car/heading/HeadingCar.hpp" name="src/car/heading/HeadingCar.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="61,5,289,32"/>
-<area shape="rect" id="node2" href="$_heading_sensor_8hpp.html" title=" " alt="" coords="5,80,157,121"/>
-<area shape="rect" id="node3" href="$_simple_car_8hpp.html" title=" " alt="" coords="181,87,357,114"/>
-<area shape="rect" id="node4" href="$_control_8hpp.html" title=" " alt="" coords="108,169,279,196"/>
-<area shape="rect" id="node5" href="$_car_8hpp.html" title=" " alt="" coords="303,169,385,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="61,5,289,31"/>
+<area shape="rect" id="Node000002" href="$_heading_sensor_8hpp.html" title=" " alt="" coords="5,79,157,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,33,116,72,113,68,159,29"/>
+<area shape="rect" id="Node000003" href="$_simple_car_8hpp.html" title=" " alt="" coords="181,86,357,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,29,246,75,243,79,187,33"/>
+<area shape="rect" id="Node000004" href="$_control_8hpp.html" title=" " alt="" coords="108,167,279,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="260,113,216,159,212,155,256,110"/>
+<area shape="rect" id="Node000005" href="$_car_8hpp.html" title=" " alt="" coords="303,167,385,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="282,110,326,155,322,159,278,113"/>
 </map>

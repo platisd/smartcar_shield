@@ -1,4 +1,5 @@
 <map id="SRF08" name="SRF08">
-<area shape="rect" id="node1" title=" " alt="" coords="5,160,179,340"/>
-<area shape="rect" id="node2" href="$class_distance_sensor.html" title=" " alt="" coords="5,5,179,112"/>
+<area shape="rect" id="Node000001" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus." alt="" coords="5,159,171,364"/>
+<area shape="rect" id="Node000002" href="$class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements." alt="" coords="5,5,171,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,124,91,159,85,159,85,124"/>
 </map>

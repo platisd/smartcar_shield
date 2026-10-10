@@ -1,5 +1,7 @@
 <map id="Runtime::currentTimeMicros" name="Runtime::currentTimeMicros">
-<area shape="rect" id="node1" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="225,46,432,73"/>
-<area shape="rect" id="node2" href="$class_directionless_odometer.html#ad9074cbed72e0c8aac3b856877819a87" title="Conducts the distance and speed measurements." alt="" coords="5,5,177,47"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html#a026ec8089374d42d4ebf0964cb273dd2" title="Conducts the distance and speed measurements." alt="" coords="12,71,171,112"/>
+<area shape="rect" id="Node000001" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="225,45,432,70"/>
+<area shape="rect" id="Node000002" href="$class_directionless_odometer.html#ad9074cbed72e0c8aac3b856877819a87" title="Conducts the distance and speed measurements." alt="" coords="5,5,177,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,45,177,40,178,34,221,40"/>
+<area shape="rect" id="Node000003" href="$class_directional_odometer.html#a026ec8089374d42d4ebf0964cb273dd2" title="Conducts the distance and speed measurements." alt="" coords="12,69,171,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,74,171,81,171,76,220,69"/>
 </map>

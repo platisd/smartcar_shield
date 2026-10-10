@@ -1,5 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_odometer.html" title=" " alt="" coords="5,5,92,32"/>
-<area shape="rect" id="node2" href="$class_directionless_odometer.html" title=" " alt="" coords="140,5,312,32"/>
-<area shape="rect" id="node3" href="$class_directional_odometer.html" title=" " alt="" coords="360,5,519,32"/>
+<area shape="rect" id="Node000000" href="$class_motor.html" title="Interface programmatically representing any kind of motor." alt="" coords="5,55,65,80"/>
+<area shape="rect" id="Node000001" href="$class_brushed_motor.html" title="A brushed motor is controlled via two wires where the flow of current determines the direction of rot..." alt="" coords="113,5,227,31"/>
+<area shape="poly" id="edge15_Node000000_Node000001" title=" " alt="" coords="78,49,133,28,135,33,79,54"/>
+<area shape="rect" id="Node000002" href="$class_dual_motor.html" title="A set of two motors that should always spin in the same way while being controlled by different pins." alt="" coords="125,55,215,80"/>
+<area shape="poly" id="edge16_Node000000_Node000002" title=" " alt="" coords="80,65,124,65,124,70,80,70"/>
+<area shape="rect" id="Node000003" href="$class_servo_motor.html" title="A motor that is controlled via the length of pulses that are sent to it through a single signal line." alt="" coords="121,104,219,129"/>
+<area shape="poly" id="edge17_Node000000_Node000003" title=" " alt="" coords="79,80,135,101,133,106,78,85"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="6,104,65,129"/>
+<area shape="poly" id="edge18_Node000004_Node000003" title=" " alt="" coords="79,114,121,114,121,119,79,119"/>
 </map>

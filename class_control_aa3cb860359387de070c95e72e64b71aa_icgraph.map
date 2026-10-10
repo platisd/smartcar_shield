@@ -1,4 +1,5 @@
 <map id="Control::setAngle" name="Control::setAngle">
-<area shape="rect" id="node1" title="Sets the driving angle in degrees [&#45;90, 90]." alt="" coords="208,5,343,32"/>
-<area shape="rect" id="node2" href="$class_simple_car.html#a336553aff9519f52560cb49491c9a1b9" title="Set the car&#39;s driving angle." alt="" coords="5,5,160,32"/>
+<area shape="rect" id="Node000001" title="Sets the driving angle in degrees [&#45;90, 90]." alt="" coords="208,5,343,31"/>
+<area shape="rect" id="Node000002" href="$class_simple_car.html#a336553aff9519f52560cb49491c9a1b9" title="Set the car&#39;s driving angle." alt="" coords="5,5,160,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,21,161,21,161,15,194,15"/>
 </map>

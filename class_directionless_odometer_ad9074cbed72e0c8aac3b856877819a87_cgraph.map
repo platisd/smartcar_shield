@@ -1,4 +1,5 @@
 <map id="DirectionlessOdometer::update" name="DirectionlessOdometer::update">
-<area shape="rect" id="node1" title="Conducts the distance and speed measurements." alt="" coords="5,5,177,47"/>
-<area shape="rect" id="node2" href="$class_runtime.html#abd9e2469c2fc7cceac8623624b1cfdba" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="225,13,432,39"/>
+<area shape="rect" id="Node000001" title="Conducts the distance and speed measurements." alt="" coords="5,5,177,45"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#abd9e2469c2fc7cceac8623624b1cfdba" title="Gets the amount of microseconds since the microcontroller started running, equivalent of micros in Ar..." alt="" coords="225,13,432,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,23,212,23,212,28,177,28"/>
 </map>

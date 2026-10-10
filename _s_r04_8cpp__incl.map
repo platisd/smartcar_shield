@@ -1,10 +1,19 @@
 <map id="src/sensors/distance/ultrasound/ping/SR04.cpp" name="src/sensors/distance/ultrasound/ping/SR04.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="79,5,270,47"/>
-<area shape="rect" id="node2" href="$_s_r04_8hpp.html" title=" " alt="" coords="71,102,153,129"/>
-<area shape="rect" id="node8" href="$_utilities_8hpp.html" title=" " alt="" coords="178,95,297,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="77,273,147,300"/>
-<area shape="rect" id="node4" href="$_runtime_8hpp.html" title=" " alt="" coords="223,184,345,225"/>
-<area shape="rect" id="node7" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="25,191,199,218"/>
-<area shape="rect" id="node5" title=" " alt="" coords="209,273,284,300"/>
-<area shape="rect" id="node6" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="308,273,471,300"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="79,5,270,45"/>
+<area shape="rect" id="Node000002" href="$_s_r04_8hpp.html" title=" " alt="" coords="70,101,153,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,47,131,91,126,88,158,44"/>
+<area shape="rect" id="Node000008" href="$_utilities_8hpp.html" title=" " alt="" coords="178,93,296,133"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="191,44,217,81,213,84,186,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="76,269,147,295"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="82,128,44,150,27,165,14,183,8,201,14,220,36,245,65,262,62,267,33,249,10,223,3,201,9,180,23,161,41,145,79,124"/>
+<area shape="rect" id="Node000004" href="$_runtime_8hpp.html" title=" " alt="" coords="223,181,344,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="136,124,235,173,233,178,134,129"/>
+<area shape="rect" id="Node000007" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="24,189,199,214"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="114,126,114,174,109,174,109,126"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="244,224,151,266,148,261,242,219"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="209,269,284,295"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="277,223,260,258,255,256,272,220"/>
+<area shape="rect" id="Node000006" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="308,269,470,295"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="311,219,364,259,361,263,308,224"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="114,214,114,255,109,255,109,214"/>
 </map>

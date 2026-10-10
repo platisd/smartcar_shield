@@ -1,9 +1,15 @@
 <map id="SR04::getMedianDistance" name="SR04::getMedianDistance">
-<area shape="rect" id="node1" title="Gets the median distance from the specified number of measurements." alt="" coords="5,56,195,83"/>
-<area shape="rect" id="node2" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="243,5,399,32"/>
-<area shape="rect" id="node3" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor in centimeters." alt="" coords="250,56,391,83"/>
-<area shape="rect" id="node7" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="255,107,387,149"/>
-<area shape="rect" id="node4" href="$class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db" title="Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu..." alt="" coords="463,5,627,32"/>
-<area shape="rect" id="node5" href="$class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608" title="Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI..." alt="" coords="447,56,644,83"/>
-<area shape="rect" id="node6" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino." alt="" coords="466,107,625,133"/>
+<area shape="rect" id="Node000001" title="Gets the median distance from the specified number of measurements." alt="" coords="5,55,195,80"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#a6276cf9e78df9d568659af143f712091" title="Block the execution for the specified number of milliseconds, equivalent of delay in Arduino." alt="" coords="243,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,52,249,31,250,36,158,57"/>
+<area shape="rect" id="Node000003" href="$class_s_r04.html#add6b0ddf6f127972fbd34886bfad34e3" title="Gets the distance measured by the sensor in centimeters." alt="" coords="250,55,391,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,65,236,65,236,70,195,70"/>
+<area shape="rect" id="Node000007" href="$namespacesmartcarlib_1_1utils.html#ac0c97aad0f3bbf79c10be28c35137a47" title="Gets the median value out of the supplied number array." alt="" coords="255,105,387,145"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="150,77,242,102,241,107,149,83"/>
+<area shape="rect" id="Node000004" href="$class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db" title="Block the execution for the specified number of microseconds, equivalent of delayMicroseconds in Ardu..." alt="" coords="463,5,627,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="379,52,473,31,474,36,380,57"/>
+<area shape="rect" id="Node000005" href="$class_runtime.html#a8eb4d4f76de1496ffa3f0bb579ede608" title="Gets the incomming pulse length in microseconds starting from the nearest state, equivalent to pulseI..." alt="" coords="447,55,644,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="392,65,433,65,433,70,392,70"/>
+<area shape="rect" id="Node000006" href="$class_runtime.html#ab5ac143d9807ab5b62795ffccc5cb412" title="Set pin state, equivalent of digitalWrite in Arduino." alt="" coords="466,104,625,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="380,77,474,98,473,104,379,83"/>
 </map>

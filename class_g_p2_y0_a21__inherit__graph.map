@@ -1,5 +1,7 @@
 <map id="GP2Y0A21" name="GP2Y0A21">
-<area shape="rect" id="node1" title=" " alt="" coords="36,300,161,392"/>
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title=" " alt="" coords="5,160,192,252"/>
-<area shape="rect" id="node3" href="$class_distance_sensor.html" title=" " alt="" coords="12,5,185,112"/>
+<area shape="rect" id="Node000001" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor." alt="" coords="36,292,153,377"/>
+<area shape="rect" id="Node000002" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors." alt="" coords="5,159,184,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,258,97,292,92,292,92,258"/>
+<area shape="rect" id="Node000003" href="$class_distance_sensor.html" title="A parent class for all sensors that conduct distance measurements." alt="" coords="12,5,177,111"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,124,97,159,92,159,92,124"/>
 </map>

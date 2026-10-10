@@ -1,4 +1,5 @@
 <map id="smartcarlib::utils::areAlmostEqual" name="smartcarlib::utils::areAlmostEqual">
-<area shape="rect" id="node1" title="Compares two floating point numbers." alt="" coords="5,5,139,47"/>
-<area shape="rect" id="node2" href="$namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6" title="Gets the absolute of the supplied number." alt="" coords="187,5,319,47"/>
+<area shape="rect" id="Node000001" title="Compares two floating point numbers." alt="" coords="5,5,139,45"/>
+<area shape="rect" id="Node000002" href="$namespacesmartcarlib_1_1utils.html#ada7af3c356fedbee0fa591aa83231ff6" title="Gets the absolute of the supplied number." alt="" coords="187,5,319,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,23,173,23,173,28,139,28"/>
 </map>

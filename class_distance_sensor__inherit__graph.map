@@ -1,9 +1,15 @@
 <map id="DistanceSensor" name="DistanceSensor">
-<area shape="rect" id="node1" title=" " alt="" coords="335,5,508,112"/>
-<area shape="rect" id="node2" href="$class_infrared_analog_sensor.html" title=" " alt="" coords="124,204,311,296"/>
-<area shape="rect" id="node6" href="$class_s_r04.html" title=" " alt="" coords="335,197,508,303"/>
-<area shape="rect" id="node7" href="$class_s_r_f08.html" title=" " alt="" coords="532,160,705,340"/>
-<area shape="rect" id="node3" href="$class_g_p2_d120.html" title=" " alt="" coords="5,388,131,480"/>
-<area shape="rect" id="node4" href="$class_g_p2_y0_a02.html" title=" " alt="" coords="155,388,280,480"/>
-<area shape="rect" id="node5" href="$class_g_p2_y0_a21.html" title=" " alt="" coords="304,388,429,480"/>
+<area shape="rect" id="Node000001" title="A parent class for all sensors that conduct distance measurements." alt="" coords="319,5,484,111"/>
+<area shape="rect" id="Node000002" href="$class_infrared_analog_sensor.html" title="An abstract class to represent the various infrared analog sensors." alt="" coords="116,219,295,304"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="343,123,248,220,244,217,340,119"/>
+<area shape="rect" id="Node000006" href="$class_s_r04.html" title="The SR04 (aka SRF05) is an inexpensive ultrasonic sensor controllable over two digital pins." alt="" coords="319,209,484,314"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="404,124,404,208,399,208,399,124"/>
+<area shape="rect" id="Node000007" href="$class_s_r_f08.html" title="The SRF08 sensor is an ultrasonic sensor that measures distances and communicates over the I2C bus." alt="" coords="508,159,673,364"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="462,119,498,157,510,169,506,173,494,160,458,123"/>
+<area shape="rect" id="Node000003" href="$class_g_p2_d120.html" title="Programmatically represents a SHARP GP2D120 infrared sensor." alt="" coords="5,412,123,497"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,316,97,413,93,410,165,313"/>
+<area shape="rect" id="Node000004" href="$class_g_p2_y0_a02.html" title="Programmatically represents a SHARP GP2Y0A02 infrared sensor." alt="" coords="147,412,264,497"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="208,318,208,411,203,411,203,318"/>
+<area shape="rect" id="Node000005" href="$class_g_p2_y0_a21.html" title="Programmatically represents a SHARP GP2Y0A21 infrared sensor." alt="" coords="288,412,405,497"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="246,313,318,410,313,413,242,316"/>
 </map>

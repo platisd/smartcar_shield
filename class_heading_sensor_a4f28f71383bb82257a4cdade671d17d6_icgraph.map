@@ -1,5 +1,7 @@
 <map id="HeadingSensor::update" name="HeadingSensor::update">
-<area shape="rect" id="node1" title="Updates the sensor&#39;s readings." alt="" coords="388,5,561,32"/>
-<area shape="rect" id="node2" href="$class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor." alt="" coords="189,5,340,32"/>
-<area shape="rect" id="node3" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading." alt="" coords="5,5,141,32"/>
+<area shape="rect" id="Node000001" title="Updates the sensor&#39;s readings." alt="" coords="388,5,561,31"/>
+<area shape="rect" id="Node000002" href="$class_heading_car.html#a9a315318178b26a8c016624eab33e343" title="Updates the readings from the heading sensor." alt="" coords="189,5,340,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,21,340,21,340,15,374,15"/>
+<area shape="rect" id="Node000003" href="$class_smart_car.html#ae6cd4a31632721f3a808c36da15cd5d3" title="Adjusts the speed when cruise control is enabled and calculates the current heading." alt="" coords="5,5,141,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,21,142,21,142,15,176,15"/>
 </map>

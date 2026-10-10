@@ -1,4 +1,5 @@
 <map id="Runtime" name="Runtime">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,193,229"/>
-<area shape="rect" id="node2" href="$class_arduino_runtime.html" title=" " alt="" coords="5,277,193,501"/>
+<area shape="rect" id="Node000001" title="An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduin..." alt="" coords="5,5,185,271"/>
+<area shape="rect" id="Node000002" href="$class_arduino_runtime.html" title="The class to programatically represent the Arduino runtime environment or alternatively calls to the ..." alt="" coords="5,319,185,584"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,285,98,319,93,319,93,285"/>
 </map>

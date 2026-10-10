@@ -1,4 +1,5 @@
 <map id="DualMotor::setSpeed" name="DualMotor::setSpeed">
-<area shape="rect" id="node1" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,5,164,32"/>
-<area shape="rect" id="node2" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="212,5,340,32"/>
+<area shape="rect" id="Node000001" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="5,5,164,31"/>
+<area shape="rect" id="Node000002" href="$class_motor.html#a76d3728672a98ab9b4f1de19baec7e22" title="Sets the motor speed and direction as the percentage of the maximum possible speed,..." alt="" coords="212,5,340,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,15,198,15,198,21,164,21"/>
 </map>

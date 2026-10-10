@@ -1,8 +1,15 @@
 <map id="src/sensors/distance/ultrasound/ping/SR04.hpp" name="src/sensors/distance/ultrasound/ping/SR04.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="16,5,208,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="77,184,147,211"/>
-<area shape="rect" id="node3" href="$_runtime_8hpp.html" title=" " alt="" coords="223,95,345,136"/>
-<area shape="rect" id="node6" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="25,102,199,129"/>
-<area shape="rect" id="node4" title=" " alt="" coords="209,184,284,211"/>
-<area shape="rect" id="node5" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="308,184,471,211"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="16,5,208,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="76,181,147,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,48,37,67,14,95,8,113,14,132,36,157,65,174,62,179,33,161,10,135,3,113,9,92,33,63,64,43"/>
+<area shape="rect" id="Node000003" href="$_runtime_8hpp.html" title=" " alt="" coords="223,93,344,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,43,235,85,233,90,148,48"/>
+<area shape="rect" id="Node000006" href="$_distance_sensor_8hpp.html" title=" " alt="" coords="24,101,199,126"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="114,46,114,87,109,87,109,46"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="244,136,151,178,148,173,242,131"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="209,181,284,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,135,260,170,255,168,272,132"/>
+<area shape="rect" id="Node000005" href="$_interrupt_callback_8hpp.html" title=" " alt="" coords="308,181,470,207"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="311,131,364,171,361,175,308,136"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="114,126,114,167,109,167,109,126"/>
 </map>

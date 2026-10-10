@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_control.html" title=" " alt="" coords="5,31,75,57"/>
-<area shape="rect" id="node2" href="$class_ackerman_control.html" title=" " alt="" coords="127,5,261,32"/>
-<area shape="rect" id="node3" href="$class_differential_control.html" title=" " alt="" coords="123,56,265,83"/>
+<area shape="rect" id="Node000000" href="$class_control.html" title="Interface to generalize all classes that can provide a way to control a Car." alt="" coords="5,31,75,56"/>
+<area shape="rect" id="Node000001" href="$class_ackerman_control.html" title="Class to represent controling a vehicle by changing the angle of the front wheels,..." alt="" coords="127,5,261,31"/>
+<area shape="poly" id="edge6_Node000000_Node000001" title=" " alt="" coords="88,33,126,26,127,32,89,38"/>
+<area shape="rect" id="Node000002" href="$class_differential_control.html" title="Class to represent controling a vehicle by applying different speed on each side, like a tank." alt="" coords="123,55,265,80"/>
+<area shape="poly" id="edge7_Node000000_Node000002" title=" " alt="" coords="89,48,123,54,122,59,88,53"/>
 </map>
