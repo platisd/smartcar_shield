@@ -18,7 +18,7 @@ jobs:
       - name: Generate doxygen documentation
         run: doxygen Doxyfile
       - name: Publish documentaton
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
