@@ -8,7 +8,7 @@ set -xu
 
 fix_errors=""
 arg=${1:-n}
-if [ "$arg" = "--fix" ] || [ "$arg" = "-fix" ]; then
+if [[ "$arg" = "--fix" || "$arg" = "-fix" ]]; then
     fix_errors="-fix"
 fi
 
@@ -24,4 +24,4 @@ warnings_not_found=$?
 
 cd $caller_dir
 
-[ $warnings_not_found -eq 0 ] && echo "Warnings found! Please fix them" && exit 1 || exit 0
+[[ $warnings_not_found -eq 0 ]] && echo "Warnings found! Please fix them" && exit 1 || exit 0
