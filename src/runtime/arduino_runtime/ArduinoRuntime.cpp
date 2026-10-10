@@ -129,3 +129,13 @@ int ArduinoRuntime::getRisingEdgeMode() const
 {
     return RISING;
 }
+
+void ArduinoRuntime::disableInterrupts()
+{
+    noInterrupts();
+}
+
+void ArduinoRuntime::enableInterrupts()
+{
+    interrupts();
+}

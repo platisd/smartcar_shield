@@ -35,4 +35,6 @@ public:
     uint8_t getOutputState() const override;
     uint8_t getInputState() const override;
     int getRisingEdgeMode() const override;
+    void enableInterrupts() override;
+    void disableInterrupts() override;
 };
