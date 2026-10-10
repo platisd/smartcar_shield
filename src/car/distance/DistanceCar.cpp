@@ -159,9 +159,7 @@ void DistanceCar::update()
     mPreviousControlledSpeed = controlledSpeed;
 }
 
-float DistanceCar::controlMotorSpeed(const float& previousSpeed,
-                                     const float& targetSpeed,
-                                     const float& currentSpeed)
+float DistanceCar::controlMotorSpeed(float previousSpeed, float targetSpeed, float currentSpeed)
 {
     float error = targetSpeed - currentSpeed;
     mIntegratedError += error;
