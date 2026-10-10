@@ -34,7 +34,9 @@ DirectionalOdometer::DirectionalOdometer(Runtime& runtime,
 void DirectionalOdometer::reset()
 {
     DirectionlessOdometer::reset();
+    mRuntime.disableInterrupts();
     mNegativePulsesCounter = 0;
+    mRuntime.enableInterrupts();
 }
 
 void STORED_IN_RAM DirectionalOdometer::update()
@@ -61,18 +63,21 @@ void STORED_IN_RAM DirectionalOdometer::update()
 
     if (mDirectionPinState != kPinStateWhenForward)
     {
-        mNegativePulsesCounter++;
+        mNegativePulsesCounter = mNegativePulsesCounter + 1;
     }
     else
     {
-        mPulsesCounter++;
+        mPulsesCounter = mPulsesCounter + 1;
     }
 }
 
 long DirectionalOdometer::getDistance()
 {
+    mRuntime.disableInterrupts();
+    const auto negativePulses = mNegativePulsesCounter;
+    mRuntime.enableInterrupts();
     return DirectionlessOdometer::getDistance()
-           - static_cast<long>(static_cast<float>(mNegativePulsesCounter) / mPulsesPerMeterRatio);
+           - static_cast<long>(static_cast<float>(negativePulses) / mPulsesPerMeterRatio);
 }
 
 float DirectionalOdometer::getSpeed()
@@ -82,8 +87,11 @@ float DirectionalOdometer::getSpeed()
 
 int8_t DirectionalOdometer::getDirection() const
 {
-    return mDirectionPinState == kPinStateWhenForward ? smartcarlib::constants::odometer::kForward
-                                                      : smartcarlib::constants::odometer::kBackward;
+    mRuntime.disableInterrupts();
+    const auto directionPinState = mDirectionPinState;
+    mRuntime.enableInterrupts();
+    return directionPinState == kPinStateWhenForward ? smartcarlib::constants::odometer::kForward
+                                                     : smartcarlib::constants::odometer::kBackward;
 }
 
 bool DirectionalOdometer::providesDirection() const

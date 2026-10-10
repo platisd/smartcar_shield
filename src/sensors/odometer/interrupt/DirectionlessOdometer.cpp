@@ -31,14 +31,20 @@ DirectionlessOdometer::DirectionlessOdometer(Runtime& runtime,
 
 long DirectionlessOdometer::getDistance()
 {
-    return static_cast<long>(static_cast<float>(mPulsesCounter) / mPulsesPerMeterRatio);
+    mRuntime.disableInterrupts();
+    const auto pulsesCounter = mPulsesCounter;
+    mRuntime.enableInterrupts();
+    return static_cast<long>(static_cast<float>(pulsesCounter) / mPulsesPerMeterRatio);
 }
 
 float DirectionlessOdometer::getSpeed()
 {
     // To get the current speed in m/sec, divide the meters per pulse (dx) with
     // the length between the last two pulses (dt)
-    return mDt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / static_cast<float>(mDt) : 0.0F;
+    mRuntime.disableInterrupts();
+    const auto dt = mDt;
+    mRuntime.enableInterrupts();
+    return dt > 0 ? kMillisecondsInSecond * mMillimetersPerPulse / static_cast<float>(dt) : 0.0F;
 }
 
 bool DirectionlessOdometer::isAttached() const
@@ -48,9 +54,11 @@ bool DirectionlessOdometer::isAttached() const
 
 void DirectionlessOdometer::reset()
 {
+    mRuntime.disableInterrupts();
     mPulsesCounter = 0;
     mPreviousPulse = 0;
     mDt            = 0;
+    mRuntime.enableInterrupts();
 }
 
 void STORED_IN_RAM DirectionlessOdometer::update()
@@ -71,7 +79,7 @@ void STORED_IN_RAM DirectionlessOdometer::update()
         mDt = dt;
     }
     mPreviousPulse = currentPulse;
-    mPulsesCounter++;
+    mPulsesCounter = mPulsesCounter + 1;
 }
 
 bool DirectionlessOdometer::providesDirection() const
