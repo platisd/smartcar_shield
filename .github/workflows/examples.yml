@@ -32,7 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install PySerial (needed for ESP32 compilation)
-        run: pip3 install pyserial
+        run: |
+          pip3 install --only-binary=:all: pyserial==3.5
       - name: Compile library examples
         uses: arduino/compile-sketches@d7af6619a62e765d91f0a4d65b40cf061537a15d
         with:
