@@ -210,4 +210,14 @@ public:
      * @return int The rising edge mode
      */
     virtual int getRisingEdgeMode() const = 0;
+
+    /**
+     * @brief Enable interrupts
+     */
+    virtual void enableInterrupts() = 0;
+
+    /**
+     * @brief Disable interrupts
+     */
+    virtual void disableInterrupts() = 0;
 };

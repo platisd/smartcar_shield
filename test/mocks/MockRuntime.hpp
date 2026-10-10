@@ -7,29 +7,33 @@
 class MockRuntime : public Runtime
 {
 public:
-    MOCK_METHOD2(setPinDirection, void(uint8_t pin, uint8_t direction));
-    MOCK_METHOD2(setPinState, void(uint8_t pin, uint8_t state));
-    MOCK_METHOD1(getPinState, int(uint8_t pin));
-    MOCK_METHOD1(getAnalogPinState, int(uint8_t pin));
-    MOCK_METHOD2(setPWM, void(uint8_t pin, int dutyCycle));
-    MOCK_METHOD0(i2cInit, void());
-    MOCK_METHOD1(i2cBeginTransmission, void(uint8_t address));
-    MOCK_METHOD1(i2cWrite, size_t(uint8_t value));
-    MOCK_METHOD0(i2cEndTransmission, uint8_t());
-    MOCK_METHOD2(i2cRequestFrom, uint8_t(uint8_t address, uint8_t numberOfBytes));
-    MOCK_METHOD0(i2cAvailable, int());
-    MOCK_METHOD0(i2cRead, int());
-    MOCK_METHOD1(pinToInterrupt, int8_t(uint8_t pin));
-    MOCK_METHOD0(currentTimeMillis, unsigned long());
-    MOCK_METHOD0(currentTimeMicros, unsigned long());
-    MOCK_METHOD1(delayMillis, void(unsigned long milliseconds));
-    MOCK_METHOD1(delayMicros, void(unsigned int microseconds));
-    MOCK_METHOD3(getPulseDuration,
-                 unsigned long(uint8_t pin, uint8_t state, unsigned long timeout));
-    MOCK_METHOD3(setInterrupt, void(uint8_t pin, void (*callback)(void), int mode));
-    MOCK_CONST_METHOD0(getLowState, uint8_t());
-    MOCK_CONST_METHOD0(getHighState, uint8_t());
-    MOCK_CONST_METHOD0(getOutputState, uint8_t());
-    MOCK_CONST_METHOD0(getInputState, uint8_t());
-    MOCK_CONST_METHOD0(getRisingEdgeMode, int());
+    MOCK_METHOD(void, setPinDirection, (uint8_t pin, uint8_t direction), (override));
+    MOCK_METHOD(void, setPinState, (uint8_t pin, uint8_t state), (override));
+    MOCK_METHOD(int, getPinState, (uint8_t pin), (override));
+    MOCK_METHOD(int, getAnalogPinState, (uint8_t pin), (override));
+    MOCK_METHOD(void, setPWM, (uint8_t pin, int dutyCycle), (override));
+    MOCK_METHOD(void, i2cInit, (), (override));
+    MOCK_METHOD(void, i2cBeginTransmission, (uint8_t address), (override));
+    MOCK_METHOD(size_t, i2cWrite, (uint8_t value), (override));
+    MOCK_METHOD(uint8_t, i2cEndTransmission, (), (override));
+    MOCK_METHOD(uint8_t, i2cRequestFrom, (uint8_t address, uint8_t numberOfBytes), (override));
+    MOCK_METHOD(int, i2cAvailable, (), (override));
+    MOCK_METHOD(int, i2cRead, (), (override));
+    MOCK_METHOD(int8_t, pinToInterrupt, (uint8_t pin), (override));
+    MOCK_METHOD(unsigned long, currentTimeMillis, (), (override));
+    MOCK_METHOD(unsigned long, currentTimeMicros, (), (override));
+    MOCK_METHOD(void, delayMillis, (unsigned long milliseconds), (override));
+    MOCK_METHOD(void, delayMicros, (unsigned int microseconds), (override));
+    MOCK_METHOD(unsigned long,
+                getPulseDuration,
+                (uint8_t pin, uint8_t state, unsigned long timeout),
+                (override));
+    MOCK_METHOD(void, setInterrupt, (uint8_t pin, void (*callback)(void), int mode), (override));
+    MOCK_METHOD(uint8_t, getLowState, (), (const, override));
+    MOCK_METHOD(uint8_t, getHighState, (), (const, override));
+    MOCK_METHOD(uint8_t, getOutputState, (), (const, override));
+    MOCK_METHOD(uint8_t, getInputState, (), (const, override));
+    MOCK_METHOD(int, getRisingEdgeMode, (), (const, override));
+    MOCK_METHOD(void, enableInterrupts, (), (override));
+    MOCK_METHOD(void, disableInterrupts, (), (override));
 };
