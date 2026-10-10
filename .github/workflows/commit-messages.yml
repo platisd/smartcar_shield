@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   check-commit-message:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Verify commit messages follow best practices in CI
         uses: platisd/bad-commit-message-blocker@master

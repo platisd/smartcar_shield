@@ -4,36 +4,36 @@ on: [push, pull_request]
 
 jobs:
   run-unit-tests-and-static-analysis:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         compiler:
-          - cc: gcc-10
-            cxx: g++-10
-          - cc: clang-10
-            cxx: clang++-10
+          - cc: gcc-12
+            cxx: g++-12
+          - cc: clang-18
+            cxx: clang++-18
     env:
       CC: ${{ matrix.compiler.cc }}
       CXX: ${{ matrix.compiler.cxx }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for Sonarqube
       - name: Get dependencies
         run: |
           sudo apt-get install -y ${{ matrix.compiler.cc }}
           sudo apt-get install -y ${{ matrix.compiler.cxx }}
-          sudo apt-get install -y lcov cppcheck clang-tidy-8
+          sudo apt-get install -y lcov cppcheck clang-tidy-18
       - name: Build & run unit tests
         run: bash test/build_and_run_ut.sh
       - name: Run static analysis (cppcheck)
         run: |
-          cppcheck --std=c++11 --enable=performance,portability,information --quiet --error-exitcode=1 src/
+          cppcheck --std=c++11 --enable=performance,portability,information --suppress=missingIncludeSystem --suppress=missingInclude --quiet --error-exitcode=1 src/
       - name: Run clang-tidy
-        if: matrix.compiler.cc == 'clang-10'
+        if: matrix.compiler.cc == 'clang-18'
         run: |
-          run-clang-tidy-8 \
+          run-clang-tidy-18 \
             -p=test/build \
             -j$(nproc) \
             -header-filter=src/* \
@@ -41,13 +41,13 @@ jobs:
             -export-fixes clang-tidy-fixes.yaml
       - name: Run clang-tidy-pr-comments action
         uses: platisd/clang-tidy-pr-comments@master
-        if: matrix.compiler.cc == 'clang-10'
+        if: matrix.compiler.cc == 'clang-18'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           clang_tidy_fixes: clang-tidy-fixes.yaml
           request_changes: true
       - name: Get coverage report (only for GCC)
-        if: matrix.compiler.cc == 'gcc-10'
+        if: matrix.compiler.cc == 'gcc-12'
         run: |
           bash run_coverage.sh
           bash <(curl -s https://codecov.io/bash) -s coverage-reports || echo "Codecov did not collect coverage reports"

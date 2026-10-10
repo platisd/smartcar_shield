@@ -2,14 +2,9 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <math.h>
-#ifdef ESP_BOARD
-#if defined(ESP32)
-#include "analogWrite.h"
-#endif
 #if defined(ESP8266)
 #define TEN_BIT_ANALOG
 #include "../../utilities/Utilities.hpp"
-#endif
 #endif
 
 void ArduinoRuntime::setPinDirection(uint8_t pin, uint8_t direction)
