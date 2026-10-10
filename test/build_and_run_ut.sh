@@ -7,7 +7,7 @@ set -eu
 export GTEST_COLOR=1
 
 arg=${1:-n}
-if [ "$arg" = "--clean" ] || [ "$arg" = "-c" ]; then
+if [[ "$arg" = "--clean" ]] || [[ "$arg" = "-c" ]]; then
     rm -rf build
 fi
 mkdir -p build
