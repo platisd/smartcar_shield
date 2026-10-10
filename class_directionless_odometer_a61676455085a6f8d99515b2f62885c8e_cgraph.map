@@ -1,0 +1,7 @@
+<map id="DirectionlessOdometer::getSpeed" name="DirectionlessOdometer::getSpeed">
+<area shape="rect" id="Node000001" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="5,23,177,63"/>
+<area shape="rect" id="Node000002" href="$class_runtime.html#a989af841e4b55881ebc39f959d68f059" title="Disable interrupts." alt="" coords="225,5,420,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,31,211,27,212,33,178,37"/>
+<area shape="rect" id="Node000003" href="$class_runtime.html#a3cffeba5be1a6a44407372eb735edeca" title="Enable interrupts." alt="" coords="227,55,419,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,50,213,53,213,59,178,55"/>
+</map>

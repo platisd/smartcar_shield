@@ -7,6 +7,7 @@ var searchData=
   ['directionalodometerpins_4',['DirectionalOdometerPins',['../struct_directional_odometer_pins.html#a86dbc88c3f7ec26f09598b418d8dd2cb',1,'DirectionalOdometerPins']]],
   ['directionlessodometer_5',['DirectionlessOdometer',['../class_directionless_odometer.html#a2ac9b53e96a2a366c0c26d91dbfa5dd7',1,'DirectionlessOdometer']]],
   ['disablecruisecontrol_6',['disableCruiseControl',['../class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7',1,'DistanceCar']]],
-  ['distancecar_7',['distancecar',['../class_distance_car.html#acca8c5361ee97ee43addd78fa21d89a5',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometer)'],['../class_distance_car.html#a09fdff0fca9ba4a9440aa412ac2de39a',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometerLeft, Odometer &amp;odometerRight)']]],
-  ['dualmotor_8',['DualMotor',['../class_dual_motor.html#a5141a6f372ebe48c1f8543ee839946d8',1,'DualMotor']]]
+  ['disableinterrupts_7',['disableinterrupts',['../class_arduino_runtime.html#a2ed10889e93da4e2c8dd27439c38c27f',1,'ArduinoRuntime::disableInterrupts()'],['../class_runtime.html#a989af841e4b55881ebc39f959d68f059',1,'Runtime::disableInterrupts()']]],
+  ['distancecar_8',['distancecar',['../class_distance_car.html#acca8c5361ee97ee43addd78fa21d89a5',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometer)'],['../class_distance_car.html#a09fdff0fca9ba4a9440aa412ac2de39a',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometerLeft, Odometer &amp;odometerRight)']]],
+  ['dualmotor_9',['DualMotor',['../class_dual_motor.html#a5141a6f372ebe48c1f8543ee839946d8',1,'DualMotor']]]
 ];

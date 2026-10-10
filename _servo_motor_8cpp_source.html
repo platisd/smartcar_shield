@@ -96,38 +96,37 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    , kMinPulseLength{ minPulseLength }</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    , kIdlePulseLength{ idlePulseLength }</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    , kMaxPulseLength{ maxPulseLength }</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    , mAttached{ false }</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">ServoMotor::setSpeed</a>(<span class="keywordtype">int</span> speed)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">if</span> (!mAttached)</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        Servo::attach(kControlPin, kMinPulseLength, kMaxPulseLength);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        mAttached = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    speed = <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">getConstrain</a>(speed, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">kMinMotorSpeed</a>, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">kMaxMotorSpeed</a>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// The pulses duration might not be symmetrically distributed around the</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// idle speed so we need to split the mapping between the positive and the</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// negative values</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (speed &lt; <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a>)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        Servo::writeMicroseconds(</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">getMap</a>(speed, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">kMinMotorSpeed</a>, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a>, kMinPulseLength, kIdlePulseLength));</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        Servo::writeMicroseconds(</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">getMap</a>(speed, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a>, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">kMaxMotorSpeed</a>, kIdlePulseLength, kMaxPulseLength));</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">ServoMotor::setSpeed</a>(<span class="keywordtype">int</span> speed)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span> (!mAttached)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        Servo::attach(kControlPin, kMinPulseLength, kMaxPulseLength);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        mAttached = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    speed = <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">getConstrain</a>(speed, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">kMinMotorSpeed</a>, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">kMaxMotorSpeed</a>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// The pulses duration might not be symmetrically distributed around the</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// idle speed so we need to split the mapping between the positive and the</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// negative values</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">if</span> (speed &lt; <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a>)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        Servo::writeMicroseconds(</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">getMap</a>(speed, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">kMinMotorSpeed</a>, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a>, kMinPulseLength, kIdlePulseLength));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        Servo::writeMicroseconds(</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#a27a244dfaa0a3e41383d36a78582342e">getMap</a>(speed, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a7500a035ba08e7d699358f6cdd9dccd2">kIdleMotorSpeed</a>, <a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1motor.html#a9e1f54b1abc6ab22d03d968876064a96">kMaxMotorSpeed</a>, kIdlePulseLength, kMaxPulseLength));</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
 </div>
 <div class="ttc" id="a_servo_motor_8hpp_html"><div class="ttname"><a href="_servo_motor_8hpp.html">ServoMotor.hpp</a></div></div>
-<div class="ttc" id="aclass_servo_motor_html_ae7f117e9af63400e0dac7fa9263233e6"><div class="ttname"><a href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">ServoMotor::setSpeed</a></div><div class="ttdeci">void setSpeed(int speed) override</div><div class="ttdoc">Sets the motor speed and direction as the percentage of the maximum possible speed,...</div><div class="ttdef"><b>Definition</b> <a href="_servo_motor_8cpp_source.html#l00019">ServoMotor.cpp:19</a></div></div>
+<div class="ttc" id="aclass_servo_motor_html_ae7f117e9af63400e0dac7fa9263233e6"><div class="ttname"><a href="class_servo_motor.html#ae7f117e9af63400e0dac7fa9263233e6">ServoMotor::setSpeed</a></div><div class="ttdeci">void setSpeed(int speed) override</div><div class="ttdoc">Sets the motor speed and direction as the percentage of the maximum possible speed,...</div><div class="ttdef"><b>Definition</b> <a href="_servo_motor_8cpp_source.html#l00018">ServoMotor.cpp:18</a></div></div>
 <div class="ttc" id="aclass_servo_motor_html_aefa4915adb8f86c76e21b0712e305461"><div class="ttname"><a href="class_servo_motor.html#aefa4915adb8f86c76e21b0712e305461">ServoMotor::ServoMotor</a></div><div class="ttdeci">ServoMotor(uint8_t controlPin, int minPulseLength=smartcarlib::constants::servomotor::kDefaultMinPulseLength, int idlePulseLength=smartcarlib::constants::servomotor::kDefaultIdlePulseLength, int maxPulseLength=smartcarlib::constants::servomotor::kDefaultMaxPulseLength)</div><div class="ttdoc">Constructs a servo motor.</div><div class="ttdef"><b>Definition</b> <a href="_servo_motor_8cpp_source.html#l00007">ServoMotor.cpp:7</a></div></div>
 <div class="ttc" id="anamespacesmartcarlib_1_1constants_1_1motor_html"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html">smartcarlib::constants::motor</a></div><div class="ttdef"><b>Definition</b> <a href="_motor_8hpp_source.html#l00013">Motor.hpp:14</a></div></div>
 <div class="ttc" id="anamespacesmartcarlib_1_1constants_1_1motor_html_a4359ad23f00fd65b5f39a1256f79a9ce"><div class="ttname"><a href="namespacesmartcarlib_1_1constants_1_1motor.html#a4359ad23f00fd65b5f39a1256f79a9ce">smartcarlib::constants::motor::kMinMotorSpeed</a></div><div class="ttdeci">const int kMinMotorSpeed</div><div class="ttdef"><b>Definition</b> <a href="_motor_8hpp_source.html#l00015">Motor.hpp:15</a></div></div>

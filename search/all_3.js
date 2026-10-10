@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['delaymicros_0',['delaymicros',['../class_arduino_runtime.html#a6c36cdbc291e64e51a3c9c3169359bed',1,'ArduinoRuntime::delayMicros()'],['../class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db',1,'Runtime::delayMicros()']]],
+  ['delaymicros_0',['delaymicros',['../class_runtime.html#a501d0c2b41eca7cd6933716bbe1726db',1,'Runtime::delayMicros()'],['../class_arduino_runtime.html#a6c36cdbc291e64e51a3c9c3169359bed',1,'ArduinoRuntime::delayMicros(unsigned int microseconds) override']]],
   ['delaymillis_1',['delaymillis',['../class_arduino_runtime.html#a59e2d2cdcc4b2578d9cb04c63c1fe972',1,'ArduinoRuntime::delayMillis()'],['../class_runtime.html#a6276cf9e78df9d568659af143f712091',1,'Runtime::delayMillis()']]],
   ['differentialcontrol_2',['differentialcontrol',['../class_differential_control.html',1,'DifferentialControl'],['../class_differential_control.html#a1484494d458f416c6b6bae87a3be3e26',1,'DifferentialControl::DifferentialControl()']]],
   ['differentialcontrol_2ecpp_3',['DifferentialControl.cpp',['../_differential_control_8cpp.html',1,'']]],
@@ -15,13 +15,14 @@ var searchData=
   ['directionlessodometer_2ecpp_12',['DirectionlessOdometer.cpp',['../_directionless_odometer_8cpp.html',1,'']]],
   ['directionlessodometer_2ehpp_13',['DirectionlessOdometer.hpp',['../_directionless_odometer_8hpp.html',1,'']]],
   ['disablecruisecontrol_14',['disableCruiseControl',['../class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7',1,'DistanceCar']]],
-  ['distancecar_15',['distancecar',['../class_distance_car.html',1,'DistanceCar'],['../class_distance_car.html#acca8c5361ee97ee43addd78fa21d89a5',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometer)'],['../class_distance_car.html#a09fdff0fca9ba4a9440aa412ac2de39a',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometerLeft, Odometer &amp;odometerRight)']]],
-  ['distancecar_2ecpp_16',['DistanceCar.cpp',['../_distance_car_8cpp.html',1,'']]],
-  ['distancecar_2ehpp_17',['DistanceCar.hpp',['../_distance_car_8hpp.html',1,'']]],
-  ['distancesensor_18',['DistanceSensor',['../class_distance_sensor.html',1,'']]],
-  ['distancesensor_2ehpp_19',['DistanceSensor.hpp',['../_distance_sensor_8hpp.html',1,'']]],
-  ['documentation_20',['Smartcar shield library documentation',['../index.html',1,'']]],
-  ['dualmotor_21',['dualmotor',['../class_dual_motor.html',1,'DualMotor'],['../class_dual_motor.html#a5141a6f372ebe48c1f8543ee839946d8',1,'DualMotor::DualMotor()']]],
-  ['dualmotor_2ecpp_22',['DualMotor.cpp',['../_dual_motor_8cpp.html',1,'']]],
-  ['dualmotor_2ehpp_23',['DualMotor.hpp',['../_dual_motor_8hpp.html',1,'']]]
+  ['disableinterrupts_15',['disableinterrupts',['../class_arduino_runtime.html#a2ed10889e93da4e2c8dd27439c38c27f',1,'ArduinoRuntime::disableInterrupts()'],['../class_runtime.html#a989af841e4b55881ebc39f959d68f059',1,'Runtime::disableInterrupts()']]],
+  ['distancecar_16',['distancecar',['../class_distance_car.html',1,'DistanceCar'],['../class_distance_car.html#acca8c5361ee97ee43addd78fa21d89a5',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometer)'],['../class_distance_car.html#a09fdff0fca9ba4a9440aa412ac2de39a',1,'DistanceCar::DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometerLeft, Odometer &amp;odometerRight)']]],
+  ['distancecar_2ecpp_17',['DistanceCar.cpp',['../_distance_car_8cpp.html',1,'']]],
+  ['distancecar_2ehpp_18',['DistanceCar.hpp',['../_distance_car_8hpp.html',1,'']]],
+  ['distancesensor_19',['DistanceSensor',['../class_distance_sensor.html',1,'']]],
+  ['distancesensor_2ehpp_20',['DistanceSensor.hpp',['../_distance_sensor_8hpp.html',1,'']]],
+  ['documentation_21',['Smartcar shield library documentation',['../index.html',1,'']]],
+  ['dualmotor_22',['dualmotor',['../class_dual_motor.html',1,'DualMotor'],['../class_dual_motor.html#a5141a6f372ebe48c1f8543ee839946d8',1,'DualMotor::DualMotor()']]],
+  ['dualmotor_2ecpp_23',['DualMotor.cpp',['../_dual_motor_8cpp.html',1,'']]],
+  ['dualmotor_2ehpp_24',['DualMotor.hpp',['../_dual_motor_8hpp.html',1,'']]]
 ];

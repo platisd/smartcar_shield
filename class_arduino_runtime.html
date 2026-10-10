@@ -175,6 +175,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a809efc5ea57b21516fb1b61bae4cb368" id="r_a809efc5ea57b21516fb1b61bae4cb368"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino_runtime.html#a809efc5ea57b21516fb1b61bae4cb368">getRisingEdgeMode</a> () const override</td></tr>
 <tr class="memdesc:a809efc5ea57b21516fb1b61bae4cb368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the rising edge constant for setting an interrupt.  <br /></td></tr>
 <tr class="separator:a809efc5ea57b21516fb1b61bae4cb368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03e7fc1e5caa5abc8fb916d8cc6f882" id="r_aa03e7fc1e5caa5abc8fb916d8cc6f882"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino_runtime.html#aa03e7fc1e5caa5abc8fb916d8cc6f882">enableInterrupts</a> () override</td></tr>
+<tr class="memdesc:aa03e7fc1e5caa5abc8fb916d8cc6f882"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable interrupts.  <br /></td></tr>
+<tr class="separator:aa03e7fc1e5caa5abc8fb916d8cc6f882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed10889e93da4e2c8dd27439c38c27f" id="r_a2ed10889e93da4e2c8dd27439c38c27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino_runtime.html#a2ed10889e93da4e2c8dd27439c38c27f">disableInterrupts</a> () override</td></tr>
+<tr class="memdesc:a2ed10889e93da4e2c8dd27439c38c27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable interrupts.  <br /></td></tr>
+<tr class="separator:a2ed10889e93da4e2c8dd27439c38c27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_runtime"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_runtime')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_runtime.html">Runtime</a></td></tr>
 <tr class="memitem:a97113d850ac979ea2f04858fd266b648 inherit pub_methods_class_runtime" id="r_a97113d850ac979ea2f04858fd266b648"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runtime.html#a97113d850ac979ea2f04858fd266b648">~Runtime</a> ()=default</td></tr>
 <tr class="separator:a97113d850ac979ea2f04858fd266b648 inherit pub_methods_class_runtime"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -321,6 +327,68 @@ Public Member Functions</h2></td></tr>
 <p>Implements <a class="el" href="class_runtime.html#a6276cf9e78df9d568659af143f712091">Runtime</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_arduino_runtime_8cpp_source.html#l00088">88</a> of file <a class="el" href="_arduino_runtime_8cpp_source.html">ArduinoRuntime.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2ed10889e93da4e2c8dd27439c38c27f" name="a2ed10889e93da4e2c8dd27439c38c27f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed10889e93da4e2c8dd27439c38c27f">&#9670;&#160;</a></span>disableInterrupts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ArduinoRuntime::disableInterrupts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable interrupts. </p>
+
+<p>Implements <a class="el" href="class_runtime.html#a989af841e4b55881ebc39f959d68f059">Runtime</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_arduino_runtime_8cpp_source.html#l00133">133</a> of file <a class="el" href="_arduino_runtime_8cpp_source.html">ArduinoRuntime.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa03e7fc1e5caa5abc8fb916d8cc6f882" name="aa03e7fc1e5caa5abc8fb916d8cc6f882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03e7fc1e5caa5abc8fb916d8cc6f882">&#9670;&#160;</a></span>enableInterrupts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ArduinoRuntime::enableInterrupts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enable interrupts. </p>
+
+<p>Implements <a class="el" href="class_runtime.html#a3cffeba5be1a6a44407372eb735edeca">Runtime</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_arduino_runtime_8cpp_source.html#l00138">138</a> of file <a class="el" href="_arduino_runtime_8cpp_source.html">ArduinoRuntime.cpp</a>.</p>
 
 </div>
 </div>

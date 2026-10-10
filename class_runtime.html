@@ -175,6 +175,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a021baafc7a448275de502ece59d938d2" id="r_a021baafc7a448275de502ece59d938d2"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runtime.html#a021baafc7a448275de502ece59d938d2">getRisingEdgeMode</a> () const =0</td></tr>
 <tr class="memdesc:a021baafc7a448275de502ece59d938d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the rising edge constant for setting an interrupt.  <br /></td></tr>
 <tr class="separator:a021baafc7a448275de502ece59d938d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cffeba5be1a6a44407372eb735edeca" id="r_a3cffeba5be1a6a44407372eb735edeca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runtime.html#a3cffeba5be1a6a44407372eb735edeca">enableInterrupts</a> ()=0</td></tr>
+<tr class="memdesc:a3cffeba5be1a6a44407372eb735edeca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable interrupts.  <br /></td></tr>
+<tr class="separator:a3cffeba5be1a6a44407372eb735edeca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989af841e4b55881ebc39f959d68f059" id="r_a989af841e4b55881ebc39f959d68f059"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runtime.html#a989af841e4b55881ebc39f959d68f059">disableInterrupts</a> ()=0</td></tr>
+<tr class="memdesc:a989af841e4b55881ebc39f959d68f059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable interrupts.  <br /></td></tr>
+<tr class="separator:a989af841e4b55881ebc39f959d68f059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An interface to serve as a wrapper for the native runtime environment, greatly inspired by the Arduino library API. </p>
@@ -389,6 +395,114 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="258,151,163,172,162,167,256,146"/>
 <area shape="rect" href="class_g_y50.html#aa459c2bcdcf176e4aa2045151554f56c" title="Get the sensor&#39;s offset which is the value the sensor returns when still." alt="" coords="42,219,166,244"/>
 <area shape="poly" title=" " alt="" coords="299,155,255,183,204,208,166,221,164,216,202,204,253,178,296,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a989af841e4b55881ebc39f959d68f059" name="a989af841e4b55881ebc39f959d68f059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a989af841e4b55881ebc39f959d68f059">&#9670;&#160;</a></span>disableInterrupts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Runtime::disableInterrupts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable interrupts. </p>
+
+<p>Implemented in <a class="el" href="class_arduino_runtime.html#a2ed10889e93da4e2c8dd27439c38c27f">ArduinoRuntime</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_runtime_a989af841e4b55881ebc39f959d68f059_icgraph.png" border="0" usemap="#aclass_runtime_a989af841e4b55881ebc39f959d68f059_icgraph" alt=""/></div>
+<map name="aclass_runtime_a989af841e4b55881ebc39f959d68f059_icgraph" id="aclass_runtime_a989af841e4b55881ebc39f959d68f059_icgraph">
+<area shape="rect" title="Disable interrupts." alt="" coords="432,163,627,189"/>
+<area shape="rect" href="class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952" title="Get the direction of movement." alt="" coords="219,5,377,45"/>
+<area shape="poly" title=" " alt="" coords="504,156,451,108,383,60,359,48,361,43,385,55,454,104,508,152"/>
+<area shape="rect" href="class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="5,143,164,183"/>
+<area shape="poly" title=" " alt="" coords="418,175,164,168,164,162,418,170"/>
+<area shape="rect" href="class_directionless_odometer.html#ad98b03236639fb182b03cfe860be8829" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="212,184,384,224"/>
+<area shape="poly" title=" " alt="" coords="419,192,385,196,384,191,418,187"/>
+<area shape="rect" href="class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="212,69,384,109"/>
+<area shape="poly" title=" " alt="" coords="481,161,351,112,353,107,483,156"/>
+<area shape="rect" href="class_directionless_odometer.html#a7285eada5f3a149270d21f0f98f4e254" title="Resets the total travelled distance and speed to 0" alt="" coords="212,248,384,288"/>
+<area shape="poly" title=" " alt="" coords="487,196,385,238,354,250,352,245,383,234,485,191"/>
+<area shape="rect" href="class_directional_odometer.html#ac147d649af27fa2aa9b051e49aa1e6e5" title="Resets the total travelled distance and speed to 0" alt="" coords="5,276,164,316"/>
+<area shape="poly" title=" " alt="" coords="512,201,460,255,424,282,385,302,329,317,271,322,215,320,164,315,165,309,215,315,271,317,328,312,383,298,422,278,456,251,508,198"/>
+<area shape="rect" href="class_directional_odometer.html#ae89bc5a3d479b0cfb09edbb0bb7fdb35" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="5,53,164,93"/>
+<area shape="poly" title=" " alt="" coords="205,49,165,58,164,53,204,44"/>
+<area shape="poly" title=" " alt="" coords="198,187,164,181,165,175,199,182"/>
+<area shape="poly" title=" " alt="" coords="198,85,164,82,164,77,198,79"/>
+<area shape="poly" title=" " alt="" coords="199,284,165,288,164,283,198,278"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3cffeba5be1a6a44407372eb735edeca" name="a3cffeba5be1a6a44407372eb735edeca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cffeba5be1a6a44407372eb735edeca">&#9670;&#160;</a></span>enableInterrupts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Runtime::enableInterrupts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enable interrupts. </p>
+
+<p>Implemented in <a class="el" href="class_arduino_runtime.html#aa03e7fc1e5caa5abc8fb916d8cc6f882">ArduinoRuntime</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_runtime_a3cffeba5be1a6a44407372eb735edeca_icgraph.png" border="0" usemap="#aclass_runtime_a3cffeba5be1a6a44407372eb735edeca_icgraph" alt=""/></div>
+<map name="aclass_runtime_a3cffeba5be1a6a44407372eb735edeca_icgraph" id="aclass_runtime_a3cffeba5be1a6a44407372eb735edeca_icgraph">
+<area shape="rect" title="Enable interrupts." alt="" coords="432,163,624,189"/>
+<area shape="rect" href="class_directional_odometer.html#a9cf7e6f230f0faec37d3a247d66c3952" title="Get the direction of movement." alt="" coords="219,5,377,45"/>
+<area shape="poly" title=" " alt="" coords="503,156,450,108,383,60,359,48,361,43,385,55,454,104,506,152"/>
+<area shape="rect" href="class_directional_odometer.html#a8491859305387ab9ca37346276ce97a4" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="5,143,164,183"/>
+<area shape="poly" title=" " alt="" coords="418,175,164,168,164,162,418,170"/>
+<area shape="rect" href="class_directionless_odometer.html#ad98b03236639fb182b03cfe860be8829" title="Returns the travelled distance in centimeters where sign can indicate direction if there is hardware ..." alt="" coords="212,184,384,224"/>
+<area shape="poly" title=" " alt="" coords="419,192,385,196,384,191,418,187"/>
+<area shape="rect" href="class_directionless_odometer.html#a61676455085a6f8d99515b2f62885c8e" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="212,69,384,109"/>
+<area shape="poly" title=" " alt="" coords="480,161,351,112,353,107,482,156"/>
+<area shape="rect" href="class_directionless_odometer.html#a7285eada5f3a149270d21f0f98f4e254" title="Resets the total travelled distance and speed to 0" alt="" coords="212,248,384,288"/>
+<area shape="poly" title=" " alt="" coords="486,196,385,238,354,250,352,245,383,234,484,192"/>
+<area shape="rect" href="class_directional_odometer.html#ac147d649af27fa2aa9b051e49aa1e6e5" title="Resets the total travelled distance and speed to 0" alt="" coords="5,276,164,316"/>
+<area shape="poly" title=" " alt="" coords="511,201,459,255,424,282,385,302,329,317,271,322,215,321,164,315,165,310,215,315,271,317,328,312,383,298,421,278,456,251,507,198"/>
+<area shape="rect" href="class_directional_odometer.html#ae89bc5a3d479b0cfb09edbb0bb7fdb35" title="Returns the current speed in meters/sec where sign can indicate direction if there is hardware suppor..." alt="" coords="5,53,164,93"/>
+<area shape="poly" title=" " alt="" coords="205,49,165,58,164,53,204,44"/>
+<area shape="poly" title=" " alt="" coords="198,187,164,181,165,175,199,182"/>
+<area shape="poly" title=" " alt="" coords="198,85,164,82,164,77,198,79"/>
+<area shape="poly" title=" " alt="" coords="199,284,165,288,164,283,198,278"/>
 </map>
 </div>
 

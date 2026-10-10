@@ -252,71 +252,69 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    mPreviousControlledSpeed = controlledSpeed;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keywordtype">float</span> DistanceCar::controlMotorSpeed(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; previousSpeed,</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                                     <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; targetSpeed,</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                                     <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; currentSpeed)</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">float</span> error = targetSpeed - currentSpeed;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    mIntegratedError += error;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">float</span> correction = (mProportional * error) + (mIntegral * mIntegratedError)</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                       + (mDerivative * (error - mPreviousError));</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    mPreviousError = error;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">getConstrain</a>(previousSpeed + correction,</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1control.html#a494bd0e1b86baee42ac508970757a1fe">kMinControlSpeed</a>),</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1control.html#af038e27d320dc13bdc5d56e454e80087">kMaxControlSpeed</a>));</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>}</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823">  177</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823">DistanceCar::getSpeed</a>()</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>{</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> areOdometersAttached() ? (mOdometerLeft.<a class="code hl_function" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9">getSpeed</a>() + mOdometerRight.<a class="code hl_function" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9">getSpeed</a>()) / 2</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                                  : <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1car.html#a9e864cfad3b19ca1247f6d53b0c65d8f">kOdometersNotAttachedError</a>);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>}</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keywordtype">float</span> DistanceCar::controlMotorSpeed(<span class="keywordtype">float</span> previousSpeed, <span class="keywordtype">float</span> targetSpeed, <span class="keywordtype">float</span> currentSpeed)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>{</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">float</span> error = targetSpeed - currentSpeed;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    mIntegratedError += error;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">float</span> correction = (mProportional * error) + (mIntegral * mIntegratedError)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                       + (mDerivative * (error - mPreviousError));</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    mPreviousError = error;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesmartcarlib_1_1utils.html#ac336301fa79b629ba32c73cd7d746c7c">getConstrain</a>(previousSpeed + correction,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1control.html#a494bd0e1b86baee42ac508970757a1fe">kMinControlSpeed</a>),</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1control.html#af038e27d320dc13bdc5d56e454e80087">kMaxControlSpeed</a>));</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>}</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823">  175</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823">DistanceCar::getSpeed</a>()</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>{</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">return</span> areOdometersAttached() ? (mOdometerLeft.<a class="code hl_function" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9">getSpeed</a>() + mOdometerRight.<a class="code hl_function" href="class_odometer.html#a91f22c1c70cddfc11a34c9218f4d23c9">getSpeed</a>()) / 2</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                                  : <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespacesmartcarlib_1_1constants_1_1car.html#a9e864cfad3b19ca1247f6d53b0c65d8f">kOdometersNotAttachedError</a>);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
 </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7">  183</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7">DistanceCar::disableCruiseControl</a>()</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>{</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    mCruiseControlEnabled = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7">  181</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7">DistanceCar::disableCruiseControl</a>()</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>{</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    mCruiseControlEnabled = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
 </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="class_distance_car.html#abbc2218b364df529951e327e9e49aa88">  186</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_distance_car.html#abbc2218b364df529951e327e9e49aa88">DistanceCar::enableCruiseControl</a>(<span class="keywordtype">float</span> proportional,</div>
 <div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="class_smart_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">  187</a></span> </div>
-<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="class_distance_car.html#abbc2218b364df529951e327e9e49aa88">  188</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_distance_car.html#abbc2218b364df529951e327e9e49aa88">DistanceCar::enableCruiseControl</a>(<span class="keywordtype">float</span> proportional,</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                                      <span class="keywordtype">float</span> integral,</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                                      <span class="keywordtype">float</span> derivative,</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                                      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> frequency)</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>{</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    mCruiseControlEnabled = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    mProportional         = proportional;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    mIntegral             = integral;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    mDerivative           = derivative;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    mFrequency            = frequency;</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="class_smart_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">  187</a></span>                                      <span class="keywordtype">float</span> integral,</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                                      <span class="keywordtype">float</span> derivative,</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                                      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> frequency)</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>{</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    mCruiseControlEnabled = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    mProportional         = proportional;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    mIntegral             = integral;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    mDerivative           = derivative;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    mFrequency            = frequency;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keywordtype">bool</span> DistanceCar::areOdometersAttached()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordflow">return</span> mOdometerLeft.<a class="code hl_function" href="class_odometer.html#a9a05ce69a2f1bdfd251e7d470090923f">isAttached</a>() &amp;&amp; mOdometerRight.<a class="code hl_function" href="class_odometer.html#a9a05ce69a2f1bdfd251e7d470090923f">isAttached</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>}</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keywordtype">bool</span> DistanceCar::areOdometersDirectional()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordflow">return</span> mOdometerLeft.<a class="code hl_function" href="class_odometer.html#a24e558dbb4b8f14d2671c04d021ba6af">providesDirection</a>() &amp;&amp; mOdometerRight.<a class="code hl_function" href="class_odometer.html#a24e558dbb4b8f14d2671c04d021ba6af">providesDirection</a>();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="foldopen" id="foldopen00208" data-start="{" data-end="}">
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">  208</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">DistanceCar::overrideMotorSpeed</a>(<span class="keywordtype">int</span> firstMotorSpeed, <span class="keywordtype">int</span> secondMotorSpeed)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>{</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordflow">if</span> (mCruiseControlEnabled)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <a class="code hl_function" href="class_simple_car.html#ac25a30173ae4f42a785363997c401e95">SimpleCar::overrideMotorSpeed</a>(firstMotorSpeed, secondMotorSpeed);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>}</div>
 </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="keywordtype">bool</span> DistanceCar::areOdometersAttached()</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>{</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">return</span> mOdometerLeft.<a class="code hl_function" href="class_odometer.html#a9a05ce69a2f1bdfd251e7d470090923f">isAttached</a>() &amp;&amp; mOdometerRight.<a class="code hl_function" href="class_odometer.html#a9a05ce69a2f1bdfd251e7d470090923f">isAttached</a>();</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keywordtype">bool</span> DistanceCar::areOdometersDirectional()</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>{</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordflow">return</span> mOdometerLeft.<a class="code hl_function" href="class_odometer.html#a24e558dbb4b8f14d2671c04d021ba6af">providesDirection</a>() &amp;&amp; mOdometerRight.<a class="code hl_function" href="class_odometer.html#a24e558dbb4b8f14d2671c04d021ba6af">providesDirection</a>();</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">  210</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">DistanceCar::overrideMotorSpeed</a>(<span class="keywordtype">int</span> firstMotorSpeed, <span class="keywordtype">int</span> secondMotorSpeed)</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>{</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">if</span> (mCruiseControlEnabled)</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    }</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <a class="code hl_function" href="class_simple_car.html#ac25a30173ae4f42a785363997c401e95">SimpleCar::overrideMotorSpeed</a>(firstMotorSpeed, secondMotorSpeed);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>}</div>
 </div>
 </div>
 </div>
@@ -324,12 +322,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="a_distance_car_8hpp_html"><div class="ttname"><a href="_distance_car_8hpp.html">DistanceCar.hpp</a></div></div>
 <div class="ttc" id="aclass_control_html"><div class="ttname"><a href="class_control.html">Control</a></div><div class="ttdoc">Interface to generalize all classes that can provide a way to control a Car.</div><div class="ttdef"><b>Definition</b> <a href="_control_8hpp_source.html#l00023">Control.hpp:24</a></div></div>
 <div class="ttc" id="aclass_distance_car_html_a42f84a0cebba3fb5f8ac4c5672875fd4"><div class="ttname"><a href="class_distance_car.html#a42f84a0cebba3fb5f8ac4c5672875fd4">DistanceCar::getDistance</a></div><div class="ttdeci">long getDistance()</div><div class="ttdoc">Gets the car's travelled distance.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00036">DistanceCar.cpp:36</a></div></div>
-<div class="ttc" id="aclass_distance_car_html_a587ab2058a9ce1e28a9ef6a8a74e6732"><div class="ttname"><a href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">DistanceCar::overrideMotorSpeed</a></div><div class="ttdeci">void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override</div><div class="ttdoc">Sets the motor speed individually as a percentage of the motors` total power unless cruise control is...</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00210">DistanceCar.cpp:210</a></div></div>
+<div class="ttc" id="aclass_distance_car_html_a587ab2058a9ce1e28a9ef6a8a74e6732"><div class="ttname"><a href="class_distance_car.html#a587ab2058a9ce1e28a9ef6a8a74e6732">DistanceCar::overrideMotorSpeed</a></div><div class="ttdeci">void overrideMotorSpeed(int firstMotorSpeed, int secondMotorSpeed) override</div><div class="ttdoc">Sets the motor speed individually as a percentage of the motors` total power unless cruise control is...</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00208">DistanceCar.cpp:208</a></div></div>
 <div class="ttc" id="aclass_distance_car_html_a6c44a81445ce013f501360fa4d11ef60"><div class="ttname"><a href="class_distance_car.html#a6c44a81445ce013f501360fa4d11ef60">DistanceCar::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">Adjusts the cruise control speed.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00112">DistanceCar.cpp:112</a></div></div>
-<div class="ttc" id="aclass_distance_car_html_a8367dd4fc25bd040e294eadb77e34ae7"><div class="ttname"><a href="class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7">DistanceCar::disableCruiseControl</a></div><div class="ttdeci">void disableCruiseControl()</div><div class="ttdoc">Disable cruise control.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00183">DistanceCar.cpp:183</a></div></div>
+<div class="ttc" id="aclass_distance_car_html_a8367dd4fc25bd040e294eadb77e34ae7"><div class="ttname"><a href="class_distance_car.html#a8367dd4fc25bd040e294eadb77e34ae7">DistanceCar::disableCruiseControl</a></div><div class="ttdeci">void disableCruiseControl()</div><div class="ttdoc">Disable cruise control.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00181">DistanceCar.cpp:181</a></div></div>
 <div class="ttc" id="aclass_distance_car_html_ab2c3fd31719f9910a5d8e137c0b27a80"><div class="ttname"><a href="class_distance_car.html#ab2c3fd31719f9910a5d8e137c0b27a80">DistanceCar::setSpeed</a></div><div class="ttdeci">void setSpeed(float speed) override</div><div class="ttdoc">Sets the car's speed in meters per second if cruise control is enabled otherwise as a percentage of t...</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00042">DistanceCar.cpp:42</a></div></div>
-<div class="ttc" id="aclass_distance_car_html_aba2dd52de1439966d1ba29bf2a529823"><div class="ttname"><a href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823">DistanceCar::getSpeed</a></div><div class="ttdeci">float getSpeed()</div><div class="ttdoc">Gets the car's current speed in meters per second.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00177">DistanceCar.cpp:177</a></div></div>
-<div class="ttc" id="aclass_distance_car_html_abbc2218b364df529951e327e9e49aa88"><div class="ttname"><a href="class_distance_car.html#abbc2218b364df529951e327e9e49aa88">DistanceCar::enableCruiseControl</a></div><div class="ttdeci">void enableCruiseControl(float proportional=smartcarlib::constants::car::kDefaultProportional, float integral=smartcarlib::constants::car::kDefaultIntegral, float derivative=smartcarlib::constants::car::kDefaultDerivative, unsigned long frequency=smartcarlib::constants::car::kDefaultPidFrequency)</div><div class="ttdoc">Enables the car to move with a stable speed using the odometers.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00188">DistanceCar.cpp:188</a></div></div>
+<div class="ttc" id="aclass_distance_car_html_aba2dd52de1439966d1ba29bf2a529823"><div class="ttname"><a href="class_distance_car.html#aba2dd52de1439966d1ba29bf2a529823">DistanceCar::getSpeed</a></div><div class="ttdeci">float getSpeed()</div><div class="ttdoc">Gets the car's current speed in meters per second.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00175">DistanceCar.cpp:175</a></div></div>
+<div class="ttc" id="aclass_distance_car_html_abbc2218b364df529951e327e9e49aa88"><div class="ttname"><a href="class_distance_car.html#abbc2218b364df529951e327e9e49aa88">DistanceCar::enableCruiseControl</a></div><div class="ttdeci">void enableCruiseControl(float proportional=smartcarlib::constants::car::kDefaultProportional, float integral=smartcarlib::constants::car::kDefaultIntegral, float derivative=smartcarlib::constants::car::kDefaultDerivative, unsigned long frequency=smartcarlib::constants::car::kDefaultPidFrequency)</div><div class="ttdoc">Enables the car to move with a stable speed using the odometers.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00186">DistanceCar.cpp:186</a></div></div>
 <div class="ttc" id="aclass_distance_car_html_acca8c5361ee97ee43addd78fa21d89a5"><div class="ttname"><a href="class_distance_car.html#acca8c5361ee97ee43addd78fa21d89a5">DistanceCar::DistanceCar</a></div><div class="ttdeci">DistanceCar(Runtime &amp;runtime, Control &amp;control, Odometer &amp;odometer)</div><div class="ttdoc">Constructs a car equipped with a distance sensor.</div><div class="ttdef"><b>Definition</b> <a href="_distance_car_8cpp_source.html#l00017">DistanceCar.cpp:17</a></div></div>
 <div class="ttc" id="aclass_odometer_html"><div class="ttname"><a href="class_odometer.html">Odometer</a></div><div class="ttdoc">An interface to programmatically represent all odometers.</div><div class="ttdef"><b>Definition</b> <a href="_odometer_8hpp_source.html#l00026">Odometer.hpp:27</a></div></div>
 <div class="ttc" id="aclass_odometer_html_a24e558dbb4b8f14d2671c04d021ba6af"><div class="ttname"><a href="class_odometer.html#a24e558dbb4b8f14d2671c04d021ba6af">Odometer::providesDirection</a></div><div class="ttdeci">virtual bool providesDirection() const =0</div><div class="ttdoc">Return whether the sensor is capable of inferring the direction of movement.</div></div>
