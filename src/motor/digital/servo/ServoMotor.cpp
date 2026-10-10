@@ -12,7 +12,6 @@ ServoMotor::ServoMotor(uint8_t controlPin,
     , kMinPulseLength{ minPulseLength }
     , kIdlePulseLength{ idlePulseLength }
     , kMaxPulseLength{ maxPulseLength }
-    , mAttached{ false }
 {
 }
 

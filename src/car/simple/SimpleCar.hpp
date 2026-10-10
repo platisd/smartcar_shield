@@ -23,7 +23,7 @@ public:
      * SimpleCar car(control);
      * \endcode
      */
-    SimpleCar(Control& control);
+    explicit SimpleCar(Control& control);
 
     /**
      * Sets the car's driving speed as a percentage of the motors total speed where

@@ -38,6 +38,6 @@ private:
     void setMotors();
     Motor& mLeftMotor;
     Motor& mRightMotor;
-    int mAngle;
-    int mSpeed;
+    int mAngle{ 0 };
+    int mSpeed{ 0 };
 };

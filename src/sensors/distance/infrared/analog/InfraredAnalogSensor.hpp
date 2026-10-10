@@ -25,7 +25,7 @@ const uint8_t kDefaultIterations = 5;
 class InfraredAnalogSensor : public DistanceSensor
 {
 public:
-    InfraredAnalogSensor(Runtime& runtime);
+    explicit InfraredAnalogSensor(Runtime& runtime);
 
     /* Check `DistanceSensor` interface for documentation */
     unsigned int

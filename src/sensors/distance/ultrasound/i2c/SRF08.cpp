@@ -17,9 +17,7 @@ using namespace smartcarlib::utils;
 
 SRF08::SRF08(Runtime& runtime, uint8_t address)
     : mAddress{ address }
-    , mRuntime(runtime)
-    , mPingDelay{ kDefaultPingDelay }
-    , mAttached{ false }
+    , mRuntime{ runtime }
 {
 }
 

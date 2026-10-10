@@ -201,8 +201,8 @@ private:
     float mIntegratedError{ 0 };
     float mPreviousError{ 0 };
 
-    bool areOdometersAttached();
-    bool areOdometersDirectional();
+    bool areOdometersAttached() const;
+    bool areOdometersDirectional() const;
     float controlMotorSpeed(const float& previousSpeed,
                             const float& targetSpeed,
                             const float& currentSpeed);
