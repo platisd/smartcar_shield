@@ -5,6 +5,11 @@ set(REPOSITORY_ROOT ${PROJECT_SOURCE_DIR}/..)
 set(UNIT_TESTS ${PROJECT_SOURCE_DIR}/ut)
 set(SMARTCAR_LIB ${REPOSITORY_ROOT}/src)
 
+# AVR targets are compiled for C++11, so let's be consistent
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 add_library (TestCommon INTERFACE)
 find_package (Threads REQUIRED)
 target_link_libraries (TestCommon INTERFACE Threads::Threads)
