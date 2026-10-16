@@ -5,6 +5,8 @@
  */
 #pragma once
 
+#include <stdint.h>
+
 #include "../../../../../runtime/Runtime.hpp"
 #include "../InfraredAnalogSensor.hpp"
 
